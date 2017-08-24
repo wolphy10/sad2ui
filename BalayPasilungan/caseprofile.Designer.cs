@@ -42,10 +42,8 @@
             this.othersTS = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblStatusHead = new System.Windows.Forms.Label();
-            this.divider2 = new System.Windows.Forms.PictureBox();
             this.lblAge = new System.Windows.Forms.Label();
             this.lblAgeHead = new System.Windows.Forms.Label();
-            this.divider = new System.Windows.Forms.PictureBox();
             this.lblDays = new System.Windows.Forms.Label();
             this.lblProgHead = new System.Windows.Forms.Label();
             this.profilepic = new System.Windows.Forms.PictureBox();
@@ -176,12 +174,12 @@
             this.btnCases = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.divider2 = new System.Windows.Forms.PictureBox();
+            this.divider = new System.Windows.Forms.PictureBox();
             this.upPanel.SuspendLayout();
             this.tabSelection.SuspendLayout();
             this.tabInfo.SuspendLayout();
             this.profileMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
             this.tabProfile.SuspendLayout();
             this.headingColor.SuspendLayout();
@@ -212,6 +210,8 @@
             this.tabNewConfirm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.taskbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             this.SuspendLayout();
             // 
             // upPanel
@@ -254,13 +254,13 @@
             // tabInfo
             // 
             this.tabInfo.BackColor = System.Drawing.Color.White;
+            this.tabInfo.Controls.Add(this.divider2);
+            this.tabInfo.Controls.Add(this.divider);
             this.tabInfo.Controls.Add(this.profileMenu);
             this.tabInfo.Controls.Add(this.lblStatus);
             this.tabInfo.Controls.Add(this.lblStatusHead);
-            this.tabInfo.Controls.Add(this.divider2);
             this.tabInfo.Controls.Add(this.lblAge);
             this.tabInfo.Controls.Add(this.lblAgeHead);
-            this.tabInfo.Controls.Add(this.divider);
             this.tabInfo.Controls.Add(this.lblDays);
             this.tabInfo.Controls.Add(this.lblProgHead);
             this.tabInfo.Controls.Add(this.profilepic);
@@ -380,16 +380,6 @@
             this.lblStatusHead.TabIndex = 10;
             this.lblStatusHead.Text = "Status";
             // 
-            // divider2
-            // 
-            this.divider2.BackgroundImage = global::BalayPasilungan.Properties.Resources.divider;
-            this.divider2.Location = new System.Drawing.Point(607, 80);
-            this.divider2.Name = "divider2";
-            this.divider2.Size = new System.Drawing.Size(16, 40);
-            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider2.TabIndex = 9;
-            this.divider2.TabStop = false;
-            // 
             // lblAge
             // 
             this.lblAge.AutoSize = true;
@@ -413,16 +403,6 @@
             this.lblAgeHead.Size = new System.Drawing.Size(46, 25);
             this.lblAgeHead.TabIndex = 7;
             this.lblAgeHead.Text = "Age";
-            // 
-            // divider
-            // 
-            this.divider.BackgroundImage = global::BalayPasilungan.Properties.Resources.divider;
-            this.divider.Location = new System.Drawing.Point(447, 80);
-            this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(16, 40);
-            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider.TabIndex = 6;
-            this.divider.TabStop = false;
             // 
             // lblDays
             // 
@@ -2074,6 +2054,28 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // divider2
+            // 
+            this.divider2.BackColor = System.Drawing.Color.Transparent;
+            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
+            this.divider2.Location = new System.Drawing.Point(607, 80);
+            this.divider2.Name = "divider2";
+            this.divider2.Size = new System.Drawing.Size(16, 40);
+            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider2.TabIndex = 17;
+            this.divider2.TabStop = false;
+            // 
+            // divider
+            // 
+            this.divider.BackColor = System.Drawing.Color.Transparent;
+            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
+            this.divider.Location = new System.Drawing.Point(447, 80);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(16, 40);
+            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider.TabIndex = 16;
+            this.divider.TabStop = false;
+            // 
             // caseprofile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2094,8 +2096,6 @@
             this.tabInfo.PerformLayout();
             this.profileMenu.ResumeLayout(false);
             this.profileMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).EndInit();
             this.tabProfile.ResumeLayout(false);
             this.headingColor.ResumeLayout(false);
@@ -2144,6 +2144,8 @@
             this.tabNewConfirm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.taskbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2167,10 +2169,8 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblProgHead;
         private System.Windows.Forms.Label lblDays;
-        private System.Windows.Forms.PictureBox divider;
         private System.Windows.Forms.Label lblAge;
         private System.Windows.Forms.Label lblAgeHead;
-        private System.Windows.Forms.PictureBox divider2;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblStatusHead;
         private System.Windows.Forms.MenuStrip profileMenu;
@@ -2297,5 +2297,7 @@
         private System.Windows.Forms.Label countNName;
         private System.Windows.Forms.TableLayoutPanel tlpGender;
         private System.Windows.Forms.Label countAddress;
+        private System.Windows.Forms.PictureBox divider2;
+        private System.Windows.Forms.PictureBox divider;
     }
 }

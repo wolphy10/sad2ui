@@ -2542,7 +2542,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnCancel.Location = new System.Drawing.Point(-3, 523);
+            this.btnCancel.Location = new System.Drawing.Point(-4, 523);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(424, 40);
             this.btnCancel.TabIndex = 6;
@@ -2557,7 +2557,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(421, 523);
+            this.btnNext.Location = new System.Drawing.Point(420, 523);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(426, 40);
             this.btnNext.TabIndex = 5;
