@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F419E707-651C-4E46-A0CC-BF76867183D7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BalayPasilungan</RootNamespace>
+    <AssemblyName>BalayPasilungan</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>..\..\..\alphablend\AlphaBlendTextBox_src\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="BNCtrls">
+      <HintPath>..\..\..\combobox\BNCtrls.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="caseprofile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="caseprofile.Designer.cs">
+      <DependentUpon>caseprofile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="confirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="confirm.Designer.cs">
+      <DependentUpon>confirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="error.Designer.cs">
+      <DependentUpon>error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="expense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="expense.Designer.cs">
+      <DependentUpon>expense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eventorg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eventorg.Designer.cs">
+      <DependentUpon>eventorg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="others.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="others.Designer.cs">
+      <DependentUpon>others.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="register.Designer.cs">
+      <DependentUpon>register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="success.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="success.Designer.cs">
+      <DependentUpon>success.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="caseprofile.resx">
+      <DependentUpon>caseprofile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirm.resx">
+      <DependentUpon>confirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="error.resx">
+      <DependentUpon>error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="expense.resx">
+      <DependentUpon>expense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eventorg.resx">
+      <DependentUpon>eventorg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="others.resx">
+      <DependentUpon>others.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="register.resx">
+      <DependentUpon>register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="success.resx">
+      <DependentUpon>success.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeclose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wait_header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success_header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnChildList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnOtherList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAbsent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnPresent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_white2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request_white2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_white2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\divider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsLineHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cases_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cases_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnStaff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cases_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_thin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_notfocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance_white.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
