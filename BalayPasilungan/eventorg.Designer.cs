@@ -87,7 +87,6 @@
             this.panelEName = new System.Windows.Forms.Panel();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.lblEventName = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
             this.timeanddate = new System.Windows.Forms.TabPage();
             this.lblColon2 = new System.Windows.Forms.Label();
             this.btnPM2 = new System.Windows.Forms.Button();
@@ -105,10 +104,8 @@
             this.lblQuestionDay = new System.Windows.Forms.Label();
             this.btnMulDay = new System.Windows.Forms.Button();
             this.btnAllDay = new System.Windows.Forms.Button();
-            this.btnNext2 = new System.Windows.Forms.Button();
             this.lblETime = new System.Windows.Forms.Label();
             this.lblEDate = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
             this.panelEMins2 = new System.Windows.Forms.Panel();
             this.txtEMins2 = new System.Windows.Forms.TextBox();
             this.panelEHours2 = new System.Windows.Forms.Panel();
@@ -123,10 +120,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNo = new System.Windows.Forms.Label();
-            this.btnNext3 = new System.Windows.Forms.Button();
             this.lblYes = new System.Windows.Forms.Label();
             this.btnAddBudget = new System.Windows.Forms.Button();
-            this.btnBack2 = new System.Windows.Forms.Button();
             this.lblBudgetAsk = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.reminderPanel = new System.Windows.Forms.Panel();
@@ -152,8 +147,6 @@
             this.add_lbl1 = new System.Windows.Forms.Label();
             this.countRequestBy = new System.Windows.Forms.Label();
             this.lblRequestBy = new System.Windows.Forms.Label();
-            this.btnBack3 = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.panelRequestBy = new System.Windows.Forms.Panel();
             this.txtRequestBy = new System.Windows.Forms.TextBox();
             this.menuStripEvent = new System.Windows.Forms.MenuStrip();
@@ -218,6 +211,14 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.remindTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnNext2 = new System.Windows.Forms.Button();
+            this.btnBack2 = new System.Windows.Forms.Button();
+            this.btnNext3 = new System.Windows.Forms.Button();
+            this.btnBack3 = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.taskbar.SuspendLayout();
             this.upPanel.SuspendLayout();
             this.tabSecond.SuspendLayout();
@@ -739,6 +740,8 @@
             // eventdetails
             // 
             this.eventdetails.BackColor = System.Drawing.Color.White;
+            this.eventdetails.Controls.Add(this.btnCancel);
+            this.eventdetails.Controls.Add(this.btnNext);
             this.eventdetails.Controls.Add(this.panel3);
             this.eventdetails.Controls.Add(this.cbEType);
             this.eventdetails.Controls.Add(this.lblEType);
@@ -752,7 +755,6 @@
             this.eventdetails.Controls.Add(this.lblEVenue);
             this.eventdetails.Controls.Add(this.panelEName);
             this.eventdetails.Controls.Add(this.lblEventName);
-            this.eventdetails.Controls.Add(this.btnNext);
             this.eventdetails.Location = new System.Drawing.Point(4, 25);
             this.eventdetails.Name = "eventdetails";
             this.eventdetails.Padding = new System.Windows.Forms.Padding(3);
@@ -780,7 +782,7 @@
             this.btnNew.Location = new System.Drawing.Point(43, 14);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(117, 40);
-            this.btnNew.TabIndex = 18;
+            this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Create new?";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNewEventForm_Click);
@@ -799,8 +801,9 @@
             this.cbEType.Location = new System.Drawing.Point(127, 475);
             this.cbEType.Name = "cbEType";
             this.cbEType.Size = new System.Drawing.Size(237, 29);
-            this.cbEType.TabIndex = 16;
+            this.cbEType.TabIndex = 4;
             this.cbEType.Enter += new System.EventHandler(this.cbEType_Enter);
+            this.cbEType.Leave += new System.EventHandler(this.cbEType_Leave);
             // 
             // lblEType
             // 
@@ -900,7 +903,7 @@
             this.txtVenue.MaxLength = 100;
             this.txtVenue.Name = "txtVenue";
             this.txtVenue.Size = new System.Drawing.Size(750, 28);
-            this.txtVenue.TabIndex = 1;
+            this.txtVenue.TabIndex = 2;
             this.txtVenue.Text = "Where will it be held?";
             this.txtVenue.TextChanged += new System.EventHandler(this.txtVenue_TextChanged);
             this.txtVenue.Enter += new System.EventHandler(this.txtVenue_Enter);
@@ -924,7 +927,7 @@
             this.txtEventDes.MaxLength = 100;
             this.txtEventDes.Name = "txtEventDes";
             this.txtEventDes.Size = new System.Drawing.Size(750, 118);
-            this.txtEventDes.TabIndex = 2;
+            this.txtEventDes.TabIndex = 3;
             this.txtEventDes.Text = "Describe the event.";
             this.txtEventDes.TextChanged += new System.EventHandler(this.txtEventDes_TextChanged);
             this.txtEventDes.Enter += new System.EventHandler(this.txtEventDes_Enter);
@@ -971,7 +974,7 @@
             this.txtEventName.MaxLength = 100;
             this.txtEventName.Name = "txtEventName";
             this.txtEventName.Size = new System.Drawing.Size(750, 28);
-            this.txtEventName.TabIndex = 0;
+            this.txtEventName.TabIndex = 1;
             this.txtEventName.Text = "What is the name of the event?";
             this.txtEventName.TextChanged += new System.EventHandler(this.txtEventName_TextChanged);
             this.txtEventName.Enter += new System.EventHandler(this.txtEventName_Enter);
@@ -988,24 +991,11 @@
             this.lblEventName.TabIndex = 1;
             this.lblEventName.Text = "Event Name";
             // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(688, 511);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(117, 40);
-            this.btnNext.TabIndex = 3;
-            this.btnNext.Text = "Next step";
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
             // timeanddate
             // 
             this.timeanddate.BackColor = System.Drawing.Color.White;
+            this.timeanddate.Controls.Add(this.btnBack);
+            this.timeanddate.Controls.Add(this.btnNext2);
             this.timeanddate.Controls.Add(this.lblColon2);
             this.timeanddate.Controls.Add(this.btnPM2);
             this.timeanddate.Controls.Add(this.btnAM2);
@@ -1022,10 +1012,8 @@
             this.timeanddate.Controls.Add(this.lblQuestionDay);
             this.timeanddate.Controls.Add(this.btnMulDay);
             this.timeanddate.Controls.Add(this.btnAllDay);
-            this.timeanddate.Controls.Add(this.btnNext2);
             this.timeanddate.Controls.Add(this.lblETime);
             this.timeanddate.Controls.Add(this.lblEDate);
-            this.timeanddate.Controls.Add(this.btnBack);
             this.timeanddate.Controls.Add(this.panelEMins2);
             this.timeanddate.Controls.Add(this.panelEHours2);
             this.timeanddate.Controls.Add(this.panelEMins);
@@ -1061,7 +1049,7 @@
             this.btnPM2.Location = new System.Drawing.Point(649, 435);
             this.btnPM2.Name = "btnPM2";
             this.btnPM2.Size = new System.Drawing.Size(52, 34);
-            this.btnPM2.TabIndex = 41;
+            this.btnPM2.TabIndex = 15;
             this.btnPM2.Text = "PM";
             this.btnPM2.UseVisualStyleBackColor = true;
             this.btnPM2.Visible = false;
@@ -1079,7 +1067,7 @@
             this.btnAM2.Location = new System.Drawing.Point(649, 401);
             this.btnAM2.Name = "btnAM2";
             this.btnAM2.Size = new System.Drawing.Size(52, 34);
-            this.btnAM2.TabIndex = 40;
+            this.btnAM2.TabIndex = 14;
             this.btnAM2.Text = "AM";
             this.btnAM2.UseVisualStyleBackColor = true;
             this.btnAM2.Visible = false;
@@ -1107,7 +1095,7 @@
             this.btnPM.Location = new System.Drawing.Point(320, 435);
             this.btnPM.Name = "btnPM";
             this.btnPM.Size = new System.Drawing.Size(52, 34);
-            this.btnPM.TabIndex = 32;
+            this.btnPM.TabIndex = 11;
             this.btnPM.Text = "PM";
             this.btnPM.UseVisualStyleBackColor = true;
             this.btnPM.Click += new System.EventHandler(this.btnPM_Click);
@@ -1124,7 +1112,7 @@
             this.btnAM.Location = new System.Drawing.Point(320, 401);
             this.btnAM.Name = "btnAM";
             this.btnAM.Size = new System.Drawing.Size(52, 34);
-            this.btnAM.TabIndex = 31;
+            this.btnAM.TabIndex = 10;
             this.btnAM.Text = "AM";
             this.btnAM.UseVisualStyleBackColor = true;
             this.btnAM.Click += new System.EventHandler(this.btnAM_Click);
@@ -1139,7 +1127,7 @@
             this.cbEYear2.Location = new System.Drawing.Point(534, 312);
             this.cbEYear2.Name = "cbEYear2";
             this.cbEYear2.Size = new System.Drawing.Size(70, 29);
-            this.cbEYear2.TabIndex = 28;
+            this.cbEYear2.TabIndex = 7;
             this.cbEYear2.Visible = false;
             this.cbEYear2.SelectedIndexChanged += new System.EventHandler(this.cbEYear2_SelectedIndexChanged);
             // 
@@ -1153,7 +1141,7 @@
             this.cbEDay2.Location = new System.Drawing.Point(420, 312);
             this.cbEDay2.Name = "cbEDay2";
             this.cbEDay2.Size = new System.Drawing.Size(70, 29);
-            this.cbEDay2.TabIndex = 27;
+            this.cbEDay2.TabIndex = 6;
             this.cbEDay2.Visible = false;
             this.cbEDay2.SelectedIndexChanged += new System.EventHandler(this.cbEDay2_SelectedIndexChanged);
             this.cbEDay2.Enter += new System.EventHandler(this.cbEDay2_Enter);
@@ -1181,7 +1169,7 @@
             this.cbEMonth2.Location = new System.Drawing.Point(155, 312);
             this.cbEMonth2.Name = "cbEMonth2";
             this.cbEMonth2.Size = new System.Drawing.Size(217, 29);
-            this.cbEMonth2.TabIndex = 26;
+            this.cbEMonth2.TabIndex = 5;
             this.cbEMonth2.Visible = false;
             this.cbEMonth2.SelectedIndexChanged += new System.EventHandler(this.cbEMonth2_SelectedIndexChanged);
             // 
@@ -1196,7 +1184,7 @@
             this.cbEYear.Location = new System.Drawing.Point(534, 263);
             this.cbEYear.Name = "cbEYear";
             this.cbEYear.Size = new System.Drawing.Size(70, 29);
-            this.cbEYear.TabIndex = 2;
+            this.cbEYear.TabIndex = 4;
             this.cbEYear.SelectedIndexChanged += new System.EventHandler(this.cbEYear_SelectedIndexChanged);
             // 
             // cbEDay
@@ -1210,7 +1198,7 @@
             this.cbEDay.Location = new System.Drawing.Point(420, 263);
             this.cbEDay.Name = "cbEDay";
             this.cbEDay.Size = new System.Drawing.Size(70, 29);
-            this.cbEDay.TabIndex = 1;
+            this.cbEDay.TabIndex = 3;
             this.cbEDay.SelectedIndexChanged += new System.EventHandler(this.cbEDay_SelectedIndexChanged);
             this.cbEDay.Enter += new System.EventHandler(this.cbEDay_Enter);
             // 
@@ -1238,7 +1226,7 @@
             this.cbEMonth.Location = new System.Drawing.Point(155, 263);
             this.cbEMonth.Name = "cbEMonth";
             this.cbEMonth.Size = new System.Drawing.Size(217, 29);
-            this.cbEMonth.TabIndex = 0;
+            this.cbEMonth.TabIndex = 2;
             this.cbEMonth.SelectedIndexChanged += new System.EventHandler(this.cbEMonth_SelectedIndexChanged);
             // 
             // lblOR
@@ -1299,21 +1287,6 @@
             this.btnAllDay.UseVisualStyleBackColor = false;
             this.btnAllDay.Click += new System.EventHandler(this.btnAllDay_Click);
             // 
-            // btnNext2
-            // 
-            this.btnNext2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnNext2.FlatAppearance.BorderSize = 0;
-            this.btnNext2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnNext2.ForeColor = System.Drawing.Color.White;
-            this.btnNext2.Location = new System.Drawing.Point(688, 511);
-            this.btnNext2.Name = "btnNext2";
-            this.btnNext2.Size = new System.Drawing.Size(117, 40);
-            this.btnNext2.TabIndex = 20;
-            this.btnNext2.Text = "Next step";
-            this.btnNext2.UseVisualStyleBackColor = false;
-            this.btnNext2.Click += new System.EventHandler(this.btnNext2_Click);
-            // 
             // lblETime
             // 
             this.lblETime.AutoSize = true;
@@ -1336,21 +1309,6 @@
             this.lblEDate.TabIndex = 18;
             this.lblEDate.Text = "Event Date";
             // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnBack.Location = new System.Drawing.Point(38, 511);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(117, 40);
-            this.btnBack.TabIndex = 17;
-            this.btnBack.Text = "Go back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // panelEMins2
             // 
             this.panelEMins2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEMins2.BackgroundImage")));
@@ -1371,7 +1329,7 @@
             this.txtEMins2.MaxLength = 2;
             this.txtEMins2.Name = "txtEMins2";
             this.txtEMins2.Size = new System.Drawing.Size(32, 36);
-            this.txtEMins2.TabIndex = 1;
+            this.txtEMins2.TabIndex = 13;
             this.txtEMins2.Text = "00";
             this.txtEMins2.TextChanged += new System.EventHandler(this.txtEMins2_TextChanged);
             // 
@@ -1395,7 +1353,7 @@
             this.txtEHours2.MaxLength = 2;
             this.txtEHours2.Name = "txtEHours2";
             this.txtEHours2.Size = new System.Drawing.Size(46, 36);
-            this.txtEHours2.TabIndex = 1;
+            this.txtEHours2.TabIndex = 12;
             this.txtEHours2.Text = "00";
             this.txtEHours2.Leave += new System.EventHandler(this.txtEHours2_Leave);
             // 
@@ -1407,7 +1365,7 @@
             this.panelEMins.Location = new System.Drawing.Point(241, 411);
             this.panelEMins.Name = "panelEMins";
             this.panelEMins.Size = new System.Drawing.Size(62, 68);
-            this.panelEMins.TabIndex = 38;
+            this.panelEMins.TabIndex = 9;
             // 
             // txtEMins
             // 
@@ -1441,22 +1399,22 @@
             this.txtEHours.MaxLength = 2;
             this.txtEHours.Name = "txtEHours";
             this.txtEHours.Size = new System.Drawing.Size(46, 36);
-            this.txtEHours.TabIndex = 1;
+            this.txtEHours.TabIndex = 8;
             this.txtEHours.Text = "00";
             this.txtEHours.Leave += new System.EventHandler(this.txtEHours_Leave);
             // 
             // others
             // 
             this.others.BackColor = System.Drawing.Color.White;
+            this.others.Controls.Add(this.btnBack2);
+            this.others.Controls.Add(this.btnNext3);
             this.others.Controls.Add(this.lblNo2);
             this.others.Controls.Add(this.lblYes2);
             this.others.Controls.Add(this.label2);
             this.others.Controls.Add(this.label1);
             this.others.Controls.Add(this.lblNo);
-            this.others.Controls.Add(this.btnNext3);
             this.others.Controls.Add(this.lblYes);
             this.others.Controls.Add(this.btnAddBudget);
-            this.others.Controls.Add(this.btnBack2);
             this.others.Controls.Add(this.lblBudgetAsk);
             this.others.Controls.Add(this.lblQuestion);
             this.others.Controls.Add(this.reminderPanel);
@@ -1522,21 +1480,6 @@
             this.lblNo.TabIndex = 35;
             this.lblNo.Text = "No";
             // 
-            // btnNext3
-            // 
-            this.btnNext3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnNext3.FlatAppearance.BorderSize = 0;
-            this.btnNext3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext3.ForeColor = System.Drawing.Color.White;
-            this.btnNext3.Location = new System.Drawing.Point(688, 511);
-            this.btnNext3.Name = "btnNext3";
-            this.btnNext3.Size = new System.Drawing.Size(117, 40);
-            this.btnNext3.TabIndex = 3;
-            this.btnNext3.Text = "Next step";
-            this.btnNext3.UseVisualStyleBackColor = false;
-            this.btnNext3.Click += new System.EventHandler(this.btnNext3_Click);
-            // 
             // lblYes
             // 
             this.lblYes.AutoSize = true;
@@ -1557,25 +1500,10 @@
             this.btnAddBudget.Location = new System.Drawing.Point(183, 408);
             this.btnAddBudget.Name = "btnAddBudget";
             this.btnAddBudget.Size = new System.Drawing.Size(264, 30);
-            this.btnAddBudget.TabIndex = 29;
+            this.btnAddBudget.TabIndex = 3;
             this.btnAddBudget.Text = "Add Budget";
             this.btnAddBudget.UseVisualStyleBackColor = false;
             this.btnAddBudget.Visible = false;
-            // 
-            // btnBack2
-            // 
-            this.btnBack2.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnBack2.Location = new System.Drawing.Point(38, 511);
-            this.btnBack2.Name = "btnBack2";
-            this.btnBack2.Size = new System.Drawing.Size(117, 40);
-            this.btnBack2.TabIndex = 4;
-            this.btnBack2.Text = "Go back";
-            this.btnBack2.UseVisualStyleBackColor = false;
-            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
             // 
             // lblBudgetAsk
             // 
@@ -1616,7 +1544,7 @@
             this.reminderDate.Location = new System.Drawing.Point(35, 46);
             this.reminderDate.Name = "reminderDate";
             this.reminderDate.Size = new System.Drawing.Size(679, 35);
-            this.reminderDate.TabIndex = 31;
+            this.reminderDate.TabIndex = 1;
             // 
             // lblRTime
             // 
@@ -1651,7 +1579,7 @@
             this.btnBudget.Location = new System.Drawing.Point(706, 367);
             this.btnBudget.Name = "btnBudget";
             this.btnBudget.Size = new System.Drawing.Size(59, 25);
-            this.btnBudget.TabIndex = 1;
+            this.btnBudget.TabIndex = 2;
             this.btnBudget.UseVisualStyleBackColor = true;
             this.btnBudget.Click += new System.EventHandler(this.btnBudget_Click);
             // 
@@ -1673,12 +1601,12 @@
             // confirmTab
             // 
             this.confirmTab.BackColor = System.Drawing.Color.White;
+            this.confirmTab.Controls.Add(this.btnBack3);
+            this.confirmTab.Controls.Add(this.btnSubmit);
             this.confirmTab.Controls.Add(this.confirmEventDetails);
             this.confirmTab.Controls.Add(this.add_lbl1);
             this.confirmTab.Controls.Add(this.countRequestBy);
             this.confirmTab.Controls.Add(this.lblRequestBy);
-            this.confirmTab.Controls.Add(this.btnBack3);
-            this.confirmTab.Controls.Add(this.btnSubmit);
             this.confirmTab.Controls.Add(this.panelRequestBy);
             this.confirmTab.Location = new System.Drawing.Point(4, 25);
             this.confirmTab.Name = "confirmTab";
@@ -1882,36 +1810,6 @@
             this.lblRequestBy.Size = new System.Drawing.Size(111, 21);
             this.lblRequestBy.TabIndex = 30;
             this.lblRequestBy.Text = "Requested by";
-            // 
-            // btnBack3
-            // 
-            this.btnBack3.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnBack3.FlatAppearance.BorderSize = 2;
-            this.btnBack3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnBack3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnBack3.Location = new System.Drawing.Point(38, 511);
-            this.btnBack3.Name = "btnBack3";
-            this.btnBack3.Size = new System.Drawing.Size(117, 40);
-            this.btnBack3.TabIndex = 29;
-            this.btnBack3.Text = "Go back";
-            this.btnBack3.UseVisualStyleBackColor = false;
-            this.btnBack3.Click += new System.EventHandler(this.btnBack3_Click);
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
-            this.btnSubmit.FlatAppearance.BorderSize = 0;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(688, 511);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(117, 40);
-            this.btnSubmit.TabIndex = 21;
-            this.btnSubmit.Text = "Confirm";
-            this.btnSubmit.UseVisualStyleBackColor = false;
             // 
             // panelRequestBy
             // 
@@ -2637,6 +2535,125 @@
             this.remindTimer.Interval = 10;
             this.remindTimer.Tick += new System.EventHandler(this.remindTimer_Tick);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnCancel.Location = new System.Drawing.Point(-3, 523);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(424, 40);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(421, 523);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(426, 40);
+            this.btnNext.TabIndex = 5;
+            this.btnNext.Text = "NEXT STEP";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnBack.Location = new System.Drawing.Point(-4, 523);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(424, 40);
+            this.btnBack.TabIndex = 16;
+            this.btnBack.Text = "GO BACK";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnNext2
+            // 
+            this.btnNext2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
+            this.btnNext2.FlatAppearance.BorderSize = 0;
+            this.btnNext2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnNext2.ForeColor = System.Drawing.Color.White;
+            this.btnNext2.Location = new System.Drawing.Point(420, 523);
+            this.btnNext2.Name = "btnNext2";
+            this.btnNext2.Size = new System.Drawing.Size(426, 40);
+            this.btnNext2.TabIndex = 17;
+            this.btnNext2.Text = "NEXT STEP";
+            this.btnNext2.UseVisualStyleBackColor = false;
+            this.btnNext2.Click += new System.EventHandler(this.btnNext2_Click);
+            // 
+            // btnBack2
+            // 
+            this.btnBack2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnBack2.FlatAppearance.BorderSize = 0;
+            this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnBack2.Location = new System.Drawing.Point(-4, 523);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(424, 40);
+            this.btnBack2.TabIndex = 4;
+            this.btnBack2.Text = "GO BACK";
+            this.btnBack2.UseVisualStyleBackColor = false;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
+            // 
+            // btnNext3
+            // 
+            this.btnNext3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
+            this.btnNext3.FlatAppearance.BorderSize = 0;
+            this.btnNext3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnNext3.ForeColor = System.Drawing.Color.White;
+            this.btnNext3.Location = new System.Drawing.Point(420, 523);
+            this.btnNext3.Name = "btnNext3";
+            this.btnNext3.Size = new System.Drawing.Size(426, 40);
+            this.btnNext3.TabIndex = 5;
+            this.btnNext3.Text = "NEXT STEP";
+            this.btnNext3.UseVisualStyleBackColor = false;
+            this.btnNext3.Click += new System.EventHandler(this.btnNext3_Click);
+            // 
+            // btnBack3
+            // 
+            this.btnBack3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnBack3.FlatAppearance.BorderSize = 0;
+            this.btnBack3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBack3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnBack3.Location = new System.Drawing.Point(-4, 523);
+            this.btnBack3.Name = "btnBack3";
+            this.btnBack3.Size = new System.Drawing.Size(424, 40);
+            this.btnBack3.TabIndex = 1;
+            this.btnBack3.Text = "GO BACK";
+            this.btnBack3.UseVisualStyleBackColor = false;
+            this.btnBack3.Click += new System.EventHandler(this.btnBack3_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
+            this.btnSubmit.FlatAppearance.BorderSize = 0;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(420, 523);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(426, 40);
+            this.btnSubmit.TabIndex = 2;
+            this.btnSubmit.Text = "CONFIRM";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            // 
             // eventorg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2812,7 +2829,6 @@
         private System.Windows.Forms.TabPage eventdetails;
         private System.Windows.Forms.TabPage timeanddate;
         private System.Windows.Forms.TabPage others;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.Label lblEventName;
         private System.Windows.Forms.Label lblEVenue;
@@ -2837,8 +2853,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panelEName;
         private System.Windows.Forms.Panel panelEVenue;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnBack2;
         private System.Windows.Forms.Button btnAddBudget;
         private System.Windows.Forms.Button btnRemind;
         private System.Windows.Forms.Button btnChild;
@@ -2848,7 +2862,6 @@
         private System.Windows.Forms.Label lblEDate;
         private System.Windows.Forms.Label lblETime;
         private System.Windows.Forms.Panel panelAttendanceBtn;
-        private System.Windows.Forms.Button btnNext2;
         private System.Windows.Forms.Panel panelRemind;
         private System.Windows.Forms.Label lblExclam;
         private System.Windows.Forms.Label lblQuestionDay;
@@ -2861,10 +2874,7 @@
         private System.Windows.Forms.Button btnMulDay;
         private System.Windows.Forms.Button btnAllDay;
         private System.Windows.Forms.ToolStripMenuItem confirmTS;
-        private System.Windows.Forms.Button btnNext3;
         private System.Windows.Forms.TabPage confirmTab;
-        private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnBack3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNo2;
         private System.Windows.Forms.Label lblYes2;
@@ -2924,6 +2934,14 @@
         public System.Windows.Forms.Button btnYrPrev;
         private System.Windows.Forms.Button btnAddAttendance;
         private System.Windows.Forms.Button btnViewBudget;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnNext2;
+        private System.Windows.Forms.Button btnBack2;
+        private System.Windows.Forms.Button btnNext3;
+        private System.Windows.Forms.Button btnBack3;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }
 

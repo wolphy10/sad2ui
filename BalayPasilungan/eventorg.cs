@@ -48,18 +48,22 @@ namespace BalayPasilungan
             attendanceTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
         }
 
-        private void resetLabels()
+        private void resetLabelsPanels()                // Set label and panel colors to default (gray)
         {
-            lblEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            lblEVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            lblEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");            
+            lblEVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");            
             lblEType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
+            lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a"); 
+                      
             lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+
             lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
+
+            lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");  
+
+            panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
         }
 
         private void resetCounters()
@@ -67,6 +71,7 @@ namespace BalayPasilungan
             countEName.Visible = false;
             countEVenue.Visible = false;
             countEDes.Visible = false;
+            countRequestBy.Visible = false;
         }
 
         public void adjustCustom(int type, String now)
@@ -441,7 +446,7 @@ namespace BalayPasilungan
         #region Enter Textbox
         private void txtEventName_Enter(object sender, EventArgs e)
             {
-                resetLabels(); resetCounters();
+                resetLabelsPanels(); resetCounters();
                 txtEventName.ForeColor = Color.Black;            
                 if (txtEventName.Text.Equals("What is the name of the event?")) txtEventName.Text = "";
                 panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
@@ -451,7 +456,7 @@ namespace BalayPasilungan
 
             private void txtVenue_Enter(object sender, EventArgs e)
             {
-                resetLabels(); resetCounters();
+                resetLabelsPanels(); resetCounters();
                 txtVenue.ForeColor = Color.Black;
                 if (txtVenue.Text.Equals("Where will it be held?")) txtVenue.Text = "";
                 panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
@@ -461,7 +466,7 @@ namespace BalayPasilungan
 
             private void txtEventDes_Enter(object sender, EventArgs e)
             {
-                resetLabels(); resetCounters();
+                resetLabelsPanels(); resetCounters();
                 txtEventDes.ForeColor = Color.Black;
                 if (txtEventDes.Text.Equals("Describe the event.")) txtEventDes.Text = "";
                 lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
@@ -470,13 +475,13 @@ namespace BalayPasilungan
         
             private void cbEType_Enter(object sender, EventArgs e)
             {
-                resetLabels();
+                resetLabelsPanels();
                 lblEType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             }
 
             private void eventDate_Enter(object sender, EventArgs e)
             {
-                resetLabels();
+                resetLabelsPanels();
                 lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             }
 
@@ -485,7 +490,7 @@ namespace BalayPasilungan
                 txtRequestBy.ForeColor = Color.Black;
                 lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
                 if (txtRequestBy.Text.Equals("Who requested the event?")) txtRequestBy.Text = "";
-                resetLabels();
+                resetLabelsPanels();
                 panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
                 lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
                 countRequestBy.Visible = true;
@@ -493,7 +498,7 @@ namespace BalayPasilungan
 
             private void reminderDate_Enter(object sender, EventArgs e)
             {
-                resetLabels();
+                resetLabelsPanels();
                 lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             }
 
@@ -505,38 +510,43 @@ namespace BalayPasilungan
             }
             #endregion
 
-            #region Leave Textbox
+            #region Leave Methods
             private void txtRequestBy_Leave(object sender, EventArgs e)
             {
-                resetLabels();
-                panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-                countRequestBy.Visible = false;
-            }
+                resetLabelsPanels(); resetCounters();
+        }
         
             private void txtEventName_Leave(object sender, EventArgs e) //BOOK2
             {
+                resetLabelsPanels(); resetCounters();
                 txtEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
                 if (txtEventName.Text.Equals("")) txtEventName.Text = "What is the name of the event?";
             }
 
             private void txtEventDes_Leave(object sender, EventArgs e)
             {
+                resetLabelsPanels(); resetCounters();
                 txtEventDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
                 if (txtEventDes.Text.Equals("")) txtEventDes.Text = "Describe the event.";
             }
 
             private void txtVenue_Leave(object sender, EventArgs e)
             {
+                resetLabelsPanels(); resetCounters();
                 txtVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
                 if (txtVenue.Text.Equals("")) txtVenue.Text = "Where will it be held?";
             }
-            #endregion
+
+            private void eventdetails_Click(object sender, EventArgs e)
+            {
+               resetLabelsPanels();          
+            }        
+        #endregion
 
         private void btnOther_MouseHover(object sender, EventArgs e)
         {
             btnOther.BackColor = Color.Transparent;
         }
-
         
         #endregion
 
@@ -895,15 +905,18 @@ namespace BalayPasilungan
 
         #endregion
 
-        private void btnNewEventForm_Click(object sender, EventArgs e)
-        {                       
+        private void btnNewEventForm_Click(object sender, EventArgs e)          // Clear textboxes and reset form  
+        {
+            resetLabelsPanels();
             txtEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            if (txtEventName.Text.Equals("")) txtEventName.Text = "What is the name of the event?";
+            txtEventName.Text = "What is the name of the event?";
             txtEventDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            if (txtEventDes.Text.Equals("")) txtEventDes.Text = "Describe the event.";
+            txtEventDes.Text = "Describe the event.";
             txtVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            if (txtVenue.Text.Equals("")) txtVenue.Text = "Where will it be held?";
-            // BOOK1
+            txtVenue.Text = "Where will it be held?";                   
+
+            countEDes.Visible = false; countEName.Visible = false; countEVenue.Visible = false; countRequestBy.Visible = false;
+
             // Find code to unclick button
         }
 
@@ -929,7 +942,12 @@ namespace BalayPasilungan
         }
         #endregion
 
-        private void eventdetails_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            tabSecond.SelectedTab = tabEvent;
+        }
+
+        private void cbEType_Leave(object sender, EventArgs e)
         {
 
         }
