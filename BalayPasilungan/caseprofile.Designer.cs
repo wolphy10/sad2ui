@@ -33,6 +33,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.tabSelection = new System.Windows.Forms.TabControl();
             this.tabInfo = new System.Windows.Forms.TabPage();
+            this.divider2 = new System.Windows.Forms.PictureBox();
+            this.divider = new System.Windows.Forms.PictureBox();
             this.profileMenu = new System.Windows.Forms.MenuStrip();
             this.infoTS = new System.Windows.Forms.ToolStripMenuItem();
             this.familyTS = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,11 +176,11 @@
             this.btnCases = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.divider2 = new System.Windows.Forms.PictureBox();
-            this.divider = new System.Windows.Forms.PictureBox();
             this.upPanel.SuspendLayout();
             this.tabSelection.SuspendLayout();
             this.tabInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             this.profileMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).BeginInit();
             this.tabProfile.SuspendLayout();
@@ -210,8 +212,6 @@
             this.tabNewConfirm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.taskbar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             this.SuspendLayout();
             // 
             // upPanel
@@ -272,6 +272,28 @@
             this.tabInfo.Size = new System.Drawing.Size(955, 678);
             this.tabInfo.TabIndex = 0;
             this.tabInfo.Text = "tabPage1";
+            // 
+            // divider2
+            // 
+            this.divider2.BackColor = System.Drawing.Color.Transparent;
+            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
+            this.divider2.Location = new System.Drawing.Point(607, 80);
+            this.divider2.Name = "divider2";
+            this.divider2.Size = new System.Drawing.Size(16, 40);
+            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider2.TabIndex = 17;
+            this.divider2.TabStop = false;
+            // 
+            // divider
+            // 
+            this.divider.BackColor = System.Drawing.Color.Transparent;
+            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
+            this.divider.Location = new System.Drawing.Point(447, 80);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(16, 40);
+            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider.TabIndex = 16;
+            this.divider.TabStop = false;
             // 
             // profileMenu
             // 
@@ -2054,28 +2076,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // divider2
-            // 
-            this.divider2.BackColor = System.Drawing.Color.Transparent;
-            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
-            this.divider2.Location = new System.Drawing.Point(607, 80);
-            this.divider2.Name = "divider2";
-            this.divider2.Size = new System.Drawing.Size(16, 40);
-            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider2.TabIndex = 17;
-            this.divider2.TabStop = false;
-            // 
-            // divider
-            // 
-            this.divider.BackColor = System.Drawing.Color.Transparent;
-            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
-            this.divider.Location = new System.Drawing.Point(447, 80);
-            this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(16, 40);
-            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider.TabIndex = 16;
-            this.divider.TabStop = false;
-            // 
             // caseprofile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2094,6 +2094,8 @@
             this.tabSelection.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
             this.tabInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             this.profileMenu.ResumeLayout(false);
             this.profileMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilepic)).EndInit();
@@ -2144,8 +2146,6 @@
             this.tabNewConfirm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.taskbar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             this.ResumeLayout(false);
 
         }

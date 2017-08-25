@@ -14,6 +14,7 @@ namespace BalayPasilungan
     public partial class expense : Form
     {
         public MySqlConnection conn;
+        public int current_donorID;
         
         public expense()
         {
@@ -28,6 +29,34 @@ namespace BalayPasilungan
             dateBR.MaxDate = DateTime.Today; datePledge.MaxDate = DateTime.Today;
             datePledge.Value = DateTime.Today;
         }
+
+        #region Movable Form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        
+        private void upPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        
+        private void taskbar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        #endregion
 
         #region Functions
         public class renderer : ToolStripProfessionalRenderer
@@ -73,6 +102,16 @@ namespace BalayPasilungan
             btnFinance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_white;
         }
 
+        public void resetDonorShowTS()                      // Reset buttons (acting like toolstrips)
+        {
+            moneyTS.BackColor = System.Drawing.Color.FromArgb(248, 248, 248);
+            ikTS.BackColor = System.Drawing.Color.FromArgb(248, 248, 248);
+            donorOTS.BackColor = System.Drawing.Color.FromArgb(248, 248, 248);
+
+            moneyTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
+            ikTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
+            donorOTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
+        }
         #endregion
 
         #region Main Buttons (Taskbar and Close)
@@ -164,7 +203,8 @@ namespace BalayPasilungan
 
                 adp.Fill(dt);
 
-                txtDName.Text = dt.Rows[0]["donorName"].ToString();
+                current_donorID = int.Parse(dt.Rows[0]["donorID"].ToString());
+                lblDonorName.Text = dt.Rows[0]["donorName"].ToString();                
 
                 if (dt.Rows[0]["type"].ToString() == "1") txtDType.Text = "Individual";
                 else txtDType.Text = "Organization";
@@ -172,8 +212,8 @@ namespace BalayPasilungan
                 txtDPhone.Text = dt.Rows[0]["telephone"].ToString();
                 txtDMobile.Text = dt.Rows[0]["mobile"].ToString();
                 txtDEmail.Text = dt.Rows[0]["email"].ToString();
-                txtDPledge.Text = dt.Rows[0]["pledge"].ToString() + "Pledge";
-                txtDDatePledge.Text = "Pledged on " + dt.Rows[0]["datePledge"].ToString();
+                txtDPledge.Text = dt.Rows[0]["pledge"].ToString();
+                txtDDatePledge.Text = dt.Rows[0]["datePledge"].ToString();
 
                 conn.Close();
             }
@@ -529,16 +569,62 @@ namespace BalayPasilungan
             tabDonorInfo.Focus();
         }
        
-        
-        private void donorsGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+                private void donorsGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
                 string id = donorsGV.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                loadDonorInfo(id);
+                loadDonorInfo(id);                
             }
         }
-        
+
+        private void moneyTS_Click(object sender, EventArgs e)
+        {
+            resetDonorShowTS();
+            tabDonorDetails.SelectedIndex = 0;
+            moneyTS.BackColor = Color.White;
+            moneyTS.ForeColor = Color.Black;
+        }
+
+        private void ikTS_Click(object sender, EventArgs e)
+        {
+            resetDonorShowTS();
+            tabDonorDetails.SelectedIndex = 1;
+            ikTS.BackColor = Color.White;
+            ikTS.ForeColor = Color.Black;
+        }
+
+        private void donorOTS_Click(object sender, EventArgs e)
+        {
+            resetDonorShowTS();
+            tabDonorDetails.SelectedIndex = 2;
+            donorOTS.BackColor = Color.White;
+            donorOTS.ForeColor = Color.Black;
+        }
+        #endregion
+
+        #region Donation Handling
+        private void btnAddMoneyD_Click(object sender, EventArgs e)                 // Add New Donation
+        {
+            /*try
+            {
+                conn.Open();
+
+                //current_donorID;                
+
+                // ADD SQL COMMAND
+                MySqlCommand comm = new MySqlCommand("INSERT INTO monetary (donationType, donationDate, amount, donorID)"
+                    + " VALUES (1, 'today', 'amount', 'donorID');", conn);
+
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }*/
+        }
+
         #endregion
     }
 }

@@ -96,6 +96,12 @@
     <Compile Include="main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
+    <Compile Include="moneyDonate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="moneyDonate.Designer.cs">
+      <DependentUpon>moneyDonate.cs</DependentUpon>
+    </Compile>
     <Compile Include="others.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="moneyDonate.resx">
+      <DependentUpon>moneyDonate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="others.resx">
       <DependentUpon>others.cs</DependentUpon>
@@ -306,6 +315,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\finance_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\divider_horizon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
