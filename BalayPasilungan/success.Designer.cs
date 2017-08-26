@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSuccess = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.lblSuccess = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -49,6 +49,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(498, 142);
             this.panel1.TabIndex = 4;
+            // 
+            // lblSuccess
+            // 
+            this.lblSuccess.AutoSize = true;
+            this.lblSuccess.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuccess.Location = new System.Drawing.Point(11, 14);
+            this.lblSuccess.Name = "lblSuccess";
+            this.lblSuccess.Size = new System.Drawing.Size(172, 21);
+            this.lblSuccess.TabIndex = 4;
+            this.lblSuccess.Text = "Success message here";
             // 
             // panel4
             // 
@@ -83,16 +93,6 @@
             this.pbHeader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHeader.TabIndex = 3;
             this.pbHeader.TabStop = false;
-            // 
-            // lblSuccess
-            // 
-            this.lblSuccess.AutoSize = true;
-            this.lblSuccess.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuccess.Location = new System.Drawing.Point(11, 14);
-            this.lblSuccess.Name = "lblSuccess";
-            this.lblSuccess.Size = new System.Drawing.Size(172, 21);
-            this.lblSuccess.TabIndex = 4;
-            this.lblSuccess.Text = "Success message here";
             // 
             // panel2
             // 
@@ -139,8 +139,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblSuccess;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.Label lblSuccess;
     }
 }

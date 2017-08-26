@@ -114,7 +114,7 @@
             this.lblConfirm.Size = new System.Drawing.Size(476, 110);
             this.lblConfirm.TabIndex = 4;
             this.lblConfirm.TabStop = false;
-            this.lblConfirm.Text = "Error message here";
+            this.lblConfirm.Text = "Confirm message here";
             // 
             // pbHeader
             // 

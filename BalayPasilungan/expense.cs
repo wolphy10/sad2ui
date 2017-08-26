@@ -15,7 +15,7 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public int current_donorID;
-        
+
         public expense()
         {
             InitializeComponent();
@@ -189,7 +189,7 @@ namespace BalayPasilungan
             }
         }
 
-        public void loadDonorInfo(string id)
+        public void loadDonorInfo(int id)
         {
             tabSelection.SelectedTab = tabDonorInfo;
 
@@ -197,7 +197,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT donorID, type, donorName, telephone, mobile, email, pledge, datePledge FROM donor WHERE donorID = " + int.Parse(id), conn);
+                MySqlCommand comm = new MySqlCommand("SELECT donorID, type, donorName, telephone, mobile, email, pledge, datePledge FROM donor WHERE donorID = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -214,6 +214,51 @@ namespace BalayPasilungan
                 txtDEmail.Text = dt.Rows[0]["email"].ToString();
                 txtDPledge.Text = dt.Rows[0]["pledge"].ToString();
                 txtDDatePledge.Text = dt.Rows[0]["datePledge"].ToString();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void loadMonetary(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                // GET MONETARY INFO
+                MySqlCommand comm = new MySqlCommand("SELECT monetaryID, amount, ORno, TIN, dateDonated FROM monetary WHERE donationID in (SELECT donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    donationMoney.DataSource = dt;
+
+                    donationMoney.AutoResizeColumns();
+
+                    // Donors Grid View UI Modifications
+                    donationMoney.Columns[1].HeaderText = "Amount"; donationMoney.Columns[2].HeaderText = "OR No"; donationMoney.Columns[3].HeaderText = "TIN"; donationMoney.Columns[4].HeaderText = "Date Donated";
+
+                    donationMoney.Columns[0].Visible = false;
+
+                    //donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
+                    //donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+
+                    donationMoney.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    donationMoney.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    donationMoney.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    donationMoney.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+                else
+                {
+                    // No donors add here
+                }
 
                 conn.Close();
             }
@@ -573,8 +618,9 @@ namespace BalayPasilungan
         {
             if (e.RowIndex != -1)
             {
-                string id = donorsGV.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                loadDonorInfo(id);                
+                current_donorID = int.Parse(donorsGV.Rows[e.RowIndex].Cells[0].FormattedValue.ToString());
+                loadMonetary(current_donorID);
+                loadDonorInfo(current_donorID);
             }
         }
 
@@ -605,26 +651,14 @@ namespace BalayPasilungan
 
         #region Donation Handling
         private void btnAddMoneyD_Click(object sender, EventArgs e)                 // Add New Donation
-        {
-            /*try
-            {
-                conn.Open();
-
-                //current_donorID;                
-
-                // ADD SQL COMMAND
-                MySqlCommand comm = new MySqlCommand("INSERT INTO monetary (donationType, donationDate, amount, donorID)"
-                    + " VALUES (1, 'today', 'amount', 'donorID');", conn);
-
-                comm.ExecuteNonQuery();
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
+        {            
+            moneyDonate mD = new moneyDonate();
+            mD.donorID = current_donorID;
+            mD.refToExpense = this;
+            this.Hide();
+            mD.ShowDialog();
+            loadMonetary(current_donorID);
         }
-
         #endregion
     }
 }
