@@ -7,24 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Globalization;
 
 namespace BalayPasilungan
 {
     public partial class eventorg : Form
     {
-        public String[] month = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+        public MySqlConnection conn;
+        public String[] aMonths = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
         public bool remindState = false, budgetState = false;
 
         public eventorg()
         {
             InitializeComponent();
-            Load += btnEvent_Click;
+            tabSecond.SelectedTab = tabCalendar;
+            conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
+            //Load += btnEvent_Click; onload automatically click the btnevent which instantiating it always on tabevent onload
             menuStrip.Renderer = new renderer();
             menuStrip1.Renderer = new renderer();
             menuStripEvent.Renderer = new renderer();
             ERProgress.Renderer = new renderer2();
         }
-
+        
         #region Functions
         private void resetButtons()
         {
@@ -78,43 +83,43 @@ namespace BalayPasilungan
         {
             if(type == 0)
             {
-                btnMonNow.Text = now;
-                int i = Array.IndexOf(month, now);
+                btnMNow.Text = now;
+                int i = Array.IndexOf(aMonths, now);
                 if (i == 11)   // December
                 {
-                    btnMonNext.Text = month[0];
-                    btnMonPrev.Text = month[i - 1];
+                    btnMNext.Text = aMonths[0];
+                    btnMPrev.Text = aMonths[i - 1];
                 }
                 else if (i == 0)    // January
                 {
-                    btnMonNext.Text = month[i + 1];
-                    btnMonPrev.Text = month[11];
+                    btnMNext.Text = aMonths[i + 1];
+                    btnMPrev.Text = aMonths[11];
                 }
                 else
                 {
-                    btnMonNext.Text = month[i + 1];
-                    btnMonPrev.Text = month[i - 1];
+                    btnMNext.Text = aMonths[i + 1];
+                    btnMPrev.Text = aMonths[i - 1];
                 }
             }
             else
             {
-                btnYrNow.Text = now;
+                btnYNow.Text = now;
                 if (int.Parse(now) == 1960)
                 {
-                    btnYrPrev.Text = "";
-                    btnYrPrev.Enabled = false;
-                    btnYrNext.Text = (int.Parse(now) + 1).ToString();
+                    btnYPrev.Text = "";
+                    btnYPrev.Enabled = false;
+                    btnYNext.Text = (int.Parse(now) + 1).ToString();
                 }
                 else if(int.Parse(now) == 2099)
                 {
-                    btnYrNext.Text = "";
-                    btnYrNext.Enabled = false;
-                    btnYrPrev.Text = (int.Parse(now) - 1).ToString();
+                    btnYNext.Text = "";
+                    btnYNext.Enabled = false;
+                    btnYPrev.Text = (int.Parse(now) - 1).ToString();
                 }
                 else
                 {                    
-                    btnYrNext.Text = (int.Parse(now) + 1).ToString();
-                    btnYrPrev.Text = (int.Parse(now) - 1).ToString();
+                    btnYNext.Text = (int.Parse(now) + 1).ToString();
+                    btnYPrev.Text = (int.Parse(now) - 1).ToString();
                 }
             }
         }
@@ -135,7 +140,7 @@ namespace BalayPasilungan
             menuStrip.Height = 0;
             timer1.Enabled = true;
 
-            tabSecond.SelectedTab = tabEvent;
+            tabSecond.SelectedTab = tabCalendar;
             resetTS();
             eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
 
@@ -166,74 +171,6 @@ namespace BalayPasilungan
         {
             if (reminderPanel.Height >= 171) remindTimer.Enabled = false;
             else reminderPanel.Height += 19;
-        }
-        #endregion
-
-        #region Time Buttons
-        private void btnMonPrev_Click(object sender, EventArgs e)
-        {
-            btnMonNext.Text = btnMonNow.Text;
-            btnMonNow.Text = btnMonPrev.Text;            
-            foreach (String now in month)
-            {
-                if (btnMonNow.Text.Equals(now))
-                {
-                    int i = Array.IndexOf(month, now);
-                    if(i == 0) btnMonPrev.Text = month[11];                   
-                    else btnMonPrev.Text = month[i - 1];                    
-                }
-            }            
-        }
-
-        private void btnMonNext_Click(object sender, EventArgs e)
-        {
-            btnMonPrev.Text = btnMonNow.Text;
-            btnMonNow.Text = btnMonNext.Text;
-            foreach (String now in month)
-            {
-                if (btnMonNow.Text.Equals(now))
-                {
-                    int i = Array.IndexOf(month, now);
-                    if (i == 11) btnMonNext.Text = month[0];                    
-                    else btnMonNext.Text = month[i + 1];                    
-                }
-            }
-        }
-
-        private void btnYrPrev_Click(object sender, EventArgs e)
-        {
-            btnYrPrev.Enabled = true; btnYrNext.Enabled = true;
-            if (btnYrPrev.Text.ToString().Equals("1960"))
-            {
-                btnYrNow.Text = "1960";
-                btnYrPrev.Text = "";
-                btnYrNext.Text = "1961";
-                btnYrPrev.Enabled = false;
-            }            
-            else
-            {
-                btnYrNext.Text = btnYrNow.Text;
-                btnYrNow.Text = btnYrPrev.Text;
-                btnYrPrev.Text = (int.Parse(btnYrNow.Text.ToString()) - 1 ).ToString();
-            }             
-        }
-
-        private void btnYrNext_Click(object sender, EventArgs e)
-        {
-            btnYrNext.Enabled = true; btnYrPrev.Enabled = true;
-            if (btnYrNext.Text.ToString().Equals("2099"))
-            {
-                btnYrNow.Text = "2099";                
-                btnYrNext.Text = "";
-                btnYrPrev.Text = "2098";
-                btnYrNext.Enabled = false;
-            }
-            else
-            {
-                btnYrPrev.Text = btnYrNow.Text;
-                btnYrNow.Text = btnYrNext.Text;
-                btnYrNext.Text = (int.Parse(btnYrNow.Text.ToString()) + 1).ToString();
-            }            
         }
         #endregion
 
@@ -386,7 +323,7 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Next Back Buttons        
+        #region Next Back Buttons (request events)       
         private void btnNext_Click(object sender, EventArgs e)
         {
             tabERForm.SelectedIndex = 1;
@@ -920,28 +857,6 @@ namespace BalayPasilungan
             // Find code to unclick button
         }
 
-        #region Custom Month and Year
-        private void btnYrNow_Click(object sender, EventArgs e)
-        {
-            others ot = new others();
-
-            this.Enabled = false;
-            ot.tabSelection.SelectedIndex = 1;
-            ot.refToERF = this;
-            ot.Show();
-        }
-
-        private void btnMonNow_Click(object sender, EventArgs e)
-        {
-            others ot = new others();
-
-            this.Enabled = false;
-            ot.tabSelection.SelectedIndex = 0;
-            ot.refToERF = this;
-            ot.Show();
-        }
-        #endregion
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             tabSecond.SelectedTab = tabEvent;
@@ -951,6 +866,505 @@ namespace BalayPasilungan
         {
 
         }
+
+        private void eventorg_Load(object sender, EventArgs e)
+        {
+            //tabSecond.SelectedTab = tabCalendar;
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+        }
+        #region Custom Month and Year
+        private void btnMNow_Click(object sender, EventArgs e)
+        {
+            others ot = new others();
+            //this.Enabled = false;
+            ot.tabSelection.SelectedIndex = 1;
+            //ot.indextab = 1;
+            ot.reftoevorg = this;
+            DialogResult rest = ot.ShowDialog();
+            if (rest == DialogResult.OK)
+            {
+                int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+                displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+            }
+            //ot.Show();
+        }
+
+        private void btnYNow_Click(object sender, EventArgs e)
+        {
+            others ot = new others();
+
+            //this.Enabled = false;
+            ot.tabSelection.SelectedIndex = 0;
+            //ot.indextab = 0;
+            ot.reftoevorg = this;
+            DialogResult rest = ot.ShowDialog();
+            if (rest == DialogResult.OK)
+            {
+                int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+                displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+            }
+            //ot.Show();
+        }
+        #endregion
+
+        #region Time Buttons
+        private void btnMPrev_Click(object sender, EventArgs e)
+        {
+            btnMNext.Text = btnMNow.Text;
+            btnMNow.Text = btnMPrev.Text;
+            foreach (String now in aMonths)
+            {
+                if (btnMNow.Text.Equals(now))
+                {
+                    int i = Array.IndexOf(aMonths, now);
+                    if (i == 0) btnMPrev.Text = aMonths[11];
+                    else btnMPrev.Text = aMonths[i - 1];
+                }
+            }
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+        }
+
+        private void btnMNext_Click(object sender, EventArgs e)
+        {
+            btnMPrev.Text = btnMNow.Text;
+            btnMNow.Text = btnMNext.Text;
+            foreach (String now in aMonths)
+            {
+                if (btnMNow.Text.Equals(now))
+                {
+                    int i = Array.IndexOf(aMonths, now);
+                    if (i == 11) btnMNext.Text = aMonths[0];
+                    else btnMNext.Text = aMonths[i + 1];
+                }
+            }
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+        }
+
+        private void btnYPrev_Click(object sender, EventArgs e)
+        {
+            btnYPrev.Enabled = true; btnYNext.Enabled = true;
+            if (btnYPrev.Text.ToString().Equals("1960"))
+            {
+                btnYNow.Text = "1960";
+                btnYPrev.Text = "";
+                btnYNext.Text = "1961";
+                btnYPrev.Enabled = false;
+            }
+            else
+            {
+                btnYNext.Text = btnYNow.Text;
+                btnYNow.Text = btnYPrev.Text;
+                btnYPrev.Text = (int.Parse(btnYNow.Text.ToString()) - 1).ToString();
+            }
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+        }
+
+        private void btnYNext_Click(object sender, EventArgs e)
+        {
+            btnYNext.Enabled = true; btnYPrev.Enabled = true;
+            if (btnYNext.Text.ToString().Equals("2099"))
+            {
+                btnYNow.Text = "2099";
+                btnYNext.Text = "";
+                btnYPrev.Text = "2098";
+                btnYNext.Enabled = false;
+            }
+            else
+            {
+                btnYPrev.Text = btnYNow.Text;
+                btnYNow.Text = btnYNext.Text;
+                btnYNext.Text = (int.Parse(btnYNow.Text.ToString()) + 1).ToString();
+            }
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+        }
+        #endregion
+
+        #region tabEvent Funtions
+        public void displayEvents(string dc, string mc, string yc)
+        {
+            string date = yc + "-" + mc + "-" + dc;
+            //int evyear;
+            string evname, day;
+            //MessageBox.Show(m + " "+ yearnav);
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' AND ('" + date + "' >= str_to_date(evDateFrom, '%Y-%m-%d')) AND ('" + date + "' <= str_to_date(evDateTo, '%Y-%m-%d'))", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                conn.Close();
+                if (dt.Rows.Count >= 1)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        //int dateto = int.Parse(dt.Rows[i]["evDateTo"].ToString());
+                        //MessageBox.Show();
+                        //evmonth = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(5, 2));
+                        //evday = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(8, 2));
+                        evname = dt.Rows[i]["evName"].ToString();
+                        ListViewItem itm = new ListViewItem(evname);
+                        eventsListView.Items.Add(itm);
+                    }
+                }
+
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+        
+        
+        #endregion
+
+        #region Calendar Functions
+        public void displayCalendar(string month, int yearofMonth)
+        {
+            // should be in the format of Jan, Feb, Mar, Apr, etc...
+            string deytaym = "01/" + month + "/" + yearofMonth;
+            DateTime dateTime = DateTime.ParseExact(deytaym, "d/M/yyyy", CultureInfo.InvariantCulture);
+            //MessageBox.Show(dateTime + " " + deytaym);
+            DataRow dr;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Sunday");
+            dt.Columns.Add("Monday");
+            dt.Columns.Add("Tuesday");
+            dt.Columns.Add("Wednesday");
+            dt.Columns.Add("Thursday");
+            dt.Columns.Add("Friday");
+            dt.Columns.Add("Saturday");
+            dr = dt.NewRow();
+            for (int i = 0; i < DateTime.DaysInMonth(dateTime.Year, dateTime.Month); i++)
+            {
+                //txtMonth.Text = Convert.ToDateTime(dateTime.AddDays(0)).ToString("dddd");
+                if (dateTime.AddDays(i).ToString("dddd") == "Sunday")
+                {
+                    dr["Sunday"] = i + 1;
+
+                }
+                if (dateTime.AddDays(i).ToString("dddd") == "Monday")
+                {
+                    dr["Monday"] = i + 1;
+
+                }
+                if (dateTime.AddDays(i).ToString("dddd") == "Tuesday")
+                {
+                    dr["Tuesday"] = i + 1;
+
+                }
+                if (dateTime.AddDays(i).ToString("dddd") == "Wednesday")
+                {
+                    dr["Wednesday"] = i + 1;
+                }
+                if (dateTime.AddDays(i).ToString("dddd") == "Thursday")
+                {
+                    dr["Thursday"] = i + 1;
+
+                }
+                if (dateTime.AddDays(i).ToString("dddd") == "Friday")
+                {
+                    dr["Friday"] = i + 1;
+                }
+                if (dateTime.AddDays(i).ToString("dddd") == "Saturday")
+                {
+                    dr["Saturday"] = i + 1;
+                    dt.Rows.Add(dr);
+                    dr = dt.NewRow();
+                    continue;
+                }
+                if (i == DateTime.DaysInMonth(dateTime.Year, dateTime.Month) - 1)
+                {
+                    dt.Rows.Add(dr);
+                    dr = dt.NewRow();
+
+                }
+
+            }
+
+            CalendarView.DataSource = dt;
+            
+            foreach (DataGridViewColumn ya in CalendarView.Columns)
+            {
+                ya.HeaderCell.Style.ForeColor = Color.Red; 
+                    //Color.FromArgb(45, 45, 45);
+                
+                ya.SortMode = DataGridViewColumnSortMode.NotSortable;
+                ya.Width = 132;
+            }
+            foreach (DataGridViewRow ro in CalendarView.Rows)
+            {
+                ro.Height = 106;
+            }
+            calendarcolor();
+            //MessageBox.Show("Lagyan ng dialog box sa cell click add request and view request");
+            //Lagyan ng dialog box sa cell click add request and view request
+        }
+
+        public void calendarcolor()
+        {
+            int dfrom, mfrom, yfrom;
+            int dto, mto, yto;
+            int m = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            int year = int.Parse(btnYNow.Text);
+            string prog;
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' ", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        prog = dt.Rows[i]["evProgress"].ToString();
+                        dfrom = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(8, 2));
+                        mfrom = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(5, 2));
+                        yfrom = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(0, 4));
+                        //DateTime datefrom = Convert.ToDateTime(dfrom.ToString("00") +"/"+ mfrom.ToString("00") + "/" + yfrom);
+                        DateTime datefrom = DateTime.ParseExact(dfrom.ToString("00") + "/" + mfrom.ToString("00") + "/" + yfrom, "d/M/yyyy", CultureInfo.InvariantCulture);
+                        mto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(5, 2));
+                        dto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(8, 2));
+                        yto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(0, 4));
+                        //DateTime dateto = Convert.ToDateTime(dto.ToString("00") + "/" + mto.ToString("00") + "/" + yto);
+                        DateTime dateto = DateTime.ParseExact(dto.ToString("00") + "/" + mto.ToString("00") + "/" + yto, "d/M/yyyy", CultureInfo.InvariantCulture);
+                        //MessageBox.Show(""+ datefrom + "-----" + dateto);
+                        //MessageBox.Show("" + dto);
+
+                        foreach (DataGridViewRow row in CalendarView.Rows)
+                        {
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                //do operations with cell
+                                //MessageBox.Show(""+cell.Value);
+
+                                if (cell.Value.ToString() != "")
+                                {
+                                    //MessageBox.Show(Convert.ToInt32(cell.Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
+                                    //DateTime datecal = Convert.ToDateTime(Convert.ToInt32(cell.Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
+                                    DateTime datecal = DateTime.ParseExact(Convert.ToInt32(cell.Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"), "d/M/yyyy", CultureInfo.InvariantCulture);
+                                    if (datecal >= datefrom && datecal <= dateto)
+                                    {
+                                        if (prog == "Ongoing")
+                                        {
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.Green;
+                                        }
+                                        else if (prog == "Finished")
+                                        {
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.Red;
+                                        }
+                                        else if (prog == "Upcoming")
+                                        {
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.Yellow;
+                                        }
+                                        else
+                                        {
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.White;
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+
+        public string option { get; set; }
+        public string ifclick { get; set; }
+
+        private void CalendarView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            //MessageBox.Show(Convert.ToInt32(CalendarView.SelectedCells[0].Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
+            //DateTime datecell = Convert.ToDateTime(Convert.ToInt32(CalendarView.SelectedCells[0].Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
+            DateTime datecell = DateTime.ParseExact(Convert.ToInt32(CalendarView.SelectedCells[0].Value).ToString("00") + "/" + monthnum.ToString("00") + "/" + btnYNow.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
+            int cellday = int.Parse(CalendarView.SelectedCells[0].Value.ToString());
+            if (CalendarView.SelectedCells[0].Value.ToString() != "")
+            {// the plan is to check if the date picked is before the date today so that it will only show a view it cannot add but it is argueable because sometimes people want to records events from the past so it will only matter on the reminder
+                if (checkEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text))
+                {
+                    option = "view";
+                    dialogEvOptions deo = new dialogEvOptions();
+                    deo.reftoevorg = this;
+                    DialogResult rest = deo.ShowDialog();
+                    if (rest == DialogResult.OK)
+                    {
+                        if (ifclick == "view")
+                        {
+                            tabSecond.SelectedTab = tabEvent;
+                            //MessageBox.Show(CalendarView.SelectedCells[0].Value.ToString());
+                            displayEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text);
+                        }
+                        else if (ifclick == "add")
+                        {
+                            tabSecond.SelectedTab = tabRequest;
+                        }
+                    }
+                }
+                else
+                {
+                    option = "noview";
+                    dialogEvOptions deo = new dialogEvOptions();
+                    deo.reftoevorg = this;
+                    DialogResult rest = deo.ShowDialog();
+                    if (rest == DialogResult.OK)
+                    {
+
+                        //MessageBox.Show("may event ");
+
+                        if (ifclick == "add")
+                        {
+                            tabSecond.SelectedTab = tabRequest;
+                        }
+
+                    }
+                }
+            }
+
+            //dialog box here for add or edit options
+        }
+
+        public bool checkEvents(string dc, string mc, string yc)
+        {
+            string datecheck = yc + "-" + mc + "-" + dc;
+            bool check = true;
+            try
+            {
+
+                conn.Open();
+                // cahnge query aug 21 2017 MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' AND evDateFrom = '" + datecheck +"'", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' AND ('" + datecheck + "' >= str_to_date(evDateFrom, '%Y-%m-%d')) AND ('" + datecheck + "' <= str_to_date(evDateTo, '%Y-%m-%d'))", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                conn.Close();
+                if (dt.Rows.Count >= 1)
+                {
+                    check = true;
+                }
+                else
+                {
+                    check = false;
+                }
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+            return check;
+        }
+
+        public void allEvents()
+        {
+
+            int evyear, evmonth, evday;
+            string evname, prog = "", id;
+            //MessageBox.Show(timenow);
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                conn.Close();
+                if (dt.Rows.Count >= 1)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        string timeto = dt.Rows[i]["evTimeTo"].ToString();
+
+                        int monthto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(5, 2));
+                        int dayto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(8, 2));
+                        int yearto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(0, 4));
+                        //MessageBox.Show();
+                        string timefrom = dt.Rows[i]["evTimeFrom"].ToString();
+
+                        evmonth = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(5, 2));
+                        evyear = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(0, 4));
+                        evday = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(8, 2));
+                        evname = dt.Rows[i]["evName"].ToString();
+                        //DateTime datefrom = Convert.ToDateTime(evday + "/" + evmonth + "/" + evyear);
+                        //MessageBox.Show(dayto + "/" + monthto + "/" + yearto);
+                        //MessageBox.Show("" + evday + " " + evmonth + " " + yearto + " " + timefrom);
+                        //MessageBox.Show(evday.ToString("00") + "/" + evmonth.ToString("00") + "/" + evyear + " " + timefrom);
+                        DateTime datefrom = DateTime.ParseExact(evday.ToString("00") + "/" + evmonth.ToString("00") + "/" + evyear + " " + timefrom, "dd/MM/yyyy h:m tt", CultureInfo.InvariantCulture);
+                        DateTime dateto = DateTime.ParseExact(dayto.ToString("00") + "/" + monthto.ToString("00") + "/" + yearto + " " + timeto, "dd/MM/yyyy h:m tt", CultureInfo.InvariantCulture);
+
+                        id = dt.Rows[i]["eventID"].ToString();
+                        if (DateTime.Now >= datefrom && DateTime.Now <= dateto)
+                        {
+                            prog = "Ongoing";
+                        }
+                        else if (DateTime.Now < datefrom)
+                        {
+                            prog = "Upcoming";
+                        }
+                        else if (DateTime.Now > dateto)
+                        {
+                            prog = "Finished";
+                        }
+                        //MessageBox.Show(prog + " " + id);
+                        updateEventProgress(prog, id);
+                    }
+                }
+
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+        public void updateEventProgress(string p, string id)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("UPDATE event SET evProgress ='" + p + "' WHERE eventID = '" + id + "';", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+        #endregion
 
         private void confirmTab_Enter(object sender, EventArgs e)
         {
