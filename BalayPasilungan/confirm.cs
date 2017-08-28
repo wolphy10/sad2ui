@@ -15,10 +15,11 @@ namespace BalayPasilungan
         public Form refToLogin { get; set; }
 
         public bool boolLogin { get; set; }
-
+        
         public confirm()
         {
             InitializeComponent();
+            btnConfirm.DialogResult = DialogResult.OK;
         }
         
         private void confirm_Load(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace BalayPasilungan
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             this.Close();
-            refToLogin.Close();                    
+            //refToLogin.Close();                    
         }
        
     }

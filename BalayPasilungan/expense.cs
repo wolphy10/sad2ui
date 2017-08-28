@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 
 namespace BalayPasilungan
@@ -15,6 +16,8 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public int current_donorID;
+        public DateTime fromDateValue;
+        public bool searchDateBool;
 
         public expense()
         {
@@ -38,7 +41,7 @@ namespace BalayPasilungan
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-        
+
         private void upPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -47,7 +50,7 @@ namespace BalayPasilungan
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        
+
         private void taskbar_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -131,10 +134,12 @@ namespace BalayPasilungan
         private void btnDonation_Click(object sender, EventArgs e)
         {
             resetMainButtons();
+            tabInnerDonors.SelectedIndex = 0;
             btnDonation.BackColor = Color.White;
             btnDonation.BackgroundImage = global::BalayPasilungan.Properties.Resources.donation_green;
             tabSelection.SelectedTab = tabDonors;
             loadDonorList();
+            current_donorID = 0;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -142,7 +147,7 @@ namespace BalayPasilungan
             this.Close();
         }
         #endregion
-        
+
         #region SQL Connections
         public void loadDonorList()
         {
@@ -204,22 +209,32 @@ namespace BalayPasilungan
 
                 adp.Fill(dt);
 
-                current_donorID = int.Parse(dt.Rows[0]["donorID"].ToString());
-                lblDonorName.Text = dt.Rows[0]["donorName"].ToString();                
+                if (dt.Rows.Count > 0)
+                {
+                    current_donorID = int.Parse(dt.Rows[0]["donorID"].ToString());
+                    lblDonorName.Text = dt.Rows[0]["donorName"].ToString();
 
-                if (dt.Rows[0]["type"].ToString() == "1") txtDType.Text = "Individual";
-                else txtDType.Text = "Organization";
+                    if (dt.Rows[0]["type"].ToString() == "1") txtDType.Text = "Individual";
+                    else txtDType.Text = "Organization";
 
-                txtDPhone.Text = dt.Rows[0]["telephone"].ToString();
-                txtDMobile.Text = dt.Rows[0]["mobile"].ToString();
-                txtDEmail.Text = dt.Rows[0]["email"].ToString();
-                txtDPledge.Text = dt.Rows[0]["pledge"].ToString();
-                txtDDatePledge.Text = dt.Rows[0]["datePledge"].ToString();
+                    txtDPhone.Text = dt.Rows[0]["telephone"].ToString();
+                    txtDMobile.Text = dt.Rows[0]["mobile"].ToString();
+                    txtDEmail.Text = dt.Rows[0]["email"].ToString();
+                    txtDPledge.Text = dt.Rows[0]["pledge"].ToString();
+                    txtDDatePledge.Text = dt.Rows[0]["datePledge"].ToString();
+                }
+                else
+                {
+                    btnDelMoneyD.Enabled = false; btnEditMoneyD.Enabled = false;
+                    dt.Rows.Add(0, "No donors.");
+                    donationMoney.DataSource = dt;
+                }
 
                 conn.Close();
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
                 conn.Close();
             }
@@ -229,7 +244,7 @@ namespace BalayPasilungan
         {
             try
             {
-                conn.Open();                
+                conn.Open();
 
                 // GET MONETARY INFO
                 MySqlCommand comm = new MySqlCommand("SELECT monetaryID, amount, ORno, TIN, dateDonated FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")", conn);
@@ -242,14 +257,13 @@ namespace BalayPasilungan
                 {
                     donationMoney.DataSource = dt;
 
-                    donationMoney.AutoResizeColumns();
-
                     // Donors Grid View UI Modifications
                     donationMoney.Columns[1].HeaderText = "AMOUNT"; donationMoney.Columns[2].HeaderText = "OR NO"; donationMoney.Columns[3].HeaderText = "TIN"; donationMoney.Columns[4].HeaderText = "DATE DONATED";
 
                     donationMoney.Columns[0].Visible = false;
 
                     donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
+                    donationMoney.Columns[1].DefaultCellStyle.Format = "#,0.00##";
                     donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                     donationMoney.Columns[4].DefaultCellStyle.Format = "MMMM dd, yyyy";
                     donationMoney.Columns[4].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
@@ -259,10 +273,13 @@ namespace BalayPasilungan
                     donationMoney.Columns[2].Width = 126;
                     donationMoney.Columns[3].Width = 200;
                     donationMoney.Columns[4].Width = 250;
+                    btnDelMoneyD.Enabled = true; btnEditMoneyD.Enabled = true;
                 }
                 else
                 {
-                    // No donors add here
+                    btnDelMoneyD.Enabled = false; btnEditMoneyD.Enabled = false;
+                    dt.Rows.Add(0, null, "No donations.");
+                    donationMoney.DataSource = dt;
                 }
 
                 conn.Close();
@@ -280,21 +297,30 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                double n; string query;
-                bool isNumeric = double.TryParse(search, out n);
-                
+                decimal n; string query = "";
+                bool isNumeric = decimal.TryParse(search, out n);                
+
                 if (isNumeric)
                 {
+                    n = decimal.Parse(search);                                          // Convert search keyword to double
+                    string doubs = n.ToString("F2", CultureInfo.InvariantCulture);      // Convert to string with 2 decimal places
+
                     query = "SELECT monetaryID, amount, ORno, TIN, dateDonated FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
-                    + " AND (amount LIKE " + double.Parse(search) + " OR ORno LIKE '%" + search + "%' OR TIN LIKE '%" + search + "%')";
+                    + " AND (amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR TIN LIKE '%" + search + "%')";                    
                 }
+                else if (searchDateBool)
+                {
+                    searchDateBool = false;
+                    query = "SELECT monetaryID, amount, ORno, TIN, dateDonated FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
+                    + " AND (dateDonated LIKE '" + fromDateValue + "' OR MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " OR YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";                 
+                }
+
                 else
                 {
                     query = "SELECT monetaryID, amount, ORno, TIN, dateDonated FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
-                    + " AND (ORno LIKE '%" + search + "%' OR TIN LIKE '%" + search + "%')";
+                    + " AND (ORno LIKE '%" + search + "%' OR TIN LIKE '%" + search + "%')";                    
                 }
-
-                // GET MONETARY INFO
+                
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -317,14 +343,35 @@ namespace BalayPasilungan
                 donationMoney.Columns[1].Width = 350;
                 donationMoney.Columns[2].Width = 126;
                 donationMoney.Columns[3].Width = 200;
-                donationMoney.Columns[4].Width = 250;
-                
-                if (dt.Rows.Count > 0) donationMoney.DataSource = dt;
+                donationMoney.Columns[4].Width = 250;                
+
+                if (dt.Rows.Count > 0) donationMoney.DataSource = dt;                
                 else
                 {
                     dt.Rows.Add(0, null, "No entries found.");
                     donationMoney.DataSource = dt;
                 }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
+        public void delDonation(int donationid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("DELETE FROM monetary WHERE donationID = " + donationid, conn);            // Delete from monetary
+                comm.ExecuteNonQuery();
+
+                comm = new MySqlCommand("DELETE FROM donation WHERE donationID = " + donationid, conn);                         // Delete from donation
+                comm.ExecuteNonQuery();
 
                 conn.Close();
             }
@@ -383,9 +430,10 @@ namespace BalayPasilungan
 
         private void donorTS2_Click(object sender, EventArgs e)
         {
+            tabInnerDonors.SelectedIndex = 0;
             loadDonorList();
         }
-        
+
         private void donationsTS_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabDonations;
@@ -420,7 +468,7 @@ namespace BalayPasilungan
 
             conf_donorName.Text = txtDName.Text;
             conf_donorType.Text = cbDType.Text;
-            
+
 
             conf_pledge.Text = cbPledge.Text;
             conf_datePledge.Text = datePledge.Text;
@@ -444,8 +492,8 @@ namespace BalayPasilungan
 
                 // ADD SQL COMMAND
                 MySqlCommand comm = new MySqlCommand("INSERT INTO donor (type, donorName, telephone, mobile, email, pledge, datePledge)"
-                    + " VALUES (1, '" + conf_donorName.Text + "', '" + conf_phone.Text + "', '" + mobile + "', '" + conf_email.Text + "', '" + conf_pledge.Text + "', '" + datePledgeSTR + "');", conn);                
-                
+                    + " VALUES (1, '" + conf_donorName.Text + "', '" + conf_phone.Text + "', '" + mobile + "', '" + conf_email.Text + "', '" + conf_pledge.Text + "', '" + datePledgeSTR + "');", conn);
+
                 comm.ExecuteNonQuery();
                 conn.Close();
             }
@@ -640,7 +688,7 @@ namespace BalayPasilungan
             donationTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donationCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
         }
         #endregion
-            
+
         #region New Budget Request
         private void cbOthers_CheckedChanged(object sender, EventArgs e)
         {
@@ -680,8 +728,8 @@ namespace BalayPasilungan
         {
             tabDonorInfo.Focus();
         }
-       
-                private void donorsGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void donorsGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
@@ -718,30 +766,97 @@ namespace BalayPasilungan
 
         #region Monetary Donation
         private void btnAddMoneyD_Click(object sender, EventArgs e)                 // Add New Donation
-        {            
+        {
             moneyDonate mD = new moneyDonate();
-            mD.donorID = current_donorID;
+            mD.donationID = current_donorID;
             mD.refToExpense = this;
+            mD.hasExpense = true;
             this.Hide();
             mD.ShowDialog();
             loadMonetary(current_donorID);
         }
-        
+
         private void txtSearchMoney_Enter(object sender, EventArgs e)
         {
             if (txtSearchMoney.Text == "search here") txtSearchMoney.Text = "";
+            if (!searchDate.Checked) searchOthers.Checked = true;
         }
 
         private void txtSearchMoney_Leave(object sender, EventArgs e)
         {
             if (txtSearchMoney.Text == "") txtSearchMoney.Text = "search here";
+            searchOthers.Checked = false; searchDate.Checked = false;                   // Uncheck search options
         }
 
         private void txtSearchMoney_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) searchMonetary(current_donorID, txtSearchMoney.Text);            
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (searchDate.Checked)
+                {
+                    var formats = new[] { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-MM-dd", "yyyy", "MMM dd", "MM/dd/yyyy", "MM/dd", "MMMM dd", "MMM dd yyyy", "MMMM dd, yyyy", "MMM", "MMMM" };
+                    var m = new[] { "MMM", "MMMM" }; var y = new[] { "yyyy"};
+
+                    if (DateTime.TryParseExact(txtSearchMoney.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue))
+                    {                        
+                        fromDateValue = DateTime.Parse(fromDateValue.ToString("yyyy-MM-dd"));                        
+                        searchDateBool = true;
+                        searchMonetary(current_donorID, null);
+                    }
+                    else searchMonetary(current_donorID, "error");
+                }
+                else searchMonetary(current_donorID, txtSearchMoney.Text);
+            }
+        }
+
+        private void btnEditMoneyD_Click(object sender, EventArgs e)
+        {
+            int row = donationMoney.CurrentCell.RowIndex;
+
+            if (donationMoney.Rows[row].Cells[4].Value.ToString() != null || donationMoney.Rows[row].Cells[1].Value.ToString() != null)
+            {
+                string[] parts = donationMoney.Rows[row].Cells[1].Value.ToString().Split('.');
+                DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[4].Value.ToString());
+
+                moneyDonate mD = new moneyDonate();
+
+                mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());
+                mD.tabSelection.SelectedIndex = 3;
+                mD.txtCashAmount2.Text = parts[0];
+                mD.txtCashCent2.Text = parts[1];
+                mD.txtOR2.Text = donationMoney.Rows[row].Cells[2].Value.ToString();
+                mD.txtTIN2.Text = donationMoney.Rows[row].Cells[3].Value.ToString();
+                mD.dateCash2.MaxDate = dateDonate; mD.dateCash2.Value = dateDonate;
+                mD.ShowDialog();
+
+                loadMonetary(current_donorID);
+            }
+        }
+
+        private void btnDelMoneyD_Click(object sender, EventArgs e)
+        {
+            int row = donationMoney.CurrentCell.RowIndex;
+
+            confirm conf = new confirm();
+            conf.lblConfirm.Text = "Are you sure you want to delete this?";
+
+            if (conf.ShowDialog() == DialogResult.OK)
+            {
+                delDonation(int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString()));
+                loadMonetary(current_donorID);
+            }
         }
         #endregion
+        
+        private void btnSetDonor_Click(object sender, EventArgs e)
+        {
+            tabInnerDonors.SelectedIndex = 1;
+        }
 
+        private void btnBackDonorList_Click(object sender, EventArgs e)
+        {
+            tabInnerDonors.SelectedIndex = 0;
+            loadDonorList();
+        }
     }
 }

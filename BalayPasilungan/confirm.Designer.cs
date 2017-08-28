@@ -106,7 +106,7 @@
             this.lblConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lblConfirm.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.lblConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lblConfirm.Location = new System.Drawing.Point(12, 15);
+            this.lblConfirm.Location = new System.Drawing.Point(12, 12);
             this.lblConfirm.Name = "lblConfirm";
             this.lblConfirm.ReadOnly = true;
             this.lblConfirm.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
