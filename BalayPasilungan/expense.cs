@@ -17,7 +17,7 @@ namespace BalayPasilungan
         public MySqlConnection conn;
         public int current_donorID;
         public DateTime fromDateValue;
-        public bool searchDateBool;
+        public bool searchDateBool, searchMonthDay, searchMonth, searchMonthYr, searchYr;
 
         public expense()
         {
@@ -297,7 +297,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                decimal n; string query = "";
+                decimal n; string query = "", searchWords = "";
                 bool isNumeric = decimal.TryParse(search, out n);                
 
                 if (isNumeric)
@@ -311,8 +311,35 @@ namespace BalayPasilungan
                 else if (searchDateBool)
                 {
                     searchDateBool = false;
+
+                    if (searchMonthDay)
+                    {
+                        searchMonthDay = false;
+                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + ")";
+                    }
+                    else if (searchMonthYr)
+                    {
+                        searchMonthYr = false;
+                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";
+                    }
+                    else if (searchMonth)
+                    {
+                        searchMonth = false;
+                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + ")";
+                    }
+                    else if (searchYr)
+                    {
+                        searchYr = false;
+                        searchWords = "(YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";
+                    }
+                    else
+                    {
+                        MessageBox.Show(fromDateValue.ToString());
+                        searchWords = "(dateDonated LIKE '" + fromDateValue + "' OR MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " OR YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";
+                    }
+
                     query = "SELECT monetaryID, amount, ORno, TIN, dateDonated FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
-                    + " AND (dateDonated LIKE '" + fromDateValue + "' OR MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " OR YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";                 
+                        + " AND " + searchWords;
                 }
 
                 else
@@ -768,7 +795,7 @@ namespace BalayPasilungan
         private void btnAddMoneyD_Click(object sender, EventArgs e)                 // Add New Donation
         {
             moneyDonate mD = new moneyDonate();
-            mD.donationID = current_donorID;
+            mD.donorID = current_donorID;
             mD.refToExpense = this;
             mD.hasExpense = true;
             this.Hide();
@@ -794,12 +821,20 @@ namespace BalayPasilungan
             {
                 if (searchDate.Checked)
                 {
-                    var formats = new[] { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-MM-dd", "yyyy", "MMM dd", "MM/dd/yyyy", "MM/dd", "MMMM dd", "MMM dd yyyy", "MMMM dd, yyyy", "MMM", "MMMM" };
-                    var m = new[] { "MMM", "MMMM" }; var y = new[] { "yyyy"};
-
+                    var mon = new[] { "MM dd", "MMM dd", "MMMM dd" };
+                    var mononly = new[] { "MM", "MMM", "MMMM" };
+                    var monyr = new[] { "MM yyyy", "MMM yyyy", "MMMM yyyy" };
+                    var yronly = new[] { "yyyy" };
+                    var formats = new[] { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-dd-MM", "yyyy-MM-dd", "MMM dd yyyy", "MM dd yyyy", "MM dd, yyyy", "MMMM dd, yyyy",
+                                            "MM dd", "MMM dd", "MMMM dd", "MM", "MMM", "MMMM", "MM yyyy", "MMM yyyy", "MMMM yyyy", "yyyy" };
+                    
+                    // LMAO                    
                     if (DateTime.TryParseExact(txtSearchMoney.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue))
-                    {                        
-                        fromDateValue = DateTime.Parse(fromDateValue.ToString("yyyy-MM-dd"));                        
+                    {
+                        if (DateTime.TryParseExact(txtSearchMoney.Text, monyr, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthYr = true;
+                        else if (DateTime.TryParseExact(txtSearchMoney.Text, mon, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthDay = true;
+                        else if (DateTime.TryParseExact(txtSearchMoney.Text, yronly, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchYr = true;
+                        else if (DateTime.TryParseExact(txtSearchMoney.Text, mononly, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonth = true;
                         searchDateBool = true;
                         searchMonetary(current_donorID, null);
                     }
