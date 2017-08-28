@@ -13,8 +13,10 @@ namespace BalayPasilungan
     public partial class others : Form
     {
         public String[] month = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-        public Form refToERF { get; set; }
-        public eventorg ev = new eventorg();
+        //public Form refToERF { get; set; }
+        //public eventorg ev = new eventorg();
+        public eventorg reftoevorg { get; set; }
+        //public int indextab;
 
         public others()
         {
@@ -54,7 +56,7 @@ namespace BalayPasilungan
         {
             int go = 0, n = 0, m = 0;
             bool isNumeric = int.TryParse(txtMonth.Text, out n), isNumeric2 = int.TryParse(txtYr.Text, out m);            
-            if (tabSelection.SelectedIndex == 0)     // Setting Custom Month
+            if (tabSelection.SelectedIndex == 1)     // Setting Custom Month
             {
                 if (!isNumeric)                         //  Setting Custom Month (String input)
                 {
@@ -64,7 +66,7 @@ namespace BalayPasilungan
                         {
                             int i = Array.IndexOf(month, now);
                             lblMonth.Text = now;
-                            ev.adjustCustom(0, ev.month[i]);
+                            reftoevorg.adjustCustom(0, reftoevorg.aMonths[i]);
                             go = 1;
                         }
                     }
@@ -75,7 +77,7 @@ namespace BalayPasilungan
                 {
                     if (int.Parse(txtMonth.Text) > 0 && int.Parse(txtMonth.Text) <= 12)
                     {
-                        ev.adjustCustom(0, ev.month[int.Parse(txtMonth.Text) - 1]);
+                        reftoevorg.adjustCustom(0, reftoevorg.aMonths[int.Parse(txtMonth.Text) - 1]);
                         go = 1;
                     }
                     else errorUp(1);
@@ -85,21 +87,31 @@ namespace BalayPasilungan
             {
                 if (isNumeric2 && int.Parse(txtYr.Text) >= 1960 && int.Parse(txtYr.Text) <= 2099)
                 {
-                    ev.adjustCustom(1, txtYr.Text);
+                    reftoevorg.adjustCustom(1, txtYr.Text);
                     go = 1;
                 }
                 else errorUp(2);
             }
             if (go == 1)
             {
-                this.Hide();
+                /*.Hide();
                 refToERF.Enabled = true;
                 refToERF.Hide();
                 ev.ShowDialog();
                 refToERF.Close();
-                this.Close();
+                this.Close();*/
+                this.DialogResult = DialogResult.OK;
             }            
         }
 
+        private void others_Load(object sender, EventArgs e)
+        {
+            //tabSelection.SelectedIndex = indextab;
+        }
+
+        private void others_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reftoevorg.Show();
+        }
     }
 }
