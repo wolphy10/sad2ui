@@ -73,6 +73,16 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnAdd {
+            get {
+                object obj = ResourceManager.GetObject("btnAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnAdmin {
             get {
                 object obj = ResourceManager.GetObject("btnAdmin", resourceCulture);
@@ -86,6 +96,26 @@ namespace BalayPasilungan.Properties {
         internal static System.Drawing.Bitmap btnChildList {
             get {
                 object obj = ResourceManager.GetObject("btnChildList", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnDelete {
+            get {
+                object obj = ResourceManager.GetObject("btnDelete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnEdit {
+            get {
+                object obj = ResourceManager.GetObject("btnEdit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
