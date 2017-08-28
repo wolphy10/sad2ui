@@ -140,7 +140,6 @@
             this.Name = "confirm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "confirm";
-            this.Load += new System.EventHandler(this.confirm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

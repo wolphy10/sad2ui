@@ -13,32 +13,27 @@ namespace BalayPasilungan
     public partial class confirm : Form
     {
         public Form refToLogin { get; set; }
+        public Form refToExpense { get; set; }
 
         public bool boolLogin { get; set; }
-        
+        public bool boolExpense { get; set; }
+
         public confirm()
         {
             InitializeComponent();
             btnConfirm.DialogResult = DialogResult.OK;
         }
         
-        private void confirm_Load(object sender, EventArgs e)
-        {
-            if (boolLogin)
-            {
-                lblConfirm.Text = "Are you sure you want to leave?";
-            }
-        }        
-
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();            
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //refToLogin.Close();                    
+            if (boolLogin) refToLogin.Close();
+            else if (boolExpense) refToExpense.Close();
+            this.Close();                 
         }
        
     }

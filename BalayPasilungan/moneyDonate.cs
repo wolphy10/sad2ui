@@ -229,7 +229,6 @@ namespace BalayPasilungan
             if (txtCashCent2.Text == "") txtCashCent2.Text = "00";
             toDefault();
         }
-        #endregion
 
         private void btnEditCash_Click(object sender, EventArgs e)
         {
@@ -238,7 +237,7 @@ namespace BalayPasilungan
                 conn.Open();
 
                 // EDIT
-                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text 
+                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text
                     + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", TIN = '" + txtTIN2.Text + "', dateDonated = '" + dateCash2.Value.Date.ToString("yyyyMMdd")
                     + "' WHERE donationID = " + donationID, conn);
 
@@ -257,5 +256,8 @@ namespace BalayPasilungan
                 // do nothing
             }
         }
+        #endregion
+
+
     }
 }

@@ -144,7 +144,11 @@ namespace BalayPasilungan
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            confirm conf = new confirm();
+            conf.lblConfirm.Text = "Are you sure you want to leave?";
+            conf.refToExpense = this;
+            conf.boolExpense = true;
+            conf.ShowDialog();
         }
         #endregion
 
@@ -446,6 +450,12 @@ namespace BalayPasilungan
         private void donationsTS_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabDonations;
+        }
+
+        private void btnBackDonorList_Click(object sender, EventArgs e)
+        {
+            tabInnerDonors.SelectedIndex = 0;
+            loadDonorList();
         }
         #endregion
 
@@ -809,8 +819,7 @@ namespace BalayPasilungan
                     var yronly = new[] { "yyyy" };
                     var formats = new[] { "dd/MM/yyyy", "MM/dd/yyyy", "yyyy-dd-MM", "yyyy-MM-dd", "MMM dd yyyy", "MM dd yyyy", "MM dd, yyyy", "MMMM dd, yyyy",
                                             "MM dd", "MMM dd", "MMMM dd", "MM", "MMM", "MMMM", "MM yyyy", "MMM yyyy", "MMMM yyyy", "yyyy" };
-                    
-                    // LMAO                    
+                           
                     if (DateTime.TryParseExact(txtSearchMoney.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue))
                     {
                         if (DateTime.TryParseExact(txtSearchMoney.Text, monyr, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthYr = true;
@@ -868,21 +877,29 @@ namespace BalayPasilungan
 
         private void btnDelMoneyD_Click(object sender, EventArgs e)
         {
+            confirm conf = new confirm();
+            conf.lblConfirm.Text = "Are you sure you want to delete them? There's no chance to get them again.";
             if (multi)
             {
-                foreach (DataGridViewRow r in donationMoney.SelectedRows) MessageBox.Show("Index " + r.Index.ToString());
+                if (conf.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow r in donationMoney.SelectedRows)
+                    {
+                        int row = donationMoney.CurrentCell.RowIndex;
+                        delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));
+                        loadMonetary(current_donorID);
+                    }
+                }
             }
-
-            int row = donationMoney.CurrentCell.RowIndex;
-
-            confirm conf = new confirm();
-            conf.lblConfirm.Text = "Are you sure you want to delete this?";
-
-            if (conf.ShowDialog() == DialogResult.OK)
+            else
             {
-                MessageBox.Show(donationMoney.Rows[row].Cells[0].Value.ToString() + " ID");
-                delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));      // LMAO
-                loadMonetary(current_donorID);
+                int row = donationMoney.CurrentCell.RowIndex;
+
+                if (conf.ShowDialog() == DialogResult.OK)
+                {
+                    delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));
+                    loadMonetary(current_donorID);
+                }
             }
         }
         #endregion
@@ -892,10 +909,6 @@ namespace BalayPasilungan
             tabInnerDonors.SelectedIndex = 1;
         }
 
-        private void btnBackDonorList_Click(object sender, EventArgs e)
-        {
-            tabInnerDonors.SelectedIndex = 0;
-            loadDonorList();
-        }
+        
     }
 }
