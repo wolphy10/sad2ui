@@ -267,7 +267,7 @@ namespace BalayPasilungan
 
                     txtlname.Text = dt.Rows[0]["lastname"].ToString();
                     txtfname.Text = dt.Rows[0]["firstname"].ToString();
-                    txtaddress.Text = dt.Rows[0]["address"].ToString();
+                    txtcaseaddress.Text = dt.Rows[0]["address"].ToString();
                     txtage.Text = dt.Rows[0]["caseAge"].ToString();
                     cbxprogram.Text = dt.Rows[0]["program"].ToString();
                     cbxstatus.Text = dt.Rows[0]["status"].ToString();
@@ -296,7 +296,7 @@ namespace BalayPasilungan
 
         public void addprofile()
         {
-            string lname = txtlname.Text, fname = txtfname.Text, status = cbxstatus.Text, program = cbxprogram.Text, address = txtaddress.Text;
+            string lname = txtlname.Text, fname = txtfname.Text, status = cbxstatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
 
             if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(txtage.Text) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status))
@@ -350,7 +350,7 @@ namespace BalayPasilungan
 
         public void editprofile()
         {
-            string lname = txtlname.Text, fname = txtfname.Text, status = cbxstatus.Text, program = cbxprogram.Text, address = txtaddress.Text;
+            string lname = txtlname.Text, fname = txtfname.Text, status = cbxstatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
 
 
@@ -411,41 +411,6 @@ namespace BalayPasilungan
                 }
 
             }
-        }
-
-        public void reloadedithealth(int id)
-        {
-            try
-            {
-                conn.Open();
-
-                MySqlCommand comm = new MySqlCommand("SELECT height, weight, bloodtype, allergies, hecondition FROM health WHERE caseid = " + id, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                DataTable dt = new DataTable();
-
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-
-                    lblvheight.Text = dt.Rows[0]["height"].ToString();
-                    lblvweight.Text = dt.Rows[0]["weight"].ToString();
-                    lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
-                    rviewall.Text = dt.Rows[0]["allergies"].ToString();
-                    rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
-
-                }
-
-                conn.Close();
-            }
-
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.ToString());
-                conn.Close();
-            }
-
-
         }
 
         public void addhealth()
@@ -596,6 +561,343 @@ namespace BalayPasilungan
 
         #endregion
 
+        #region reloadfunctions
+
+        public void reloadedithealth(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT height, weight, bloodtype, allergies, hecondition FROM health WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    lblvheight.Text = dt.Rows[0]["height"].ToString();
+                    lblvweight.Text = dt.Rows[0]["weight"].ToString();
+                    lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
+                    rviewall.Text = dt.Rows[0]["allergies"].ToString();
+                    rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
+
+                }
+
+                conn.Close();
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+                conn.Close();
+            }
+
+
+        }
+
+        public void reload(int id)
+        {
+            //for (int m = 0; m <= dtgcs.ColumnCount - 1; m++)
+            //dtgcs.Columns[m].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    lblcasename.Text = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString();
+                    lblcaseaddress.Text = dt.Rows[0]["address"].ToString();
+                    lblcaseage.Text = dt.Rows[0]["caseAge"].ToString() + " years old";
+                    lblcaseprogram.Text = dt.Rows[0]["program"].ToString();
+                    lblcasestatus.Text = dt.Rows[0]["status"].ToString();
+
+                    lbldate.Text = Convert.ToDateTime(dt.Rows[0]["birthdate"]).ToString("MMMM dd, yyyy");
+                    lbljoined.Text = Convert.ToDateTime(dt.Rows[0]["datejoined"]).ToString("MMMM dd, yyyy");
+
+
+                    pbox2.ImageLocation = dt.Rows[0]["picture"].ToString();
+
+                }
+
+                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn);
+                adp = new MySqlDataAdapter(comm);
+                dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    lbledlvl.Text = dt.Rows[0]["level"].ToString();
+                    lbledtype.Text = dt.Rows[0]["edutype"].ToString();
+                    lbledschool.Text = dt.Rows[0]["school"].ToString();
+
+                }
+
+                conn.Close();
+            }
+
+
+
+
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
+        public void reloadcon(int id)
+        {
+            //MessageBox.Show(id.ToString());
+
+            //for (int m = 0; m <= dtgcon.ColumnCount - 1; m++)
+            //  dtgcon.Columns[m].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT cid, interviewdate, interviewer FROM consultation WHERE caseid = " + id + " ORDER BY interviewdate", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("There are no current consultation records for this case study.");
+                }
+
+                else
+
+                {
+                    dtgcon.DataSource = dt;
+
+                }
+
+
+                dtgcon.Columns[0].Visible = false;
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+
+                //MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
+        public void reloadincid(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT incidid, type, incdate FROM incident WHERE caseid = " + id + " ORDER BY incdate", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("There are no current incident records for this case study.");
+                }
+
+                else
+
+                {
+                    dtincid.DataSource = dt;
+
+                }
+
+
+                dtincid.Columns[0].Visible = false;
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+
+                //MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
+        public void reloadhealth(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT checkid, checkupdate, checkuplocation FROM checkup JOIN health ON health.hid = checkup.hid WHERE health.caseid = " + id + " ORDER BY checkupdate", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("There are no current incident records for this case study.");
+                }
+
+                else
+
+                {
+                    dtghealth.DataSource = dt;
+                    dtghealth.Columns[0].Visible = false;
+                    //dtincid.Columns[1].Visible = false;
+
+                    //hid = int.Parse(dt.Rows[0]["health.hid"].ToString());
+                    //MessageBox.Show(hid.ToString());
+                }
+
+
+
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
+        public void reloadfam(int id)
+        {
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT familyid, famtype FROM family WHERE caseid = " + id, conn);
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    famid = int.Parse(dt.Rows[0]["familyid"].ToString());
+
+                    lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();
+                    MessageBox.Show(famid.ToString());
+                    reloadmem(famid);
+
+                }
+
+                else
+                {
+                    MessageBox.Show("There are no current family records for this case study.");
+                }
+
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString() + "reloadfam");
+
+                conn.Close();
+            }
+
+        }
+
+
+        public void reloadmem(int famid)
+        {
+            try
+            {
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
+
+                adpmem = new MySqlDataAdapter(comm);
+                tblfam = new DataTable();
+
+                adpmem.Fill(tblfam);
+
+
+
+                if (tblfam.Rows.Count > 0)
+                {
+                    dtfamOverview.DataSource = tblfam;
+                    dtfamOverview.Columns[0].Visible = false;
+
+
+                    DataGridViewCheckBoxColumn dc = new DataGridViewCheckBoxColumn();
+
+                    dc.Name = "check";
+                    dc.Visible = true;
+                    dc.TrueValue = true;
+                    dc.FalseValue = false;
+
+
+
+                    if (dtfamOverview.Columns["check"] == null)
+                    {
+                        dtfamOverview.Columns.Add(dc);
+
+                        dtfamOverview.Columns["check"].DisplayIndex = dtfamOverview.ColumnCount - 1;
+                    }
+
+                    foreach (DataGridViewColumn ds in dtfamOverview.Columns)
+                    {
+                        if (ds.Index.Equals(8))
+                        {
+                            ds.ReadOnly = false;
+                        }
+                        else
+                        {
+                            ds.ReadOnly = true;
+                        }
+                    }
+
+
+                }
+
+                else
+                {
+                    MessageBox.Show("There are no current member records for this case study.");
+                }
+            }
+
+            catch (Exception ee)
+            {
+                //MessageBox.Show("There are no current member records for this case study.");
+                MessageBox.Show(ee.ToString());
+
+            }
+        }
+
+        #endregion
+
         #region cellclicks
         private void dtgcs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -630,7 +932,7 @@ namespace BalayPasilungan
             txtlname.Clear();
             txtfname.Clear();
             txtage.Clear();
-            txtaddress.Clear();
+            txtcaseaddress.Clear();
 
             cbxprogram.SelectedIndex = -1;
             cbxstatus.SelectedIndex = -1;
@@ -648,7 +950,7 @@ namespace BalayPasilungan
                 tabControl.SelectedTab = sixteen;
             }
 
-            resetColor();
+            
         }
 
         public void reset2()
@@ -716,6 +1018,146 @@ namespace BalayPasilungan
             cbxmemdependency.SelectedIndex = -1;
 
             dtpmembirth.Value = DateTime.Now.Date;
+        }
+
+        #endregion
+
+        #region existsfunctions
+
+        public void existsed(int id)
+        {
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT caseid FROM education WHERE caseid = " + id, conn);
+
+                int UserExist = (int)comm.ExecuteScalar();
+
+                btned.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+
+
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+                btned.Text = "Add Info";
+
+                lbledlvl.Text = "";
+                lbledtype.Text = "";
+                lbledschool.Text = "";
+
+                conn.Close();
+            }
+
+
+        }
+
+        public void existsinvolve(int incidid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT involveid FROM involvement WHERE caseid = " + id, conn);
+
+
+
+                int UserExist = (int)comm.ExecuteScalar();
+
+                btnaddinvolve.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+                btnaddinvolve.Text = "Add Info";
+
+                conn.Close();
+            }
+
+        }
+
+        public void existsfam(int id)
+        {
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT caseid FROM family WHERE caseid = " + id, conn);
+
+                int UserExist = (int)comm.ExecuteScalar();
+
+                btned.Text = (UserExist > 0) ? "Edit Info" : "Add Info"; //put add info on catch
+
+                comm = new MySqlCommand("SELECT familyid FROM family WHERE caseid = " + id, conn);
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                famid = int.Parse(dt.Rows[0]["familyid"].ToString());
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+                btned.Text = "Add Info";
+
+                lblfamilytype.Text = "";
+
+                conn.Close();
+            }
+
+
+        }
+
+        public void existshealth(int id)
+        {
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT caseid FROM health WHERE caseid = " + id, conn);
+
+                int UserExist = (int)comm.ExecuteScalar();
+
+                btnhealth.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+
+
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+                btnhealth.Text = "Add Info";
+
+                lblblood.Text = "";
+                lblheight.Text = "";
+                lblweight.Text = "";
+
+                conn.Close();
+            }
+
+
         }
 
         #endregion
@@ -1116,6 +1558,116 @@ namespace BalayPasilungan
         #endregion
 
         #endregion
+
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            tabSelection.SelectedTab = tabInfo;
+        }
+
+        private void btnaddeditcase_Click(object sender, EventArgs e)
+        {
+            if (btnaddeditcase.Text == "Add Profile")
+            {
+                addprofile();
+            }
+
+            else
+            {
+
+                editprofile();
+            }
+
+        }
+
+        #region back buttons
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        private void btnbackcasestud_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = first;
+        }
+
+
+        #endregion
+
+        #region into buttons
+
+        private void btnhealth_Click(object sender, EventArgs e)
+        {
+            if (btnhealth.Text == "Add Info")
+            {
+                tabControl.SelectedTab = eleventh;
+
+                btnaddhealth.Text = "Add Info";
+            }
+
+            else
+            {
+                tabControl.SelectedTab = seventeen;
+                reloadedithealth(id);
+            }
+        }
+
+        private void btned_Click(object sender, EventArgs e)
+        {
+            lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
+
+            if (btned.Text == "Add Info")
+            {
+                tabControl.SelectedTab = seventh;
+            }
+
+            else
+            {
+                tabControl.SelectedTab = eighth;
+
+                try
+                {
+                    conn.Open();
+
+                    string[] data = lblnamedrpt.Text.Split(' ');
+
+                    MySqlCommand comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                    DataTable dt = new DataTable();
+
+                    adp.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+
+                        lblschool.Text = dt.Rows[0]["school"].ToString();
+                        lbledtypeview.Text = dt.Rows[0]["edutype"].ToString();
+                        lbllevel.Text = dt.Rows[0]["level"].ToString();
+
+                        lbledlvl.Text = dt.Rows[0]["level"].ToString();
+                        lbledtype.Text = dt.Rows[0]["edutype"].ToString();
+                        lbledschool.Text = dt.Rows[0]["school"].ToString();
+
+                    }
+
+                    conn.Close();
+                }
+
+
+
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+
+        #endregion
+
+
+
 
         private void newprofilepic_Click(object sender, EventArgs e)
         {
