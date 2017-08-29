@@ -16,7 +16,7 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public String[] aMonths = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-        public bool remindState = false, budgetState = false;
+        public bool remindState = false, budgetState = false, allDayState = false, timeRngState = false;
 
         public eventorg()
         {
@@ -333,9 +333,20 @@ namespace BalayPasilungan
 
         private void btnNext2_Click(object sender, EventArgs e)
         {
-            tabERForm.SelectedIndex = 2;
-            oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
-            tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");           
+            error err = new error();
+            if (cbEMonth.Text == "" || cbEDay.Text == "" || cbEYear.Text == "" ||
+            cbEMonth2.Text == "" || cbEDay2.Text == "" || cbEYear2.Text == "")
+            {
+                err.refToERF = this;
+                err.lblError.Text = "You have skipped a blank! Please answer everything.";
+                err.ShowDialog();
+            }
+            else
+            {
+                tabERForm.SelectedIndex = 2;
+                oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
+                tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -356,8 +367,8 @@ namespace BalayPasilungan
         {
             error err = new error();
             if(txtEventDes.Text.Equals("Describe the event.") ||
-                txtEventName.Text.Equals("What is the name of the event?") ||
-                txtVenue.Text.Equals("Where will it be held?"))
+            txtEventName.Text.Equals("What is the name of the event?") ||
+            txtVenue.Text.Equals("Where will it be held?"))
             {
                 err.refToERF = this;
                 err.lblError.Text = "You have skipped a blank! Please answer everything.";
@@ -368,6 +379,7 @@ namespace BalayPasilungan
                 tabERForm.SelectedIndex = 3;
                 confirmTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
+
             }
         }
         
@@ -451,7 +463,7 @@ namespace BalayPasilungan
             private void txtRequestBy_Leave(object sender, EventArgs e)
             {
                 resetLabelsPanels(); resetCounters();
-        }
+            }
         
             private void txtEventName_Leave(object sender, EventArgs e) //BOOK2
             {
@@ -524,8 +536,12 @@ namespace BalayPasilungan
             btnAllDay.BackColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");            
             btnAllDay.FlatAppearance.BorderColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");
             cbEMonth.Enabled = true; cbEDay.Enabled = true; cbEYear.Enabled = true;
-            cbEMonth2.Visible = false; cbEDay2.Visible = false; cbEYear2.Visible = false;
-            panelEHours2.Visible = false; panelEMins2.Visible = false; lblColon2.Visible = false; btnAM2.Visible = false; btnPM2.Visible = false;
+            cbEMonth2.Enabled = true; cbEDay2.Enabled = true; cbEYear2.Enabled = true;
+            //cbEMonth2.Visible = false; cbEDay2.Visible = false; cbEYear2.Visible = false;
+            lbAllDay.Visible = true; btnRAllDay.Visible = true;
+            lbBlock.Visible = false; lbStraight.Visible = false;
+            btnTmRng.Visible = false;
+            //panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true; btnAM2.Visible = true; btnPM2.Visible = true;
         }
 
         private void btnMulDay_Click(object sender, EventArgs e)
@@ -535,8 +551,12 @@ namespace BalayPasilungan
             btnMulDay.BackColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");
             btnMulDay.FlatAppearance.BorderColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");
             cbEMonth.Enabled = true; cbEDay.Enabled = true; cbEYear.Enabled = true;
-            cbEMonth2.Visible = true; cbEDay2.Visible = true; cbEYear2.Visible = true;
-            panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true;  btnAM2.Visible = true; btnPM2.Visible = true;
+            cbEMonth2.Enabled = true; cbEDay2.Enabled = true; cbEYear2.Enabled = true;
+            //cbEMonth2.Visible = true; cbEDay2.Visible = true; cbEYear2.Visible = true;
+            lbAllDay.Visible = false; btnRAllDay.Visible = false;
+            lbBlock.Visible = true; lbStraight.Visible = true;
+            btnTmRng.Visible = true;
+            //panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true;  btnAM2.Visible = true; btnPM2.Visible = true;
         }
 
         #endregion
@@ -588,8 +608,45 @@ namespace BalayPasilungan
             }
         }
 
+        private void bntRAllDay_Click(object sender, EventArgs e)
+        {
+            if (!allDayState)
+            {
+                lbAllDay.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+                btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
+                allDayState = true;
+                txtEHours.Text = "12"; txtEHours2.Text = "12";
+                btnAM.PerformClick(); btnAM2.PerformClick();
+            }
+            else
+            {
+                lbAllDay.ForeColor = Color.FromArgb(42, 42, 42);
+                btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
+                allDayState = false;
+                txtEHours.Text = "00"; txtEHours2.Text = "00";
+                btnAM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+                btnAM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
 
+            }
+        }
 
+        private void btnTmRng_Click(object sender, EventArgs e)
+        {
+            if (!timeRngState)
+            {
+                lbBlock.ForeColor = Color.FromArgb(42, 42, 42);
+                lbStraight.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+                btnTmRng.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
+                timeRngState = true;
+            }
+            else
+            {
+                lbBlock.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+                lbStraight.ForeColor = Color.FromArgb(42, 42, 42);
+                btnTmRng.BackgroundImage = global::BalayPasilungan.Properties.Resources.on2;
+                timeRngState = false;
+            }
+        }
         #endregion
 
         #region Event Request Time and Date Data Validation
@@ -818,7 +875,7 @@ namespace BalayPasilungan
             }
         }
 
-        private void txtEMins2_TextChanged(object sender, EventArgs e)
+        private void txtEMins2_Leave(object sender, EventArgs e)
         {
             error err = new error();
             err.refToERF = this;
@@ -834,7 +891,6 @@ namespace BalayPasilungan
                 if (int.Parse(txtEMins2.Text) < 10 && txtEMins2.TextLength < 2) txtEMins2.Text = "0" + txtEMins2.Text;
             }
         }
-        
         private void cbEDay2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbEDay2.SelectedItem == null) cbEDay2.SelectedIndex = cbEDay.SelectedIndex;            
@@ -872,6 +928,13 @@ namespace BalayPasilungan
             //tabSecond.SelectedTab = tabCalendar;
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
             displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
+            //For Event Request onload dateFrom == to date now
+            cbEMonth.Text = aMonths[DateTime.Now.Month - 1];
+            cbEMonth2.Text = aMonths[DateTime.Now.Month - 1];
+            cbEDay.Text = DateTime.Now.Day.ToString("00");
+            cbEDay2.Text = DateTime.Now.Day.ToString("00");
+            cbEYear.Text = DateTime.Now.Year.ToString();
+            cbEYear2.Text = DateTime.Now.Year.ToString();
         }
         #region Custom Month and Year
         private void btnMNow_Click(object sender, EventArgs e)
@@ -1094,10 +1157,7 @@ namespace BalayPasilungan
             CalendarView.DataSource = dt;
             
             foreach (DataGridViewColumn ya in CalendarView.Columns)
-            {
-                ya.HeaderCell.Style.ForeColor = Color.Red; 
-                    //Color.FromArgb(45, 45, 45);
-                
+            {   
                 ya.SortMode = DataGridViewColumnSortMode.NotSortable;
                 ya.Width = 132;
             }
@@ -1347,6 +1407,9 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
+
+        
+
         public void updateEventProgress(string p, string id)
         {
             try
@@ -1365,6 +1428,7 @@ namespace BalayPasilungan
             }
         }
         #endregion
+
 
         private void confirmTab_Enter(object sender, EventArgs e)
         {
