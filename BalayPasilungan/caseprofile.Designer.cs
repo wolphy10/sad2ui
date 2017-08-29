@@ -355,8 +355,6 @@
             this.rtxtcondition = new System.Windows.Forms.RichTextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.rtxtall = new System.Windows.Forms.RichTextBox();
-            this.btnaddhealth = new System.Windows.Forms.Button();
-            this.btncancelhealth = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbxbloodtype = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -392,8 +390,6 @@
             this.panel42 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
             this.fifteen = new System.Windows.Forms.TabPage();
-            this.btngotohealth = new System.Windows.Forms.Button();
-            this.btnbackfromhealth = new System.Windows.Forms.Button();
             this.dtghealth = new System.Windows.Forms.DataGridView();
             this.panel43 = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
@@ -462,9 +458,6 @@
             this.lblvheight = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
-            this.btngotocheckup = new System.Windows.Forms.Button();
-            this.btnedithealth = new System.Windows.Forms.Button();
-            this.btnbackfromhealthview = new System.Windows.Forms.Button();
             this.panel44 = new System.Windows.Forms.Panel();
             this.lblviewhealthname = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
@@ -476,15 +469,12 @@
             this.label89 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.rcheckdetails = new System.Windows.Forms.RichTextBox();
-            this.btnaddcheckuprec = new System.Windows.Forms.Button();
-            this.btnbackfromcheck = new System.Windows.Forms.Button();
             this.panel45 = new System.Windows.Forms.Panel();
             this.lblnamecheck = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
             this.nineteen = new System.Windows.Forms.TabPage();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.rvcheckdetails = new System.Windows.Forms.RichTextBox();
-            this.bttnbackfromcheckrec = new System.Windows.Forms.Button();
             this.panel46 = new System.Windows.Forms.Panel();
             this.lbllocationcheck = new System.Windows.Forms.Label();
             this.lblcheckdate = new System.Windows.Forms.Label();
@@ -509,13 +499,23 @@
             this.label116 = new System.Windows.Forms.Label();
             this.btncancel = new BalayPasilungan.NoFocusRec();
             this.btnaddeditcase = new BalayPasilungan.NoFocusRec();
+            this.btnbackcasestud = new BalayPasilungan.NoFocusRec();
+            this.btneditprofile = new BalayPasilungan.NoFocusRec();
+            this.btnincidview = new BalayPasilungan.NoFocusRec();
+            this.btnfover = new BalayPasilungan.NoFocusRec();
             this.btncon = new BalayPasilungan.NoFocusRec();
             this.btned = new BalayPasilungan.NoFocusRec();
-            this.btnfover = new BalayPasilungan.NoFocusRec();
-            this.btnincidview = new BalayPasilungan.NoFocusRec();
-            this.btneditprofile = new BalayPasilungan.NoFocusRec();
-            this.btnbackcasestud = new BalayPasilungan.NoFocusRec();
             this.btnhealth = new BalayPasilungan.NoFocusRec();
+            this.btncancelhealth = new BalayPasilungan.NoFocusRec();
+            this.btnaddhealth = new BalayPasilungan.NoFocusRec();
+            this.btnbackfromhealthview = new BalayPasilungan.NoFocusRec();
+            this.btnedithealth = new BalayPasilungan.NoFocusRec();
+            this.btngotocheckup = new BalayPasilungan.NoFocusRec();
+            this.btnbackfromhealth = new BalayPasilungan.NoFocusRec();
+            this.btngotohealth = new BalayPasilungan.NoFocusRec();
+            this.btnbackfromcheck = new BalayPasilungan.NoFocusRec();
+            this.btnaddcheckuprec = new BalayPasilungan.NoFocusRec();
+            this.bttnbackfromcheckrec = new BalayPasilungan.NoFocusRec();
             this.upPanel.SuspendLayout();
             this.tabSelection.SuspendLayout();
             this.tabInfo.SuspendLayout();
@@ -2853,6 +2853,7 @@
             this.pbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox1.TabIndex = 38;
             this.pbox1.TabStop = false;
+            this.pbox1.Click += new System.EventHandler(this.pbox1_Click);
             // 
             // txtcaseaddress
             // 
@@ -4642,10 +4643,10 @@
             // 
             // eleventh
             // 
+            this.eleventh.Controls.Add(this.btncancelhealth);
+            this.eleventh.Controls.Add(this.btnaddhealth);
             this.eleventh.Controls.Add(this.groupBox10);
             this.eleventh.Controls.Add(this.groupBox9);
-            this.eleventh.Controls.Add(this.btnaddhealth);
-            this.eleventh.Controls.Add(this.btncancelhealth);
             this.eleventh.Controls.Add(this.groupBox3);
             this.eleventh.Controls.Add(this.groupBox4);
             this.eleventh.Controls.Add(this.panel39);
@@ -4694,34 +4695,6 @@
             this.rtxtall.Size = new System.Drawing.Size(260, 227);
             this.rtxtall.TabIndex = 89;
             this.rtxtall.Text = "";
-            // 
-            // btnaddhealth
-            // 
-            this.btnaddhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnaddhealth.FlatAppearance.BorderSize = 0;
-            this.btnaddhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddhealth.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddhealth.ForeColor = System.Drawing.Color.White;
-            this.btnaddhealth.Location = new System.Drawing.Point(6, 502);
-            this.btnaddhealth.Name = "btnaddhealth";
-            this.btnaddhealth.Size = new System.Drawing.Size(196, 28);
-            this.btnaddhealth.TabIndex = 88;
-            this.btnaddhealth.Text = "Add Info";
-            this.btnaddhealth.UseVisualStyleBackColor = false;
-            // 
-            // btncancelhealth
-            // 
-            this.btncancelhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btncancelhealth.FlatAppearance.BorderSize = 0;
-            this.btncancelhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelhealth.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelhealth.ForeColor = System.Drawing.Color.White;
-            this.btncancelhealth.Location = new System.Drawing.Point(400, 502);
-            this.btncancelhealth.Name = "btncancelhealth";
-            this.btncancelhealth.Size = new System.Drawing.Size(196, 28);
-            this.btncancelhealth.TabIndex = 87;
-            this.btncancelhealth.Text = "Cancel";
-            this.btncancelhealth.UseVisualStyleBackColor = false;
             // 
             // groupBox3
             // 
@@ -5126,8 +5099,8 @@
             // 
             // fifteen
             // 
-            this.fifteen.Controls.Add(this.btngotohealth);
             this.fifteen.Controls.Add(this.btnbackfromhealth);
+            this.fifteen.Controls.Add(this.btngotohealth);
             this.fifteen.Controls.Add(this.dtghealth);
             this.fifteen.Controls.Add(this.panel43);
             this.fifteen.Location = new System.Drawing.Point(4, 22);
@@ -5137,34 +5110,6 @@
             this.fifteen.TabIndex = 15;
             this.fifteen.Text = "15";
             this.fifteen.UseVisualStyleBackColor = true;
-            // 
-            // btngotohealth
-            // 
-            this.btngotohealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btngotohealth.FlatAppearance.BorderSize = 0;
-            this.btngotohealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btngotohealth.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btngotohealth.ForeColor = System.Drawing.Color.White;
-            this.btngotohealth.Location = new System.Drawing.Point(16, 487);
-            this.btngotohealth.Name = "btngotohealth";
-            this.btngotohealth.Size = new System.Drawing.Size(196, 28);
-            this.btngotohealth.TabIndex = 85;
-            this.btngotohealth.Text = "Add New Record";
-            this.btngotohealth.UseVisualStyleBackColor = false;
-            // 
-            // btnbackfromhealth
-            // 
-            this.btnbackfromhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnbackfromhealth.FlatAppearance.BorderSize = 0;
-            this.btnbackfromhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfromhealth.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackfromhealth.ForeColor = System.Drawing.Color.White;
-            this.btnbackfromhealth.Location = new System.Drawing.Point(341, 487);
-            this.btnbackfromhealth.Name = "btnbackfromhealth";
-            this.btnbackfromhealth.Size = new System.Drawing.Size(196, 28);
-            this.btnbackfromhealth.TabIndex = 84;
-            this.btnbackfromhealth.Text = "Back";
-            this.btnbackfromhealth.UseVisualStyleBackColor = false;
             // 
             // dtghealth
             // 
@@ -5180,6 +5125,7 @@
             this.dtghealth.RowHeadersVisible = false;
             this.dtghealth.Size = new System.Drawing.Size(521, 352);
             this.dtghealth.TabIndex = 83;
+            this.dtghealth.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtghealth_CellClick);
             // 
             // panel43
             // 
@@ -5854,13 +5800,13 @@
             // 
             // seventeen
             // 
+            this.seventeen.Controls.Add(this.btngotocheckup);
+            this.seventeen.Controls.Add(this.btnbackfromhealthview);
+            this.seventeen.Controls.Add(this.btnedithealth);
             this.seventeen.Controls.Add(this.groupBox12);
             this.seventeen.Controls.Add(this.groupBox13);
             this.seventeen.Controls.Add(this.groupBox14);
             this.seventeen.Controls.Add(this.groupBox15);
-            this.seventeen.Controls.Add(this.btngotocheckup);
-            this.seventeen.Controls.Add(this.btnedithealth);
-            this.seventeen.Controls.Add(this.btnbackfromhealthview);
             this.seventeen.Controls.Add(this.panel44);
             this.seventeen.Location = new System.Drawing.Point(4, 22);
             this.seventeen.Name = "seventeen";
@@ -5993,48 +5939,6 @@
             this.label82.TabIndex = 73;
             this.label82.Text = "Weight";
             // 
-            // btngotocheckup
-            // 
-            this.btngotocheckup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btngotocheckup.FlatAppearance.BorderSize = 0;
-            this.btngotocheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btngotocheckup.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btngotocheckup.ForeColor = System.Drawing.Color.White;
-            this.btngotocheckup.Location = new System.Drawing.Point(208, 502);
-            this.btngotocheckup.Name = "btngotocheckup";
-            this.btngotocheckup.Size = new System.Drawing.Size(187, 28);
-            this.btngotocheckup.TabIndex = 92;
-            this.btngotocheckup.Text = "View Checkup Records";
-            this.btngotocheckup.UseVisualStyleBackColor = false;
-            // 
-            // btnedithealth
-            // 
-            this.btnedithealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnedithealth.FlatAppearance.BorderSize = 0;
-            this.btnedithealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnedithealth.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnedithealth.ForeColor = System.Drawing.Color.White;
-            this.btnedithealth.Location = new System.Drawing.Point(6, 502);
-            this.btnedithealth.Name = "btnedithealth";
-            this.btnedithealth.Size = new System.Drawing.Size(196, 28);
-            this.btnedithealth.TabIndex = 91;
-            this.btnedithealth.Text = "Edit Info";
-            this.btnedithealth.UseVisualStyleBackColor = false;
-            // 
-            // btnbackfromhealthview
-            // 
-            this.btnbackfromhealthview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnbackfromhealthview.FlatAppearance.BorderSize = 0;
-            this.btnbackfromhealthview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfromhealthview.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackfromhealthview.ForeColor = System.Drawing.Color.White;
-            this.btnbackfromhealthview.Location = new System.Drawing.Point(407, 502);
-            this.btnbackfromhealthview.Name = "btnbackfromhealthview";
-            this.btnbackfromhealthview.Size = new System.Drawing.Size(196, 28);
-            this.btnbackfromhealthview.TabIndex = 90;
-            this.btnbackfromhealthview.Text = "Back";
-            this.btnbackfromhealthview.UseVisualStyleBackColor = false;
-            // 
             // panel44
             // 
             this.panel44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
@@ -6070,10 +5974,10 @@
             // 
             // eighteen
             // 
+            this.eighteen.Controls.Add(this.btnbackfromcheck);
+            this.eighteen.Controls.Add(this.btnaddcheckuprec);
             this.eighteen.Controls.Add(this.groupBox17);
             this.eighteen.Controls.Add(this.groupBox11);
-            this.eighteen.Controls.Add(this.btnaddcheckuprec);
-            this.eighteen.Controls.Add(this.btnbackfromcheck);
             this.eighteen.Controls.Add(this.panel45);
             this.eighteen.Location = new System.Drawing.Point(4, 22);
             this.eighteen.Name = "eighteen";
@@ -6153,34 +6057,6 @@
             this.rcheckdetails.TabIndex = 89;
             this.rcheckdetails.Text = "";
             // 
-            // btnaddcheckuprec
-            // 
-            this.btnaddcheckuprec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnaddcheckuprec.FlatAppearance.BorderSize = 0;
-            this.btnaddcheckuprec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddcheckuprec.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddcheckuprec.ForeColor = System.Drawing.Color.White;
-            this.btnaddcheckuprec.Location = new System.Drawing.Point(6, 502);
-            this.btnaddcheckuprec.Name = "btnaddcheckuprec";
-            this.btnaddcheckuprec.Size = new System.Drawing.Size(196, 28);
-            this.btnaddcheckuprec.TabIndex = 95;
-            this.btnaddcheckuprec.Text = "Add Info";
-            this.btnaddcheckuprec.UseVisualStyleBackColor = false;
-            // 
-            // btnbackfromcheck
-            // 
-            this.btnbackfromcheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btnbackfromcheck.FlatAppearance.BorderSize = 0;
-            this.btnbackfromcheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfromcheck.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackfromcheck.ForeColor = System.Drawing.Color.White;
-            this.btnbackfromcheck.Location = new System.Drawing.Point(407, 502);
-            this.btnbackfromcheck.Name = "btnbackfromcheck";
-            this.btnbackfromcheck.Size = new System.Drawing.Size(196, 28);
-            this.btnbackfromcheck.TabIndex = 94;
-            this.btnbackfromcheck.Text = "Cancel";
-            this.btnbackfromcheck.UseVisualStyleBackColor = false;
-            // 
             // panel45
             // 
             this.panel45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(132)))), ((int)(((byte)(132)))));
@@ -6216,8 +6092,8 @@
             // 
             // nineteen
             // 
-            this.nineteen.Controls.Add(this.groupBox18);
             this.nineteen.Controls.Add(this.bttnbackfromcheckrec);
+            this.nineteen.Controls.Add(this.groupBox18);
             this.nineteen.Controls.Add(this.panel46);
             this.nineteen.Location = new System.Drawing.Point(4, 22);
             this.nineteen.Name = "nineteen";
@@ -6246,20 +6122,6 @@
             this.rvcheckdetails.Size = new System.Drawing.Size(579, 335);
             this.rvcheckdetails.TabIndex = 89;
             this.rvcheckdetails.Text = "";
-            // 
-            // bttnbackfromcheckrec
-            // 
-            this.bttnbackfromcheckrec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.bttnbackfromcheckrec.FlatAppearance.BorderSize = 0;
-            this.bttnbackfromcheckrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnbackfromcheckrec.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnbackfromcheckrec.ForeColor = System.Drawing.Color.White;
-            this.bttnbackfromcheckrec.Location = new System.Drawing.Point(408, 503);
-            this.bttnbackfromcheckrec.Name = "bttnbackfromcheckrec";
-            this.bttnbackfromcheckrec.Size = new System.Drawing.Size(196, 28);
-            this.bttnbackfromcheckrec.TabIndex = 100;
-            this.bttnbackfromcheckrec.Text = "Back";
-            this.bttnbackfromcheckrec.UseVisualStyleBackColor = false;
             // 
             // panel46
             // 
@@ -6544,6 +6406,62 @@
             this.btnaddeditcase.UseVisualStyleBackColor = false;
             this.btnaddeditcase.Click += new System.EventHandler(this.btnaddeditcase_Click);
             // 
+            // btnbackcasestud
+            // 
+            this.btnbackcasestud.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackcasestud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackcasestud.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackcasestud.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackcasestud.Location = new System.Drawing.Point(327, 488);
+            this.btnbackcasestud.Name = "btnbackcasestud";
+            this.btnbackcasestud.Size = new System.Drawing.Size(196, 28);
+            this.btnbackcasestud.TabIndex = 86;
+            this.btnbackcasestud.Text = "Back";
+            this.btnbackcasestud.UseVisualStyleBackColor = false;
+            this.btnbackcasestud.Click += new System.EventHandler(this.btnbackcasestud_Click);
+            // 
+            // btneditprofile
+            // 
+            this.btneditprofile.BackColor = System.Drawing.Color.DimGray;
+            this.btneditprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneditprofile.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneditprofile.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btneditprofile.Location = new System.Drawing.Point(13, 488);
+            this.btneditprofile.Name = "btneditprofile";
+            this.btneditprofile.Size = new System.Drawing.Size(196, 28);
+            this.btneditprofile.TabIndex = 85;
+            this.btneditprofile.Text = "Edit Basic Info";
+            this.btneditprofile.UseVisualStyleBackColor = false;
+            this.btneditprofile.Click += new System.EventHandler(this.btneditprofile_Click);
+            // 
+            // btnincidview
+            // 
+            this.btnincidview.BackColor = System.Drawing.Color.DimGray;
+            this.btnincidview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnincidview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnincidview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnincidview.Location = new System.Drawing.Point(46, 39);
+            this.btnincidview.Name = "btnincidview";
+            this.btnincidview.Size = new System.Drawing.Size(196, 28);
+            this.btnincidview.TabIndex = 84;
+            this.btnincidview.Text = "incident records";
+            this.btnincidview.UseVisualStyleBackColor = false;
+            this.btnincidview.Click += new System.EventHandler(this.btnincidview_Click);
+            // 
+            // btnfover
+            // 
+            this.btnfover.BackColor = System.Drawing.Color.DimGray;
+            this.btnfover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfover.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfover.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnfover.Location = new System.Drawing.Point(6, 42);
+            this.btnfover.Name = "btnfover";
+            this.btnfover.Size = new System.Drawing.Size(196, 28);
+            this.btnfover.TabIndex = 83;
+            this.btnfover.Text = "Family Overview";
+            this.btnfover.UseVisualStyleBackColor = false;
+            this.btnfover.Click += new System.EventHandler(this.btnfover_Click);
+            // 
             // btncon
             // 
             this.btncon.BackColor = System.Drawing.Color.DimGray;
@@ -6556,6 +6474,7 @@
             this.btncon.TabIndex = 81;
             this.btncon.Text = "records";
             this.btncon.UseVisualStyleBackColor = false;
+            this.btncon.Click += new System.EventHandler(this.btncon_Click);
             // 
             // btned
             // 
@@ -6571,59 +6490,6 @@
             this.btned.UseVisualStyleBackColor = false;
             this.btned.Click += new System.EventHandler(this.btned_Click);
             // 
-            // btnfover
-            // 
-            this.btnfover.BackColor = System.Drawing.Color.DimGray;
-            this.btnfover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfover.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnfover.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnfover.Location = new System.Drawing.Point(6, 42);
-            this.btnfover.Name = "btnfover";
-            this.btnfover.Size = new System.Drawing.Size(196, 28);
-            this.btnfover.TabIndex = 83;
-            this.btnfover.Text = "Family Overview";
-            this.btnfover.UseVisualStyleBackColor = false;
-            // 
-            // btnincidview
-            // 
-            this.btnincidview.BackColor = System.Drawing.Color.DimGray;
-            this.btnincidview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnincidview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnincidview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnincidview.Location = new System.Drawing.Point(46, 39);
-            this.btnincidview.Name = "btnincidview";
-            this.btnincidview.Size = new System.Drawing.Size(196, 28);
-            this.btnincidview.TabIndex = 84;
-            this.btnincidview.Text = "incident records";
-            this.btnincidview.UseVisualStyleBackColor = false;
-            // 
-            // btneditprofile
-            // 
-            this.btneditprofile.BackColor = System.Drawing.Color.DimGray;
-            this.btneditprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btneditprofile.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneditprofile.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btneditprofile.Location = new System.Drawing.Point(13, 488);
-            this.btneditprofile.Name = "btneditprofile";
-            this.btneditprofile.Size = new System.Drawing.Size(196, 28);
-            this.btneditprofile.TabIndex = 85;
-            this.btneditprofile.Text = "Edit Basic Info";
-            this.btneditprofile.UseVisualStyleBackColor = false;
-            // 
-            // btnbackcasestud
-            // 
-            this.btnbackcasestud.BackColor = System.Drawing.Color.DimGray;
-            this.btnbackcasestud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackcasestud.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackcasestud.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnbackcasestud.Location = new System.Drawing.Point(327, 488);
-            this.btnbackcasestud.Name = "btnbackcasestud";
-            this.btnbackcasestud.Size = new System.Drawing.Size(196, 28);
-            this.btnbackcasestud.TabIndex = 86;
-            this.btnbackcasestud.Text = "Back";
-            this.btnbackcasestud.UseVisualStyleBackColor = false;
-            this.btnbackcasestud.Click += new System.EventHandler(this.btnbackcasestud_Click);
-            // 
             // btnhealth
             // 
             this.btnhealth.BackColor = System.Drawing.Color.DimGray;
@@ -6637,6 +6503,146 @@
             this.btnhealth.Text = "Records";
             this.btnhealth.UseVisualStyleBackColor = false;
             this.btnhealth.Click += new System.EventHandler(this.btnhealth_Click);
+            // 
+            // btncancelhealth
+            // 
+            this.btncancelhealth.BackColor = System.Drawing.Color.DimGray;
+            this.btncancelhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelhealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelhealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btncancelhealth.Location = new System.Drawing.Point(363, 496);
+            this.btncancelhealth.Name = "btncancelhealth";
+            this.btncancelhealth.Size = new System.Drawing.Size(196, 28);
+            this.btncancelhealth.TabIndex = 93;
+            this.btncancelhealth.Text = "Cancel";
+            this.btncancelhealth.UseVisualStyleBackColor = false;
+            this.btncancelhealth.Click += new System.EventHandler(this.btncancelhealth_Click);
+            // 
+            // btnaddhealth
+            // 
+            this.btnaddhealth.BackColor = System.Drawing.Color.DimGray;
+            this.btnaddhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddhealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddhealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnaddhealth.Location = new System.Drawing.Point(41, 496);
+            this.btnaddhealth.Name = "btnaddhealth";
+            this.btnaddhealth.Size = new System.Drawing.Size(196, 28);
+            this.btnaddhealth.TabIndex = 92;
+            this.btnaddhealth.Text = "Add Profile";
+            this.btnaddhealth.UseVisualStyleBackColor = false;
+            this.btnaddhealth.Click += new System.EventHandler(this.btnaddhealth_Click);
+            // 
+            // btnbackfromhealthview
+            // 
+            this.btnbackfromhealthview.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackfromhealthview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfromhealthview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackfromhealthview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackfromhealthview.Location = new System.Drawing.Point(453, 501);
+            this.btnbackfromhealthview.Name = "btnbackfromhealthview";
+            this.btnbackfromhealthview.Size = new System.Drawing.Size(196, 28);
+            this.btnbackfromhealthview.TabIndex = 98;
+            this.btnbackfromhealthview.Text = "Back";
+            this.btnbackfromhealthview.UseVisualStyleBackColor = false;
+            this.btnbackfromhealthview.Click += new System.EventHandler(this.btnbackfromhealthview_Click);
+            // 
+            // btnedithealth
+            // 
+            this.btnedithealth.BackColor = System.Drawing.Color.DimGray;
+            this.btnedithealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnedithealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnedithealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnedithealth.Location = new System.Drawing.Point(14, 501);
+            this.btnedithealth.Name = "btnedithealth";
+            this.btnedithealth.Size = new System.Drawing.Size(196, 28);
+            this.btnedithealth.TabIndex = 97;
+            this.btnedithealth.Text = "Edit Info";
+            this.btnedithealth.UseVisualStyleBackColor = false;
+            this.btnedithealth.Click += new System.EventHandler(this.btnedithealth_Click);
+            // 
+            // btngotocheckup
+            // 
+            this.btngotocheckup.BackColor = System.Drawing.Color.DimGray;
+            this.btngotocheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btngotocheckup.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngotocheckup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btngotocheckup.Location = new System.Drawing.Point(231, 501);
+            this.btngotocheckup.Name = "btngotocheckup";
+            this.btngotocheckup.Size = new System.Drawing.Size(196, 28);
+            this.btngotocheckup.TabIndex = 99;
+            this.btngotocheckup.Text = "View Checkup Records";
+            this.btngotocheckup.UseVisualStyleBackColor = false;
+            this.btngotocheckup.Click += new System.EventHandler(this.btngotocheckup_Click);
+            // 
+            // btnbackfromhealth
+            // 
+            this.btnbackfromhealth.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackfromhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfromhealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackfromhealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackfromhealth.Location = new System.Drawing.Point(382, 496);
+            this.btnbackfromhealth.Name = "btnbackfromhealth";
+            this.btnbackfromhealth.Size = new System.Drawing.Size(196, 28);
+            this.btnbackfromhealth.TabIndex = 100;
+            this.btnbackfromhealth.Text = "Back";
+            this.btnbackfromhealth.UseVisualStyleBackColor = false;
+            this.btnbackfromhealth.Click += new System.EventHandler(this.btnbackfromhealth_Click);
+            // 
+            // btngotohealth
+            // 
+            this.btngotohealth.BackColor = System.Drawing.Color.DimGray;
+            this.btngotohealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btngotohealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngotohealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btngotohealth.Location = new System.Drawing.Point(12, 496);
+            this.btngotohealth.Name = "btngotohealth";
+            this.btngotohealth.Size = new System.Drawing.Size(196, 28);
+            this.btngotohealth.TabIndex = 99;
+            this.btngotohealth.Text = "Add New Record";
+            this.btngotohealth.UseVisualStyleBackColor = false;
+            this.btngotohealth.Click += new System.EventHandler(this.btngotohealth_Click);
+            // 
+            // btnbackfromcheck
+            // 
+            this.btnbackfromcheck.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackfromcheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfromcheck.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackfromcheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackfromcheck.Location = new System.Drawing.Point(334, 496);
+            this.btnbackfromcheck.Name = "btnbackfromcheck";
+            this.btnbackfromcheck.Size = new System.Drawing.Size(196, 28);
+            this.btnbackfromcheck.TabIndex = 100;
+            this.btnbackfromcheck.Text = "Cancel";
+            this.btnbackfromcheck.UseVisualStyleBackColor = false;
+            this.btnbackfromcheck.Click += new System.EventHandler(this.btnbackfromcheck_Click);
+            // 
+            // btnaddcheckuprec
+            // 
+            this.btnaddcheckuprec.BackColor = System.Drawing.Color.DimGray;
+            this.btnaddcheckuprec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddcheckuprec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddcheckuprec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnaddcheckuprec.Location = new System.Drawing.Point(12, 496);
+            this.btnaddcheckuprec.Name = "btnaddcheckuprec";
+            this.btnaddcheckuprec.Size = new System.Drawing.Size(196, 28);
+            this.btnaddcheckuprec.TabIndex = 99;
+            this.btnaddcheckuprec.Text = "Add Profile";
+            this.btnaddcheckuprec.UseVisualStyleBackColor = false;
+            this.btnaddcheckuprec.Click += new System.EventHandler(this.btnaddcheckuprec_Click);
+            // 
+            // bttnbackfromcheckrec
+            // 
+            this.bttnbackfromcheckrec.BackColor = System.Drawing.Color.DimGray;
+            this.bttnbackfromcheckrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnbackfromcheckrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttnbackfromcheckrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bttnbackfromcheckrec.Location = new System.Drawing.Point(393, 501);
+            this.bttnbackfromcheckrec.Name = "bttnbackfromcheckrec";
+            this.bttnbackfromcheckrec.Size = new System.Drawing.Size(196, 28);
+            this.bttnbackfromcheckrec.TabIndex = 103;
+            this.bttnbackfromcheckrec.Text = "Back";
+            this.bttnbackfromcheckrec.UseVisualStyleBackColor = false;
+            this.bttnbackfromcheckrec.Click += new System.EventHandler(this.bttnbackfromcheckrec_Click);
             // 
             // caseprofile
             // 
@@ -7186,8 +7192,6 @@
         private System.Windows.Forms.RichTextBox rtxtcondition;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.RichTextBox rtxtall;
-        private System.Windows.Forms.Button btnaddhealth;
-        private System.Windows.Forms.Button btncancelhealth;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbxbloodtype;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -7223,8 +7227,6 @@
         private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TabPage fifteen;
-        private System.Windows.Forms.Button btngotohealth;
-        private System.Windows.Forms.Button btnbackfromhealth;
         private System.Windows.Forms.DataGridView dtghealth;
         private System.Windows.Forms.Panel panel43;
         private System.Windows.Forms.Label label48;
@@ -7293,9 +7295,6 @@
         private System.Windows.Forms.Label lblvheight;
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Button btngotocheckup;
-        private System.Windows.Forms.Button btnedithealth;
-        private System.Windows.Forms.Button btnbackfromhealthview;
         private System.Windows.Forms.Panel panel44;
         private System.Windows.Forms.Label lblviewhealthname;
         private System.Windows.Forms.Label label83;
@@ -7307,15 +7306,12 @@
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.RichTextBox rcheckdetails;
-        private System.Windows.Forms.Button btnaddcheckuprec;
-        private System.Windows.Forms.Button btnbackfromcheck;
         private System.Windows.Forms.Panel panel45;
         private System.Windows.Forms.Label lblnamecheck;
         private System.Windows.Forms.Label label99;
         private System.Windows.Forms.TabPage nineteen;
         private System.Windows.Forms.GroupBox groupBox18;
         private System.Windows.Forms.RichTextBox rvcheckdetails;
-        private System.Windows.Forms.Button bttnbackfromcheckrec;
         private System.Windows.Forms.Panel panel46;
         private System.Windows.Forms.Label lbllocationcheck;
         private System.Windows.Forms.Label lblcheckdate;
@@ -7347,5 +7343,15 @@
         private NoFocusRec btncon;
         private NoFocusRec btned;
         private NoFocusRec btnhealth;
+        private NoFocusRec btncancelhealth;
+        private NoFocusRec btnaddhealth;
+        private NoFocusRec btngotocheckup;
+        private NoFocusRec btnbackfromhealthview;
+        private NoFocusRec btnedithealth;
+        private NoFocusRec btnbackfromhealth;
+        private NoFocusRec btngotohealth;
+        private NoFocusRec btnbackfromcheck;
+        private NoFocusRec btnaddcheckuprec;
+        private NoFocusRec bttnbackfromcheckrec;
     }
 }

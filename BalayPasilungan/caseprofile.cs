@@ -183,8 +183,26 @@ namespace BalayPasilungan
             g.DrawRectangle(p, this.tabControl.Bounds);
         }
         #endregion
-        
+
         #region homemade functions
+
+        private void pbox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog rest = new OpenFileDialog();
+
+            rest.Filter = "images| *.JPG; *.PNG; *.GIF"; // you can add any other image type 
+
+            if (rest.ShowDialog() == DialogResult.OK)
+            {
+                pbox1.Image = Image.FromFile(rest.FileName);
+
+                filename = Path.GetFullPath(rest.FileName).Replace(@"\", @"\\");
+
+            }
+
+
+
+        }
         public void refresh()
         {
             try
@@ -921,6 +939,43 @@ namespace BalayPasilungan
             }
         }
 
+        private void dtghealth_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int checkid = int.Parse(dtghealth.Rows[e.RowIndex].Cells[0].Value.ToString());
+                MessageBox.Show(checkid.ToString());
+                tabControl.SelectedTab = nineteen;
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT checkupdetails, checkupdate, checkuplocation FROM checkup WHERE checkid = " + checkid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    rvcheckdetails.Text = dt.Rows[0]["checkupdetails"].ToString();
+
+                    lblcheckdate.Text = Convert.ToDateTime(dt.Rows[0]["checkupdate"]).ToString("MMMM dd, yyyy");
+                    lbllocationcheck.Text = dt.Rows[0]["checkuplocation"].ToString();
+
+
+                }
+
+                conn.Close();
+
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
         #endregion
 
         #region reset functions
@@ -1559,10 +1614,43 @@ namespace BalayPasilungan
 
         #endregion
 
+        #region getid functions
+
+        public void gethid(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT hid FROM health WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                hid = int.Parse(dt.Rows[0]["hid"].ToString());
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
+        #endregion
+
         private void btnMain_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabInfo;
         }
+
+        #region add/edit buttons
 
         private void btnaddeditcase_Click(object sender, EventArgs e)
         {
@@ -1579,6 +1667,63 @@ namespace BalayPasilungan
 
         }
 
+        private void btnaddhealth_Click(object sender, EventArgs e)
+        {
+            if (btnaddhealth.Text == "Add Info")
+            {
+                addhealth();
+            }
+
+            else
+            {
+                edithealth();
+            }
+        }
+
+        private void btnaddcheckuprec_Click(object sender, EventArgs e)
+        {
+            string location = txtlocationcheck.Text, details = rcheckdetails.Text;
+
+            gethid(id);
+
+            if (string.IsNullOrEmpty(location) || string.IsNullOrEmpty(details))
+            {
+                MessageBox.Show("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO checkup(hid, checkupdetails, checkupdate, checkuplocation) VALUES('" + hid + "', '" + details + "', '" + dtpcheck.Value.Date.ToString("yyyyMMdd") + "', '" + location + "')", conn);
+                    MessageBox.Show(hid.ToString());
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("Checkup Record Added!");
+
+                    conn.Close();
+
+                    reloadhealth(id);
+
+                    tabControl.SelectedTab = fifteen;
+
+                    reset6();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        #endregion
+
         #region back buttons
         private void btncancel_Click(object sender, EventArgs e)
         {
@@ -1588,6 +1733,45 @@ namespace BalayPasilungan
         private void btnbackcasestud_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = first;
+        }
+
+        private void btncancelhealth_Click(object sender, EventArgs e)
+        {
+            if (btnaddhealth.Text == "Add Info")
+            {
+
+                tabControl.SelectedTab = sixteen;
+
+            }
+
+            else
+            {
+                tabControl.SelectedTab = seventeen;
+            }
+
+            reset3();
+        }
+
+        private void btnbackfromhealthview_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixteen;
+        }
+
+        private void btnbackfromhealth_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = seventeen;
+        }
+
+        private void btnbackfromcheck_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = fifteen;
+
+            reset6();
+        }
+
+        private void bttnbackfromcheckrec_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = fifteen;
         }
 
 
@@ -1663,11 +1847,74 @@ namespace BalayPasilungan
             }
         }
 
+        private void btncon_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = ninth;
+            tabconrecords.SelectedTab = tabrecords;
+
+            reloadcon(id);
+        }
+
+        private void btnfover_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = fourth;
+
+            existsfam(id);
+
+            reloadfam(id);
+        }
+
+        private void btnincidview_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = twelfth;
+
+            reloadincid(id);
+        }
+
+        private void btneditprofile_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = third;
+
+            btnaddeditcase.Text = "Add Changes";
+            lbladdeditprofile.Text = "Edit Profile";
+
+            reloadeditinfo(id);
+        }
+
+        private void btngotocheckup_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = fifteen;
+
+            reloadhealth(id);
+        }
+
+        private void btnedithealth_Click(object sender, EventArgs e)
+        {
+            btnaddhealth.Text = "Add Changes";
+
+            txtheight.Text = lblvheight.Text;
+            txtweight.Text = lblvweight.Text;
+            cbxbloodtype.Text = lblvblood.Text;
+            rtxtall.Text = rviewall.Text;
+            rtxtcondition.Text = rviewcondition.Text;
+
+            tabControl.SelectedTab = eleventh;
+        }
+
+        private void btngotohealth_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = eighteen;
+        }
+
+
+
+
+
+
 
         #endregion
 
-
-
+        
 
         private void newprofilepic_Click(object sender, EventArgs e)
         {
