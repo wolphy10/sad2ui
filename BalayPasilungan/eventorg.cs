@@ -133,6 +133,7 @@ namespace BalayPasilungan
             btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_white;
             btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_green;
             btnRequest.BackColor = Color.White;
+            timeDateCombo(DateTime.Now.Day - 1, DateTime.Now.Month - 1, DateTime.Now.Year.ToString());
         }
 
         private void btnEvent_Click(object sender, EventArgs e)
@@ -346,6 +347,8 @@ namespace BalayPasilungan
                 tabERForm.SelectedIndex = 2;
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
+                confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins + " " + ampmFrom + "\n" +
+                                         "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
             }
         }
 
@@ -379,7 +382,22 @@ namespace BalayPasilungan
                 tabERForm.SelectedIndex = 3;
                 confirmTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
+                if(budgetYN == "yes")
+                {
 
+                }
+                else if(budgetYN == "no")
+                {
+                    confirm_EBudget.Text = "NONE";
+                }
+                if(remindYN == "yes")
+                {
+
+                }
+                else if(remindYN == "no")
+                {
+                    confirm_ERemind.Text = "NONE";
+                }
             }
         }
         
@@ -572,7 +590,8 @@ namespace BalayPasilungan
                 lblYes2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");                
                 btnBudget.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
                 budgetState = true;
-                btnAddBudget.Visible = true;                
+                btnAddBudget.Visible = true;
+                budgetYN = "yes";             
             }
             else
             {
@@ -581,6 +600,7 @@ namespace BalayPasilungan
                 btnBudget.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
                 budgetState = false;
                 btnAddBudget.Visible = false;
+                budgetYN = "no";
             }
         }
 
@@ -593,7 +613,7 @@ namespace BalayPasilungan
                 btnRemind.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
                 remindState = true;
                 remindTimer.Enabled = true;
-
+                remindYN = "yes";
                 reminderDate.Enabled = true;
             }
             else
@@ -603,7 +623,7 @@ namespace BalayPasilungan
                 btnRemind.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
                 remindState = false;
                 reminderPanel.Height = 0;
-
+                remindYN = "no";
                 reminderDate.Enabled = false;
             }
         }
@@ -650,10 +670,10 @@ namespace BalayPasilungan
         #endregion
 
         #region Event Request Time and Date Data Validation
-        private void timeanddate_Enter(object sender, EventArgs e)
+        public void timeDateCombo(int day, int month,  string year)
         {
             int last = 0;
-            cbEMonth.SelectedIndex = 0; cbEMonth2.SelectedIndex = 0;
+            cbEMonth.SelectedIndex = month; cbEMonth2.SelectedIndex = month;
 
             // Days (in relation to months)
             if (cbEDay.Items.Count == 0 && cbEDay2.Items.Count == 0)
@@ -720,7 +740,10 @@ namespace BalayPasilungan
                 }
             }*/
 
-            cbEDay.SelectedIndex = 0; cbEYear.SelectedIndex = 0; cbEDay2.SelectedIndex = 0; cbEYear2.SelectedIndex = 0;
+            cbEDay.SelectedIndex = day;
+            cbEYear.Text = year;
+            cbEDay2.SelectedIndex = day;
+            cbEYear2.Text = year;
             //cbEHours.SelectedIndex = 0; cbEMins.SelectedIndex = 0; 
         }
 
@@ -802,24 +825,28 @@ namespace BalayPasilungan
         #region Event Request Time
         private void btnAM_Click(object sender, EventArgs e)
         {
+            ampmFrom = "AM";
             btnAM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             btnPM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
         }
 
         private void btnPM_Click(object sender, EventArgs e)
         {
+            ampmFrom = "PM";
             btnPM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             btnAM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
         }
 
         private void btnAM2_Click(object sender, EventArgs e)
         {
+            ampmTo = "AM";
             btnAM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             btnPM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
         }
 
         private void btnPM2_Click(object sender, EventArgs e)
         {
+            ampmTo = "PM";
             btnPM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             btnAM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
         }
@@ -915,7 +942,7 @@ namespace BalayPasilungan
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            tabSecond.SelectedTab = tabEvent;
+            tabSecond.SelectedTab = tabCalendar;
         }
 
         private void cbEType_Leave(object sender, EventArgs e)
@@ -925,16 +952,16 @@ namespace BalayPasilungan
 
         private void eventorg_Load(object sender, EventArgs e)
         {
+            btnMPrev.Text = aMonths[DateTime.Now.Month - 2];
+            btnMNow.Text = aMonths[DateTime.Now.Month - 1];
+            btnMNext.Text = aMonths[DateTime.Now.Month];
+            btnYPrev.Text = (DateTime.Now.Year - 1).ToString();
+            btnYNow.Text = DateTime.Now.Year.ToString();
+            btnYNext.Text = (DateTime.Now.Year + 1).ToString();
             //tabSecond.SelectedTab = tabCalendar;
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
             displayCalendar(monthnum.ToString("00"), int.Parse(btnYNow.Text));
-            //For Event Request onload dateFrom == to date now
-            cbEMonth.Text = aMonths[DateTime.Now.Month - 1];
-            cbEMonth2.Text = aMonths[DateTime.Now.Month - 1];
-            cbEDay.Text = DateTime.Now.Day.ToString("00");
-            cbEDay2.Text = DateTime.Now.Day.ToString("00");
-            cbEYear.Text = DateTime.Now.Year.ToString();
-            cbEYear2.Text = DateTime.Now.Year.ToString();
+           
         }
         #region Custom Month and Year
         private void btnMNow_Click(object sender, EventArgs e)
@@ -1052,7 +1079,7 @@ namespace BalayPasilungan
         {
             string date = yc + "-" + mc + "-" + dc;
             //int evyear;
-            string evname, day;
+            string evname, day, timefrom;
             //MessageBox.Show(m + " "+ yearnav);
             try
             {
@@ -1072,8 +1099,10 @@ namespace BalayPasilungan
                         //MessageBox.Show();
                         //evmonth = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(5, 2));
                         //evday = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(8, 2));
+                        timefrom = dt.Rows[i]["evTimeFrom"].ToString();
                         evname = dt.Rows[i]["evName"].ToString();
-                        ListViewItem itm = new ListViewItem(evname);
+                        ListViewItem itm = new ListViewItem(timefrom);
+                        itm.SubItems.Add(evname);
                         eventsListView.Items.Add(itm);
                     }
                 }
@@ -1086,8 +1115,27 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
-        
-        
+
+
+        #endregion
+
+        #region tabRequest functions
+        public string ampmFrom = "", ampmTo = "", remindYN = "", budgetYN = "";
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            error err = new error();
+            if(txtRequestBy.Text == "")
+            {
+                err.refToERF = this;
+                err.lblError.Text = "You have skipped a blank! Please answer everything.";
+                err.ShowDialog();
+            }
+            else
+            {
+
+            }
+        }
+        //insert functions for requesting
         #endregion
 
         #region Calendar Functions
@@ -1283,6 +1331,7 @@ namespace BalayPasilungan
                         else if (ifclick == "add")
                         {
                             tabSecond.SelectedTab = tabRequest;
+                            timeDateCombo(int.Parse(cellday.ToString("00")) - 1, monthnum - 1, btnYNow.Text);
                         }
                     }
                 }
@@ -1300,6 +1349,7 @@ namespace BalayPasilungan
                         if (ifclick == "add")
                         {
                             tabSecond.SelectedTab = tabRequest;
+                            timeDateCombo(int.Parse(cellday.ToString("00")) - 1, monthnum - 1, btnYNow.Text);
                         }
 
                     }
