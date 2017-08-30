@@ -154,6 +154,7 @@ namespace BalayPasilungan
             btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_white;
             btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_green;
             btnEvent.BackColor = Color.White;
+            allEvents();
         }
 
         private void btnMain_Click(object sender, EventArgs e)
@@ -491,9 +492,27 @@ namespace BalayPasilungan
         
             private void txtEventName_Leave(object sender, EventArgs e) //BOOK2
             {
+                error err = new error();
+                err.refToERF = this;
                 resetLabelsPanels(); resetCounters();
+                if (txtEventName.Text.Equals(""))
+                {
+                    txtEventName.Text = "What is the name of the event?";
+                }
+                else
+                {
+                    if (sameEvName(txtEventName.Text))
+                    {
+                        confirm_EName.Text = txtEventName.Text;
+                    }
+                    else
+                    {
+                        err.lblError.Text = "The event name is already present";
+                        err.ShowDialog();
+                        txtEventName.Text = "What is the name of the event?";
+                    }
+                }
                 txtEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-                if (txtEventName.Text.Equals("")) txtEventName.Text = "What is the name of the event?";
             }
 
             private void txtEventDes_Leave(object sender, EventArgs e)
@@ -1017,6 +1036,7 @@ namespace BalayPasilungan
                     cbEYear2.Items.Add(i);
                 }
             }
+            displayEventApproval();
         }
         #region Custom Month and Year
         private void btnMNow_Click(object sender, EventArgs e)
@@ -1212,7 +1232,39 @@ namespace BalayPasilungan
                 {
                     insert();
                 }
+                listPending.Clear();
+                displayEventApproval();
             }
+        }
+        public bool sameEvName(string name)
+        {
+            bool check = false;
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evname = '"+ name +"'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                conn.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    check = false;
+                }
+                else
+                {
+                    check = true;
+                }
+
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+            return check;
         }
         //insert functions for requesting
         public void insert()
@@ -1328,6 +1380,162 @@ namespace BalayPasilungan
                 MessageBox.Show("" + ee);
                 conn.Close();
             }
+        }
+        //pending and approval of events functions
+        public void displayEventApproval()
+        {
+            string evname, request;
+
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status='Pending'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count >= 1)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+
+                        request = dt.Rows[i]["requestedBy"].ToString();
+                        evname = dt.Rows[i]["evName"].ToString();
+                        //MessageBox.Show(evname+" "+request);
+                        ListViewItem itm = new ListViewItem(evname);
+                        itm.SubItems.Add(request);
+
+                        listPending.Items.Add(itm);
+
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+      
+        public int evid = 0; //public event id for the event approval only
+
+        private void listPending_MouseClick(object sender, MouseEventArgs e)
+        {
+            string evn = listPending.SelectedItems[0].SubItems[0].Text;
+            approveEventDetails(evn);
+            tabEvPending.SelectedIndex = 1;
+        }
+        public void approveEventDetails(string evn)
+        {
+            try
+            {
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evName='" + evn + "'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 1)
+                {
+                    evid = int.Parse(dt.Rows[0]["eventID"].ToString());
+                    lblPEName.Text = dt.Rows[0]["evName"].ToString();
+                    lblPEVenue.Text = dt.Rows[0]["evVenue"].ToString();
+                    lblPEDes.Text = dt.Rows[0]["evDesc"].ToString();
+                    lblPEType.Text = dt.Rows[0]["evType"].ToString();
+                    lblEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" + 
+                                    "To: " + dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
+                    if (dt.Rows[0]["reminderDate"].ToString() == "")
+                        lblPERemind.Text = "NONE";
+                    if(dt.Rows[0]["budget"].ToString() == "")
+                    {
+                        lblPEBudget.Text = "NONE";
+                    }
+                    else
+                    {
+                        lblPEBudget.Text = dt.Rows[0]["budget"].ToString();
+                    }
+                }
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+        //approve and disapprove buttons
+        public void approveEvent()
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("UPDATE event SET status='Approved' WHERE eventID = '" + evid + "';", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+        public void disApproveEvent()
+        {
+
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("UPDATE event SET status='Disapproved' , evProgress = 'Disapproved' WHERE eventID = '" + evid + "';", conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            approveEvent();
+            listPending.Clear();
+            displayEventApproval();
+            success scs = new success();
+            scs.reftoevorg = this;
+            scs.message = "Successfully Approved the Event.";
+            DialogResult rest = scs.ShowDialog();
+            if(rest == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            disApproveEvent();
+            listPending.Clear();
+            displayEventApproval();
+            success scs = new success();
+            scs.reftoevorg = this;
+            scs.message = "Successfully Rejected the Event.";
+            DialogResult rest = scs.ShowDialog();
+            if (rest == DialogResult.OK)
+            {
+
+            }
+        }
+        private void btnBackP_Click(object sender, EventArgs e)
+        {
+            tabEvPending.SelectedIndex = 0;
         }
         #endregion
 
