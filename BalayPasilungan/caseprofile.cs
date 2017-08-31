@@ -1017,6 +1017,47 @@ namespace BalayPasilungan
             }
         }
 
+        private void dtincid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int incid = int.Parse(dtincid.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                tabControl.SelectedTab = thirteen;
+
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT type, incdate, venue, description, action FROM incident WHERE incidid = " + incid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    inctype.Text = dt.Rows[0]["type"].ToString();
+                    incidlocation.Text = dt.Rows[0]["venue"].ToString();
+                    repinciddesc.Text = dt.Rows[0]["description"].ToString();
+                    repincidaction.Text = dt.Rows[0]["action"].ToString();
+
+                    lbldateincid.Text = dt.Rows[0]["incdate"].ToString();
+
+
+                }
+
+                tabControl.SelectedTab = thirteen;
+
+                conn.Close();
+
+            }
+
+            catch (Exception ee)
+            {
+                //MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
         #endregion
 
         #region reset functions
@@ -1945,6 +1986,64 @@ namespace BalayPasilungan
             }
         }
 
+        private void btnaddincidrecord_Click(object sender, EventArgs e)
+        {
+            string type = txttypeincid.Text, hour = cbxhour.Text, minute = cbxmin.Text, zone, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
+
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
+            {
+                MessageBox.Show("Please fill out empty fields.");
+            }
+
+            else
+            {
+                if (rbam.Checked == true)
+                {
+                    zone = "AM";
+                }
+
+                else
+                {
+                    zone = "PM";
+                }
+
+                DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
+
+                //dt.ToString("hh:mm tt");
+
+                //DateTime wut = DateTime.ParseExact(dateincid.Value.Date.ToString("yyyy-MM-dd") + " " + dt.ToString(), "yyyy-MM-dd hh:mm tt", CultureInfo.InvariantCulture);
+                MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
+
+                try
+                {
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO incident(caseid, type, incdate, venue, description, action, dateadded) VALUES('" + id + "', '" + type + "', '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + dt.ToString("hh:mm tt") + "','" + location + "', '" + desc + "', '" + action + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("Incident Record Added!");
+
+                    conn.Close();
+
+                    reloadincid(id);
+
+                    tabControl.SelectedTab = twelfth;
+
+                    reset5();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+
+                }
+
+            }
+        }
+
         #endregion
 
         #region back buttons
@@ -2055,6 +2154,11 @@ namespace BalayPasilungan
             tabControl.SelectedTab = twelfth;
 
             reset5();
+        }
+
+        private void btnbackfrominc_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = twelfth;
         }
 
         #endregion
@@ -2209,6 +2313,10 @@ namespace BalayPasilungan
         {
             tabControl.SelectedTab = tenth;
         }
+
+
+
+
 
 
 
