@@ -976,6 +976,47 @@ namespace BalayPasilungan
             }
         }
 
+        private void dtgcon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                conn.Open();
+
+                int cid = int.Parse(dtgcon.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                MySqlCommand comm = new MySqlCommand("SELECT condes, interviewdate, interviewer FROM consultation WHERE cid = " + cid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    richboxrecords.Text = dt.Rows[0]["condes"].ToString();
+
+                    lbldatecon.Text = Convert.ToDateTime(dt.Rows[0]["interviewdate"]).ToString("MMMM dd, yyyy");
+
+                    lblintcon.Text = dt.Rows[0]["interviewer"].ToString();
+
+                }
+
+                tabconrecords.SelectedTab = document;
+
+                lblcontitle.Visible = false;
+
+                conn.Close();
+
+            }
+
+            catch (Exception ee)
+            {
+                //MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
         #endregion
 
         #region reset functions
@@ -1722,6 +1763,188 @@ namespace BalayPasilungan
             }
         }
 
+        private void btnadded_Click(object sender, EventArgs e)
+        {
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxlevel.Text;
+
+            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
+            {
+                MessageBox.Show("Please fill out empty fields.");
+            }
+
+            else
+            {
+
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO education(caseid, school, eduType, level) VALUES('" + id + "', '" + edname + "', '" + type + "','" + level + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("New Info Added!");
+
+
+                    conn.Close();
+
+                    existsed(id);
+
+                    lbledtypeview.Text = lbledtype.Text = type;
+                    lblschool.Text = lbledschool.Text = edname;
+                    lbllevel.Text = lbledlvl.Text = level;
+
+                    tabControl.SelectedTab = eighth;
+
+                    reset2();
+
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnaddcon_Click(object sender, EventArgs e)
+        {
+            string interviewer = txtintname.Text, condes = richconbox.Text;
+
+            if (string.IsNullOrEmpty(interviewer) || string.IsNullOrEmpty(condes))
+            {
+                MessageBox.Show("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO consultation(caseid, condes, interviewdate, interviewer) VALUES('" + id + "', '" + condes + "', '" + condate.Value.Date.ToString("yyyyMMdd") + "','" + interviewer + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("Consultation Record Added!");
+
+                    conn.Close();
+
+                    reloadcon(id);
+
+                    tabControl.SelectedTab = ninth;
+
+                    reset4();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnaddfamtype_Click(object sender, EventArgs e)
+        {
+            string famtype = cbxfamtype.Text;
+
+            if (string.IsNullOrEmpty(famtype))
+            {
+                MessageBox.Show("Fill in the empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(caseid, famtype) VALUES('" + id + "', '" + famtype + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("Family Type Added!");
+
+                    conn.Close();
+
+                    existsfam(id);
+
+                    reloadfam(id);
+
+                    tabControl.SelectedTab = fourth;
+
+                    cbxfamtype.SelectedIndex = -1;
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnaddmember_Click(object sender, EventArgs e)
+        {
+            string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
+                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
+
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency))
+            {
+                MessageBox.Show("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO member(familyid, firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES('" + famid + "', '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
+                    MessageBox.Show(famid.ToString());
+                    comm.ExecuteNonQuery();
+
+                    MessageBox.Show("Member Added!");
+
+                    conn.Close();
+
+                    reloadmem(famid);
+
+                    tabControl.SelectedTab = fourth;
+
+                    reset8();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btndeletefam_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dtfamOverview.Rows)
+            {
+                DataGridViewCheckBoxCell chk = row.Cells[8] as DataGridViewCheckBoxCell;
+
+                if (Convert.ToBoolean(chk.Value) == true)
+                {
+                    dtfamOverview.Rows.Remove(row);
+                }
+            }
+        }
+
         #endregion
 
         #region back buttons
@@ -1774,6 +1997,65 @@ namespace BalayPasilungan
             tabControl.SelectedTab = fifteen;
         }
 
+        private void btncanceled_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixteen;
+            reset2();
+        }
+
+        private void btnedback_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixteen;
+        }
+
+        private void btncancelcon_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixteen;
+        }
+
+        private void btncancon_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = ninth;
+        }
+
+        private void btncancelviewrec_Click(object sender, EventArgs e)
+        {
+            tabconrecords.SelectedTab = tabrecords;
+            richboxrecords.Clear();
+
+            lblcontitle.Visible = true;
+        }
+
+        private void btncanfamtype_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = fourth;
+        }
+
+        private void btnbackfam_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixteen;
+
+            reset7();
+        }
+
+        private void btnbacktofamoverview_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = fourth;
+
+            reset8();
+        }
+
+        private void btnbackmainincid_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixteen;
+        }
+
+        private void btnbackincidrec_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = twelfth;
+
+            reset5();
+        }
 
         #endregion
 
@@ -1905,10 +2187,28 @@ namespace BalayPasilungan
         {
             tabControl.SelectedTab = eighteen;
         }
+        private void btnaddconrec_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = sixth;
+        }
 
+        private void btnfamtype_Click(object sender, EventArgs e)
+        {
+            if (btnfamtype.Text == "add")
+            {
+                tabControl.SelectedTab = fifth;
+            }
+        }
 
+        private void btnAddMem_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = twenty;
+        }
 
-
+        private void btnaddincid_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tenth;
+        }
 
 
 
