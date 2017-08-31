@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace BalayPasilungan
 {
@@ -14,10 +15,14 @@ namespace BalayPasilungan
     {
         public bool typeDone = false;
         public int typeMember = 0;
+        public bool pass = true;
+        public MySqlConnection conn;
+        public string type;
 
         public login()
         {
             InitializeComponent();
+            conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
         }
 
         #region  Functions
@@ -49,11 +54,44 @@ namespace BalayPasilungan
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            main main = new main();
+            if (txtUser.Text == "" || txtPass.Text == "" && txtUser.Text == "  username" || txtPass.Text == "  password")
+            {
+                MessageBox.Show("Please enter necessary fields!");
+            }
+            else
+            {
+                try
+                {
 
-            //main.refToLogin = this;
-            main.Show();
-            this.Close();
+                    conn.Open();
+
+                    MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_accounts WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("This user does not exist");
+                    }
+                    else if (dt.Rows.Count == 1)
+                    {
+                        type = dt.Rows[0]["account_type"].ToString();
+                        //MessageBox.Show(dt.Rows[0]["fullname"].ToString());
+                        main main = new main();
+
+                        //main.refToLogin = this;
+                        main.Show();
+                        this.Hide();
+                    }
+                    conn.Close();
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show("Nah!" + ee);
+                    conn.Close();
+                }
+            }
+           
         }
 
         #region Password

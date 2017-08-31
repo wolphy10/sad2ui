@@ -20,7 +20,7 @@ namespace BalayPasilungan
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void dialogEvOptions_Load(object sender, EventArgs e)
@@ -58,6 +58,11 @@ namespace BalayPasilungan
         {
             reftoevorg.ifclick = "view";
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
