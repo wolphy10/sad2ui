@@ -108,6 +108,42 @@ namespace BalayPasilungan
         }
         #endregion
 
+        #region SQL Connection
+        public void addSQL(MySqlCommand comm, int type)
+        {
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            int c_donationID = int.Parse(dt.Rows[0]["donationID"].ToString());                                                // Get current donation ID            
+
+            // ADD SQL COMMAND
+            if(type == 1)
+            {
+                decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
+                comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, TIN, dateDonated, donationID)"
+                + " VALUES (" + type + ", '" + txtOR.Text + "', " + amount + ", '" + txtTIN.Text + "', '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+            }
+            else if(type == 2)
+            {
+                decimal amount = decimal.Parse(txtCheckAmount.Text + "." + txtCheckCent.Text);
+                comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, checkNO, bankName, dateCheck, dateDonated, donationID)"
+                + " VALUES (" + type + ", '" + txtOR.Text + "', " + amount + ", '" + txtCheckNo.Text + "', '" + txtBank.Text + "', '"
+                + dateOfCheck.Value.Date.ToString("yyyyMMdd") + "', '" + dateCheck.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+            }
+            
+
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            success yey = new success();
+            yey.lblSuccess.Text = "Donation has been added successfully!";
+            yey.ShowDialog();
+            this.Close();
+            refToExpense.Show();
+        }
+        #endregion
+
         #region Cash
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -165,25 +201,7 @@ namespace BalayPasilungan
 
                 // GET THAT DONATION ID
                 comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                int c_donationID = int.Parse(dt.Rows[0]["donationID"].ToString());                                                // Get current donation ID
-                decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
-               
-                // ADD SQL COMMAND
-                comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, TIN, dateDonated, donationID)"
-                    + " VALUES (1, '" + txtOR.Text + "', " + amount + ", '" + txtTIN.Text + "', '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
-
-                comm.ExecuteNonQuery();
-                conn.Close();
-
-                success yey = new success();                                
-                yey.lblSuccess.Text = "Donation has been added successfully!";
-                yey.ShowDialog();
-                this.Close();            
-                refToExpense.Show();      
+                addSQL(comm, 1);    
             }
             catch (Exception ex)
             {
@@ -228,6 +246,28 @@ namespace BalayPasilungan
         {
             if (txtCashCent2.Text == "") txtCashCent2.Text = "00";
             toDefault();
+        }
+
+        private void btnCheckAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                // ADD NEW DONATION
+                MySqlCommand comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
+                    + " VALUES (1, " + donorID + ", + '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
+
+                comm.ExecuteNonQuery();
+
+                // GET THAT DONATION ID
+                comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
+                addSQL(comm, 2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnEditCash_Click(object sender, EventArgs e)

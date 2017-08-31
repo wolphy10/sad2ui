@@ -167,31 +167,42 @@ namespace BalayPasilungan
                 
                 if (dt.Rows.Count == 0)
                 {
-                    dt.Rows.Add(-1, null, "No entries.", null, null, -1);
+                    dt.Rows.Add(-1, null, null, null, null, "No entries.", null, null, -1);
                     empty = true;                    
                 }
 
                 donationMoney.DataSource = dt;
-                
-                // Donors Grid View UI Modifications
-                donationMoney.Columns[1].HeaderText = "AMOUNT"; donationMoney.Columns[2].HeaderText = "OR NO"; donationMoney.Columns[3].HeaderText = "TIN"; donationMoney.Columns[4].HeaderText = "DATE DONATED";                
 
+                // Donors Grid View UI Modifications
+                donationMoney.Columns[1].HeaderText = "TYPE";
+                donationMoney.Columns[2].HeaderText = "AMOUNT";
+                donationMoney.Columns[3].HeaderText = "OR NO";
+                donationMoney.Columns[4].HeaderText = "CHECK NO";
+                donationMoney.Columns[5].HeaderText = "BANK NAME";
+                donationMoney.Columns[6].HeaderText = "DATE CHECK";
+                donationMoney.Columns[7].HeaderText = "DATE DONATED";
+                donationMoney.Columns[8].HeaderText = "DONATION ID";
+                
                 // For ID purposes (hidden from user)            
-                donationMoney.Columns[0].Visible = false; donationMoney.Columns[5].Visible = false;
-                
-                donationMoney.Columns[1].Width = 350;
+                donationMoney.Columns[0].Visible = false; donationMoney.Columns[8].Visible = false;
+
+                // LMAO
+                donationMoney.Columns[1].Width = 70;
                 donationMoney.Columns[2].Width = 100;
-                donationMoney.Columns[3].Width = 180;
-                donationMoney.Columns[4].Width = 300;
-                
+                donationMoney.Columns[3].Width = 100;
+                donationMoney.Columns[4].Width = 200;
+                donationMoney.Columns[5].Width = 220;
+                donationMoney.Columns[6].Width = 120;
+                donationMoney.Columns[7].Width = 120;
+                donationMoney.Columns[8].Width = 0;
+
                 if (dt.Rows.Count > 0 && !empty)
-                {
-                    donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
-                    donationMoney.Columns[1].DefaultCellStyle.Format = "#,0.00##";
-                    donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
-                    donationMoney.Columns[4].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                    donationMoney.Columns[4].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
-                    donationMoney.Columns[4].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                {                    
+                    donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(5, 0, 0, 0);
+                    donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+                    donationMoney.Columns[2].DefaultCellStyle.Format = "#,0.00##";
+                    donationMoney.Columns[6].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                    donationMoney.Columns[7].DefaultCellStyle.Format = "MMMM dd, yyyy";
 
                     btnDelMoneyD.Enabled = true; btnEditMoneyD.Enabled = true;
                 }
@@ -301,7 +312,7 @@ namespace BalayPasilungan
         {
             try
             {
-                MySqlCommand comm = new MySqlCommand("SELECT monetaryID, amount, ORno, TIN, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")", conn);                
+                MySqlCommand comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")", conn);                
                 loadTable(comm);
             }
             catch (Exception ex)
@@ -323,8 +334,8 @@ namespace BalayPasilungan
                     n = decimal.Parse(search);                                          // Convert search keyword to double
                     string doubs = n.ToString("F2", CultureInfo.InvariantCulture);      // Convert to string with 2 decimal places
                     
-                    query = "SELECT monetaryID, amount, ORno, TIN, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
-                    + " AND (amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR TIN LIKE '%" + search + "%')";                    
+                    query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
+                    + " AND (amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "')";                    
                 }
                 else if (searchDateBool)
                 {
@@ -333,36 +344,37 @@ namespace BalayPasilungan
                     if (searchMonthDay)
                     {
                         searchMonthDay = false;
-                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + ")";
+                        searchWords = "((MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + ") OR (MONTH(dateCheck) = " + fromDateValue.ToString("MM") + " AND DAY(dateCheck) = " + fromDateValue.ToString("dd") + "))";
                     }
                     else if (searchMonthYr)
                     {
                         searchMonthYr = false;
-                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";
+                        searchWords = "((MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ") OR (MONTH(dateCheck) = " + fromDateValue.ToString("MM") + " AND YEAR(dateCheck) = " + fromDateValue.ToString("yyyy") + "))";
                     }
                     else if (searchMonth)
                     {
                         searchMonth = false;
-                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + ")";
+                        searchWords = "(MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " OR MONTH(dateCheck) = " + fromDateValue.ToString("MM") + ")";
                     }
                     else if (searchYr)
                     {
                         searchYr = false;
-                        searchWords = "(YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";
+                        searchWords = "(YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + " OR YEAR(dateCheck) = " + fromDateValue.ToString("yyyy") + ")";
                     }
                     else
                     {
-                        searchWords = "(dateDonated LIKE '" + fromDateValue + "' OR MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " OR YEAR(dateDonated) = " + fromDateValue.ToString("yyyy") + ")";
+                        searchWords = "(dateDonated LIKE '" + fromDateValue + "' OR MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " OR YEAR(dateDonated) = " + fromDateValue.ToString("yyyy")
+                            + "(dateCheck LIKE '" + fromDateValue + "' OR MONTH(dateCheck) = " + fromDateValue.ToString("MM") + " OR YEAR(dateCheck) = " + fromDateValue.ToString("yyyy") + ")";
                     }
 
-                    query = "SELECT monetaryID, amount, ORno, TIN, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
+                    query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
                         + " AND " + searchWords;
                 }
 
                 else
                 {
-                    query = "SELECT monetaryID, amount, ORno, TIN, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
-                    + " AND (ORno LIKE '%" + search + "%' OR TIN LIKE '%" + search + "%')";                    
+                    query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
+                    + " AND (ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "')";
                 }
                 
                 MySqlCommand comm = new MySqlCommand(query, conn);
