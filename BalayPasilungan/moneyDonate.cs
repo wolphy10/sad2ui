@@ -27,7 +27,8 @@ namespace BalayPasilungan
             InitializeComponent();
 
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
-            dateCash.MaxDate = DateTime.Now; dateCash.Value = DateTime.Today;           
+            dateCash.MaxDate = DateTime.Now; dateCash.Value = DateTime.Today;
+            dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Today; dateOfCheck.MaxDate = DateTime.Now; dateOfCheck.Value = DateTime.Today;
         }
 
         #region Movable Form
@@ -65,14 +66,36 @@ namespace BalayPasilungan
             txtCashCent.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             lblCashAmount.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             lblDot1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+
+            txtCheckAmount.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            txtCheckCent.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            lblCheckAmount.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
         }
 
         public void toDefault()
         {
+            // ADD
             txtCashAmount.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
             txtCashCent.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
-            lblCashAmount.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+            lblCashAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
             lblDot1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+
+            txtCheckAmount.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+            txtCheckCent.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+            lblCheckAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+
+            // EDIT
+            txtCashAmount2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+            txtCashCent2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+            lblCashAmount2.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+
+            txtCheckAmount2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+            txtCheckCent2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
+            lblCheckAmount2.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
         }
 
         public void toYellow()
@@ -81,6 +104,11 @@ namespace BalayPasilungan
             txtCashCent2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
             lblCashAmount2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
             lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
+
+            txtCheckAmount2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
+            txtCheckCent2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
+            lblCheckAmount2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
+            lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
         }
 
         
@@ -122,13 +150,13 @@ namespace BalayPasilungan
             {   // lmao
                 decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, dateDonated, donationID)"
-                + " VALUES (" + type + ", '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+                + " VALUES ('Cash', '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
             }
             else if(type == 2)
             {
                 decimal amount = decimal.Parse(txtCheckAmount.Text + "." + txtCheckCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, checkNO, bankName, dateCheck, dateDonated, donationID)"
-                + " VALUES (" + type + ", '" + txtOR.Text + "', " + amount + ", '" + txtCheckNo.Text + "', '" + txtBank.Text + "', '"
+                + " VALUES ('Check', '" + txtOR.Text + "', " + amount + ", '" + txtCheckNo.Text + "', '" + txtBank.Text + "', '"
                 + dateOfCheck.Value.Date.ToString("yyyyMMdd") + "', '" + dateCheck.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
             }
             
@@ -142,7 +170,27 @@ namespace BalayPasilungan
             this.Close();
             refToExpense.Show();
         }
+
+        public void editSQL(MySqlCommand comm)
+        {
+            conn.Open();
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            success yey = new success();
+            yey.lblSuccess.Text = "Donation has been edited successfully!";
+            yey.ShowDialog();
+            this.Close();
+            refToExpense.Show();
+        }
         #endregion
+
+        private void btnCashBack_Click(object sender, EventArgs e)
+        {
+            tabSelection.SelectedTab = tabChoice;
+            txtBank.Clear(); txtCashAmount.Text = "0,000,000,000"; txtCashAmount2.Text = "0,000,000,000";
+            txtOR.Clear(); txtCheckOR.Clear(); txtCheckNo.Clear();
+        }
 
         #region Cash
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -247,6 +295,29 @@ namespace BalayPasilungan
             if (txtCashCent2.Text == "") txtCashCent2.Text = "00";
             toDefault();
         }
+        
+        private void btnEditCash_Click(object sender, EventArgs e)
+        {
+            MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text
+                    + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", dateDonated = '" + dateCash2.Value.Date.ToString("yyyyMMdd")
+                    + "' WHERE donationID = " + donationID, conn);
+            editSQL(comm);
+        }
+        #endregion
+        
+        #region Check
+        private void txtCheckAmount_TextChanged(object sender, EventArgs e)
+        {
+            string value = txtCheckAmount.Text.Replace(",", "");
+            ulong ul;
+            if (ulong.TryParse(value, out ul))
+            {
+                txtCheckAmount.TextChanged -= txtCheckAmount_TextChanged;
+                txtCheckAmount.Text = string.Format("{0:#,#}", ul);
+                txtCheckAmount.SelectionStart = txtCheckAmount.Text.Length;
+                txtCheckAmount.TextChanged += txtCheckAmount_TextChanged;
+            }
+        }
 
         private void btnCheckAdd_Click(object sender, EventArgs e)
         {
@@ -269,55 +340,7 @@ namespace BalayPasilungan
                 MessageBox.Show(ex.Message);
             }
         }
-        
-        private void btnEditCash_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Open();
 
-                // EDIT
-                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text
-                    + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", TIN = '" + txtTIN2.Text + "', dateDonated = '" + dateCash2.Value.Date.ToString("yyyyMMdd")
-                    + "' WHERE donationID = " + donationID, conn);
-
-                comm.ExecuteNonQuery();
-
-                conn.Close();
-
-                success yey = new success();
-                yey.lblSuccess.Text = "Donation has been edited successfully!";
-                yey.ShowDialog();
-                this.Close();
-                refToExpense.Show();
-            }
-            catch (Exception ex)
-            {
-                // do nothing
-            }
-        }
-        #endregion
-
-        private void btnCashBack_Click(object sender, EventArgs e)
-        {
-            tabSelection.SelectedTab = tabChoice;
-            txtBank.Clear(); txtCashAmount.Text = "0,000,000,000"; txtCashAmount2.Text = "0,000,000,000";
-            txtOR.Clear(); txtCheckOR.Clear(); txtCheckNo.Clear();
-        }
-
-        #region Check
-        private void txtCheckAmount_TextChanged(object sender, EventArgs e)
-        {
-            string value = txtCashAmount.Text.Replace(",", "");
-            ulong ul;
-            if (ulong.TryParse(value, out ul))
-            {
-                txtCashAmount.TextChanged -= txtCashAmount_TextChanged;
-                txtCashAmount.Text = string.Format("{0:#,#}", ul);
-                txtCashAmount.SelectionStart = txtCashAmount.Text.Length;
-                txtCashAmount.TextChanged += txtCashAmount_TextChanged;
-            }
-        }
 
         private void txtCheckAmount_Enter(object sender, EventArgs e)
         {
@@ -342,6 +365,62 @@ namespace BalayPasilungan
             toDefault();
         }
 
+        #endregion
+
+        #region Check Edit
+        private void btnEditCheck_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = " + txtCheckNo2.Text + ", checkNo = '" + txtCheckOR2.Text
+                    + "', amount = " + decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text) + ", dateDonated = '" + dateCheck2.Value.Date.ToString("yyyyMMdd")
+                    + "', dateCheck = '" + dateOfCheck2.Value.Date.ToString("yyyyMMdd")
+                    + "' WHERE donationID = " + donationID, conn);
+                editSQL(comm);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtCheckAmount2_Enter(object sender, EventArgs e)
+        {
+            if (txtCheckAmount2.Text == "0,000,000,000") txtCheckAmount2.Text = "";
+            toYellow();
+        }
+
+        private void txtCheckAmount2_TextChanged(object sender, EventArgs e)
+        {
+            string value = txtCheckAmount2.Text.Replace(",", "");
+            ulong ul;
+            if (ulong.TryParse(value, out ul))
+            {
+                txtCheckAmount2.TextChanged -= txtCheckAmount2_TextChanged;
+                txtCheckAmount2.Text = string.Format("{0:#,#}", ul);
+                txtCheckAmount2.SelectionStart = txtCheckAmount2.Text.Length;
+                txtCheckAmount2.TextChanged += txtCheckAmount2_TextChanged;
+            }
+        }
+
+        private void txtCheckAmount2_Leave(object sender, EventArgs e)
+        {
+            if (txtCheckAmount2.Text == "") txtCheckAmount2.Text = "0,000,000,000";
+            toDefault();
+        }
+
+        private void txtCheckCent2_Enter(object sender, EventArgs e)
+        {
+            if (txtCheckCent2.Text == "00") txtCheckCent2.Text = "";
+            toYellow();
+        }
+
+        private void txtCheckCent2_Leave(object sender, EventArgs e)
+        {
+            if (txtCheckCent2.Text == "") txtCheckCent2.Text = "00";
+            toDefault();
+        }
         #endregion
     }
 }

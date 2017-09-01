@@ -169,7 +169,7 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, null, null, null, null, "No entries.", null, null, -1);
                     empty = true;                    
-                }
+                }                
 
                 donationMoney.DataSource = dt;
 
@@ -195,9 +195,9 @@ namespace BalayPasilungan
                 donationMoney.Columns[6].Width = 120;
                 donationMoney.Columns[7].Width = 120;
                 donationMoney.Columns[8].Width = 0;
-
+                
                 if (dt.Rows.Count > 0 && !empty)
-                {                    
+                {                                        
                     donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(5, 0, 0, 0);
                     donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
                     donationMoney.Columns[2].DefaultCellStyle.Format = "#,0.00##";
@@ -869,7 +869,7 @@ namespace BalayPasilungan
 
             if (donationMoney.Rows[row].Cells[4].Value.ToString() != null || donationMoney.Rows[row].Cells[1].Value.ToString() != null)
             {
-                if(donationMoney.Rows[row].Cells[1].Value.ToString() == "1")            // Cash Donation Edit
+                if(donationMoney.Rows[row].Cells[1].Value.ToString() == "Cash")            // Cash Donation Edit
                 {
                     string[] parts = donationMoney.Rows[row].Cells[2].Value.ToString().Split('.');
                     DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[7].Value.ToString());
@@ -887,22 +887,23 @@ namespace BalayPasilungan
 
                     loadMonetary(current_donorID);
                 }
-                else if (donationMoney.Rows[row].Cells[1].Value.ToString() == "2")      // Check Donation Edit
+                else if (donationMoney.Rows[row].Cells[1].Value.ToString() == "Check")      // Check Donation Edit
                 {
                     string[] parts = donationMoney.Rows[row].Cells[2].Value.ToString().Split('.');
+                    DateTime dateCheck = Convert.ToDateTime(donationMoney.Rows[row].Cells[6].Value.ToString());
                     DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[7].Value.ToString());
 
                     moneyDonate mD = new moneyDonate();             // Tab for Edit Check selected
-
-                    // LMAO
+                    
                     mD.tabSelection.SelectedIndex = 4;
 
-                    /*mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());
-                    mD.txtCashAmount2.Text = parts[0];
-                    mD.txtCashCent2.Text = parts[1];
-                    mD.txtOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString();
-                    mD.dateCash2.MaxDate = dateDonate; mD.dateCash2.Value = dateDonate;
-                    mD.ShowDialog();*/
+                    mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());
+                    mD.txtCheckAmount2.Text = parts[0];
+                    mD.txtCheckCent2.Text = parts[1];
+                    mD.txtCheckOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString(); mD.txtCheckNo2.Text = donationMoney.Rows[row].Cells[4].Value.ToString();
+                    mD.txtBank2.Text = donationMoney.Rows[row].Cells[5].Value.ToString();
+                    mD.dateOfCheck2.MaxDate = dateCheck; mD.dateCheck2.Value = dateDonate;
+                    mD.ShowDialog();
                 }
             }
         }
@@ -919,7 +920,7 @@ namespace BalayPasilungan
                     {
                         int row = donationMoney.CurrentCell.RowIndex;
                         delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));
-                        loadMonetary(current_donorID);          // LMAO
+                        loadMonetary(current_donorID);  
                     }
                 }
             }

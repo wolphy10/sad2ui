@@ -79,22 +79,46 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tabCashEdit = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.noFocusRec3 = new BalayPasilungan.NoFocusRec();
+            this.btnCashBack2 = new BalayPasilungan.NoFocusRec();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.txtCashCent2 = new System.Windows.Forms.TextBox();
-            this.txtTIN2 = new System.Windows.Forms.MaskedTextBox();
             this.txtOR2 = new System.Windows.Forms.TextBox();
             this.lblOR2 = new System.Windows.Forms.Label();
-            this.btnCashBack2 = new System.Windows.Forms.Button();
             this.dateCash2 = new System.Windows.Forms.DateTimePicker();
             this.btnEditCash = new System.Windows.Forms.Button();
             this.lbldateCash2 = new System.Windows.Forms.Label();
             this.lblPeso3 = new System.Windows.Forms.Label();
             this.lblCashAmount2 = new System.Windows.Forms.Label();
-            this.lblTIN2 = new System.Windows.Forms.Label();
             this.txtCashAmount2 = new System.Windows.Forms.TextBox();
             this.lblDot3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabCheckEdit = new System.Windows.Forms.TabPage();
+            this.btnEditCheck = new System.Windows.Forms.Button();
+            this.txtBank2 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.noFocusRec5 = new BalayPasilungan.NoFocusRec();
+            this.btnCheckBack2 = new BalayPasilungan.NoFocusRec();
+            this.dateCheck2 = new System.Windows.Forms.DateTimePicker();
+            this.lbldateCheck2 = new System.Windows.Forms.Label();
+            this.lblBank2 = new System.Windows.Forms.Label();
+            this.txtCheckNo2 = new System.Windows.Forms.MaskedTextBox();
+            this.lblCheckNo2 = new System.Windows.Forms.Label();
+            this.txtCheckOR2 = new System.Windows.Forms.TextBox();
+            this.lblCheckOR2 = new System.Windows.Forms.Label();
+            this.dateOfCheck2 = new System.Windows.Forms.DateTimePicker();
+            this.lbldateOfCheck2 = new System.Windows.Forms.Label();
+            this.lblPeso4 = new System.Windows.Forms.Label();
+            this.txtCheckCent2 = new System.Windows.Forms.TextBox();
+            this.lblCheckAmount2 = new System.Windows.Forms.Label();
+            this.txtCheckAmount2 = new System.Windows.Forms.TextBox();
+            this.lblDot4 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -109,8 +133,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabCashEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tabCheckEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -155,7 +185,7 @@
             this.btnClose.Location = new System.Drawing.Point(484, 1);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(25, 26);
-            this.btnClose.TabIndex = 3;
+            this.btnClose.TabIndex = 2;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -170,6 +200,7 @@
             this.pbCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCheck.TabIndex = 15;
             this.pbCheck.TabStop = false;
+            this.pbCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // btnCheck
             // 
@@ -183,7 +214,7 @@
             this.btnCheck.Location = new System.Drawing.Point(0, 204);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(512, 172);
-            this.btnCheck.TabIndex = 2;
+            this.btnCheck.TabIndex = 1;
             this.btnCheck.Text = "          CHECK";
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
@@ -198,6 +229,7 @@
             this.pbCash.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCash.TabIndex = 16;
             this.pbCash.TabStop = false;
+            this.pbCash.Click += new System.EventHandler(this.btnCash_Click);
             // 
             // btnCash
             // 
@@ -495,7 +527,7 @@
             this.txtBank.MaxLength = 100;
             this.txtBank.Name = "txtBank";
             this.txtBank.Size = new System.Drawing.Size(408, 22);
-            this.txtBank.TabIndex = 42;
+            this.txtBank.TabIndex = 2;
             this.txtBank.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox7
@@ -517,7 +549,7 @@
             this.btnCheckAdd.Location = new System.Drawing.Point(0, 336);
             this.btnCheckAdd.Name = "btnCheckAdd";
             this.btnCheckAdd.Size = new System.Drawing.Size(512, 40);
-            this.btnCheckAdd.TabIndex = 47;
+            this.btnCheckAdd.TabIndex = 7;
             this.btnCheckAdd.Text = "ADD DONATION";
             this.btnCheckAdd.UseVisualStyleBackColor = false;
             this.btnCheckAdd.Click += new System.EventHandler(this.btnCheckAdd_Click);
@@ -571,7 +603,7 @@
             this.btnCheckBack.Location = new System.Drawing.Point(6, 8);
             this.btnCheckBack.Name = "btnCheckBack";
             this.btnCheckBack.Size = new System.Drawing.Size(76, 22);
-            this.btnCheckBack.TabIndex = 5;
+            this.btnCheckBack.TabIndex = 8;
             this.btnCheckBack.Text = "GO BACK";
             this.btnCheckBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckBack.UseVisualStyleBackColor = false;
@@ -585,11 +617,11 @@
             this.dateCheck.CustomFormat = "MMMM dd, yyyy";
             this.dateCheck.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.dateCheck.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCheck.Location = new System.Drawing.Point(270, 186);
+            this.dateCheck.Location = new System.Drawing.Point(270, 184);
             this.dateCheck.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             this.dateCheck.Name = "dateCheck";
             this.dateCheck.Size = new System.Drawing.Size(196, 29);
-            this.dateCheck.TabIndex = 45;
+            this.dateCheck.TabIndex = 4;
             this.dateCheck.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             // 
             // lbldateCheck
@@ -597,7 +629,7 @@
             this.lbldateCheck.AutoSize = true;
             this.lbldateCheck.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbldateCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lbldateCheck.Location = new System.Drawing.Point(266, 167);
+            this.lbldateCheck.Location = new System.Drawing.Point(266, 165);
             this.lbldateCheck.Name = "lbldateCheck";
             this.lbldateCheck.Size = new System.Drawing.Size(94, 15);
             this.lbldateCheck.TabIndex = 46;
@@ -624,7 +656,7 @@
             this.txtCheckNo.Name = "txtCheckNo";
             this.txtCheckNo.PromptChar = ' ';
             this.txtCheckNo.Size = new System.Drawing.Size(184, 22);
-            this.txtCheckNo.TabIndex = 40;
+            this.txtCheckNo.TabIndex = 1;
             this.txtCheckNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCheckNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
@@ -648,7 +680,7 @@
             this.txtCheckOR.MaxLength = 10;
             this.txtCheckOR.Name = "txtCheckOR";
             this.txtCheckOR.Size = new System.Drawing.Size(118, 22);
-            this.txtCheckOR.TabIndex = 28;
+            this.txtCheckOR.TabIndex = 0;
             this.txtCheckOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCheckOR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
@@ -671,11 +703,11 @@
             this.dateOfCheck.CustomFormat = "MMMM dd, yyyy";
             this.dateOfCheck.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.dateOfCheck.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOfCheck.Location = new System.Drawing.Point(22, 186);
+            this.dateOfCheck.Location = new System.Drawing.Point(22, 184);
             this.dateOfCheck.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             this.dateOfCheck.Name = "dateOfCheck";
             this.dateOfCheck.Size = new System.Drawing.Size(196, 29);
-            this.dateOfCheck.TabIndex = 29;
+            this.dateOfCheck.TabIndex = 3;
             this.dateOfCheck.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             // 
             // lbldateOfCheck
@@ -683,7 +715,7 @@
             this.lbldateOfCheck.AutoSize = true;
             this.lbldateOfCheck.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbldateOfCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lbldateOfCheck.Location = new System.Drawing.Point(18, 167);
+            this.lbldateOfCheck.Location = new System.Drawing.Point(18, 165);
             this.lbldateOfCheck.Name = "lbldateOfCheck";
             this.lbldateOfCheck.Size = new System.Drawing.Size(95, 15);
             this.lbldateOfCheck.TabIndex = 36;
@@ -709,7 +741,7 @@
             this.txtCheckCent.MaxLength = 2;
             this.txtCheckCent.Name = "txtCheckCent";
             this.txtCheckCent.Size = new System.Drawing.Size(70, 71);
-            this.txtCheckCent.TabIndex = 31;
+            this.txtCheckCent.TabIndex = 6;
             this.txtCheckCent.Text = "00";
             this.txtCheckCent.Enter += new System.EventHandler(this.txtCheckCent_Enter);
             this.txtCheckCent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
@@ -735,7 +767,7 @@
             this.txtCheckAmount.MaxLength = 13;
             this.txtCheckAmount.Name = "txtCheckAmount";
             this.txtCheckAmount.Size = new System.Drawing.Size(335, 71);
-            this.txtCheckAmount.TabIndex = 30;
+            this.txtCheckAmount.TabIndex = 5;
             this.txtCheckAmount.Text = "0,000,000,000";
             this.txtCheckAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckAmount.TextChanged += new System.EventHandler(this.txtCheckAmount_TextChanged);
@@ -773,21 +805,19 @@
             // 
             // tabCashEdit
             // 
+            this.tabCashEdit.Controls.Add(this.panel2);
+            this.tabCashEdit.Controls.Add(this.pictureBox4);
+            this.tabCashEdit.Controls.Add(this.pictureBox8);
             this.tabCashEdit.Controls.Add(this.txtCashCent2);
-            this.tabCashEdit.Controls.Add(this.txtTIN2);
             this.tabCashEdit.Controls.Add(this.txtOR2);
             this.tabCashEdit.Controls.Add(this.lblOR2);
-            this.tabCashEdit.Controls.Add(this.btnCashBack2);
             this.tabCashEdit.Controls.Add(this.dateCash2);
             this.tabCashEdit.Controls.Add(this.btnEditCash);
             this.tabCashEdit.Controls.Add(this.lbldateCash2);
             this.tabCashEdit.Controls.Add(this.lblPeso3);
             this.tabCashEdit.Controls.Add(this.lblCashAmount2);
-            this.tabCashEdit.Controls.Add(this.lblTIN2);
             this.tabCashEdit.Controls.Add(this.txtCashAmount2);
             this.tabCashEdit.Controls.Add(this.lblDot3);
-            this.tabCashEdit.Controls.Add(this.pictureBox2);
-            this.tabCashEdit.Controls.Add(this.pictureBox4);
             this.tabCashEdit.Location = new System.Drawing.Point(4, 22);
             this.tabCashEdit.Name = "tabCashEdit";
             this.tabCashEdit.Padding = new System.Windows.Forms.Padding(3);
@@ -796,73 +826,117 @@
             this.tabCashEdit.Text = "tabPage1";
             this.tabCashEdit.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.noFocusRec3);
+            this.panel2.Controls.Add(this.btnCashBack2);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(512, 33);
+            this.panel2.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label3.Location = new System.Drawing.Point(376, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 19);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Edit Cash Donation";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec3
+            // 
+            this.noFocusRec3.FlatAppearance.BorderSize = 0;
+            this.noFocusRec3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec3.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec3.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec3.Name = "noFocusRec3";
+            this.noFocusRec3.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec3.TabIndex = 11;
+            this.noFocusRec3.Text = "X";
+            this.noFocusRec3.UseVisualStyleBackColor = true;
+            // 
+            // btnCashBack2
+            // 
+            this.btnCashBack2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCashBack2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCashBack2.FlatAppearance.BorderSize = 0;
+            this.btnCashBack2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCashBack2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCashBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCashBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCashBack2.ForeColor = System.Drawing.Color.White;
+            this.btnCashBack2.Location = new System.Drawing.Point(6, 8);
+            this.btnCashBack2.Name = "btnCashBack2";
+            this.btnCashBack2.Size = new System.Drawing.Size(76, 22);
+            this.btnCashBack2.TabIndex = 5;
+            this.btnCashBack2.Text = "GO BACK";
+            this.btnCashBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCashBack2.UseVisualStyleBackColor = false;
+            this.btnCashBack2.Click += new System.EventHandler(this.btnCashBack_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(12, 159);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox4.TabIndex = 38;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(12, 83);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox8.TabIndex = 37;
+            this.pictureBox8.TabStop = false;
+            // 
             // txtCashCent2
             // 
             this.txtCashCent2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCashCent2.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCashCent2.Font = new System.Drawing.Font("Segoe UI Semibold", 40F);
             this.txtCashCent2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.txtCashCent2.Location = new System.Drawing.Point(455, 220);
+            this.txtCashCent2.Location = new System.Drawing.Point(420, 229);
             this.txtCashCent2.MaxLength = 2;
             this.txtCashCent2.Name = "txtCashCent2";
-            this.txtCashCent2.Size = new System.Drawing.Size(70, 80);
-            this.txtCashCent2.TabIndex = 29;
+            this.txtCashCent2.Size = new System.Drawing.Size(70, 71);
+            this.txtCashCent2.TabIndex = 3;
             this.txtCashCent2.Text = "00";
             this.txtCashCent2.Enter += new System.EventHandler(this.txtCashCent2_Enter);
             this.txtCashCent2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtCashCent2.Leave += new System.EventHandler(this.txtCashCent2_Leave);
             // 
-            // txtTIN2
-            // 
-            this.txtTIN2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTIN2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.txtTIN2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtTIN2.Location = new System.Drawing.Point(94, 34);
-            this.txtTIN2.Mask = "000-000-000-000";
-            this.txtTIN2.Name = "txtTIN2";
-            this.txtTIN2.PromptChar = ' ';
-            this.txtTIN2.Size = new System.Drawing.Size(452, 25);
-            this.txtTIN2.TabIndex = 17;
-            this.txtTIN2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTIN2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
-            // 
             // txtOR2
             // 
             this.txtOR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOR2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOR2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtOR2.Location = new System.Drawing.Point(94, 95);
+            this.txtOR2.ForeColor = System.Drawing.Color.Black;
+            this.txtOR2.Location = new System.Drawing.Point(165, 52);
             this.txtOR2.MaxLength = 10;
             this.txtOR2.Name = "txtOR2";
-            this.txtOR2.Size = new System.Drawing.Size(452, 25);
-            this.txtOR2.TabIndex = 18;
+            this.txtOR2.Size = new System.Drawing.Size(316, 25);
+            this.txtOR2.TabIndex = 0;
             this.txtOR2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtOR2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // lblOR2
             // 
             this.lblOR2.AutoSize = true;
-            this.lblOR2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.lblOR2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lblOR2.Location = new System.Drawing.Point(13, 101);
+            this.lblOR2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblOR2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblOR2.Location = new System.Drawing.Point(26, 55);
             this.lblOR2.Name = "lblOR2";
-            this.lblOR2.Size = new System.Drawing.Size(55, 19);
+            this.lblOR2.Size = new System.Drawing.Size(53, 19);
             this.lblOR2.TabIndex = 27;
             this.lblOR2.Text = "OR. No";
-            // 
-            // btnCashBack2
-            // 
-            this.btnCashBack2.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnCashBack2.FlatAppearance.BorderSize = 0;
-            this.btnCashBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCashBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnCashBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(174)))));
-            this.btnCashBack2.Location = new System.Drawing.Point(0, 336);
-            this.btnCashBack2.Name = "btnCashBack2";
-            this.btnCashBack2.Size = new System.Drawing.Size(146, 40);
-            this.btnCashBack2.TabIndex = 23;
-            this.btnCashBack2.Text = "CANCEL";
-            this.btnCashBack2.UseVisualStyleBackColor = false;
-            this.btnCashBack2.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dateCash2
             // 
@@ -870,13 +944,13 @@
             this.dateCash2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
             this.dateCash2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
             this.dateCash2.CustomFormat = "MMMM dd, yyyy";
-            this.dateCash2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.dateCash2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.dateCash2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCash2.Location = new System.Drawing.Point(143, 156);
+            this.dateCash2.Location = new System.Drawing.Point(165, 125);
             this.dateCash2.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             this.dateCash2.Name = "dateCash2";
-            this.dateCash2.Size = new System.Drawing.Size(403, 32);
-            this.dateCash2.TabIndex = 19;
+            this.dateCash2.Size = new System.Drawing.Size(316, 29);
+            this.dateCash2.TabIndex = 1;
             this.dateCash2.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             // 
             // btnEditCash
@@ -886,10 +960,10 @@
             this.btnEditCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditCash.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnEditCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnEditCash.Location = new System.Drawing.Point(143, 336);
+            this.btnEditCash.Location = new System.Drawing.Point(0, 336);
             this.btnEditCash.Name = "btnEditCash";
-            this.btnEditCash.Size = new System.Drawing.Size(415, 40);
-            this.btnEditCash.TabIndex = 21;
+            this.btnEditCash.Size = new System.Drawing.Size(512, 40);
+            this.btnEditCash.TabIndex = 4;
             this.btnEditCash.Text = "EDIT DONATION";
             this.btnEditCash.UseVisualStyleBackColor = false;
             this.btnEditCash.Click += new System.EventHandler(this.btnEditCash_Click);
@@ -897,57 +971,46 @@
             // lbldateCash2
             // 
             this.lbldateCash2.AutoSize = true;
-            this.lbldateCash2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.lbldateCash2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lbldateCash2.Location = new System.Drawing.Point(13, 163);
+            this.lbldateCash2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbldateCash2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lbldateCash2.Location = new System.Drawing.Point(26, 131);
             this.lbldateCash2.Name = "lbldateCash2";
-            this.lbldateCash2.Size = new System.Drawing.Size(95, 19);
+            this.lbldateCash2.Size = new System.Drawing.Size(110, 19);
             this.lbldateCash2.TabIndex = 26;
-            this.lbldateCash2.Text = "Date Donated";
+            this.lbldateCash2.Text = "DATE DONATED";
             // 
             // lblPeso3
             // 
             this.lblPeso3.AutoSize = true;
-            this.lblPeso3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPeso3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lblPeso3.Location = new System.Drawing.Point(28, 236);
+            this.lblPeso3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPeso3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblPeso3.Location = new System.Drawing.Point(26, 272);
             this.lblPeso3.Name = "lblPeso3";
-            this.lblPeso3.Size = new System.Drawing.Size(20, 21);
+            this.lblPeso3.Size = new System.Drawing.Size(17, 19);
             this.lblPeso3.TabIndex = 24;
             this.lblPeso3.Text = "₱";
             // 
             // lblCashAmount2
             // 
             this.lblCashAmount2.AutoSize = true;
-            this.lblCashAmount2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.lblCashAmount2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lblCashAmount2.Location = new System.Drawing.Point(12, 215);
+            this.lblCashAmount2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblCashAmount2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblCashAmount2.Location = new System.Drawing.Point(26, 206);
             this.lblCashAmount2.Name = "lblCashAmount2";
-            this.lblCashAmount2.Size = new System.Drawing.Size(59, 19);
+            this.lblCashAmount2.Size = new System.Drawing.Size(69, 19);
             this.lblCashAmount2.TabIndex = 22;
-            this.lblCashAmount2.Text = "Amount";
-            // 
-            // lblTIN2
-            // 
-            this.lblTIN2.AutoSize = true;
-            this.lblTIN2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTIN2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lblTIN2.Location = new System.Drawing.Point(13, 40);
-            this.lblTIN2.Name = "lblTIN2";
-            this.lblTIN2.Size = new System.Drawing.Size(32, 19);
-            this.lblTIN2.TabIndex = 16;
-            this.lblTIN2.Text = "TIN";
+            this.lblCashAmount2.Text = "AMOUNT";
             // 
             // txtCashAmount2
             // 
             this.txtCashAmount2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCashAmount2.Font = new System.Drawing.Font("Segoe UI Semibold", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCashAmount2.Font = new System.Drawing.Font("Segoe UI Semibold", 40F);
             this.txtCashAmount2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.txtCashAmount2.Location = new System.Drawing.Point(56, 222);
+            this.txtCashAmount2.Location = new System.Drawing.Point(49, 229);
             this.txtCashAmount2.MaxLength = 13;
             this.txtCashAmount2.Name = "txtCashAmount2";
-            this.txtCashAmount2.Size = new System.Drawing.Size(371, 80);
-            this.txtCashAmount2.TabIndex = 20;
+            this.txtCashAmount2.Size = new System.Drawing.Size(343, 71);
+            this.txtCashAmount2.TabIndex = 2;
             this.txtCashAmount2.Text = "0,000,000,000";
             this.txtCashAmount2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCashAmount2.TextChanged += new System.EventHandler(this.txtCashAmount2_TextChanged);
@@ -958,32 +1021,36 @@
             // lblDot3
             // 
             this.lblDot3.AutoSize = true;
-            this.lblDot3.Font = new System.Drawing.Font("Segoe UI Semibold", 45F);
+            this.lblDot3.Font = new System.Drawing.Font("Segoe UI Semibold", 40F);
             this.lblDot3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.lblDot3.Location = new System.Drawing.Point(420, 220);
+            this.lblDot3.Location = new System.Drawing.Point(387, 229);
             this.lblDot3.Name = "lblDot3";
-            this.lblDot3.Size = new System.Drawing.Size(49, 81);
+            this.lblDot3.Size = new System.Drawing.Size(43, 72);
             this.lblDot3.TabIndex = 30;
             this.lblDot3.Text = ".";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(12, 107);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(534, 23);
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(12, 46);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(534, 23);
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
-            // 
             // tabCheckEdit
             // 
+            this.tabCheckEdit.Controls.Add(this.btnEditCheck);
+            this.tabCheckEdit.Controls.Add(this.txtBank2);
+            this.tabCheckEdit.Controls.Add(this.pictureBox2);
+            this.tabCheckEdit.Controls.Add(this.panel3);
+            this.tabCheckEdit.Controls.Add(this.dateCheck2);
+            this.tabCheckEdit.Controls.Add(this.lbldateCheck2);
+            this.tabCheckEdit.Controls.Add(this.lblBank2);
+            this.tabCheckEdit.Controls.Add(this.txtCheckNo2);
+            this.tabCheckEdit.Controls.Add(this.lblCheckNo2);
+            this.tabCheckEdit.Controls.Add(this.txtCheckOR2);
+            this.tabCheckEdit.Controls.Add(this.lblCheckOR2);
+            this.tabCheckEdit.Controls.Add(this.dateOfCheck2);
+            this.tabCheckEdit.Controls.Add(this.lbldateOfCheck2);
+            this.tabCheckEdit.Controls.Add(this.lblPeso4);
+            this.tabCheckEdit.Controls.Add(this.txtCheckCent2);
+            this.tabCheckEdit.Controls.Add(this.lblCheckAmount2);
+            this.tabCheckEdit.Controls.Add(this.txtCheckAmount2);
+            this.tabCheckEdit.Controls.Add(this.lblDot4);
+            this.tabCheckEdit.Controls.Add(this.pictureBox9);
+            this.tabCheckEdit.Controls.Add(this.pictureBox10);
             this.tabCheckEdit.Location = new System.Drawing.Point(4, 22);
             this.tabCheckEdit.Name = "tabCheckEdit";
             this.tabCheckEdit.Padding = new System.Windows.Forms.Padding(3);
@@ -991,6 +1058,288 @@
             this.tabCheckEdit.TabIndex = 4;
             this.tabCheckEdit.Text = "tabPage2";
             this.tabCheckEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnEditCheck
+            // 
+            this.btnEditCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnEditCheck.FlatAppearance.BorderSize = 0;
+            this.btnEditCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCheck.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnEditCheck.Location = new System.Drawing.Point(0, 336);
+            this.btnEditCheck.Name = "btnEditCheck";
+            this.btnEditCheck.Size = new System.Drawing.Size(512, 40);
+            this.btnEditCheck.TabIndex = 7;
+            this.btnEditCheck.Text = "EDIT DONATION";
+            this.btnEditCheck.UseVisualStyleBackColor = false;
+            this.btnEditCheck.Click += new System.EventHandler(this.btnEditCheck_Click);
+            // 
+            // txtBank2
+            // 
+            this.txtBank2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBank2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBank2.ForeColor = System.Drawing.Color.Black;
+            this.txtBank2.Location = new System.Drawing.Point(77, 105);
+            this.txtBank2.MaxLength = 100;
+            this.txtBank2.Name = "txtBank2";
+            this.txtBank2.Size = new System.Drawing.Size(408, 22);
+            this.txtBank2.TabIndex = 2;
+            this.txtBank2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox2.Location = new System.Drawing.Point(11, 130);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(487, 23);
+            this.pictureBox2.TabIndex = 70;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.noFocusRec5);
+            this.panel3.Controls.Add(this.btnCheckBack2);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(512, 33);
+            this.panel3.TabIndex = 69;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label4.Location = new System.Drawing.Point(368, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 19);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Edit Check Donation";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec5
+            // 
+            this.noFocusRec5.FlatAppearance.BorderSize = 0;
+            this.noFocusRec5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec5.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec5.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec5.Name = "noFocusRec5";
+            this.noFocusRec5.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec5.TabIndex = 11;
+            this.noFocusRec5.Text = "X";
+            this.noFocusRec5.UseVisualStyleBackColor = true;
+            // 
+            // btnCheckBack2
+            // 
+            this.btnCheckBack2.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckBack2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckBack2.FlatAppearance.BorderSize = 0;
+            this.btnCheckBack2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCheckBack2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCheckBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCheckBack2.ForeColor = System.Drawing.Color.White;
+            this.btnCheckBack2.Location = new System.Drawing.Point(6, 8);
+            this.btnCheckBack2.Name = "btnCheckBack2";
+            this.btnCheckBack2.Size = new System.Drawing.Size(76, 22);
+            this.btnCheckBack2.TabIndex = 8;
+            this.btnCheckBack2.Text = "GO BACK";
+            this.btnCheckBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckBack2.UseVisualStyleBackColor = false;
+            this.btnCheckBack2.Click += new System.EventHandler(this.btnCashBack_Click);
+            // 
+            // dateCheck2
+            // 
+            this.dateCheck2.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateCheck2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateCheck2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateCheck2.CustomFormat = "MMMM dd, yyyy";
+            this.dateCheck2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateCheck2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateCheck2.Location = new System.Drawing.Point(270, 184);
+            this.dateCheck2.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateCheck2.Name = "dateCheck2";
+            this.dateCheck2.Size = new System.Drawing.Size(196, 29);
+            this.dateCheck2.TabIndex = 4;
+            this.dateCheck2.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // lbldateCheck2
+            // 
+            this.lbldateCheck2.AutoSize = true;
+            this.lbldateCheck2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbldateCheck2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lbldateCheck2.Location = new System.Drawing.Point(266, 165);
+            this.lbldateCheck2.Name = "lbldateCheck2";
+            this.lbldateCheck2.Size = new System.Drawing.Size(94, 15);
+            this.lbldateCheck2.TabIndex = 67;
+            this.lbldateCheck2.Text = "DATE DONATED";
+            // 
+            // lblBank2
+            // 
+            this.lblBank2.AutoSize = true;
+            this.lblBank2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblBank2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblBank2.Location = new System.Drawing.Point(18, 110);
+            this.lblBank2.Name = "lblBank2";
+            this.lblBank2.Size = new System.Drawing.Size(38, 15);
+            this.lblBank2.TabIndex = 65;
+            this.lblBank2.Text = "BANK";
+            // 
+            // txtCheckNo2
+            // 
+            this.txtCheckNo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckNo2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtCheckNo2.ForeColor = System.Drawing.Color.Black;
+            this.txtCheckNo2.Location = new System.Drawing.Point(301, 48);
+            this.txtCheckNo2.Mask = "000000000-00000000-0000";
+            this.txtCheckNo2.Name = "txtCheckNo2";
+            this.txtCheckNo2.PromptChar = ' ';
+            this.txtCheckNo2.Size = new System.Drawing.Size(184, 22);
+            this.txtCheckNo2.TabIndex = 1;
+            this.txtCheckNo2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblCheckNo2
+            // 
+            this.lblCheckNo2.AutoSize = true;
+            this.lblCheckNo2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCheckNo2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblCheckNo2.Location = new System.Drawing.Point(215, 53);
+            this.lblCheckNo2.Name = "lblCheckNo2";
+            this.lblCheckNo2.Size = new System.Drawing.Size(69, 15);
+            this.lblCheckNo2.TabIndex = 62;
+            this.lblCheckNo2.Text = "CHECK NO.";
+            // 
+            // txtCheckOR2
+            // 
+            this.txtCheckOR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckOR2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtCheckOR2.ForeColor = System.Drawing.Color.Black;
+            this.txtCheckOR2.Location = new System.Drawing.Point(77, 48);
+            this.txtCheckOR2.MaxLength = 10;
+            this.txtCheckOR2.Name = "txtCheckOR2";
+            this.txtCheckOR2.Size = new System.Drawing.Size(118, 22);
+            this.txtCheckOR2.TabIndex = 0;
+            this.txtCheckOR2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblCheckOR2
+            // 
+            this.lblCheckOR2.AutoSize = true;
+            this.lblCheckOR2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCheckOR2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblCheckOR2.Location = new System.Drawing.Point(18, 53);
+            this.lblCheckOR2.Name = "lblCheckOR2";
+            this.lblCheckOR2.Size = new System.Drawing.Size(47, 15);
+            this.lblCheckOR2.TabIndex = 60;
+            this.lblCheckOR2.Text = "OR. NO";
+            // 
+            // dateOfCheck2
+            // 
+            this.dateOfCheck2.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOfCheck2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateOfCheck2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateOfCheck2.CustomFormat = "MMMM dd, yyyy";
+            this.dateOfCheck2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateOfCheck2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateOfCheck2.Location = new System.Drawing.Point(22, 184);
+            this.dateOfCheck2.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateOfCheck2.Name = "dateOfCheck2";
+            this.dateOfCheck2.Size = new System.Drawing.Size(196, 29);
+            this.dateOfCheck2.TabIndex = 3;
+            this.dateOfCheck2.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // lbldateOfCheck2
+            // 
+            this.lbldateOfCheck2.AutoSize = true;
+            this.lbldateOfCheck2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbldateOfCheck2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lbldateOfCheck2.Location = new System.Drawing.Point(18, 165);
+            this.lbldateOfCheck2.Name = "lbldateOfCheck2";
+            this.lbldateOfCheck2.Size = new System.Drawing.Size(95, 15);
+            this.lbldateOfCheck2.TabIndex = 59;
+            this.lbldateOfCheck2.Text = "DATE OF CHECK";
+            // 
+            // lblPeso4
+            // 
+            this.lblPeso4.AutoSize = true;
+            this.lblPeso4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPeso4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblPeso4.Location = new System.Drawing.Point(18, 293);
+            this.lblPeso4.Name = "lblPeso4";
+            this.lblPeso4.Size = new System.Drawing.Size(17, 19);
+            this.lblPeso4.TabIndex = 58;
+            this.lblPeso4.Text = "₱";
+            // 
+            // txtCheckCent2
+            // 
+            this.txtCheckCent2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckCent2.Font = new System.Drawing.Font("Segoe UI Semibold", 40F);
+            this.txtCheckCent2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.txtCheckCent2.Location = new System.Drawing.Point(415, 250);
+            this.txtCheckCent2.MaxLength = 2;
+            this.txtCheckCent2.Name = "txtCheckCent2";
+            this.txtCheckCent2.Size = new System.Drawing.Size(70, 71);
+            this.txtCheckCent2.TabIndex = 6;
+            this.txtCheckCent2.Text = "00";
+            this.txtCheckCent2.Enter += new System.EventHandler(this.txtCheckCent2_Enter);
+            this.txtCheckCent2.Leave += new System.EventHandler(this.txtCheckCent2_Leave);
+            // 
+            // lblCheckAmount2
+            // 
+            this.lblCheckAmount2.AutoSize = true;
+            this.lblCheckAmount2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblCheckAmount2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblCheckAmount2.Location = new System.Drawing.Point(18, 247);
+            this.lblCheckAmount2.Name = "lblCheckAmount2";
+            this.lblCheckAmount2.Size = new System.Drawing.Size(59, 15);
+            this.lblCheckAmount2.TabIndex = 56;
+            this.lblCheckAmount2.Text = "AMOUNT";
+            // 
+            // txtCheckAmount2
+            // 
+            this.txtCheckAmount2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckAmount2.Font = new System.Drawing.Font("Segoe UI Semibold", 40F);
+            this.txtCheckAmount2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.txtCheckAmount2.Location = new System.Drawing.Point(52, 250);
+            this.txtCheckAmount2.MaxLength = 13;
+            this.txtCheckAmount2.Name = "txtCheckAmount2";
+            this.txtCheckAmount2.Size = new System.Drawing.Size(335, 71);
+            this.txtCheckAmount2.TabIndex = 5;
+            this.txtCheckAmount2.Text = "0,000,000,000";
+            this.txtCheckAmount2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCheckAmount2.TextChanged += new System.EventHandler(this.txtCheckAmount2_TextChanged);
+            this.txtCheckAmount2.Enter += new System.EventHandler(this.txtCheckAmount2_Enter);
+            this.txtCheckAmount2.Leave += new System.EventHandler(this.txtCheckAmount2_Leave);
+            // 
+            // lblDot4
+            // 
+            this.lblDot4.AutoSize = true;
+            this.lblDot4.Font = new System.Drawing.Font("Segoe UI Semibold", 40F);
+            this.lblDot4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.lblDot4.Location = new System.Drawing.Point(380, 250);
+            this.lblDot4.Name = "lblDot4";
+            this.lblDot4.Size = new System.Drawing.Size(43, 72);
+            this.lblDot4.TabIndex = 57;
+            this.lblDot4.Text = ".";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox9.Location = new System.Drawing.Point(11, 73);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(487, 23);
+            this.pictureBox9.TabIndex = 61;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(12, 212);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox10.TabIndex = 71;
+            this.pictureBox10.TabStop = false;
             // 
             // moneyDonate
             // 
@@ -1025,8 +1374,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabCashEdit.ResumeLayout(false);
             this.tabCashEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.tabCheckEdit.ResumeLayout(false);
+            this.tabCheckEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1052,17 +1410,12 @@
         private System.Windows.Forms.TabPage tabCheckEdit;
         private System.Windows.Forms.Label lblDot3;
         private System.Windows.Forms.Label lblOR2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnCashBack2;
         private System.Windows.Forms.Button btnEditCash;
         private System.Windows.Forms.Label lbldateCash2;
         private System.Windows.Forms.Label lblPeso3;
         private System.Windows.Forms.Label lblCashAmount2;
-        private System.Windows.Forms.Label lblTIN2;
-        private System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.TabControl tabSelection;
         public System.Windows.Forms.TextBox txtCashCent2;
-        public System.Windows.Forms.MaskedTextBox txtTIN2;
         public System.Windows.Forms.TextBox txtOR2;
         public System.Windows.Forms.DateTimePicker dateCash2;
         public System.Windows.Forms.TextBox txtCashAmount2;
@@ -1098,5 +1451,34 @@
         private NoFocusRec btnCheckBack;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private NoFocusRec noFocusRec3;
+        private NoFocusRec btnCashBack2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Button btnEditCheck;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
+        private NoFocusRec noFocusRec5;
+        private NoFocusRec btnCheckBack2;
+        private System.Windows.Forms.Label lbldateCheck2;
+        private System.Windows.Forms.Label lblBank2;
+        private System.Windows.Forms.Label lblCheckNo2;
+        private System.Windows.Forms.Label lblCheckOR2;
+        private System.Windows.Forms.Label lbldateOfCheck2;
+        private System.Windows.Forms.Label lblPeso4;
+        private System.Windows.Forms.Label lblCheckAmount2;
+        private System.Windows.Forms.Label lblDot4;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        public System.Windows.Forms.TextBox txtBank2;
+        public System.Windows.Forms.DateTimePicker dateCheck2;
+        public System.Windows.Forms.MaskedTextBox txtCheckNo2;
+        public System.Windows.Forms.TextBox txtCheckOR2;
+        public System.Windows.Forms.DateTimePicker dateOfCheck2;
+        public System.Windows.Forms.TextBox txtCheckCent2;
+        public System.Windows.Forms.TextBox txtCheckAmount2;
     }
 }
