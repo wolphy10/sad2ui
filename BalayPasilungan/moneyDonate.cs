@@ -445,7 +445,7 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region In-Kind Donation
+        #region In-Kind Donation Add and Edit
         private void btnAddIK_Click(object sender, EventArgs e)
         {
             try
@@ -461,6 +461,27 @@ namespace BalayPasilungan
                 // GET THAT DONATION ID
                 comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
                 addSQL(comm, 3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnIKBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEditIK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("UPDATE inkind SET particular = '" + txtPart2.Text
+                    + "', quantity = " + txtQuantity2.Text + ", dateDonated = '" + dateIK2.Value.Date.ToString("yyyyMMdd")
+                    + "' WHERE donationID = " + donationID, conn);
+                editSQL(comm);
             }
             catch (Exception ex)
             {

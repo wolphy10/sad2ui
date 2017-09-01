@@ -160,15 +160,24 @@ namespace BalayPasilungan
         private void btnClose_Click(object sender, EventArgs e)
         {
             confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            dim.Show();
             conf.lblConfirm.Text = "Are you sure you want to leave?";
-            conf.refToExpense = this;
-            conf.boolExpense = true;
-            conf.ShowDialog();
+            conf.refToExpense = this;     
+
+            if (conf.ShowDialog() == DialogResult.OK)
+            {
+                conf.Close();
+                this.Close();
+            }
+            dim.Close();
         }
         #endregion
 
         #region SQL Connections
-        
+
         public void loadTable(MySqlCommand comm, int type)
         {
             try
@@ -220,11 +229,11 @@ namespace BalayPasilungan
                         donationMoney.Columns[6].DefaultCellStyle.Format = "MMMM dd, yyyy";
                         donationMoney.Columns[7].DefaultCellStyle.Format = "MMMM dd, yyyy";
 
-                        btnDelMoneyD.Enabled = true; btnEditMoneyD.Enabled = true;
+                        btnDelMoneyD.Enabled = true; btnEditMoneyD.Enabled = true; multiSelect.Enabled = true;
                     }
                     else
                     {
-                        btnDelMoneyD.Enabled = false; btnEditMoneyD.Enabled = false; empty = false;
+                        btnDelMoneyD.Enabled = false; btnEditMoneyD.Enabled = false; empty = false; multiSelect.Enabled = false;
                     }
                 }
                 else if(type == 2)          // In kind donation
@@ -257,11 +266,11 @@ namespace BalayPasilungan
                         donationIK.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                         donationIK.Columns[3].DefaultCellStyle.Format = "MMMM dd, yyyy";
 
-                        btnDelIK.Enabled = true; btnEditIK.Enabled = true;
+                        btnDelIK.Enabled = true; btnEditIK.Enabled = true; multiSelect2.Enabled = true;
                     }
                     else
                     {
-                        btnDelIK.Enabled = false; btnEditIK.Enabled = false; empty = false;
+                        btnDelIK.Enabled = false; btnEditIK.Enabled = false; empty = false; multiSelect2.Enabled = false;
                     }
                 }
                 conn.Close();
@@ -275,7 +284,7 @@ namespace BalayPasilungan
         public void loadDonorList()
         {
             tabSelection.SelectedTab = tabDonors;
-
+            bool empty = false;
             try
             {
                 conn.Open();
@@ -285,29 +294,33 @@ namespace BalayPasilungan
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
-                if (dt.Rows.Count > 0)
+                if (dt.Rows.Count == 0)
                 {
-                    donorsGV.DataSource = dt;
+                    dt.Rows.Add(-1, "No entries.", null, null);
+                    empty = true; multiDonor.Enabled = false; btnRemoveDonor.Enabled = false;
+                }
 
-                    donorsGV.AutoResizeColumns();
+                donorsGV.DataSource = dt;
 
-                    // Donors Grid View UI Modifications
-                    donorsGV.Columns[1].HeaderText = "Donor Name"; donorsGV.Columns[2].HeaderText = "Pledge"; donorsGV.Columns[3].HeaderText = "Date of Pledge";
+                // Donors Grid View UI Modificationsddddd
+                donorsGV.Columns[1].HeaderText = "DONOR NAME";
+                donorsGV.Columns[2].HeaderText = "PLEDGE";
+                donorsGV.Columns[3].HeaderText = "DATE OF PLEDGE";
+                donorsGV.Columns[0].Visible = false;
 
-                    donorsGV.Columns[0].Visible = false;
+                // 935 WIDTH
+                donorsGV.Columns[1].Width = 600;
+                donorsGV.Columns[2].Width = 120;
+                donorsGV.Columns[3].Width = 215;
 
+                if (dt.Rows.Count > 0 && !empty)
+                {
                     donorsGV.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
                     donorsGV.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
-
-                    donorsGV.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    donorsGV.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                    donorsGV.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    donorsGV.Columns[3].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                    multiDonor.Enabled = true; btnRemoveDonor.Enabled = true;
                 }
-                else
-                {
-                    // No donors add here
-                }
-
+                empty = false;      // LMAO          
                 conn.Close();
             }
             catch (Exception ex)
@@ -545,6 +558,17 @@ namespace BalayPasilungan
         {
             tabInnerDonors.SelectedIndex = 0;
             loadDonorList();
+        }
+
+        private void multiDonor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (multiDonor.Checked) multi = true;
+            else multi = false;
+        }
+
+        private void btnRemoveDonor_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
@@ -868,8 +892,8 @@ namespace BalayPasilungan
         {
             resetDonorShowTS();
             tabDonorDetails.SelectedIndex = 2;
-            donorOTS.BackColor = Color.White;
-            donorOTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            donorOTS.BackColor = System.Drawing.Color.FromArgb(197, 202, 179);
+            donorOTS.ForeColor = Color.White;
         }
         #endregion
 
@@ -993,20 +1017,20 @@ namespace BalayPasilungan
                     {
                         int row = donationMoney.CurrentCell.RowIndex;
                         delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
-                        loadMonetary(current_donorID);  
+                        loadMonetary(current_donorID);
                     }
                 }
             }
             else
             {
                 int row = donationMoney.CurrentCell.RowIndex;
-
                 if (conf.ShowDialog() == DialogResult.OK)
                 {
                     delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
                     loadMonetary(current_donorID);
                 }
             }
+            multiSelect.Checked = false;
         }
         #endregion
 
@@ -1022,7 +1046,24 @@ namespace BalayPasilungan
 
         private void btnEditIK_Click(object sender, EventArgs e)
         {
+            moneyDonate mD = overlay();
 
+            int row = donationIK.CurrentCell.RowIndex;
+
+            if (donationIK.Rows[row].Cells[1].Value.ToString() != null || donationIK.Rows[row].Cells[2].Value.ToString() != null)
+            {
+                DateTime dateDonate = Convert.ToDateTime(donationIK.Rows[row].Cells[3].Value.ToString());
+
+                mD.tabSelection.SelectedIndex = 6;              // Tab for Edit In-kind Donation selected
+
+                mD.donationID = int.Parse(donationIK.Rows[row].Cells[4].Value.ToString());
+                mD.txtPart2.Text = donationIK.Rows[row].Cells[1].Value.ToString();
+                mD.txtQuantity2.Text = donationIK.Rows[row].Cells[2].Value.ToString();
+                mD.dateIK2.MaxDate = DateTime.Now; mD.dateIK2.Value = dateDonate;
+
+                mD.ShowDialog();
+                loadIK(current_donorID);
+            }
         }
 
         private void btnDelIK_Click(object sender, EventArgs e)
@@ -1044,13 +1085,13 @@ namespace BalayPasilungan
             else
             {
                 int row = donationMoney.CurrentCell.RowIndex;
-
                 if (conf.ShowDialog() == DialogResult.OK)
                 {
                     delDonation(int.Parse(donationIK.Rows[row].Cells[4].Value.ToString()), 2);
                     loadIK(current_donorID);
                 }
             }
+            multiSelect2.Checked = false;
         }
 
         private void multiSelect2_CheckedChanged(object sender, EventArgs e)
@@ -1069,12 +1110,5 @@ namespace BalayPasilungan
             }
         }
         #endregion
-
-        private void btnSetDonor_Click(object sender, EventArgs e)
-        {
-            tabInnerDonors.SelectedIndex = 1;
-        }
-
-        
     }
 }

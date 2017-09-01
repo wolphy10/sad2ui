@@ -41,10 +41,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(-500, -500);
             this.Name = "dim";
-            this.Opacity = 0.7D;            
+            this.Opacity = 0.7D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "dim";
             this.ResumeLayout(false);
+
+            this.ShowInTaskbar = false;
+
         }
 
         #endregion

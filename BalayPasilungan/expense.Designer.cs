@@ -28,27 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expense));
             this.upPanel = new System.Windows.Forms.Panel();
-            this.btnClose = new BalayPasilungan.NoFocusRec();
             this.taskbar = new System.Windows.Forms.Panel();
             this.btnFinance = new System.Windows.Forms.Button();
             this.btnDonation = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.panelListChild = new System.Windows.Forms.Panel();
-            this.btnSetDonor = new System.Windows.Forms.Button();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.searchlogo = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnAddDonor = new System.Windows.Forms.Button();
             this.lblListOfDonors = new System.Windows.Forms.Label();
             this.tabSelection = new System.Windows.Forms.TabControl();
             this.tabDonors = new System.Windows.Forms.TabPage();
@@ -57,9 +54,8 @@
             this.donationsTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabInnerDonors = new System.Windows.Forms.TabControl();
             this.tabDonors1 = new System.Windows.Forms.TabPage();
+            this.multiDonor = new System.Windows.Forms.CheckBox();
             this.donorsGV = new System.Windows.Forms.DataGridView();
-            this.tabDonors2 = new System.Windows.Forms.TabPage();
-            this.btnBackDonorList = new System.Windows.Forms.Button();
             this.tabDonations = new System.Windows.Forms.TabPage();
             this.donorMenuStrip2 = new System.Windows.Forms.MenuStrip();
             this.donorTS2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -225,8 +221,6 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.label59 = new System.Windows.Forms.Label();
             this.tabDonorInfo = new System.Windows.Forms.TabPage();
-            this.ikTS = new BalayPasilungan.NoFocusRec();
-            this.moneyTS = new BalayPasilungan.NoFocusRec();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -245,9 +239,6 @@
             this.tabDonorDetails = new System.Windows.Forms.TabControl();
             this.tabMoney = new System.Windows.Forms.TabPage();
             this.multiSelect = new System.Windows.Forms.CheckBox();
-            this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnDelMoneyD = new BalayPasilungan.NoFocusRec();
             this.btnInfo = new System.Windows.Forms.Button();
             this.txtSearchMoney = new System.Windows.Forms.TextBox();
             this.donationMoney = new System.Windows.Forms.DataGridView();
@@ -257,9 +248,6 @@
             this.searchDate = new System.Windows.Forms.RadioButton();
             this.tabIK = new System.Windows.Forms.TabPage();
             this.multiSelect2 = new System.Windows.Forms.CheckBox();
-            this.btnAddIK = new BalayPasilungan.NoFocusRec();
-            this.btnEditIK = new BalayPasilungan.NoFocusRec();
-            this.btnDelIK = new BalayPasilungan.NoFocusRec();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.donationIK = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -267,11 +255,24 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.tabDonorO = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.divider2 = new System.Windows.Forms.PictureBox();
             this.divider = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new BalayPasilungan.NoFocusRec();
+            this.btnRemoveDonor = new BalayPasilungan.NoFocusRec();
+            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
+            this.ikTS = new BalayPasilungan.NoFocusRec();
+            this.moneyTS = new BalayPasilungan.NoFocusRec();
+            this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
+            this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
+            this.btnDelMoneyD = new BalayPasilungan.NoFocusRec();
+            this.btnAddIK = new BalayPasilungan.NoFocusRec();
+            this.btnEditIK = new BalayPasilungan.NoFocusRec();
+            this.btnDelIK = new BalayPasilungan.NoFocusRec();
+            this.btnArchiveProfile = new BalayPasilungan.NoFocusRec();
+            this.btnEditDonor = new BalayPasilungan.NoFocusRec();
             this.upPanel.SuspendLayout();
             this.taskbar.SuspendLayout();
             this.panelListChild.SuspendLayout();
@@ -282,7 +283,6 @@
             this.tabInnerDonors.SuspendLayout();
             this.tabDonors1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donorsGV)).BeginInit();
-            this.tabDonors2.SuspendLayout();
             this.tabDonations.SuspendLayout();
             this.donorMenuStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -334,6 +334,8 @@
             this.tabDonorO.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // upPanel
@@ -345,20 +347,6 @@
             this.upPanel.Size = new System.Drawing.Size(1026, 25);
             this.upPanel.TabIndex = 3;
             this.upPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.upPanel_MouseDown);
-            // 
-            // btnClose
-            // 
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(998, -2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(23, 23);
-            this.btnClose.TabIndex = 11;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // taskbar
             // 
@@ -419,40 +407,21 @@
             // panelListChild
             // 
             this.panelListChild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.panelListChild.Controls.Add(this.btnSetDonor);
             this.panelListChild.Controls.Add(this.panelSearch);
-            this.panelListChild.Controls.Add(this.btnAddDonor);
             this.panelListChild.Controls.Add(this.lblListOfDonors);
             this.panelListChild.Location = new System.Drawing.Point(0, 35);
             this.panelListChild.Name = "panelListChild";
             this.panelListChild.Size = new System.Drawing.Size(937, 90);
             this.panelListChild.TabIndex = 9;
             // 
-            // btnSetDonor
-            // 
-            this.btnSetDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnSetDonor.FlatAppearance.BorderSize = 0;
-            this.btnSetDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
-            this.btnSetDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnSetDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetDonor.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.btnSetDonor.ForeColor = System.Drawing.Color.White;
-            this.btnSetDonor.Location = new System.Drawing.Point(584, 50);
-            this.btnSetDonor.Name = "btnSetDonor";
-            this.btnSetDonor.Size = new System.Drawing.Size(103, 40);
-            this.btnSetDonor.TabIndex = 9;
-            this.btnSetDonor.Text = "Settings";
-            this.btnSetDonor.UseVisualStyleBackColor = false;
-            this.btnSetDonor.Click += new System.EventHandler(this.btnSetDonor_Click);
-            // 
             // panelSearch
             // 
             this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
             this.panelSearch.Controls.Add(this.searchlogo);
             this.panelSearch.Controls.Add(this.txtSearch);
-            this.panelSearch.Location = new System.Drawing.Point(693, 50);
+            this.panelSearch.Location = new System.Drawing.Point(592, 50);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(230, 40);
+            this.panelSearch.Size = new System.Drawing.Size(331, 40);
             this.panelSearch.TabIndex = 8;
             // 
             // searchlogo
@@ -473,32 +442,15 @@
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(32, 8);
+            this.txtSearch.Location = new System.Drawing.Point(32, 11);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(193, 25);
+            this.txtSearch.Size = new System.Drawing.Size(290, 22);
             this.txtSearch.TabIndex = 7;
             this.txtSearch.Text = "Find a donor";
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
-            // btnAddDonor
-            // 
-            this.btnAddDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnAddDonor.FlatAppearance.BorderSize = 0;
-            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
-            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.btnAddDonor.ForeColor = System.Drawing.Color.White;
-            this.btnAddDonor.Location = new System.Drawing.Point(474, 50);
-            this.btnAddDonor.Name = "btnAddDonor";
-            this.btnAddDonor.Size = new System.Drawing.Size(103, 40);
-            this.btnAddDonor.TabIndex = 5;
-            this.btnAddDonor.Text = "Add";
-            this.btnAddDonor.UseVisualStyleBackColor = false;
-            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
             // 
             // lblListOfDonors
             // 
@@ -582,7 +534,6 @@
             // 
             this.tabInnerDonors.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabInnerDonors.Controls.Add(this.tabDonors1);
-            this.tabInnerDonors.Controls.Add(this.tabDonors2);
             this.tabInnerDonors.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabInnerDonors.Location = new System.Drawing.Point(-4, 100);
             this.tabInnerDonors.Name = "tabInnerDonors";
@@ -593,13 +544,33 @@
             // tabDonors1
             // 
             this.tabDonors1.BackColor = System.Drawing.Color.White;
+            this.tabDonors1.Controls.Add(this.btnRemoveDonor);
+            this.tabDonors1.Controls.Add(this.btnAddDonor);
+            this.tabDonors1.Controls.Add(this.multiDonor);
             this.tabDonors1.Controls.Add(this.donorsGV);
+            this.tabDonors1.Controls.Add(this.pictureBox3);
+            this.tabDonors1.Controls.Add(this.pictureBox2);
             this.tabDonors1.Location = new System.Drawing.Point(4, 25);
             this.tabDonors1.Name = "tabDonors1";
             this.tabDonors1.Padding = new System.Windows.Forms.Padding(3);
             this.tabDonors1.Size = new System.Drawing.Size(935, 550);
             this.tabDonors1.TabIndex = 0;
             this.tabDonors1.Text = "tabPage1";
+            // 
+            // multiDonor
+            // 
+            this.multiDonor.AutoSize = true;
+            this.multiDonor.FlatAppearance.BorderSize = 0;
+            this.multiDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multiDonor.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.multiDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.multiDonor.Location = new System.Drawing.Point(15, 10);
+            this.multiDonor.Name = "multiDonor";
+            this.multiDonor.Size = new System.Drawing.Size(99, 19);
+            this.multiDonor.TabIndex = 51;
+            this.multiDonor.Text = "Select multiple";
+            this.multiDonor.UseVisualStyleBackColor = true;
+            this.multiDonor.CheckedChanged += new System.EventHandler(this.multiDonor_CheckedChanged);
             // 
             // donorsGV
             // 
@@ -611,27 +582,27 @@
             this.donorsGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donorsGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.donorsGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donorsGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.donorsGV.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donorsGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.donorsGV.ColumnHeadersHeight = 50;
             this.donorsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donorsGV.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donorsGV.DefaultCellStyle = dataGridViewCellStyle2;
             this.donorsGV.EnableHeadersVisualStyles = false;
             this.donorsGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.donorsGV.Location = new System.Drawing.Point(0, 0);
+            this.donorsGV.Location = new System.Drawing.Point(0, 35);
             this.donorsGV.MultiSelect = false;
             this.donorsGV.Name = "donorsGV";
             this.donorsGV.ReadOnly = true;
@@ -646,35 +617,9 @@
             this.donorsGV.ShowCellToolTips = false;
             this.donorsGV.ShowEditingIcon = false;
             this.donorsGV.ShowRowErrors = false;
-            this.donorsGV.Size = new System.Drawing.Size(1024, 700);
+            this.donorsGV.Size = new System.Drawing.Size(935, 515);
             this.donorsGV.TabIndex = 10;
             this.donorsGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.donorsGV_CellDoubleClick);
-            // 
-            // tabDonors2
-            // 
-            this.tabDonors2.BackColor = System.Drawing.Color.White;
-            this.tabDonors2.Controls.Add(this.btnBackDonorList);
-            this.tabDonors2.Location = new System.Drawing.Point(4, 25);
-            this.tabDonors2.Name = "tabDonors2";
-            this.tabDonors2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDonors2.Size = new System.Drawing.Size(935, 550);
-            this.tabDonors2.TabIndex = 1;
-            this.tabDonors2.Text = "tabPage1";
-            // 
-            // btnBackDonorList
-            // 
-            this.btnBackDonorList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.btnBackDonorList.FlatAppearance.BorderSize = 0;
-            this.btnBackDonorList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackDonorList.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnBackDonorList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnBackDonorList.Location = new System.Drawing.Point(313, 239);
-            this.btnBackDonorList.Name = "btnBackDonorList";
-            this.btnBackDonorList.Size = new System.Drawing.Size(308, 32);
-            this.btnBackDonorList.TabIndex = 50;
-            this.btnBackDonorList.Text = "Edit";
-            this.btnBackDonorList.UseVisualStyleBackColor = false;
-            this.btnBackDonorList.Click += new System.EventHandler(this.btnBackDonorList_Click);
             // 
             // tabDonations
             // 
@@ -2319,24 +2264,24 @@
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeight = 30;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dataGridView2.Location = new System.Drawing.Point(38, 218);
@@ -2805,36 +2750,6 @@
             this.tabDonorInfo.TabIndex = 6;
             this.tabDonorInfo.Click += new System.EventHandler(this.tabDonorInfo_Click);
             // 
-            // ikTS
-            // 
-            this.ikTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ikTS.FlatAppearance.BorderSize = 0;
-            this.ikTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ikTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ikTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.ikTS.Location = new System.Drawing.Point(283, 170);
-            this.ikTS.Name = "ikTS";
-            this.ikTS.Size = new System.Drawing.Size(308, 32);
-            this.ikTS.TabIndex = 1;
-            this.ikTS.Text = "In-kind Donations";
-            this.ikTS.UseVisualStyleBackColor = false;
-            this.ikTS.Click += new System.EventHandler(this.ikTS_Click);
-            // 
-            // moneyTS
-            // 
-            this.moneyTS.BackColor = System.Drawing.Color.White;
-            this.moneyTS.FlatAppearance.BorderSize = 0;
-            this.moneyTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moneyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.moneyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.moneyTS.Location = new System.Drawing.Point(0, 170);
-            this.moneyTS.Name = "moneyTS";
-            this.moneyTS.Size = new System.Drawing.Size(284, 32);
-            this.moneyTS.TabIndex = 0;
-            this.moneyTS.Text = "Monetary Donations";
-            this.moneyTS.UseVisualStyleBackColor = false;
-            this.moneyTS.Click += new System.EventHandler(this.moneyTS_Click);
-            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -3074,48 +2989,6 @@
             this.multiSelect.UseVisualStyleBackColor = true;
             this.multiSelect.CheckedChanged += new System.EventHandler(this.multiSelect_CheckedChanged);
             // 
-            // btnAddMoneyD
-            // 
-            this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnAddMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAddMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddMoneyD.FlatAppearance.BorderSize = 0;
-            this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMoneyD.Location = new System.Drawing.Point(699, 416);
-            this.btnAddMoneyD.Name = "btnAddMoneyD";
-            this.btnAddMoneyD.Size = new System.Drawing.Size(212, 40);
-            this.btnAddMoneyD.TabIndex = 1;
-            this.btnAddMoneyD.UseVisualStyleBackColor = false;
-            this.btnAddMoneyD.Click += new System.EventHandler(this.btnAddMoneyD_Click);
-            // 
-            // btnEditMoneyD
-            // 
-            this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnEditMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnEditMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditMoneyD.FlatAppearance.BorderSize = 0;
-            this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditMoneyD.Location = new System.Drawing.Point(360, 416);
-            this.btnEditMoneyD.Name = "btnEditMoneyD";
-            this.btnEditMoneyD.Size = new System.Drawing.Size(212, 40);
-            this.btnEditMoneyD.TabIndex = 2;
-            this.btnEditMoneyD.UseVisualStyleBackColor = false;
-            this.btnEditMoneyD.Click += new System.EventHandler(this.btnEditMoneyD_Click);
-            // 
-            // btnDelMoneyD
-            // 
-            this.btnDelMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnDelMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
-            this.btnDelMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelMoneyD.FlatAppearance.BorderSize = 0;
-            this.btnDelMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelMoneyD.Location = new System.Drawing.Point(23, 416);
-            this.btnDelMoneyD.Name = "btnDelMoneyD";
-            this.btnDelMoneyD.Size = new System.Drawing.Size(212, 40);
-            this.btnDelMoneyD.TabIndex = 3;
-            this.btnDelMoneyD.UseVisualStyleBackColor = false;
-            this.btnDelMoneyD.Click += new System.EventHandler(this.btnDelMoneyD_Click);
-            // 
             // btnInfo
             // 
             this.btnInfo.BackColor = System.Drawing.Color.Transparent;
@@ -3159,24 +3032,24 @@
             this.donationMoney.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donationMoney.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.donationMoney.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationMoney.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationMoney.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.donationMoney.ColumnHeadersHeight = 50;
             this.donationMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationMoney.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationMoney.DefaultCellStyle = dataGridViewCellStyle6;
             this.donationMoney.EnableHeadersVisualStyles = false;
             this.donationMoney.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.donationMoney.Location = new System.Drawing.Point(2, 50);
@@ -3244,13 +3117,13 @@
             // tabIK
             // 
             this.tabIK.Controls.Add(this.multiSelect2);
-            this.tabIK.Controls.Add(this.btnAddIK);
-            this.tabIK.Controls.Add(this.btnEditIK);
-            this.tabIK.Controls.Add(this.btnDelIK);
             this.tabIK.Controls.Add(this.textBox7);
             this.tabIK.Controls.Add(this.donationIK);
             this.tabIK.Controls.Add(this.pictureBox1);
             this.tabIK.Controls.Add(this.panel11);
+            this.tabIK.Controls.Add(this.btnAddIK);
+            this.tabIK.Controls.Add(this.btnEditIK);
+            this.tabIK.Controls.Add(this.btnDelIK);
             this.tabIK.Location = new System.Drawing.Point(4, 22);
             this.tabIK.Name = "tabIK";
             this.tabIK.Padding = new System.Windows.Forms.Padding(3);
@@ -3273,48 +3146,6 @@
             this.multiSelect2.Text = "Select multiple";
             this.multiSelect2.UseVisualStyleBackColor = true;
             this.multiSelect2.CheckedChanged += new System.EventHandler(this.multiSelect2_CheckedChanged);
-            // 
-            // btnAddIK
-            // 
-            this.btnAddIK.BackColor = System.Drawing.Color.White;
-            this.btnAddIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAddIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddIK.FlatAppearance.BorderSize = 0;
-            this.btnAddIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddIK.Location = new System.Drawing.Point(699, 416);
-            this.btnAddIK.Name = "btnAddIK";
-            this.btnAddIK.Size = new System.Drawing.Size(212, 40);
-            this.btnAddIK.TabIndex = 51;
-            this.btnAddIK.UseVisualStyleBackColor = false;
-            this.btnAddIK.Click += new System.EventHandler(this.btnAddIK_Click);
-            // 
-            // btnEditIK
-            // 
-            this.btnEditIK.BackColor = System.Drawing.Color.White;
-            this.btnEditIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnEditIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditIK.FlatAppearance.BorderSize = 0;
-            this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditIK.Location = new System.Drawing.Point(360, 416);
-            this.btnEditIK.Name = "btnEditIK";
-            this.btnEditIK.Size = new System.Drawing.Size(212, 40);
-            this.btnEditIK.TabIndex = 52;
-            this.btnEditIK.UseVisualStyleBackColor = false;
-            this.btnEditIK.Click += new System.EventHandler(this.btnEditIK_Click);
-            // 
-            // btnDelIK
-            // 
-            this.btnDelIK.BackColor = System.Drawing.Color.White;
-            this.btnDelIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
-            this.btnDelIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelIK.FlatAppearance.BorderSize = 0;
-            this.btnDelIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelIK.Location = new System.Drawing.Point(23, 416);
-            this.btnDelIK.Name = "btnDelIK";
-            this.btnDelIK.Size = new System.Drawing.Size(212, 40);
-            this.btnDelIK.TabIndex = 53;
-            this.btnDelIK.UseVisualStyleBackColor = false;
-            this.btnDelIK.Click += new System.EventHandler(this.btnDelIK_Click);
             // 
             // textBox7
             // 
@@ -3339,24 +3170,24 @@
             this.donationIK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donationIK.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.donationIK.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationIK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationIK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.donationIK.ColumnHeadersHeight = 50;
             this.donationIK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationIK.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationIK.DefaultCellStyle = dataGridViewCellStyle8;
             this.donationIK.EnableHeadersVisualStyles = false;
             this.donationIK.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.donationIK.Location = new System.Drawing.Point(2, 50);
@@ -3423,43 +3254,15 @@
             // 
             // tabDonorO
             // 
-            this.tabDonorO.Controls.Add(this.button2);
-            this.tabDonorO.Controls.Add(this.button3);
+            this.tabDonorO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(202)))), ((int)(((byte)(179)))));
+            this.tabDonorO.Controls.Add(this.btnArchiveProfile);
+            this.tabDonorO.Controls.Add(this.btnEditDonor);
             this.tabDonorO.Location = new System.Drawing.Point(4, 22);
             this.tabDonorO.Name = "tabDonorO";
             this.tabDonorO.Padding = new System.Windows.Forms.Padding(3);
             this.tabDonorO.Size = new System.Drawing.Size(935, 473);
             this.tabDonorO.TabIndex = 2;
             this.tabDonorO.Text = "tabPage1";
-            this.tabDonorO.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.button2.Location = new System.Drawing.Point(323, 219);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(308, 32);
-            this.button2.TabIndex = 50;
-            this.button2.Text = "Archive";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.button3.Location = new System.Drawing.Point(323, 166);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(308, 32);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // divider2
             // 
@@ -3493,6 +3296,220 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(184, 17);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(753, 23);
+            this.pictureBox3.TabIndex = 54;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(356, 23);
+            this.pictureBox2.TabIndex = 55;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(998, -2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(23, 23);
+            this.btnClose.TabIndex = 11;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnRemoveDonor
+            // 
+            this.btnRemoveDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveDonor.FlatAppearance.BorderSize = 0;
+            this.btnRemoveDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnRemoveDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnRemoveDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnRemoveDonor.Location = new System.Drawing.Point(710, 5);
+            this.btnRemoveDonor.Name = "btnRemoveDonor";
+            this.btnRemoveDonor.Size = new System.Drawing.Size(125, 29);
+            this.btnRemoveDonor.TabIndex = 53;
+            this.btnRemoveDonor.Text = "REMOVE DONOR";
+            this.btnRemoveDonor.UseVisualStyleBackColor = false;
+            this.btnRemoveDonor.Click += new System.EventHandler(this.btnRemoveDonor_Click);
+            // 
+            // btnAddDonor
+            // 
+            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddDonor.FlatAppearance.BorderSize = 0;
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnAddDonor.Location = new System.Drawing.Point(585, 5);
+            this.btnAddDonor.Name = "btnAddDonor";
+            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
+            this.btnAddDonor.TabIndex = 52;
+            this.btnAddDonor.Text = "ADD DONOR";
+            this.btnAddDonor.UseVisualStyleBackColor = false;
+            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
+            // 
+            // ikTS
+            // 
+            this.ikTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.ikTS.FlatAppearance.BorderSize = 0;
+            this.ikTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ikTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ikTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.ikTS.Location = new System.Drawing.Point(283, 170);
+            this.ikTS.Name = "ikTS";
+            this.ikTS.Size = new System.Drawing.Size(308, 32);
+            this.ikTS.TabIndex = 1;
+            this.ikTS.Text = "In-kind Donations";
+            this.ikTS.UseVisualStyleBackColor = false;
+            this.ikTS.Click += new System.EventHandler(this.ikTS_Click);
+            // 
+            // moneyTS
+            // 
+            this.moneyTS.BackColor = System.Drawing.Color.White;
+            this.moneyTS.FlatAppearance.BorderSize = 0;
+            this.moneyTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moneyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.moneyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.moneyTS.Location = new System.Drawing.Point(0, 170);
+            this.moneyTS.Name = "moneyTS";
+            this.moneyTS.Size = new System.Drawing.Size(284, 32);
+            this.moneyTS.TabIndex = 0;
+            this.moneyTS.Text = "Monetary Donations";
+            this.moneyTS.UseVisualStyleBackColor = false;
+            this.moneyTS.Click += new System.EventHandler(this.moneyTS_Click);
+            // 
+            // btnAddMoneyD
+            // 
+            this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnAddMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddMoneyD.FlatAppearance.BorderSize = 0;
+            this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMoneyD.Location = new System.Drawing.Point(699, 416);
+            this.btnAddMoneyD.Name = "btnAddMoneyD";
+            this.btnAddMoneyD.Size = new System.Drawing.Size(212, 40);
+            this.btnAddMoneyD.TabIndex = 1;
+            this.btnAddMoneyD.UseVisualStyleBackColor = false;
+            this.btnAddMoneyD.Click += new System.EventHandler(this.btnAddMoneyD_Click);
+            // 
+            // btnEditMoneyD
+            // 
+            this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnEditMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditMoneyD.FlatAppearance.BorderSize = 0;
+            this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditMoneyD.Location = new System.Drawing.Point(360, 416);
+            this.btnEditMoneyD.Name = "btnEditMoneyD";
+            this.btnEditMoneyD.Size = new System.Drawing.Size(212, 40);
+            this.btnEditMoneyD.TabIndex = 2;
+            this.btnEditMoneyD.UseVisualStyleBackColor = false;
+            this.btnEditMoneyD.Click += new System.EventHandler(this.btnEditMoneyD_Click);
+            // 
+            // btnDelMoneyD
+            // 
+            this.btnDelMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnDelMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
+            this.btnDelMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelMoneyD.FlatAppearance.BorderSize = 0;
+            this.btnDelMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelMoneyD.Location = new System.Drawing.Point(23, 416);
+            this.btnDelMoneyD.Name = "btnDelMoneyD";
+            this.btnDelMoneyD.Size = new System.Drawing.Size(212, 40);
+            this.btnDelMoneyD.TabIndex = 3;
+            this.btnDelMoneyD.UseVisualStyleBackColor = false;
+            this.btnDelMoneyD.Click += new System.EventHandler(this.btnDelMoneyD_Click);
+            // 
+            // btnAddIK
+            // 
+            this.btnAddIK.BackColor = System.Drawing.Color.White;
+            this.btnAddIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddIK.FlatAppearance.BorderSize = 0;
+            this.btnAddIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddIK.Location = new System.Drawing.Point(699, 416);
+            this.btnAddIK.Name = "btnAddIK";
+            this.btnAddIK.Size = new System.Drawing.Size(212, 40);
+            this.btnAddIK.TabIndex = 51;
+            this.btnAddIK.UseVisualStyleBackColor = false;
+            this.btnAddIK.Click += new System.EventHandler(this.btnAddIK_Click);
+            // 
+            // btnEditIK
+            // 
+            this.btnEditIK.BackColor = System.Drawing.Color.White;
+            this.btnEditIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditIK.FlatAppearance.BorderSize = 0;
+            this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditIK.Location = new System.Drawing.Point(360, 416);
+            this.btnEditIK.Name = "btnEditIK";
+            this.btnEditIK.Size = new System.Drawing.Size(212, 40);
+            this.btnEditIK.TabIndex = 52;
+            this.btnEditIK.UseVisualStyleBackColor = false;
+            this.btnEditIK.Click += new System.EventHandler(this.btnEditIK_Click);
+            // 
+            // btnDelIK
+            // 
+            this.btnDelIK.BackColor = System.Drawing.Color.White;
+            this.btnDelIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
+            this.btnDelIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelIK.FlatAppearance.BorderSize = 0;
+            this.btnDelIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelIK.Location = new System.Drawing.Point(23, 416);
+            this.btnDelIK.Name = "btnDelIK";
+            this.btnDelIK.Size = new System.Drawing.Size(212, 40);
+            this.btnDelIK.TabIndex = 53;
+            this.btnDelIK.UseVisualStyleBackColor = false;
+            this.btnDelIK.Click += new System.EventHandler(this.btnDelIK_Click);
+            // 
+            // btnArchiveProfile
+            // 
+            this.btnArchiveProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
+            this.btnArchiveProfile.FlatAppearance.BorderSize = 0;
+            this.btnArchiveProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnArchiveProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnArchiveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchiveProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnArchiveProfile.ForeColor = System.Drawing.Color.White;
+            this.btnArchiveProfile.Location = new System.Drawing.Point(283, 240);
+            this.btnArchiveProfile.Name = "btnArchiveProfile";
+            this.btnArchiveProfile.Size = new System.Drawing.Size(308, 35);
+            this.btnArchiveProfile.TabIndex = 1;
+            this.btnArchiveProfile.Text = "REMOVE PROFILE";
+            this.btnArchiveProfile.UseVisualStyleBackColor = false;
+            // 
+            // btnEditDonor
+            // 
+            this.btnEditDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
+            this.btnEditDonor.FlatAppearance.BorderSize = 0;
+            this.btnEditDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnEditDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnEditDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditDonor.ForeColor = System.Drawing.Color.White;
+            this.btnEditDonor.Location = new System.Drawing.Point(283, 156);
+            this.btnEditDonor.Name = "btnEditDonor";
+            this.btnEditDonor.Size = new System.Drawing.Size(308, 35);
+            this.btnEditDonor.TabIndex = 0;
+            this.btnEditDonor.Text = "EDIT DONOR PROFILE";
+            this.btnEditDonor.UseVisualStyleBackColor = false;
+            // 
             // expense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3519,8 +3536,8 @@
             this.donorMenuStrip.PerformLayout();
             this.tabInnerDonors.ResumeLayout(false);
             this.tabDonors1.ResumeLayout(false);
+            this.tabDonors1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donorsGV)).EndInit();
-            this.tabDonors2.ResumeLayout(false);
             this.tabDonations.ResumeLayout(false);
             this.donorMenuStrip2.ResumeLayout(false);
             this.donorMenuStrip2.PerformLayout();
@@ -3606,6 +3623,8 @@
             this.tabDonorO.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3621,7 +3640,6 @@
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.Button searchlogo;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnAddDonor;
         private System.Windows.Forms.Label lblListOfDonors;
         private System.Windows.Forms.TabControl tabSelection;
         private System.Windows.Forms.TabPage tabDonors;
@@ -3816,16 +3834,11 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView donationMoney;
         private System.Windows.Forms.TextBox txtSearchMoney;
         private System.Windows.Forms.PictureBox searchLine;
-        private System.Windows.Forms.Button btnSetDonor;
         private System.Windows.Forms.TabControl tabInnerDonors;
         private System.Windows.Forms.TabPage tabDonors1;
-        private System.Windows.Forms.TabPage tabDonors2;
-        private System.Windows.Forms.Button btnBackDonorList;
         private System.Windows.Forms.Panel searchOption;
         private System.Windows.Forms.RadioButton searchDate;
         private System.Windows.Forms.Button btnInfo;
@@ -3847,5 +3860,12 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         public NoFocusRec btnAddIK;
+        private NoFocusRec btnEditDonor;
+        private NoFocusRec btnArchiveProfile;
+        private System.Windows.Forms.CheckBox multiDonor;
+        private NoFocusRec btnAddDonor;
+        private NoFocusRec btnRemoveDonor;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
