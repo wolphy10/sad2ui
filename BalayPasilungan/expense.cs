@@ -186,7 +186,7 @@ namespace BalayPasilungan
                 // For ID purposes (hidden from user)            
                 donationMoney.Columns[0].Visible = false; donationMoney.Columns[8].Visible = false;
 
-                // LMAO
+                // MONETARY TABLE COLUMNS
                 donationMoney.Columns[1].Width = 70;
                 donationMoney.Columns[2].Width = 100;
                 donationMoney.Columns[3].Width = 100;
@@ -869,21 +869,41 @@ namespace BalayPasilungan
 
             if (donationMoney.Rows[row].Cells[4].Value.ToString() != null || donationMoney.Rows[row].Cells[1].Value.ToString() != null)
             {
-                string[] parts = donationMoney.Rows[row].Cells[1].Value.ToString().Split('.');
-                DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[4].Value.ToString());
+                if(donationMoney.Rows[row].Cells[1].Value.ToString() == "1")            // Cash Donation Edit
+                {
+                    string[] parts = donationMoney.Rows[row].Cells[2].Value.ToString().Split('.');
+                    DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[7].Value.ToString());
 
-                moneyDonate mD = new moneyDonate();
+                    moneyDonate mD = new moneyDonate();
 
-                mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());
-                mD.tabSelection.SelectedIndex = 3;
-                mD.txtCashAmount2.Text = parts[0];
-                mD.txtCashCent2.Text = parts[1];
-                mD.txtOR2.Text = donationMoney.Rows[row].Cells[2].Value.ToString();
-                mD.txtTIN2.Text = donationMoney.Rows[row].Cells[3].Value.ToString();
-                mD.dateCash2.MaxDate = dateDonate; mD.dateCash2.Value = dateDonate;
-                mD.ShowDialog();
+                    mD.tabSelection.SelectedIndex = 3;              // Tab for Edit Check selected
 
-                loadMonetary(current_donorID);
+                    mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());                    
+                    mD.txtCashAmount2.Text = parts[0];
+                    mD.txtCashCent2.Text = parts[1];
+                    mD.txtOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString();                    
+                    mD.dateCash2.MaxDate = dateDonate; mD.dateCash2.Value = dateDonate;
+                    mD.ShowDialog();
+
+                    loadMonetary(current_donorID);
+                }
+                else if (donationMoney.Rows[row].Cells[1].Value.ToString() == "2")      // Check Donation Edit
+                {
+                    string[] parts = donationMoney.Rows[row].Cells[2].Value.ToString().Split('.');
+                    DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[7].Value.ToString());
+
+                    moneyDonate mD = new moneyDonate();             // Tab for Edit Check selected
+
+                    // LMAO
+                    mD.tabSelection.SelectedIndex = 4;
+
+                    /*mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());
+                    mD.txtCashAmount2.Text = parts[0];
+                    mD.txtCashCent2.Text = parts[1];
+                    mD.txtOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString();
+                    mD.dateCash2.MaxDate = dateDonate; mD.dateCash2.Value = dateDonate;
+                    mD.ShowDialog();*/
+                }
             }
         }
 
@@ -899,7 +919,7 @@ namespace BalayPasilungan
                     {
                         int row = donationMoney.CurrentCell.RowIndex;
                         delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));
-                        loadMonetary(current_donorID);
+                        loadMonetary(current_donorID);          // LMAO
                     }
                 }
             }

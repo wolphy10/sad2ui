@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +25,7 @@ namespace BalayPasilungan
         public moneyDonate()
         {
             InitializeComponent();
+
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
             dateCash.MaxDate = DateTime.Now; dateCash.Value = DateTime.Today;           
         }
@@ -79,6 +82,8 @@ namespace BalayPasilungan
             lblCashAmount2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
             lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
         }
+
+        
         #endregion
 
         #region Buttons
@@ -101,11 +106,6 @@ namespace BalayPasilungan
         {
             tabSelection.SelectedTab = tabCheck;
         }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            tabSelection.SelectedIndex = 0;
-        }
         #endregion
 
         #region SQL Connection
@@ -119,10 +119,10 @@ namespace BalayPasilungan
 
             // ADD SQL COMMAND
             if(type == 1)
-            {
+            {   // lmao
                 decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
-                comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, TIN, dateDonated, donationID)"
-                + " VALUES (" + type + ", '" + txtOR.Text + "', " + amount + ", '" + txtTIN.Text + "', '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+                comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, dateDonated, donationID)"
+                + " VALUES (" + type + ", '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
             }
             else if(type == 2)
             {
@@ -269,7 +269,7 @@ namespace BalayPasilungan
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void btnEditCash_Click(object sender, EventArgs e)
         {
             try
@@ -298,6 +298,50 @@ namespace BalayPasilungan
         }
         #endregion
 
+        private void btnCashBack_Click(object sender, EventArgs e)
+        {
+            tabSelection.SelectedTab = tabChoice;
+            txtBank.Clear(); txtCashAmount.Text = "0,000,000,000"; txtCashAmount2.Text = "0,000,000,000";
+            txtOR.Clear(); txtCheckOR.Clear(); txtCheckNo.Clear();
+        }
 
+        #region Check
+        private void txtCheckAmount_TextChanged(object sender, EventArgs e)
+        {
+            string value = txtCashAmount.Text.Replace(",", "");
+            ulong ul;
+            if (ulong.TryParse(value, out ul))
+            {
+                txtCashAmount.TextChanged -= txtCashAmount_TextChanged;
+                txtCashAmount.Text = string.Format("{0:#,#}", ul);
+                txtCashAmount.SelectionStart = txtCashAmount.Text.Length;
+                txtCashAmount.TextChanged += txtCashAmount_TextChanged;
+            }
+        }
+
+        private void txtCheckAmount_Enter(object sender, EventArgs e)
+        {
+            if (txtCheckAmount.Text == "0,000,000,000") txtCheckAmount.Text = "";
+            toGreen();
+        }
+
+        private void txtCheckAmount_Leave(object sender, EventArgs e)
+        {
+            if (txtCheckAmount.Text == "") txtCheckAmount.Text = "0,000,000,000";
+            toDefault();
+        }
+        private void txtCheckCent_Enter(object sender, EventArgs e)
+        {
+            if (txtCheckCent.Text == "00") txtCheckCent.Text = "";
+            toGreen();
+        }
+
+        private void txtCheckCent_Leave(object sender, EventArgs e)
+        {
+            if (txtCheckCent.Text == "00") txtCheckCent.Text = "";
+            toDefault();
+        }
+
+        #endregion
     }
 }

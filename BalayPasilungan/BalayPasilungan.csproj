@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AlphaBlendTextBox">
-      <HintPath>..\..\..\alphablend\AlphaBlendTextBox_src\AlphaBlendTextBox.dll</HintPath>
-    </Reference>
     <Reference Include="BNCtrls">
       <HintPath>..\..\..\combobox\BNCtrls.dll</HintPath>
     </Reference>
@@ -197,6 +194,7 @@
     <None Include="Resources\eyeclose.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\LUZRO.TTF" />
     <None Include="Resources\wait_header.jpg" />
   </ItemGroup>
   <ItemGroup>
