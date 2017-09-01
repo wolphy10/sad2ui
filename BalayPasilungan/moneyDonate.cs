@@ -31,6 +31,7 @@ namespace BalayPasilungan
             // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = DateTime.Today;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Today; dateOfCheck.MaxDate = DateTime.Now; dateOfCheck.Value = DateTime.Today;
+            dateIK.MaxDate = DateTime.Now; dateIK.Value = DateTime.Now;
         }
         
         private void moneyDonate_FormClosing(object sender, FormClosingEventArgs e)
@@ -126,7 +127,6 @@ namespace BalayPasilungan
         #region Buttons
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (hasExpense) hasExpense = false;
             this.Close();
         }
 
@@ -164,7 +164,11 @@ namespace BalayPasilungan
                 + " VALUES ('Check', '" + txtOR.Text + "', " + amount + ", '" + txtCheckNo.Text + "', '" + txtBank.Text + "', '"
                 + dateOfCheck.Value.Date.ToString("yyyyMMdd") + "', '" + dateCheck.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
             }
-            
+            else if (type == 3)
+            {
+                comm = new MySqlCommand("INSERT INTO inkind (particular, quantity, dateDonated, donationID)"
+                + " VALUES ('" + txtPart.Text + "', " + txtQuantity.Text + ", '" + dateIK.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+            }
 
             comm.ExecuteNonQuery();
             conn.Close();
@@ -438,6 +442,30 @@ namespace BalayPasilungan
         {
             if (txtCheckCent2.Text == "") txtCheckCent2.Text = "00";
             toDefault();
+        }
+        #endregion
+
+        #region In-Kind Donation
+        private void btnAddIK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                // ADD NEW DONATION
+                MySqlCommand comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
+                    + " VALUES (1, " + donorID + ", + '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
+
+                comm.ExecuteNonQuery();
+
+                // GET THAT DONATION ID
+                comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
+                addSQL(comm, 3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

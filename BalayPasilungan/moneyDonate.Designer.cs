@@ -119,6 +119,22 @@
             this.lblDot4 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.tabIK = new System.Windows.Forms.TabPage();
+            this.txtQuantity = new System.Windows.Forms.NumericUpDown();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.noFocusRec4 = new BalayPasilungan.NoFocusRec();
+            this.btnIKBack = new BalayPasilungan.NoFocusRec();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.btnAddIK = new BalayPasilungan.NoFocusRec();
+            this.txtPart = new System.Windows.Forms.TextBox();
+            this.lblPart = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.dateIK = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tabIKEdit = new System.Windows.Forms.TabPage();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -141,6 +157,12 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.tabIK.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -150,6 +172,8 @@
             this.tabSelection.Controls.Add(this.tabCheck);
             this.tabSelection.Controls.Add(this.tabCashEdit);
             this.tabSelection.Controls.Add(this.tabCheckEdit);
+            this.tabSelection.Controls.Add(this.tabIK);
+            this.tabSelection.Controls.Add(this.tabIKEdit);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -363,7 +387,7 @@
             // 
             // txtOR
             // 
-            this.txtOR.BackColor = System.Drawing.Color.White;
+            this.txtOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtOR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOR.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOR.ForeColor = System.Drawing.Color.Black;
@@ -520,6 +544,7 @@
             // 
             // txtBank
             // 
+            this.txtBank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtBank.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBank.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBank.ForeColor = System.Drawing.Color.Black;
@@ -648,6 +673,7 @@
             // 
             // txtCheckNo
             // 
+            this.txtCheckNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtCheckNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckNo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckNo.ForeColor = System.Drawing.Color.Black;
@@ -673,6 +699,7 @@
             // 
             // txtCheckOR
             // 
+            this.txtCheckOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtCheckOR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOR.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckOR.ForeColor = System.Drawing.Color.Black;
@@ -916,6 +943,7 @@
             // 
             // txtOR2
             // 
+            this.txtOR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtOR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOR2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOR2.ForeColor = System.Drawing.Color.Black;
@@ -1076,6 +1104,7 @@
             // 
             // txtBank2
             // 
+            this.txtBank2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtBank2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBank2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBank2.ForeColor = System.Drawing.Color.Black;
@@ -1189,6 +1218,7 @@
             // 
             // txtCheckNo2
             // 
+            this.txtCheckNo2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtCheckNo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckNo2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckNo2.ForeColor = System.Drawing.Color.Black;
@@ -1213,6 +1243,7 @@
             // 
             // txtCheckOR2
             // 
+            this.txtCheckOR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtCheckOR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOR2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckOR2.ForeColor = System.Drawing.Color.Black;
@@ -1341,6 +1372,206 @@
             this.pictureBox10.TabIndex = 71;
             this.pictureBox10.TabStop = false;
             // 
+            // tabIK
+            // 
+            this.tabIK.Controls.Add(this.txtQuantity);
+            this.tabIK.Controls.Add(this.lblQuantity);
+            this.tabIK.Controls.Add(this.pictureBox13);
+            this.tabIK.Controls.Add(this.panel4);
+            this.tabIK.Controls.Add(this.pictureBox11);
+            this.tabIK.Controls.Add(this.btnAddIK);
+            this.tabIK.Controls.Add(this.txtPart);
+            this.tabIK.Controls.Add(this.lblPart);
+            this.tabIK.Controls.Add(this.pictureBox12);
+            this.tabIK.Controls.Add(this.dateIK);
+            this.tabIK.Controls.Add(this.label7);
+            this.tabIK.Location = new System.Drawing.Point(4, 22);
+            this.tabIK.Name = "tabIK";
+            this.tabIK.Padding = new System.Windows.Forms.Padding(3);
+            this.tabIK.Size = new System.Drawing.Size(512, 376);
+            this.tabIK.TabIndex = 5;
+            this.tabIK.Text = "tabPage1";
+            this.tabIK.UseVisualStyleBackColor = true;
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtQuantity.ForeColor = System.Drawing.Color.Black;
+            this.txtQuantity.Location = new System.Drawing.Point(165, 147);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(316, 28);
+            this.txtQuantity.TabIndex = 1;
+            this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblQuantity.Location = new System.Drawing.Point(26, 152);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(75, 19);
+            this.lblQuantity.TabIndex = 27;
+            this.lblQuantity.Text = "QUANTITY";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(12, 189);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox13.TabIndex = 28;
+            this.pictureBox13.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.noFocusRec4);
+            this.panel4.Controls.Add(this.btnIKBack);
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(512, 33);
+            this.panel4.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label5.Location = new System.Drawing.Point(357, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 19);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Add In-Kind Donation";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec4
+            // 
+            this.noFocusRec4.FlatAppearance.BorderSize = 0;
+            this.noFocusRec4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec4.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec4.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec4.Name = "noFocusRec4";
+            this.noFocusRec4.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec4.TabIndex = 11;
+            this.noFocusRec4.Text = "X";
+            this.noFocusRec4.UseVisualStyleBackColor = true;
+            // 
+            // btnIKBack
+            // 
+            this.btnIKBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnIKBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIKBack.FlatAppearance.BorderSize = 0;
+            this.btnIKBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIKBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIKBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIKBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnIKBack.ForeColor = System.Drawing.Color.White;
+            this.btnIKBack.Location = new System.Drawing.Point(6, 8);
+            this.btnIKBack.Name = "btnIKBack";
+            this.btnIKBack.Size = new System.Drawing.Size(76, 22);
+            this.btnIKBack.TabIndex = 4;
+            this.btnIKBack.Text = "GO BACK";
+            this.btnIKBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIKBack.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(12, 283);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox11.TabIndex = 24;
+            this.pictureBox11.TabStop = false;
+            // 
+            // btnAddIK
+            // 
+            this.btnAddIK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddIK.FlatAppearance.BorderSize = 0;
+            this.btnAddIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddIK.ForeColor = System.Drawing.Color.White;
+            this.btnAddIK.Location = new System.Drawing.Point(0, 336);
+            this.btnAddIK.Name = "btnAddIK";
+            this.btnAddIK.Size = new System.Drawing.Size(512, 40);
+            this.btnAddIK.TabIndex = 3;
+            this.btnAddIK.Text = "ADD DONATION";
+            this.btnAddIK.UseVisualStyleBackColor = false;
+            this.btnAddIK.Click += new System.EventHandler(this.btnAddIK_Click);
+            // 
+            // txtPart
+            // 
+            this.txtPart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtPart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPart.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPart.ForeColor = System.Drawing.Color.Black;
+            this.txtPart.Location = new System.Drawing.Point(165, 58);
+            this.txtPart.MaxLength = 50;
+            this.txtPart.Name = "txtPart";
+            this.txtPart.Size = new System.Drawing.Size(316, 25);
+            this.txtPart.TabIndex = 0;
+            this.txtPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblPart
+            // 
+            this.lblPart.AutoSize = true;
+            this.lblPart.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblPart.Location = new System.Drawing.Point(26, 61);
+            this.lblPart.Name = "lblPart";
+            this.lblPart.Size = new System.Drawing.Size(88, 19);
+            this.lblPart.TabIndex = 22;
+            this.lblPart.Text = "PARTICULAR";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(12, 102);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox12.TabIndex = 23;
+            this.pictureBox12.TabStop = false;
+            // 
+            // dateIK
+            // 
+            this.dateIK.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateIK.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateIK.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateIK.CustomFormat = "MMMM dd, yyyy";
+            this.dateIK.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateIK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateIK.Location = new System.Drawing.Point(165, 237);
+            this.dateIK.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateIK.Name = "dateIK";
+            this.dateIK.Size = new System.Drawing.Size(316, 29);
+            this.dateIK.TabIndex = 2;
+            this.dateIK.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label7.Location = new System.Drawing.Point(26, 243);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 19);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "DATE DONATED";
+            // 
+            // tabIKEdit
+            // 
+            this.tabIKEdit.Location = new System.Drawing.Point(4, 22);
+            this.tabIKEdit.Name = "tabIKEdit";
+            this.tabIKEdit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabIKEdit.Size = new System.Drawing.Size(512, 376);
+            this.tabIKEdit.TabIndex = 6;
+            this.tabIKEdit.Text = "tabPage2";
+            this.tabIKEdit.UseVisualStyleBackColor = true;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1385,14 +1616,19 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.tabIK.ResumeLayout(false);
+            this.tabIK.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TabPage tabChoice;
-        private System.Windows.Forms.TabPage tabCash;
-        private System.Windows.Forms.TabPage tabCheck;
         private System.Windows.Forms.PictureBox pbCash;
         private System.Windows.Forms.TextBox txtCashAmount;
         private System.Windows.Forms.Label lblCashAmount;
@@ -1406,8 +1642,6 @@
         private System.Windows.Forms.TextBox txtOR;
         private System.Windows.Forms.Label lblOR;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TabPage tabCashEdit;
-        private System.Windows.Forms.TabPage tabCheckEdit;
         private System.Windows.Forms.Label lblDot3;
         private System.Windows.Forms.Label lblOR2;
         private System.Windows.Forms.Button btnEditCash;
@@ -1480,5 +1714,26 @@
         public System.Windows.Forms.DateTimePicker dateOfCheck2;
         public System.Windows.Forms.TextBox txtCheckCent2;
         public System.Windows.Forms.TextBox txtCheckAmount2;
+        private System.Windows.Forms.TabPage tabIKEdit;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
+        private NoFocusRec noFocusRec4;
+        private NoFocusRec btnIKBack;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private NoFocusRec btnAddIK;
+        private System.Windows.Forms.TextBox txtPart;
+        private System.Windows.Forms.Label lblPart;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.DateTimePicker dateIK;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.NumericUpDown txtQuantity;
+        public System.Windows.Forms.TabPage tabIK;
+        public System.Windows.Forms.TabPage tabChoice;
+        public System.Windows.Forms.TabPage tabCash;
+        public System.Windows.Forms.TabPage tabCheck;
+        public System.Windows.Forms.TabPage tabCashEdit;
+        public System.Windows.Forms.TabPage tabCheckEdit;
     }
 }

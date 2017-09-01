@@ -62,16 +62,6 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Panel Overlay
-        private void expense_EnabledChanged(object sender, EventArgs e)
-        {
-            if (this.Enabled)
-            {
-
-            }
-        }
-        #endregion
-
         #region Functions
         public class renderer : ToolStripProfessionalRenderer
         {
@@ -179,7 +169,7 @@ namespace BalayPasilungan
 
         #region SQL Connections
         
-        public void loadTable(MySqlCommand comm)
+        public void loadTable(MySqlCommand comm, int type)
         {
             try
             {
@@ -189,53 +179,91 @@ namespace BalayPasilungan
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-                
-                if (dt.Rows.Count == 0)
+
+                if(type == 1)          // Monetary donation
                 {
-                    dt.Rows.Add(-1, null, null, null, null, "No entries.", null, null, -1);
-                    empty = true;                    
-                }                
+                    if (dt.Rows.Count == 0)
+                    {
+                        dt.Rows.Add(-1, null, null, null, null, "No entries.", null, null, -1);
+                        empty = true;
+                    }
 
-                donationMoney.DataSource = dt;
+                    donationMoney.DataSource = dt;
 
-                // Donors Grid View UI Modifications
-                donationMoney.Columns[1].HeaderText = "TYPE";
-                donationMoney.Columns[2].HeaderText = "AMOUNT";
-                donationMoney.Columns[3].HeaderText = "OR NO";
-                donationMoney.Columns[4].HeaderText = "CHECK NO";
-                donationMoney.Columns[5].HeaderText = "BANK NAME";
-                donationMoney.Columns[6].HeaderText = "DATE CHECK";
-                donationMoney.Columns[7].HeaderText = "DATE DONATED";
-                donationMoney.Columns[8].HeaderText = "DONATION ID";
-                
-                // For ID purposes (hidden from user)            
-                donationMoney.Columns[0].Visible = false; donationMoney.Columns[8].Visible = false;
+                    // Donation Money UI Modifications
+                    donationMoney.Columns[1].HeaderText = "TYPE";
+                    donationMoney.Columns[2].HeaderText = "AMOUNT";
+                    donationMoney.Columns[3].HeaderText = "OR NO";
+                    donationMoney.Columns[4].HeaderText = "CHECK NO";
+                    donationMoney.Columns[5].HeaderText = "BANK NAME";
+                    donationMoney.Columns[6].HeaderText = "DATE CHECK";
+                    donationMoney.Columns[7].HeaderText = "DATE DONATED";
+                    donationMoney.Columns[8].HeaderText = "DONATION ID";
 
-                // MONETARY TABLE COLUMNS
-                donationMoney.Columns[1].Width = 70;
-                donationMoney.Columns[2].Width = 100;
-                donationMoney.Columns[3].Width = 100;
-                donationMoney.Columns[4].Width = 200;
-                donationMoney.Columns[5].Width = 220;
-                donationMoney.Columns[6].Width = 120;
-                donationMoney.Columns[7].Width = 120;
-                donationMoney.Columns[8].Width = 0;
-                
-                if (dt.Rows.Count > 0 && !empty)
-                {                                        
-                    donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(5, 0, 0, 0);
-                    donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
-                    donationMoney.Columns[2].DefaultCellStyle.Format = "#,0.00##";
-                    donationMoney.Columns[6].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                    donationMoney.Columns[7].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                    // For ID purposes (hidden from user)            
+                    donationMoney.Columns[0].Visible = false; donationMoney.Columns[8].Visible = false;
 
-                    btnDelMoneyD.Enabled = true; btnEditMoneyD.Enabled = true;
+                    // MONETARY TABLE COLUMNS
+                    donationMoney.Columns[1].Width = 70;
+                    donationMoney.Columns[2].Width = 100;
+                    donationMoney.Columns[3].Width = 100;
+                    donationMoney.Columns[4].Width = 200;
+                    donationMoney.Columns[5].Width = 220;
+                    donationMoney.Columns[6].Width = 120;
+                    donationMoney.Columns[7].Width = 120;
+
+                    if (dt.Rows.Count > 0 && !empty)
+                    {
+                        donationMoney.Columns[1].HeaderCell.Style.Padding = new Padding(5, 0, 0, 0);
+                        donationMoney.Columns[1].DefaultCellStyle.Padding = new Padding(5, 0, 0, 0);
+                        donationMoney.Columns[2].DefaultCellStyle.Format = "#,0.00##";
+                        donationMoney.Columns[6].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                        donationMoney.Columns[7].DefaultCellStyle.Format = "MMMM dd, yyyy";
+
+                        btnDelMoneyD.Enabled = true; btnEditMoneyD.Enabled = true;
+                    }
+                    else
+                    {
+                        btnDelMoneyD.Enabled = false; btnEditMoneyD.Enabled = false; empty = false;
+                    }
                 }
-                else
+                else if(type == 2)          // In kind donation
                 {
-                    btnDelMoneyD.Enabled = false; btnEditMoneyD.Enabled = false; empty = false;
-                }                
+                    if (dt.Rows.Count == 0)
+                    {
+                        dt.Rows.Add(-1, "No entries.", null, null, -1);
+                        empty = true;
+                    }
 
+                    donationIK.DataSource = dt;
+
+                    // Donation In Kind UI Modifications
+                    donationIK.Columns[1].HeaderText = "PARTICULAR";
+                    donationIK.Columns[2].HeaderText = "QUANTITY";
+                    donationIK.Columns[3].HeaderText = "DATE DONATED";
+                    donationIK.Columns[4].HeaderText = "DONATION ID";
+
+                    // For ID purposes (hidden from user)            
+                    donationIK.Columns[0].Visible = false; donationIK.Columns[4].Visible = false;
+
+                    // MONETARY TABLE COLUMNS
+                    donationIK.Columns[1].Width = 550;
+                    donationIK.Columns[2].Width = 150;
+                    donationIK.Columns[3].Width = 230;
+
+                    if (dt.Rows.Count > 0 && !empty)
+                    {
+                        donationIK.Columns[1].HeaderCell.Style.Padding = new Padding(15, 0, 0, 0);
+                        donationIK.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                        donationIK.Columns[3].DefaultCellStyle.Format = "MMMM dd, yyyy";
+
+                        btnDelIK.Enabled = true; btnEditIK.Enabled = true;
+                    }
+                    else
+                    {
+                        btnDelIK.Enabled = false; btnEditIK.Enabled = false; empty = false;
+                    }
+                }
                 conn.Close();
             }
             catch (Exception ex)
@@ -338,7 +366,21 @@ namespace BalayPasilungan
             try
             {
                 MySqlCommand comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")", conn);                
-                loadTable(comm);
+                loadTable(comm, 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
+        public void loadIK(int id)
+        {
+            try
+            {
+                MySqlCommand comm = new MySqlCommand("SELECT inKindID, particular, quantity, dateDonated, donationID FROM inkind WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")", conn);
+                loadTable(comm, 2);
             }
             catch (Exception ex)
             {
@@ -403,7 +445,7 @@ namespace BalayPasilungan
                 }
                 
                 MySqlCommand comm = new MySqlCommand(query, conn);
-                loadTable(comm);
+                loadTable(comm, 1);
             }
             catch (Exception ex)
             {
@@ -412,18 +454,28 @@ namespace BalayPasilungan
             }
         }
 
-        public void delDonation(int donationid)
+        public void delDonation(int donationid, int type)
         {
             try
-            {
+            {                
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("DELETE FROM monetary WHERE donationID = " + donationid, conn);            // Delete from monetary
-                comm.ExecuteNonQuery();
+                if(type == 1)               // Monetary Table Delete
+                {
+                    MySqlCommand comm = new MySqlCommand("DELETE FROM monetary WHERE donationID = " + donationid, conn);            
+                    comm.ExecuteNonQuery();
 
-                comm = new MySqlCommand("DELETE FROM donation WHERE donationID = " + donationid, conn);                         // Delete from donation
-                comm.ExecuteNonQuery();
+                    comm = new MySqlCommand("DELETE FROM donation WHERE donationID = " + donationid, conn);                         
+                    comm.ExecuteNonQuery();
+                }
+                else if(type == 2)               // In-kind Table Delete
+                {
+                    MySqlCommand comm = new MySqlCommand("DELETE FROM inkind WHERE donationID = " + donationid, conn);          
+                    comm.ExecuteNonQuery();
 
+                    comm = new MySqlCommand("DELETE FROM donation WHERE donationID = " + donationid, conn);
+                    comm.ExecuteNonQuery();
+                }
                 conn.Close();
             }
             catch (Exception ex)
@@ -809,6 +861,7 @@ namespace BalayPasilungan
             tabDonorDetails.SelectedIndex = 1;
             ikTS.BackColor = Color.White;
             ikTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            loadIK(current_donorID);
         }
 
         private void donorOTS_Click(object sender, EventArgs e)
@@ -939,7 +992,7 @@ namespace BalayPasilungan
                     foreach (DataGridViewRow r in donationMoney.SelectedRows)
                     {
                         int row = donationMoney.CurrentCell.RowIndex;
-                        delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));
+                        delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
                         loadMonetary(current_donorID);  
                     }
                 }
@@ -950,13 +1003,73 @@ namespace BalayPasilungan
 
                 if (conf.ShowDialog() == DialogResult.OK)
                 {
-                    delDonation(int.Parse(donationMoney.Rows[row].Cells[5].Value.ToString()));
+                    delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
                     loadMonetary(current_donorID);
                 }
             }
         }
         #endregion
-        
+
+        #region In Kind Donation
+        private void btnAddIK_Click(object sender, EventArgs e)
+        {
+            moneyDonate mD = overlay();
+            mD.donorID = current_donorID;
+            mD.tabSelection.SelectedIndex = 5;
+            mD.ShowDialog();
+            loadIK(current_donorID);
+        }
+
+        private void btnEditIK_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelIK_Click(object sender, EventArgs e)
+        {
+            confirm conf = new confirm();
+            conf.lblConfirm.Text = "Are you sure you want to delete them? There's no chance to get them again.";
+            if (multi)
+            {
+                if (conf.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow r in donationIK.SelectedRows)
+                    {
+                        int row = donationMoney.CurrentCell.RowIndex;
+                        delDonation(int.Parse(donationIK.Rows[row].Cells[4].Value.ToString()), 2);
+                        loadIK(current_donorID);
+                    }
+                }
+            }
+            else
+            {
+                int row = donationMoney.CurrentCell.RowIndex;
+
+                if (conf.ShowDialog() == DialogResult.OK)
+                {
+                    delDonation(int.Parse(donationIK.Rows[row].Cells[4].Value.ToString()), 2);
+                    loadIK(current_donorID);
+                }
+            }
+        }
+
+        private void multiSelect2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (multiSelect2.Checked)
+            {
+                btnEditIK.Enabled = false;
+                donationIK.MultiSelect = true;
+                multi = true;
+            }
+            else
+            {
+                btnEditIK.Enabled = true;
+                donationIK.MultiSelect = false;
+                multi = false;
+            }
+        }
+        #endregion
+
         private void btnSetDonor_Click(object sender, EventArgs e)
         {
             tabInnerDonors.SelectedIndex = 1;
