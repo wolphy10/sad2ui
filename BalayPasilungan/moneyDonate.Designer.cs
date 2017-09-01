@@ -879,7 +879,7 @@
             this.btnCashBack2.Text = "GO BACK";
             this.btnCashBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCashBack2.UseVisualStyleBackColor = false;
-            this.btnCashBack2.Click += new System.EventHandler(this.btnCashBack_Click);
+            this.btnCashBack2.Click += new System.EventHandler(this.btnCashBack2_Click);
             // 
             // pictureBox4
             // 
@@ -1148,7 +1148,7 @@
             this.btnCheckBack2.Text = "GO BACK";
             this.btnCheckBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckBack2.UseVisualStyleBackColor = false;
-            this.btnCheckBack2.Click += new System.EventHandler(this.btnCashBack_Click);
+            this.btnCheckBack2.Click += new System.EventHandler(this.btnCashBack2_Click);
             // 
             // dateCheck2
             // 
@@ -1353,7 +1353,7 @@
             this.Name = "moneyDonate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.moneyDonate_FormClosing);
             this.tabSelection.ResumeLayout(false);
             this.tabChoice.ResumeLayout(false);
             this.tabChoice.PerformLayout();

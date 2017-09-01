@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,16 @@ namespace BalayPasilungan
         }
         #endregion
 
+        #region Panel Overlay
+        private void expense_EnabledChanged(object sender, EventArgs e)
+        {
+            if (this.Enabled)
+            {
+
+            }
+        }
+        #endregion
+
         #region Functions
         public class renderer : ToolStripProfessionalRenderer
         {
@@ -114,6 +125,20 @@ namespace BalayPasilungan
             moneyTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
             ikTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
             donorOTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
+        }
+
+        public moneyDonate overlay()
+        {
+            moneyDonate mD = new moneyDonate();
+            dim dim = new dim();
+
+            this.Enabled = false;
+            dim.Location = this.Location;
+            dim.Show();
+            mD.refToDim = dim;
+            mD.refToExpense = this;
+
+            return mD;       
         }
         #endregion
 
@@ -798,11 +823,9 @@ namespace BalayPasilungan
         #region Monetary Donation
         private void btnAddMoneyD_Click(object sender, EventArgs e)                 // Add New Donation
         {
-            moneyDonate mD = new moneyDonate();
+            moneyDonate mD = overlay();
             mD.donorID = current_donorID;
-            mD.refToExpense = this;
             mD.hasExpense = true;
-            this.Hide();
             mD.ShowDialog();
             loadMonetary(current_donorID);
         }
@@ -865,46 +888,43 @@ namespace BalayPasilungan
 
         private void btnEditMoneyD_Click(object sender, EventArgs e)
         {
-            int row = donationMoney.CurrentCell.RowIndex;
+            moneyDonate mD = overlay();
 
+            int row = donationMoney.CurrentCell.RowIndex;
+                        
             if (donationMoney.Rows[row].Cells[4].Value.ToString() != null || donationMoney.Rows[row].Cells[1].Value.ToString() != null)
             {
                 if(donationMoney.Rows[row].Cells[1].Value.ToString() == "Cash")            // Cash Donation Edit
                 {
                     string[] parts = donationMoney.Rows[row].Cells[2].Value.ToString().Split('.');
                     DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[7].Value.ToString());
-
-                    moneyDonate mD = new moneyDonate();
-
+                    
                     mD.tabSelection.SelectedIndex = 3;              // Tab for Edit Check selected
 
                     mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());                    
-                    mD.txtCashAmount2.Text = parts[0];
-                    mD.txtCashCent2.Text = parts[1];
-                    mD.txtOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString();                    
-                    mD.dateCash2.MaxDate = dateDonate; mD.dateCash2.Value = dateDonate;
-                    mD.ShowDialog();
-
-                    loadMonetary(current_donorID);
+                    mD.txtCashAmount2.Text = parts[0]; mD.txtCashCent2.Text = parts[1];
+                    mD.txtOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString(); 
+                    // Dates                   
+                    mD.dateCash2.MaxDate = DateTime.Now; mD.dateCash2.Value = dateDonate;
                 }
                 else if (donationMoney.Rows[row].Cells[1].Value.ToString() == "Check")      // Check Donation Edit
                 {
                     string[] parts = donationMoney.Rows[row].Cells[2].Value.ToString().Split('.');
                     DateTime dateCheck = Convert.ToDateTime(donationMoney.Rows[row].Cells[6].Value.ToString());
                     DateTime dateDonate = Convert.ToDateTime(donationMoney.Rows[row].Cells[7].Value.ToString());
-
-                    moneyDonate mD = new moneyDonate();             // Tab for Edit Check selected
                     
-                    mD.tabSelection.SelectedIndex = 4;
+                    mD.tabSelection.SelectedIndex = 4;              // Tab for Edit Check selected
 
                     mD.donationID = int.Parse(donationMoney.Rows[row].Cells[0].Value.ToString());
-                    mD.txtCheckAmount2.Text = parts[0];
-                    mD.txtCheckCent2.Text = parts[1];
-                    mD.txtCheckOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString(); mD.txtCheckNo2.Text = donationMoney.Rows[row].Cells[4].Value.ToString();
+                    mD.txtCheckAmount2.Text = parts[0]; mD.txtCheckCent2.Text = parts[1];
                     mD.txtBank2.Text = donationMoney.Rows[row].Cells[5].Value.ToString();
-                    mD.dateOfCheck2.MaxDate = dateCheck; mD.dateCheck2.Value = dateDonate;
-                    mD.ShowDialog();
+                    // Dates
+                    mD.txtCheckOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString(); mD.txtCheckNo2.Text = donationMoney.Rows[row].Cells[4].Value.ToString();
+                    mD.dateOfCheck2.MaxDate = DateTime.Now; mD.dateCheck2.Value = dateDonate;
+                    mD.dateCheck2.MaxDate = DateTime.Now; mD.dateCheck2.Value = dateDonate;
                 }
+                mD.ShowDialog();
+                loadMonetary(current_donorID);
             }
         }
 

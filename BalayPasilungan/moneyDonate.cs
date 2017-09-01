@@ -20,15 +20,24 @@ namespace BalayPasilungan
         public int donorID, donationID;
 
         public Form refToExpense { get; set; }
+        public Form refToDim { get; set; }
         public bool hasExpense;
 
         public moneyDonate()
         {
             InitializeComponent();
-
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
+
+            // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = DateTime.Today;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Today; dateOfCheck.MaxDate = DateTime.Now; dateOfCheck.Value = DateTime.Today;
+        }
+        
+        private void moneyDonate_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            refToDim.Close();
+            refToExpense.Enabled = true;
+            refToExpense.Focus();
         }
 
         #region Movable Form
@@ -117,11 +126,7 @@ namespace BalayPasilungan
         #region Buttons
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (hasExpense)
-            {
-                hasExpense = false;
-                refToExpense.Show();                
-            }
+            if (hasExpense) hasExpense = false;
             this.Close();
         }
 
@@ -168,12 +173,10 @@ namespace BalayPasilungan
             yey.lblSuccess.Text = "Donation has been added successfully!";
             yey.ShowDialog();
             this.Close();
-            refToExpense.Show();
         }
 
         public void editSQL(MySqlCommand comm)
         {
-            conn.Open();
             comm.ExecuteNonQuery();
             conn.Close();
 
@@ -181,10 +184,10 @@ namespace BalayPasilungan
             yey.lblSuccess.Text = "Donation has been edited successfully!";
             yey.ShowDialog();
             this.Close();
-            refToExpense.Show();
         }
         #endregion
 
+        #region Back Buttons
         private void btnCashBack_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabChoice;
@@ -192,6 +195,13 @@ namespace BalayPasilungan
             txtOR.Clear(); txtCheckOR.Clear(); txtCheckNo.Clear();
         }
 
+        private void btnCashBack2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            refToExpense.Enabled = true;
+        }
+        #endregion
+        
         #region Cash
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -260,6 +270,22 @@ namespace BalayPasilungan
         #endregion
 
         #region Cash Edit
+        private void btnEditCash_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text
+                        + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", dateDonated = '" + dateCash2.Value.Date.ToString("yyyyMMdd")
+                        + "' WHERE donationID = " + donationID, conn);
+                editSQL(comm);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void txtCashAmount2_Enter(object sender, EventArgs e)
         {
             if (txtCashAmount2.Text == "0,000,000,000") txtCashAmount2.Text = "";
@@ -294,14 +320,6 @@ namespace BalayPasilungan
         {
             if (txtCashCent2.Text == "") txtCashCent2.Text = "00";
             toDefault();
-        }
-        
-        private void btnEditCash_Click(object sender, EventArgs e)
-        {
-            MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text
-                    + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", dateDonated = '" + dateCash2.Value.Date.ToString("yyyyMMdd")
-                    + "' WHERE donationID = " + donationID, conn);
-            editSQL(comm);
         }
         #endregion
         
@@ -373,9 +391,9 @@ namespace BalayPasilungan
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = " + txtCheckNo2.Text + ", checkNo = '" + txtCheckOR2.Text
-                    + "', amount = " + decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text) + ", dateDonated = '" + dateCheck2.Value.Date.ToString("yyyyMMdd")
-                    + "', dateCheck = '" + dateOfCheck2.Value.Date.ToString("yyyyMMdd")
+                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtCheckOR2.Text + "', checkNo = '" + txtCheckNo2.Text
+                    + "', amount = " + decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text) + ", bankName = '" + txtBank2.Text
+                    + "', dateDonated = '" + dateCheck2.Value.Date.ToString("yyyyMMdd") + "', dateCheck = '" + dateOfCheck2.Value.Date.ToString("yyyyMMdd")
                     + "' WHERE donationID = " + donationID, conn);
                 editSQL(comm);
             }
