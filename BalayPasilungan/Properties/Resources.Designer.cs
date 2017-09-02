@@ -333,6 +333,16 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap line_edit {
+            get {
+                object obj = ResourceManager.GetObject("line_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap line_green {
             get {
                 object obj = ResourceManager.GetObject("line_green", resourceCulture);
@@ -357,16 +367,6 @@ namespace BalayPasilungan.Properties {
             get {
                 object obj = ResourceManager.GetObject("login_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] LUZRO {
-            get {
-                object obj = ResourceManager.GetObject("LUZRO", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         
@@ -416,16 +416,6 @@ namespace BalayPasilungan.Properties {
         internal static System.Drawing.Bitmap on2 {
             get {
                 object obj = ResourceManager.GetObject("on2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap overlay {
-            get {
-                object obj = ResourceManager.GetObject("overlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

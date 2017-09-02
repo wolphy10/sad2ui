@@ -203,7 +203,6 @@
     <None Include="Resources\eyeclose.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\LUZRO.TTF" />
     <None Include="Resources\wait_header.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -354,7 +353,7 @@
     <None Include="Resources\on2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\overlay.png" />
+    <None Include="Resources\line_edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

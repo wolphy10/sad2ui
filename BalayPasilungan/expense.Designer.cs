@@ -30,21 +30,18 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expense));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expense));
             this.upPanel = new System.Windows.Forms.Panel();
+            this.btnClose = new BalayPasilungan.NoFocusRec();
             this.taskbar = new System.Windows.Forms.Panel();
-            this.btnFinance = new System.Windows.Forms.Button();
-            this.btnDonation = new System.Windows.Forms.Button();
-            this.btnMain = new System.Windows.Forms.Button();
             this.panelListChild = new System.Windows.Forms.Panel();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.searchlogo = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblListOfDonors = new System.Windows.Forms.Label();
             this.tabSelection = new System.Windows.Forms.TabControl();
@@ -54,17 +51,16 @@
             this.donationsTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabInnerDonors = new System.Windows.Forms.TabControl();
             this.tabDonors1 = new System.Windows.Forms.TabPage();
+            this.btnRemoveDonor = new BalayPasilungan.NoFocusRec();
+            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
             this.multiDonor = new System.Windows.Forms.CheckBox();
             this.donorsGV = new System.Windows.Forms.DataGridView();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabDonations = new System.Windows.Forms.TabPage();
             this.donorMenuStrip2 = new System.Windows.Forms.MenuStrip();
             this.donorTS2 = new System.Windows.Forms.ToolStripMenuItem();
             this.donationTS2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtSearch2 = new System.Windows.Forms.TextBox();
             this.btnArchiveDonations = new System.Windows.Forms.Button();
             this.lblListOfDonations = new System.Windows.Forms.Label();
@@ -75,32 +71,24 @@
             this.donorCTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabNewDonorInput = new System.Windows.Forms.TabControl();
             this.tabNewInfo = new System.Windows.Forms.TabPage();
+            this.cbDType = new System.Windows.Forms.ComboBox();
             this.datePledge = new System.Windows.Forms.DateTimePicker();
             this.btnDonorCancel = new System.Windows.Forms.Button();
-            this.panelMobile = new System.Windows.Forms.Panel();
-            this.txtMobile3 = new System.Windows.Forms.TextBox();
-            this.txtMobile2 = new System.Windows.Forms.TextBox();
-            this.txtMobile1 = new System.Windows.Forms.TextBox();
-            this.panelEmail = new System.Windows.Forms.Panel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.countEmail = new System.Windows.Forms.Label();
             this.lblMobile = new System.Windows.Forms.Label();
             this.countPhone = new System.Windows.Forms.Label();
-            this.panelPhone = new System.Windows.Forms.Panel();
-            this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.cbDType = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDType = new System.Windows.Forms.Label();
             this.countDName = new System.Windows.Forms.Label();
             this.lblDatePledge = new System.Windows.Forms.Label();
             this.cbPledge = new System.Windows.Forms.ComboBox();
-            this.lblProgram = new System.Windows.Forms.Label();
-            this.panelDName = new System.Windows.Forms.Panel();
-            this.txtDName = new System.Windows.Forms.TextBox();
+            this.lblPledge = new System.Windows.Forms.Label();
             this.lblDName = new System.Windows.Forms.Label();
             this.btnDonorConfirm = new System.Windows.Forms.Button();
             this.tabDonorConfirm = new System.Windows.Forms.TabPage();
+            this.btnDonorBack2 = new BalayPasilungan.NoFocusRec();
+            this.btnDonorFinal = new BalayPasilungan.NoFocusRec();
             this.conf6 = new System.Windows.Forms.Label();
             this.conf_email = new System.Windows.Forms.Label();
             this.conf7 = new System.Windows.Forms.Label();
@@ -117,9 +105,23 @@
             this.conf1 = new System.Windows.Forms.Label();
             this.conf_header = new System.Windows.Forms.Label();
             this.conf_donorName = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.tabEditDonor = new System.Windows.Forms.TabPage();
+            this.cbDTypeEdit = new System.Windows.Forms.ComboBox();
+            this.datePledgeEdit = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.cbPledgeEdit = new System.Windows.Forms.ComboBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.tabDonorEditConf = new System.Windows.Forms.TabPage();
             this.tabNewDonation = new System.Windows.Forms.TabPage();
             this.donationInfo = new System.Windows.Forms.MenuStrip();
             this.donationTS = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,19 +130,11 @@
             this.tabNewInfo2 = new System.Windows.Forms.TabPage();
             this.btnDonationCancel = new System.Windows.Forms.Button();
             this.btnDonationConfirm = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -149,8 +143,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tabDonationConfirm = new System.Windows.Forms.TabPage();
             this.label14 = new System.Windows.Forms.Label();
@@ -171,10 +163,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
             this.tabFinance = new System.Windows.Forms.TabPage();
             this.tabBudgetRequest = new System.Windows.Forms.TabPage();
             this.brInfo = new System.Windows.Forms.MenuStrip();
@@ -185,8 +173,6 @@
             this.btnBRCancel = new System.Windows.Forms.Button();
             this.btnBRConfirm = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panelOthers = new System.Windows.Forms.Panel();
-            this.txtOthers = new System.Windows.Forms.TextBox();
             this.cbOthers = new System.Windows.Forms.CheckBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.clbCategory = new System.Windows.Forms.CheckedListBox();
@@ -194,8 +180,6 @@
             this.dateBR = new System.Windows.Forms.DateTimePicker();
             this.lblPurpose = new System.Windows.Forms.Label();
             this.countPurpose = new System.Windows.Forms.Label();
-            this.panelPurpose = new System.Windows.Forms.Panel();
-            this.txtPurpose = new System.Windows.Forms.TextBox();
             this.tabBRConfirm = new System.Windows.Forms.TabPage();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -215,11 +199,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label58 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label59 = new System.Windows.Forms.Label();
             this.tabDonorInfo = new System.Windows.Forms.TabPage();
+            this.ikTS = new BalayPasilungan.NoFocusRec();
+            this.moneyTS = new BalayPasilungan.NoFocusRec();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -241,7 +223,6 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.txtSearchMoney = new System.Windows.Forms.TextBox();
             this.donationMoney = new System.Windows.Forms.DataGridView();
-            this.searchLine = new System.Windows.Forms.PictureBox();
             this.searchOption = new System.Windows.Forms.Panel();
             this.searchOthers = new System.Windows.Forms.RadioButton();
             this.searchDate = new System.Windows.Forms.RadioButton();
@@ -249,33 +230,79 @@
             this.multiSelect2 = new System.Windows.Forms.CheckBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.donationIK = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.tabDonorO = new System.Windows.Forms.TabPage();
-            this.divider2 = new System.Windows.Forms.PictureBox();
-            this.divider = new System.Windows.Forms.PictureBox();
+            this.btnArchiveProfile = new BalayPasilungan.NoFocusRec();
+            this.btnEditDonor = new BalayPasilungan.NoFocusRec();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFinance = new System.Windows.Forms.Button();
+            this.btnDonation = new System.Windows.Forms.Button();
+            this.btnMain = new System.Windows.Forms.Button();
+            this.searchlogo = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panelMobile = new System.Windows.Forms.Panel();
+            this.txtMobile3 = new System.Windows.Forms.TextBox();
+            this.txtMobile2 = new System.Windows.Forms.TextBox();
+            this.txtMobile1 = new System.Windows.Forms.TextBox();
+            this.panelEmail = new System.Windows.Forms.Panel();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.panelPhone = new System.Windows.Forms.Panel();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.panelDName = new System.Windows.Forms.Panel();
+            this.txtDName = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.label38 = new System.Windows.Forms.Label();
-            this.btnClose = new BalayPasilungan.NoFocusRec();
-            this.btnRemoveDonor = new BalayPasilungan.NoFocusRec();
-            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
-            this.ikTS = new BalayPasilungan.NoFocusRec();
-            this.moneyTS = new BalayPasilungan.NoFocusRec();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.txtMobile3Edit = new System.Windows.Forms.TextBox();
+            this.txtMobile2Edit = new System.Windows.Forms.TextBox();
+            this.txtMobile1Edit = new System.Windows.Forms.TextBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.txtEmailEdit = new System.Windows.Forms.TextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.txtPhoneEdit = new System.Windows.Forms.TextBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.txtDNameEdit = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.panelOthers = new System.Windows.Forms.Panel();
+            this.txtOthers = new System.Windows.Forms.TextBox();
+            this.panelPurpose = new System.Windows.Forms.Panel();
+            this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label58 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label59 = new System.Windows.Forms.Label();
             this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
             this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
             this.btnDelMoneyD = new BalayPasilungan.NoFocusRec();
+            this.searchLine = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddIK = new BalayPasilungan.NoFocusRec();
             this.btnEditIK = new BalayPasilungan.NoFocusRec();
             this.btnDelIK = new BalayPasilungan.NoFocusRec();
-            this.btnArchiveProfile = new BalayPasilungan.NoFocusRec();
-            this.btnEditDonor = new BalayPasilungan.NoFocusRec();
-            this.btnDonorFinal = new BalayPasilungan.NoFocusRec();
-            this.btnDonorBack2 = new BalayPasilungan.NoFocusRec();
+            this.divider2 = new System.Windows.Forms.PictureBox();
+            this.divider = new System.Windows.Forms.PictureBox();
             this.upPanel.SuspendLayout();
             this.taskbar.SuspendLayout();
             this.panelListChild.SuspendLayout();
@@ -286,8 +313,6 @@
             this.tabInnerDonors.SuspendLayout();
             this.tabDonors1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donorsGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabDonations.SuspendLayout();
             this.donorMenuStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -297,50 +322,57 @@
             this.donorInfo.SuspendLayout();
             this.tabNewDonorInput.SuspendLayout();
             this.tabNewInfo.SuspendLayout();
-            this.panelMobile.SuspendLayout();
-            this.panelEmail.SuspendLayout();
-            this.panelPhone.SuspendLayout();
-            this.panelDName.SuspendLayout();
             this.tabDonorConfirm.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.tabEditDonor.SuspendLayout();
             this.tabNewDonation.SuspendLayout();
             this.donationInfo.SuspendLayout();
             this.tabNewDonationInput.SuspendLayout();
             this.tabNewInfo2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.tabDonationConfirm.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.tabBudgetRequest.SuspendLayout();
             this.brInfo.SuspendLayout();
             this.tabBR.SuspendLayout();
             this.tabBRInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panelOthers.SuspendLayout();
-            this.panelPurpose.SuspendLayout();
             this.tabBRConfirm.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.tabDonorInfo.SuspendLayout();
             this.headingColor.SuspendLayout();
             this.tabDonorDetails.SuspendLayout();
             this.tabMoney.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donationMoney)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).BeginInit();
             this.searchOption.SuspendLayout();
             this.tabIK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donationIK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel11.SuspendLayout();
             this.tabDonorO.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelMobile.SuspendLayout();
+            this.panelEmail.SuspendLayout();
+            this.panelPhone.SuspendLayout();
+            this.panelDName.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panelOthers.SuspendLayout();
+            this.panelPurpose.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             this.SuspendLayout();
             // 
             // upPanel
@@ -353,6 +385,20 @@
             this.upPanel.TabIndex = 3;
             this.upPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.upPanel_MouseDown);
             // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(998, -2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(23, 23);
+            this.btnClose.TabIndex = 11;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // taskbar
             // 
             this.taskbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
@@ -364,50 +410,6 @@
             this.taskbar.Size = new System.Drawing.Size(89, 704);
             this.taskbar.TabIndex = 7;
             this.taskbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.taskbar_MouseDown);
-            // 
-            // btnFinance
-            // 
-            this.btnFinance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_white;
-            this.btnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFinance.FlatAppearance.BorderSize = 0;
-            this.btnFinance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinance.ForeColor = System.Drawing.Color.White;
-            this.btnFinance.Location = new System.Drawing.Point(0, 205);
-            this.btnFinance.Name = "btnFinance";
-            this.btnFinance.Size = new System.Drawing.Size(90, 90);
-            this.btnFinance.TabIndex = 4;
-            this.btnFinance.UseVisualStyleBackColor = true;
-            this.btnFinance.Click += new System.EventHandler(this.btnFinance_Click);
-            // 
-            // btnDonation
-            // 
-            this.btnDonation.BackgroundImage = global::BalayPasilungan.Properties.Resources.donation_white;
-            this.btnDonation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDonation.FlatAppearance.BorderSize = 0;
-            this.btnDonation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonation.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonation.ForeColor = System.Drawing.Color.White;
-            this.btnDonation.Location = new System.Drawing.Point(0, 115);
-            this.btnDonation.Name = "btnDonation";
-            this.btnDonation.Size = new System.Drawing.Size(90, 90);
-            this.btnDonation.TabIndex = 3;
-            this.btnDonation.Click += new System.EventHandler(this.btnDonation_Click);
-            // 
-            // btnMain
-            // 
-            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
-            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMain.FlatAppearance.BorderSize = 0;
-            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMain.ForeColor = System.Drawing.Color.White;
-            this.btnMain.Location = new System.Drawing.Point(0, 25);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(90, 90);
-            this.btnMain.TabIndex = 2;
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // panelListChild
             // 
@@ -428,20 +430,6 @@
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(331, 40);
             this.panelSearch.TabIndex = 8;
-            // 
-            // searchlogo
-            // 
-            this.searchlogo.BackgroundImage = global::BalayPasilungan.Properties.Resources.search_notfocus;
-            this.searchlogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.searchlogo.Enabled = false;
-            this.searchlogo.FlatAppearance.BorderSize = 0;
-            this.searchlogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchlogo.Location = new System.Drawing.Point(6, 12);
-            this.searchlogo.Name = "searchlogo";
-            this.searchlogo.Size = new System.Drawing.Size(20, 20);
-            this.searchlogo.TabIndex = 9;
-            this.searchlogo.TabStop = false;
-            this.searchlogo.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
@@ -562,6 +550,40 @@
             this.tabDonors1.TabIndex = 0;
             this.tabDonors1.Text = "tabPage1";
             // 
+            // btnRemoveDonor
+            // 
+            this.btnRemoveDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveDonor.FlatAppearance.BorderSize = 0;
+            this.btnRemoveDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnRemoveDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnRemoveDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnRemoveDonor.Location = new System.Drawing.Point(710, 5);
+            this.btnRemoveDonor.Name = "btnRemoveDonor";
+            this.btnRemoveDonor.Size = new System.Drawing.Size(125, 29);
+            this.btnRemoveDonor.TabIndex = 53;
+            this.btnRemoveDonor.Text = "REMOVE DONOR";
+            this.btnRemoveDonor.UseVisualStyleBackColor = false;
+            this.btnRemoveDonor.Click += new System.EventHandler(this.btnRemoveDonor_Click);
+            // 
+            // btnAddDonor
+            // 
+            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddDonor.FlatAppearance.BorderSize = 0;
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnAddDonor.Location = new System.Drawing.Point(585, 5);
+            this.btnAddDonor.Name = "btnAddDonor";
+            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
+            this.btnAddDonor.TabIndex = 52;
+            this.btnAddDonor.Text = "ADD DONOR";
+            this.btnAddDonor.UseVisualStyleBackColor = false;
+            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
+            // 
             // multiDonor
             // 
             this.multiDonor.AutoSize = true;
@@ -625,26 +647,6 @@
             this.donorsGV.Size = new System.Drawing.Size(935, 515);
             this.donorsGV.TabIndex = 10;
             this.donorsGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.donorsGV_CellDoubleClick);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(184, 17);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(753, 23);
-            this.pictureBox3.TabIndex = 54;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 17);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(356, 23);
-            this.pictureBox2.TabIndex = 55;
-            this.pictureBox2.TabStop = false;
             // 
             // tabDonations
             // 
@@ -714,20 +716,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(230, 40);
             this.panel2.TabIndex = 8;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.search_notfocus;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(6, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 20);
-            this.button1.TabIndex = 9;
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtSearch2
             // 
@@ -833,6 +821,8 @@
             this.tabNewDonorInput.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabNewDonorInput.Controls.Add(this.tabNewInfo);
             this.tabNewDonorInput.Controls.Add(this.tabDonorConfirm);
+            this.tabNewDonorInput.Controls.Add(this.tabEditDonor);
+            this.tabNewDonorInput.Controls.Add(this.tabDonorEditConf);
             this.tabNewDonorInput.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabNewDonorInput.Location = new System.Drawing.Point(41, 48);
             this.tabNewDonorInput.Name = "tabNewDonorInput";
@@ -854,11 +844,11 @@
             this.tabNewInfo.Controls.Add(this.countPhone);
             this.tabNewInfo.Controls.Add(this.panelPhone);
             this.tabNewInfo.Controls.Add(this.lblPhone);
-            this.tabNewInfo.Controls.Add(this.label3);
+            this.tabNewInfo.Controls.Add(this.lblDType);
             this.tabNewInfo.Controls.Add(this.countDName);
             this.tabNewInfo.Controls.Add(this.lblDatePledge);
             this.tabNewInfo.Controls.Add(this.cbPledge);
-            this.tabNewInfo.Controls.Add(this.lblProgram);
+            this.tabNewInfo.Controls.Add(this.lblPledge);
             this.tabNewInfo.Controls.Add(this.panelDName);
             this.tabNewInfo.Controls.Add(this.lblDName);
             this.tabNewInfo.Controls.Add(this.btnDonorConfirm);
@@ -869,6 +859,20 @@
             this.tabNewInfo.TabIndex = 0;
             this.tabNewInfo.Text = "tabPage1";
             this.tabNewInfo.Click += new System.EventHandler(this.tabNewInfo_Click);
+            // 
+            // cbDType
+            // 
+            this.cbDType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDType.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.cbDType.FormattingEnabled = true;
+            this.cbDType.Items.AddRange(new object[] {
+            "Individual",
+            "Organization"});
+            this.cbDType.Location = new System.Drawing.Point(139, 154);
+            this.cbDType.Name = "cbDType";
+            this.cbDType.Size = new System.Drawing.Size(229, 33);
+            this.cbDType.TabIndex = 1;
+            this.cbDType.SelectedIndexChanged += new System.EventHandler(this.cbDType_SelectedIndexChanged);
             // 
             // datePledge
             // 
@@ -899,94 +903,6 @@
             this.btnDonorCancel.Text = "CANCEL";
             this.btnDonorCancel.UseVisualStyleBackColor = false;
             this.btnDonorCancel.Click += new System.EventHandler(this.btnDonorCancel_Click);
-            // 
-            // panelMobile
-            // 
-            this.panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelMobile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelMobile.Controls.Add(this.txtMobile3);
-            this.panelMobile.Controls.Add(this.txtMobile2);
-            this.panelMobile.Controls.Add(this.txtMobile1);
-            this.panelMobile.Location = new System.Drawing.Point(474, 249);
-            this.panelMobile.Name = "panelMobile";
-            this.panelMobile.Size = new System.Drawing.Size(215, 48);
-            this.panelMobile.TabIndex = 4;
-            // 
-            // txtMobile3
-            // 
-            this.txtMobile3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMobile3.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtMobile3.Location = new System.Drawing.Point(141, 2);
-            this.txtMobile3.MaxLength = 4;
-            this.txtMobile3.Name = "txtMobile3";
-            this.txtMobile3.Size = new System.Drawing.Size(66, 25);
-            this.txtMobile3.TabIndex = 6;
-            this.txtMobile3.Text = "xxxx";
-            this.txtMobile3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMobile3.TextChanged += new System.EventHandler(this.txtMobile3_TextChanged);
-            this.txtMobile3.Enter += new System.EventHandler(this.txtMobile3_Enter);
-            this.txtMobile3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile3_KeyPress);
-            this.txtMobile3.Leave += new System.EventHandler(this.txtMobile3_Leave);
-            // 
-            // txtMobile2
-            // 
-            this.txtMobile2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMobile2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtMobile2.Location = new System.Drawing.Point(80, 2);
-            this.txtMobile2.MaxLength = 7;
-            this.txtMobile2.Name = "txtMobile2";
-            this.txtMobile2.Size = new System.Drawing.Size(60, 25);
-            this.txtMobile2.TabIndex = 5;
-            this.txtMobile2.Text = "xxx";
-            this.txtMobile2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMobile2.TextChanged += new System.EventHandler(this.txtMobile2_TextChanged);
-            this.txtMobile2.Enter += new System.EventHandler(this.txtMobile2_Enter);
-            this.txtMobile2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile2_KeyPress);
-            this.txtMobile2.Leave += new System.EventHandler(this.txtMobile2_Leave);
-            // 
-            // txtMobile1
-            // 
-            this.txtMobile1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMobile1.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobile1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtMobile1.Location = new System.Drawing.Point(7, 2);
-            this.txtMobile1.MaxLength = 7;
-            this.txtMobile1.Name = "txtMobile1";
-            this.txtMobile1.Size = new System.Drawing.Size(71, 25);
-            this.txtMobile1.TabIndex = 4;
-            this.txtMobile1.Text = "09xx";
-            this.txtMobile1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtMobile1.TextChanged += new System.EventHandler(this.txtMobile1_TextChanged);
-            this.txtMobile1.Enter += new System.EventHandler(this.txtMobile1_Enter);
-            this.txtMobile1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile1_KeyPress);
-            this.txtMobile1.Leave += new System.EventHandler(this.txtMobile1_Leave);
-            // 
-            // panelEmail
-            // 
-            this.panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelEmail.Controls.Add(this.txtEmail);
-            this.panelEmail.Location = new System.Drawing.Point(140, 368);
-            this.panelEmail.Name = "panelEmail";
-            this.panelEmail.Size = new System.Drawing.Size(549, 48);
-            this.panelEmail.TabIndex = 5;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtEmail.Location = new System.Drawing.Point(7, 1);
-            this.txtEmail.MaxLength = 100;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(535, 25);
-            this.txtEmail.TabIndex = 7;
-            this.txtEmail.Text = "jmiguel@example.com";
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblEmail
             // 
@@ -1036,33 +952,6 @@
             this.countPhone.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countPhone.Visible = false;
             // 
-            // panelPhone
-            // 
-            this.panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelPhone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelPhone.Controls.Add(this.txtPhone);
-            this.panelPhone.Location = new System.Drawing.Point(139, 249);
-            this.panelPhone.Name = "panelPhone";
-            this.panelPhone.Size = new System.Drawing.Size(229, 48);
-            this.panelPhone.TabIndex = 3;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtPhone.Location = new System.Drawing.Point(7, 2);
-            this.txtPhone.MaxLength = 7;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(215, 25);
-            this.txtPhone.TabIndex = 3;
-            this.txtPhone.Text = "29xxxxx";
-            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
-            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
-            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
-            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
-            // 
             // lblPhone
             // 
             this.lblPhone.AccessibleDescription = "";
@@ -1075,31 +964,17 @@
             this.lblPhone.TabIndex = 53;
             this.lblPhone.Text = "PHONE";
             // 
-            // cbDType
+            // lblDType
             // 
-            this.cbDType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbDType.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.cbDType.FormattingEnabled = true;
-            this.cbDType.Items.AddRange(new object[] {
-            "Individual",
-            "Organization"});
-            this.cbDType.Location = new System.Drawing.Point(139, 154);
-            this.cbDType.Name = "cbDType";
-            this.cbDType.Size = new System.Drawing.Size(229, 33);
-            this.cbDType.TabIndex = 1;
-            this.cbDType.SelectedIndexChanged += new System.EventHandler(this.cbDType_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AccessibleDescription = "";
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label3.Location = new System.Drawing.Point(136, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 15);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "TYPE OF DONOR";
+            this.lblDType.AccessibleDescription = "";
+            this.lblDType.AutoSize = true;
+            this.lblDType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblDType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblDType.Location = new System.Drawing.Point(136, 136);
+            this.lblDType.Name = "lblDType";
+            this.lblDType.Size = new System.Drawing.Size(99, 15);
+            this.lblDType.TabIndex = 49;
+            this.lblDType.Text = "TYPE OF DONOR";
             // 
             // countDName
             // 
@@ -1139,41 +1014,16 @@
             this.cbPledge.Size = new System.Drawing.Size(215, 33);
             this.cbPledge.TabIndex = 2;
             // 
-            // lblProgram
+            // lblPledge
             // 
-            this.lblProgram.AutoSize = true;
-            this.lblProgram.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblProgram.Location = new System.Drawing.Point(471, 136);
-            this.lblProgram.Name = "lblProgram";
-            this.lblProgram.Size = new System.Drawing.Size(50, 15);
-            this.lblProgram.TabIndex = 25;
-            this.lblProgram.Text = "PLEDGE";
-            // 
-            // panelDName
-            // 
-            this.panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelDName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelDName.Controls.Add(this.txtDName);
-            this.panelDName.Location = new System.Drawing.Point(140, 59);
-            this.panelDName.Name = "panelDName";
-            this.panelDName.Size = new System.Drawing.Size(550, 48);
-            this.panelDName.TabIndex = 0;
-            // 
-            // txtDName
-            // 
-            this.txtDName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDName.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtDName.Location = new System.Drawing.Point(7, 1);
-            this.txtDName.MaxLength = 250;
-            this.txtDName.Name = "txtDName";
-            this.txtDName.Size = new System.Drawing.Size(535, 25);
-            this.txtDName.TabIndex = 0;
-            this.txtDName.Text = "Juan Miguel";
-            this.txtDName.TextChanged += new System.EventHandler(this.txtDName_TextChanged);
-            this.txtDName.Enter += new System.EventHandler(this.txtDName_Enter);
-            this.txtDName.Leave += new System.EventHandler(this.txtDName_Leave);
+            this.lblPledge.AutoSize = true;
+            this.lblPledge.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPledge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblPledge.Location = new System.Drawing.Point(471, 136);
+            this.lblPledge.Name = "lblPledge";
+            this.lblPledge.Size = new System.Drawing.Size(50, 15);
+            this.lblPledge.TabIndex = 25;
+            this.lblPledge.Text = "PLEDGE";
             // 
             // lblDName
             // 
@@ -1231,6 +1081,36 @@
             this.tabDonorConfirm.Size = new System.Drawing.Size(847, 603);
             this.tabDonorConfirm.TabIndex = 1;
             this.tabDonorConfirm.Text = "tabPage1";
+            // 
+            // btnDonorBack2
+            // 
+            this.btnDonorBack2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnDonorBack2.FlatAppearance.BorderSize = 0;
+            this.btnDonorBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnDonorBack2.Location = new System.Drawing.Point(-3, 562);
+            this.btnDonorBack2.Name = "btnDonorBack2";
+            this.btnDonorBack2.Size = new System.Drawing.Size(424, 40);
+            this.btnDonorBack2.TabIndex = 63;
+            this.btnDonorBack2.Text = "NO, GO BACK";
+            this.btnDonorBack2.UseVisualStyleBackColor = false;
+            this.btnDonorBack2.Click += new System.EventHandler(this.btnDonorBack_Click);
+            // 
+            // btnDonorFinal
+            // 
+            this.btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonorFinal.FlatAppearance.BorderSize = 0;
+            this.btnDonorFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorFinal.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorFinal.ForeColor = System.Drawing.Color.White;
+            this.btnDonorFinal.Location = new System.Drawing.Point(421, 562);
+            this.btnDonorFinal.Name = "btnDonorFinal";
+            this.btnDonorFinal.Size = new System.Drawing.Size(426, 40);
+            this.btnDonorFinal.TabIndex = 62;
+            this.btnDonorFinal.Text = "YES, ADD DONOR";
+            this.btnDonorFinal.UseVisualStyleBackColor = false;
+            this.btnDonorFinal.Click += new System.EventHandler(this.btnDonorFinal_Click);
             // 
             // conf6
             // 
@@ -1408,37 +1288,233 @@
             this.conf_donorName.TabIndex = 44;
             this.conf_donorName.Text = "Juan Miguel dela Cruz";
             // 
-            // panel6
+            // tabEditDonor
             // 
-            this.panel6.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(38, 190);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(767, 48);
-            this.panel6.TabIndex = 56;
+            this.tabEditDonor.BackColor = System.Drawing.Color.White;
+            this.tabEditDonor.Controls.Add(this.cbDTypeEdit);
+            this.tabEditDonor.Controls.Add(this.datePledgeEdit);
+            this.tabEditDonor.Controls.Add(this.button2);
+            this.tabEditDonor.Controls.Add(this.panel12);
+            this.tabEditDonor.Controls.Add(this.panel13);
+            this.tabEditDonor.Controls.Add(this.label4);
+            this.tabEditDonor.Controls.Add(this.label39);
+            this.tabEditDonor.Controls.Add(this.label40);
+            this.tabEditDonor.Controls.Add(this.label41);
+            this.tabEditDonor.Controls.Add(this.panel14);
+            this.tabEditDonor.Controls.Add(this.label60);
+            this.tabEditDonor.Controls.Add(this.label61);
+            this.tabEditDonor.Controls.Add(this.label62);
+            this.tabEditDonor.Controls.Add(this.label63);
+            this.tabEditDonor.Controls.Add(this.cbPledgeEdit);
+            this.tabEditDonor.Controls.Add(this.label64);
+            this.tabEditDonor.Controls.Add(this.panel17);
+            this.tabEditDonor.Controls.Add(this.label65);
+            this.tabEditDonor.Controls.Add(this.button3);
+            this.tabEditDonor.Location = new System.Drawing.Point(4, 25);
+            this.tabEditDonor.Name = "tabEditDonor";
+            this.tabEditDonor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEditDonor.Size = new System.Drawing.Size(847, 603);
+            this.tabEditDonor.TabIndex = 2;
+            this.tabEditDonor.Text = "tabPage1";
             // 
-            // label2
+            // cbDTypeEdit
             // 
-            this.label2.AccessibleDescription = "";
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label2.Location = new System.Drawing.Point(8, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 21);
-            this.label2.TabIndex = 60;
-            this.label2.Text = "DONOR DETAILS";
+            this.cbDTypeEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDTypeEdit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.cbDTypeEdit.FormattingEnabled = true;
+            this.cbDTypeEdit.Items.AddRange(new object[] {
+            "Individual",
+            "Organization"});
+            this.cbDTypeEdit.Location = new System.Drawing.Point(142, 155);
+            this.cbDTypeEdit.Name = "cbDTypeEdit";
+            this.cbDTypeEdit.Size = new System.Drawing.Size(229, 33);
+            this.cbDTypeEdit.TabIndex = 65;
             // 
-            // panel7
+            // datePledgeEdit
             // 
-            this.panel7.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel7.Controls.Add(this.label38);
-            this.panel7.Location = new System.Drawing.Point(38, 346);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(767, 48);
-            this.panel7.TabIndex = 57;
+            this.datePledgeEdit.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePledgeEdit.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.datePledgeEdit.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.datePledgeEdit.CustomFormat = "MMMM dd, yyyy";
+            this.datePledgeEdit.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.datePledgeEdit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePledgeEdit.Location = new System.Drawing.Point(278, 464);
+            this.datePledgeEdit.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.datePledgeEdit.Name = "datePledgeEdit";
+            this.datePledgeEdit.Size = new System.Drawing.Size(414, 29);
+            this.datePledgeEdit.TabIndex = 82;
+            this.datePledgeEdit.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.button2.Location = new System.Drawing.Point(0, 563);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(424, 40);
+            this.button2.TabIndex = 71;
+            this.button2.Text = "CANCEL";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AccessibleDescription = "";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label4.Location = new System.Drawing.Point(139, 347);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 15);
+            this.label4.TabIndex = 81;
+            this.label4.Text = "EMAIL ADDRESS";
+            // 
+            // label39
+            // 
+            this.label39.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.label39.Location = new System.Drawing.Point(639, 347);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(53, 17);
+            this.label39.TabIndex = 80;
+            this.label39.Text = "0/100";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label39.Visible = false;
+            // 
+            // label40
+            // 
+            this.label40.AccessibleDescription = "";
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label40.Location = new System.Drawing.Point(474, 232);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(51, 15);
+            this.label40.TabIndex = 79;
+            this.label40.Text = "MOBILE";
+            // 
+            // label41
+            // 
+            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.label41.Location = new System.Drawing.Point(318, 232);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(53, 17);
+            this.label41.TabIndex = 78;
+            this.label41.Text = "0/7";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label41.Visible = false;
+            // 
+            // label60
+            // 
+            this.label60.AccessibleDescription = "";
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label60.Location = new System.Drawing.Point(139, 232);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(47, 15);
+            this.label60.TabIndex = 77;
+            this.label60.Text = "PHONE";
+            // 
+            // label61
+            // 
+            this.label61.AccessibleDescription = "";
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label61.Location = new System.Drawing.Point(139, 137);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(99, 15);
+            this.label61.TabIndex = 76;
+            this.label61.Text = "TYPE OF DONOR";
+            // 
+            // label62
+            // 
+            this.label62.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.label62.Location = new System.Drawing.Point(640, 40);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(53, 17);
+            this.label62.TabIndex = 75;
+            this.label62.Text = "0/250";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label62.Visible = false;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label63.Location = new System.Drawing.Point(140, 473);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(100, 15);
+            this.label63.TabIndex = 74;
+            this.label63.Text = "DATE OF PLEDGE";
+            // 
+            // cbPledgeEdit
+            // 
+            this.cbPledgeEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPledgeEdit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.cbPledgeEdit.FormattingEnabled = true;
+            this.cbPledgeEdit.Items.AddRange(new object[] {
+            "None",
+            "Weekly",
+            "Monthly",
+            "Annual"});
+            this.cbPledgeEdit.Location = new System.Drawing.Point(477, 155);
+            this.cbPledgeEdit.Name = "cbPledgeEdit";
+            this.cbPledgeEdit.Size = new System.Drawing.Size(215, 33);
+            this.cbPledgeEdit.TabIndex = 67;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label64.Location = new System.Drawing.Point(474, 137);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(50, 15);
+            this.label64.TabIndex = 73;
+            this.label64.Text = "PLEDGE";
+            // 
+            // label65
+            // 
+            this.label65.AccessibleDescription = "";
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label65.Location = new System.Drawing.Point(140, 40);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(88, 15);
+            this.label65.TabIndex = 66;
+            this.label65.Text = "DONOR NAME";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.button3.Location = new System.Drawing.Point(424, 563);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(426, 40);
+            this.button3.TabIndex = 72;
+            this.button3.Text = "NEXT STEP";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // tabDonorEditConf
+            // 
+            this.tabDonorEditConf.Location = new System.Drawing.Point(4, 25);
+            this.tabDonorEditConf.Name = "tabDonorEditConf";
+            this.tabDonorEditConf.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDonorEditConf.Size = new System.Drawing.Size(847, 603);
+            this.tabDonorEditConf.TabIndex = 3;
+            this.tabDonorEditConf.Text = "tabPage2";
+            this.tabDonorEditConf.UseVisualStyleBackColor = true;
             // 
             // tabNewDonation
             // 
@@ -1559,57 +1635,6 @@
             this.btnDonationConfirm.Text = "NEXT STEP";
             this.btnDonationConfirm.UseVisualStyleBackColor = false;
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Location = new System.Drawing.Point(471, 262);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(215, 48);
-            this.panel3.TabIndex = 4;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox1.Location = new System.Drawing.Point(141, 2);
-            this.textBox1.MaxLength = 4;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(71, 25);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "xxxx";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox2.Location = new System.Drawing.Point(74, 2);
-            this.textBox2.MaxLength = 7;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(71, 25);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "xxx";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox3.Location = new System.Drawing.Point(7, 2);
-            this.textBox3.MaxLength = 7;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(71, 25);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "09xx";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -1620,28 +1645,6 @@
             this.checkBox1.TabIndex = 8;
             this.checkBox1.Text = "Today";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel4.Controls.Add(this.textBox4);
-            this.panel4.Location = new System.Drawing.Point(36, 355);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(329, 48);
-            this.panel4.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox4.Location = new System.Drawing.Point(7, 1);
-            this.textBox4.MaxLength = 100;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(314, 25);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.Text = "jsmith@example.com";
             // 
             // label1
             // 
@@ -1690,29 +1693,6 @@
             this.label7.Text = "0/7";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label7.Visible = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel5.Controls.Add(this.textBox5);
-            this.panel5.Location = new System.Drawing.Point(36, 262);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(150, 48);
-            this.panel5.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox5.Location = new System.Drawing.Point(7, 2);
-            this.textBox5.MaxLength = 7;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(136, 25);
-            this.textBox5.TabIndex = 3;
-            this.textBox5.Text = "29xxxxx";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -1804,28 +1784,6 @@
             this.label12.Size = new System.Drawing.Size(61, 21);
             this.label12.TabIndex = 25;
             this.label12.Text = "Pledge";
-            // 
-            // panel8
-            // 
-            this.panel8.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel8.Controls.Add(this.textBox6);
-            this.panel8.Location = new System.Drawing.Point(36, 75);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(769, 48);
-            this.panel8.TabIndex = 0;
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox6.Location = new System.Drawing.Point(7, 1);
-            this.textBox6.MaxLength = 250;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(754, 25);
-            this.textBox6.TabIndex = 0;
-            this.textBox6.Text = "Juan Miguel";
             // 
             // label13
             // 
@@ -2073,50 +2031,6 @@
             this.label29.TabIndex = 44;
             this.label29.Text = "Juan Miguel dela Cruz";
             // 
-            // panel9
-            // 
-            this.panel9.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel9.Controls.Add(this.label30);
-            this.panel9.Location = new System.Drawing.Point(38, 176);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(767, 48);
-            this.panel9.TabIndex = 56;
-            // 
-            // label30
-            // 
-            this.label30.AccessibleDescription = "";
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label30.Location = new System.Drawing.Point(7, 3);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(123, 25);
-            this.label30.TabIndex = 60;
-            this.label30.Text = "Donor Details";
-            // 
-            // panel10
-            // 
-            this.panel10.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel10.Controls.Add(this.label31);
-            this.panel10.Location = new System.Drawing.Point(38, 328);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(767, 48);
-            this.panel10.TabIndex = 57;
-            // 
-            // label31
-            // 
-            this.label31.AccessibleDescription = "";
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label31.Location = new System.Drawing.Point(7, 3);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(136, 25);
-            this.label31.TabIndex = 61;
-            this.label31.Text = "Contact Details";
-            // 
             // tabFinance
             // 
             this.tabFinance.Location = new System.Drawing.Point(4, 25);
@@ -2285,29 +2199,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(767, 245);
             this.dataGridView2.TabIndex = 54;
             // 
-            // panelOthers
-            // 
-            this.panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelOthers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelOthers.Controls.Add(this.txtOthers);
-            this.panelOthers.Location = new System.Drawing.Point(518, 185);
-            this.panelOthers.Name = "panelOthers";
-            this.panelOthers.Size = new System.Drawing.Size(289, 48);
-            this.panelOthers.TabIndex = 47;
-            this.panelOthers.Visible = false;
-            // 
-            // txtOthers
-            // 
-            this.txtOthers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOthers.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.txtOthers.Location = new System.Drawing.Point(7, 1);
-            this.txtOthers.MaxLength = 100;
-            this.txtOthers.Name = "txtOthers";
-            this.txtOthers.Size = new System.Drawing.Size(274, 22);
-            this.txtOthers.TabIndex = 0;
-            this.txtOthers.Text = "Juan Miguel";
-            // 
             // cbOthers
             // 
             this.cbOthers.AutoSize = true;
@@ -2404,28 +2295,6 @@
             this.countPurpose.Text = "0/100";
             this.countPurpose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countPurpose.Visible = false;
-            // 
-            // panelPurpose
-            // 
-            this.panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelPurpose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelPurpose.Controls.Add(this.txtPurpose);
-            this.panelPurpose.Location = new System.Drawing.Point(36, 48);
-            this.panelPurpose.Name = "panelPurpose";
-            this.panelPurpose.Size = new System.Drawing.Size(418, 48);
-            this.panelPurpose.TabIndex = 46;
-            // 
-            // txtPurpose
-            // 
-            this.txtPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPurpose.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtPurpose.Location = new System.Drawing.Point(7, 1);
-            this.txtPurpose.MaxLength = 100;
-            this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(404, 25);
-            this.txtPurpose.TabIndex = 0;
-            this.txtPurpose.Text = "Juan Miguel";
             // 
             // tabBRConfirm
             // 
@@ -2661,50 +2530,6 @@
             this.label57.TabIndex = 44;
             this.label57.Text = "Juan Miguel dela Cruz";
             // 
-            // panel15
-            // 
-            this.panel15.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel15.Controls.Add(this.label58);
-            this.panel15.Location = new System.Drawing.Point(38, 176);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(767, 48);
-            this.panel15.TabIndex = 56;
-            // 
-            // label58
-            // 
-            this.label58.AccessibleDescription = "";
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label58.Location = new System.Drawing.Point(7, 3);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(123, 25);
-            this.label58.TabIndex = 60;
-            this.label58.Text = "Donor Details";
-            // 
-            // panel16
-            // 
-            this.panel16.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel16.Controls.Add(this.label59);
-            this.panel16.Location = new System.Drawing.Point(38, 328);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(767, 48);
-            this.panel16.TabIndex = 57;
-            // 
-            // label59
-            // 
-            this.label59.AccessibleDescription = "";
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label59.Location = new System.Drawing.Point(7, 3);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(136, 25);
-            this.label59.TabIndex = 61;
-            this.label59.Text = "Contact Details";
-            // 
             // tabDonorInfo
             // 
             this.tabDonorInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -2733,6 +2558,36 @@
             this.tabDonorInfo.Size = new System.Drawing.Size(955, 678);
             this.tabDonorInfo.TabIndex = 6;
             this.tabDonorInfo.Click += new System.EventHandler(this.tabDonorInfo_Click);
+            // 
+            // ikTS
+            // 
+            this.ikTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.ikTS.FlatAppearance.BorderSize = 0;
+            this.ikTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ikTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ikTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.ikTS.Location = new System.Drawing.Point(283, 170);
+            this.ikTS.Name = "ikTS";
+            this.ikTS.Size = new System.Drawing.Size(308, 32);
+            this.ikTS.TabIndex = 1;
+            this.ikTS.Text = "In-kind Donations";
+            this.ikTS.UseVisualStyleBackColor = false;
+            this.ikTS.Click += new System.EventHandler(this.ikTS_Click);
+            // 
+            // moneyTS
+            // 
+            this.moneyTS.BackColor = System.Drawing.Color.White;
+            this.moneyTS.FlatAppearance.BorderSize = 0;
+            this.moneyTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moneyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.moneyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.moneyTS.Location = new System.Drawing.Point(0, 170);
+            this.moneyTS.Name = "moneyTS";
+            this.moneyTS.Size = new System.Drawing.Size(284, 32);
+            this.moneyTS.TabIndex = 0;
+            this.moneyTS.Text = "Monetary Donations";
+            this.moneyTS.UseVisualStyleBackColor = false;
+            this.moneyTS.Click += new System.EventHandler(this.moneyTS_Click);
             // 
             // label37
             // 
@@ -3054,15 +2909,6 @@
             this.donationMoney.Size = new System.Drawing.Size(930, 356);
             this.donationMoney.TabIndex = 11;
             // 
-            // searchLine
-            // 
-            this.searchLine.Image = global::BalayPasilungan.Properties.Resources.line_grey;
-            this.searchLine.Location = new System.Drawing.Point(657, 24);
-            this.searchLine.Name = "searchLine";
-            this.searchLine.Size = new System.Drawing.Size(232, 23);
-            this.searchLine.TabIndex = 14;
-            this.searchLine.TabStop = false;
-            // 
             // searchOption
             // 
             this.searchOption.Controls.Add(this.searchOthers);
@@ -3103,8 +2949,8 @@
             this.tabIK.Controls.Add(this.multiSelect2);
             this.tabIK.Controls.Add(this.textBox7);
             this.tabIK.Controls.Add(this.donationIK);
-            this.tabIK.Controls.Add(this.pictureBox1);
             this.tabIK.Controls.Add(this.panel11);
+            this.tabIK.Controls.Add(this.pictureBox1);
             this.tabIK.Controls.Add(this.btnAddIK);
             this.tabIK.Controls.Add(this.btnEditIK);
             this.tabIK.Controls.Add(this.btnDelIK);
@@ -3192,15 +3038,6 @@
             this.donationIK.Size = new System.Drawing.Size(930, 356);
             this.donationIK.TabIndex = 54;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BalayPasilungan.Properties.Resources.line_grey;
-            this.pictureBox1.Location = new System.Drawing.Point(657, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 23);
-            this.pictureBox1.TabIndex = 56;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel11
             // 
             this.panel11.Controls.Add(this.radioButton1);
@@ -3248,27 +3085,38 @@
             this.tabDonorO.TabIndex = 2;
             this.tabDonorO.Text = "tabPage1";
             // 
-            // divider2
+            // btnArchiveProfile
             // 
-            this.divider2.BackColor = System.Drawing.Color.Transparent;
-            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
-            this.divider2.Location = new System.Drawing.Point(583, 90);
-            this.divider2.Name = "divider2";
-            this.divider2.Size = new System.Drawing.Size(16, 68);
-            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider2.TabIndex = 41;
-            this.divider2.TabStop = false;
+            this.btnArchiveProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
+            this.btnArchiveProfile.FlatAppearance.BorderSize = 0;
+            this.btnArchiveProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnArchiveProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnArchiveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchiveProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnArchiveProfile.ForeColor = System.Drawing.Color.White;
+            this.btnArchiveProfile.Location = new System.Drawing.Point(283, 240);
+            this.btnArchiveProfile.Name = "btnArchiveProfile";
+            this.btnArchiveProfile.Size = new System.Drawing.Size(308, 35);
+            this.btnArchiveProfile.TabIndex = 1;
+            this.btnArchiveProfile.Text = "REMOVE PROFILE";
+            this.btnArchiveProfile.UseVisualStyleBackColor = false;
             // 
-            // divider
+            // btnEditDonor
             // 
-            this.divider.BackColor = System.Drawing.Color.Transparent;
-            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
-            this.divider.Location = new System.Drawing.Point(278, 87);
-            this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(16, 70);
-            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider.TabIndex = 40;
-            this.divider.TabStop = false;
+            this.btnEditDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
+            this.btnEditDonor.FlatAppearance.BorderSize = 0;
+            this.btnEditDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnEditDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnEditDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditDonor.ForeColor = System.Drawing.Color.White;
+            this.btnEditDonor.Location = new System.Drawing.Point(283, 156);
+            this.btnEditDonor.Name = "btnEditDonor";
+            this.btnEditDonor.Size = new System.Drawing.Size(308, 35);
+            this.btnEditDonor.TabIndex = 0;
+            this.btnEditDonor.Text = "EDIT DONOR PROFILE";
+            this.btnEditDonor.UseVisualStyleBackColor = false;
+            this.btnEditDonor.Click += new System.EventHandler(this.btnEditDonor_Click);
             // 
             // tabPage3
             // 
@@ -3317,6 +3165,270 @@
             this.toolStripMenuItem2.Text = "confirm";
             this.toolStripMenuItem2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // btnFinance
+            // 
+            this.btnFinance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_white;
+            this.btnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFinance.FlatAppearance.BorderSize = 0;
+            this.btnFinance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinance.ForeColor = System.Drawing.Color.White;
+            this.btnFinance.Location = new System.Drawing.Point(0, 205);
+            this.btnFinance.Name = "btnFinance";
+            this.btnFinance.Size = new System.Drawing.Size(90, 90);
+            this.btnFinance.TabIndex = 4;
+            this.btnFinance.UseVisualStyleBackColor = true;
+            this.btnFinance.Click += new System.EventHandler(this.btnFinance_Click);
+            // 
+            // btnDonation
+            // 
+            this.btnDonation.BackgroundImage = global::BalayPasilungan.Properties.Resources.donation_white;
+            this.btnDonation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDonation.FlatAppearance.BorderSize = 0;
+            this.btnDonation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonation.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonation.ForeColor = System.Drawing.Color.White;
+            this.btnDonation.Location = new System.Drawing.Point(0, 115);
+            this.btnDonation.Name = "btnDonation";
+            this.btnDonation.Size = new System.Drawing.Size(90, 90);
+            this.btnDonation.TabIndex = 3;
+            this.btnDonation.Click += new System.EventHandler(this.btnDonation_Click);
+            // 
+            // btnMain
+            // 
+            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
+            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMain.FlatAppearance.BorderSize = 0;
+            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMain.ForeColor = System.Drawing.Color.White;
+            this.btnMain.Location = new System.Drawing.Point(0, 25);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(90, 90);
+            this.btnMain.TabIndex = 2;
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            // 
+            // searchlogo
+            // 
+            this.searchlogo.BackgroundImage = global::BalayPasilungan.Properties.Resources.search_notfocus;
+            this.searchlogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.searchlogo.Enabled = false;
+            this.searchlogo.FlatAppearance.BorderSize = 0;
+            this.searchlogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchlogo.Location = new System.Drawing.Point(6, 12);
+            this.searchlogo.Name = "searchlogo";
+            this.searchlogo.Size = new System.Drawing.Size(20, 20);
+            this.searchlogo.TabIndex = 9;
+            this.searchlogo.TabStop = false;
+            this.searchlogo.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(184, 17);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(753, 23);
+            this.pictureBox3.TabIndex = 54;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(356, 23);
+            this.pictureBox2.TabIndex = 55;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.search_notfocus;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(6, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(20, 20);
+            this.button1.TabIndex = 9;
+            this.button1.TabStop = false;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panelMobile
+            // 
+            this.panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelMobile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelMobile.Controls.Add(this.txtMobile3);
+            this.panelMobile.Controls.Add(this.txtMobile2);
+            this.panelMobile.Controls.Add(this.txtMobile1);
+            this.panelMobile.Location = new System.Drawing.Point(474, 249);
+            this.panelMobile.Name = "panelMobile";
+            this.panelMobile.Size = new System.Drawing.Size(215, 48);
+            this.panelMobile.TabIndex = 4;
+            // 
+            // txtMobile3
+            // 
+            this.txtMobile3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMobile3.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtMobile3.Location = new System.Drawing.Point(141, 2);
+            this.txtMobile3.MaxLength = 4;
+            this.txtMobile3.Name = "txtMobile3";
+            this.txtMobile3.Size = new System.Drawing.Size(66, 25);
+            this.txtMobile3.TabIndex = 6;
+            this.txtMobile3.Text = "xxxx";
+            this.txtMobile3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile3.TextChanged += new System.EventHandler(this.txtMobile3_TextChanged);
+            this.txtMobile3.Enter += new System.EventHandler(this.txtMobile3_Enter);
+            this.txtMobile3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile3_KeyPress);
+            this.txtMobile3.Leave += new System.EventHandler(this.txtMobile3_Leave);
+            // 
+            // txtMobile2
+            // 
+            this.txtMobile2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMobile2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtMobile2.Location = new System.Drawing.Point(80, 2);
+            this.txtMobile2.MaxLength = 7;
+            this.txtMobile2.Name = "txtMobile2";
+            this.txtMobile2.Size = new System.Drawing.Size(60, 25);
+            this.txtMobile2.TabIndex = 5;
+            this.txtMobile2.Text = "xxx";
+            this.txtMobile2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile2.TextChanged += new System.EventHandler(this.txtMobile2_TextChanged);
+            this.txtMobile2.Enter += new System.EventHandler(this.txtMobile2_Enter);
+            this.txtMobile2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile2_KeyPress);
+            this.txtMobile2.Leave += new System.EventHandler(this.txtMobile2_Leave);
+            // 
+            // txtMobile1
+            // 
+            this.txtMobile1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMobile1.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtMobile1.Location = new System.Drawing.Point(7, 2);
+            this.txtMobile1.MaxLength = 7;
+            this.txtMobile1.Name = "txtMobile1";
+            this.txtMobile1.Size = new System.Drawing.Size(71, 25);
+            this.txtMobile1.TabIndex = 4;
+            this.txtMobile1.Text = "09xx";
+            this.txtMobile1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile1.TextChanged += new System.EventHandler(this.txtMobile1_TextChanged);
+            this.txtMobile1.Enter += new System.EventHandler(this.txtMobile1_Enter);
+            this.txtMobile1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile1_KeyPress);
+            this.txtMobile1.Leave += new System.EventHandler(this.txtMobile1_Leave);
+            // 
+            // panelEmail
+            // 
+            this.panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelEmail.Controls.Add(this.txtEmail);
+            this.panelEmail.Location = new System.Drawing.Point(140, 368);
+            this.panelEmail.Name = "panelEmail";
+            this.panelEmail.Size = new System.Drawing.Size(549, 48);
+            this.panelEmail.TabIndex = 5;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtEmail.Location = new System.Drawing.Point(7, 1);
+            this.txtEmail.MaxLength = 100;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(535, 25);
+            this.txtEmail.TabIndex = 7;
+            this.txtEmail.Text = "jmiguel@example.com";
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+            // 
+            // panelPhone
+            // 
+            this.panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelPhone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelPhone.Controls.Add(this.txtPhone);
+            this.panelPhone.Location = new System.Drawing.Point(139, 249);
+            this.panelPhone.Name = "panelPhone";
+            this.panelPhone.Size = new System.Drawing.Size(229, 48);
+            this.panelPhone.TabIndex = 3;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhone.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtPhone.Location = new System.Drawing.Point(7, 2);
+            this.txtPhone.MaxLength = 7;
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(215, 25);
+            this.txtPhone.TabIndex = 3;
+            this.txtPhone.Text = "29xxxxx";
+            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
+            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
+            // 
+            // panelDName
+            // 
+            this.panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelDName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelDName.Controls.Add(this.txtDName);
+            this.panelDName.Location = new System.Drawing.Point(140, 59);
+            this.panelDName.Name = "panelDName";
+            this.panelDName.Size = new System.Drawing.Size(550, 48);
+            this.panelDName.TabIndex = 0;
+            // 
+            // txtDName
+            // 
+            this.txtDName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDName.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtDName.Location = new System.Drawing.Point(7, 1);
+            this.txtDName.MaxLength = 250;
+            this.txtDName.Name = "txtDName";
+            this.txtDName.Size = new System.Drawing.Size(535, 25);
+            this.txtDName.TabIndex = 0;
+            this.txtDName.Text = "Juan Miguel";
+            this.txtDName.TextChanged += new System.EventHandler(this.txtDName_TextChanged);
+            this.txtDName.Enter += new System.EventHandler(this.txtDName_Enter);
+            this.txtDName.Leave += new System.EventHandler(this.txtDName_Leave);
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Location = new System.Drawing.Point(38, 190);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(767, 48);
+            this.panel6.TabIndex = 56;
+            // 
+            // label2
+            // 
+            this.label2.AccessibleDescription = "";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(8, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 21);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "DONOR DETAILS";
+            // 
+            // panel7
+            // 
+            this.panel7.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel7.Controls.Add(this.label38);
+            this.panel7.Location = new System.Drawing.Point(38, 346);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(767, 48);
+            this.panel7.TabIndex = 57;
+            // 
             // label38
             // 
             this.label38.AccessibleDescription = "";
@@ -3329,83 +3441,374 @@
             this.label38.TabIndex = 62;
             this.label38.Text = "CONTACT DETAILS";
             // 
-            // btnClose
+            // panel12
             // 
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(998, -2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(23, 23);
-            this.btnClose.TabIndex = 11;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.panel12.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel12.Controls.Add(this.txtMobile3Edit);
+            this.panel12.Controls.Add(this.txtMobile2Edit);
+            this.panel12.Controls.Add(this.txtMobile1Edit);
+            this.panel12.Location = new System.Drawing.Point(477, 250);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(215, 48);
+            this.panel12.TabIndex = 69;
             // 
-            // btnRemoveDonor
+            // txtMobile3Edit
             // 
-            this.btnRemoveDonor.BackColor = System.Drawing.Color.Transparent;
-            this.btnRemoveDonor.FlatAppearance.BorderSize = 0;
-            this.btnRemoveDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnRemoveDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnRemoveDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnRemoveDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnRemoveDonor.Location = new System.Drawing.Point(710, 5);
-            this.btnRemoveDonor.Name = "btnRemoveDonor";
-            this.btnRemoveDonor.Size = new System.Drawing.Size(125, 29);
-            this.btnRemoveDonor.TabIndex = 53;
-            this.btnRemoveDonor.Text = "REMOVE DONOR";
-            this.btnRemoveDonor.UseVisualStyleBackColor = false;
-            this.btnRemoveDonor.Click += new System.EventHandler(this.btnRemoveDonor_Click);
+            this.txtMobile3Edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMobile3Edit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile3Edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtMobile3Edit.Location = new System.Drawing.Point(141, 2);
+            this.txtMobile3Edit.MaxLength = 4;
+            this.txtMobile3Edit.Name = "txtMobile3Edit";
+            this.txtMobile3Edit.Size = new System.Drawing.Size(66, 25);
+            this.txtMobile3Edit.TabIndex = 6;
+            this.txtMobile3Edit.Text = "xxxx";
+            this.txtMobile3Edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnAddDonor
+            // txtMobile2Edit
             // 
-            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddDonor.FlatAppearance.BorderSize = 0;
-            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnAddDonor.Location = new System.Drawing.Point(585, 5);
-            this.btnAddDonor.Name = "btnAddDonor";
-            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
-            this.btnAddDonor.TabIndex = 52;
-            this.btnAddDonor.Text = "ADD DONOR";
-            this.btnAddDonor.UseVisualStyleBackColor = false;
-            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
+            this.txtMobile2Edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMobile2Edit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile2Edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtMobile2Edit.Location = new System.Drawing.Point(80, 2);
+            this.txtMobile2Edit.MaxLength = 7;
+            this.txtMobile2Edit.Name = "txtMobile2Edit";
+            this.txtMobile2Edit.Size = new System.Drawing.Size(60, 25);
+            this.txtMobile2Edit.TabIndex = 5;
+            this.txtMobile2Edit.Text = "xxx";
+            this.txtMobile2Edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ikTS
+            // txtMobile1Edit
             // 
-            this.ikTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ikTS.FlatAppearance.BorderSize = 0;
-            this.ikTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ikTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ikTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.ikTS.Location = new System.Drawing.Point(283, 170);
-            this.ikTS.Name = "ikTS";
-            this.ikTS.Size = new System.Drawing.Size(308, 32);
-            this.ikTS.TabIndex = 1;
-            this.ikTS.Text = "In-kind Donations";
-            this.ikTS.UseVisualStyleBackColor = false;
-            this.ikTS.Click += new System.EventHandler(this.ikTS_Click);
+            this.txtMobile1Edit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMobile1Edit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile1Edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtMobile1Edit.Location = new System.Drawing.Point(7, 2);
+            this.txtMobile1Edit.MaxLength = 7;
+            this.txtMobile1Edit.Name = "txtMobile1Edit";
+            this.txtMobile1Edit.Size = new System.Drawing.Size(71, 25);
+            this.txtMobile1Edit.TabIndex = 4;
+            this.txtMobile1Edit.Text = "09xx";
+            this.txtMobile1Edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // moneyTS
+            // panel13
             // 
-            this.moneyTS.BackColor = System.Drawing.Color.White;
-            this.moneyTS.FlatAppearance.BorderSize = 0;
-            this.moneyTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moneyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.moneyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.moneyTS.Location = new System.Drawing.Point(0, 170);
-            this.moneyTS.Name = "moneyTS";
-            this.moneyTS.Size = new System.Drawing.Size(284, 32);
-            this.moneyTS.TabIndex = 0;
-            this.moneyTS.Text = "Monetary Donations";
-            this.moneyTS.UseVisualStyleBackColor = false;
-            this.moneyTS.Click += new System.EventHandler(this.moneyTS_Click);
+            this.panel13.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel13.Controls.Add(this.txtEmailEdit);
+            this.panel13.Location = new System.Drawing.Point(143, 369);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(549, 48);
+            this.panel13.TabIndex = 70;
+            // 
+            // txtEmailEdit
+            // 
+            this.txtEmailEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmailEdit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtEmailEdit.Location = new System.Drawing.Point(7, 1);
+            this.txtEmailEdit.MaxLength = 100;
+            this.txtEmailEdit.Name = "txtEmailEdit";
+            this.txtEmailEdit.Size = new System.Drawing.Size(535, 25);
+            this.txtEmailEdit.TabIndex = 7;
+            this.txtEmailEdit.Text = "jmiguel@example.com";
+            // 
+            // panel14
+            // 
+            this.panel14.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel14.Controls.Add(this.txtPhoneEdit);
+            this.panel14.Location = new System.Drawing.Point(142, 250);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(229, 48);
+            this.panel14.TabIndex = 68;
+            // 
+            // txtPhoneEdit
+            // 
+            this.txtPhoneEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhoneEdit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtPhoneEdit.Location = new System.Drawing.Point(7, 2);
+            this.txtPhoneEdit.MaxLength = 7;
+            this.txtPhoneEdit.Name = "txtPhoneEdit";
+            this.txtPhoneEdit.Size = new System.Drawing.Size(215, 25);
+            this.txtPhoneEdit.TabIndex = 3;
+            this.txtPhoneEdit.Text = "29xxxxx";
+            this.txtPhoneEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel17
+            // 
+            this.panel17.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel17.Controls.Add(this.txtDNameEdit);
+            this.panel17.Location = new System.Drawing.Point(143, 60);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(550, 48);
+            this.panel17.TabIndex = 64;
+            // 
+            // txtDNameEdit
+            // 
+            this.txtDNameEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDNameEdit.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNameEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtDNameEdit.Location = new System.Drawing.Point(7, 1);
+            this.txtDNameEdit.MaxLength = 250;
+            this.txtDNameEdit.Name = "txtDNameEdit";
+            this.txtDNameEdit.Size = new System.Drawing.Size(535, 25);
+            this.txtDNameEdit.TabIndex = 0;
+            this.txtDNameEdit.Text = "Juan Miguel";
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Location = new System.Drawing.Point(471, 262);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(215, 48);
+            this.panel3.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox1.Location = new System.Drawing.Point(141, 2);
+            this.textBox1.MaxLength = 4;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(71, 25);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.Text = "xxxx";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox2.Location = new System.Drawing.Point(74, 2);
+            this.textBox2.MaxLength = 7;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(71, 25);
+            this.textBox2.TabIndex = 5;
+            this.textBox2.Text = "xxx";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox3.Location = new System.Drawing.Point(7, 2);
+            this.textBox3.MaxLength = 7;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(71, 25);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.Text = "09xx";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel4.Controls.Add(this.textBox4);
+            this.panel4.Location = new System.Drawing.Point(36, 355);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(329, 48);
+            this.panel4.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox4.Location = new System.Drawing.Point(7, 1);
+            this.textBox4.MaxLength = 100;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(314, 25);
+            this.textBox4.TabIndex = 7;
+            this.textBox4.Text = "jsmith@example.com";
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel5.Controls.Add(this.textBox5);
+            this.panel5.Location = new System.Drawing.Point(36, 262);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(150, 48);
+            this.panel5.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox5.Location = new System.Drawing.Point(7, 2);
+            this.textBox5.MaxLength = 7;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(136, 25);
+            this.textBox5.TabIndex = 3;
+            this.textBox5.Text = "29xxxxx";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel8
+            // 
+            this.panel8.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel8.Controls.Add(this.textBox6);
+            this.panel8.Location = new System.Drawing.Point(36, 75);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(769, 48);
+            this.panel8.TabIndex = 0;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox6.Location = new System.Drawing.Point(7, 1);
+            this.textBox6.MaxLength = 250;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(754, 25);
+            this.textBox6.TabIndex = 0;
+            this.textBox6.Text = "Juan Miguel";
+            // 
+            // panel9
+            // 
+            this.panel9.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel9.Controls.Add(this.label30);
+            this.panel9.Location = new System.Drawing.Point(38, 176);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(767, 48);
+            this.panel9.TabIndex = 56;
+            // 
+            // label30
+            // 
+            this.label30.AccessibleDescription = "";
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label30.Location = new System.Drawing.Point(7, 3);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(123, 25);
+            this.label30.TabIndex = 60;
+            this.label30.Text = "Donor Details";
+            // 
+            // panel10
+            // 
+            this.panel10.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel10.Controls.Add(this.label31);
+            this.panel10.Location = new System.Drawing.Point(38, 328);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(767, 48);
+            this.panel10.TabIndex = 57;
+            // 
+            // label31
+            // 
+            this.label31.AccessibleDescription = "";
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label31.Location = new System.Drawing.Point(7, 3);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(136, 25);
+            this.label31.TabIndex = 61;
+            this.label31.Text = "Contact Details";
+            // 
+            // panelOthers
+            // 
+            this.panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelOthers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelOthers.Controls.Add(this.txtOthers);
+            this.panelOthers.Location = new System.Drawing.Point(518, 185);
+            this.panelOthers.Name = "panelOthers";
+            this.panelOthers.Size = new System.Drawing.Size(289, 48);
+            this.panelOthers.TabIndex = 47;
+            this.panelOthers.Visible = false;
+            // 
+            // txtOthers
+            // 
+            this.txtOthers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOthers.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.txtOthers.Location = new System.Drawing.Point(7, 1);
+            this.txtOthers.MaxLength = 100;
+            this.txtOthers.Name = "txtOthers";
+            this.txtOthers.Size = new System.Drawing.Size(274, 22);
+            this.txtOthers.TabIndex = 0;
+            this.txtOthers.Text = "Juan Miguel";
+            // 
+            // panelPurpose
+            // 
+            this.panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelPurpose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelPurpose.Controls.Add(this.txtPurpose);
+            this.panelPurpose.Location = new System.Drawing.Point(36, 48);
+            this.panelPurpose.Name = "panelPurpose";
+            this.panelPurpose.Size = new System.Drawing.Size(418, 48);
+            this.panelPurpose.TabIndex = 46;
+            // 
+            // txtPurpose
+            // 
+            this.txtPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPurpose.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtPurpose.Location = new System.Drawing.Point(7, 1);
+            this.txtPurpose.MaxLength = 100;
+            this.txtPurpose.Name = "txtPurpose";
+            this.txtPurpose.Size = new System.Drawing.Size(404, 25);
+            this.txtPurpose.TabIndex = 0;
+            this.txtPurpose.Text = "Juan Miguel";
+            // 
+            // panel15
+            // 
+            this.panel15.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel15.Controls.Add(this.label58);
+            this.panel15.Location = new System.Drawing.Point(38, 176);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(767, 48);
+            this.panel15.TabIndex = 56;
+            // 
+            // label58
+            // 
+            this.label58.AccessibleDescription = "";
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label58.Location = new System.Drawing.Point(7, 3);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(123, 25);
+            this.label58.TabIndex = 60;
+            this.label58.Text = "Donor Details";
+            // 
+            // panel16
+            // 
+            this.panel16.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel16.Controls.Add(this.label59);
+            this.panel16.Location = new System.Drawing.Point(38, 328);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(767, 48);
+            this.panel16.TabIndex = 57;
+            // 
+            // label59
+            // 
+            this.label59.AccessibleDescription = "";
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label59.Location = new System.Drawing.Point(7, 3);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(136, 25);
+            this.label59.TabIndex = 61;
+            this.label59.Text = "Contact Details";
             // 
             // btnAddMoneyD
             // 
@@ -3449,6 +3852,24 @@
             this.btnDelMoneyD.UseVisualStyleBackColor = false;
             this.btnDelMoneyD.Click += new System.EventHandler(this.btnDelMoneyD_Click);
             // 
+            // searchLine
+            // 
+            this.searchLine.Image = global::BalayPasilungan.Properties.Resources.line_grey;
+            this.searchLine.Location = new System.Drawing.Point(657, 24);
+            this.searchLine.Name = "searchLine";
+            this.searchLine.Size = new System.Drawing.Size(232, 23);
+            this.searchLine.TabIndex = 14;
+            this.searchLine.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BalayPasilungan.Properties.Resources.line_grey;
+            this.pictureBox1.Location = new System.Drawing.Point(657, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(232, 23);
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnAddIK
             // 
             this.btnAddIK.BackColor = System.Drawing.Color.White;
@@ -3491,68 +3912,27 @@
             this.btnDelIK.UseVisualStyleBackColor = false;
             this.btnDelIK.Click += new System.EventHandler(this.btnDelIK_Click);
             // 
-            // btnArchiveProfile
+            // divider2
             // 
-            this.btnArchiveProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
-            this.btnArchiveProfile.FlatAppearance.BorderSize = 0;
-            this.btnArchiveProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnArchiveProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnArchiveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchiveProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnArchiveProfile.ForeColor = System.Drawing.Color.White;
-            this.btnArchiveProfile.Location = new System.Drawing.Point(283, 240);
-            this.btnArchiveProfile.Name = "btnArchiveProfile";
-            this.btnArchiveProfile.Size = new System.Drawing.Size(308, 35);
-            this.btnArchiveProfile.TabIndex = 1;
-            this.btnArchiveProfile.Text = "REMOVE PROFILE";
-            this.btnArchiveProfile.UseVisualStyleBackColor = false;
+            this.divider2.BackColor = System.Drawing.Color.Transparent;
+            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
+            this.divider2.Location = new System.Drawing.Point(583, 90);
+            this.divider2.Name = "divider2";
+            this.divider2.Size = new System.Drawing.Size(16, 68);
+            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider2.TabIndex = 41;
+            this.divider2.TabStop = false;
             // 
-            // btnEditDonor
+            // divider
             // 
-            this.btnEditDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
-            this.btnEditDonor.FlatAppearance.BorderSize = 0;
-            this.btnEditDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnEditDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnEditDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditDonor.ForeColor = System.Drawing.Color.White;
-            this.btnEditDonor.Location = new System.Drawing.Point(283, 156);
-            this.btnEditDonor.Name = "btnEditDonor";
-            this.btnEditDonor.Size = new System.Drawing.Size(308, 35);
-            this.btnEditDonor.TabIndex = 0;
-            this.btnEditDonor.Text = "EDIT DONOR PROFILE";
-            this.btnEditDonor.UseVisualStyleBackColor = false;
-            this.btnEditDonor.Click += new System.EventHandler(this.btnEditDonor_Click);
-            // 
-            // btnDonorFinal
-            // 
-            this.btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonorFinal.FlatAppearance.BorderSize = 0;
-            this.btnDonorFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorFinal.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorFinal.ForeColor = System.Drawing.Color.White;
-            this.btnDonorFinal.Location = new System.Drawing.Point(421, 562);
-            this.btnDonorFinal.Name = "btnDonorFinal";
-            this.btnDonorFinal.Size = new System.Drawing.Size(426, 40);
-            this.btnDonorFinal.TabIndex = 62;
-            this.btnDonorFinal.Text = "YES, ADD DONOR";
-            this.btnDonorFinal.UseVisualStyleBackColor = false;
-            this.btnDonorFinal.Click += new System.EventHandler(this.btnDonorFinal_Click);
-            // 
-            // btnDonorBack2
-            // 
-            this.btnDonorBack2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnDonorBack2.FlatAppearance.BorderSize = 0;
-            this.btnDonorBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnDonorBack2.Location = new System.Drawing.Point(-3, 562);
-            this.btnDonorBack2.Name = "btnDonorBack2";
-            this.btnDonorBack2.Size = new System.Drawing.Size(424, 40);
-            this.btnDonorBack2.TabIndex = 63;
-            this.btnDonorBack2.Text = "NO, GO BACK";
-            this.btnDonorBack2.UseVisualStyleBackColor = false;
-            this.btnDonorBack2.Click += new System.EventHandler(this.btnDonorBack_Click);
+            this.divider.BackColor = System.Drawing.Color.Transparent;
+            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
+            this.divider.Location = new System.Drawing.Point(278, 87);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(16, 70);
+            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider.TabIndex = 40;
+            this.divider.TabStop = false;
             // 
             // expense
             // 
@@ -3582,8 +3962,6 @@
             this.tabDonors1.ResumeLayout(false);
             this.tabDonors1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donorsGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabDonations.ResumeLayout(false);
             this.donorMenuStrip2.ResumeLayout(false);
             this.donorMenuStrip2.PerformLayout();
@@ -3598,40 +3976,18 @@
             this.tabNewDonorInput.ResumeLayout(false);
             this.tabNewInfo.ResumeLayout(false);
             this.tabNewInfo.PerformLayout();
-            this.panelMobile.ResumeLayout(false);
-            this.panelMobile.PerformLayout();
-            this.panelEmail.ResumeLayout(false);
-            this.panelEmail.PerformLayout();
-            this.panelPhone.ResumeLayout(false);
-            this.panelPhone.PerformLayout();
-            this.panelDName.ResumeLayout(false);
-            this.panelDName.PerformLayout();
             this.tabDonorConfirm.ResumeLayout(false);
             this.tabDonorConfirm.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.tabEditDonor.ResumeLayout(false);
+            this.tabEditDonor.PerformLayout();
             this.tabNewDonation.ResumeLayout(false);
             this.donationInfo.ResumeLayout(false);
             this.donationInfo.PerformLayout();
             this.tabNewDonationInput.ResumeLayout(false);
             this.tabNewInfo2.ResumeLayout(false);
             this.tabNewInfo2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.tabDonationConfirm.ResumeLayout(false);
             this.tabDonationConfirm.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.tabBudgetRequest.ResumeLayout(false);
             this.brInfo.ResumeLayout(false);
             this.brInfo.PerformLayout();
@@ -3639,16 +3995,8 @@
             this.tabBRInfo.ResumeLayout(false);
             this.tabBRInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panelOthers.ResumeLayout(false);
-            this.panelOthers.PerformLayout();
-            this.panelPurpose.ResumeLayout(false);
-            this.panelPurpose.PerformLayout();
             this.tabBRConfirm.ResumeLayout(false);
             this.tabBRConfirm.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             this.tabDonorInfo.ResumeLayout(false);
             this.tabDonorInfo.PerformLayout();
             this.headingColor.ResumeLayout(false);
@@ -3657,21 +4005,63 @@
             this.tabMoney.ResumeLayout(false);
             this.tabMoney.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donationMoney)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).EndInit();
             this.searchOption.ResumeLayout(false);
             this.searchOption.PerformLayout();
             this.tabIK.ResumeLayout(false);
             this.tabIK.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donationIK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.tabDonorO.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelMobile.ResumeLayout(false);
+            this.panelMobile.PerformLayout();
+            this.panelEmail.ResumeLayout(false);
+            this.panelEmail.PerformLayout();
+            this.panelPhone.ResumeLayout(false);
+            this.panelPhone.PerformLayout();
+            this.panelDName.ResumeLayout(false);
+            this.panelDName.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panelOthers.ResumeLayout(false);
+            this.panelOthers.PerformLayout();
+            this.panelPurpose.ResumeLayout(false);
+            this.panelPurpose.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3707,12 +4097,12 @@
         private System.Windows.Forms.Label countDName;
         private System.Windows.Forms.Label lblDatePledge;
         private System.Windows.Forms.ComboBox cbPledge;
-        private System.Windows.Forms.Label lblProgram;
+        private System.Windows.Forms.Label lblPledge;
         private System.Windows.Forms.Panel panelDName;
         private System.Windows.Forms.TextBox txtDName;
         private System.Windows.Forms.Label lblDName;
         private System.Windows.Forms.Button btnDonorConfirm;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDType;
         private System.Windows.Forms.ComboBox cbDType;
         private System.Windows.Forms.Label countPhone;
         private System.Windows.Forms.Panel panelPhone;
@@ -3917,5 +4307,32 @@
         private System.Windows.Forms.Label label38;
         private NoFocusRec btnDonorFinal;
         private NoFocusRec btnDonorBack2;
+        private System.Windows.Forms.TabPage tabEditDonor;
+        private System.Windows.Forms.TabPage tabDonorEditConf;
+        private System.Windows.Forms.ComboBox cbDTypeEdit;
+        private System.Windows.Forms.DateTimePicker datePledgeEdit;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.TextBox txtMobile3Edit;
+        private System.Windows.Forms.TextBox txtMobile2Edit;
+        private System.Windows.Forms.TextBox txtMobile1Edit;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox txtEmailEdit;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TextBox txtPhoneEdit;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.ComboBox cbPledgeEdit;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.TextBox txtDNameEdit;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Button button3;
     }
 }

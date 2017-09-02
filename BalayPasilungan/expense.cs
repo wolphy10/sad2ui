@@ -578,9 +578,25 @@ namespace BalayPasilungan
         {
 
         }
-        
+        #endregion
+
+        #region Donor Edit
         private void btnEditDonor_Click(object sender, EventArgs e)
         {
+            tabSelection.SelectedTab = tabNewDonor;
+            tabNewDonorInput.SelectedTab = tabEditDonor;
+            
+            txtDNameEdit.Text = lblDonorName.Text;
+            cbDTypeEdit.SelectedValue = txtDType.Text;
+            cbPledgeEdit.SelectedValue = txtDPledge.Text;
+            if (txtDPhone.Text != "") txtPhoneEdit.Text = txtDPhone.Text;
+            if (txtDMobile.Text != "")
+            {
+                txtMobile1Edit.Text = txtDMobile.Text[0].ToString() + txtDMobile.Text[1].ToString() + txtDMobile.Text[2].ToString() + txtDMobile.Text[3].ToString();
+                txtMobile2Edit.Text = txtDMobile.Text[4].ToString() + txtDMobile.Text[5].ToString() + txtDMobile.Text[6].ToString();
+                txtMobile3Edit.Text = txtDMobile.Text[7].ToString() + txtDMobile.Text[8].ToString() + txtDMobile.Text[9].ToString() + txtDMobile.Text[10].ToString();
+            }
+            txtEmailEdit.Text = txtDEmail.Text;
 
         }
         #endregion
