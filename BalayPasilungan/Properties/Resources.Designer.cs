@@ -333,16 +333,6 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap line_edit {
-            get {
-                object obj = ResourceManager.GetObject("line_edit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap line_green {
             get {
                 object obj = ResourceManager.GetObject("line_green", resourceCulture);
@@ -356,6 +346,16 @@ namespace BalayPasilungan.Properties {
         internal static System.Drawing.Bitmap line_grey {
             get {
                 object obj = ResourceManager.GetObject("line_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap line_yellow {
+            get {
+                object obj = ResourceManager.GetObject("line_yellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

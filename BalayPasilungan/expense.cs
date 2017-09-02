@@ -117,6 +117,23 @@ namespace BalayPasilungan
             donorOTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
         }
 
+        public void resetEditColorDefault()                 // Reset to default colors on Edit Donor Profile (gray)
+        {
+            lblDNameEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            lblDTypeEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            lblPledgeEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            lblPhoneEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            lblMobileEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+
+            panelDNameEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            panelPhoneEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            panelMobileEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            panelEmailEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+
+            countDNameEdit.Visible = false; countEmailEdit.Visible = false; countPhoneEdit.Visible = false;
+        }
+
         public moneyDonate overlay()
         {
             moneyDonate mD = new moneyDonate();
@@ -580,26 +597,7 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Donor Edit
-        private void btnEditDonor_Click(object sender, EventArgs e)
-        {
-            tabSelection.SelectedTab = tabNewDonor;
-            tabNewDonorInput.SelectedTab = tabEditDonor;
-            
-            txtDNameEdit.Text = lblDonorName.Text;
-            cbDTypeEdit.SelectedValue = txtDType.Text;
-            cbPledgeEdit.SelectedValue = txtDPledge.Text;
-            if (txtDPhone.Text != "") txtPhoneEdit.Text = txtDPhone.Text;
-            if (txtDMobile.Text != "")
-            {
-                txtMobile1Edit.Text = txtDMobile.Text[0].ToString() + txtDMobile.Text[1].ToString() + txtDMobile.Text[2].ToString() + txtDMobile.Text[3].ToString();
-                txtMobile2Edit.Text = txtDMobile.Text[4].ToString() + txtDMobile.Text[5].ToString() + txtDMobile.Text[6].ToString();
-                txtMobile3Edit.Text = txtDMobile.Text[7].ToString() + txtDMobile.Text[8].ToString() + txtDMobile.Text[9].ToString() + txtDMobile.Text[10].ToString();
-            }
-            txtEmailEdit.Text = txtDEmail.Text;
-
-        }
-        #endregion
+        
 
         #region Donations
         private void txtSearch2_Enter(object sender, EventArgs e)
@@ -1077,7 +1075,7 @@ namespace BalayPasilungan
             mD.ShowDialog();
             loadIK(current_donorID);
         }
-
+        
         private void btnEditIK_Click(object sender, EventArgs e)
         {
             moneyDonate mD = overlay();
@@ -1099,6 +1097,7 @@ namespace BalayPasilungan
                 loadIK(current_donorID);
             }
         }
+
 
         private void btnDelIK_Click(object sender, EventArgs e)
         {
@@ -1142,6 +1141,72 @@ namespace BalayPasilungan
                 donationIK.MultiSelect = false;
                 multi = false;
             }
+        }
+
+        #endregion
+
+        #region Donor Edit
+        private void btnEditDonor_Click(object sender, EventArgs e)
+        {
+            tabSelection.SelectedTab = tabNewDonor;
+            tabNewDonorInput.SelectedTab = tabEditDonor;
+            donorTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+
+            txtDNameEdit.Text = lblDonorName.Text;
+            cbDTypeEdit.SelectedValue = txtDType.Text;
+            cbPledgeEdit.SelectedValue = txtDPledge.Text;
+            if (txtDPhone.Text != "") txtPhoneEdit.Text = txtDPhone.Text;
+            if (txtDMobile.Text != "")
+            {
+                txtMobile1Edit.Text = txtDMobile.Text[0].ToString() + txtDMobile.Text[1].ToString() + txtDMobile.Text[2].ToString() + txtDMobile.Text[3].ToString();
+                txtMobile2Edit.Text = txtDMobile.Text[4].ToString() + txtDMobile.Text[5].ToString() + txtDMobile.Text[6].ToString();
+                txtMobile3Edit.Text = txtDMobile.Text[7].ToString() + txtDMobile.Text[8].ToString() + txtDMobile.Text[9].ToString() + txtDMobile.Text[10].ToString();
+            }
+            txtEmailEdit.Text = txtDEmail.Text;
+        }
+
+        private void txtDNameEdit_Enter(object sender, EventArgs e)
+        {
+            resetEditColorDefault();
+            lblDNameEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+            panelDNameEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
+            countDNameEdit.Visible = true;
+        }
+
+        private void txtDNameEdit_TextChanged(object sender, EventArgs e)
+        {
+            countDNameEdit.Text = txtDNameEdit.TextLength + "/250";
+        }
+
+        private void txtDNameEdit_Leave(object sender, EventArgs e)
+        {
+            resetEditColorDefault();
+        }
+
+        private void txtPhoneEdit_Enter(object sender, EventArgs e)
+        {
+            resetEditColorDefault();
+            lblPhoneEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+            panelPhoneEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
+            countPhoneEdit.Visible = true;
+        }
+
+        private void txtPhoneEdit_TextChanged(object sender, EventArgs e)
+        {
+            countPhoneEdit.Text = txtPhoneEdit.TextLength + "/7";
+        }
+
+        private void txtEmailEdit_Enter(object sender, EventArgs e)
+        {
+            resetEditColorDefault();
+            lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+            panelEmailEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
+            countEmailEdit.Visible = true;
+        }
+        
+        private void txtEmailEdit_TextChanged(object sender, EventArgs e)
+        {
+            countEmailEdit.Text = txtEmailEdit.TextLength + "/100";
         }
         #endregion
     }
