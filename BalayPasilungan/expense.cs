@@ -562,11 +562,24 @@ namespace BalayPasilungan
 
         private void multiDonor_CheckedChanged(object sender, EventArgs e)
         {
-            if (multiDonor.Checked) multi = true;
-            else multi = false;
+            if (multiDonor.Checked)
+            {
+                donorsGV.MultiSelect = true;
+                multi = true;
+            }
+            else
+            {
+                donorsGV.MultiSelect = false;
+                multi = false;
+            }
         }
 
         private void btnRemoveDonor_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void btnEditDonor_Click(object sender, EventArgs e)
         {
 
         }
@@ -1003,6 +1016,11 @@ namespace BalayPasilungan
                 mD.ShowDialog();
                 loadMonetary(current_donorID);
             }
+        }
+
+        private void cbDType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void btnDelMoneyD_Click(object sender, EventArgs e)
