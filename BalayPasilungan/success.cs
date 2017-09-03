@@ -13,7 +13,7 @@ namespace BalayPasilungan
     public partial class success : Form
     {
         public eventorg reftoevorg { get; set; }
-        public string message { get; set; }
+
         public success()
         {
             InitializeComponent();
@@ -24,9 +24,9 @@ namespace BalayPasilungan
             this.DialogResult = DialogResult.OK;
         }
 
-        private void success_Load(object sender, EventArgs e)
+        private void lblSuccess_SelectionChanged(object sender, EventArgs e)
         {
-            lblSuccess.Text = message;
+            lblSuccess.SelectionAlignment = HorizontalAlignment.Center;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public String[] aMonths = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-        public bool remindState = false, budgetState = false, allDayState = false, timeRngState = false;
+        public bool remindState = false, budgetState = false, allDayState = false, timeRngState = false, confirmed;      
 
         public eventorg()
         {
@@ -122,6 +122,46 @@ namespace BalayPasilungan
                     btnYPrev.Text = (int.Parse(now) - 1).ToString();
                 }
             }
+        }
+
+        public void errorMessage(string message)            // Error Message
+        {
+            error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            err.lblError.Text = message;
+            dim.Show();
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public DialogResult successMessage(string message)            // Success Message
+        {
+            success yey = new success();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            yey.lblSuccess.Text = message;
+            dim.Show();
+
+            yey.ShowDialog();
+            dim.Close();
+            return DialogResult.OK;
+        }
+
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            conf.lblConfirm.Text = message;
+            dim.Show();
+
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
         }
         #endregion
 
@@ -341,14 +381,8 @@ namespace BalayPasilungan
 
         private void btnNext2_Click(object sender, EventArgs e)
         {
-            error err = new error();
             if (cbEMonth.Text == "" || cbEDay.Text == "" || cbEYear.Text == "" ||
-            cbEMonth2.Text == "" || cbEDay2.Text == "" || cbEYear2.Text == "")
-            {
-                err.refToERF = this;
-                err.lblError.Text = "You have skipped a blank! Please answer everything.";
-                err.ShowDialog();
-            }
+            cbEMonth2.Text == "" || cbEDay2.Text == "" || cbEYear2.Text == "") errorMessage("You have skipped a blank! Please answer everything.");            
             else
             {
                 tabERForm.SelectedIndex = 2;
@@ -375,15 +409,9 @@ namespace BalayPasilungan
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-            error err = new error();
             if(txtEventDes.Text.Equals("Describe the event.") ||
             txtEventName.Text.Equals("What is the name of the event?") ||
-            txtVenue.Text.Equals("Where will it be held?"))
-            {
-                err.refToERF = this;
-                err.lblError.Text = "You have skipped a blank! Please answer everything.";
-                err.ShowDialog();
-            }
+            txtVenue.Text.Equals("Where will it be held?")) errorMessage("You have skipped a blank! Please answer everything.");
             else
             {
                 tabERForm.SelectedIndex = 3;
@@ -492,8 +520,6 @@ namespace BalayPasilungan
         
             private void txtEventName_Leave(object sender, EventArgs e) //BOOK2
             {
-                error err = new error();
-                err.refToERF = this;
                 resetLabelsPanels(); resetCounters();
                 if (txtEventName.Text.Equals(""))
                 {
@@ -507,8 +533,7 @@ namespace BalayPasilungan
                     }
                     else
                     {
-                        err.lblError.Text = "The event name is already present";
-                        err.ShowDialog();
+                        errorMessage("The event name is already present.");
                         txtEventName.Text = "What is the name of the event?";
                     }
                 }
@@ -758,27 +783,19 @@ namespace BalayPasilungan
 
         private void cbEMonth2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
-
             if ((cbEMonth2.SelectedIndex < cbEMonth.SelectedIndex) &&
                 (cbEYear.SelectedIndex == cbEYear2.SelectedIndex))
             {
-                err.lblError.Text = "You cannot set this to an earlier month.";
-                err.ShowDialog();
+                errorMessage("You cannot set this to an earlier month.");
                 cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex;
             }
         }
 
         private void cbEYear2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
-
             if (cbEYear2.SelectedIndex < cbEYear.SelectedIndex)
             {
-                err.lblError.Text = "You cannot set this to an earlier year.";
-                err.ShowDialog();
+                errorMessage("You cannot set this to an earlier year.");
                 cbEYear2.SelectedIndex = cbEYear.SelectedIndex;
             }
         }
@@ -850,12 +867,9 @@ namespace BalayPasilungan
 
         private void txtEHours_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtEHours.Text) > 12 || int.Parse(txtEHours.Text) <= 0)
-            {                
-                err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
-                err.ShowDialog();
+            {
+                errorMessage("You cannot set the hours beyond 12 or less than 0.");
                 txtEHours.Text = "00";
                 txtEHours.Focus();
             }
@@ -867,12 +881,9 @@ namespace BalayPasilungan
 
         private void txtEMins_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtEMins.Text) > 59 || int.Parse(txtEMins.Text) < 0)
             {
-                err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
-                err.ShowDialog();                
+                errorMessage("You cannot set the minutes beyond 59 or less than 0.");
                 txtEMins.Text = "00";
                 txtEMins.Focus();
             }
@@ -884,12 +895,9 @@ namespace BalayPasilungan
 
         private void txtEHours2_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtEHours2.Text) > 12 || int.Parse(txtEHours2.Text) <= 0)
             {
-                err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the hours beyond 12 or less than 0.");
                 txtEHours2.Text = "00";
                 txtEHours2.Focus();
             }
@@ -901,12 +909,9 @@ namespace BalayPasilungan
 
         private void txtEMins2_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtEMins2.Text) > 59 || int.Parse(txtEMins2.Text) < 0)
             {
-                err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the minutes beyond 59 or less than 0.");
                 txtEMins2.Text = "00";
                 txtEMins2.Focus();
             }
@@ -918,12 +923,9 @@ namespace BalayPasilungan
         
         private void txtHrRemind_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtHrRemind.Text) > 12 || int.Parse(txtHrRemind.Text) <= 0)
             {
-                err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the hours beyond 12 or less than 0.");
                 txtHrRemind.Text = "00";
                 txtHrRemind.Focus();
             }
@@ -935,12 +937,9 @@ namespace BalayPasilungan
 
         private void txtMinRemind_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtMinRemind.Text) > 59 || int.Parse(txtMinRemind.Text) < 0)
             {
-                err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the minutes beyond 59 or less than 0.");
                 txtMinRemind.Text = "00";
                 txtMinRemind.Focus();
             }
@@ -1199,20 +1198,10 @@ namespace BalayPasilungan
         
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            error err = new error();
-            success scs = new success();
-            if(txtRequestBy.Text == "Who requested the event?")
-            {
-                err.refToERF = this;
-                err.lblError.Text = "You have skipped a blank! Please answer everything.";
-                err.ShowDialog();
-            }
+            if(txtRequestBy.Text == "Who requested the event?") errorMessage("You have skipped a blank! Please answer everything.");            
             else
-            {
-                scs.reftoevorg = this;
-                scs.message = "EVENT REQUEST SENT.";
-                DialogResult rest = scs.ShowDialog();
-                if(rest == DialogResult.OK)
+            {                
+                if(successMessage("EVENT REQUEST SENT.") == DialogResult.OK)
                 {
                     tabSecond.SelectedTab = tabPending;
                 }
@@ -1261,7 +1250,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                MessageBox.Show("Nah!" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
             return check;
@@ -1289,7 +1278,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -1320,7 +1309,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -1351,7 +1340,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -1377,7 +1366,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -1415,8 +1404,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                MessageBox.Show("Nah!" + ee);
-                conn.Close();
+                errorMessage(ee.Message);
             }
         }
       
@@ -1511,9 +1499,7 @@ namespace BalayPasilungan
             displayEventApproval();
             success scs = new success();
             scs.reftoevorg = this;
-            scs.message = "Successfully Approved the Event.";
-            DialogResult rest = scs.ShowDialog();
-            if(rest == DialogResult.OK)
+            if (successMessage("Event has been approved.") == DialogResult.OK)
             {
 
             }
@@ -1526,9 +1512,7 @@ namespace BalayPasilungan
             displayEventApproval();
             success scs = new success();
             scs.reftoevorg = this;
-            scs.message = "Successfully Rejected the Event.";
-            DialogResult rest = scs.ShowDialog();
-            if (rest == DialogResult.OK)
+            if (successMessage("Event has been rejected.") == DialogResult.OK)
             {
 
             }
