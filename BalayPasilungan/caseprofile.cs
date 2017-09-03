@@ -27,8 +27,8 @@ namespace BalayPasilungan
             InitializeComponent();
             profileMenu.Renderer = new BackgroundImageRenderer();
             newChildMenu.Renderer = new renderer();
-            newBday.MaxDate = DateTime.Today; newDateJoin.MaxDate = DateTime.Today;
-            male.Checked = true;
+            //newBday.MaxDate = DateTime.Today; newDateJoin.MaxDate = DateTime.Today;
+            //male.Checked = true;
 
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
         }        
@@ -83,15 +83,15 @@ namespace BalayPasilungan
         public void resetTextboxes()    // Reset unfocused textbox, line and label colors to default dark
         {
             // Textboxes
-            txtNewFName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewLName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewNName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtAddress.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            //txtNewFName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewLName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewNName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtAddress.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
             txtKinder.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtHS.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtElementary.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
             // Labels
-            lblFName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblLName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblNName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblAddress.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            //lblFName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblLName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblNName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblAddress.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
             kinder.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); elementary.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); highschool.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
 
             // Lines
-            panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            //panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
         }  
         
         public void blackTheme()        // Black taskbar and all
@@ -346,6 +346,7 @@ namespace BalayPasilungan
                         conn.Close();
 
                         tabControl.SelectedTab = first;
+                        tabCase.SelectedTab = tabCases;
 
                         reset();
                         refresh();
@@ -405,6 +406,7 @@ namespace BalayPasilungan
                         conn.Close();
 
                         tabControl.SelectedTab = sixteen;
+                        tabCase.SelectedTab = tabInfo;
 
                         reset();
                         refresh();
@@ -1429,12 +1431,14 @@ namespace BalayPasilungan
         {
             resetMainColors();
             tabNewChildInput.SelectedIndex = 0;
+
+            tabCase.SelectedTab = tabNewChild;
         }
 
         private void male_CheckedChanged(object sender, EventArgs e)
         {
-            if (male.Checked) confGender.Text = "Male";
-            else confGender.Text = "Female";
+            //if (male.Checked) confGender.Text = "Male";
+            //else confGender.Text = "Female";
         }
 
         #region Next Back Buttons
@@ -1526,36 +1530,36 @@ namespace BalayPasilungan
         #region New Child Info Form
         private void txtNewFName_Enter(object sender, EventArgs e)
         {
-            resetTextboxes();
+            /*resetTextboxes();
             countFName.Visible = true; lblFName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); txtNewFName.ForeColor = Color.Black;
             if (txtNewFName.Text == "Juan Miguel") txtNewFName.Clear();
-            panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+            panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;*/
         }
 
         private void panelLName_Enter(object sender, EventArgs e)
         {
-            resetTextboxes();
+            /*resetTextboxes();
             countLName.Visible = true; lblLName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); txtNewLName.ForeColor = Color.Black;
             if (txtNewLName.Text == "dela Cruz") txtNewLName.Clear();
-            panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+            panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;*/
         }
 
         private void txtNewNName_Enter(object sender, EventArgs e)
         {
-            resetTextboxes();
+            /*resetTextboxes();
             countNName.Visible = true; lblNName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); txtNewNName.ForeColor = Color.Black;
             if (txtNewNName.Text == "Juan") txtNewNName.Clear();
-            panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+            panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;*/
         }
 
         private void txtAddress_Enter(object sender, EventArgs e)
         {
-            resetTextboxes();
+            /*resetTextboxes();
             countAddress.Visible = true; lblAddress.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); txtAddress.ForeColor = Color.Black;
-            if (txtAddress.Text == "Where does the child live?") txtAddress.Clear();
+            if (txtAddress.Text == "Where does the child live?") txtAddress.Clear();*/
         }
 
-        private void txtNewFName_TextChanged(object sender, EventArgs e)
+        /*private void txtNewFName_TextChanged(object sender, EventArgs e)
         {
             countFName.Text = txtNewFName.Text.Length + "/100";
             confFName.Text = txtNewFName.Text;
@@ -1601,7 +1605,7 @@ namespace BalayPasilungan
         {
             if (txtAddress.Text == "") txtAddress.Text = "Where does the child live?";
             resetTextboxes(); countAddress.Visible = false;
-        }
+        }*/
         #endregion
 
         #region New Child Education Form
@@ -1765,6 +1769,8 @@ namespace BalayPasilungan
                 editprofile();
             }
 
+            
+
         }
 
         private void btnaddhealth_Click(object sender, EventArgs e)
@@ -1778,6 +1784,8 @@ namespace BalayPasilungan
             {
                 edithealth();
             }
+
+            //tabCase.SelectedTab = tabCases;
         }
 
         private void btnaddcheckuprec_Click(object sender, EventArgs e)
@@ -1810,6 +1818,7 @@ namespace BalayPasilungan
                     reloadhealth(id);
 
                     tabControl.SelectedTab = fifteen;
+                   
 
                     reset6();
                 }
@@ -1856,6 +1865,7 @@ namespace BalayPasilungan
                     lbllevel.Text = lbledlvl.Text = level;
 
                     tabControl.SelectedTab = eighth;
+                    
 
                     reset2();
 
@@ -2067,12 +2077,24 @@ namespace BalayPasilungan
         #region back buttons
         private void btncancel_Click(object sender, EventArgs e)
         {
+            if (btnaddeditcase.Text == "Add Changes")
+            {
+                tabCase.SelectedTab = tabInfo;
+            }
+
+            else
+            {
+                tabCase.SelectedTab = tabCases;
+            }
+
             reset();
+
+            
         }
 
         private void btnbackcasestud_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = first;
+            tabCase.SelectedTab = tabCases;
         }
 
         private void btncancelhealth_Click(object sender, EventArgs e)
@@ -2277,7 +2299,8 @@ namespace BalayPasilungan
 
         private void btneditprofile_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = third;
+
+            tabCase.SelectedTab = tabNewChild;
 
             btnaddeditcase.Text = "Add Changes";
             lbladdeditprofile.Text = "Edit Profile";
@@ -2343,7 +2366,7 @@ namespace BalayPasilungan
 
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {                    
-                    newprofilepic.Image = new Bitmap(dlg.FileName);
+                    //newprofilepic.Image = new Bitmap(dlg.FileName);
                 }
             }
         }
