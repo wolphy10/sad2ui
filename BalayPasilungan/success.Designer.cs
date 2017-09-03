@@ -46,9 +46,7 @@
             // 
             // lblSuccess
             // 
-            this.lblSuccess.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSuccess.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSuccess.AutoWordSelection = true;
             this.lblSuccess.BackColor = System.Drawing.Color.White;
             this.lblSuccess.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -60,12 +58,13 @@
             this.lblSuccess.MaxLength = 1000;
             this.lblSuccess.Name = "lblSuccess";
             this.lblSuccess.ReadOnly = true;
-            this.lblSuccess.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.lblSuccess.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.lblSuccess.ShowSelectionMargin = true;
             this.lblSuccess.Size = new System.Drawing.Size(476, 64);
             this.lblSuccess.TabIndex = 5;
             this.lblSuccess.TabStop = false;
-            this.lblSuccess.Text = "Confirm message here";
+            this.lblSuccess.Text = "Success message here";
+            this.lblSuccess.SelectionChanged += new System.EventHandler(this.lblSuccess_SelectionChanged);
             // 
             // btnSuccess
             // 
@@ -90,13 +89,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(500, 300);
             this.ControlBox = false;
-            this.Controls.Add(this.btnSuccess);
             this.Controls.Add(this.lblSuccess);
+            this.Controls.Add(this.btnSuccess);
             this.Controls.Add(this.pbHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "success";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.success_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
 

@@ -66,6 +66,7 @@
             this.lblError.TabIndex = 6;
             this.lblError.TabStop = false;
             this.lblError.Text = "Confirm message here";
+            this.lblError.SelectionChanged += new System.EventHandler(this.lblError_SelectionChanged);
             // 
             // btnBack
             // 

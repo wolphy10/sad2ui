@@ -23,5 +23,10 @@ namespace BalayPasilungan
         {
             this.Close();
         }
+
+        private void lblError_SelectionChanged(object sender, EventArgs e)
+        {
+            lblError.SelectionAlignment = HorizontalAlignment.Center;
+        }
     }
 }
