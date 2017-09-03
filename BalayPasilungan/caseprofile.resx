@@ -118,6 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="divider2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
+        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
+        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
+        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
+        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="divider.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
+        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
+        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
+        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
+        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="profileMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="newChildMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>783, 27</value>
+  </metadata>
   <data name="btnAddMem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsN
@@ -174,29 +200,6 @@
         ooAKKKKACiiigAooooA//9k=
 </value>
   </data>
-  <data name="divider2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
-        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
-        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
-        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
-        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="divider.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
-        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
-        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
-        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
-        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="profileMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="newChildMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>783, 27</value>
   </metadata>

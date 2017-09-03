@@ -57,7 +57,7 @@ namespace BalayPasilungan
         public void resetMainColors()   // Reset taskbar and main buttons to black
         {
             taskbar.BackColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            tabSelection.SelectedTab = tabNewChild;
+            tabCase.SelectedTab = tabNewChild;
             btnCases.BackColor = Color.White;
             btnReport.BackColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_green;
@@ -98,7 +98,7 @@ namespace BalayPasilungan
         {
             taskbar.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
             btnReport.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
-            tabSelection.SelectedTab = tabCases;
+            tabCase.SelectedTab = tabCases;
             btnCases.BackColor = Color.White;
             btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_black;
             btnReport.BackgroundImage = global::BalayPasilungan.Properties.Resources.report_white;
@@ -110,7 +110,7 @@ namespace BalayPasilungan
         {
             Graphics g = e.Graphics;
             Pen p = new Pen(Color.White, 500);
-            g.DrawRectangle(p, this.tabSelection.Bounds);
+            g.DrawRectangle(p, this.tabCase.Bounds);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -924,6 +924,7 @@ namespace BalayPasilungan
                 id = int.Parse(dtgcs.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 tabControl.SelectedTab = sixteen;
+                tabCase.SelectedTab = tabInfo;
 
                 reload(id);
 
@@ -1157,6 +1158,18 @@ namespace BalayPasilungan
             dtpmembirth.Value = DateTime.Now.Date;
         }
 
+        public void resetall()
+        {
+            reset();
+            reset2();
+            reset3();
+            reset4();
+            reset5();
+            reset6();
+            reset7();
+            reset8();
+        }
+
         #endregion
 
         #region existsfunctions
@@ -1323,7 +1336,9 @@ namespace BalayPasilungan
             infoTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             infoTS.ForeColor = Color.Black;
             infoTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedIndex = 0;
+            tabControl.SelectedTab = sixteen;
+
+            resetall();
         }
 
         private void familyTS_Click(object sender, EventArgs e)
@@ -1333,6 +1348,9 @@ namespace BalayPasilungan
             familyTS.ForeColor = Color.Black;
             familyTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
             tabControl.SelectedIndex = 1;
+
+            resetall();
+            btnfover_Click(sender, e);
         }
 
         private void eduTS_Click(object sender, EventArgs e)
@@ -1729,7 +1747,7 @@ namespace BalayPasilungan
 
         private void btnMain_Click(object sender, EventArgs e)
         {
-            tabSelection.SelectedTab = tabInfo;
+            tabCase.SelectedTab = tabInfo;
         }
 
         #region add/edit buttons
@@ -2314,15 +2332,7 @@ namespace BalayPasilungan
             tabControl.SelectedTab = tenth;
         }
 
-
-
-
-
-
-
         #endregion
-
-        
 
         private void newprofilepic_Click(object sender, EventArgs e)
         {
