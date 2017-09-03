@@ -596,7 +596,8 @@ namespace BalayPasilungan
         {
             resetNewDonor(); editDonor = false;
             tabSelection.SelectedTab = tabNewDonor;
-            donorTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            donorTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+            btnDonorConfirm.ForeColor = Color.White; btnDonorFinal.ForeColor = Color.White;
 
             conf1.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf2.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf3.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf4.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
             conf5.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf6.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf7.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
@@ -676,7 +677,12 @@ namespace BalayPasilungan
             {
                 tabNewDonorInput.SelectedTab = tabDonorConfirm;
                 donorCTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+                donorCTS.Font = new System.Drawing.Font("Segoe UI", 20.25f); donorTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
 
+                conf1.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf2.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf3.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf4.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf5.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf6.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf7.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(62, 153, 141); btnDonorFinal.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+                conf_header.Text = "CONFIRM NEW DONOR"; conf_header.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+                
                 if (txtPhone.Text == "29xxxxx") conf_phone.Text = "N/A";
                 else conf_phone.Text = txtPhone.Text;
                 if (txtMobile1.Text == "09xx") conf_mobile.Text = "N/A";
@@ -694,9 +700,19 @@ namespace BalayPasilungan
 
         private void btnDonorBack_Click(object sender, EventArgs e)
         {
-            if(!editDonor) tabNewDonorInput.SelectedTab = tabNewInfo;
-            else tabNewDonorInput.SelectedTab = tabEditDonor;
-            donorTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+            donorTS.Font = new System.Drawing.Font("Segoe UI", 20.25f); donorCTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
+            donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+            if (!editDonor)     // New Donor
+            {
+                tabNewDonorInput.SelectedTab = tabNewInfo;
+                donorTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            }
+            else                // Edit Donor
+            {
+                tabNewDonorInput.SelectedTab = tabEditDonor;
+                donorTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                
+            }
         }
 
         private void btnDonorFinal_Click(object sender, EventArgs e)
@@ -943,7 +959,7 @@ namespace BalayPasilungan
         {
             tabSelection.SelectedTab = tabNewDonor;
             tabNewDonorInput.SelectedTab = tabEditDonor;
-            donorTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+            donorTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
 
             txtDNameEdit.Text = lblDonorName.Text;
             cbDTypeEdit.SelectedText = txtDType.Text;
@@ -1015,10 +1031,12 @@ namespace BalayPasilungan
             else
             {
                 tabNewDonorInput.SelectedTab = tabDonorConfirm;
-                donorCTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                donorCTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); donorTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+                donorCTS.Font = new System.Drawing.Font("Segoe UI", 20.25f); donorTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
+
                 conf1.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf2.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf3.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf4.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf5.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf6.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf7.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
                 btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(219, 209, 92); btnDonorFinal.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
-                conf_header.Text = "CONFIRM DONOR CHANGES"; conf_header.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                conf_header.Text = "CONFIRM DONOR CHANGES"; conf_header.ForeColor = System.Drawing.ColorTranslator.FromHtml("#eae6b4");
 
                 conf_donorName.Text = txtDNameEdit.Text; conf_donorType.Text = cbDTypeEdit.SelectedText; conf_pledge.Text = cbPledgeEdit.SelectedText;
                 conf_phone.Text = txtPhoneEdit.Text; conf_mobile.Text = txtMobile1Edit.Text + txtMobile2Edit.Text + txtMobile3Edit.Text;
