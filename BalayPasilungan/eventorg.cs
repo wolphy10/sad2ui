@@ -136,9 +136,9 @@ namespace BalayPasilungan
             dateFromInitial(DateTime.Now.Month, DateTime.Now.Year);
             dateToInitial(DateTime.Now.Month, DateTime.Now.Year);
             dateRemindInitial(DateTime.Now.Month, DateTime.Now.Year);
-            cbEDay.SelectedIndex = DateTime.Now.Day - 1; cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEYear.Text = DateTime.Now.Year.ToString();
-            cbEDay2.SelectedIndex = DateTime.Now.Day - 1; cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEYear2.Text = DateTime.Now.Year.ToString();
-            cb_DRemind.SelectedIndex = DateTime.Now.Day - 1; cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.Text = DateTime.Now.Year.ToString();
+            cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEDay.SelectedIndex = DateTime.Now.Day - 1;
+            cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
+            cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(DateTime.Now.Year.ToString()); cb_DRemind.SelectedIndex = DateTime.Now.Day - 1;
         }
 
         private void btnEvent_Click(object sender, EventArgs e)
@@ -155,6 +155,7 @@ namespace BalayPasilungan
             btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_green;
             btnEvent.BackColor = Color.White;
             allEvents();
+            calendarcolor();
         }
 
         private void btnMain_Click(object sender, EventArgs e)
@@ -354,7 +355,7 @@ namespace BalayPasilungan
                 tabERForm.SelectedIndex = 2;
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
-                confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins + " " + ampmFrom + "\n" +
+                confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
                                          "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
             }
         }
@@ -701,7 +702,7 @@ namespace BalayPasilungan
         {
             cbEDay.Items.Clear();
 
-            for (int i = 1; i <= DateTime.DaysInMonth(year, int.Parse(month.ToString("00"))); i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(year, month); i++)
             {
                 cbEDay.Items.Add("" + i.ToString("00") + "");
             }
@@ -711,7 +712,7 @@ namespace BalayPasilungan
         {
             cbEDay2.Items.Clear();
             
-            for (int i = 1; i <= DateTime.DaysInMonth(year, int.Parse(month.ToString("00"))); i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(year, month); i++)
             {
                 cbEDay2.Items.Add("" + i.ToString("00") + "");
             }        
@@ -785,8 +786,9 @@ namespace BalayPasilungan
 
         public void dateRemindInitial(int month, int year)
         {
+            //MessageBox.Show("m " +  month + " y " + year);
             cb_DRemind.Items.Clear();
-            for (int i = 1; i <= DateTime.DaysInMonth(year, int.Parse(month.ToString("00"))); i++)
+            for (int i = 1; i <= DateTime.DaysInMonth(year, month); i++)
             {
                 cb_DRemind.Items.Add("" + i.ToString("00") + "");
             }
@@ -795,12 +797,14 @@ namespace BalayPasilungan
         private void cb_MRemind_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int num = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
+            //MessageBox.Show("mremind" + num);
             dateRemindInitial(num, int.Parse(cb_YRemind.Text));
         }
 
         private void cb_YRemind_SelectedIndexChanged(object sender, EventArgs e)
         {
             int num = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
+            //MessageBox.Show("yremind" + num);
             dateRemindInitial(num, int.Parse(cb_YRemind.Text));
         }
         #endregion
@@ -1201,7 +1205,7 @@ namespace BalayPasilungan
         {
             error err = new error();
             success scs = new success();
-            if(txtRequestBy.Text == "Who requested the event?")
+            if(txtRequestBy.Text == "Who requested the event?" || txtRequestBy.Text == "")
             {
                 err.refToERF = this;
                 err.lblError.Text = "You have skipped a blank! Please answer everything.";
@@ -1232,7 +1236,6 @@ namespace BalayPasilungan
                 {
                     insert();
                 }
-                listPending.Clear();
                 displayEventApproval();
             }
         }
@@ -1270,11 +1273,11 @@ namespace BalayPasilungan
         public void insert()
         {
             int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
             string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
             string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
             string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
+            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
             //MessageBox.Show(eventtime + " " + datefrom + " " + timeTo + " " + dateTo);
             try
             {
@@ -1296,11 +1299,11 @@ namespace BalayPasilungan
         public void insertWithboth()
         {
             int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
             string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
             string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
             string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
+            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
             int monthR = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
             string reminddate = monthR.ToString("00") + "/" + cb_DRemind.Text + "/" + cb_YRemind.Text;
             string remindtime = txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
@@ -1328,11 +1331,11 @@ namespace BalayPasilungan
         {
 
             int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
             string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
             string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
             string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
+            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
             int monthR = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
             string reminddate = monthR.ToString("00") + "/" + cb_DRemind.Text + "/" + cb_YRemind.Text;
             string remindtime = txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
@@ -1359,11 +1362,11 @@ namespace BalayPasilungan
         {
 
             int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
             string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
             string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
             string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
+            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
             //string remindDate = dateTimePicker2.Value.Date.ToString("MM/dd/yyyy");
             try
             {
@@ -1384,6 +1387,7 @@ namespace BalayPasilungan
         //pending and approval of events functions
         public void displayEventApproval()
         {
+            listPending.Items.Clear();
             string evname, request;
 
             try
@@ -1447,10 +1451,16 @@ namespace BalayPasilungan
                     lblPEVenue.Text = dt.Rows[0]["evVenue"].ToString();
                     lblPEDes.Text = dt.Rows[0]["evDesc"].ToString();
                     lblPEType.Text = dt.Rows[0]["evType"].ToString();
-                    lblEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" + 
+                    lblPEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" + 
                                     "To: " + dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
                     if (dt.Rows[0]["reminderDate"].ToString() == "")
+                    {
                         lblPERemind.Text = "NONE";
+                    }
+                    else
+                    {
+
+                    }
                     if(dt.Rows[0]["budget"].ToString() == "")
                     {
                         lblPEBudget.Text = "NONE";
@@ -1506,31 +1516,45 @@ namespace BalayPasilungan
         }
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            approveEvent();
-            listPending.Clear();
-            displayEventApproval();
-            success scs = new success();
-            scs.reftoevorg = this;
-            scs.message = "Successfully Approved the Event.";
-            DialogResult rest = scs.ShowDialog();
-            if(rest == DialogResult.OK)
+            try
             {
-
+                approveEvent();
+                success scs = new success();
+                scs.reftoevorg = this;
+                scs.message = "Successfully Approved the Event.";
+                DialogResult rest = scs.ShowDialog();
+                if (rest == DialogResult.OK)
+                {
+                    displayEventApproval();
+                    btnEvent.PerformClick();
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("btn reject" + ee);
+                conn.Close();
             }
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            disApproveEvent();
-            listPending.Clear();
-            displayEventApproval();
-            success scs = new success();
-            scs.reftoevorg = this;
-            scs.message = "Successfully Rejected the Event.";
-            DialogResult rest = scs.ShowDialog();
-            if (rest == DialogResult.OK)
+            try
             {
-
+                disApproveEvent();
+                success scs = new success();
+                scs.reftoevorg = this;
+                scs.message = "Successfully Rejected the Event.";
+                DialogResult rest = scs.ShowDialog();
+                if (rest == DialogResult.OK)
+                {
+                    displayEventApproval();
+                    btnEvent.PerformClick();
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("btn reject" + ee);
+                conn.Close();
             }
         }
         private void btnBackP_Click(object sender, EventArgs e)
@@ -1732,13 +1756,14 @@ namespace BalayPasilungan
                         }
                         else if (ifclick == "add")
                         {
+                            //MessageBox.Show("view " + monthnum);
                             tabSecond.SelectedTab = tabRequest;
                             dateFromInitial(monthnum, int.Parse(btnYNow.Text));
                             dateToInitial(monthnum, int.Parse(btnYNow.Text));
                             dateRemindInitial(monthnum, int.Parse(btnYNow.Text));
-                            cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1; cbEMonth.SelectedIndex = monthnum; cb_YRemind.Text = btnYNow.Text;
-                            cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1; cbEMonth2.SelectedIndex = monthnum; cb_YRemind.Text = btnYNow.Text;
-                            cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1; cb_MRemind.SelectedIndex = monthnum; cb_YRemind.Text = btnYNow.Text;
+                            cbEMonth.SelectedIndex = monthnum - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cbEMonth2.SelectedIndex = monthnum - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cb_MRemind.SelectedIndex = monthnum - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(btnYNow.Text); cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                         }
                     }
                 }
@@ -1755,13 +1780,14 @@ namespace BalayPasilungan
 
                         if (ifclick == "add")
                         {
+                            //MessageBox.Show("no view " + monthnum);
                             tabSecond.SelectedTab = tabRequest;
                             dateFromInitial(monthnum, int.Parse(btnYNow.Text));
                             dateToInitial(monthnum, int.Parse(btnYNow.Text));
                             dateRemindInitial(monthnum, int.Parse(btnYNow.Text));
-                            cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1; cbEMonth.SelectedIndex = monthnum; cb_YRemind.Text = btnYNow.Text;
-                            cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1; cbEMonth2.SelectedIndex = monthnum; cb_YRemind.Text = btnYNow.Text;
-                            cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1; cb_MRemind.SelectedIndex = monthnum; cb_YRemind.Text = btnYNow.Text;
+                            cbEMonth.SelectedIndex = monthnum - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cbEMonth2.SelectedIndex = monthnum - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cb_MRemind.SelectedIndex = monthnum - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(btnYNow.Text); cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                         }
 
                     }
