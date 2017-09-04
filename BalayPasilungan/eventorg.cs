@@ -1772,6 +1772,7 @@ namespace BalayPasilungan
                         if (ifclick == "view")
                         {
                             tabSecond.SelectedTab = tabEvent;
+                            tabEvEdit.SelectedIndex = 1; // listview tab
                             //MessageBox.Show(CalendarView.SelectedCells[0].Value.ToString());
                             displayEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text);
                         }

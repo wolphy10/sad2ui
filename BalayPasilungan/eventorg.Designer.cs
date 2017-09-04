@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eventorg));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.taskbar = new System.Windows.Forms.Panel();
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnEvent = new System.Windows.Forms.Button();
@@ -41,21 +41,15 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.tabSecond = new System.Windows.Forms.TabControl();
             this.tabEvent = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddAttendance = new System.Windows.Forms.Button();
-            this.btnViewBudget = new System.Windows.Forms.Button();
-            this.panelEventDet = new System.Windows.Forms.Panel();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.tabEvEdit = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.eventsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAddAttendance = new System.Windows.Forms.Button();
+            this.btnViewBudget = new System.Windows.Forms.Button();
+            this.panelEventDet = new System.Windows.Forms.Panel();
             this.panelEventHead = new System.Windows.Forms.Panel();
             this.lblEventHead = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -65,6 +59,11 @@
             this.menuStripEvent = new System.Windows.Forms.MenuStrip();
             this.addEventTS = new System.Windows.Forms.ToolStripMenuItem();
             this.pendingRequestTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ERProgress = new System.Windows.Forms.MenuStrip();
+            this.edTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.tdTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.oTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.confirmTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabERForm = new System.Windows.Forms.TabControl();
             this.eventdetails = new System.Windows.Forms.TabPage();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -174,11 +173,6 @@
             this.lblRequestBy = new System.Windows.Forms.Label();
             this.panelRequestBy = new System.Windows.Forms.Panel();
             this.txtRequestBy = new System.Windows.Forms.TextBox();
-            this.ERProgress = new System.Windows.Forms.MenuStrip();
-            this.edTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tdTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.oTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.confirmTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabAttend = new System.Windows.Forms.TabPage();
             this.panelOptions = new System.Windows.Forms.Panel();
             this.panelAttendanceBtn = new System.Windows.Forms.Panel();
@@ -268,16 +262,34 @@
             this.lblOptions2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.remindTimer = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.taskbar.SuspendLayout();
             this.upPanel.SuspendLayout();
             this.tabSecond.SuspendLayout();
             this.tabEvent.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tabEvEdit.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.panelEventDet.SuspendLayout();
             this.panelEventHead.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.tabRequest.SuspendLayout();
             this.menuStripEvent.SuspendLayout();
+            this.ERProgress.SuspendLayout();
             this.tabERForm.SuspendLayout();
             this.eventdetails.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -297,7 +309,6 @@
             this.confirmTab.SuspendLayout();
             this.confirmEventDetails.SuspendLayout();
             this.panelRequestBy.SuspendLayout();
-            this.ERProgress.SuspendLayout();
             this.tabAttend.SuspendLayout();
             this.panelOptions.SuspendLayout();
             this.panelAttendanceBtn.SuspendLayout();
@@ -324,6 +335,7 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelOptionsPend.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // taskbar
@@ -424,10 +436,9 @@
             // tabEvent
             // 
             this.tabEvent.BackColor = System.Drawing.Color.White;
-            this.tabEvent.Controls.Add(this.tableLayoutPanel1);
-            this.tabEvent.Controls.Add(this.panelEventDet);
-            this.tabEvent.Controls.Add(this.eventsListView);
             this.tabEvent.Controls.Add(this.panelEventHead);
+            this.tabEvent.Controls.Add(this.panelEventDet);
+            this.tabEvent.Controls.Add(this.tabEvEdit);
             this.tabEvent.Controls.Add(this.menuStrip);
             this.tabEvent.Location = new System.Drawing.Point(4, 25);
             this.tabEvent.Name = "tabEvent";
@@ -436,152 +447,39 @@
             this.tabEvent.TabIndex = 0;
             this.tabEvent.Text = "tabEvent";
             // 
-            // tableLayoutPanel1
+            // tabEvEdit
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(21)))), ((int)(((byte)(25)))));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.btnAddAttendance, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnViewBudget, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(723, 536);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(212, 140);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tabEvEdit.Controls.Add(this.tabPage4);
+            this.tabEvEdit.Controls.Add(this.tabPage3);
+            this.tabEvEdit.Location = new System.Drawing.Point(-2, 63);
+            this.tabEvEdit.Name = "tabEvEdit";
+            this.tabEvEdit.SelectedIndex = 0;
+            this.tabEvEdit.Size = new System.Drawing.Size(954, 572);
+            this.tabEvEdit.TabIndex = 5;
             // 
-            // btnAddAttendance
+            // tabPage3
             // 
-            this.btnAddAttendance.Location = new System.Drawing.Point(3, 73);
-            this.btnAddAttendance.Name = "btnAddAttendance";
-            this.btnAddAttendance.Size = new System.Drawing.Size(206, 63);
-            this.btnAddAttendance.TabIndex = 1;
-            this.btnAddAttendance.Text = "Add Attendance";
-            this.btnAddAttendance.UseVisualStyleBackColor = true;
-            this.btnAddAttendance.Click += new System.EventHandler(this.btnAddAttendance_Click);
-            // 
-            // btnViewBudget
-            // 
-            this.btnViewBudget.Location = new System.Drawing.Point(3, 3);
-            this.btnViewBudget.Name = "btnViewBudget";
-            this.btnViewBudget.Size = new System.Drawing.Size(206, 63);
-            this.btnViewBudget.TabIndex = 0;
-            this.btnViewBudget.Text = "View Budget";
-            this.btnViewBudget.UseVisualStyleBackColor = true;
-            // 
-            // panelEventDet
-            // 
-            this.panelEventDet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(45)))));
-            this.panelEventDet.Controls.Add(this.label34);
-            this.panelEventDet.Controls.Add(this.label31);
-            this.panelEventDet.Controls.Add(this.label26);
-            this.panelEventDet.Controls.Add(this.label25);
-            this.panelEventDet.Controls.Add(this.label30);
-            this.panelEventDet.Controls.Add(this.label29);
-            this.panelEventDet.Controls.Add(this.label28);
-            this.panelEventDet.Controls.Add(this.label27);
-            this.panelEventDet.Location = new System.Drawing.Point(0, 536);
-            this.panelEventDet.Name = "panelEventDet";
-            this.panelEventDet.Size = new System.Drawing.Size(941, 145);
-            this.panelEventDet.TabIndex = 4;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(446, 53);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(41, 13);
-            this.label34.TabIndex = 7;
-            this.label34.Text = "label34";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(112, 104);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 13);
-            this.label31.TabIndex = 6;
-            this.label31.Text = "label31";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(112, 65);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 13);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "label26";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(112, 25);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "label25";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(400, 16);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(110, 25);
-            this.label30.TabIndex = 3;
-            this.label30.Text = "Description";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(19, 56);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(65, 25);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "Venue";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(19, 95);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(54, 25);
-            this.label28.TabIndex = 1;
-            this.label28.Text = "Time";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(19, 16);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(52, 25);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Type";
+            this.tabPage3.Controls.Add(this.eventsListView);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(946, 546);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // eventsListView
             // 
-            this.eventsListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventsListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eventsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
             this.eventsListView.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventsListView.FullRowSelect = true;
             this.eventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.eventsListView.Location = new System.Drawing.Point(0, 135);
+            this.eventsListView.Location = new System.Drawing.Point(22, 22);
             this.eventsListView.Name = "eventsListView";
-            this.eventsListView.Size = new System.Drawing.Size(935, 399);
+            this.eventsListView.Size = new System.Drawing.Size(881, 501);
             this.eventsListView.TabIndex = 3;
             this.eventsListView.UseCompatibleStateImageBehavior = false;
             this.eventsListView.View = System.Windows.Forms.View.Details;
@@ -597,13 +495,53 @@
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 300;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(946, 546);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnAddAttendance
+            // 
+            this.btnAddAttendance.Location = new System.Drawing.Point(584, 5);
+            this.btnAddAttendance.Name = "btnAddAttendance";
+            this.btnAddAttendance.Size = new System.Drawing.Size(122, 41);
+            this.btnAddAttendance.TabIndex = 1;
+            this.btnAddAttendance.Text = "Add Attendance";
+            this.btnAddAttendance.UseVisualStyleBackColor = true;
+            this.btnAddAttendance.Click += new System.EventHandler(this.btnAddAttendance_Click);
+            // 
+            // btnViewBudget
+            // 
+            this.btnViewBudget.Location = new System.Drawing.Point(712, 5);
+            this.btnViewBudget.Name = "btnViewBudget";
+            this.btnViewBudget.Size = new System.Drawing.Size(129, 41);
+            this.btnViewBudget.TabIndex = 0;
+            this.btnViewBudget.Text = "View Budget";
+            this.btnViewBudget.UseVisualStyleBackColor = true;
+            // 
+            // panelEventDet
+            // 
+            this.panelEventDet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(45)))));
+            this.panelEventDet.Controls.Add(this.btnAddAttendance);
+            this.panelEventDet.Controls.Add(this.btnViewBudget);
+            this.panelEventDet.Location = new System.Drawing.Point(0, 624);
+            this.panelEventDet.Name = "panelEventDet";
+            this.panelEventDet.Size = new System.Drawing.Size(941, 57);
+            this.panelEventDet.TabIndex = 4;
+            // 
             // panelEventHead
             // 
             this.panelEventHead.BackColor = System.Drawing.Color.White;
             this.panelEventHead.Controls.Add(this.lblEventHead);
             this.panelEventHead.Location = new System.Drawing.Point(0, 35);
             this.panelEventHead.Name = "panelEventHead";
-            this.panelEventHead.Size = new System.Drawing.Size(938, 100);
+            this.panelEventHead.Size = new System.Drawing.Size(938, 54);
             this.panelEventHead.TabIndex = 0;
             // 
             // lblEventHead
@@ -611,7 +549,7 @@
             this.lblEventHead.AutoSize = true;
             this.lblEventHead.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.lblEventHead.Location = new System.Drawing.Point(16, 24);
+            this.lblEventHead.Location = new System.Drawing.Point(16, 7);
             this.lblEventHead.Name = "lblEventHead";
             this.lblEventHead.Size = new System.Drawing.Size(179, 47);
             this.lblEventHead.TabIndex = 2;
@@ -701,6 +639,67 @@
             this.pendingRequestTS.Size = new System.Drawing.Size(200, 31);
             this.pendingRequestTS.Text = "Pending Request";
             this.pendingRequestTS.Click += new System.EventHandler(this.pendingRequestTS_Click);
+            // 
+            // ERProgress
+            // 
+            this.ERProgress.AutoSize = false;
+            this.ERProgress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.ERProgress.Dock = System.Windows.Forms.DockStyle.None;
+            this.ERProgress.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.ERProgress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.edTS,
+            this.tdTS,
+            this.oTS,
+            this.confirmTS});
+            this.ERProgress.Location = new System.Drawing.Point(0, 37);
+            this.ERProgress.Name = "ERProgress";
+            this.ERProgress.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ERProgress.Size = new System.Drawing.Size(935, 74);
+            this.ERProgress.TabIndex = 4;
+            // 
+            // edTS
+            // 
+            this.edTS.AutoSize = false;
+            this.edTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.edTS.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(118)))), ((int)(((byte)(78)))));
+            this.edTS.Name = "edTS";
+            this.edTS.Size = new System.Drawing.Size(250, 80);
+            this.edTS.Text = "event details";
+            this.edTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // tdTS
+            // 
+            this.tdTS.AutoSize = false;
+            this.tdTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.tdTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tdTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
+            this.tdTS.Name = "tdTS";
+            this.tdTS.Size = new System.Drawing.Size(220, 80);
+            this.tdTS.Text = "time and date";
+            this.tdTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // oTS
+            // 
+            this.oTS.AutoSize = false;
+            this.oTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.oTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
+            this.oTS.Name = "oTS";
+            this.oTS.Size = new System.Drawing.Size(200, 80);
+            this.oTS.Text = "others";
+            this.oTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // confirmTS
+            // 
+            this.confirmTS.AutoSize = false;
+            this.confirmTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.confirmTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
+            this.confirmTS.Name = "confirmTS";
+            this.confirmTS.Size = new System.Drawing.Size(200, 80);
+            this.confirmTS.Text = "confirmation";
+            this.confirmTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // tabERForm
             // 
@@ -2192,67 +2191,6 @@
             this.txtRequestBy.Enter += new System.EventHandler(this.txtRequestBy_Enter);
             this.txtRequestBy.Leave += new System.EventHandler(this.txtRequestBy_Leave);
             // 
-            // ERProgress
-            // 
-            this.ERProgress.AutoSize = false;
-            this.ERProgress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ERProgress.Dock = System.Windows.Forms.DockStyle.None;
-            this.ERProgress.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ERProgress.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.edTS,
-            this.tdTS,
-            this.oTS,
-            this.confirmTS});
-            this.ERProgress.Location = new System.Drawing.Point(0, 37);
-            this.ERProgress.Name = "ERProgress";
-            this.ERProgress.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ERProgress.Size = new System.Drawing.Size(935, 74);
-            this.ERProgress.TabIndex = 4;
-            // 
-            // edTS
-            // 
-            this.edTS.AutoSize = false;
-            this.edTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.edTS.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(118)))), ((int)(((byte)(78)))));
-            this.edTS.Name = "edTS";
-            this.edTS.Size = new System.Drawing.Size(250, 80);
-            this.edTS.Text = "event details";
-            this.edTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tdTS
-            // 
-            this.tdTS.AutoSize = false;
-            this.tdTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.tdTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tdTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
-            this.tdTS.Name = "tdTS";
-            this.tdTS.Size = new System.Drawing.Size(220, 80);
-            this.tdTS.Text = "time and date";
-            this.tdTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // oTS
-            // 
-            this.oTS.AutoSize = false;
-            this.oTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.oTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
-            this.oTS.Name = "oTS";
-            this.oTS.Size = new System.Drawing.Size(200, 80);
-            this.oTS.Text = "others";
-            this.oTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // confirmTS
-            // 
-            this.confirmTS.AutoSize = false;
-            this.confirmTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.confirmTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(217)))), ((int)(((byte)(208)))));
-            this.confirmTS.Name = "confirmTS";
-            this.confirmTS.Size = new System.Drawing.Size(200, 80);
-            this.confirmTS.Text = "confirmation";
-            this.confirmTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
             // tabAttend
             // 
             this.tabAttend.Controls.Add(this.panelOptions);
@@ -2942,23 +2880,23 @@
             this.CalendarView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CalendarView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.CalendarView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.CalendarView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle5;
             this.CalendarView.EnableHeadersVisualStyles = false;
             this.CalendarView.Location = new System.Drawing.Point(11, 112);
             this.CalendarView.MultiSelect = false;
@@ -2967,9 +2905,9 @@
             this.CalendarView.RowHeadersVisible = false;
             this.CalendarView.RowHeadersWidth = 100;
             this.CalendarView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.CalendarView.RowTemplate.Height = 95;
             this.CalendarView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CalendarView.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -3069,12 +3007,12 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "";
+            this.columnHeader3.Text = "Event Name";
             this.columnHeader3.Width = 400;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "";
+            this.columnHeader4.Text = "Requested By";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 300;
             // 
@@ -3346,6 +3284,192 @@
             this.remindTimer.Interval = 10;
             this.remindTimer.Tick += new System.EventHandler(this.remindTimer_Tick);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.Controls.Add(this.label25, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label26, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label27, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label28, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label29, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label30, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label31, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label34, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label35, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label39, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label40, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label41, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label42, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label43, 1, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(75, 37);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.77871F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.82255F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.83298F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.65762F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.7453F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.16284F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 479);
+            this.tableLayoutPanel1.TabIndex = 43;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label25.Location = new System.Drawing.Point(3, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(52, 21);
+            this.label25.TabIndex = 38;
+            this.label25.Text = "Name";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label26.Location = new System.Drawing.Point(3, 57);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(54, 21);
+            this.label26.TabIndex = 39;
+            this.label26.Text = "Venue";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(198, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(53, 21);
+            this.label27.TabIndex = 44;
+            this.label27.Text = "Name";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(198, 57);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(53, 21);
+            this.label28.TabIndex = 45;
+            this.label28.Text = "Name";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label29.ForeColor = System.Drawing.Color.Black;
+            this.label29.Location = new System.Drawing.Point(198, 118);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(53, 21);
+            this.label29.TabIndex = 46;
+            this.label29.Text = "Name";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label30.Location = new System.Drawing.Point(3, 118);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(89, 21);
+            this.label30.TabIndex = 50;
+            this.label30.Text = "Description";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label31.Location = new System.Drawing.Point(3, 413);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(59, 21);
+            this.label31.TabIndex = 43;
+            this.label31.Text = "Budget";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label34.ForeColor = System.Drawing.Color.Black;
+            this.label34.Location = new System.Drawing.Point(198, 413);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(53, 21);
+            this.label34.TabIndex = 49;
+            this.label34.Text = "Name";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label35.ForeColor = System.Drawing.Color.Black;
+            this.label35.Location = new System.Drawing.Point(198, 338);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(53, 21);
+            this.label35.TabIndex = 48;
+            this.label35.Text = "Name";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label39.Location = new System.Drawing.Point(3, 338);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(78, 21);
+            this.label39.TabIndex = 42;
+            this.label39.Text = "Reminder";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label40.Location = new System.Drawing.Point(3, 265);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(110, 21);
+            this.label40.TabIndex = 41;
+            this.label40.Text = "Date and Time";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label41.Location = new System.Drawing.Point(3, 200);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(85, 21);
+            this.label41.TabIndex = 51;
+            this.label41.Text = "Event Type";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label42.ForeColor = System.Drawing.Color.Black;
+            this.label42.Location = new System.Drawing.Point(198, 265);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(53, 21);
+            this.label42.TabIndex = 47;
+            this.label42.Text = "Name";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label43.ForeColor = System.Drawing.Color.Black;
+            this.label43.Location = new System.Drawing.Point(198, 200);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(53, 21);
+            this.label43.TabIndex = 52;
+            this.label43.Text = "Name";
+            // 
             // eventorg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3364,9 +3488,10 @@
             this.upPanel.ResumeLayout(false);
             this.tabSecond.ResumeLayout(false);
             this.tabEvent.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tabEvEdit.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.panelEventDet.ResumeLayout(false);
-            this.panelEventDet.PerformLayout();
             this.panelEventHead.ResumeLayout(false);
             this.panelEventHead.PerformLayout();
             this.menuStrip.ResumeLayout(false);
@@ -3374,6 +3499,8 @@
             this.tabRequest.ResumeLayout(false);
             this.menuStripEvent.ResumeLayout(false);
             this.menuStripEvent.PerformLayout();
+            this.ERProgress.ResumeLayout(false);
+            this.ERProgress.PerformLayout();
             this.tabERForm.ResumeLayout(false);
             this.eventdetails.ResumeLayout(false);
             this.eventdetails.PerformLayout();
@@ -3409,8 +3536,6 @@
             this.confirmEventDetails.PerformLayout();
             this.panelRequestBy.ResumeLayout(false);
             this.panelRequestBy.PerformLayout();
-            this.ERProgress.ResumeLayout(false);
-            this.ERProgress.PerformLayout();
             this.tabAttend.ResumeLayout(false);
             this.panelOptions.ResumeLayout(false);
             this.panelOptions.PerformLayout();
@@ -3448,6 +3573,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.panelOptionsPend.ResumeLayout(false);
             this.panelOptionsPend.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3545,11 +3672,6 @@
         private System.Windows.Forms.Panel panelOptionsPend;
         private System.Windows.Forms.Label lblOptions2;
         private System.Windows.Forms.Panel panelEventDet;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panelEName;
         private System.Windows.Forms.Panel panelEVenue;
         private System.Windows.Forms.Button btnAddBudget;
@@ -3686,10 +3808,24 @@
         private System.Windows.Forms.Button btnReject;
         private System.Windows.Forms.Button btnApprove;
         private System.Windows.Forms.Button btnBackP;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TabControl tabEvEdit;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
     }
 }
 
