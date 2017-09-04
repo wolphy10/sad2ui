@@ -139,6 +139,7 @@ namespace BalayPasilungan
             cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEDay.SelectedIndex = DateTime.Now.Day - 1;
             cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
             cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(DateTime.Now.Year.ToString()); cb_DRemind.SelectedIndex = DateTime.Now.Day - 1;
+            clrTabReqF();
         }
 
         private void btnEvent_Click(object sender, EventArgs e)
@@ -1564,7 +1565,24 @@ namespace BalayPasilungan
 
         public void clrTabReqF()//resets the field in tab request for every time you click the tab request btn or add through calendar; 
         {
-
+            tabERForm.SelectedIndex = 0;
+            resetLabelsPanels();
+            txtEventName.Text = "What is the name of the event?";
+            txtEventDes.Text = "Describe the event.";
+            txtVenue.Text = "Where will it be held?";
+            txtRequestBy.Text = "Who requested the event?";
+            cbEType.Text = "";
+            txtEHours.Text = "00"; txtEMins.Text = "00";
+            btnAM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            btnPM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            txtEHours2.Text = "00"; txtEMins2.Text = "00";
+            btnAM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            btnPM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            txtHrRemind.Text = "00"; txtMinRemind.Text = "00"; 
+            btnAMRemind.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            btnPMRemind.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            lbAllDay.ForeColor = Color.FromArgb(42, 42, 42);
+            btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
         }
         #endregion
 
@@ -1767,6 +1785,7 @@ namespace BalayPasilungan
                             cbEMonth.SelectedIndex = monthnum - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             cbEMonth2.SelectedIndex = monthnum - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             cb_MRemind.SelectedIndex = monthnum - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(btnYNow.Text); cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            clrTabReqF();
                         }
                     }
                 }
@@ -1791,6 +1810,7 @@ namespace BalayPasilungan
                             cbEMonth.SelectedIndex = monthnum - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             cbEMonth2.SelectedIndex = monthnum - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             cb_MRemind.SelectedIndex = monthnum - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(btnYNow.Text); cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            clrTabReqF();
                         }
 
                     }
