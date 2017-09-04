@@ -600,7 +600,7 @@
             this.donorsGV.ReadOnly = true;
             this.donorsGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.donorsGV.RowHeadersVisible = false;
-            this.donorsGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.donorsGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.donorsGV.RowTemplate.Height = 50;
             this.donorsGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.donorsGV.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;

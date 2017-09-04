@@ -22,6 +22,8 @@ namespace BalayPasilungan
         public string filename;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
+        public bool empty;
+
         public caseprofile()
         {
             InitializeComponent();
@@ -118,7 +120,7 @@ namespace BalayPasilungan
             this.Close();
         }
         #endregion
-
+        
         #region Case Profile Load
         private void caseprofile_Load(object sender, EventArgs e)
         {
@@ -126,7 +128,7 @@ namespace BalayPasilungan
             blackTheme();
 
             lbladdeditprofile.Text = "New Profile";
-            btnaddeditcase.Text = "Add Profile";
+            btnAddCase.Text = "Add Profile";
 
             dtbirth.MaxDate = DateTime.Now;
             dtjoin.MaxDate = DateTime.Now;
@@ -139,34 +141,42 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT caseid, lastname, firstname, program FROM casestudyprofile", conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-
+                MySqlDataAdapter adp = new MySqlDataAdapter("SELECT caseid, lastname, firstname, program FROM casestudyprofile", conn);
                 DataTable dt = new DataTable();
-
                 adp.Fill(dt);
 
-                if (dt.Rows.Count > 0)
+                if (dt.Rows.Count == 0)
                 {
-                    dtgcs.DataSource = dt;
-                    dtgcs.Columns[0].Visible = false;
-
-                    getdrop();
-                    getresidential();
-                    getcount();
+                    dt.Rows.Add(-1, "No entries.", null, null);
+                    empty = true;
                 }
 
-                else
+                dtgcs.DataSource = dt;
+
+                // Case Profile UI Modifications
+                dtgcs.Columns[1].HeaderText = "LASTNAME";
+                dtgcs.Columns[2].HeaderText = "FIRSTNAME";
+                dtgcs.Columns[3].HeaderText = "PROGRAM";
+
+                // For ID purposes (hidden from user)            
+                dtgcs.Columns[0].Visible = false;
+
+                // 935 WIDTH
+                dtgcs.Columns[1].Width = 380;
+                dtgcs.Columns[2].Width = 380;
+                dtgcs.Columns[3].Width = 175;
+
+                if (dt.Rows.Count > 0 && !empty)
                 {
-                    MessageBox.Show("There are no case studies currently profiled.");
+                    dtgcs.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
+                    dtgcs.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+
+                    getdrop(); getresidential(); getcount();
                 }
+                else empty = false;
 
                 conn.Close();
             }
-
-
-
-
             catch (Exception ee)
             {
                 MessageBox.Show("" + ee);
@@ -1080,7 +1090,7 @@ namespace BalayPasilungan
             dtbirth.Value = DateTime.Now.Date;
             dtjoin.Value = DateTime.Now.Date;
 
-            if (btnaddeditcase.Text == "Add Profile")
+            if (btnAddCase.Text == "Add Profile")
             {
                 tabControl.SelectedTab = first;
             }
@@ -1758,7 +1768,7 @@ namespace BalayPasilungan
 
         private void btnaddeditcase_Click(object sender, EventArgs e)
         {
-            if (btnaddeditcase.Text == "Add Profile")
+            if (btnAddCase.Text == "Add Profile")
             {
                 addprofile();
             }
@@ -1768,9 +1778,7 @@ namespace BalayPasilungan
 
                 editprofile();
             }
-
             
-
         }
 
         private void btnaddhealth_Click(object sender, EventArgs e)
@@ -2077,7 +2085,7 @@ namespace BalayPasilungan
         #region back buttons
         private void btncancel_Click(object sender, EventArgs e)
         {
-            if (btnaddeditcase.Text == "Add Changes")
+            if (btnAddCase.Text == "Add Changes")
             {
                 tabCase.SelectedTab = tabInfo;
             }
@@ -2302,7 +2310,7 @@ namespace BalayPasilungan
 
             tabCase.SelectedTab = tabNewChild;
 
-            btnaddeditcase.Text = "Add Changes";
+            btnAddCase.Text = "Add Changes";
             lbladdeditprofile.Text = "Edit Profile";
 
             reloadeditinfo(id);
@@ -2356,6 +2364,11 @@ namespace BalayPasilungan
         }
 
         #endregion
+
+        private void tabNewInfo_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void newprofilepic_Click(object sender, EventArgs e)
         {

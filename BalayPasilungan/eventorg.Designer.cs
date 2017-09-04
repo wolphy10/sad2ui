@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eventorg));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.taskbar = new System.Windows.Forms.Panel();
             this.btnRequest = new System.Windows.Forms.Button();
             this.btnEvent = new System.Windows.Forms.Button();
@@ -45,6 +45,10 @@
             this.btnAddAttendance = new System.Windows.Forms.Button();
             this.btnViewBudget = new System.Windows.Forms.Button();
             this.panelEventDet = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -58,6 +62,9 @@
             this.eventTS = new System.Windows.Forms.ToolStripMenuItem();
             this.attendanceTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabRequest = new System.Windows.Forms.TabPage();
+            this.menuStripEvent = new System.Windows.Forms.MenuStrip();
+            this.addEventTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.pendingRequestTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabERForm = new System.Windows.Forms.TabControl();
             this.eventdetails = new System.Windows.Forms.TabPage();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -167,9 +174,6 @@
             this.lblRequestBy = new System.Windows.Forms.Label();
             this.panelRequestBy = new System.Windows.Forms.Panel();
             this.txtRequestBy = new System.Windows.Forms.TextBox();
-            this.menuStripEvent = new System.Windows.Forms.MenuStrip();
-            this.addEventTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.pendingRequestTS = new System.Windows.Forms.ToolStripMenuItem();
             this.ERProgress = new System.Windows.Forms.MenuStrip();
             this.edTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tdTS = new System.Windows.Forms.ToolStripMenuItem();
@@ -264,10 +268,6 @@
             this.lblOptions2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.remindTimer = new System.Windows.Forms.Timer(this.components);
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
             this.taskbar.SuspendLayout();
             this.upPanel.SuspendLayout();
             this.tabSecond.SuspendLayout();
@@ -277,6 +277,7 @@
             this.panelEventHead.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.tabRequest.SuspendLayout();
+            this.menuStripEvent.SuspendLayout();
             this.tabERForm.SuspendLayout();
             this.eventdetails.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -296,7 +297,6 @@
             this.confirmTab.SuspendLayout();
             this.confirmEventDetails.SuspendLayout();
             this.panelRequestBy.SuspendLayout();
-            this.menuStripEvent.SuspendLayout();
             this.ERProgress.SuspendLayout();
             this.tabAttend.SuspendLayout();
             this.panelOptions.SuspendLayout();
@@ -431,7 +431,7 @@
             this.tabEvent.Controls.Add(this.menuStrip);
             this.tabEvent.Location = new System.Drawing.Point(4, 25);
             this.tabEvent.Name = "tabEvent";
-            this.tabEvent.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabEvent.Padding = new System.Windows.Forms.Padding(3);
             this.tabEvent.Size = new System.Drawing.Size(958, 678);
             this.tabEvent.TabIndex = 0;
             this.tabEvent.Text = "tabEvent";
@@ -485,6 +485,46 @@
             this.panelEventDet.Name = "panelEventDet";
             this.panelEventDet.Size = new System.Drawing.Size(941, 145);
             this.panelEventDet.TabIndex = 4;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Location = new System.Drawing.Point(446, 53);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(41, 13);
+            this.label34.TabIndex = 7;
+            this.label34.Text = "label34";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(112, 104);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(41, 13);
+            this.label31.TabIndex = 6;
+            this.label31.Text = "label31";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(112, 65);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(41, 13);
+            this.label26.TabIndex = 5;
+            this.label26.Text = "label26";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(112, 25);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.TabIndex = 4;
+            this.label25.Text = "label25";
             // 
             // label30
             // 
@@ -617,14 +657,50 @@
             // 
             this.tabRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tabRequest.Controls.Add(this.menuStripEvent);
-            this.tabRequest.Controls.Add(this.tabERForm);
             this.tabRequest.Controls.Add(this.ERProgress);
+            this.tabRequest.Controls.Add(this.tabERForm);
             this.tabRequest.Location = new System.Drawing.Point(4, 25);
             this.tabRequest.Name = "tabRequest";
-            this.tabRequest.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabRequest.Padding = new System.Windows.Forms.Padding(3);
             this.tabRequest.Size = new System.Drawing.Size(958, 678);
             this.tabRequest.TabIndex = 1;
             this.tabRequest.Text = "tabRequest";
+            // 
+            // menuStripEvent
+            // 
+            this.menuStripEvent.AutoSize = false;
+            this.menuStripEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.menuStripEvent.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStripEvent.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStripEvent.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addEventTS,
+            this.pendingRequestTS});
+            this.menuStripEvent.Location = new System.Drawing.Point(0, 0);
+            this.menuStripEvent.Name = "menuStripEvent";
+            this.menuStripEvent.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStripEvent.Size = new System.Drawing.Size(950, 35);
+            this.menuStripEvent.TabIndex = 3;
+            // 
+            // addEventTS
+            // 
+            this.addEventTS.AutoSize = false;
+            this.addEventTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.addEventTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEventTS.ForeColor = System.Drawing.Color.White;
+            this.addEventTS.Name = "addEventTS";
+            this.addEventTS.Size = new System.Drawing.Size(200, 31);
+            this.addEventTS.Text = "Add Event Request";
+            // 
+            // pendingRequestTS
+            // 
+            this.pendingRequestTS.AutoSize = false;
+            this.pendingRequestTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.pendingRequestTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingRequestTS.ForeColor = System.Drawing.Color.White;
+            this.pendingRequestTS.Name = "pendingRequestTS";
+            this.pendingRequestTS.Size = new System.Drawing.Size(200, 31);
+            this.pendingRequestTS.Text = "Pending Request";
+            this.pendingRequestTS.Click += new System.EventHandler(this.pendingRequestTS_Click);
             // 
             // tabERForm
             // 
@@ -661,7 +737,7 @@
             this.eventdetails.Controls.Add(this.lblEventName);
             this.eventdetails.Location = new System.Drawing.Point(4, 25);
             this.eventdetails.Name = "eventdetails";
-            this.eventdetails.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.eventdetails.Padding = new System.Windows.Forms.Padding(3);
             this.eventdetails.Size = new System.Drawing.Size(852, 566);
             this.eventdetails.TabIndex = 0;
             this.eventdetails.Text = "tabPage1";
@@ -803,7 +879,7 @@
             this.lblNote.ForeColor = System.Drawing.Color.White;
             this.lblNote.Location = new System.Drawing.Point(88, 22);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(506, 25);
+            this.lblNote.Size = new System.Drawing.Size(508, 25);
             this.lblNote.TabIndex = 8;
             this.lblNote.Text = "To successfully request an event, please answer everything.";
             // 
@@ -961,7 +1037,7 @@
             this.timeanddate.Controls.Add(this.panelEHours);
             this.timeanddate.Location = new System.Drawing.Point(4, 25);
             this.timeanddate.Name = "timeanddate";
-            this.timeanddate.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.timeanddate.Padding = new System.Windows.Forms.Padding(3);
             this.timeanddate.Size = new System.Drawing.Size(852, 566);
             this.timeanddate.TabIndex = 1;
             this.timeanddate.Text = "tabPage2";
@@ -1479,7 +1555,7 @@
             this.others.Controls.Add(this.btnRemind);
             this.others.Location = new System.Drawing.Point(4, 25);
             this.others.Name = "others";
-            this.others.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.others.Padding = new System.Windows.Forms.Padding(3);
             this.others.Size = new System.Drawing.Size(852, 566);
             this.others.TabIndex = 2;
             this.others.Text = "tabPage1";
@@ -1837,7 +1913,7 @@
             this.confirmTab.Controls.Add(this.panelRequestBy);
             this.confirmTab.Location = new System.Drawing.Point(4, 25);
             this.confirmTab.Name = "confirmTab";
-            this.confirmTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.confirmTab.Padding = new System.Windows.Forms.Padding(3);
             this.confirmTab.Size = new System.Drawing.Size(852, 566);
             this.confirmTab.TabIndex = 3;
             this.confirmTab.Text = "tabPage1";
@@ -1923,7 +1999,7 @@
             this.add_lbl3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.add_lbl3.Location = new System.Drawing.Point(3, 41);
             this.add_lbl3.Name = "add_lbl3";
-            this.add_lbl3.Size = new System.Drawing.Size(53, 21);
+            this.add_lbl3.Size = new System.Drawing.Size(54, 21);
             this.add_lbl3.TabIndex = 39;
             this.add_lbl3.Text = "Venue";
             // 
@@ -2033,7 +2109,7 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.label21.Location = new System.Drawing.Point(3, 163);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 21);
+            this.label21.Size = new System.Drawing.Size(85, 21);
             this.label21.TabIndex = 51;
             this.label21.Text = "Event Type";
             // 
@@ -2116,42 +2192,6 @@
             this.txtRequestBy.Enter += new System.EventHandler(this.txtRequestBy_Enter);
             this.txtRequestBy.Leave += new System.EventHandler(this.txtRequestBy_Leave);
             // 
-            // menuStripEvent
-            // 
-            this.menuStripEvent.AutoSize = false;
-            this.menuStripEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.menuStripEvent.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStripEvent.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStripEvent.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addEventTS,
-            this.pendingRequestTS});
-            this.menuStripEvent.Location = new System.Drawing.Point(0, 0);
-            this.menuStripEvent.Name = "menuStripEvent";
-            this.menuStripEvent.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStripEvent.Size = new System.Drawing.Size(950, 35);
-            this.menuStripEvent.TabIndex = 3;
-            // 
-            // addEventTS
-            // 
-            this.addEventTS.AutoSize = false;
-            this.addEventTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.addEventTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEventTS.ForeColor = System.Drawing.Color.White;
-            this.addEventTS.Name = "addEventTS";
-            this.addEventTS.Size = new System.Drawing.Size(200, 31);
-            this.addEventTS.Text = "Add Event Request";
-            // 
-            // pendingRequestTS
-            // 
-            this.pendingRequestTS.AutoSize = false;
-            this.pendingRequestTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.pendingRequestTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pendingRequestTS.ForeColor = System.Drawing.Color.White;
-            this.pendingRequestTS.Name = "pendingRequestTS";
-            this.pendingRequestTS.Size = new System.Drawing.Size(200, 31);
-            this.pendingRequestTS.Text = "Pending Request";
-            this.pendingRequestTS.Click += new System.EventHandler(this.pendingRequestTS_Click);
-            // 
             // ERProgress
             // 
             this.ERProgress.AutoSize = false;
@@ -2222,7 +2262,7 @@
             this.tabAttend.Controls.Add(this.tabList);
             this.tabAttend.Location = new System.Drawing.Point(4, 25);
             this.tabAttend.Name = "tabAttend";
-            this.tabAttend.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAttend.Padding = new System.Windows.Forms.Padding(3);
             this.tabAttend.Size = new System.Drawing.Size(958, 678);
             this.tabAttend.TabIndex = 2;
             this.tabAttend.Text = "tabAttend";
@@ -2361,7 +2401,7 @@
             this.tabOneDay.Controls.Add(this.label8);
             this.tabOneDay.Location = new System.Drawing.Point(4, 25);
             this.tabOneDay.Name = "tabOneDay";
-            this.tabOneDay.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabOneDay.Padding = new System.Windows.Forms.Padding(3);
             this.tabOneDay.Size = new System.Drawing.Size(932, 153);
             this.tabOneDay.TabIndex = 0;
             this.tabOneDay.Text = "tabPage1";
@@ -2412,7 +2452,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(154, 68);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 21);
+            this.label9.Size = new System.Drawing.Size(96, 21);
             this.label9.TabIndex = 4;
             this.label9.Text = "Event Venue";
             // 
@@ -2448,7 +2488,7 @@
             this.tabDays.Controls.Add(this.label17);
             this.tabDays.Location = new System.Drawing.Point(4, 25);
             this.tabDays.Name = "tabDays";
-            this.tabDays.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabDays.Padding = new System.Windows.Forms.Padding(3);
             this.tabDays.Size = new System.Drawing.Size(932, 153);
             this.tabDays.TabIndex = 1;
             this.tabDays.Text = "tabPage2";
@@ -2519,7 +2559,7 @@
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(273, 65);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 21);
+            this.label16.Size = new System.Drawing.Size(96, 21);
             this.label16.TabIndex = 11;
             this.label16.Text = "Event Venue";
             // 
@@ -2560,7 +2600,7 @@
             this.tabChildAttend.Controls.Add(this.lvChildAttend);
             this.tabChildAttend.Location = new System.Drawing.Point(4, 22);
             this.tabChildAttend.Name = "tabChildAttend";
-            this.tabChildAttend.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabChildAttend.Padding = new System.Windows.Forms.Padding(3);
             this.tabChildAttend.Size = new System.Drawing.Size(628, 459);
             this.tabChildAttend.TabIndex = 0;
             this.tabChildAttend.Text = "tabPage1";
@@ -2606,7 +2646,7 @@
             this.tabOtherAttend.Controls.Add(this.listView1);
             this.tabOtherAttend.Location = new System.Drawing.Point(4, 22);
             this.tabOtherAttend.Name = "tabOtherAttend";
-            this.tabOtherAttend.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabOtherAttend.Padding = new System.Windows.Forms.Padding(3);
             this.tabOtherAttend.Size = new System.Drawing.Size(628, 459);
             this.tabOtherAttend.TabIndex = 1;
             this.tabOtherAttend.Text = "tabPage2";
@@ -2665,7 +2705,7 @@
             this.tabChildList.Controls.Add(this.panelChildList);
             this.tabChildList.Location = new System.Drawing.Point(4, 25);
             this.tabChildList.Name = "tabChildList";
-            this.tabChildList.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabChildList.Padding = new System.Windows.Forms.Padding(3);
             this.tabChildList.Size = new System.Drawing.Size(303, 456);
             this.tabChildList.TabIndex = 0;
             this.tabChildList.Text = "tabPage1";
@@ -2728,7 +2768,7 @@
             this.tabOtherList.Controls.Add(this.head2);
             this.tabOtherList.Location = new System.Drawing.Point(4, 25);
             this.tabOtherList.Name = "tabOtherList";
-            this.tabOtherList.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabOtherList.Padding = new System.Windows.Forms.Padding(3);
             this.tabOtherList.Size = new System.Drawing.Size(303, 456);
             this.tabOtherList.TabIndex = 1;
             this.tabOtherList.Text = "tabPage2";
@@ -2795,9 +2835,9 @@
             this.tabCalendar.Controls.Add(this.btnMPrev);
             this.tabCalendar.Controls.Add(this.CalendarView);
             this.tabCalendar.Location = new System.Drawing.Point(4, 25);
-            this.tabCalendar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabCalendar.Margin = new System.Windows.Forms.Padding(2);
             this.tabCalendar.Name = "tabCalendar";
-            this.tabCalendar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabCalendar.Padding = new System.Windows.Forms.Padding(2);
             this.tabCalendar.Size = new System.Drawing.Size(958, 678);
             this.tabCalendar.TabIndex = 4;
             this.tabCalendar.Text = "tabPage1";
@@ -2902,23 +2942,23 @@
             this.CalendarView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CalendarView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.CalendarView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CalendarView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle2;
             this.CalendarView.EnableHeadersVisualStyles = false;
             this.CalendarView.Location = new System.Drawing.Point(11, 112);
             this.CalendarView.MultiSelect = false;
@@ -2927,9 +2967,9 @@
             this.CalendarView.RowHeadersVisible = false;
             this.CalendarView.RowHeadersWidth = 100;
             this.CalendarView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.CalendarView.RowTemplate.Height = 95;
             this.CalendarView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CalendarView.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -2945,7 +2985,7 @@
             this.tabPending.Controls.Add(this.panelOptionsPend);
             this.tabPending.Location = new System.Drawing.Point(4, 25);
             this.tabPending.Name = "tabPending";
-            this.tabPending.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPending.Padding = new System.Windows.Forms.Padding(3);
             this.tabPending.Size = new System.Drawing.Size(958, 678);
             this.tabPending.TabIndex = 3;
             this.tabPending.Text = "tabPage1";
@@ -2992,7 +3032,7 @@
             this.tabEvPending.Controls.Add(this.tabPage1);
             this.tabEvPending.Controls.Add(this.tabPage2);
             this.tabEvPending.Location = new System.Drawing.Point(73, 7);
-            this.tabEvPending.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEvPending.Margin = new System.Windows.Forms.Padding(2);
             this.tabEvPending.Name = "tabEvPending";
             this.tabEvPending.SelectedIndex = 0;
             this.tabEvPending.Size = new System.Drawing.Size(802, 614);
@@ -3002,9 +3042,9 @@
             // 
             this.tabPage1.Controls.Add(this.listPending);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(794, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
@@ -3043,9 +3083,9 @@
             this.tabPage2.Controls.Add(this.btnBackP);
             this.tabPage2.Controls.Add(this.tableLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(794, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
@@ -3116,7 +3156,7 @@
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.label24.Location = new System.Drawing.Point(3, 63);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 21);
+            this.label24.Size = new System.Drawing.Size(54, 21);
             this.label24.TabIndex = 39;
             this.label24.Text = "Venue";
             // 
@@ -3226,7 +3266,7 @@
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.label38.Location = new System.Drawing.Point(3, 222);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(84, 21);
+            this.label38.Size = new System.Drawing.Size(85, 21);
             this.label38.TabIndex = 51;
             this.label38.Text = "Event Type";
             // 
@@ -3266,7 +3306,7 @@
             // btnReject
             // 
             this.btnReject.Location = new System.Drawing.Point(297, 15);
-            this.btnReject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReject.Margin = new System.Windows.Forms.Padding(2);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(56, 19);
             this.btnReject.TabIndex = 2;
@@ -3277,7 +3317,7 @@
             // btnApprove
             // 
             this.btnApprove.Location = new System.Drawing.Point(228, 15);
-            this.btnApprove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnApprove.Margin = new System.Windows.Forms.Padding(2);
             this.btnApprove.Name = "btnApprove";
             this.btnApprove.Size = new System.Drawing.Size(56, 19);
             this.btnApprove.TabIndex = 1;
@@ -3306,55 +3346,15 @@
             this.remindTimer.Interval = 10;
             this.remindTimer.Tick += new System.EventHandler(this.remindTimer_Tick);
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(112, 25);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "label25";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(112, 65);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 13);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "label26";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(112, 104);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 13);
-            this.label31.TabIndex = 6;
-            this.label31.Text = "label31";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(446, 53);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(41, 13);
-            this.label34.TabIndex = 7;
-            this.label34.Text = "label34";
-            // 
             // eventorg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 700);
+            this.Controls.Add(this.upPanel);
             this.Controls.Add(this.taskbar);
             this.Controls.Add(this.tabSecond);
-            this.Controls.Add(this.upPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "eventorg";
@@ -3372,6 +3372,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.tabRequest.ResumeLayout(false);
+            this.menuStripEvent.ResumeLayout(false);
+            this.menuStripEvent.PerformLayout();
             this.tabERForm.ResumeLayout(false);
             this.eventdetails.ResumeLayout(false);
             this.eventdetails.PerformLayout();
@@ -3407,8 +3409,6 @@
             this.confirmEventDetails.PerformLayout();
             this.panelRequestBy.ResumeLayout(false);
             this.panelRequestBy.PerformLayout();
-            this.menuStripEvent.ResumeLayout(false);
-            this.menuStripEvent.PerformLayout();
             this.ERProgress.ResumeLayout(false);
             this.ERProgress.PerformLayout();
             this.tabAttend.ResumeLayout(false);
