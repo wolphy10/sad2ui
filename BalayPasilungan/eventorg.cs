@@ -1214,7 +1214,7 @@ namespace BalayPasilungan
             else
             {
                 scs.reftoevorg = this;
-                scs.message = "EVENT REQUEST SENT.";
+                scs.lblSuccess.Text = "EVENT REQUEST SENT.";
                 DialogResult rest = scs.ShowDialog();
                 if(rest == DialogResult.OK)
                 {
@@ -1521,7 +1521,7 @@ namespace BalayPasilungan
                 approveEvent();
                 success scs = new success();
                 scs.reftoevorg = this;
-                scs.message = "Successfully Approved the Event.";
+                scs.lblSuccess.Text = "Successfully Approved the Event.";
                 DialogResult rest = scs.ShowDialog();
                 if (rest == DialogResult.OK)
                 {
@@ -1543,7 +1543,7 @@ namespace BalayPasilungan
                 disApproveEvent();
                 success scs = new success();
                 scs.reftoevorg = this;
-                scs.message = "Successfully Rejected the Event.";
+                scs.lblSuccess.Text = "Successfully Rejected the Event.";
                 DialogResult rest = scs.ShowDialog();
                 if (rest == DialogResult.OK)
                 {
@@ -1560,6 +1560,11 @@ namespace BalayPasilungan
         private void btnBackP_Click(object sender, EventArgs e)
         {
             tabEvPending.SelectedIndex = 0;
+        }
+
+        public void clrTabReqF()//resets the field in tab request for every time you click the tab request btn or add through calendar; 
+        {
+
         }
         #endregion
 
@@ -1733,8 +1738,6 @@ namespace BalayPasilungan
         private void CalendarView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
-            //MessageBox.Show(Convert.ToInt32(CalendarView.SelectedCells[0].Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
-            //DateTime datecell = Convert.ToDateTime(Convert.ToInt32(CalendarView.SelectedCells[0].Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
             //MessageBox.Show(CalendarView.SelectedCells[0].Value.ToString());
             if (CalendarView.SelectedCells[0].Value.ToString() != "")
             {// the plan is to check if the date picked is before the date today so that it will only show a view it cannot add but it is argueable because sometimes people want to records events from the past so it will only matter on the reminder
