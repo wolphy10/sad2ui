@@ -22,7 +22,7 @@ namespace BalayPasilungan
         public string filename;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
-        public bool empty;
+        public bool empty, confirmed;
 
         public caseprofile()
         {
@@ -105,6 +105,44 @@ namespace BalayPasilungan
             btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_black;
             btnReport.BackgroundImage = global::BalayPasilungan.Properties.Resources.report_white;
         }
+
+        public void errorMessage(string message)            // Error Message
+        {
+            error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            err.lblError.Text = message;
+            dim.Show();
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void successMessage(string message)            // Success Message
+        {
+            success yey = new success();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            yey.lblSuccess.Text = message;
+            dim.Show();
+
+            if (yey.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            conf.lblConfirm.Text = message;
+            dim.Show();
+
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
+        }
         #endregion
 
         #region Main
@@ -127,8 +165,8 @@ namespace BalayPasilungan
             resetMainBTN();
             blackTheme();
 
-            lbladdeditprofile.Text = "New Profile";
-            btnAddCase.Text = "Add Profile";
+            lbladdeditprofile.Text = "New Case Profile";
+            btnaddeditcase.Text = "Add New Profile";
 
             dtbirth.MaxDate = DateTime.Now;
             dtjoin.MaxDate = DateTime.Now;
@@ -182,8 +220,6 @@ namespace BalayPasilungan
                 MessageBox.Show("" + ee);
                 conn.Close();
             }
-
-            tabControl.SelectedTab = first;
         }
 
         private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
@@ -296,7 +332,6 @@ namespace BalayPasilungan
                     txtlname.Text = dt.Rows[0]["lastname"].ToString();
                     txtfname.Text = dt.Rows[0]["firstname"].ToString();
                     txtcaseaddress.Text = dt.Rows[0]["address"].ToString();
-                    txtage.Text = dt.Rows[0]["caseAge"].ToString();
                     cbxprogram.Text = dt.Rows[0]["program"].ToString();
                     cbxstatus.Text = dt.Rows[0]["status"].ToString();
 
@@ -324,40 +359,32 @@ namespace BalayPasilungan
 
         public void addprofile()
         {
-            string lname = txtlname.Text, fname = txtfname.Text, status = cbxstatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
+            string lname = txtlname.Text, fname = txtfname.Text, status = cbxcasestatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
 
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(txtage.Text) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status))
-            {
-                MessageBox.Show("Please fill out empty fields.");
-            }
+            DateTime now = DateTime.Today, birthyear = dtbirth.Value;
 
-            else if (pbox1.Image == null)
-            {
-                MessageBox.Show("Please insert a proper picture.");
-            }
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status)) errorMessage("Please fill out empty fields.");                
+
+            else if (pbox1.Image == null) errorMessage("Please insert a proper picture.");
 
             else
             {
+                age = now.Year - birthyear.Year;
 
-                if (Int32.TryParse(txtage.Text, out age))
-                {
-                    age = int.Parse(txtage.Text);
-
-                    try
+                if (now < birthyear.AddYears(age)) age -= 1;
+            
+                try
                     {
                         conn.Open();
                         MySqlCommand comm = new MySqlCommand("INSERT INTO casestudyprofile(lastname, firstname, birthdate, status, caseage, program, dateJoined, picture, address) VALUES('" + lname + "', '" + fname + "', '" + dtbirth.Value.Date.ToString("yyyyMMdd") + "','" + status + "','" + age + "','" + program + "','" + dtjoin.Value.Date.ToString("yyyy/MM/dd") + "', '" + filename + "', '" + address + "')", conn);
 
                         comm.ExecuteNonQuery();
-
-                        MessageBox.Show("New Profile Added!");
-
                         conn.Close();
-
-                        tabControl.SelectedTab = first;
                         tabCase.SelectedTab = tabCases;
 
+                        successMessage("New Profile Added!");
+    
                         reset();
                         refresh();
 
@@ -367,12 +394,6 @@ namespace BalayPasilungan
                         MessageBox.Show("" + ee);
                         conn.Close();
                     }
-                }
-
-                else
-                {
-                    MessageBox.Show("Age input is invalid! Please input a proper input!");
-                }
 
             }
         }
@@ -382,65 +403,58 @@ namespace BalayPasilungan
             string lname = txtlname.Text, fname = txtfname.Text, status = cbxstatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
 
+            DateTime now = DateTime.Today, birthyear = dtbirth.Value;
+            
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status)) errorMessage("PLease fill out empty fields.");
 
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(txtage.Text) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status))
-            {
-                MessageBox.Show("Please fill out empty fields.");
-            }
-
-            else if (pbox1.Image == null)
-            {
-                MessageBox.Show("Please insert a proper picture.");
-            }
+            else if (pbox1.Image == null) errorMessage("Please insert proper picture.");
 
             else
             {
 
-                if (Int32.TryParse(txtage.Text, out age))
+                age = now.Year - birthyear.Year;
+
+                if (now < birthyear.AddYears(age)) age -= 1;
+
+                try
                 {
-                    age = int.Parse(txtage.Text);
 
-                    try
-                    {
-                        MessageBox.Show(filename);
-                        conn.Open();
-                        MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
-                                            "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", status = '" + status + "', " +
-                                            "caseage = " + age + ", program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
-                                            "picture = '" + filename + "', address = '" + address + "' WHERE caseid = " + id, conn);
+                    conn.Open();
+                    MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
+                                        "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", status = '" + status + "', " +
+                                        "caseage = " + age + ", program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
+                                        "picture = '" + filename + "', address = '" + address + "' WHERE caseid = " + id, conn);
 
-                        comm.ExecuteNonQuery();
+                    comm.ExecuteNonQuery();
 
-                        MessageBox.Show("Profile Edited!");
+                    //MessageBox.Show("Profile Edited!");
 
-                        conn.Close();
+                    conn.Close();
 
-                        tabControl.SelectedTab = sixteen;
-                        tabCase.SelectedTab = tabInfo;
+                    successMessage("Profile Edited!");
 
-                        reset();
-                        refresh();
+                    tabControl.SelectedTab = sixteen;
+                    tabCase.SelectedTab = tabInfo;
 
-                        reload(id);
+                    reset();
+                    refresh();
 
-                        existsed(id);
+                    reload(id);
 
-                        existshealth(id);
+                    existsed(id);
 
-                    }
-                    catch (Exception ee)
-                    {
-                        MessageBox.Show("" + ee);
-                        conn.Close();
-                    }
+                    existshealth(id);
+
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
                 }
 
-                else
-                {
-                    MessageBox.Show("Age input is invalid! Please input a proper input!");
-                }
 
             }
+
         }
 
         public void addhealth()
@@ -450,7 +464,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -470,9 +484,11 @@ namespace BalayPasilungan
 
                         comm.ExecuteNonQuery();
 
-                        MessageBox.Show("New Info Added!");
+                        successMessage("New Health Biography Added!");
 
                         conn.Close();
+
+                        tabCase.SelectedTab = tabInfo;
 
                         existshealth(id);
 
@@ -500,17 +516,17 @@ namespace BalayPasilungan
                 {
                     if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
                     {
-                        MessageBox.Show("Height and Weight inputs are invalid! Use numbers!");
+                        errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
                     else if (Int32.TryParse(txtheight.Text, out height) == false)
                     {
-                        MessageBox.Show("Height input is invalid! Use numbers!");
+                        errorMessage("Height input is invalid! Use numbers!");
                     }
 
                     else
                     {
-                        MessageBox.Show("Weight input is invalid! Use numbers!");
+                        errorMessage("Weight input is invalid! Use numbers!");
                     }
                 }
             }
@@ -523,7 +539,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -543,9 +559,11 @@ namespace BalayPasilungan
 
                         comm.ExecuteNonQuery();
 
-                        MessageBox.Show("New Info Added!");
+                        successMessage("Changes for Health Biography Added!");
 
                         conn.Close();
+
+                        tabCase.SelectedTab = tabInfo;
 
                         existshealth(id);
 
@@ -573,17 +591,17 @@ namespace BalayPasilungan
                 {
                     if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
                     {
-                        MessageBox.Show("Height and Weight inputs are invalid! Use numbers!");
+                        errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
                     else if (Int32.TryParse(txtheight.Text, out height) == false)
                     {
-                        MessageBox.Show("Height input is invalid! Use numbers!");
+                        errorMessage("Height input is invalid! Use numbers!");
                     }
 
                     else
                     {
-                        MessageBox.Show("Weight input is invalid! Use numbers!");
+                        errorMessage("Weight input is invalid! Use numbers!");
                     }
                 }
             }
@@ -1081,7 +1099,6 @@ namespace BalayPasilungan
 
             txtlname.Clear();
             txtfname.Clear();
-            txtage.Clear();
             txtcaseaddress.Clear();
 
             cbxprogram.SelectedIndex = -1;
@@ -1089,18 +1106,6 @@ namespace BalayPasilungan
 
             dtbirth.Value = DateTime.Now.Date;
             dtjoin.Value = DateTime.Now.Date;
-
-            if (btnAddCase.Text == "Add Profile")
-            {
-                tabControl.SelectedTab = first;
-            }
-
-            else
-            {
-                tabControl.SelectedTab = sixteen;
-            }
-
-            
         }
 
         public void reset2()
@@ -1440,9 +1445,11 @@ namespace BalayPasilungan
         private void btnAdd_Click(object sender, EventArgs e)
         {
             resetMainColors();
-            tabNewChildInput.SelectedIndex = 0;
+
+            lbladdeditprofile.Text = "New Case Profile";
 
             tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabaddinfo;
         }
 
         private void male_CheckedChanged(object sender, EventArgs e)
@@ -1456,83 +1463,83 @@ namespace BalayPasilungan
         {
             resetNewChildTS();
             tsNewFamily.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewFamily;
+            tabaddchild.SelectedTab = tabNewFamily;
         }
         
         private void btnBackInfo_Click(object sender, EventArgs e) // Current tab: family
         {
             resetNewChildTS();
             tsNewInfo.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewInfo;
+            tabaddchild.SelectedTab = tabaddinfo;
         }
         
         private void btnNextEdu_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewEdu.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewEdu;
+            tabaddchild.SelectedTab = tabNewEdu;
         }
 
         private void btnBackFamily_Click(object sender, EventArgs e) // Current tab: education
         {
             resetNewChildTS();
             tsNewFamily.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewFamily;
+            tabaddchild.SelectedTab = tabNewFamily;
         }
 
         private void btnNextHealth_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewHealth.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewHealth;
+            tabaddchild.SelectedTab = tabNewHealth;
         }
 
         private void btnBackEdu_Click(object sender, EventArgs e) // Current tab: health
         {
             resetNewChildTS();
             tsNewEdu.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewEdu;
+            tabaddchild.SelectedTab = tabNewEdu;
         }
 
         private void btnNextCon_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewCon.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewCon;
+            tabaddchild.SelectedTab = tabNewCon;
         }
 
         private void btnBackHealth_Click(object sender, EventArgs e)    // Current tab: consultation
         {
             resetNewChildTS();
             tsNewHealth.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewHealth;
+            tabaddchild.SelectedTab = tabNewHealth;
         }
 
         private void btnNextIO_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIO;
         }
 
         private void btnBackCon_Click(object sender, EventArgs e)   // Current tab: IO
         {
             resetNewChildTS();
             tsNewCon.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewCon;
+            tabaddchild.SelectedTab = tabNewCon;
         }
 
         private void btnBackIO_Click(object sender, EventArgs e)    // Current tab: Confirmation
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIO;
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
-            tabNewChildInput.SelectedTab = tabNewConfirm;
+            tabaddchild.SelectedTab = tabNewConfirm;
         }
 
         #endregion
@@ -1768,7 +1775,7 @@ namespace BalayPasilungan
 
         private void btnaddeditcase_Click(object sender, EventArgs e)
         {
-            if (btnAddCase.Text == "Add Profile")
+            if (btnaddeditcase.Text == "Add New Profile")
             {
                 addprofile();
             }
@@ -1783,7 +1790,7 @@ namespace BalayPasilungan
 
         private void btnaddhealth_Click(object sender, EventArgs e)
         {
-            if (btnaddhealth.Text == "Add Info")
+            if (btnaddhealth.Text == "ADD")
             {
                 addhealth();
             }
@@ -2085,7 +2092,7 @@ namespace BalayPasilungan
         #region back buttons
         private void btncancel_Click(object sender, EventArgs e)
         {
-            if (btnAddCase.Text == "Add Changes")
+            if (btnaddeditcase.Text == "Add Changes")
             {
                 tabCase.SelectedTab = tabInfo;
             }
@@ -2107,16 +2114,16 @@ namespace BalayPasilungan
 
         private void btncancelhealth_Click(object sender, EventArgs e)
         {
-            if (btnaddhealth.Text == "Add Info")
+            if (btnaddhealth.Text == "ADD")
             {
 
-                tabControl.SelectedTab = sixteen;
+                tabCase.SelectedTab = tabInfo;
 
             }
 
             else
             {
-                tabControl.SelectedTab = seventeen;
+                tabCase.SelectedTab = tabInfo;
             }
 
             reset3();
@@ -2217,14 +2224,16 @@ namespace BalayPasilungan
         {
             if (btnhealth.Text == "Add Info")
             {
-                tabControl.SelectedTab = eleventh;
+                tabCase.SelectedTab = tabNewChild;
+                tabaddchild.SelectedTab = tabNewHealth;
 
-                btnaddhealth.Text = "Add Info";
+                lbladdeditprofile.Text = "Add New Health Biography";
             }
 
             else
             {
                 tabControl.SelectedTab = seventeen;
+
                 reloadedithealth(id);
             }
         }
@@ -2310,7 +2319,7 @@ namespace BalayPasilungan
 
             tabCase.SelectedTab = tabNewChild;
 
-            btnAddCase.Text = "Add Changes";
+            btnaddeditcase.Text = "Add Changes";
             lbladdeditprofile.Text = "Edit Profile";
 
             reloadeditinfo(id);
@@ -2333,7 +2342,10 @@ namespace BalayPasilungan
             rtxtall.Text = rviewall.Text;
             rtxtcondition.Text = rviewcondition.Text;
 
-            tabControl.SelectedTab = eleventh;
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewHealth;
+
+            lbladdeditprofile.Text = "Edit Health Biography";
         }
 
         private void btngotohealth_Click(object sender, EventArgs e)
@@ -2364,6 +2376,11 @@ namespace BalayPasilungan
         }
 
         #endregion
+
+        private void noFocusRec1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void tabNewInfo_Click(object sender, EventArgs e)
         {

@@ -356,8 +356,15 @@ namespace BalayPasilungan
                 tabERForm.SelectedIndex = 2;
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
-                confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
+                if (!allDayState)
+                {
+                    confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
                                          "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
+                }
+                else
+                {
+                    confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
+                }
             }
         }
 
@@ -574,34 +581,45 @@ namespace BalayPasilungan
         #endregion
 
         #region Day Buttons
+        public string btnRange = "";
         private void btnAllDay_Click(object sender, EventArgs e)
         {
+            btnRange = "one";
             resetDayButtons();
             btnAllDay.ForeColor = Color.White;            
             btnAllDay.BackColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");            
             btnAllDay.FlatAppearance.BorderColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");
             cbEMonth.Enabled = true; cbEDay.Enabled = true; cbEYear.Enabled = true;
-            cbEMonth2.Enabled = true; cbEDay2.Enabled = true; cbEYear2.Enabled = true;
-            //cbEMonth2.Visible = false; cbEDay2.Visible = false; cbEYear2.Visible = false;
+            cbEMonth2.Visible = false; cbEDay2.Visible = false; cbEYear2.Visible = false;
             lbAllDay.Visible = true; btnRAllDay.Visible = true;
             lbBlock.Visible = false; lbStraight.Visible = false;
-            btnTmRng.Visible = false;
-            //panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true; btnAM2.Visible = true; btnPM2.Visible = true;
+            btnTmRng.Visible = false; lbFrom.Visible = false; lbTo.Visible = false;
+            panelEHours2.Visible = false; panelEMins2.Visible = false; lblColon2.Visible = false; btnAM2.Visible = false; btnPM2.Visible = false;
         }
 
         private void btnMulDay_Click(object sender, EventArgs e)
         {
+            btnRange = "multi";
             resetDayButtons();
             btnMulDay.ForeColor = Color.White;
             btnMulDay.BackColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");
             btnMulDay.FlatAppearance.BorderColor = System.Drawing.ColorTranslator.FromHtml("#5ea6e9");
             cbEMonth.Enabled = true; cbEDay.Enabled = true; cbEYear.Enabled = true;
             cbEMonth2.Enabled = true; cbEDay2.Enabled = true; cbEYear2.Enabled = true;
-            //cbEMonth2.Visible = true; cbEDay2.Visible = true; cbEYear2.Visible = true;
+            cbEMonth2.Visible = true; cbEDay2.Visible = true; cbEYear2.Visible = true;
             lbAllDay.Visible = false; btnRAllDay.Visible = false;
             lbBlock.Visible = true; lbStraight.Visible = true;
-            btnTmRng.Visible = true;
-            //panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true;  btnAM2.Visible = true; btnPM2.Visible = true;
+            btnTmRng.Visible = true; lbFrom.Visible = true; lbTo.Visible = true;
+            panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true; btnAM2.Visible = true; btnPM2.Visible = true;
+            //btnRAllDay
+            lbAllDay.ForeColor = Color.FromArgb(42, 42, 42);
+            btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
+            allDayState = false;
+            cbEDay2.SelectedIndex = cbEDay.SelectedIndex;
+            txtEHours.Text = "00"; txtEHours2.Text = "00";
+            btnAM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            btnAM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
+            ampmFrom = ""; ampmTo = "";
         }
 
         #endregion
@@ -661,20 +679,35 @@ namespace BalayPasilungan
                 lbAllDay.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
                 btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
                 allDayState = true;
-                cbEDay2.Text = (int.Parse(cbEDay.Text) + 1).ToString("00");
+                if (cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
+                {
+                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex + 1;
+                    cbEDay2.SelectedIndex = cbEDay.SelectionStart;
+                }
+                else
+                {
+                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex - 1;
+                    cbEDay2.SelectedIndex = cbEDay.SelectedIndex + 1;
+                }
                 txtEHours.Text = "12"; txtEHours2.Text = "12";
                 btnAM.PerformClick(); btnAM2.PerformClick();
+                lbFrom.Visible = true; lbTo.Visible = true;
+                cbEDay2.Visible = true; cbEMonth2.Visible = true; cbEYear2.Visible = true;
+                cbEDay2.Enabled = false; cbEMonth2.Enabled = false; cbEYear2.Enabled = false;
+                panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true; btnAM2.Visible = true; btnPM2.Visible = true;
             }
             else
             {
                 lbAllDay.ForeColor = Color.FromArgb(42, 42, 42);
                 btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
                 allDayState = false;
-                cbEDay2.Text = cbEDay.Text;
+                cbEDay2.SelectedIndex = cbEDay.SelectedIndex;
                 txtEHours.Text = "00"; txtEHours2.Text = "00";
                 btnAM.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
                 btnAM2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
-
+                ampmFrom = ""; ampmTo = "";
+                lbFrom.Visible = false; lbTo.Visible = false;
+                cbEDay2.Visible = false; cbEMonth2.Visible = false; cbEYear2.Visible = false;
             }
         }
 
@@ -750,7 +783,30 @@ namespace BalayPasilungan
 
         private void cbEDay_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbEDay2.SelectedIndex = cbEDay.SelectedIndex;
+            if (btnRange == "one")
+            {
+                if (cbEMonth.SelectedIndex == cbEMonth.Items.Count - 1 && cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
+                {
+                    cbEMonth2.SelectedIndex = 0;
+                    cbEDay2.SelectedIndex = 0;
+                    cbEYear2.SelectedIndex = cbEYear.SelectedIndex + 1;
+                }
+                else if (cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
+                {
+                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex + 1;
+                    cbEDay2.SelectedIndex = 0;
+                }
+                else
+                {
+                   // MessageBox.Show(""+ cbEMonth.SelectedIndex + "==" + (cbEMonth.Items.Count - 1) +  " " + cbEDay.SelectedIndex + "==" + (cbEDay.Items.Count - 1));
+                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex - 1;
+                    cbEDay2.SelectedIndex = cbEDay.SelectedIndex + 1;
+                }
+            }
+            else if(btnRange == "multi")
+            {
+                cbEDay2.SelectedIndex = cbEDay.SelectedIndex;
+            }
         }
 
         private void cbEYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -762,10 +818,11 @@ namespace BalayPasilungan
         {
             error err = new error();
             err.refToERF = this;
-
-            if ((cbEMonth2.SelectedIndex < cbEMonth.SelectedIndex) &&
-                (cbEYear.SelectedIndex == cbEYear2.SelectedIndex))
+            MessageBox.Show(cbEMonth2.SelectedIndex + "<"+ cbEMonth2.SelectedIndex + " " + cbEYear.SelectedIndex + "==" + cbEYear2.SelectedIndex);
+            if (cbEMonth2.SelectedIndex < cbEMonth.SelectedIndex &&
+                cbEYear.SelectedIndex == cbEYear2.SelectedIndex)
             {
+                MessageBox.Show("selected index changed");
                 err.lblError.Text = "You cannot set this to an earlier month.";
                 err.ShowDialog();
                 cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex;
@@ -1157,6 +1214,7 @@ namespace BalayPasilungan
         #region tabEvent Funtions
         public void displayEvents(string dc, string mc, string yc)
         {
+            eventsListView.Items.Clear();
             string date = yc + "-" + mc + "-" + dc;
             //int evyear;
             string evname, day, timefrom;
@@ -1195,8 +1253,56 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
+        private void eventsListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            string evn = eventsListView.SelectedItems[0].SubItems[1].Text;
+            evEditDetails(evn);
+            tabEvEdit.SelectedIndex = 0;
+        }
 
+        public void evEditDetails(string evn)
+        {
+            try
+            {
+                conn.Open();
 
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evName = '" + evn +"'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                conn.Close();
+                if (dt.Rows.Count == 1)
+                {
+                    lblViewName.Text = dt.Rows[0]["evName"].ToString();
+                    lblViewVenue.Text = dt.Rows[0]["evVenue"].ToString();
+                    lblViewDes.Text = dt.Rows[0]["evDesc"].ToString();
+                    lblViewType.Text = dt.Rows[0]["evType"].ToString();
+                    lblViewDate.Text = dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" +
+                                       dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString();
+                    if(dt.Rows[0]["reminder"].ToString() == "" || dt.Rows[0]["reminder"].ToString() == "true")
+                    {
+                        lblViewRemind.Text = "NONE";
+                    }
+                    else
+                    {
+
+                    }
+                    if(dt.Rows[0]["budget"].ToString() == "")
+                    {
+                        lblViewBudget.Text = "NONE";
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("evedit Details error" + ee);
+                conn.Close();
+            }
+        }
         #endregion
 
         #region tabRequest functions
@@ -1273,12 +1379,38 @@ namespace BalayPasilungan
         //insert functions for requesting
         public void insert()
         {
-            int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
-            string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
-            string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
-            string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
+            int monthfrom = 0, monthto = 0;
+            string eventtime = "", datefrom = "", timeTo = "", dateTo = "";
+            if(btnRange == "one")
+            {
+                if (!allDayState)
+                {
+                    monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+                    monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
+                    eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
+                    datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
+                    timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
+                    dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
+                }
+                else
+                {
+                    monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+                    monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+                    eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
+                    datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
+                    timeTo = txtEHours.Text + ":" + txtEMins.Text + " " + ampmTo;
+                    dateTo = cbEYear.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
+                }
+            }
+            else if(btnRange == "multi")
+            {
+                monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
+                monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
+                eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
+                datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
+                timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
+                dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
+            }
             //MessageBox.Show(eventtime + " " + datefrom + " " + timeTo + " " + dateTo);
             try
             {
