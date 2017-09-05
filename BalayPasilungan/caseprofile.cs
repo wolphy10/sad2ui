@@ -464,7 +464,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -484,7 +484,7 @@ namespace BalayPasilungan
 
                         comm.ExecuteNonQuery();
 
-                        MessageBox.Show("New Info Added!");
+                        successMessage("New Health Biography Added!");
 
                         conn.Close();
 
@@ -516,17 +516,17 @@ namespace BalayPasilungan
                 {
                     if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
                     {
-                        MessageBox.Show("Height and Weight inputs are invalid! Use numbers!");
+                        errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
                     else if (Int32.TryParse(txtheight.Text, out height) == false)
                     {
-                        MessageBox.Show("Height input is invalid! Use numbers!");
+                        errorMessage("Height input is invalid! Use numbers!");
                     }
 
                     else
                     {
-                        MessageBox.Show("Weight input is invalid! Use numbers!");
+                        errorMessage("Weight input is invalid! Use numbers!");
                     }
                 }
             }
@@ -539,7 +539,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -559,7 +559,7 @@ namespace BalayPasilungan
 
                         comm.ExecuteNonQuery();
 
-                        MessageBox.Show("New Info Added!");
+                        successMessage("Changes for Health Biography Added!");
 
                         conn.Close();
 
@@ -591,17 +591,17 @@ namespace BalayPasilungan
                 {
                     if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
                     {
-                        MessageBox.Show("Height and Weight inputs are invalid! Use numbers!");
+                        errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
                     else if (Int32.TryParse(txtheight.Text, out height) == false)
                     {
-                        MessageBox.Show("Height input is invalid! Use numbers!");
+                        errorMessage("Height input is invalid! Use numbers!");
                     }
 
                     else
                     {
-                        MessageBox.Show("Weight input is invalid! Use numbers!");
+                        errorMessage("Weight input is invalid! Use numbers!");
                     }
                 }
             }
