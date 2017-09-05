@@ -488,6 +488,8 @@ namespace BalayPasilungan
 
                         conn.Close();
 
+                        tabCase.SelectedTab = tabInfo;
+
                         existshealth(id);
 
                         reloadedithealth(id);
@@ -560,6 +562,8 @@ namespace BalayPasilungan
                         MessageBox.Show("New Info Added!");
 
                         conn.Close();
+
+                        tabCase.SelectedTab = tabInfo;
 
                         existshealth(id);
 
@@ -1442,7 +1446,7 @@ namespace BalayPasilungan
         {
             resetMainColors();
 
-           
+            lbladdeditprofile.Text = "New Case Profile";
 
             tabCase.SelectedTab = tabNewChild;
             tabaddchild.SelectedTab = tabaddinfo;
@@ -1786,7 +1790,7 @@ namespace BalayPasilungan
 
         private void btnaddhealth_Click(object sender, EventArgs e)
         {
-            if (btnaddhealth.Text == "Add Info")
+            if (btnaddhealth.Text == "ADD")
             {
                 addhealth();
             }
@@ -2110,16 +2114,16 @@ namespace BalayPasilungan
 
         private void btncancelhealth_Click(object sender, EventArgs e)
         {
-            if (btnaddhealth.Text == "Add Info")
+            if (btnaddhealth.Text == "ADD")
             {
 
-                tabControl.SelectedTab = sixteen;
+                tabCase.SelectedTab = tabInfo;
 
             }
 
             else
             {
-                tabControl.SelectedTab = seventeen;
+                tabCase.SelectedTab = tabInfo;
             }
 
             reset3();
@@ -2220,14 +2224,16 @@ namespace BalayPasilungan
         {
             if (btnhealth.Text == "Add Info")
             {
-                tabControl.SelectedTab = eleventh;
+                tabCase.SelectedTab = tabNewChild;
+                tabaddchild.SelectedTab = tabNewHealth;
 
-                btnaddhealth.Text = "Add Info";
+                lbladdeditprofile.Text = "Add New Health Biography";
             }
 
             else
             {
                 tabControl.SelectedTab = seventeen;
+
                 reloadedithealth(id);
             }
         }
@@ -2336,7 +2342,10 @@ namespace BalayPasilungan
             rtxtall.Text = rviewall.Text;
             rtxtcondition.Text = rviewcondition.Text;
 
-            tabControl.SelectedTab = eleventh;
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewHealth;
+
+            lbladdeditprofile.Text = "Edit Health Biography";
         }
 
         private void btngotohealth_Click(object sender, EventArgs e)
