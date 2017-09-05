@@ -22,7 +22,7 @@ namespace BalayPasilungan
         public string filename;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
-        public bool empty;
+        public bool empty, confirmed;
 
         public caseprofile()
         {
@@ -104,6 +104,44 @@ namespace BalayPasilungan
             btnCases.BackColor = Color.White;
             btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_black;
             btnReport.BackgroundImage = global::BalayPasilungan.Properties.Resources.report_white;
+        }
+
+        public void errorMessage(string message)            // Error Message
+        {
+            error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            err.lblError.Text = message;
+            dim.Show();
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void successMessage(string message)            // Success Message
+        {
+            success yey = new success();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            yey.lblSuccess.Text = message;
+            dim.Show();
+
+            if (yey.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            conf.lblConfirm.Text = message;
+            dim.Show();
+
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
         }
         #endregion
 
@@ -326,18 +364,9 @@ namespace BalayPasilungan
 
             DateTime now = DateTime.Today, birthyear = dtbirth.Value;
 
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status)) errorMessage("Please fill out empty fields.");                
 
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status))
-            {
-   
-                MessageBox.Show("Please fill out empty fields.");
-                
-            }
-
-            else if (pbox1.Image == null)
-            {
-                MessageBox.Show("Please insert a proper picture.");
-            }
+            else if (pbox1.Image == null) errorMessage("Please insert a proper picture.");
 
             else
             {
@@ -351,12 +380,11 @@ namespace BalayPasilungan
                         MySqlCommand comm = new MySqlCommand("INSERT INTO casestudyprofile(lastname, firstname, birthdate, status, caseage, program, dateJoined, picture, address) VALUES('" + lname + "', '" + fname + "', '" + dtbirth.Value.Date.ToString("yyyyMMdd") + "','" + status + "','" + age + "','" + program + "','" + dtjoin.Value.Date.ToString("yyyy/MM/dd") + "', '" + filename + "', '" + address + "')", conn);
 
                         comm.ExecuteNonQuery();
-
-                        MessageBox.Show("New Profile Added!");
-
                         conn.Close();
                         tabCase.SelectedTab = tabCases;
 
+                        successMessage("New Profile Added!");
+    
                         reset();
                         refresh();
 
@@ -376,17 +404,10 @@ namespace BalayPasilungan
             int age;
 
             DateTime now = DateTime.Today, birthyear = dtbirth.Value;
+            
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status)) errorMessage("PLease fill out empty fields.");
 
-
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status))
-            {
-                MessageBox.Show("Please fill out empty fields.");
-            }
-
-            else if (pbox1.Image == null)
-            {
-                MessageBox.Show("Please insert a proper picture.");
-            }
+            else if (pbox1.Image == null) errorMessage("Please insert proper picture.");
 
             else
             {
@@ -394,10 +415,10 @@ namespace BalayPasilungan
                 age = now.Year - birthyear.Year;
 
                 if (now < birthyear.AddYears(age)) age -= 1;
-                
+
                 try
                 {
-                   
+
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
                                         "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", status = '" + status + "', " +
@@ -406,9 +427,11 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("Profile Edited!");
+                    //MessageBox.Show("Profile Edited!");
 
                     conn.Close();
+
+                    successMessage("Profile Edited!");
 
                     tabControl.SelectedTab = sixteen;
                     tabCase.SelectedTab = tabInfo;
@@ -1422,7 +1445,7 @@ namespace BalayPasilungan
            
 
             tabCase.SelectedTab = tabNewChild;
-            tabNewChildInput.SelectedTab = tabNewInfo;
+            tabaddchild.SelectedTab = tabaddinfo;
         }
 
         private void male_CheckedChanged(object sender, EventArgs e)
@@ -1436,83 +1459,83 @@ namespace BalayPasilungan
         {
             resetNewChildTS();
             tsNewFamily.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewFamily;
+            tabaddchild.SelectedTab = tabNewFamily;
         }
         
         private void btnBackInfo_Click(object sender, EventArgs e) // Current tab: family
         {
             resetNewChildTS();
             tsNewInfo.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewInfo;
+            tabaddchild.SelectedTab = tabaddinfo;
         }
         
         private void btnNextEdu_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewEdu.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewEdu;
+            tabaddchild.SelectedTab = tabNewEdu;
         }
 
         private void btnBackFamily_Click(object sender, EventArgs e) // Current tab: education
         {
             resetNewChildTS();
             tsNewFamily.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewFamily;
+            tabaddchild.SelectedTab = tabNewFamily;
         }
 
         private void btnNextHealth_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewHealth.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewHealth;
+            tabaddchild.SelectedTab = tabNewHealth;
         }
 
         private void btnBackEdu_Click(object sender, EventArgs e) // Current tab: health
         {
             resetNewChildTS();
             tsNewEdu.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewEdu;
+            tabaddchild.SelectedTab = tabNewEdu;
         }
 
         private void btnNextCon_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewCon.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewCon;
+            tabaddchild.SelectedTab = tabNewCon;
         }
 
         private void btnBackHealth_Click(object sender, EventArgs e)    // Current tab: consultation
         {
             resetNewChildTS();
             tsNewHealth.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewHealth;
+            tabaddchild.SelectedTab = tabNewHealth;
         }
 
         private void btnNextIO_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIO;
         }
 
         private void btnBackCon_Click(object sender, EventArgs e)   // Current tab: IO
         {
             resetNewChildTS();
             tsNewCon.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewCon;
+            tabaddchild.SelectedTab = tabNewCon;
         }
 
         private void btnBackIO_Click(object sender, EventArgs e)    // Current tab: Confirmation
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabNewChildInput.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIO;
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
-            tabNewChildInput.SelectedTab = tabNewConfirm;
+            tabaddchild.SelectedTab = tabNewConfirm;
         }
 
         #endregion
@@ -2344,6 +2367,11 @@ namespace BalayPasilungan
         }
 
         #endregion
+
+        private void noFocusRec1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void tabNewInfo_Click(object sender, EventArgs e)
         {

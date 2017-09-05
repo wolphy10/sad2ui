@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(caseprofile));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.upPanel = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.tabCase = new System.Windows.Forms.TabControl();
@@ -340,8 +340,8 @@
             this.tabNewChild = new System.Windows.Forms.TabPage();
             this.panelNewChild = new System.Windows.Forms.Panel();
             this.lbladdeditprofile = new System.Windows.Forms.Label();
-            this.tabNewChildInput = new System.Windows.Forms.TabControl();
-            this.tabNewInfo = new System.Windows.Forms.TabPage();
+            this.tabaddchild = new System.Windows.Forms.TabControl();
+            this.tabaddinfo = new System.Windows.Forms.TabPage();
             this.lblAd = new System.Windows.Forms.Label();
             this.dtjoin = new System.Windows.Forms.DateTimePicker();
             this.lblDateJoin = new System.Windows.Forms.Label();
@@ -577,8 +577,8 @@
             this.panelSearch.SuspendLayout();
             this.tabNewChild.SuspendLayout();
             this.panelNewChild.SuspendLayout();
-            this.tabNewChildInput.SuspendLayout();
-            this.tabNewInfo.SuspendLayout();
+            this.tabaddchild.SuspendLayout();
+            this.tabaddinfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox1)).BeginInit();
             this.panelLName.SuspendLayout();
             this.panelFName.SuspendLayout();
@@ -4057,24 +4057,24 @@
             this.dtgcs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgcs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgcs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgcs.ColumnHeadersHeight = 50;
             this.dtgcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgcs.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgcs.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtgcs.EnableHeadersVisualStyles = false;
             this.dtgcs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dtgcs.Location = new System.Drawing.Point(0, 175);
@@ -4299,7 +4299,7 @@
             // 
             this.tabNewChild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.tabNewChild.Controls.Add(this.panelNewChild);
-            this.tabNewChild.Controls.Add(this.tabNewChildInput);
+            this.tabNewChild.Controls.Add(this.tabaddchild);
             this.tabNewChild.Controls.Add(this.newChildMenu);
             this.tabNewChild.Location = new System.Drawing.Point(4, 25);
             this.tabNewChild.Name = "tabNewChild";
@@ -4329,54 +4329,54 @@
             this.lbladdeditprofile.TabIndex = 41;
             this.lbladdeditprofile.Text = "New Case Profile";
             // 
-            // tabNewChildInput
+            // tabaddchild
             // 
-            this.tabNewChildInput.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabNewChildInput.Controls.Add(this.tabNewInfo);
-            this.tabNewChildInput.Controls.Add(this.tabNewFamily);
-            this.tabNewChildInput.Controls.Add(this.tabNewEdu);
-            this.tabNewChildInput.Controls.Add(this.tabNewHealth);
-            this.tabNewChildInput.Controls.Add(this.tabNewCon);
-            this.tabNewChildInput.Controls.Add(this.tabNewIO);
-            this.tabNewChildInput.Controls.Add(this.tabNewConfirm);
-            this.tabNewChildInput.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabNewChildInput.Location = new System.Drawing.Point(41, 70);
-            this.tabNewChildInput.Name = "tabNewChildInput";
-            this.tabNewChildInput.SelectedIndex = 0;
-            this.tabNewChildInput.Size = new System.Drawing.Size(855, 612);
-            this.tabNewChildInput.TabIndex = 6;
+            this.tabaddchild.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabaddchild.Controls.Add(this.tabaddinfo);
+            this.tabaddchild.Controls.Add(this.tabNewFamily);
+            this.tabaddchild.Controls.Add(this.tabNewEdu);
+            this.tabaddchild.Controls.Add(this.tabNewHealth);
+            this.tabaddchild.Controls.Add(this.tabNewCon);
+            this.tabaddchild.Controls.Add(this.tabNewIO);
+            this.tabaddchild.Controls.Add(this.tabNewConfirm);
+            this.tabaddchild.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabaddchild.Location = new System.Drawing.Point(41, 70);
+            this.tabaddchild.Name = "tabaddchild";
+            this.tabaddchild.SelectedIndex = 0;
+            this.tabaddchild.Size = new System.Drawing.Size(855, 612);
+            this.tabaddchild.TabIndex = 6;
             // 
-            // tabNewInfo
+            // tabaddinfo
             // 
-            this.tabNewInfo.BackColor = System.Drawing.Color.White;
-            this.tabNewInfo.Controls.Add(this.lblAd);
-            this.tabNewInfo.Controls.Add(this.dtjoin);
-            this.tabNewInfo.Controls.Add(this.lblDateJoin);
-            this.tabNewInfo.Controls.Add(this.lblBDate);
-            this.tabNewInfo.Controls.Add(this.cbxcasestatus);
-            this.tabNewInfo.Controls.Add(this.cbxprogram);
-            this.tabNewInfo.Controls.Add(this.lblNewStatus);
-            this.tabNewInfo.Controls.Add(this.lblProgram);
-            this.tabNewInfo.Controls.Add(this.lblLName);
-            this.tabNewInfo.Controls.Add(this.dtbirth);
-            this.tabNewInfo.Controls.Add(this.btncancel);
-            this.tabNewInfo.Controls.Add(this.btnaddeditcase);
-            this.tabNewInfo.Controls.Add(this.lblFName);
-            this.tabNewInfo.Controls.Add(this.pbox1);
-            this.tabNewInfo.Controls.Add(this.txtcaseaddress);
-            this.tabNewInfo.Controls.Add(this.countLName);
-            this.tabNewInfo.Controls.Add(this.countFName);
-            this.tabNewInfo.Controls.Add(this.lblSize);
-            this.tabNewInfo.Controls.Add(this.lblPhoto);
-            this.tabNewInfo.Controls.Add(this.panelLName);
-            this.tabNewInfo.Controls.Add(this.panelFName);
-            this.tabNewInfo.Location = new System.Drawing.Point(4, 25);
-            this.tabNewInfo.Name = "tabNewInfo";
-            this.tabNewInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNewInfo.Size = new System.Drawing.Size(847, 583);
-            this.tabNewInfo.TabIndex = 0;
-            this.tabNewInfo.Text = "tabPage1";
-            this.tabNewInfo.Click += new System.EventHandler(this.tabNewInfo_Click);
+            this.tabaddinfo.BackColor = System.Drawing.Color.White;
+            this.tabaddinfo.Controls.Add(this.lblAd);
+            this.tabaddinfo.Controls.Add(this.dtjoin);
+            this.tabaddinfo.Controls.Add(this.lblDateJoin);
+            this.tabaddinfo.Controls.Add(this.lblBDate);
+            this.tabaddinfo.Controls.Add(this.cbxcasestatus);
+            this.tabaddinfo.Controls.Add(this.cbxprogram);
+            this.tabaddinfo.Controls.Add(this.lblNewStatus);
+            this.tabaddinfo.Controls.Add(this.lblProgram);
+            this.tabaddinfo.Controls.Add(this.lblLName);
+            this.tabaddinfo.Controls.Add(this.dtbirth);
+            this.tabaddinfo.Controls.Add(this.btncancel);
+            this.tabaddinfo.Controls.Add(this.btnaddeditcase);
+            this.tabaddinfo.Controls.Add(this.lblFName);
+            this.tabaddinfo.Controls.Add(this.pbox1);
+            this.tabaddinfo.Controls.Add(this.txtcaseaddress);
+            this.tabaddinfo.Controls.Add(this.countLName);
+            this.tabaddinfo.Controls.Add(this.countFName);
+            this.tabaddinfo.Controls.Add(this.lblSize);
+            this.tabaddinfo.Controls.Add(this.lblPhoto);
+            this.tabaddinfo.Controls.Add(this.panelLName);
+            this.tabaddinfo.Controls.Add(this.panelFName);
+            this.tabaddinfo.Location = new System.Drawing.Point(4, 25);
+            this.tabaddinfo.Name = "tabaddinfo";
+            this.tabaddinfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabaddinfo.Size = new System.Drawing.Size(847, 583);
+            this.tabaddinfo.TabIndex = 0;
+            this.tabaddinfo.Text = "tabPage1";
+            this.tabaddinfo.Click += new System.EventHandler(this.tabNewInfo_Click);
             // 
             // lblAd
             // 
@@ -6178,6 +6178,7 @@
             this.noFocusRec1.TabIndex = 114;
             this.noFocusRec1.Text = "ADD CHILD";
             this.noFocusRec1.UseVisualStyleBackColor = false;
+            this.noFocusRec1.Click += new System.EventHandler(this.noFocusRec1_Click);
             // 
             // btnBackIO
             // 
@@ -6362,9 +6363,9 @@
             this.tabNewChild.ResumeLayout(false);
             this.panelNewChild.ResumeLayout(false);
             this.panelNewChild.PerformLayout();
-            this.tabNewChildInput.ResumeLayout(false);
-            this.tabNewInfo.ResumeLayout(false);
-            this.tabNewInfo.PerformLayout();
+            this.tabaddchild.ResumeLayout(false);
+            this.tabaddinfo.ResumeLayout(false);
+            this.tabaddinfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox1)).EndInit();
             this.panelLName.ResumeLayout(false);
             this.panelLName.PerformLayout();
@@ -6427,8 +6428,8 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panelSearch;
         private System.Windows.Forms.TabPage tabNewChild;
-        private System.Windows.Forms.TabControl tabNewChildInput;
-        private System.Windows.Forms.TabPage tabNewInfo;
+        private System.Windows.Forms.TabControl tabaddchild;
+        private System.Windows.Forms.TabPage tabaddinfo;
         private System.Windows.Forms.Panel panelLName;
         private System.Windows.Forms.Panel panelFName;
         private System.Windows.Forms.TabPage tabNewFamily;
