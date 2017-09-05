@@ -149,6 +149,23 @@
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.dateIK2 = new System.Windows.Forms.DateTimePicker();
             this.lbldateIK2 = new System.Windows.Forms.Label();
+            this.tabBRDetails = new System.Windows.Forms.TabPage();
+            this.txtBRTotal = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtBRUP = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lbltabBRDetails = new System.Windows.Forms.Label();
+            this.noFocusRec8 = new BalayPasilungan.NoFocusRec();
+            this.btnBRCancel = new BalayPasilungan.NoFocusRec();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.btnAddBR = new BalayPasilungan.NoFocusRec();
+            this.txtBRQuan = new System.Windows.Forms.NumericUpDown();
+            this.t = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -183,6 +200,12 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.tabBRDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -194,6 +217,7 @@
             this.tabSelection.Controls.Add(this.tabCheckEdit);
             this.tabSelection.Controls.Add(this.tabIK);
             this.tabSelection.Controls.Add(this.tabIKEdit);
+            this.tabSelection.Controls.Add(this.tabBRDetails);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -1804,6 +1828,236 @@
             this.lbldateIK2.TabIndex = 32;
             this.lbldateIK2.Text = "DATE DONATED";
             // 
+            // tabBRDetails
+            // 
+            this.tabBRDetails.Controls.Add(this.txtBRTotal);
+            this.tabBRDetails.Controls.Add(this.label12);
+            this.tabBRDetails.Controls.Add(this.txtBRUP);
+            this.tabBRDetails.Controls.Add(this.label11);
+            this.tabBRDetails.Controls.Add(this.pictureBox19);
+            this.tabBRDetails.Controls.Add(this.label9);
+            this.tabBRDetails.Controls.Add(this.panel6);
+            this.tabBRDetails.Controls.Add(this.pictureBox17);
+            this.tabBRDetails.Controls.Add(this.btnAddBR);
+            this.tabBRDetails.Controls.Add(this.txtBRQuan);
+            this.tabBRDetails.Controls.Add(this.t);
+            this.tabBRDetails.Controls.Add(this.label10);
+            this.tabBRDetails.Controls.Add(this.pictureBox18);
+            this.tabBRDetails.Location = new System.Drawing.Point(4, 22);
+            this.tabBRDetails.Name = "tabBRDetails";
+            this.tabBRDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBRDetails.Size = new System.Drawing.Size(512, 376);
+            this.tabBRDetails.TabIndex = 7;
+            this.tabBRDetails.Text = "tabPage1";
+            this.tabBRDetails.UseVisualStyleBackColor = true;
+            // 
+            // txtBRTotal
+            // 
+            this.txtBRTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtBRTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRTotal.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRTotal.ForeColor = System.Drawing.Color.Black;
+            this.txtBRTotal.Location = new System.Drawing.Point(164, 285);
+            this.txtBRTotal.MaxLength = 50;
+            this.txtBRTotal.Name = "txtBRTotal";
+            this.txtBRTotal.ReadOnly = true;
+            this.txtBRTotal.Size = new System.Drawing.Size(316, 25);
+            this.txtBRTotal.TabIndex = 44;
+            this.txtBRTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label12.Location = new System.Drawing.Point(25, 288);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 19);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "TOTAL";
+            // 
+            // txtBRUP
+            // 
+            this.txtBRUP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtBRUP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRUP.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRUP.ForeColor = System.Drawing.Color.Black;
+            this.txtBRUP.Location = new System.Drawing.Point(164, 208);
+            this.txtBRUP.MaxLength = 50;
+            this.txtBRUP.Name = "txtBRUP";
+            this.txtBRUP.Size = new System.Drawing.Size(316, 25);
+            this.txtBRUP.TabIndex = 41;
+            this.txtBRUP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label11.Location = new System.Drawing.Point(25, 211);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 19);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "UNIT PRICE";
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
+            this.pictureBox19.Location = new System.Drawing.Point(11, 239);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox19.TabIndex = 43;
+            this.pictureBox19.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label9.Location = new System.Drawing.Point(25, 129);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 19);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "QUANTITY";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel6.Controls.Add(this.lbltabBRDetails);
+            this.panel6.Controls.Add(this.noFocusRec8);
+            this.panel6.Controls.Add(this.btnBRCancel);
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(512, 33);
+            this.panel6.TabIndex = 40;
+            // 
+            // lbltabBRDetails
+            // 
+            this.lbltabBRDetails.AutoSize = true;
+            this.lbltabBRDetails.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltabBRDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.lbltabBRDetails.Location = new System.Drawing.Point(306, 8);
+            this.lbltabBRDetails.Name = "lbltabBRDetails";
+            this.lbltabBRDetails.Size = new System.Drawing.Size(200, 19);
+            this.lbltabBRDetails.TabIndex = 19;
+            this.lbltabBRDetails.Text = "Add Budget Request Particular";
+            this.lbltabBRDetails.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec8
+            // 
+            this.noFocusRec8.FlatAppearance.BorderSize = 0;
+            this.noFocusRec8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec8.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec8.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec8.Name = "noFocusRec8";
+            this.noFocusRec8.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec8.TabIndex = 11;
+            this.noFocusRec8.Text = "X";
+            this.noFocusRec8.UseVisualStyleBackColor = true;
+            // 
+            // btnBRCancel
+            // 
+            this.btnBRCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBRCancel.FlatAppearance.BorderSize = 0;
+            this.btnBRCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRCancel.ForeColor = System.Drawing.Color.White;
+            this.btnBRCancel.Location = new System.Drawing.Point(6, 8);
+            this.btnBRCancel.Name = "btnBRCancel";
+            this.btnBRCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnBRCancel.TabIndex = 5;
+            this.btnBRCancel.Text = "GO BACK";
+            this.btnBRCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBRCancel.UseVisualStyleBackColor = false;
+            this.btnBRCancel.Click += new System.EventHandler(this.btnIKBack_Click);
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(11, 166);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox17.TabIndex = 36;
+            this.pictureBox17.TabStop = false;
+            // 
+            // btnAddBR
+            // 
+            this.btnAddBR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddBR.FlatAppearance.BorderSize = 0;
+            this.btnAddBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddBR.ForeColor = System.Drawing.Color.White;
+            this.btnAddBR.Location = new System.Drawing.Point(0, 336);
+            this.btnAddBR.Name = "btnAddBR";
+            this.btnAddBR.Size = new System.Drawing.Size(512, 40);
+            this.btnAddBR.TabIndex = 8;
+            this.btnAddBR.Text = "ADD PARTICULAR";
+            this.btnAddBR.UseVisualStyleBackColor = false;
+            // 
+            // txtBRQuan
+            // 
+            this.txtBRQuan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtBRQuan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRQuan.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtBRQuan.ForeColor = System.Drawing.Color.Black;
+            this.txtBRQuan.Location = new System.Drawing.Point(164, 124);
+            this.txtBRQuan.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBRQuan.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtBRQuan.Name = "txtBRQuan";
+            this.txtBRQuan.Size = new System.Drawing.Size(316, 28);
+            this.txtBRQuan.TabIndex = 30;
+            this.txtBRQuan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRQuan.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // t
+            // 
+            this.t.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.t.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.t.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t.ForeColor = System.Drawing.Color.Black;
+            this.t.Location = new System.Drawing.Point(164, 54);
+            this.t.MaxLength = 50;
+            this.t.Name = "t";
+            this.t.Size = new System.Drawing.Size(316, 25);
+            this.t.TabIndex = 29;
+            this.t.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label10.Location = new System.Drawing.Point(25, 57);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 19);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "PARTICULAR";
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.Location = new System.Drawing.Point(11, 85);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox18.TabIndex = 34;
+            this.pictureBox18.TabStop = false;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1864,6 +2118,14 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            this.tabBRDetails.ResumeLayout(false);
+            this.tabBRDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1989,5 +2251,22 @@
         public System.Windows.Forms.NumericUpDown txtQuantity2;
         public System.Windows.Forms.TextBox txtPart2;
         public System.Windows.Forms.DateTimePicker dateIK2;
+        private System.Windows.Forms.TabPage tabBRDetails;
+        private NoFocusRec btnAddBR;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label lbltabBRDetails;
+        private NoFocusRec noFocusRec8;
+        private NoFocusRec btnBRCancel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.NumericUpDown txtBRQuan;
+        private System.Windows.Forms.TextBox t;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.TextBox txtBRTotal;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtBRUP;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox19;
     }
 }

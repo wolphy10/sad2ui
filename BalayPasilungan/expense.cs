@@ -1228,6 +1228,11 @@ namespace BalayPasilungan
             }
             multiSelect.Checked = false;
         }
+
+        private void tabBRInfo_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region In Kind Donation
