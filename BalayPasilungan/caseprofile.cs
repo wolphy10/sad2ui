@@ -2206,7 +2206,7 @@ namespace BalayPasilungan
 
         private void btned_Click(object sender, EventArgs e)
         {
-            lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
+            //lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
 
             if (btned.Text == "Add Info")
             {
@@ -2221,7 +2221,7 @@ namespace BalayPasilungan
                 {
                     conn.Open();
 
-                    string[] data = lblnamedrpt.Text.Split(' ');
+                    //string[] data = lblnamedrpt.Text.Split(' ');
 
                     MySqlCommand comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
