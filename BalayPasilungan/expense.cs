@@ -333,6 +333,43 @@ namespace BalayPasilungan
                         btnDelIK.Enabled = false; btnEditIK.Enabled = false; empty = false; multiSelect2.Enabled = false;
                     }
                 }
+                else if (type == 3)          // Budget Request Particular Details
+                {
+                    if (dt.Rows.Count == 0)
+                    {
+                        dt.Rows.Add(-1, "No entries.", null, null, null);
+                        empty = true;
+                    }
+
+                    BRDetails.DataSource = dt;
+
+                    // Donation In Kind UI Modifications
+                    BRDetails.Columns[1].HeaderText = "PARTICULAR";
+                    BRDetails.Columns[2].HeaderText = "QUANTITY";
+                    BRDetails.Columns[3].HeaderText = "UNIT PRICE";
+                    BRDetails.Columns[4].HeaderText = "AMOUNT";
+
+                    // For ID purposes (hidden from user)            
+                    BRDetails.Columns[0].Visible = false;
+
+                    // 718 TOTAL WIDTH
+                    BRDetails.Columns[1].Width = 338;
+                    BRDetails.Columns[2].Width = 80;
+                    BRDetails.Columns[3].Width = 150;
+                    BRDetails.Columns[3].Width = 150;
+
+                    if (dt.Rows.Count > 0 && !empty)
+                    {
+                        BRDetails.Columns[1].HeaderCell.Style.Padding = new Padding(15, 0, 0, 0);
+                        BRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+
+                        btnDelBR.Enabled = true; btnEditBR.Enabled = true; //multiSelect2.Enabled = true;
+                    }
+                    else
+                    {
+                        btnDelBR.Enabled = false; btnEditBR.Enabled = false; empty = false; //multiSelect2.Enabled = false;
+                    }
+                }
                 conn.Close();
             }
             catch (Exception ex)
@@ -1188,7 +1225,7 @@ namespace BalayPasilungan
                     mD.txtBank2.Text = donationMoney.Rows[row].Cells[5].Value.ToString();
                     // Dates
                     mD.txtCheckOR2.Text = donationMoney.Rows[row].Cells[3].Value.ToString(); mD.txtCheckNo2.Text = donationMoney.Rows[row].Cells[4].Value.ToString();
-                    mD.dateOfCheck2.MaxDate = DateTime.Now; mD.dateCheck2.Value = dateDonate;
+                    mD.dateOfCheck2.MaxDate = DateTime.Now; //mD.dateCheck2.Value = dateDonate;
                     mD.dateCheck2.MaxDate = DateTime.Now; mD.dateCheck2.Value = dateDonate;
                 }
                 mD.ShowDialog();
@@ -1244,7 +1281,7 @@ namespace BalayPasilungan
             mD.ShowDialog();
             loadIK(current_donorID);
         }
-        
+
         private void btnEditIK_Click(object sender, EventArgs e)
         {
             moneyDonate mD = overlay();
@@ -1312,6 +1349,19 @@ namespace BalayPasilungan
             }
         }
 
+        #endregion
+
+        #region Budget Request
+        private void btnAddBR_Click(object sender, EventArgs e)
+        {
+            moneyDonate mD = overlay();
+            mD.tabSelection.SelectedIndex = 7;
+            mD.refToExpense = this;
+            mD.ShowDialog();
+
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM item", conn);
+            loadTable(comm, 3);
+        }
         #endregion
 
     }

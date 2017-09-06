@@ -150,7 +150,6 @@
             this.dateIK2 = new System.Windows.Forms.DateTimePicker();
             this.lbldateIK2 = new System.Windows.Forms.Label();
             this.tabBRDetails = new System.Windows.Forms.TabPage();
-            this.txtBRTotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBRUP = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -162,10 +161,11 @@
             this.btnBRCancel = new BalayPasilungan.NoFocusRec();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.btnAddBR = new BalayPasilungan.NoFocusRec();
-            this.txtBRQuan = new System.Windows.Forms.NumericUpDown();
-            this.t = new System.Windows.Forms.TextBox();
+            this.txtBRQuantity = new System.Windows.Forms.NumericUpDown();
+            this.txtBRPart = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.txtBRTotal = new System.Windows.Forms.Label();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -204,7 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.SuspendLayout();
             // 
@@ -431,7 +431,7 @@
             // 
             // txtOR
             // 
-            this.txtOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtOR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOR.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOR.ForeColor = System.Drawing.Color.Black;
@@ -588,7 +588,7 @@
             // 
             // txtBank
             // 
-            this.txtBank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtBank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtBank.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBank.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBank.ForeColor = System.Drawing.Color.Black;
@@ -717,7 +717,7 @@
             // 
             // txtCheckNo
             // 
-            this.txtCheckNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtCheckNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtCheckNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckNo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckNo.ForeColor = System.Drawing.Color.Black;
@@ -743,7 +743,7 @@
             // 
             // txtCheckOR
             // 
-            this.txtCheckOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtCheckOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtCheckOR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOR.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckOR.ForeColor = System.Drawing.Color.Black;
@@ -987,7 +987,7 @@
             // 
             // txtOR2
             // 
-            this.txtOR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtOR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtOR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOR2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOR2.ForeColor = System.Drawing.Color.Black;
@@ -1148,7 +1148,7 @@
             // 
             // txtBank2
             // 
-            this.txtBank2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtBank2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtBank2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBank2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBank2.ForeColor = System.Drawing.Color.Black;
@@ -1262,7 +1262,7 @@
             // 
             // txtCheckNo2
             // 
-            this.txtCheckNo2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtCheckNo2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtCheckNo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckNo2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckNo2.ForeColor = System.Drawing.Color.Black;
@@ -1287,7 +1287,7 @@
             // 
             // txtCheckOR2
             // 
-            this.txtCheckOR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtCheckOR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtCheckOR2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckOR2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckOR2.ForeColor = System.Drawing.Color.Black;
@@ -1439,7 +1439,7 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQuantity.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
             this.txtQuantity.ForeColor = System.Drawing.Color.Black;
@@ -1565,7 +1565,7 @@
             // 
             // txtPart
             // 
-            this.txtPart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtPart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtPart.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPart.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPart.ForeColor = System.Drawing.Color.Black;
@@ -1660,7 +1660,7 @@
             // 
             // txtQuantity2
             // 
-            this.txtQuantity2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtQuantity2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtQuantity2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQuantity2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
             this.txtQuantity2.ForeColor = System.Drawing.Color.Black;
@@ -1771,7 +1771,7 @@
             // 
             // txtPart2
             // 
-            this.txtPart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtPart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtPart2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPart2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPart2.ForeColor = System.Drawing.Color.Black;
@@ -1839,8 +1839,8 @@
             this.tabBRDetails.Controls.Add(this.panel6);
             this.tabBRDetails.Controls.Add(this.pictureBox17);
             this.tabBRDetails.Controls.Add(this.btnAddBR);
-            this.tabBRDetails.Controls.Add(this.txtBRQuan);
-            this.tabBRDetails.Controls.Add(this.t);
+            this.tabBRDetails.Controls.Add(this.txtBRQuantity);
+            this.tabBRDetails.Controls.Add(this.txtBRPart);
             this.tabBRDetails.Controls.Add(this.label10);
             this.tabBRDetails.Controls.Add(this.pictureBox18);
             this.tabBRDetails.Location = new System.Drawing.Point(4, 22);
@@ -1848,22 +1848,8 @@
             this.tabBRDetails.Padding = new System.Windows.Forms.Padding(3);
             this.tabBRDetails.Size = new System.Drawing.Size(512, 376);
             this.tabBRDetails.TabIndex = 7;
-            this.tabBRDetails.Text = "tabPage1";
+            this.tabBRDetails.Text = "tabBRDetails";
             this.tabBRDetails.UseVisualStyleBackColor = true;
-            // 
-            // txtBRTotal
-            // 
-            this.txtBRTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.txtBRTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBRTotal.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBRTotal.ForeColor = System.Drawing.Color.Black;
-            this.txtBRTotal.Location = new System.Drawing.Point(164, 285);
-            this.txtBRTotal.MaxLength = 50;
-            this.txtBRTotal.Name = "txtBRTotal";
-            this.txtBRTotal.ReadOnly = true;
-            this.txtBRTotal.Size = new System.Drawing.Size(316, 25);
-            this.txtBRTotal.TabIndex = 44;
-            this.txtBRTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -1878,7 +1864,7 @@
             // 
             // txtBRUP
             // 
-            this.txtBRUP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.txtBRUP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.txtBRUP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBRUP.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBRUP.ForeColor = System.Drawing.Color.Black;
@@ -1886,8 +1872,10 @@
             this.txtBRUP.MaxLength = 50;
             this.txtBRUP.Name = "txtBRUP";
             this.txtBRUP.Size = new System.Drawing.Size(316, 25);
-            this.txtBRUP.TabIndex = 41;
+            this.txtBRUP.TabIndex = 2;
+            this.txtBRUP.Text = "0";
             this.txtBRUP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRUP.Leave += new System.EventHandler(this.txtBRUP_Leave);
             // 
             // label11
             // 
@@ -1994,49 +1982,51 @@
             this.btnAddBR.Location = new System.Drawing.Point(0, 336);
             this.btnAddBR.Name = "btnAddBR";
             this.btnAddBR.Size = new System.Drawing.Size(512, 40);
-            this.btnAddBR.TabIndex = 8;
+            this.btnAddBR.TabIndex = 3;
             this.btnAddBR.Text = "ADD PARTICULAR";
             this.btnAddBR.UseVisualStyleBackColor = false;
+            this.btnAddBR.Click += new System.EventHandler(this.btnAddBR_Click);
             // 
-            // txtBRQuan
+            // txtBRQuantity
             // 
-            this.txtBRQuan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.txtBRQuan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBRQuan.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.txtBRQuan.ForeColor = System.Drawing.Color.Black;
-            this.txtBRQuan.Location = new System.Drawing.Point(164, 124);
-            this.txtBRQuan.Maximum = new decimal(new int[] {
+            this.txtBRQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRQuantity.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtBRQuantity.ForeColor = System.Drawing.Color.Black;
+            this.txtBRQuantity.Location = new System.Drawing.Point(164, 124);
+            this.txtBRQuantity.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.txtBRQuan.Minimum = new decimal(new int[] {
+            this.txtBRQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.txtBRQuan.Name = "txtBRQuan";
-            this.txtBRQuan.Size = new System.Drawing.Size(316, 28);
-            this.txtBRQuan.TabIndex = 30;
-            this.txtBRQuan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBRQuan.Value = new decimal(new int[] {
+            this.txtBRQuantity.Name = "txtBRQuantity";
+            this.txtBRQuantity.Size = new System.Drawing.Size(316, 28);
+            this.txtBRQuantity.TabIndex = 1;
+            this.txtBRQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRQuantity.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.txtBRQuantity.Leave += new System.EventHandler(this.txtBRUP_Leave);
             // 
-            // t
+            // txtBRPart
             // 
-            this.t.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.t.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.t.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t.ForeColor = System.Drawing.Color.Black;
-            this.t.Location = new System.Drawing.Point(164, 54);
-            this.t.MaxLength = 50;
-            this.t.Name = "t";
-            this.t.Size = new System.Drawing.Size(316, 25);
-            this.t.TabIndex = 29;
-            this.t.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRPart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRPart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRPart.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRPart.ForeColor = System.Drawing.Color.Black;
+            this.txtBRPart.Location = new System.Drawing.Point(164, 54);
+            this.txtBRPart.MaxLength = 50;
+            this.txtBRPart.Name = "txtBRPart";
+            this.txtBRPart.Size = new System.Drawing.Size(316, 25);
+            this.txtBRPart.TabIndex = 0;
+            this.txtBRPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -2057,6 +2047,18 @@
             this.pictureBox18.Size = new System.Drawing.Size(486, 23);
             this.pictureBox18.TabIndex = 34;
             this.pictureBox18.TabStop = false;
+            // 
+            // txtBRTotal
+            // 
+            this.txtBRTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtBRTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
+            this.txtBRTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.txtBRTotal.Location = new System.Drawing.Point(156, 268);
+            this.txtBRTotal.Name = "txtBRTotal";
+            this.txtBRTotal.Size = new System.Drawing.Size(332, 58);
+            this.txtBRTotal.TabIndex = 10;
+            this.txtBRTotal.Text = "0,000,000,000.00";
+            this.txtBRTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // moneyDonate
             // 
@@ -2124,7 +2126,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ResumeLayout(false);
 
@@ -2251,7 +2253,6 @@
         public System.Windows.Forms.NumericUpDown txtQuantity2;
         public System.Windows.Forms.TextBox txtPart2;
         public System.Windows.Forms.DateTimePicker dateIK2;
-        private System.Windows.Forms.TabPage tabBRDetails;
         private NoFocusRec btnAddBR;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lbltabBRDetails;
@@ -2259,14 +2260,15 @@
         private NoFocusRec btnBRCancel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.NumericUpDown txtBRQuan;
-        private System.Windows.Forms.TextBox t;
+        private System.Windows.Forms.NumericUpDown txtBRQuantity;
+        private System.Windows.Forms.TextBox txtBRPart;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.TextBox txtBRTotal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtBRUP;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.TabPage tabBRDetails;
+        private System.Windows.Forms.Label txtBRTotal;
     }
 }

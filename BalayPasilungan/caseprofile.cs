@@ -639,7 +639,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                MessageBox.Show(ee.ToString());
+                errorMessage(ee.Message);
                 conn.Close();
             }
 
@@ -695,24 +695,15 @@ namespace BalayPasilungan
 
                 conn.Close();
             }
-
-
-
-
             catch (Exception ee)
             {
-                MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
 
         public void reloadcon(int id)
         {
-            //MessageBox.Show(id.ToString());
-
-            //for (int m = 0; m <= dtgcon.ColumnCount - 1; m++)
-            //  dtgcon.Columns[m].SortMode = DataGridViewColumnSortMode.NotSortable;
-
             try
             {
                 conn.Open();
@@ -727,26 +718,19 @@ namespace BalayPasilungan
                 {
                     MessageBox.Show("There are no current consultation records for this case study.");
                 }
-
                 else
-
                 {
                     dtgcon.DataSource = dt;
-
                 }
 
 
                 dtgcon.Columns[0].Visible = false;
 
                 conn.Close();
-
             }
-
-
             catch (Exception ee)
             {
-
-                //MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -767,26 +751,16 @@ namespace BalayPasilungan
                 {
                     MessageBox.Show("There are no current incident records for this case study.");
                 }
-
                 else
-
                 {
                     dtincid.DataSource = dt;
-
                 }
-
-
                 dtincid.Columns[0].Visible = false;
-
                 conn.Close();
-
             }
-
-
             catch (Exception ee)
             {
-
-                //MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -825,12 +799,9 @@ namespace BalayPasilungan
                 conn.Close();
 
             }
-
-
             catch (Exception ee)
             {
-
-                MessageBox.Show("" + ee);
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -938,9 +909,8 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                //MessageBox.Show("There are no current member records for this case study.");
-                MessageBox.Show(ee.ToString());
-
+                errorMessage(ee.Message);
+                conn.Close();
             }
         }
 
@@ -1411,7 +1381,8 @@ namespace BalayPasilungan
         private void btnCases_Click(object sender, EventArgs e)
         {
             resetMainBTN();
-            blackTheme();            
+            blackTheme();
+            tabCase.SelectedTab = tabCases;    
         }
         #endregion
 
@@ -2103,8 +2074,6 @@ namespace BalayPasilungan
             }
 
             reset();
-
-            
         }
 
         private void btnbackcasestud_Click(object sender, EventArgs e)
@@ -2226,14 +2195,11 @@ namespace BalayPasilungan
             {
                 tabCase.SelectedTab = tabNewChild;
                 tabaddchild.SelectedTab = tabNewHealth;
-
                 lbladdeditprofile.Text = "Add New Health Biography";
             }
-
             else
             {
                 tabControl.SelectedTab = seventeen;
-
                 reloadedithealth(id);
             }
         }
@@ -2294,16 +2260,13 @@ namespace BalayPasilungan
         {
             tabControl.SelectedTab = ninth;
             tabconrecords.SelectedTab = tabrecords;
-
             reloadcon(id);
         }
 
         private void btnfover_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = fourth;
-
             existsfam(id);
-
             reloadfam(id);
         }
 
@@ -2314,7 +2277,7 @@ namespace BalayPasilungan
             reloadincid(id);
         }
 
-        private void btneditprofile_Click(object sender, EventArgs e)
+        private void btnEditProfile_Click(object sender, EventArgs e)
         {
 
             tabCase.SelectedTab = tabNewChild;

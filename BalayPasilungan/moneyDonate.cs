@@ -153,6 +153,7 @@ namespace BalayPasilungan
             // ADD SQL COMMAND
             if(type == 1)
             {   // lmao
+
                 decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, dateDonated, donationID)"
                 + " VALUES ('Cash', '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
@@ -454,7 +455,7 @@ namespace BalayPasilungan
 
                 // ADD NEW DONATION
                 MySqlCommand comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
-                    + " VALUES (1, " + donorID + ", + '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
+                    + " VALUES (1, " + donorID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
 
                 comm.ExecuteNonQuery();
 
@@ -487,6 +488,33 @@ namespace BalayPasilungan
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region Budget Request
+        private void btnAddBR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                // ADD BUDGET REQUEST ITEM
+                MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount)"
+                    + " VALUES ('" + txtBRPart.Text + "', " + int.Parse(txtBRQuantity.Value.ToString()) + ", "
+                    + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ");", conn);
+
+                comm.ExecuteNonQuery();                
+                addSQL(comm, 4);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtBRUP_Leave(object sender, EventArgs e)
+        {
+            txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
         }
         #endregion
     }

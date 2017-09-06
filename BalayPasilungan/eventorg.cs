@@ -594,7 +594,7 @@ namespace BalayPasilungan
             lbAllDay.Visible = true; btnRAllDay.Visible = true;
             lbBlock.Visible = false; lbStraight.Visible = false;
             btnTmRng.Visible = false; lbFrom.Visible = false; lbTo.Visible = false;
-            panelEHours2.Visible = false; panelEMins2.Visible = false; lblColon2.Visible = false; btnAM2.Visible = false; btnPM2.Visible = false;
+            //panelEHours2.Visible = false; panelEMins2.Visible = false; lblColon2.Visible = false; btnAM2.Visible = false; btnPM2.Visible = false;
         }
 
         private void btnMulDay_Click(object sender, EventArgs e)
