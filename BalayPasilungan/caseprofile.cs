@@ -495,8 +495,7 @@ namespace BalayPasilungan
                         reloadedithealth(id);
 
                         lblblood.Text = blood;
-                        lblheight.Text = height.ToString();
-                        lblweight.Text = weight.ToString();
+                        lblbmi.Text = height.ToString();
 
                         tabControl.SelectedTab = sixteen;
 
@@ -570,8 +569,7 @@ namespace BalayPasilungan
                         reloadedithealth(id);
 
                         lblblood.Text = blood;
-                        lblheight.Text = height.ToString();
-                        lblweight.Text = weight.ToString();
+                        lblbmi.Text = height.ToString();
 
                         tabControl.SelectedTab = seventeen;
 
@@ -1288,8 +1286,7 @@ namespace BalayPasilungan
                 btnhealth.Text = "Add Info";
 
                 lblblood.Text = "";
-                lblheight.Text = "";
-                lblweight.Text = "";
+                lblbmi.Text = "";
 
                 conn.Close();
             }
