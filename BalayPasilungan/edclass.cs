@@ -12,9 +12,17 @@ namespace BalayPasilungan
 {
     public partial class edclass : Form
     {
+        public caseprofile reftocase { get; set; }
         public edclass()
         {
             InitializeComponent();
+        }
+
+        public string level { get; set; }
+
+        private void btncanceledclass_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

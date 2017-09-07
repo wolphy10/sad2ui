@@ -37,8 +37,8 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.txtedsection = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnadded = new BalayPasilungan.NoFocusRec();
-            this.btncanceled = new BalayPasilungan.NoFocusRec();
+            this.btnaddedclass = new BalayPasilungan.NoFocusRec();
+            this.btncanceledclass = new BalayPasilungan.NoFocusRec();
             this.panelNewChild.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -142,33 +142,34 @@
             this.label18.TabIndex = 77;
             this.label18.Text = "Section";
             // 
-            // btnadded
+            // btnaddedclass
             // 
-            this.btnadded.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnadded.FlatAppearance.BorderSize = 0;
-            this.btnadded.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadded.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnadded.ForeColor = System.Drawing.Color.White;
-            this.btnadded.Location = new System.Drawing.Point(287, 311);
-            this.btnadded.Name = "btnadded";
-            this.btnadded.Size = new System.Drawing.Size(213, 40);
-            this.btnadded.TabIndex = 117;
-            this.btnadded.Text = "ADD";
-            this.btnadded.UseVisualStyleBackColor = false;
+            this.btnaddedclass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnaddedclass.FlatAppearance.BorderSize = 0;
+            this.btnaddedclass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddedclass.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddedclass.ForeColor = System.Drawing.Color.White;
+            this.btnaddedclass.Location = new System.Drawing.Point(287, 311);
+            this.btnaddedclass.Name = "btnaddedclass";
+            this.btnaddedclass.Size = new System.Drawing.Size(213, 40);
+            this.btnaddedclass.TabIndex = 117;
+            this.btnaddedclass.Text = "ADD";
+            this.btnaddedclass.UseVisualStyleBackColor = false;
             // 
-            // btncanceled
+            // btncanceledclass
             // 
-            this.btncanceled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btncanceled.FlatAppearance.BorderSize = 0;
-            this.btncanceled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncanceled.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btncanceled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btncanceled.Location = new System.Drawing.Point(12, 311);
-            this.btncanceled.Name = "btncanceled";
-            this.btncanceled.Size = new System.Drawing.Size(211, 40);
-            this.btncanceled.TabIndex = 118;
-            this.btncanceled.Text = "CANCEL";
-            this.btncanceled.UseVisualStyleBackColor = false;
+            this.btncanceledclass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btncanceledclass.FlatAppearance.BorderSize = 0;
+            this.btncanceledclass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncanceledclass.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btncanceledclass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btncanceledclass.Location = new System.Drawing.Point(12, 311);
+            this.btncanceledclass.Name = "btncanceledclass";
+            this.btncanceledclass.Size = new System.Drawing.Size(211, 40);
+            this.btncanceledclass.TabIndex = 118;
+            this.btncanceledclass.Text = "CANCEL";
+            this.btncanceledclass.UseVisualStyleBackColor = false;
+            this.btncanceledclass.Click += new System.EventHandler(this.btncanceledclass_Click);
             // 
             // edclass
             // 
@@ -176,8 +177,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 363);
             this.ControlBox = false;
-            this.Controls.Add(this.btnadded);
-            this.Controls.Add(this.btncanceled);
+            this.Controls.Add(this.btnaddedclass);
+            this.Controls.Add(this.btncanceledclass);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelNewChild);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -202,7 +203,7 @@
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.TextBox txtedsection;
         private System.Windows.Forms.Label label18;
-        private NoFocusRec btnadded;
-        private NoFocusRec btncanceled;
+        private NoFocusRec btnaddedclass;
+        private NoFocusRec btncanceledclass;
     }
 }

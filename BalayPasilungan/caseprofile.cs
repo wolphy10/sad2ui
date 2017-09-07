@@ -1123,6 +1123,12 @@ namespace BalayPasilungan
             }
         }
 
+        private void dtgeducation_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            reloadedclass(eid);
+        }
+
         #endregion
 
         #region reset functions
@@ -1147,8 +1153,6 @@ namespace BalayPasilungan
             txtedname.Clear();
             cbxedlvl.SelectedIndex = -1;
             cbxtype.SelectedIndex = -1;
-            txtedadviser.Clear();
-            txtedsection.Clear();
         }
 
         public void reset3()
@@ -1884,10 +1888,10 @@ namespace BalayPasilungan
 
         private void btnadded_Click(object sender, EventArgs e)
         {
-            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text, section = txtedsection.Text, adviser = lbl2.Text;
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
             int eid;
 
-            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level) || string.IsNullOrEmpty(section) || string.IsNullOrEmpty(adviser))
+            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
             {
                 errorMessage("Please fill out empty fields.");
             }
@@ -1902,18 +1906,6 @@ namespace BalayPasilungan
 
 
                     MySqlCommand comm = new MySqlCommand("INSERT INTO education(caseid, school, eduType, level) VALUES('" + id + "', '" + edname + "', '" + type + "','" + level + "')", conn);
-
-                    comm.ExecuteNonQuery();
-
-                    comm = new MySqlCommand("SELECT eid from education WHERE caseid = " + id, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-
-                    adp.Fill(dt);
-
-                    eid = int.Parse(dt.Rows[0]["eid"].ToString());
-
-                    comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlvl) VALUES('" + eid + "', '" + section + "', '" + adviser + "')", conn);
 
                     comm.ExecuteNonQuery();
 
@@ -2388,15 +2380,20 @@ namespace BalayPasilungan
 
         #endregion
 
-        private void dtgeducation_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            reloadedclass(eid);
-        }
-
         private void cbxedlvl_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnaddedclass_Click(object sender, EventArgs e)
+        {
+            edclass ed = new edclass();
+
+            ed.reftocase = this;
+
+            ed.ShowDialog();
+
+            //ed.level = 
         }
 
         private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)

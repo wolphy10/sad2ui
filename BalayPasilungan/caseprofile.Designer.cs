@@ -28,22 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(caseprofile));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.upPanel = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.tabCase = new System.Windows.Forms.TabControl();
             this.tabInfo = new System.Windows.Forms.TabPage();
-            this.divider2 = new System.Windows.Forms.PictureBox();
-            this.pbox2 = new System.Windows.Forms.PictureBox();
-            this.divider = new System.Windows.Forms.PictureBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblStatusHead = new System.Windows.Forms.Label();
             this.lblAgeHead = new System.Windows.Forms.Label();
@@ -74,7 +71,6 @@
             this.label78 = new System.Windows.Forms.Label();
             this.dtfamOverview = new System.Windows.Forms.DataGridView();
             this.label77 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.fifth = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cbxfamtype = new System.Windows.Forms.ComboBox();
@@ -140,7 +136,6 @@
             this.txttypeincid = new System.Windows.Forms.TextBox();
             this.label101 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblincidname = new System.Windows.Forms.Label();
             this.twelfth = new System.Windows.Forms.TabPage();
             this.dtincid = new System.Windows.Forms.DataGridView();
@@ -170,7 +165,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.sixteen = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
@@ -178,14 +172,12 @@
             this.label65 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label55 = new System.Windows.Forms.Label();
             this.lblbmi = new System.Windows.Forms.Label();
@@ -193,8 +185,6 @@
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label70 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label49 = new System.Windows.Forms.Label();
@@ -207,9 +197,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.lbledtype = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label44 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblcaseaddress = new System.Windows.Forms.RichTextBox();
             this.lbljoined = new System.Windows.Forms.Label();
@@ -218,8 +206,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbldate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.seventeen = new System.Windows.Forms.TabPage();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.rviewcondition = new System.Windows.Forms.RichTextBox();
@@ -283,7 +269,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.panelListChild = new System.Windows.Forms.Panel();
             this.panelSearch = new System.Windows.Forms.Panel();
-            this.searchlogo = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnArchive = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -304,16 +289,11 @@
             this.lblLName = new System.Windows.Forms.Label();
             this.dtbirth = new System.Windows.Forms.DateTimePicker();
             this.lblFName = new System.Windows.Forms.Label();
-            this.pbox1 = new System.Windows.Forms.PictureBox();
             this.txtcaseaddress = new System.Windows.Forms.RichTextBox();
             this.countLName = new System.Windows.Forms.Label();
             this.countFName = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.lblPhoto = new System.Windows.Forms.Label();
-            this.panelLName = new System.Windows.Forms.Panel();
-            this.txtlname = new System.Windows.Forms.TextBox();
-            this.panelFName = new System.Windows.Forms.Panel();
-            this.txtfname = new System.Windows.Forms.TextBox();
             this.tabNewFamily = new System.Windows.Forms.TabPage();
             this.lblFamMem = new System.Windows.Forms.Label();
             this.lblFamType = new System.Windows.Forms.Label();
@@ -359,7 +339,6 @@
             this.confFName = new System.Windows.Forms.TextBox();
             this.lconfFirst = new System.Windows.Forms.Label();
             this.lblConfirmHead = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.newChildMenu = new System.Windows.Forms.MenuStrip();
             this.tsNewInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsNewFamily = new System.Windows.Forms.ToolStripMenuItem();
@@ -375,14 +354,7 @@
             this.consulTS = new System.Windows.Forms.ToolStripMenuItem();
             this.othersTS = new System.Windows.Forms.ToolStripMenuItem();
             this.taskbar = new System.Windows.Forms.Panel();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnCases = new System.Windows.Forms.Button();
-            this.btnMain = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnEditProfile = new BalayPasilungan.NoFocusRec();
-            this.btnAddMem = new BalayPasilungan.NoFocusRec();
-            this.noFocusRec3 = new BalayPasilungan.NoFocusRec();
-            this.btndeletefam = new BalayPasilungan.NoFocusRec();
             this.btnfamtype = new BalayPasilungan.NoFocusRec();
             this.btncanfamtype = new BalayPasilungan.NoFocusRec();
             this.btnaddfamtype = new BalayPasilungan.NoFocusRec();
@@ -412,9 +384,6 @@
             this.btnaddmember = new BalayPasilungan.NoFocusRec();
             this.btncancel = new BalayPasilungan.NoFocusRec();
             this.btnaddeditcase = new BalayPasilungan.NoFocusRec();
-            this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnDelMoneyD = new BalayPasilungan.NoFocusRec();
             this.btnNextEdu = new BalayPasilungan.NoFocusRec();
             this.btnBackInfo = new BalayPasilungan.NoFocusRec();
             this.btnadded = new BalayPasilungan.NoFocusRec();
@@ -423,19 +392,47 @@
             this.btnaddhealth = new BalayPasilungan.NoFocusRec();
             this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
             this.btnBackIO = new BalayPasilungan.NoFocusRec();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.btnCases = new System.Windows.Forms.Button();
+            this.btnMain = new System.Windows.Forms.Button();
+            this.btnEditProfile = new BalayPasilungan.NoFocusRec();
+            this.divider2 = new System.Windows.Forms.PictureBox();
+            this.pbox2 = new System.Windows.Forms.PictureBox();
+            this.divider = new System.Windows.Forms.PictureBox();
+            this.btnAddMem = new BalayPasilungan.NoFocusRec();
+            this.noFocusRec3 = new BalayPasilungan.NoFocusRec();
+            this.btndeletefam = new BalayPasilungan.NoFocusRec();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.searchlogo = new System.Windows.Forms.Button();
+            this.pbox1 = new System.Windows.Forms.PictureBox();
+            this.panelLName = new System.Windows.Forms.Panel();
+            this.txtlname = new System.Windows.Forms.TextBox();
+            this.panelFName = new System.Windows.Forms.Panel();
+            this.txtfname = new System.Windows.Forms.TextBox();
+            this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
+            this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
+            this.btnDelMoneyD = new BalayPasilungan.NoFocusRec();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnaddedclass = new System.Windows.Forms.Button();
             this.upPanel.SuspendLayout();
             this.tabCase.SuspendLayout();
             this.tabInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             this.headingColor.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.second.SuspendLayout();
             this.panel37.SuspendLayout();
             this.fourth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtfamOverview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.fifth.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -464,7 +461,6 @@
             this.panel30.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.twelfth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtincid)).BeginInit();
             this.panel8.SuspendLayout();
@@ -474,22 +470,13 @@
             this.panel42.SuspendLayout();
             this.fifteen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtghealth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.sixteen.SuspendLayout();
             this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.seventeen.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -514,9 +501,6 @@
             this.panelNewChild.SuspendLayout();
             this.tabaddchild.SuspendLayout();
             this.tabaddinfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox1)).BeginInit();
-            this.panelLName.SuspendLayout();
-            this.panelFName.SuspendLayout();
             this.tabNewFamily.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabNewEdu.SuspendLayout();
@@ -529,10 +513,27 @@
             this.tabNewCon.SuspendLayout();
             this.tabNewIO.SuspendLayout();
             this.tabNewConfirm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.newChildMenu.SuspendLayout();
             this.profileMenu.SuspendLayout();
             this.taskbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox1)).BeginInit();
+            this.panelLName.SuspendLayout();
+            this.panelFName.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // upPanel
@@ -594,39 +595,6 @@
             this.tabInfo.Size = new System.Drawing.Size(955, 678);
             this.tabInfo.TabIndex = 0;
             this.tabInfo.Text = "tabPage1";
-            // 
-            // divider2
-            // 
-            this.divider2.BackColor = System.Drawing.Color.Transparent;
-            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
-            this.divider2.Location = new System.Drawing.Point(528, 75);
-            this.divider2.Name = "divider2";
-            this.divider2.Size = new System.Drawing.Size(16, 40);
-            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider2.TabIndex = 17;
-            this.divider2.TabStop = false;
-            // 
-            // pbox2
-            // 
-            this.pbox2.BackColor = System.Drawing.Color.White;
-            this.pbox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbox2.Location = new System.Drawing.Point(18, 3);
-            this.pbox2.Name = "pbox2";
-            this.pbox2.Size = new System.Drawing.Size(120, 120);
-            this.pbox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbox2.TabIndex = 8;
-            this.pbox2.TabStop = false;
-            // 
-            // divider
-            // 
-            this.divider.BackColor = System.Drawing.Color.Transparent;
-            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
-            this.divider.Location = new System.Drawing.Point(368, 75);
-            this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(16, 40);
-            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider.TabIndex = 16;
-            this.divider.TabStop = false;
             // 
             // lblStatus
             // 
@@ -878,8 +846,8 @@
             this.fourth.Controls.Add(this.label78);
             this.fourth.Controls.Add(this.dtfamOverview);
             this.fourth.Controls.Add(this.label77);
-            this.fourth.Controls.Add(this.pictureBox2);
             this.fourth.Controls.Add(this.btnfamtype);
+            this.fourth.Controls.Add(this.pictureBox2);
             this.fourth.Location = new System.Drawing.Point(4, 22);
             this.fourth.Name = "fourth";
             this.fourth.Padding = new System.Windows.Forms.Padding(3);
@@ -993,15 +961,6 @@
             this.label77.TabIndex = 87;
             this.label77.Text = "Family Overview";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox2.Location = new System.Drawing.Point(34, 86);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox2.TabIndex = 96;
-            this.pictureBox2.TabStop = false;
             // 
             // fifth
             // 
@@ -1251,6 +1210,7 @@
             // 
             // eighth
             // 
+            this.eighth.Controls.Add(this.btnaddedclass);
             this.eighth.Controls.Add(this.dtgedclass);
             this.eighth.Controls.Add(this.btnedback);
             this.eighth.Controls.Add(this.dtgeducation);
@@ -1272,24 +1232,24 @@
             this.dtgedclass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgedclass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgedclass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgedclass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgedclass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dtgedclass.ColumnHeadersHeight = 50;
             this.dtgedclass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgedclass.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgedclass.DefaultCellStyle = dataGridViewCellStyle18;
             this.dtgedclass.EnableHeadersVisualStyles = false;
             this.dtgedclass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dtgedclass.Location = new System.Drawing.Point(489, 3);
@@ -1335,24 +1295,24 @@
             this.dtgeducation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgeducation.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgeducation.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgeducation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgeducation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dtgeducation.ColumnHeadersHeight = 50;
             this.dtgeducation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgeducation.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgeducation.DefaultCellStyle = dataGridViewCellStyle20;
             this.dtgeducation.EnableHeadersVisualStyles = false;
             this.dtgeducation.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dtgeducation.Location = new System.Drawing.Point(0, 3);
@@ -1900,16 +1860,6 @@
             this.panel28.Size = new System.Drawing.Size(519, 103);
             this.panel28.TabIndex = 11;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(10, 1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(103, 101);
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            // 
             // lblincidname
             // 
             this.lblincidname.AutoSize = true;
@@ -2221,24 +2171,24 @@
             this.dtghealth.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtghealth.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtghealth.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtghealth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtghealth.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dtghealth.ColumnHeadersHeight = 50;
             this.dtghealth.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtghealth.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtghealth.DefaultCellStyle = dataGridViewCellStyle22;
             this.dtghealth.EnableHeadersVisualStyles = false;
             this.dtghealth.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dtghealth.Location = new System.Drawing.Point(34, 125);
@@ -2294,15 +2244,6 @@
             this.label74.TabIndex = 101;
             this.label74.Text = "Health Records";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox13.Location = new System.Drawing.Point(34, 86);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox13.TabIndex = 104;
-            this.pictureBox13.TabStop = false;
             // 
             // sixteen
             // 
@@ -2393,15 +2334,6 @@
             this.label72.Text = "Incident";
             this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox12.Location = new System.Drawing.Point(24, 86);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(153, 33);
-            this.pictureBox12.TabIndex = 93;
-            this.pictureBox12.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
@@ -2473,15 +2405,6 @@
             this.label62.TabIndex = 87;
             this.label62.Text = "Family";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox11.Location = new System.Drawing.Point(24, 84);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(205, 33);
-            this.pictureBox11.TabIndex = 88;
-            this.pictureBox11.TabStop = false;
             // 
             // panel4
             // 
@@ -2568,24 +2491,6 @@
             this.label68.TabIndex = 87;
             this.label68.Text = "Health";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox8.Location = new System.Drawing.Point(24, 57);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(205, 33);
-            this.pictureBox8.TabIndex = 88;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox9.Location = new System.Drawing.Point(24, 96);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(205, 33);
-            this.pictureBox9.TabIndex = 90;
-            this.pictureBox9.TabStop = false;
             // 
             // label70
             // 
@@ -2738,15 +2643,6 @@
             this.label41.Text = "Educational Background";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox6.Location = new System.Drawing.Point(24, 57);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(292, 33);
-            this.pictureBox6.TabIndex = 88;
-            this.pictureBox6.TabStop = false;
-            // 
             // label44
             // 
             this.label44.AutoSize = true;
@@ -2757,15 +2653,6 @@
             this.label44.Size = new System.Drawing.Size(131, 15);
             this.label44.TabIndex = 22;
             this.label44.Text = "CURRENTLY ENROLLED";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox7.Location = new System.Drawing.Point(24, 96);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(292, 33);
-            this.pictureBox7.TabIndex = 90;
-            this.pictureBox7.TabStop = false;
             // 
             // panel1
             // 
@@ -2867,24 +2754,6 @@
             this.label1.TabIndex = 87;
             this.label1.Text = "Basic Information";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox4.Location = new System.Drawing.Point(24, 57);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(292, 33);
-            this.pictureBox4.TabIndex = 88;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
-            this.pictureBox5.Location = new System.Drawing.Point(24, 96);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(292, 33);
-            this.pictureBox5.TabIndex = 90;
-            this.pictureBox5.TabStop = false;
             // 
             // seventeen
             // 
@@ -3461,24 +3330,24 @@
             this.dtgcs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgcs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgcs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dtgcs.ColumnHeadersHeight = 50;
             this.dtgcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgcs.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgcs.DefaultCellStyle = dataGridViewCellStyle24;
             this.dtgcs.EnableHeadersVisualStyles = false;
             this.dtgcs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dtgcs.Location = new System.Drawing.Point(0, 175);
@@ -3627,20 +3496,6 @@
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(230, 40);
             this.panelSearch.TabIndex = 8;
-            // 
-            // searchlogo
-            // 
-            this.searchlogo.BackgroundImage = global::BalayPasilungan.Properties.Resources.search_notfocus;
-            this.searchlogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.searchlogo.Enabled = false;
-            this.searchlogo.FlatAppearance.BorderSize = 0;
-            this.searchlogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchlogo.Location = new System.Drawing.Point(6, 12);
-            this.searchlogo.Name = "searchlogo";
-            this.searchlogo.Size = new System.Drawing.Size(20, 20);
-            this.searchlogo.TabIndex = 9;
-            this.searchlogo.TabStop = false;
-            this.searchlogo.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
@@ -3925,18 +3780,6 @@
             this.lblFName.TabIndex = 97;
             this.lblFName.Text = "FIRST NAME";
             // 
-            // pbox1
-            // 
-            this.pbox1.BackColor = System.Drawing.Color.White;
-            this.pbox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbox1.Location = new System.Drawing.Point(596, 55);
-            this.pbox1.Name = "pbox1";
-            this.pbox1.Size = new System.Drawing.Size(120, 120);
-            this.pbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbox1.TabIndex = 79;
-            this.pbox1.TabStop = false;
-            this.pbox1.Click += new System.EventHandler(this.pbox1_Click);
-            // 
             // txtcaseaddress
             // 
             this.txtcaseaddress.BackColor = System.Drawing.Color.White;
@@ -3995,51 +3838,6 @@
             this.lblPhoto.Size = new System.Drawing.Size(54, 21);
             this.lblPhoto.TabIndex = 15;
             this.lblPhoto.Text = "Photo";
-            // 
-            // panelLName
-            // 
-            this.panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelLName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLName.Controls.Add(this.txtlname);
-            this.panelLName.Location = new System.Drawing.Point(117, 143);
-            this.panelLName.Name = "panelLName";
-            this.panelLName.Size = new System.Drawing.Size(415, 48);
-            this.panelLName.TabIndex = 1;
-            this.panelLName.Enter += new System.EventHandler(this.panelLName_Enter);
-            // 
-            // txtlname
-            // 
-            this.txtlname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtlname.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtlname.Location = new System.Drawing.Point(5, 1);
-            this.txtlname.MaxLength = 250;
-            this.txtlname.Name = "txtlname";
-            this.txtlname.Size = new System.Drawing.Size(405, 25);
-            this.txtlname.TabIndex = 1;
-            this.txtlname.Text = "Juan Miguel";
-            // 
-            // panelFName
-            // 
-            this.panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelFName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelFName.Controls.Add(this.txtfname);
-            this.panelFName.Location = new System.Drawing.Point(117, 59);
-            this.panelFName.Name = "panelFName";
-            this.panelFName.Size = new System.Drawing.Size(415, 48);
-            this.panelFName.TabIndex = 0;
-            // 
-            // txtfname
-            // 
-            this.txtfname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtfname.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtfname.Location = new System.Drawing.Point(5, 1);
-            this.txtfname.MaxLength = 250;
-            this.txtfname.Name = "txtfname";
-            this.txtfname.Size = new System.Drawing.Size(405, 25);
-            this.txtfname.TabIndex = 0;
-            this.txtfname.Text = "Juan Miguel";
             // 
             // tabNewFamily
             // 
@@ -4627,16 +4425,6 @@
             this.lblConfirmHead.TabIndex = 42;
             this.lblConfirmHead.Text = "CONFIRMATION";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(61, 82);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 48;
-            this.pictureBox1.TabStop = false;
-            // 
             // newChildMenu
             // 
             this.newChildMenu.AutoSize = false;
@@ -4811,111 +4599,9 @@
             this.taskbar.Size = new System.Drawing.Size(89, 704);
             this.taskbar.TabIndex = 6;
             // 
-            // btnReport
-            // 
-            this.btnReport.BackgroundImage = global::BalayPasilungan.Properties.Resources.report_white;
-            this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReport.FlatAppearance.BorderSize = 0;
-            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(0, 205);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(90, 90);
-            this.btnReport.TabIndex = 4;
-            this.btnReport.UseVisualStyleBackColor = true;
-            // 
-            // btnCases
-            // 
-            this.btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_white;
-            this.btnCases.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCases.FlatAppearance.BorderSize = 0;
-            this.btnCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCases.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCases.ForeColor = System.Drawing.Color.White;
-            this.btnCases.Location = new System.Drawing.Point(0, 115);
-            this.btnCases.Name = "btnCases";
-            this.btnCases.Size = new System.Drawing.Size(90, 90);
-            this.btnCases.TabIndex = 3;
-            this.btnCases.Click += new System.EventHandler(this.btnCases_Click);
-            // 
-            // btnMain
-            // 
-            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
-            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMain.FlatAppearance.BorderSize = 0;
-            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMain.ForeColor = System.Drawing.Color.White;
-            this.btnMain.Location = new System.Drawing.Point(0, 25);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(90, 90);
-            this.btnMain.TabIndex = 2;
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnEditProfile
-            // 
-            this.btnEditProfile.BackColor = System.Drawing.Color.White;
-            this.btnEditProfile.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnEditProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditProfile.FlatAppearance.BorderSize = 0;
-            this.btnEditProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
-            this.btnEditProfile.Location = new System.Drawing.Point(718, 70);
-            this.btnEditProfile.Name = "btnEditProfile";
-            this.btnEditProfile.Size = new System.Drawing.Size(194, 48);
-            this.btnEditProfile.TabIndex = 53;
-            this.btnEditProfile.UseVisualStyleBackColor = false;
-            this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
-            // 
-            // btnAddMem
-            // 
-            this.btnAddMem.BackColor = System.Drawing.Color.White;
-            this.btnAddMem.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAddMem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddMem.FlatAppearance.BorderSize = 0;
-            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMem.Location = new System.Drawing.Point(690, 412);
-            this.btnAddMem.Name = "btnAddMem";
-            this.btnAddMem.Size = new System.Drawing.Size(212, 40);
-            this.btnAddMem.TabIndex = 103;
-            this.btnAddMem.UseVisualStyleBackColor = false;
-            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
-            // 
-            // noFocusRec3
-            // 
-            this.noFocusRec3.BackColor = System.Drawing.Color.White;
-            this.noFocusRec3.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.noFocusRec3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.noFocusRec3.FlatAppearance.BorderSize = 0;
-            this.noFocusRec3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noFocusRec3.Location = new System.Drawing.Point(355, 412);
-            this.noFocusRec3.Name = "noFocusRec3";
-            this.noFocusRec3.Size = new System.Drawing.Size(212, 40);
-            this.noFocusRec3.TabIndex = 104;
-            this.noFocusRec3.UseVisualStyleBackColor = false;
-            // 
-            // btndeletefam
-            // 
-            this.btndeletefam.BackColor = System.Drawing.Color.White;
-            this.btndeletefam.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
-            this.btndeletefam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btndeletefam.FlatAppearance.BorderSize = 0;
-            this.btndeletefam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndeletefam.Location = new System.Drawing.Point(31, 412);
-            this.btndeletefam.Name = "btndeletefam";
-            this.btndeletefam.Size = new System.Drawing.Size(212, 40);
-            this.btndeletefam.TabIndex = 105;
-            this.btndeletefam.UseVisualStyleBackColor = false;
-            this.btndeletefam.Click += new System.EventHandler(this.btndeletefam_Click);
             // 
             // btnfamtype
             // 
@@ -5346,54 +5032,6 @@
             this.btnaddeditcase.UseVisualStyleBackColor = false;
             this.btnaddeditcase.Click += new System.EventHandler(this.btnaddeditcase_Click);
             // 
-            // btnAddMoneyD
-            // 
-            this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnAddMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAddMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddMoneyD.FlatAppearance.BorderSize = 0;
-            this.btnAddMoneyD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnAddMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMoneyD.Location = new System.Drawing.Point(579, 472);
-            this.btnAddMoneyD.Name = "btnAddMoneyD";
-            this.btnAddMoneyD.Size = new System.Drawing.Size(212, 40);
-            this.btnAddMoneyD.TabIndex = 113;
-            this.btnAddMoneyD.UseVisualStyleBackColor = false;
-            // 
-            // btnEditMoneyD
-            // 
-            this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnEditMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnEditMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditMoneyD.FlatAppearance.BorderSize = 0;
-            this.btnEditMoneyD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnEditMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEditMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditMoneyD.Location = new System.Drawing.Point(321, 472);
-            this.btnEditMoneyD.Name = "btnEditMoneyD";
-            this.btnEditMoneyD.Size = new System.Drawing.Size(212, 40);
-            this.btnEditMoneyD.TabIndex = 114;
-            this.btnEditMoneyD.UseVisualStyleBackColor = false;
-            // 
-            // btnDelMoneyD
-            // 
-            this.btnDelMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnDelMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
-            this.btnDelMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelMoneyD.FlatAppearance.BorderSize = 0;
-            this.btnDelMoneyD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnDelMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDelMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDelMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelMoneyD.Location = new System.Drawing.Point(70, 472);
-            this.btnDelMoneyD.Name = "btnDelMoneyD";
-            this.btnDelMoneyD.Size = new System.Drawing.Size(212, 40);
-            this.btnDelMoneyD.TabIndex = 115;
-            this.btnDelMoneyD.UseVisualStyleBackColor = false;
-            // 
             // btnNextEdu
             // 
             this.btnNextEdu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -5513,6 +5151,385 @@
             this.btnBackIO.UseVisualStyleBackColor = false;
             this.btnBackIO.Click += new System.EventHandler(this.btnBackIO_Click);
             // 
+            // btnReport
+            // 
+            this.btnReport.BackgroundImage = global::BalayPasilungan.Properties.Resources.report_white;
+            this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(0, 205);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(90, 90);
+            this.btnReport.TabIndex = 4;
+            this.btnReport.UseVisualStyleBackColor = true;
+            // 
+            // btnCases
+            // 
+            this.btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_white;
+            this.btnCases.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCases.FlatAppearance.BorderSize = 0;
+            this.btnCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCases.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCases.ForeColor = System.Drawing.Color.White;
+            this.btnCases.Location = new System.Drawing.Point(0, 115);
+            this.btnCases.Name = "btnCases";
+            this.btnCases.Size = new System.Drawing.Size(90, 90);
+            this.btnCases.TabIndex = 3;
+            this.btnCases.Click += new System.EventHandler(this.btnCases_Click);
+            // 
+            // btnMain
+            // 
+            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
+            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMain.FlatAppearance.BorderSize = 0;
+            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMain.ForeColor = System.Drawing.Color.White;
+            this.btnMain.Location = new System.Drawing.Point(0, 25);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(90, 90);
+            this.btnMain.TabIndex = 2;
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            // 
+            // btnEditProfile
+            // 
+            this.btnEditProfile.BackColor = System.Drawing.Color.White;
+            this.btnEditProfile.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditProfile.FlatAppearance.BorderSize = 0;
+            this.btnEditProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnEditProfile.Location = new System.Drawing.Point(718, 70);
+            this.btnEditProfile.Name = "btnEditProfile";
+            this.btnEditProfile.Size = new System.Drawing.Size(194, 48);
+            this.btnEditProfile.TabIndex = 53;
+            this.btnEditProfile.UseVisualStyleBackColor = false;
+            this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
+            // 
+            // divider2
+            // 
+            this.divider2.BackColor = System.Drawing.Color.Transparent;
+            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
+            this.divider2.Location = new System.Drawing.Point(528, 75);
+            this.divider2.Name = "divider2";
+            this.divider2.Size = new System.Drawing.Size(16, 40);
+            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider2.TabIndex = 17;
+            this.divider2.TabStop = false;
+            // 
+            // pbox2
+            // 
+            this.pbox2.BackColor = System.Drawing.Color.White;
+            this.pbox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbox2.Location = new System.Drawing.Point(18, 3);
+            this.pbox2.Name = "pbox2";
+            this.pbox2.Size = new System.Drawing.Size(120, 120);
+            this.pbox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbox2.TabIndex = 8;
+            this.pbox2.TabStop = false;
+            // 
+            // divider
+            // 
+            this.divider.BackColor = System.Drawing.Color.Transparent;
+            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
+            this.divider.Location = new System.Drawing.Point(368, 75);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(16, 40);
+            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider.TabIndex = 16;
+            this.divider.TabStop = false;
+            // 
+            // btnAddMem
+            // 
+            this.btnAddMem.BackColor = System.Drawing.Color.White;
+            this.btnAddMem.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddMem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddMem.FlatAppearance.BorderSize = 0;
+            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMem.Location = new System.Drawing.Point(690, 412);
+            this.btnAddMem.Name = "btnAddMem";
+            this.btnAddMem.Size = new System.Drawing.Size(212, 40);
+            this.btnAddMem.TabIndex = 103;
+            this.btnAddMem.UseVisualStyleBackColor = false;
+            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
+            // 
+            // noFocusRec3
+            // 
+            this.noFocusRec3.BackColor = System.Drawing.Color.White;
+            this.noFocusRec3.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.noFocusRec3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.noFocusRec3.FlatAppearance.BorderSize = 0;
+            this.noFocusRec3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec3.Location = new System.Drawing.Point(355, 412);
+            this.noFocusRec3.Name = "noFocusRec3";
+            this.noFocusRec3.Size = new System.Drawing.Size(212, 40);
+            this.noFocusRec3.TabIndex = 104;
+            this.noFocusRec3.UseVisualStyleBackColor = false;
+            // 
+            // btndeletefam
+            // 
+            this.btndeletefam.BackColor = System.Drawing.Color.White;
+            this.btndeletefam.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
+            this.btndeletefam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btndeletefam.FlatAppearance.BorderSize = 0;
+            this.btndeletefam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndeletefam.Location = new System.Drawing.Point(31, 412);
+            this.btndeletefam.Name = "btndeletefam";
+            this.btndeletefam.Size = new System.Drawing.Size(212, 40);
+            this.btndeletefam.TabIndex = 105;
+            this.btndeletefam.UseVisualStyleBackColor = false;
+            this.btndeletefam.Click += new System.EventHandler(this.btndeletefam_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox2.Location = new System.Drawing.Point(34, 86);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox2.TabIndex = 96;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(10, 1);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(103, 101);
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox13.Location = new System.Drawing.Point(34, 86);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox13.TabIndex = 104;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox12.Location = new System.Drawing.Point(24, 86);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(153, 33);
+            this.pictureBox12.TabIndex = 93;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox11.Location = new System.Drawing.Point(24, 84);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(205, 33);
+            this.pictureBox11.TabIndex = 88;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox8.Location = new System.Drawing.Point(24, 57);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(205, 33);
+            this.pictureBox8.TabIndex = 88;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox9.Location = new System.Drawing.Point(24, 96);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(205, 33);
+            this.pictureBox9.TabIndex = 90;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox6.Location = new System.Drawing.Point(24, 57);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(292, 33);
+            this.pictureBox6.TabIndex = 88;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox7.Location = new System.Drawing.Point(24, 96);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(292, 33);
+            this.pictureBox7.TabIndex = 90;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox4.Location = new System.Drawing.Point(24, 57);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(292, 33);
+            this.pictureBox4.TabIndex = 88;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox5.Location = new System.Drawing.Point(24, 96);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(292, 33);
+            this.pictureBox5.TabIndex = 90;
+            this.pictureBox5.TabStop = false;
+            // 
+            // searchlogo
+            // 
+            this.searchlogo.BackgroundImage = global::BalayPasilungan.Properties.Resources.search_notfocus;
+            this.searchlogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.searchlogo.Enabled = false;
+            this.searchlogo.FlatAppearance.BorderSize = 0;
+            this.searchlogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchlogo.Location = new System.Drawing.Point(6, 12);
+            this.searchlogo.Name = "searchlogo";
+            this.searchlogo.Size = new System.Drawing.Size(20, 20);
+            this.searchlogo.TabIndex = 9;
+            this.searchlogo.TabStop = false;
+            this.searchlogo.UseVisualStyleBackColor = true;
+            // 
+            // pbox1
+            // 
+            this.pbox1.BackColor = System.Drawing.Color.White;
+            this.pbox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbox1.Location = new System.Drawing.Point(596, 55);
+            this.pbox1.Name = "pbox1";
+            this.pbox1.Size = new System.Drawing.Size(120, 120);
+            this.pbox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbox1.TabIndex = 79;
+            this.pbox1.TabStop = false;
+            this.pbox1.Click += new System.EventHandler(this.pbox1_Click);
+            // 
+            // panelLName
+            // 
+            this.panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelLName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLName.Controls.Add(this.txtlname);
+            this.panelLName.Location = new System.Drawing.Point(117, 143);
+            this.panelLName.Name = "panelLName";
+            this.panelLName.Size = new System.Drawing.Size(415, 48);
+            this.panelLName.TabIndex = 1;
+            this.panelLName.Enter += new System.EventHandler(this.panelLName_Enter);
+            // 
+            // txtlname
+            // 
+            this.txtlname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtlname.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtlname.Location = new System.Drawing.Point(5, 1);
+            this.txtlname.MaxLength = 250;
+            this.txtlname.Name = "txtlname";
+            this.txtlname.Size = new System.Drawing.Size(405, 25);
+            this.txtlname.TabIndex = 1;
+            this.txtlname.Text = "Juan Miguel";
+            // 
+            // panelFName
+            // 
+            this.panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelFName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelFName.Controls.Add(this.txtfname);
+            this.panelFName.Location = new System.Drawing.Point(117, 59);
+            this.panelFName.Name = "panelFName";
+            this.panelFName.Size = new System.Drawing.Size(415, 48);
+            this.panelFName.TabIndex = 0;
+            // 
+            // txtfname
+            // 
+            this.txtfname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtfname.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtfname.Location = new System.Drawing.Point(5, 1);
+            this.txtfname.MaxLength = 250;
+            this.txtfname.Name = "txtfname";
+            this.txtfname.Size = new System.Drawing.Size(405, 25);
+            this.txtfname.TabIndex = 0;
+            this.txtfname.Text = "Juan Miguel";
+            // 
+            // btnAddMoneyD
+            // 
+            this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnAddMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddMoneyD.FlatAppearance.BorderSize = 0;
+            this.btnAddMoneyD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnAddMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMoneyD.Location = new System.Drawing.Point(579, 472);
+            this.btnAddMoneyD.Name = "btnAddMoneyD";
+            this.btnAddMoneyD.Size = new System.Drawing.Size(212, 40);
+            this.btnAddMoneyD.TabIndex = 113;
+            this.btnAddMoneyD.UseVisualStyleBackColor = false;
+            // 
+            // btnEditMoneyD
+            // 
+            this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnEditMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditMoneyD.FlatAppearance.BorderSize = 0;
+            this.btnEditMoneyD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnEditMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEditMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditMoneyD.Location = new System.Drawing.Point(321, 472);
+            this.btnEditMoneyD.Name = "btnEditMoneyD";
+            this.btnEditMoneyD.Size = new System.Drawing.Size(212, 40);
+            this.btnEditMoneyD.TabIndex = 114;
+            this.btnEditMoneyD.UseVisualStyleBackColor = false;
+            // 
+            // btnDelMoneyD
+            // 
+            this.btnDelMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnDelMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
+            this.btnDelMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelMoneyD.FlatAppearance.BorderSize = 0;
+            this.btnDelMoneyD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnDelMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDelMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDelMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelMoneyD.Location = new System.Drawing.Point(70, 472);
+            this.btnDelMoneyD.Name = "btnDelMoneyD";
+            this.btnDelMoneyD.Size = new System.Drawing.Size(212, 40);
+            this.btnDelMoneyD.TabIndex = 115;
+            this.btnDelMoneyD.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(61, 82);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnaddedclass
+            // 
+            this.btnaddedclass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnaddedclass.FlatAppearance.BorderSize = 0;
+            this.btnaddedclass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddedclass.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddedclass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnaddedclass.Location = new System.Drawing.Point(6, 472);
+            this.btnaddedclass.Name = "btnaddedclass";
+            this.btnaddedclass.Size = new System.Drawing.Size(477, 49);
+            this.btnaddedclass.TabIndex = 111;
+            this.btnaddedclass.Text = "ADD CLASS";
+            this.btnaddedclass.UseVisualStyleBackColor = false;
+            this.btnaddedclass.Click += new System.EventHandler(this.btnaddedclass_Click);
+            // 
             // caseprofile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5531,9 +5548,6 @@
             this.tabCase.ResumeLayout(false);
             this.tabInfo.ResumeLayout(false);
             this.tabInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
             this.headingColor.ResumeLayout(false);
             this.headingColor.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -5544,7 +5558,6 @@
             this.fourth.ResumeLayout(false);
             this.fourth.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtfamOverview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.fifth.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -5587,7 +5600,6 @@
             this.panel29.PerformLayout();
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.twelfth.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtincid)).EndInit();
             this.panel8.ResumeLayout(false);
@@ -5602,28 +5614,19 @@
             this.fifteen.ResumeLayout(false);
             this.fifteen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtghealth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.sixteen.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.seventeen.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
@@ -5661,11 +5664,6 @@
             this.tabaddchild.ResumeLayout(false);
             this.tabaddinfo.ResumeLayout(false);
             this.tabaddinfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox1)).EndInit();
-            this.panelLName.ResumeLayout(false);
-            this.panelLName.PerformLayout();
-            this.panelFName.ResumeLayout(false);
-            this.panelFName.PerformLayout();
             this.tabNewFamily.ResumeLayout(false);
             this.tabNewFamily.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -5682,12 +5680,31 @@
             this.tabNewIO.ResumeLayout(false);
             this.tabNewConfirm.ResumeLayout(false);
             this.tabNewConfirm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.newChildMenu.ResumeLayout(false);
             this.newChildMenu.PerformLayout();
             this.profileMenu.ResumeLayout(false);
             this.profileMenu.PerformLayout();
             this.taskbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox1)).EndInit();
+            this.panelLName.ResumeLayout(false);
+            this.panelLName.PerformLayout();
+            this.panelFName.ResumeLayout(false);
+            this.panelFName.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6080,5 +6097,6 @@
         private System.Windows.Forms.Button btnedback;
         private System.Windows.Forms.DataGridView dtgeducation;
         private System.Windows.Forms.DataGridView dtgedclass;
+        private System.Windows.Forms.Button btnaddedclass;
     }
 }
