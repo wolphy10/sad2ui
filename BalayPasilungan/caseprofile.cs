@@ -460,7 +460,7 @@ namespace BalayPasilungan
         public void addhealth()
         {
             string blood = cbxbloodtype.Text, allergy = rtxtall.Text, condition = rtxtcondition.Text;
-            int height, weight;
+            double height, weight;
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
@@ -470,9 +470,9 @@ namespace BalayPasilungan
             else
             {
 
-                if (Int32.TryParse(txtheight.Text, out height) && Int32.TryParse(txtweight.Text, out weight))
+                if (double.TryParse(txtheight.Text, out height) && double.TryParse(txtweight.Text, out weight))
                 {
-                    height = int.Parse(txtheight.Text); weight = int.Parse(txtweight.Text);
+                    height = double.Parse(txtheight.Text); weight = double.Parse(txtweight.Text);
 
                     try
                     {
@@ -495,7 +495,7 @@ namespace BalayPasilungan
                         reloadedithealth(id);
 
                         lblblood.Text = blood;
-                        lblbmi.Text = height.ToString();
+                        lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
                         tabControl.SelectedTab = sixteen;
 
@@ -513,12 +513,12 @@ namespace BalayPasilungan
 
                 else
                 {
-                    if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
+                    if (double.TryParse(txtheight.Text, out height) == false && double.TryParse(txtweight.Text, out weight) == false)
                     {
                         errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
-                    else if (Int32.TryParse(txtheight.Text, out height) == false)
+                    else if (double.TryParse(txtheight.Text, out height) == false)
                     {
                         errorMessage("Height input is invalid! Use numbers!");
                     }
@@ -534,7 +534,7 @@ namespace BalayPasilungan
         public void edithealth()
         {
             string blood = cbxbloodtype.Text, allergy = rtxtall.Text, condition = rtxtcondition.Text;
-            int height, weight;
+            double height, weight;
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
@@ -544,9 +544,9 @@ namespace BalayPasilungan
             else
             {
 
-                if (Int32.TryParse(txtheight.Text, out height) && Int32.TryParse(txtweight.Text, out weight))
+                if (double.TryParse(txtheight.Text, out height) && double.TryParse(txtweight.Text, out weight))
                 {
-                    height = int.Parse(txtheight.Text); weight = int.Parse(txtweight.Text);
+                    height = double.Parse(txtheight.Text); weight = double.Parse(txtweight.Text);
 
                     try
                     {
@@ -569,7 +569,7 @@ namespace BalayPasilungan
                         reloadedithealth(id);
 
                         lblblood.Text = blood;
-                        lblbmi.Text = height.ToString();
+                        lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
                         tabControl.SelectedTab = seventeen;
 
@@ -587,12 +587,12 @@ namespace BalayPasilungan
 
                 else
                 {
-                    if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
+                    if (double.TryParse(txtheight.Text, out height) == false && double.TryParse(txtweight.Text, out weight) == false)
                     {
                         errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
-                    else if (Int32.TryParse(txtheight.Text, out height) == false)
+                    else if (double.TryParse(txtheight.Text, out height) == false)
                     {
                         errorMessage("Height input is invalid! Use numbers!");
                     }
@@ -1079,7 +1079,7 @@ namespace BalayPasilungan
         public void reset2()
         {
             txtedname.Clear();
-            cbxlevel.SelectedIndex = -1;
+            cbxedlvl.SelectedIndex = -1;
             cbxtype.SelectedIndex = -1;
         }
 
@@ -1596,8 +1596,8 @@ namespace BalayPasilungan
         #region New Child Education Form
         private void kinder_CheckedChanged(object sender, EventArgs e)
         {
-            if (kinder.Checked) { panelKinder.Enabled = true; lvlKinder.Visible = true; cbKinder.Visible = true; }
-            else { panelKinder.Enabled = false; lvlKinder.Visible = false; cbKinder.Visible = false; }
+            if (kinder.Checked) { panelKinder.Enabled = true; lvlKinder.Visible = true; cbxedlvl.Visible = true; }
+            else { panelKinder.Enabled = false; lvlKinder.Visible = false; cbxedlvl.Visible = false; }
         }
 
         private void elementary_CheckedChanged(object sender, EventArgs e)
@@ -1816,11 +1816,11 @@ namespace BalayPasilungan
 
         private void btnadded_Click(object sender, EventArgs e)
         {
-            string edname = txtedname.Text, type = cbxtype.Text, level = cbxlevel.Text;
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
 
             if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -1836,16 +1836,14 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("New Info Added!");
+                    successMessage("New Education Info Added!");
 
 
                     conn.Close();
 
                     existsed(id);
 
-                    lbledtypeview.Text = lbledtype.Text = type;
-                    lblschool.Text = lbledschool.Text = edname;
-                    lbllevel.Text = lbledlvl.Text = level;
+                    tabCase.SelectedTab = tabInfo;
 
                     tabControl.SelectedTab = eighth;
                     
@@ -2205,9 +2203,10 @@ namespace BalayPasilungan
         {
             //lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
 
-            if (btned.Text == "Add Info")
+            if (btned.Text == "ADD")
             {
-                tabControl.SelectedTab = seventh;
+                tabCase.SelectedTab = tabNewChild;
+                tabaddchild.SelectedTab = tabNewEdu;
             }
 
             else
@@ -2228,10 +2227,6 @@ namespace BalayPasilungan
 
                     if (dt.Rows.Count > 0)
                     {
-
-                        lblschool.Text = dt.Rows[0]["school"].ToString();
-                        lbledtypeview.Text = dt.Rows[0]["edutype"].ToString();
-                        lbllevel.Text = dt.Rows[0]["level"].ToString();
 
                         lbledlvl.Text = dt.Rows[0]["level"].ToString();
                         lbledtype.Text = dt.Rows[0]["edutype"].ToString();
@@ -2336,12 +2331,6 @@ namespace BalayPasilungan
         }
 
         #endregion
-
-        private void noFocusRec1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabNewInfo_Click(object sender, EventArgs e)
         {
 
