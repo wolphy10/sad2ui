@@ -86,11 +86,11 @@ namespace BalayPasilungan
         {
             // Textboxes
             //txtNewFName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewLName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewNName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtAddress.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
-            txtKinder.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtHS.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtElementary.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            //txtKinder.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtHS.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtElementary.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
             // Labels
             //lblFName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblLName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblNName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblAddress.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-            kinder.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); elementary.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); highschool.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            //kinder.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); elementary.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); highschool.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
 
             // Lines
             //panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
@@ -733,6 +733,72 @@ namespace BalayPasilungan
             }
         }
 
+        public void reloaded(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT eid, school FROM education WHERE caseid = " + id + " ORDER BY school", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+        
+                dtgeducation.DataSource = dt;
+
+                dtgeducation.Columns[0].Visible = false;
+
+                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+                EditColumn.Text = "Edit";
+                EditColumn.Name = "Edit";
+                EditColumn.DataPropertyName = "Edit";
+
+                dtgeducation.Columns.Add(EditColumn);
+                
+        
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+        }
+
+        public void reloadedclass(int eid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser FROM edclass WHERE eid = " + eid + " ORDER BY ", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                dtgeducation.DataSource = dt;
+
+                dtgeducation.Columns[0].Visible = false;
+
+                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+                EditColumn.Text = "Edit";
+                EditColumn.Name = "Edit";
+                EditColumn.DataPropertyName = "Edit";
+
+                dtgeducation.Columns.Add(EditColumn);
+
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+        }
+
         public void reloadincid(int id)
         {
             try
@@ -1081,6 +1147,8 @@ namespace BalayPasilungan
             txtedname.Clear();
             cbxedlvl.SelectedIndex = -1;
             cbxtype.SelectedIndex = -1;
+            txtedadviser.Clear();
+            txtedsection.Clear();
         }
 
         public void reset3()
@@ -1170,7 +1238,7 @@ namespace BalayPasilungan
 
                 int UserExist = (int)comm.ExecuteScalar();
 
-                btned.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+                btned.Text = (UserExist > 0) ? "VIEW MORE" : "ADD"; //put add info on catch
 
 
 
@@ -1181,7 +1249,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                btned.Text = "Add Info";
+                btned.Text = "ADD";
 
                 lbledlvl.Text = "";
                 lbledtype.Text = "";
@@ -1272,7 +1340,7 @@ namespace BalayPasilungan
 
                 int UserExist = (int)comm.ExecuteScalar();
 
-                btnhealth.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+                btnhealth.Text = (UserExist > 0) ? "VIEW MORE" : "ADD"; //put add info on catch
 
 
 
@@ -1283,7 +1351,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                btnhealth.Text = "Add Info";
+                btnhealth.Text = "ADD";
 
                 lblblood.Text = "";
                 lblbmi.Text = "";
@@ -1594,7 +1662,7 @@ namespace BalayPasilungan
         #endregion
 
         #region New Child Education Form
-        private void kinder_CheckedChanged(object sender, EventArgs e)
+       /* private void kinder_CheckedChanged(object sender, EventArgs e)
         {
             if (kinder.Checked) { panelKinder.Enabled = true; lvlKinder.Visible = true; cbxedlvl.Visible = true; }
             else { panelKinder.Enabled = false; lvlKinder.Visible = false; cbxedlvl.Visible = false; }
@@ -1698,8 +1766,8 @@ namespace BalayPasilungan
                 lblEduYes.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
                 btnEdu.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
             }
-        }
-        #endregion
+        }*/
+        #endregion   
 
         #endregion
 
@@ -1816,9 +1884,10 @@ namespace BalayPasilungan
 
         private void btnadded_Click(object sender, EventArgs e)
         {
-            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text, section = txtedsection.Text, adviser = lbl2.Text;
+            int eid;
 
-            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
+            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level) || string.IsNullOrEmpty(section) || string.IsNullOrEmpty(adviser))
             {
                 errorMessage("Please fill out empty fields.");
             }
@@ -1836,7 +1905,21 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
+                    comm = new MySqlCommand("SELECT eid from education WHERE caseid = " + id, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                    DataTable dt = new DataTable();
+
+                    adp.Fill(dt);
+
+                    eid = int.Parse(dt.Rows[0]["eid"].ToString());
+
+                    comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlvl) VALUES('" + eid + "', '" + section + "', '" + adviser + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
                     successMessage("New Education Info Added!");
+
+
 
 
                     conn.Close();
@@ -1846,6 +1929,8 @@ namespace BalayPasilungan
                     tabCase.SelectedTab = tabInfo;
 
                     tabControl.SelectedTab = eighth;
+
+                    reloaded(id);
                     
 
                     reset2();
@@ -2207,44 +2292,15 @@ namespace BalayPasilungan
             {
                 tabCase.SelectedTab = tabNewChild;
                 tabaddchild.SelectedTab = tabNewEdu;
+
+                lbladdeditprofile.Text = "New Education Background";
             }
 
             else
             {
                 tabControl.SelectedTab = eighth;
 
-                try
-                {
-                    conn.Open();
-
-                    //string[] data = lblnamedrpt.Text.Split(' ');
-
-                    MySqlCommand comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-
-                    adp.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
-                    {
-
-                        lbledlvl.Text = dt.Rows[0]["level"].ToString();
-                        lbledtype.Text = dt.Rows[0]["edutype"].ToString();
-                        lbledschool.Text = dt.Rows[0]["school"].ToString();
-
-                    }
-
-                    conn.Close();
-                }
-
-
-
-
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
+                reloaded(id);
             }
         }
 
@@ -2331,9 +2387,24 @@ namespace BalayPasilungan
         }
 
         #endregion
-        private void tabNewInfo_Click(object sender, EventArgs e)
+
+        private void dtgeducation_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            reloadedclass(eid);
+        }
+
+        private void cbxedlvl_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                
+            }
         }
 
         private void newprofilepic_Click(object sender, EventArgs e)

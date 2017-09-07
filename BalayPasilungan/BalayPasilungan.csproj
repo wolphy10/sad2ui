@@ -75,6 +75,12 @@
     <Compile Include="dim.Designer.cs">
       <DependentUpon>dim.cs</DependentUpon>
     </Compile>
+    <Compile Include="edclass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edclass.Designer.cs">
+      <DependentUpon>edclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="error.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dim.resx">
       <DependentUpon>dim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edclass.resx">
+      <DependentUpon>edclass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="error.resx">
       <DependentUpon>error.cs</DependentUpon>
