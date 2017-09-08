@@ -95,7 +95,7 @@ namespace BalayPasilungan
         public void resetNewDonor()                         // Clear new donor textboxes and set to default values
         {
             tabNewDonorInput.SelectedIndex = 0;
-            txtDName.Text = "Juan Miguel";
+            txtDName.Text = "Name of purpose.";
             cbDType.SelectedIndex = 0; cbPledge.SelectedIndex = 0;
             txtPhone.Text = "29xxxxx"; txtMobile1.Text = "09xx"; txtMobile2.Text = "xxx"; txtMobile3.Text = "xxxx";
             txtEmail.Text = "jmiguel@example.com";
@@ -376,7 +376,7 @@ namespace BalayPasilungan
 
                     if (dt.Rows.Count > 0 && !empty)
                     {
-                        BRList.Columns[1].HeaderCell.Style.Padding = BRList.Columns[1].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+                        BRList.Columns[2].HeaderCell.Style.Padding = BRList.Columns[2].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
                         BRList.Columns[5].DefaultCellStyle.Format = "MMMM dd, yyyy";
                         multiBR.Enabled = true;
                     }
@@ -399,7 +399,7 @@ namespace BalayPasilungan
                     PBRDetails.Columns[1].Width = 485;
                     PBRDetails.Columns[2].Width = PBRDetails.Columns[3].Width = PBRDetails.Columns[4].Width = 150;
 
-                    if (dt.Rows.Count > 0 && !empty) PBRDetails.Columns[1].HeaderCell.Style.Padding = PBRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);                                
+                    if (dt.Rows.Count > 0 && !empty) PBRDetails.Columns[1].HeaderCell.Style.Padding = PBRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);                                
                 }                
                 conn.Close();
             }
@@ -881,7 +881,7 @@ namespace BalayPasilungan
         #region New Donor Textboxes
         private void txtDName_Enter(object sender, EventArgs e)
         {
-            if (txtDName.Text == "Juan Miguel") txtDName.Text = "";
+            if (txtDName.Text == "Name of purpose.") txtDName.Text = "";
             txtDName.ForeColor = Color.Black;
             lblDName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
             panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
@@ -895,7 +895,7 @@ namespace BalayPasilungan
 
         private void txtDName_Leave(object sender, EventArgs e)
         {
-            if (txtDName.Text == "") txtDName.Text = "Juan Miguel";
+            if (txtDName.Text == "") txtDName.Text = "Name of purpose.";
             txtDName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
             lblDName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
             panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
@@ -1035,40 +1035,6 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #endregion
-
-        #region New Budget Request
-        private void cbOthers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbOthers.Checked) panelOthers.Enabled = true;
-            else panelOthers.Enabled = false;
-        }
-
-        private void clbCategory_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < clbCategory.Items.Count; i++)
-            {
-                if (clbCategory.GetItemRectangle(i).Contains(clbCategory.PointToClient(MousePosition)))
-                {
-                    switch (clbCategory.GetItemCheckState(i))
-                    {
-                        case CheckState.Checked:
-                            clbCategory.SetItemCheckState(i, CheckState.Unchecked);
-                            break;
-                        case CheckState.Indeterminate:
-                        case CheckState.Unchecked:
-                            clbCategory.SetItemCheckState(i, CheckState.Checked);
-                            break;
-                    }
-
-                }
-            }
-        }
-
-        private void btnBRCancel_Click(object sender, EventArgs e)
-        {
-            tabSelection.SelectedTab = tabFinance;
-        }
         #endregion
 
         #region Donor Edit
@@ -1536,6 +1502,33 @@ namespace BalayPasilungan
         #endregion
 
         #region Budget Request List
+        private void cbOthers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOthers.Checked) panelOthers.Enabled = true;
+            else panelOthers.Enabled = false;
+        }
+
+        private void clbCategory_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clbCategory.Items.Count; i++)
+            {
+                if (clbCategory.GetItemRectangle(i).Contains(clbCategory.PointToClient(MousePosition)))
+                {
+                    switch (clbCategory.GetItemCheckState(i))
+                    {
+                        case CheckState.Checked:
+                            clbCategory.SetItemCheckState(i, CheckState.Unchecked);
+                            break;
+                        case CheckState.Indeterminate:
+                        case CheckState.Unchecked:
+                            clbCategory.SetItemCheckState(i, CheckState.Checked);
+                            break;
+                    }
+
+                }
+            }
+        }
+
         private void btnViewBR_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabBRList;            
@@ -1563,6 +1556,40 @@ namespace BalayPasilungan
         private void btnPBRBack_Click(object sender, EventArgs e)
         {
             tabPBR.SelectedIndex = 0;
+        }
+
+        private void btnBRCancel_Click(object sender, EventArgs e)
+        {
+            confirmMessage("Are you sure you want to cancel this request?");
+            if (confirmed)
+            {
+                try
+                {
+                    conn.Open();
+
+                    MySqlCommand comm = new MySqlCommand("DELETE FROM budget WHERE budgetID = " + current_budgetID, conn);
+                    comm.ExecuteNonQuery();
+
+                    comm = new MySqlCommand("ALTER TABLE budget AUTO_INCREMENT = " + current_budgetID, conn);
+                    comm.ExecuteNonQuery();
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+                // Clear or reset all
+                txtPurpose.Text = "Name of purpose.";
+                dateBR.MaxDate = dateBR.Value = DateTime.Today;
+                cbOthers.Checked = false; txtBROthers.Clear();
+                foreach (int i in clbCategory.CheckedIndices)
+                {
+                    clbCategory.SetItemCheckState(i, CheckState.Unchecked);
+                }
+
+                tabSelection.SelectedTab = tabFinance;
+            }
         }
         #endregion
     }
