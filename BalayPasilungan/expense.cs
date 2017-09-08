@@ -402,8 +402,27 @@ namespace BalayPasilungan
                         BRList.Columns[1].HeaderCell.Style.Padding = BRList.Columns[1].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
                         multiBR.Enabled = true;
                     }
-                    else multiBR.Enabled = false;                
+                    else multiBR.Enabled = false;
                 }
+                else if (type == 5)          // Selected budget request details load
+                {
+                    PBRDetails.DataSource = dt;
+
+                    // BR LIST In Kind UI Modifications
+                    PBRDetails.Columns[1].HeaderText = "PARTICULAR";
+                    PBRDetails.Columns[2].HeaderText = "QUANTITY";
+                    PBRDetails.Columns[3].HeaderText = "UNIT PRICE";
+                    PBRDetails.Columns[4].HeaderText = "AMOUNT";
+
+                    // For ID purposes (hidden from user)            
+                    PBRDetails.Columns[0].Visible = PBRDetails.Columns[5].Visible = false;
+
+                    // 935 TOTAL WIDTH
+                    PBRDetails.Columns[1].Width = 485;
+                    PBRDetails.Columns[2].Width = PBRDetails.Columns[3].Width = PBRDetails.Columns[4].Width = 150;
+
+                    if (dt.Rows.Count > 0 && !empty) PBRDetails.Columns[1].HeaderCell.Style.Padding = PBRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);                                
+                }                
                 conn.Close();
             }
             catch (Exception ex)
@@ -1509,6 +1528,17 @@ namespace BalayPasilungan
             tabSelection.SelectedTab = tabBRList;
             MySqlCommand comm = new MySqlCommand("SELECT budgetID, purpose, dateRequested, requestedBy FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
             loadTable(comm, 4);
+        }
+
+        private void BRList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && !empty)
+            {
+                current_budgetID = int.Parse(BRList.Rows[e.RowIndex].Cells[0].FormattedValue.ToString());
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+                loadTable(comm, 5);
+                tabPBR.SelectedIndex = 1;                            
+            }
         }
         #endregion
     }
