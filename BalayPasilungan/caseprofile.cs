@@ -86,11 +86,11 @@ namespace BalayPasilungan
         {
             // Textboxes
             //txtNewFName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewLName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewNName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtAddress.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
-            txtKinder.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtHS.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtElementary.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            //txtKinder.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtHS.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtElementary.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
             // Labels
             //lblFName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblLName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblNName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblAddress.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-            kinder.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); elementary.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); highschool.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            //kinder.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); elementary.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); highschool.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
 
             // Lines
             //panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
@@ -460,7 +460,7 @@ namespace BalayPasilungan
         public void addhealth()
         {
             string blood = cbxbloodtype.Text, allergy = rtxtall.Text, condition = rtxtcondition.Text;
-            int height, weight;
+            double height, weight;
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
@@ -470,9 +470,9 @@ namespace BalayPasilungan
             else
             {
 
-                if (Int32.TryParse(txtheight.Text, out height) && Int32.TryParse(txtweight.Text, out weight))
+                if (double.TryParse(txtheight.Text, out height) && double.TryParse(txtweight.Text, out weight))
                 {
-                    height = int.Parse(txtheight.Text); weight = int.Parse(txtweight.Text);
+                    height = double.Parse(txtheight.Text); weight = double.Parse(txtweight.Text);
 
                     try
                     {
@@ -495,8 +495,7 @@ namespace BalayPasilungan
                         reloadedithealth(id);
 
                         lblblood.Text = blood;
-                        lblheight.Text = height.ToString();
-                        lblweight.Text = weight.ToString();
+                        lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
                         tabControl.SelectedTab = sixteen;
 
@@ -514,12 +513,12 @@ namespace BalayPasilungan
 
                 else
                 {
-                    if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
+                    if (double.TryParse(txtheight.Text, out height) == false && double.TryParse(txtweight.Text, out weight) == false)
                     {
                         errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
-                    else if (Int32.TryParse(txtheight.Text, out height) == false)
+                    else if (double.TryParse(txtheight.Text, out height) == false)
                     {
                         errorMessage("Height input is invalid! Use numbers!");
                     }
@@ -535,7 +534,7 @@ namespace BalayPasilungan
         public void edithealth()
         {
             string blood = cbxbloodtype.Text, allergy = rtxtall.Text, condition = rtxtcondition.Text;
-            int height, weight;
+            double height, weight;
 
             if (string.IsNullOrEmpty(blood) || string.IsNullOrEmpty(txtheight.Text) || string.IsNullOrEmpty(txtweight.Text) || string.IsNullOrEmpty(allergy) || string.IsNullOrEmpty(condition))
             {
@@ -545,9 +544,9 @@ namespace BalayPasilungan
             else
             {
 
-                if (Int32.TryParse(txtheight.Text, out height) && Int32.TryParse(txtweight.Text, out weight))
+                if (double.TryParse(txtheight.Text, out height) && double.TryParse(txtweight.Text, out weight))
                 {
-                    height = int.Parse(txtheight.Text); weight = int.Parse(txtweight.Text);
+                    height = double.Parse(txtheight.Text); weight = double.Parse(txtweight.Text);
 
                     try
                     {
@@ -570,8 +569,7 @@ namespace BalayPasilungan
                         reloadedithealth(id);
 
                         lblblood.Text = blood;
-                        lblheight.Text = height.ToString();
-                        lblweight.Text = weight.ToString();
+                        lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
                         tabControl.SelectedTab = seventeen;
 
@@ -589,12 +587,12 @@ namespace BalayPasilungan
 
                 else
                 {
-                    if (Int32.TryParse(txtheight.Text, out height) == false && Int32.TryParse(txtweight.Text, out weight) == false)
+                    if (double.TryParse(txtheight.Text, out height) == false && double.TryParse(txtweight.Text, out weight) == false)
                     {
                         errorMessage("Height and Weight inputs are invalid! Use numbers!");
                     }
 
-                    else if (Int32.TryParse(txtheight.Text, out height) == false)
+                    else if (double.TryParse(txtheight.Text, out height) == false)
                     {
                         errorMessage("Height input is invalid! Use numbers!");
                     }
@@ -725,6 +723,72 @@ namespace BalayPasilungan
 
 
                 dtgcon.Columns[0].Visible = false;
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+        }
+
+        public void reloaded(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT eid, school FROM education WHERE caseid = " + id + " ORDER BY school", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+        
+                dtgeducation.DataSource = dt;
+
+                dtgeducation.Columns[0].Visible = false;
+
+                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+                EditColumn.Text = "Edit";
+                EditColumn.Name = "Edit";
+                EditColumn.DataPropertyName = "Edit";
+
+                dtgeducation.Columns.Add(EditColumn);
+                
+        
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+        }
+
+        public void reloadedclass(int eid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser FROM edclass WHERE eid = " + eid + " ORDER BY ", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                dtgeducation.DataSource = dt;
+
+                dtgeducation.Columns[0].Visible = false;
+
+                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+                EditColumn.Text = "Edit";
+                EditColumn.Name = "Edit";
+                EditColumn.DataPropertyName = "Edit";
+
+                dtgeducation.Columns.Add(EditColumn);
+
 
                 conn.Close();
             }
@@ -1059,6 +1123,12 @@ namespace BalayPasilungan
             }
         }
 
+        private void dtgeducation_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            reloadedclass(eid);
+        }
+
         #endregion
 
         #region reset functions
@@ -1081,7 +1151,7 @@ namespace BalayPasilungan
         public void reset2()
         {
             txtedname.Clear();
-            cbxlevel.SelectedIndex = -1;
+            cbxedlvl.SelectedIndex = -1;
             cbxtype.SelectedIndex = -1;
         }
 
@@ -1172,7 +1242,7 @@ namespace BalayPasilungan
 
                 int UserExist = (int)comm.ExecuteScalar();
 
-                btned.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+                btned.Text = (UserExist > 0) ? "VIEW MORE" : "ADD"; //put add info on catch
 
 
 
@@ -1183,7 +1253,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                btned.Text = "Add Info";
+                btned.Text = "ADD";
 
                 lbledlvl.Text = "";
                 lbledtype.Text = "";
@@ -1274,7 +1344,7 @@ namespace BalayPasilungan
 
                 int UserExist = (int)comm.ExecuteScalar();
 
-                btnhealth.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
+                btnhealth.Text = (UserExist > 0) ? "VIEW MORE" : "ADD"; //put add info on catch
 
 
 
@@ -1285,11 +1355,10 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                btnhealth.Text = "Add Info";
+                btnhealth.Text = "ADD";
 
                 lblblood.Text = "";
-                lblheight.Text = "";
-                lblweight.Text = "";
+                lblbmi.Text = "";
 
                 conn.Close();
             }
@@ -1597,10 +1666,10 @@ namespace BalayPasilungan
         #endregion
 
         #region New Child Education Form
-        private void kinder_CheckedChanged(object sender, EventArgs e)
+       /* private void kinder_CheckedChanged(object sender, EventArgs e)
         {
-            if (kinder.Checked) { panelKinder.Enabled = true; lvlKinder.Visible = true; cbKinder.Visible = true; }
-            else { panelKinder.Enabled = false; lvlKinder.Visible = false; cbKinder.Visible = false; }
+            if (kinder.Checked) { panelKinder.Enabled = true; lvlKinder.Visible = true; cbxedlvl.Visible = true; }
+            else { panelKinder.Enabled = false; lvlKinder.Visible = false; cbxedlvl.Visible = false; }
         }
 
         private void elementary_CheckedChanged(object sender, EventArgs e)
@@ -1701,8 +1770,8 @@ namespace BalayPasilungan
                 lblEduYes.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
                 btnEdu.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
             }
-        }
-        #endregion
+        }*/
+        #endregion   
 
         #endregion
 
@@ -1819,11 +1888,12 @@ namespace BalayPasilungan
 
         private void btnadded_Click(object sender, EventArgs e)
         {
-            string edname = txtedname.Text, type = cbxtype.Text, level = cbxlevel.Text;
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
+            int eid;
 
             if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -1839,18 +1909,20 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("New Info Added!");
+                    successMessage("New Education Info Added!");
+
+
 
 
                     conn.Close();
 
                     existsed(id);
 
-                    lbledtypeview.Text = lbledtype.Text = type;
-                    lblschool.Text = lbledschool.Text = edname;
-                    lbllevel.Text = lbledlvl.Text = level;
+                    tabCase.SelectedTab = tabInfo;
 
                     tabControl.SelectedTab = eighth;
+
+                    reloaded(id);
                     
 
                     reset2();
@@ -2208,51 +2280,19 @@ namespace BalayPasilungan
         {
             //lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
 
-            if (btned.Text == "Add Info")
+            if (btned.Text == "ADD")
             {
-                tabControl.SelectedTab = seventh;
+                tabCase.SelectedTab = tabNewChild;
+                tabaddchild.SelectedTab = tabNewEdu;
+
+                lbladdeditprofile.Text = "New Education Background";
             }
 
             else
             {
                 tabControl.SelectedTab = eighth;
 
-                try
-                {
-                    conn.Open();
-
-                    //string[] data = lblnamedrpt.Text.Split(' ');
-
-                    MySqlCommand comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-
-                    adp.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
-                    {
-
-                        lblschool.Text = dt.Rows[0]["school"].ToString();
-                        lbledtypeview.Text = dt.Rows[0]["edutype"].ToString();
-                        lbllevel.Text = dt.Rows[0]["level"].ToString();
-
-                        lbledlvl.Text = dt.Rows[0]["level"].ToString();
-                        lbledtype.Text = dt.Rows[0]["edutype"].ToString();
-                        lbledschool.Text = dt.Rows[0]["school"].ToString();
-
-                    }
-
-                    conn.Close();
-                }
-
-
-
-
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
+                reloaded(id);
             }
         }
 
@@ -2340,14 +2380,28 @@ namespace BalayPasilungan
 
         #endregion
 
-        private void noFocusRec1_Click(object sender, EventArgs e)
+        private void cbxedlvl_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void tabNewInfo_Click(object sender, EventArgs e)
+        private void btnaddedclass_Click(object sender, EventArgs e)
         {
+            edclass ed = new edclass();
 
+            ed.reftocase = this;
+
+            ed.ShowDialog();
+
+            //ed.level = 
+        }
+
+        private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                
+            }
         }
 
         private void newprofilepic_Click(object sender, EventArgs e)

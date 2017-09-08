@@ -136,8 +136,8 @@ namespace BalayPasilungan
             dateFromInitial(DateTime.Now.Month, DateTime.Now.Year);
             dateToInitial(DateTime.Now.Month, DateTime.Now.Year);
             dateRemindInitial(DateTime.Now.Month, DateTime.Now.Year);
-            cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEDay.SelectedIndex = DateTime.Now.Day - 1;
-            cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
+            cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEDay.SelectedIndex = DateTime.Now.Day - 1;
+            cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
             cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(DateTime.Now.Year.ToString()); cb_DRemind.SelectedIndex = DateTime.Now.Day - 1;
             clrTabReqF();
         }
@@ -356,14 +356,24 @@ namespace BalayPasilungan
                 tabERForm.SelectedIndex = 2;
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
-                if (!allDayState)
+                if (btnRange == "multi")
                 {
                     confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
                                          "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
                 }
                 else
                 {
-                    confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
+                    if (!allDayState)
+                    {
+                        confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
+                                         "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
+                    }
+                    else
+                    {
+                        confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
+                                         "TO: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
+                    }
+                    
                 }
             }
         }
@@ -679,14 +689,21 @@ namespace BalayPasilungan
                 lbAllDay.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
                 btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
                 allDayState = true;
-                if (cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
+                if (cbEMonth.SelectedIndex == cbEMonth.Items.Count - 1 && cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
+                {
+                    cbEYear2.SelectedIndex = cbEYear.SelectedIndex + 1;
+                    cbEMonth2.SelectedIndex = 0;
+                    cbEDay2.SelectedIndex = 0;
+                }
+                else if (cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
                 {
                     cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex + 1;
-                    cbEDay2.SelectedIndex = cbEDay.SelectionStart;
+                    cbEDay2.SelectedIndex = 0;
                 }
                 else
                 {
-                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex - 1;
+                    cbEYear2.SelectedIndex = cbEYear.SelectedIndex;
+                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex;
                     cbEDay2.SelectedIndex = cbEDay.SelectedIndex + 1;
                 }
                 txtEHours.Text = "12"; txtEHours2.Text = "12";
@@ -751,7 +768,10 @@ namespace BalayPasilungan
                 cbEDay2.Items.Add("" + i.ToString("00") + "");
             }        
         }
-
+        private void cbEDay_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbEDay.SelectedItem.Equals("")) cbEDay.SelectedIndex = 0;
+        }
         private void cbEMonth_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int num = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
@@ -763,7 +783,10 @@ namespace BalayPasilungan
             int num = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
             dateFromInitial(num, int.Parse(cbEYear.Text));
         }
-
+        private void cbEDay2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbEDay2.SelectedItem.Equals("")) cbEDay2.SelectedIndex = cbEDay.SelectedIndex;
+        }
         private void cbEMonth2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int num = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
@@ -783,13 +806,15 @@ namespace BalayPasilungan
 
         private void cbEDay_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbEDay.SelectedItem == null) cbEDay.SelectedIndex = 0;
             if (btnRange == "one")
             {
+                //MessageBox.Show("" + (cbd2 - cbd).TotalDays);//datetime datatype can be subtracted and get tht total days or month or years or the difference
                 if (cbEMonth.SelectedIndex == cbEMonth.Items.Count - 1 && cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
                 {
+                    cbEYear2.SelectedIndex = cbEYear.SelectedIndex + 1;
                     cbEMonth2.SelectedIndex = 0;
                     cbEDay2.SelectedIndex = 0;
-                    cbEYear2.SelectedIndex = cbEYear.SelectedIndex + 1;
                 }
                 else if (cbEDay.SelectedIndex == cbEDay.Items.Count - 1)
                 {
@@ -798,8 +823,8 @@ namespace BalayPasilungan
                 }
                 else
                 {
-                   // MessageBox.Show(""+ cbEMonth.SelectedIndex + "==" + (cbEMonth.Items.Count - 1) +  " " + cbEDay.SelectedIndex + "==" + (cbEDay.Items.Count - 1));
-                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex - 1;
+                    cbEYear2.SelectedIndex = cbEYear.SelectedIndex;
+                    cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex;
                     cbEDay2.SelectedIndex = cbEDay.SelectedIndex + 1;
                 }
             }
@@ -813,33 +838,37 @@ namespace BalayPasilungan
         {
             cbEYear2.SelectedIndex = cbEYear.SelectedIndex;
         }
-
+        private void cbEDay2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbEDay2.SelectedItem == null) cbEDay2.SelectedIndex = cbEDay.SelectedIndex;
+        }
         private void cbEMonth2_SelectedIndexChanged(object sender, EventArgs e)
         {
             error err = new error();
             err.refToERF = this;
-            MessageBox.Show(cbEMonth2.SelectedIndex + "<"+ cbEMonth2.SelectedIndex + " " + cbEYear.SelectedIndex + "==" + cbEYear2.SelectedIndex);
-            if (cbEMonth2.SelectedIndex < cbEMonth.SelectedIndex &&
-                cbEYear.SelectedIndex == cbEYear2.SelectedIndex)
+            //MessageBox.Show(cbEMonth2.SelectedIndex + "<"+ cbEMonth2.SelectedIndex + " " + cbEYear.SelectedIndex + "==" + cbEYear2.SelectedIndex);
+            if (cbEMonth2.SelectedIndex < cbEMonth.SelectedIndex && cbEYear.SelectedIndex == cbEYear2.SelectedIndex)
             {
                 MessageBox.Show("selected index changed");
                 err.lblError.Text = "You cannot set this to an earlier month.";
                 err.ShowDialog();
                 cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex;
             }
+            int num = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
+            dateToInitial(num, int.Parse(cbEYear2.Text));
         }
 
         private void cbEYear2_SelectedIndexChanged(object sender, EventArgs e)
         {
             error err = new error();
             err.refToERF = this;
-
             if (cbEYear2.SelectedIndex < cbEYear.SelectedIndex)
             {
                 err.lblError.Text = "You cannot set this to an earlier year.";
                 err.ShowDialog();
                 cbEYear2.SelectedIndex = cbEYear.SelectedIndex;
             }
+            
         }
 
         public void dateRemindInitial(int month, int year)
@@ -1011,12 +1040,6 @@ namespace BalayPasilungan
                 if (int.Parse(txtMinRemind.Text) < 10 && txtMinRemind.TextLength < 2) txtMinRemind.Text = "0" + txtMinRemind.Text;
             }
         }
-
-        private void cbEDay2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbEDay2.SelectedItem == null) cbEDay2.SelectedIndex = cbEDay.SelectedIndex;            
-        }
-
         #endregion
 
         private void btnNewEventForm_Click(object sender, EventArgs e)          // Clear textboxes and reset form  
@@ -1278,7 +1301,7 @@ namespace BalayPasilungan
                     lblViewDes.Text = dt.Rows[0]["evDesc"].ToString();
                     lblViewType.Text = dt.Rows[0]["evType"].ToString();
                     lblViewDate.Text = dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" +
-                                       dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString();
+                                       dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
                     if(dt.Rows[0]["reminder"].ToString() == "" || dt.Rows[0]["reminder"].ToString() == "true")
                     {
                         lblViewRemind.Text = "NONE";
@@ -1398,7 +1421,7 @@ namespace BalayPasilungan
                     monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
                     eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
                     datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
-                    timeTo = txtEHours.Text + ":" + txtEMins.Text + " " + ampmTo;
+                    timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
                     dateTo = cbEYear.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
                 }
             }
@@ -1411,7 +1434,6 @@ namespace BalayPasilungan
                 timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
                 dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
             }
-            //MessageBox.Show(eventtime + " " + datefrom + " " + timeTo + " " + dateTo);
             try
             {
                 conn.Open();
@@ -1915,8 +1937,8 @@ namespace BalayPasilungan
                             dateFromInitial(monthnum, int.Parse(btnYNow.Text));
                             dateToInitial(monthnum, int.Parse(btnYNow.Text));
                             dateRemindInitial(monthnum, int.Parse(btnYNow.Text));
-                            cbEMonth.SelectedIndex = monthnum - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
-                            cbEMonth2.SelectedIndex = monthnum - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEMonth.SelectedIndex = monthnum - 1; cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEMonth2.SelectedIndex = monthnum - 1; cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             cb_MRemind.SelectedIndex = monthnum - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(btnYNow.Text); cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             clrTabReqF();
                         }
@@ -1940,8 +1962,8 @@ namespace BalayPasilungan
                             dateFromInitial(monthnum, int.Parse(btnYNow.Text));
                             dateToInitial(monthnum, int.Parse(btnYNow.Text));
                             dateRemindInitial(monthnum, int.Parse(btnYNow.Text));
-                            cbEMonth.SelectedIndex = monthnum - 1; cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
-                            cbEMonth2.SelectedIndex = monthnum - 1; cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cbEYear.SelectedIndex = cbEYear.FindStringExact(btnYNow.Text); cbEMonth.SelectedIndex = monthnum - 1; cbEDay.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
+                            cbEYear2.SelectedIndex = cbEYear2.FindStringExact(btnYNow.Text); cbEMonth2.SelectedIndex = monthnum - 1; cbEDay2.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             cb_MRemind.SelectedIndex = monthnum - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(btnYNow.Text); cb_DRemind.SelectedIndex = int.Parse(cellday.ToString("00")) - 1;
                             clrTabReqF();
                         }
