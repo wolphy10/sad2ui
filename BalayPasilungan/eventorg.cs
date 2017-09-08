@@ -943,7 +943,12 @@ namespace BalayPasilungan
         {
             error err = new error();
             err.refToERF = this;
-            if (int.Parse(txtEHours.Text) > 12 || int.Parse(txtEHours.Text) <= 0)
+            if(txtEHours.Text == "")
+            {
+                txtEHours.Text = "00";
+                txtEHours.Focus();
+            }
+            else if (int.Parse(txtEHours.Text) > 12 || int.Parse(txtEHours.Text) <= 0) // bai what if nagleave tapos empty ang textbox magerror ang int.parse
             {                
                 err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
                 err.ShowDialog();
@@ -960,7 +965,12 @@ namespace BalayPasilungan
         {
             error err = new error();
             err.refToERF = this;
-            if (int.Parse(txtEMins.Text) > 59 || int.Parse(txtEMins.Text) < 0)
+            if(txtEMins.Text == "")
+            {
+                txtEMins.Text = "00";
+                txtEMins.Focus();
+            }
+            else if (int.Parse(txtEMins.Text) > 59 || int.Parse(txtEMins.Text) < 0)
             {
                 err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
                 err.ShowDialog();                
@@ -977,7 +987,12 @@ namespace BalayPasilungan
         {
             error err = new error();
             err.refToERF = this;
-            if (int.Parse(txtEHours2.Text) > 12 || int.Parse(txtEHours2.Text) <= 0)
+            if(txtEHours2.Text == "")
+            {
+                txtEHours2.Text = "00";
+                txtEHours2.Focus();
+            }
+            else if (int.Parse(txtEHours2.Text) > 12 || int.Parse(txtEHours2.Text) <= 0)
             {
                 err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
                 err.ShowDialog();
@@ -994,7 +1009,12 @@ namespace BalayPasilungan
         {
             error err = new error();
             err.refToERF = this;
-            if (int.Parse(txtEMins2.Text) > 59 || int.Parse(txtEMins2.Text) < 0)
+            if(txtEMins.Text == "")
+            {
+                txtEMins2.Text = "00";
+                txtEMins2.Focus();
+            }
+            else if (int.Parse(txtEMins2.Text) > 59 || int.Parse(txtEMins2.Text) < 0)
             {
                 err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
                 err.ShowDialog();
@@ -1069,6 +1089,7 @@ namespace BalayPasilungan
 
         private void eventorg_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("gawa ng dialog box for event view na edit isip din kun asan ilagay ang cancel. ui design nanaman for tabevent i'm not satisfied");
             btnMPrev.Text = aMonths[DateTime.Now.Month - 2];
             btnMNow.Text = aMonths[DateTime.Now.Month - 1];
             btnMNext.Text = aMonths[DateTime.Now.Month];
@@ -1346,26 +1367,16 @@ namespace BalayPasilungan
                 scs.reftoevorg = this;
                 scs.lblSuccess.Text = "EVENT REQUEST SENT.";
                 DialogResult rest = scs.ShowDialog();
+                int insnum = 0;
                 if(rest == DialogResult.OK)
                 {
                     tabSecond.SelectedTab = tabPending;
                 }
-                if(remindYN == "yes" && budgetYN == "yes")
-                {
-                    insertWithboth();    
-                }
-                else if(remindYN == "yes" && budgetYN == "no")
-                {
-                    insertWithRemind();
-                }
-                else if(remindYN == "no" && budgetYN == "yes")
-                {
-                    insertWithbudget();
-                }
-                else
-                {
-                    insert();
-                }
+                if (remindYN == "yes" && budgetYN == "yes") insnum = 1;
+                else if (remindYN == "yes" && budgetYN == "no") insnum = 2;
+                else if (remindYN == "no" && budgetYN == "yes") insnum = 3;
+                else insnum = 0;
+                insertRequest(insnum);
                 displayEventApproval();
             }
         }
@@ -1400,7 +1411,7 @@ namespace BalayPasilungan
             return check;
         }
         //insert functions for requesting
-        public void insert()
+        public void insertRequest( int insnum)
         {
             int monthfrom = 0, monthto = 0;
             string eventtime = "", datefrom = "", timeTo = "", dateTo = "";
@@ -1434,102 +1445,22 @@ namespace BalayPasilungan
                 timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
                 dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
             }
+            int monthR = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
+            string reminddate = monthR.ToString("00") + "/" + cb_DRemind.Text + "/" + cb_YRemind.Text;
+            string remindtime = txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
             try
             {
+                MessageBox.Show(insnum + "");
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom , evVenue, evProgress, evType, attendance, status, requestedBy, evDateTo, evTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'False' , 'Pending' " + ",'" + txtRequestBy.Text + "', '" + dateTo + "', '" + timeTo + "');", conn);
+                MySqlCommand comm = new MySqlCommand();
+                if (insnum == 0) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom , evVenue, evProgress, evType, attendance, status, requestedBy, evDateTo, evTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'False' , 'Pending' " + ",'" + txtRequestBy.Text + "', '" + dateTo + "', '" + timeTo + "');", conn); //insert
+                else if (insnum == 1) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, reminderDate, reminderTime, attendance, requestedBy, budget, reminder, evDateTo, evTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', " + eventtime + "','" + confirm_EVenue.Text + "', 'Pending' , '" + confirm_EType.Text + "' , 'Pending' ,'" + reminddate + "','" + remindtime + "', 'False' ,'" + txtRequestBy.Text + "', 'True', 'True', '" + dateTo + "', " + timeTo + "');", conn);//insert with both
+                else if (insnum == 2) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, attendance, requestedBy, reminder, evDateTo, evTimeTo, reminderDate, reminderTime) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "','" + "Pending" + "', 'False' ,'" + txtRequestBy.Text + "','True', '" + dateTo + "', '" + timeTo + "','" + reminddate + "','" + remindtime + "');", conn); // insert with remind
+                else if(insnum == 3) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evVenue, evProgress, evType, status, attendance, requestedBy, budget, evDateTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'Pending' , 'False' ,'" + txtRequestBy.Text + "', 'True', '" + dateTo + "', '" + timeTo + "');", conn); // insert with budget
                 comm.ExecuteNonQuery();
 
                 conn.Close();
                 //displayEvents();
-
-
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("" + ee);
-                conn.Close();
-            }
-        }
-        public void insertWithboth()
-        {
-            int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
-            string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
-            string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
-            string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
-            int monthR = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
-            string reminddate = monthR.ToString("00") + "/" + cb_DRemind.Text + "/" + cb_YRemind.Text;
-            string remindtime = txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
-            //string reminddateTo = dialogMonthRTo + "/" + dialogDayRTo + "/" + dialogYearRTo;
-            //string remindtimeTo = dialogHourRTo + ":" + dialogMinRTo + " " + dialogt2R;
-
-            //string remindDate = dateTimePicker2.Value.Date.ToString("MM/dd/yyyy");
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, reminderDate, reminderTime, attendance, requestedBy, budget, reminder, evDateTo, evTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', " + eventtime + "','" + confirm_EVenue.Text + "', 'Pending' , '" + confirm_EType.Text + "' , 'Pending' ,'" + reminddate + "','" + remindtime + "', 'False' ,'" + txtRequestBy.Text + "', 'True', 'True', '" + dateTo + "', " + timeTo + "');", conn);
-                comm.ExecuteNonQuery();
-
-                conn.Close();
-
-
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("" + ee);
-                conn.Close();
-            }
-        }
-        public void insertWithRemind()
-        {
-
-            int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
-            string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
-            string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
-            string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
-            int monthR = Array.IndexOf(aMonths, cb_MRemind.Text) + 1;
-            string reminddate = monthR.ToString("00") + "/" + cb_DRemind.Text + "/" + cb_YRemind.Text;
-            string remindtime = txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
-            //string reminddateTo = dialogMonthRTo + "/" + dialogDayRTo + "/" + dialogYearRTo;
-            //string remindtimeTo = dialogHourRTo + ":" + dialogMinRTo + " " + dialogt2R;
-            //string remindDate = dateTimePicker2.Value.Date.ToString("MM/dd/yyyy");
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, reminderDate, reminderTime, attendance, requestedBy, reminder, evDateTo, evTimeTo, remindDateTo, remindTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "','" + "Pending" + "','" + reminddate + "','" + remindtime + "', 'False' ,'" + txtRequestBy.Text + "','True', '" + dateTo + "', '" + timeTo + "');", conn);
-                comm.ExecuteNonQuery();
-
-                conn.Close();
-
-
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("" + ee);
-                conn.Close();
-            }
-        }
-        public void insertWithbudget()
-        {
-
-            int monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
-            int monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
-            string eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
-            string datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
-            string timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            string dateTo = cbEYear2.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
-            //string remindDate = dateTimePicker2.Value.Date.ToString("MM/dd/yyyy");
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evVenue, evProgress, evType, status, attendance, requestedBy, budget, evDateTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'Pending' , 'False' ,'" + txtRequestBy.Text + "', 'True', '" + dateTo + "', '" + timeTo + "');", conn);
-                comm.ExecuteNonQuery();
-
-                conn.Close();
 
 
             }
@@ -1737,6 +1668,8 @@ namespace BalayPasilungan
             btnPMRemind.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
             lbAllDay.ForeColor = Color.FromArgb(42, 42, 42);
             btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
+            btnRAllDay.Visible = false;
+            lbAllDay.Visible = false;
         }
         #endregion
 
@@ -1832,7 +1765,7 @@ namespace BalayPasilungan
 
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' ", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' || status = 'Canceled' ", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -1883,7 +1816,7 @@ namespace BalayPasilungan
                                         }
                                         else
                                         {
-                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.White;
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.FromArgb(15, 168, 104);
                                         }
 
                                     }
@@ -2048,17 +1981,24 @@ namespace BalayPasilungan
                         DateTime dateto = DateTime.ParseExact(dayto.ToString("00") + "/" + monthto.ToString("00") + "/" + yearto + " " + timeto, "dd/MM/yyyy h:m tt", CultureInfo.InvariantCulture);
 
                         id = dt.Rows[i]["eventID"].ToString();
-                        if (DateTime.Now >= datefrom && DateTime.Now <= dateto)
+                        if(dt.Rows[i]["status"].ToString() != "Canceled")
                         {
-                            prog = "Ongoing";
+                            if (DateTime.Now >= datefrom && DateTime.Now <= dateto)
+                            {
+                                prog = "Ongoing";
+                            }
+                            else if (DateTime.Now < datefrom)
+                            {
+                                prog = "Upcoming";
+                            }
+                            else if (DateTime.Now > dateto)
+                            {
+                                prog = "Finished";
+                            }
                         }
-                        else if (DateTime.Now < datefrom)
+                        else
                         {
-                            prog = "Upcoming";
-                        }
-                        else if (DateTime.Now > dateto)
-                        {
-                            prog = "Finished";
+                            prog = "Cancelled";
                         }
                         //MessageBox.Show(prog + " " + id);
                         updateEventProgress(prog, id);
