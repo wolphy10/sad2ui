@@ -17,7 +17,7 @@ namespace BalayPasilungan
     public partial class moneyDonate : Form
     {
         public MySqlConnection conn;
-        public int donorID, donationID;
+        public int donorID, donationID, budgetID;
 
         public Form refToExpense { get; set; }
         public Form refToDim { get; set; }
@@ -499,12 +499,13 @@ namespace BalayPasilungan
                 conn.Open();
 
                 // ADD BUDGET REQUEST ITEM
-                MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount)"
+                MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount, budgetID)"
                     + " VALUES ('" + txtBRPart.Text + "', " + int.Parse(txtBRQuantity.Value.ToString()) + ", "
-                    + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ");", conn);
-
+                    + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ", " + budgetID + ");", conn);
+                
                 comm.ExecuteNonQuery();                
-                addSQL(comm, 4);
+                conn.Close();
+                this.Close();
             }
             catch (Exception ex)
             {
