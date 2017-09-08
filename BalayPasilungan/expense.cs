@@ -32,7 +32,6 @@ namespace BalayPasilungan
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
 
             // Renderers (to remove default blue hightlights or mouseovers)
-            donorMenuStrip.Renderer = new renderer();
             donorInfo.Renderer = new renderer2(); brInfo.Renderer = new renderer2();
 
             // Setting Dates
@@ -203,6 +202,29 @@ namespace BalayPasilungan
             resetMainButtons();
             btnFinance.BackColor = Color.White;
             btnFinance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_green;
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT COUNT(budgetID) as COUNT FROM budget WHERE status = 'Pending'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows[0]["COUNT"].ToString() != "0")
+                {
+                    notifBR.Visible = btnViewBR.Enabled = true;
+                    if(int.Parse(dt.Rows[0]["COUNT"].ToString()) < 10) notifBR.Text = "0" + dt.Rows[0]["COUNT"].ToString();
+                    else notifBR.Text = dt.Rows[0]["COUNT"].ToString();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessage(ex.Message);
+            }
+
             tabSelection.SelectedTab = tabFinance;
         }
 
@@ -343,7 +365,7 @@ namespace BalayPasilungan
                     // 633 TOTAL WIDTH
                     BRDetails.Columns[1].Width = 320;
                     BRDetails.Columns[2].Width = 73;
-                    BRDetails.Columns[3].Width = BRDetails.Columns[3].Width = 120;
+                    BRDetails.Columns[3].Width = BRDetails.Columns[4].Width = 120;
                     
                     if (dt.Rows.Count > 0 && !empty)
                     {
@@ -351,6 +373,36 @@ namespace BalayPasilungan
                         btnDelBR.Enabled = btnEditBR.Enabled = true; //multiSelect2.Enabled = true;
                     }
                     else btnDelBR.Enabled = btnEditBR.Enabled = empty = false; //multiSelect2.Enabled = false;                    
+                }
+                else if (type == 4)          // List of budget requests
+                {
+                    if (dt.Rows.Count == 0)
+                    {
+                        dt.Rows.Add(-1, "No entries.", null, null);
+                        empty = true;
+                    }
+
+                    BRList.DataSource = dt;
+
+                    // BR LIST In Kind UI Modifications
+                    BRList.Columns[1].HeaderText = "PURPOSE";
+                    BRList.Columns[2].HeaderText = "DATE REQUESTED";
+                    BRList.Columns[3].HeaderText = "REQUESTED BY";
+
+                    // For ID purposes (hidden from user)            
+                    BRList.Columns[0].Visible = false;
+
+                    // 935 TOTAL WIDTH
+                    BRList.Columns[1].Width = 505;
+                    BRList.Columns[2].Width = 215;
+                    BRList.Columns[3].Width = 215;
+
+                    if (dt.Rows.Count > 0 && !empty)
+                    {
+                        BRList.Columns[1].HeaderCell.Style.Padding = BRList.Columns[1].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+                        multiBR.Enabled = true;
+                    }
+                    else multiBR.Enabled = false;                
                 }
                 conn.Close();
             }
@@ -1353,8 +1405,9 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Budget Request
-        private void noFocusRec3_Click(object sender, EventArgs e)
+        #region New Budget Request
+
+        private void btnNewBR_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabBudgetRequest;
             dateBR.MaxDate = dateBR.Value = DateTime.Today;
@@ -1400,7 +1453,7 @@ namespace BalayPasilungan
 
                     MySqlCommand comm = new MySqlCommand("UPDATE budget SET purpose = '" + lblBRPurpose.Text + "', category = '"
                         + lblBRCategory.Text + "', budgetTotal = 0, dateRequested = '" + dateBR.Value.ToString("yyyy-MM-dd") + "' WHERE budgetID = " + current_budgetID, conn);
-                    comm.ExecuteNonQuery();     // LMAO
+                    comm.ExecuteNonQuery();
 
                     conn.Close();                    
                     tabSelection.SelectedTab = tabFinance;
@@ -1450,5 +1503,13 @@ namespace BalayPasilungan
         }
         #endregion
 
+        #region Budget Request List
+        private void btnViewBR_Click(object sender, EventArgs e)
+        {
+            tabSelection.SelectedTab = tabBRList;
+            MySqlCommand comm = new MySqlCommand("SELECT budgetID, purpose, dateRequested, requestedBy FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
+            loadTable(comm, 4);
+        }
+        #endregion
     }
 }
