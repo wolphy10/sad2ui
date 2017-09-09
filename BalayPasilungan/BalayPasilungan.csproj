@@ -117,7 +117,7 @@
     <Compile Include="moneyDonate.Designer.cs">
       <DependentUpon>moneyDonate.cs</DependentUpon>
     </Compile>
-    <Compile Include="noFocusButton.cs">
+    <Compile Include="NoFocusRec.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="others.cs">
