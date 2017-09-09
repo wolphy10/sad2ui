@@ -849,16 +849,14 @@ namespace BalayPasilungan
                 else
                 {
                     dtgcon.DataSource = dt;
+                    dtgcon.Columns[0].Visible = false;
                 }
-
-
-                dtgcon.Columns[0].Visible = false;
-
+                
                 conn.Close();
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
@@ -2592,14 +2590,18 @@ namespace BalayPasilungan
 
         private void dtgeducation_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            var columnIndex = 4;
 
-            if (e.ColumnIndex == columnIndex)
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
-                // If the user checked this box, then uncheck all the other rows
+                var columnIndex = e.ColumnIndex;
+
                 var isChecked = (bool)dtgeducation.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
                 if (isChecked)
                 {
+
                     foreach (DataGridViewRow row in dtgeducation.Rows)
                     {
                         if (row.Index != e.RowIndex)
@@ -2607,8 +2609,11 @@ namespace BalayPasilungan
                             row.Cells[columnIndex].Value = !isChecked;
                         }
                     }
+
                 }
+                    
             }
+
         }
         
         private void newprofilepic_Click(object sender, EventArgs e)
