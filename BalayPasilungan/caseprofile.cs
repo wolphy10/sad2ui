@@ -18,7 +18,7 @@ namespace BalayPasilungan
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
 
-        public int id, hid, fammode, famid;
+        public int id, hid, fammode, famid, eid;
         public string filename;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
@@ -418,7 +418,7 @@ namespace BalayPasilungan
 
                 try
                 {
-
+                    
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
                                         "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", status = '" + status + "', " +
@@ -669,11 +669,11 @@ namespace BalayPasilungan
 
                 try
                 {
-
+                    
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE education SET school = '" + edname + "', eduType = '" + type + "', level = '" + level + "' WHERE caseid = " + id, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE education SET school = '" + edname + "', eduType = '" + type + "', level = '" + level + "' WHERE eid = " + eid, conn);
 
                     comm.ExecuteNonQuery();
 
@@ -703,9 +703,41 @@ namespace BalayPasilungan
             }
         }
 
+
         #endregion
 
         #region reloadfunctions
+
+        public void reloadediteducation(int eid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT school, eduType, level FROM education WHERE eid = " + eid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    txtedname.Text = dt.Rows[0]["school"].ToString();
+                    cbxtype.Text = dt.Rows[0]["eduType"].ToString();
+                    cbxedlvl.Text = dt.Rows[0]["level"].ToString();
+                    
+                }
+
+                conn.Close();
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+                conn.Close();
+            }
+        }
 
         public void reloadedithealth(int id)
         {
@@ -1314,7 +1346,7 @@ namespace BalayPasilungan
         {
             if (e.ColumnIndex != 3 || e.ColumnIndex != 4)
             {
-                int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 reloadedclass(eid);
             }
@@ -1335,7 +1367,9 @@ namespace BalayPasilungan
 
                 btnadded.Text = "ADD CHANGES";
 
-                reloadedited(id);
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                MessageBox.Show(eid.ToString());
+                reloadediteducation(eid);
             }
 
         }
@@ -2033,7 +2067,7 @@ namespace BalayPasilungan
 
             else
             {
-
+                
                 editprofile();
             }
             
@@ -2106,7 +2140,9 @@ namespace BalayPasilungan
 
             else
             {
+
                 editeducation();
+
             }
             
         }
@@ -2368,8 +2404,8 @@ namespace BalayPasilungan
 
         private void btncanceled_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
-            reset2();
+            tabCase.SelectedTab = tabInfo;
+            tabControl.SelectedTab = eighth;
         }
 
         private void btnedback_Click(object sender, EventArgs e)
