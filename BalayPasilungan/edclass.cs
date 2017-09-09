@@ -24,5 +24,10 @@ namespace BalayPasilungan
         {
             this.Close();
         }
+
+        private void btnaddedclass_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

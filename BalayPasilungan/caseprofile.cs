@@ -744,23 +744,52 @@ namespace BalayPasilungan
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
-        
-                dtgeducation.DataSource = dt;
 
-                dtgeducation.Columns[0].Visible = false;
+                if (dt.Rows.Count == 0)
+                {
+                    errorMessage("There are no current education records for this child.");
+                }
 
-                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
-                EditColumn.Text = "Edit";
-                EditColumn.Name = "Edit";
-                EditColumn.DataPropertyName = "Edit";
+                else
+                {
+                    dtgeducation.DataSource = dt;
 
-                dtgeducation.Columns.Add(EditColumn);
-                
-        
+                    //dtgeducation.Columns[0].Visible = false;
+
+                    DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+                    EditColumn.Text = "Edit";
+                    EditColumn.Name = "Edit";
+                    EditColumn.DataPropertyName = "Edit";
+
+                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+
+                    chk.Name = "checkdis";
+
+                    if (dtgeducation.Columns["Edit"] == null)
+                    {
+                        dtgeducation.Columns.Add(EditColumn);
+                        dtgeducation.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 1;
+                    }
+
+
+                    if (dtgeducation.Columns["checkdis"] == null)
+                    {
+                        dtgeducation.Columns.Add(chk);
+
+                        dtgeducation.Columns["checkdis"].DisplayIndex = dtgeducation.ColumnCount - 2;
+                        MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
+                    }
+
+                    MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
+
+                }
+
+
                 conn.Close();
             }
             catch (Exception ee)
             {
+                
                 errorMessage(ee.Message);
                 conn.Close();
             }
@@ -772,7 +801,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT section, adviser FROM edclass WHERE eid = " + eid + " ORDER BY ", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -788,6 +817,7 @@ namespace BalayPasilungan
                 EditColumn.DataPropertyName = "Edit";
 
                 dtgeducation.Columns.Add(EditColumn);
+                
 
 
                 conn.Close();
@@ -992,7 +1022,7 @@ namespace BalayPasilungan
 
                 reload(id);
 
-                existsed(id);
+                //existsed(id);
 
                 existshealth(id);
 
@@ -1123,10 +1153,19 @@ namespace BalayPasilungan
             }
         }
 
-        private void dtgeducation_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgeducation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+
             reloadedclass(eid);
+        }
+
+        private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+
+            }
         }
 
         #endregion
@@ -2278,22 +2317,13 @@ namespace BalayPasilungan
 
         private void btned_Click(object sender, EventArgs e)
         {
-            //lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
-
-            if (btned.Text == "ADD")
-            {
-                tabCase.SelectedTab = tabNewChild;
-                tabaddchild.SelectedTab = tabNewEdu;
-
-                lbladdeditprofile.Text = "New Education Background";
-            }
-
-            else
-            {
+           
                 tabControl.SelectedTab = eighth;
 
+                
+
                 reloaded(id);
-            }
+            
         }
 
         private void btncon_Click(object sender, EventArgs e)
@@ -2378,32 +2408,37 @@ namespace BalayPasilungan
             tabControl.SelectedTab = tenth;
         }
 
-        #endregion
-
-        private void cbxedlvl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
-            edclass ed = new edclass();
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewEdu;
 
-            ed.reftocase = this;
-
-            ed.ShowDialog();
-
-            //ed.level = 
+            lbladdeditprofile.Text = "New Education Info";
         }
 
-        private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        #endregion
+
+        private void dtgeducation_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            var columnIndex = 3;
+
+            if (e.ColumnIndex == columnIndex)
             {
-                
+                // If the user checked this box, then uncheck all the other rows
+                var isChecked = (bool)dtgeducation.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (isChecked)
+                {
+                    foreach (DataGridViewRow row in dtgeducation.Rows)
+                    {
+                        if (row.Index != e.RowIndex)
+                        {
+                            row.Cells[columnIndex].Value = !isChecked;
+                        }
+                    }
+                }
             }
         }
-
+        
         private void newprofilepic_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
