@@ -82,6 +82,7 @@
             // 
             // cbxedyear
             // 
+            this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedyear.FormattingEnabled = true;
             this.cbxedyear.Items.AddRange(new object[] {
             "Preschool",
