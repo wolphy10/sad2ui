@@ -24,6 +24,7 @@ namespace BalayPasilungan
         }
 
         public int classeid { get; set; }
+        public string yearlvl { get; set; }
 
         #region messagefunctions
 
@@ -88,7 +89,7 @@ namespace BalayPasilungan
                 {
 
                     conn.Open();
-
+                    MessageBox.Show(classeid.ToString());
 
                     MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + classeid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
 
@@ -98,6 +99,8 @@ namespace BalayPasilungan
 
 
                     conn.Close();
+
+                    reftocase.reloadedclass(reftocase.eid);
 
                     this.Close();
 
@@ -109,6 +112,31 @@ namespace BalayPasilungan
                     MessageBox.Show("" + ee);
                     conn.Close();
                 }
+            }
+        }
+
+        private void edclass_Load(object sender, EventArgs e)
+        {
+            int counter = 0;
+
+            if (yearlvl == "Preschool")
+            {
+                counter = 3;
+            }
+
+            else if (yearlvl == "Elementary")
+            {
+                counter = 6;
+            }
+
+            else if (yearlvl == "High School" || yearlvl == "College")
+            {
+                counter = 4;
+            }
+
+            for(int i = 1; i <= counter; i++)
+            {
+                cbxedyear.Items.Add(i);
             }
         }
     }
