@@ -19,7 +19,7 @@ namespace BalayPasilungan
         public MySqlConnection conn;
 
         public int id, hid, fammode, famid, eid, classeid;
-        public string filename, yearlvl;
+        public string filename;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
         public bool empty, confirmed;
@@ -118,14 +118,13 @@ namespace BalayPasilungan
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
 
-        public void edclass(int classeid, string yearlvl)
+        public void edclass(int classeid)
         {
             edclass ed = new edclass();
 
             ed.reftocase = this;
 
             ed.classeid = classeid;
-            ed.yearlvl = yearlvl;
 
             ed.Show();
         }
@@ -975,6 +974,15 @@ namespace BalayPasilungan
 
                 }
 
+                else
+                {
+                    dtgedclass.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 2;
+                }
+
+
+                dtgedclass.Columns[0].Visible = false;
+
+
                 conn.Close();
             }
             catch (Exception ee)
@@ -1345,7 +1353,9 @@ namespace BalayPasilungan
         {
             if (e.ColumnIndex != 3 || e.ColumnIndex != 4)
             {
-                
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                reloadedclass(eid);
             }
             
         }
@@ -1384,14 +1394,7 @@ namespace BalayPasilungan
 
                 validatecheck(e.ColumnIndex);
             }
-
-            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
-
-            reloadedclass(eid);
-
-            classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-
+            
 
         }
 
@@ -1497,26 +1500,21 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
-        public void validatecheck(int classeid)
+        public void validatecheck()
         {
             foreach (DataGridViewRow row in dtgeducation.Rows)
             {
                 DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
                 MessageBox.Show(cell.GetType().ToString());
-               
-                if (cell.Value == cell.TrueValue)
+                if ((bool)cell.Value)
                 {
-                    
                     btnaddclass.Enabled = true;
-                    break;
                 }
 
                 else
                 {
                     btnaddclass.Enabled = false;
                 }
-
-                
             }
         }
         public void existsed(int id)
@@ -2624,8 +2622,9 @@ namespace BalayPasilungan
 
         private void btnaddclass_Click(object sender, EventArgs e)
         {
-            
-            edclass(classeid, yearlvl);
+            classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
+
+            edclass(classeid);
         }
         private void btnaddedclass_Click(object sender, EventArgs e)
         {

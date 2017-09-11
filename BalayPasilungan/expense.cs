@@ -22,7 +22,6 @@ namespace BalayPasilungan
         public bool editDonor;                  // True - Donor for edit
         public bool confirmed;                  // True - clicked OK in confirm window
         public bool empty;                      // True - Table is empty
-        public bool aBR;                        // True - Table is for approved budget list
 
         // For dates
         public bool searchDateBool, searchMonthDay, searchMonth, searchMonthYr, searchYr;
@@ -203,7 +202,7 @@ namespace BalayPasilungan
             resetMainButtons();
             btnFinance.BackColor = Color.White;
             btnFinance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_green;
-            get(2); get(3); get(4);
+            get(2);
             tabSelection.SelectedTab = tabFinance;
         }
 
@@ -361,31 +360,27 @@ namespace BalayPasilungan
                         empty = true;
                     }
 
-                    DataGridView table;
-                    if (aBR) table = approvedBRList;
-                    else table = BRList;
-
-                    table.DataSource = dt;
+                    BRList.DataSource = dt;
 
                     // BR LIST In Kind UI Modifications
-                    table.Columns[2].HeaderText = "PURPOSE";
-                    table.Columns[5].HeaderText = "DATE REQUESTED";
-                    table.Columns[6].HeaderText = "REQUESTED BY";
+                    BRList.Columns[2].HeaderText = "PURPOSE";
+                    BRList.Columns[5].HeaderText = "DATE REQUESTED";
+                    BRList.Columns[6].HeaderText = "REQUESTED BY";
 
                     // For ID purposes (hidden from user)            
-                    table.Columns[0].Visible = table.Columns[1].Visible = table.Columns[3].Visible = table.Columns[4].Visible = false;
+                    BRList.Columns[0].Visible = BRList.Columns[1].Visible = BRList.Columns[3].Visible = BRList.Columns[4].Visible = false;
 
                     // 935 TOTAL WIDTH
-                    table.Columns[2].Width = 505;
-                    table.Columns[5].Width = table.Columns[6].Width = 215;                    
+                    BRList.Columns[2].Width = 505;
+                    BRList.Columns[5].Width = BRList.Columns[6].Width = 215;                    
 
                     if (dt.Rows.Count > 0 && !empty)
                     {
-                        table.Columns[2].HeaderCell.Style.Padding = table.Columns[2].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
-                        table.Columns[5].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                        multiBR.Enabled = multiABR.Enabled = true;
+                        BRList.Columns[2].HeaderCell.Style.Padding = BRList.Columns[2].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+                        BRList.Columns[5].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                        multiBR.Enabled = true;
                     }
-                    else multiBR.Enabled = multiABR.Enabled = false;
+                    else multiBR.Enabled = false;
                 }
                 else if (type == 5)          // Selected budget request details load
                 {
@@ -405,35 +400,7 @@ namespace BalayPasilungan
                     PBRDetails.Columns[2].Width = PBRDetails.Columns[3].Width = PBRDetails.Columns[4].Width = 150;
 
                     if (dt.Rows.Count > 0 && !empty) PBRDetails.Columns[1].HeaderCell.Style.Padding = PBRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);                                
-                }
-                else if (type == 6)          // Expenses Table
-                {
-                    expList.DataSource = dt;
-                    if (dt.Rows.Count == 0)
-                    {
-                        dt.Rows.Add(-1, null, "No entries.", null);
-                        empty = true;
-                    }
-
-                    // BR LIST In Kind UI Modifications
-                    expList.Columns[1].HeaderText = "MONTH";
-                    expList.Columns[2].HeaderText = "CATEGORY";
-                    expList.Columns[3].HeaderText = "AMOUNT";
-
-                    // For ID purposes (hidden from user)            
-                    expList.Columns[0].Visible = expList.Columns[4].Visible = false;
-
-                    // 935 TOTAL WIDTH
-                    expList.Columns[1].Width = 250;
-                    expList.Columns[2].Width = 400;
-                    expList.Columns[3].Width = 285;
-
-                    if (dt.Rows.Count > 0 && !empty)
-                    {
-                        expList.Columns[1].HeaderCell.Style.Padding = expList.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
-                        expList.Columns[1].DefaultCellStyle.Format = "MMMM";
-                    }
-                }
+                }                
                 conn.Close();
             }
             catch (Exception ex)
@@ -457,7 +424,7 @@ namespace BalayPasilungan
                 if (dt.Rows.Count == 0)
                 {
                     dt.Rows.Add(-1, "No entries.", null, null);
-                    empty = true; multiDonor.Enabled = false;
+                    empty = true; multiDonor.Enabled = false; btnRemoveDonor.Enabled = false;
                 }
                 else empty = false;
 
@@ -480,7 +447,7 @@ namespace BalayPasilungan
                 if (dt.Rows.Count > 0 && !empty)
                 {                    
                     donorsGV.Columns[3].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                    multiDonor.Enabled = true;
+                    multiDonor.Enabled = true; btnRemoveDonor.Enabled = true;
                 }     
                 conn.Close();
             }
@@ -692,7 +659,8 @@ namespace BalayPasilungan
                 }
                 else if(type == 2)      // Get Notif
                 {
-                    adp = new MySqlDataAdapter("SELECT COUNT(budgetID) as COUNT FROM budget WHERE status = 'Pending'", conn);
+                    MySqlCommand comm = new MySqlCommand("SELECT COUNT(budgetID) as COUNT FROM budget WHERE status = 'Pending'", conn);
+                    adp = new MySqlDataAdapter(comm);
                     dt = new DataTable();
                     adp.Fill(dt);
 
@@ -704,25 +672,6 @@ namespace BalayPasilungan
                     }
                     conn.Close();
                 }
-                else if (type == 3)      // Enable button if existing approved budget requests
-                {
-                    adp = new MySqlDataAdapter("SELECT COUNT(budgetID) as COUNT FROM budget WHERE status = 'Approved'", conn);
-                    dt = new DataTable();
-                    adp.Fill(dt);
-
-                    if (dt.Rows[0]["COUNT"].ToString() != "0") btnApprovedBR.Enabled = true;                    
-                    else btnApprovedBR.Enabled = false;
-                    conn.Close();
-                }
-                else if (type == 4)     // Get latest date requested for new budget requests
-                {
-                    adp = new MySqlDataAdapter("SELECT dateRequested FROM budget ORDER BY dateRequested DESC LIMIT 1", conn);
-                    dt = new DataTable();
-                    adp.Fill(dt);
-
-                    if (dt.Rows.Count != 0) lbllastDateBR.Text = DateTime.Parse(dt.Rows[0]["dateRequested"].ToString()).ToString("MMMM dd, yyyy");
-                    conn.Close();
-                }                
             }
             catch (Exception ex)
             {
@@ -765,9 +714,21 @@ namespace BalayPasilungan
             resetNewDonor(); editDonor = false;
             tabSelection.SelectedTab = tabNewDonor;
             donorTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
-            btnDonorConfirm.ForeColor = btnDonorFinal.ForeColor = Color.White;
+            btnDonorConfirm.ForeColor = Color.White; btnDonorFinal.ForeColor = Color.White;
 
-            conf1.ForeColor = conf2.ForeColor = conf3.ForeColor = conf4.ForeColor = conf5.ForeColor = conf6.ForeColor = conf7.ForeColor = btnDonorConfirm.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);            
+            conf1.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf2.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf3.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf4.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            conf5.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf6.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf7.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            btnDonorConfirm.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Find a donor") txtSearch.Text = "";
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "") txtSearch.Text = "Find a donor";
         }
 
         private void donorTS2_Click(object sender, EventArgs e)
@@ -784,28 +745,44 @@ namespace BalayPasilungan
 
         private void multiDonor_CheckedChanged(object sender, EventArgs e)
         {
-            if (multiDonor.Checked) donorsGV.MultiSelect = multi = true;
-            else donorsGV.MultiSelect = multi = false;
+            if (multiDonor.Checked)
+            {
+                donorsGV.MultiSelect = true;
+                multi = true;
+            }
+            else
+            {
+                donorsGV.MultiSelect = false;
+                multi = false;
+            }
         }
 
         private void btnRemoveDonor_Click(object sender, EventArgs e)
         {
-            confirmMessage("Are you sure you want to archive this donor?\nYou cannot undo this action.");
-            if (confirmed)
+            if (multi)
             {
-                try
+                confirmMessage("Are you sure you want to delete these donors?\nYou cannot undo this action.");
+                if (confirmed)
                 {
-                    conn.Open();
-                    MySqlCommand comm = new MySqlCommand("UPDATE donor SET status = 0 WHERE donorID = " + current_donorID, conn);
-                    comm.ExecuteNonQuery();                    
-                    conn.Close();
-                    successMessage("Donor has been archived successfully!");
+                    foreach (DataGridViewRow r in donorsGV.SelectedRows)
+                    {
+                        int row = donorsGV.CurrentCell.RowIndex;
+                        del(int.Parse(donorsGV.Rows[row].Cells[0].Value.ToString()), 1);
+                        loadDonorList();
+                    }
                 }
-                catch (Exception ex)
+            }
+            else
+            {
+                confirmMessage("Are you sure you want to delete this donor?\nYou cannot undo this action.");
+                int row = donorsGV.CurrentCell.RowIndex;
+                if (confirmed)
                 {
-                    errorMessage(ex.Message);
+                    del(int.Parse(donorsGV.Rows[row].Cells[0].Value.ToString()), 1);
+                    loadDonorList();
                 }
-            }            
+            }
+            multiDonor.Checked = false;
         }
         #endregion
 
@@ -819,8 +796,8 @@ namespace BalayPasilungan
                 donorCTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
                 donorCTS.Font = new System.Drawing.Font("Segoe UI", 20.25f); donorTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
 
-                conf1.ForeColor = conf2.ForeColor = conf3.ForeColor = conf4.ForeColor = conf5.ForeColor = conf6.ForeColor = conf7.ForeColor = btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                btnDonorFinal.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+                conf1.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf2.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf3.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf4.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf5.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf6.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); conf7.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(62, 153, 141); btnDonorFinal.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
                 conf_header.Text = "CONFIRM NEW DONOR"; conf_header.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
                 
                 if (txtPhone.Text == "29xxxxx") conf_phone.Text = "N/A";
@@ -868,9 +845,8 @@ namespace BalayPasilungan
                     String datePledgeSTR = datePledge.Value.Year.ToString() + "-" + datePledge.Value.Month.ToString() + "-" + datePledge.Value.Day.ToString();
                     if (conf_mobile.Text != "N/A") mobile = txtMobile1.Text + txtMobile2.Text + txtMobile3.Text;                    
 
-                    comm = new MySqlCommand("INSERT INTO donor (type, donorName, telephone, mobile, email, pledge, datePledge, status)"
-                        + " VALUES (" + (int.Parse(cbDType.SelectedIndex.ToString()) + 1) + ", '" + conf_donorName.Text + "', '" + conf_phone.Text
-                        + "', '" + mobile + "', '" + conf_email.Text + "', '" + conf_pledge.Text + "', '" + datePledgeSTR + "', 1);", conn);
+                    comm = new MySqlCommand("INSERT INTO donor (type, donorName, telephone, mobile, email, pledge, datePledge)"
+                        + " VALUES (" + (int.Parse(cbDType.SelectedIndex.ToString()) + 1) + ", '" + conf_donorName.Text + "', '" + conf_phone.Text + "', '" + mobile + "', '" + conf_email.Text + "', '" + conf_pledge.Text + "', '" + datePledgeSTR + "');", conn);
 
                     successMessage("Donor profile has been added successfully.");
                 }
@@ -1012,8 +988,7 @@ namespace BalayPasilungan
         {
             if (txtMobile3.TextLength == 4)
             {
-                // Leave textbox     
-                // LMAO          
+                //Leave textbox               
             }
         }
 
@@ -1420,25 +1395,6 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Finance
-        private void btnViewBR_Click(object sender, EventArgs e)
-        {
-            lblBRHeader.Text = "Pending Budget Requests"; btnPBRBack.Visible = true; aBR = false;
-            tabSelection.SelectedTab = tabBRList;
-            MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
-            loadTable(comm, 4);
-            tabPBR.SelectedIndex = 0;
-        }
-
-        private void btnViewEx_Click(object sender, EventArgs e)
-        {
-            tabSelection.SelectedTab = tabEx;
-            MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
-            loadTable(comm, 6); cbAll.Checked = true;
-        }
-        
-        #endregion
-
         #region New Budget Request
 
         private void btnNewBR_Click(object sender, EventArgs e)
@@ -1495,9 +1451,9 @@ namespace BalayPasilungan
                     comm = new MySqlCommand("UPDATE budget SET purpose = '" + lblBRPurpose.Text + "', category = '"
                         + lblBRCategory.Text + "', budgetTotal = " + sum + ", dateRequested = '" + dateBR.Value.ToString("yyyy-MM-dd") + "' WHERE budgetID = " + current_budgetID, conn);
                     comm.ExecuteNonQuery();
-                    
+
                     conn.Close();
-                    get(2); get(4);
+                    get(2);
                     tabSelection.SelectedTab = tabFinance;
                 }
             }
@@ -1551,7 +1507,7 @@ namespace BalayPasilungan
             if (cbOthers.Checked) panelOthers.Enabled = true;
             else panelOthers.Enabled = false;
         }
-        
+
         private void clbCategory_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < clbCategory.Items.Count; i++)
@@ -1572,7 +1528,15 @@ namespace BalayPasilungan
                 }
             }
         }
-        
+
+        private void btnViewBR_Click(object sender, EventArgs e)
+        {
+            tabSelection.SelectedTab = tabBRList;            
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
+            loadTable(comm, 4);
+            tabPBR.SelectedIndex = 0;
+        }
+
         private void BRList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1 && !empty)
@@ -1585,16 +1549,13 @@ namespace BalayPasilungan
                 lblPBRTotal.Text = BRList.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);                
                 loadTable(comm, 5);
-                btnPBRBack.Visible = false;
                 tabPBR.SelectedIndex = 1;                            
             }
         }
 
         private void btnPBRBack_Click(object sender, EventArgs e)
-        {                        
-            btnPBRBack.Visible = false;
-            if (tabPBR.SelectedIndex != 2) tabPBR.SelectedIndex = 0;
-            else tabSelection.SelectedTab = tabFinance;
+        {
+            tabPBR.SelectedIndex = 0;
         }
 
         private void btnBRCancel_Click(object sender, EventArgs e)
@@ -1629,72 +1590,6 @@ namespace BalayPasilungan
 
                 tabSelection.SelectedTab = tabFinance;
             }
-        }
-    
-        private void btnBRApprove_Click(object sender, EventArgs e)
-        {
-            confirmMessage("Are you sure you want to approve this budget?");
-            if (confirmed)
-            {
-                try
-                {
-                    conn.Open();
-                    MySqlCommand comm = new MySqlCommand("UPDATE budget SET status = 'Approved' WHERE budgetID = " + current_budgetID, conn);               
-                    comm.ExecuteNonQuery();
-                    conn.Close();
-
-                    successMessage("Budget has been approved successfully!");
-                    
-                    tabSelection.SelectedTab = tabBRList;
-                    comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
-                    loadTable(comm, 4);
-                    tabPBR.SelectedIndex = 0;
-                }
-                catch (Exception ex)
-                {
-                    errorMessage(ex.Message);
-                }
-            }
-        }
-        
-        private void btnApprovedBR_Click(object sender, EventArgs e)
-        {
-            lblBRHeader.Text = "Approved Budget Requests"; btnPBRBack.Visible = true;
-
-            tabSelection.SelectedTab = tabBRList; aBR = true;
-            MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Approved' ORDER BY budgetID ASC", conn);            
-            loadTable(comm, 4);
-            tabPBR.SelectedIndex = 2;
-        }
-        #endregion
-
-        #region Expense
-        private void btnExpLoad_Click(object sender, EventArgs e)
-        {
-            int i = 0;
-            string[] load = new string[50];
-            if (cbClothing.Checked) load[++i] = "Clothing";
-            if (cbCLW.Checked) load[++i] = "Communications, Lights, and Water";
-            if (cbDep.Checked) load[++i] = "Depreciation Expenses";
-            if (cbEdu.Checked) load[++i] = "Education";
-            if (cbFood.Checked) load[++i] = "Food";
-            if (cbGC.Checked) load[++i] = "Guidance and Counselling";
-            if (cbHonor.Checked) load[++i] = "Honorarium";
-            if (cbHouse.Checked) load[++i] = "Household Expenses";
-            if (cbInsurance.Checked) load[++i] = "Insurance Expense";
-            if (cbMed.Checked) load[++i] = "Medical and Dental Supplies";
-            if (cbMeeting.Checked) load[++i] = "Meeting and Coferences";
-            if (cbOffice.Checked) load[++i] = "Office Supplies";
-            if (cbPrintAd.Checked) load[++i] = "Printing and Advertising";
-            if (cbProf.Checked) load[++i] = "Professional Fees";
-            if (cbRec.Checked) load[++i] = "Recreation";
-            if (cbRepair.Checked) load[++i] = "Repair and Maintenance";
-            if (cbSal.Checked) load[++i] = "Salary";
-            if (cbSD.Checked) load[++i] = "Skills and Development";
-            if (cbSSS.Checked) load[++i] = "SSS, PHIC, and HMDF";
-            if (cbSVF.Checked) load[++i] = "Spiritual Value Formation";
-            if (cbTax.Checked) load[++i] = "Taxes and Licenses";
-            if (cbTranspo.Checked) load[++i] = "Transportation";           
         }
         #endregion
     }
