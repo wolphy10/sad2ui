@@ -18,7 +18,7 @@ namespace BalayPasilungan
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
 
-        public int id, hid, fammode, famid;
+        public int id, hid, fammode, famid, eid, classeid;
         public string filename;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
@@ -116,6 +116,17 @@ namespace BalayPasilungan
             dim.Show();
 
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void edclass(int classeid)
+        {
+            edclass ed = new edclass();
+
+            ed.reftocase = this;
+
+            ed.classeid = classeid;
+
+            ed.Show();
         }
 
         public void successMessage(string message)            // Success Message
@@ -418,7 +429,7 @@ namespace BalayPasilungan
 
                 try
                 {
-
+                    
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
                                         "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", status = '" + status + "', " +
@@ -441,7 +452,7 @@ namespace BalayPasilungan
 
                     reload(id);
 
-                    existsed(id);
+                    //existsed(id);
 
                     existshealth(id);
 
@@ -605,9 +616,139 @@ namespace BalayPasilungan
             }
         }
 
+        public void addeducation()
+        {
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
+
+            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO education(caseid, school, eduType, level) VALUES('" + id + "', '" + edname + "', '" + type + "','" + level + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    successMessage("New Education Info Added!");
+
+
+
+
+                    conn.Close();
+
+                    //existsed(id);
+
+                    tabCase.SelectedTab = tabInfo;
+
+                    tabControl.SelectedTab = eighth;
+
+                    reloaded(id);
+
+
+                    reset2();
+
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        public void editeducation()
+        {
+            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
+
+            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+
+                try
+                {
+                    
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("UPDATE education SET school = '" + edname + "', eduType = '" + type + "', level = '" + level + "' WHERE eid = " + eid, conn);
+
+                    comm.ExecuteNonQuery();
+
+                    successMessage("Changes in Education Info Added!");
+
+
+                    conn.Close();
+
+                    //existsed(id);
+
+                    tabCase.SelectedTab = tabInfo;
+
+                    tabControl.SelectedTab = eighth;
+
+                    reloaded(id);
+
+
+                    reset2();
+
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+
         #endregion
 
         #region reloadfunctions
+
+        public void reloadediteducation(int eid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT school, eduType, level FROM education WHERE eid = " + eid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    txtedname.Text = dt.Rows[0]["school"].ToString();
+                    cbxtype.Text = dt.Rows[0]["eduType"].ToString();
+                    cbxedlvl.Text = dt.Rows[0]["level"].ToString();
+                    
+                }
+
+                conn.Close();
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+                conn.Close();
+            }
+        }
 
         public void reloadedithealth(int id)
         {
@@ -719,16 +860,14 @@ namespace BalayPasilungan
                 else
                 {
                     dtgcon.DataSource = dt;
+                    dtgcon.Columns[0].Visible = false;
                 }
-
-
-                dtgcon.Columns[0].Visible = false;
-
+                
                 conn.Close();
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
@@ -739,28 +878,70 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT eid, school FROM education WHERE caseid = " + id + " ORDER BY school", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT eid, school, level FROM education WHERE caseid = " + id + " ORDER BY school", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
-        
-                dtgeducation.DataSource = dt;
 
-                dtgeducation.Columns[0].Visible = false;
+                if (dt.Rows.Count == 0)
+                {
+                    errorMessage("There are no current education records for this child.");
+                }
 
-                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
-                EditColumn.Text = "Edit";
-                EditColumn.Name = "Edit";
-                EditColumn.DataPropertyName = "Edit";
+                else
+                {
+                    dtgeducation.DataSource = dt;
 
-                dtgeducation.Columns.Add(EditColumn);
-                
-        
+                    DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+                    EditColumn.Text = "Edit";
+                    EditColumn.Name = "Edit";
+                    EditColumn.DataPropertyName = "Edit";
+
+                    
+
+                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+
+                    chk.Name = "checkdis";
+
+
+                    if (dtgeducation.Columns["Edit"] == null)
+                    {
+                        dtgeducation.Columns.Add(EditColumn);
+                        
+                    }
+
+                    else
+                    {
+                        //dtgeducation.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 2;
+                    }
+
+
+                    if (dtgeducation.Columns["checkdis"] == null)
+                    {
+                        dtgeducation.Columns.Add(chk);
+                        
+                    }
+
+                    else
+                    {
+                        //dtgeducation.Columns["checkdis"].DisplayIndex = dtgeducation.ColumnCount - 1;
+                        //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
+                    }
+
+                    //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
+                    //MessageBox.Show(dtgeducation.ColumnCount.ToString());
+
+                    dtgeducation.Columns["eid"].Visible = false;
+
+                }
+
+
                 conn.Close();
             }
             catch (Exception ee)
             {
+                
                 errorMessage(ee.Message);
                 conn.Close();
             }
@@ -772,23 +953,68 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT section, adviser FROM edclass WHERE eid = " + eid + " ORDER BY ", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
 
-                dtgeducation.DataSource = dt;
+                dtgedclass.DataSource = dt;
 
-                dtgeducation.Columns[0].Visible = false;
+                
 
                 DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
                 EditColumn.Text = "Edit";
                 EditColumn.Name = "Edit";
                 EditColumn.DataPropertyName = "Edit";
 
-                dtgeducation.Columns.Add(EditColumn);
+                if (dtgedclass.Columns["Edit"] == null)
+                {
+                    dtgedclass.Columns.Add(EditColumn);
 
+                }
+
+                else
+                {
+                    dtgedclass.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 2;
+                }
+
+
+                dtgedclass.Columns[0].Visible = false;
+
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+        }
+
+        public void reloadedited(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT cid, interviewdate, interviewer FROM consultation WHERE caseid = " + id + " ORDER BY interviewdate", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("There are no current consultation records for this case study.");
+                }
+                else
+                {
+                    dtgcon.DataSource = dt;
+                }
+
+
+                dtgcon.Columns[0].Visible = false;
 
                 conn.Close();
             }
@@ -992,7 +1218,7 @@ namespace BalayPasilungan
 
                 reload(id);
 
-                existsed(id);
+                //existsed(id);
 
                 existshealth(id);
 
@@ -1123,10 +1349,53 @@ namespace BalayPasilungan
             }
         }
 
-        private void dtgeducation_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgeducation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            reloadedclass(eid);
+            if (e.ColumnIndex != 3 || e.ColumnIndex != 4)
+            {
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                reloadedclass(eid);
+            }
+            
+        }
+
+        private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+
+            {
+                tabCase.SelectedTab = tabNewChild;
+                tabaddchild.SelectedTab = tabNewEdu;
+
+                lbladdeditprofile.Text = "Edit Education Info";
+
+                btnadded.Text = "ADD CHANGES";
+
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                //MessageBox.Show(eid.ToString());
+                reloadediteducation(eid);
+
+            }
+
+            if ((sender as DataGridView).CurrentCell is DataGridViewCheckBoxCell)
+            {
+                foreach (DataGridViewRow row in dtgeducation.Rows)
+                {
+                    if (row.Index != dtgeducation.CurrentCell.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
+                    {
+                        row.Cells[e.ColumnIndex].Value = false;
+                    }
+                }
+
+
+                validatecheck(e.ColumnIndex);
+            }
+            
+
         }
 
         #endregion
@@ -1231,6 +1500,23 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
+        public void validatecheck()
+        {
+            foreach (DataGridViewRow row in dtgeducation.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
+                MessageBox.Show(cell.GetType().ToString());
+                if ((bool)cell.Value)
+                {
+                    btnaddclass.Enabled = true;
+                }
+
+                else
+                {
+                    btnaddclass.Enabled = false;
+                }
+            }
+        }
         public void existsed(int id)
         {
 
@@ -1822,7 +2108,7 @@ namespace BalayPasilungan
 
             else
             {
-
+                
                 editprofile();
             }
             
@@ -1888,53 +2174,18 @@ namespace BalayPasilungan
 
         private void btnadded_Click(object sender, EventArgs e)
         {
-            string edname = txtedname.Text, type = cbxtype.Text, level = cbxedlvl.Text;
-            int eid;
-
-            if (string.IsNullOrEmpty(edname) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(level))
+            if (btnadded.Text == "ADD")
             {
-                errorMessage("Please fill out empty fields.");
+                addeducation();
             }
 
             else
             {
 
-                try
-                {
+                editeducation();
 
-                    conn.Open();
-
-
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO education(caseid, school, eduType, level) VALUES('" + id + "', '" + edname + "', '" + type + "','" + level + "')", conn);
-
-                    comm.ExecuteNonQuery();
-
-                    successMessage("New Education Info Added!");
-
-
-
-
-                    conn.Close();
-
-                    existsed(id);
-
-                    tabCase.SelectedTab = tabInfo;
-
-                    tabControl.SelectedTab = eighth;
-
-                    reloaded(id);
-                    
-
-                    reset2();
-
-                }
-
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
             }
+            
         }
 
         private void btnaddcon_Click(object sender, EventArgs e)
@@ -2194,8 +2445,8 @@ namespace BalayPasilungan
 
         private void btncanceled_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
-            reset2();
+            tabCase.SelectedTab = tabInfo;
+            tabControl.SelectedTab = eighth;
         }
 
         private void btnedback_Click(object sender, EventArgs e)
@@ -2278,22 +2529,13 @@ namespace BalayPasilungan
 
         private void btned_Click(object sender, EventArgs e)
         {
-            //lblnamed.Text = lblnamedrpt.Text = lblcasename.Text;
-
-            if (btned.Text == "ADD")
-            {
-                tabCase.SelectedTab = tabNewChild;
-                tabaddchild.SelectedTab = tabNewEdu;
-
-                lbladdeditprofile.Text = "New Education Background";
-            }
-
-            else
-            {
+           
                 tabControl.SelectedTab = eighth;
 
+                
+
                 reloaded(id);
-            }
+            
         }
 
         private void btncon_Click(object sender, EventArgs e)
@@ -2378,32 +2620,23 @@ namespace BalayPasilungan
             tabControl.SelectedTab = tenth;
         }
 
-        #endregion
-
-        private void cbxedlvl_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnaddclass_Click(object sender, EventArgs e)
         {
+            classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
 
+            edclass(classeid);
         }
-
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
-            edclass ed = new edclass();
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewEdu;
 
-            ed.reftocase = this;
-
-            ed.ShowDialog();
-
-            //ed.level = 
+            lbladdeditprofile.Text = "New Education Info";
+            btnadded.Text = "ADD";
         }
 
-        private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 2)
-            {
-                
-            }
-        }
-
+        #endregion
+        
         private void newprofilepic_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())

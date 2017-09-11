@@ -82,6 +82,7 @@
             // 
             // cbxedyear
             // 
+            this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedyear.FormattingEnabled = true;
             this.cbxedyear.Items.AddRange(new object[] {
             "Preschool",
@@ -155,6 +156,7 @@
             this.btnaddedclass.TabIndex = 117;
             this.btnaddedclass.Text = "ADD";
             this.btnaddedclass.UseVisualStyleBackColor = false;
+            this.btnaddedclass.Click += new System.EventHandler(this.btnaddedclass_Click);
             // 
             // btncanceledclass
             // 
