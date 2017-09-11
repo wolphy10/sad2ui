@@ -118,6 +118,17 @@ namespace BalayPasilungan
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
 
+        public void edclass(int classeid)
+        {
+            edclass ed = new edclass();
+
+            ed.reftocase = this;
+
+            ed.classeid = classeid;
+
+            ed.Show();
+        }
+
         public void successMessage(string message)            // Success Message
         {
             success yey = new success();
@@ -1380,7 +1391,8 @@ namespace BalayPasilungan
                     }
                 }
 
-                classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
+
+                validatecheck(e.ColumnIndex);
             }
             
 
@@ -1488,6 +1500,23 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
+        public void validatecheck()
+        {
+            foreach (DataGridViewRow row in dtgeducation.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
+                MessageBox.Show(cell.GetType().ToString());
+                if ((bool)cell.Value)
+                {
+                    btnaddclass.Enabled = true;
+                }
+
+                else
+                {
+                    btnaddclass.Enabled = false;
+                }
+            }
+        }
         public void existsed(int id)
         {
 
@@ -2591,11 +2620,12 @@ namespace BalayPasilungan
             tabControl.SelectedTab = tenth;
         }
 
-        private void dtgeducation_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void btnaddclass_Click(object sender, EventArgs e)
         {
+            classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
 
+            edclass(classeid);
         }
-
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabNewChild;
@@ -2606,34 +2636,6 @@ namespace BalayPasilungan
         }
 
         #endregion
-
-        private void dtgeducation_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-            /*var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
-            {
-                var columnIndex = e.ColumnIndex;
-                MessageBox.Show(columnIndex.ToString());
-                var isChecked = (bool)dtgeducation.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
-
-                if (isChecked)
-                {
-
-                    foreach (DataGridViewRow row in dtgeducation.Rows)
-                    {
-                        if (row.Index != e.RowIndex)
-                        {
-                            row.Cells[columnIndex].Value = !isChecked;
-                        }
-                    }
-
-                }
-                    
-            }*/
-
-        }
         
         private void newprofilepic_Click(object sender, EventArgs e)
         {

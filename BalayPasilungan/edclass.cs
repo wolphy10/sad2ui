@@ -23,7 +23,7 @@ namespace BalayPasilungan
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
         }
 
-        public int eid { get; set; }
+        public int classeid { get; set; }
 
         #region messagefunctions
 
@@ -90,7 +90,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + eid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + classeid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
 
                     comm.ExecuteNonQuery();
 
@@ -98,6 +98,8 @@ namespace BalayPasilungan
 
 
                     conn.Close();
+
+                    this.Close();
 
 
                 }
