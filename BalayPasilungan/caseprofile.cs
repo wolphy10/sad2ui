@@ -982,7 +982,7 @@ namespace BalayPasilungan
                 }
 
 
-                dtgedclass.Columns[0].Visible = false;
+                
 
 
                 conn.Close();
@@ -1385,31 +1385,32 @@ namespace BalayPasilungan
 
             }
 
-            if ((sender as DataGridView).CurrentCell is DataGridViewCheckBoxCell)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
                 foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
-                    if (row.Index != dtgeducation.CurrentCell.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
+                    if (row.Index != e.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
                     {
                         row.Cells[e.ColumnIndex].Value = false;
+                        
                     }
+
+                    
                 }
 
                 classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-
-                validatecheck(e.ColumnIndex, e);
             }
+                
+                
+                
+            
 
             MessageBox.Show(e.RowIndex.ToString());
             MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
             eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
             yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            reloadedclass(eid);
-
-           
-
+            validatecheck(sender, e);
 
         }
 
@@ -1515,25 +1516,31 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
-        public void validatecheck(int classeid, DataGridViewCellEventArgs e)
+        public void validatecheck(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in dtgeducation.Rows)
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
-                DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
-                MessageBox.Show(cell.GetType().ToString());
-                if ((bool)cell.Value)
+                
+                foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
-                    btnaddclass.Enabled = true;
+                    if (Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
+                    {
+                        btnaddclass.Enabled = true;
 
+                        break;
+                    }
+
+                    else
+                    {
+                        btnaddclass.Enabled = false;
+                    }
                     
-                    break;
-                }
-
-                else
-                {
-                    btnaddclass.Enabled = false;
                 }
             }
+
+                
         }
         public void existsed(int id)
         {
