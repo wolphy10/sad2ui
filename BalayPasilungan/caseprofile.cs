@@ -933,7 +933,9 @@ namespace BalayPasilungan
                     //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
                     //MessageBox.Show(dtgeducation.ColumnCount.ToString());
 
-                    dtgeducation.Columns["eid"].Visible = false;
+                    //dtgeducation.Columns["eid"].Visible = false;
+
+                    dtgeducation.Refresh();
 
                 }
 
@@ -1364,6 +1366,7 @@ namespace BalayPasilungan
 
                 btnadded.Text = "ADD CHANGES";
 
+                MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
                 eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 //MessageBox.Show(eid.ToString());
@@ -1381,16 +1384,20 @@ namespace BalayPasilungan
                     }
                 }
 
+                classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                validatecheck(e.ColumnIndex);
+
+                validatecheck(e.ColumnIndex, e);
             }
 
+            MessageBox.Show(e.RowIndex.ToString());
+            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
             eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
             yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
 
             reloadedclass(eid);
 
-            classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+           
 
 
         }
@@ -1497,7 +1504,7 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
-        public void validatecheck(int classeid)
+        public void validatecheck(int classeid, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewRow row in dtgeducation.Rows)
             {
@@ -1508,6 +1515,8 @@ namespace BalayPasilungan
                 {
                     
                     btnaddclass.Enabled = true;
+
+                    
                     break;
                 }
 
@@ -2217,6 +2226,7 @@ namespace BalayPasilungan
 
                     reloadcon(id);
 
+                    tabCase.SelectedTab = tabInfo;
                     tabControl.SelectedTab = ninth;
 
                     reset4();
@@ -2449,6 +2459,8 @@ namespace BalayPasilungan
         {
             tabCase.SelectedTab = tabInfo;
             tabControl.SelectedTab = eighth;
+
+            reset2();
         }
 
         private void btnedback_Click(object sender, EventArgs e)
@@ -2601,7 +2613,10 @@ namespace BalayPasilungan
         }
         private void btnaddconrec_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixth;
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewCon;
+
+            lbladdeditprofile.Text = "New Consultation Record";
         }
 
         private void btnfamtype_Click(object sender, EventArgs e)
