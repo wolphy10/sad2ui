@@ -87,6 +87,12 @@
     <Compile Include="error.Designer.cs">
       <DependentUpon>error.cs</DependentUpon>
     </Compile>
+    <Compile Include="EvEditDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvEditDetails.Designer.cs">
+      <DependentUpon>EvEditDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="expense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="error.resx">
       <DependentUpon>error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvEditDetails.resx">
+      <DependentUpon>EvEditDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="expense.resx">
       <DependentUpon>expense.cs</DependentUpon>
@@ -363,6 +372,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\line_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editrmm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

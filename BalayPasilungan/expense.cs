@@ -1671,30 +1671,32 @@ namespace BalayPasilungan
         #region Expense
         private void btnExpLoad_Click(object sender, EventArgs e)
         {
-            int i = 0;
+            int i = 0; MySqlCommand comm = new MySqlCommand("SELECT * FROM expense", conn);
             string[] load = new string[50];
-            if (cbClothing.Checked) load[++i] = "Clothing";
-            if (cbCLW.Checked) load[++i] = "Communications, Lights, and Water";
-            if (cbDep.Checked) load[++i] = "Depreciation Expenses";
-            if (cbEdu.Checked) load[++i] = "Education";
-            if (cbFood.Checked) load[++i] = "Food";
-            if (cbGC.Checked) load[++i] = "Guidance and Counselling";
-            if (cbHonor.Checked) load[++i] = "Honorarium";
-            if (cbHouse.Checked) load[++i] = "Household Expenses";
-            if (cbInsurance.Checked) load[++i] = "Insurance Expense";
-            if (cbMed.Checked) load[++i] = "Medical and Dental Supplies";
-            if (cbMeeting.Checked) load[++i] = "Meeting and Coferences";
-            if (cbOffice.Checked) load[++i] = "Office Supplies";
-            if (cbPrintAd.Checked) load[++i] = "Printing and Advertising";
-            if (cbProf.Checked) load[++i] = "Professional Fees";
-            if (cbRec.Checked) load[++i] = "Recreation";
-            if (cbRepair.Checked) load[++i] = "Repair and Maintenance";
-            if (cbSal.Checked) load[++i] = "Salary";
-            if (cbSD.Checked) load[++i] = "Skills and Development";
-            if (cbSSS.Checked) load[++i] = "SSS, PHIC, and HMDF";
-            if (cbSVF.Checked) load[++i] = "Spiritual Value Formation";
-            if (cbTax.Checked) load[++i] = "Taxes and Licenses";
-            if (cbTranspo.Checked) load[++i] = "Transportation";           
+            
+            if (cbClothing.Checked) load[i++] = "Clothing"; if (cbCLW.Checked) load[i++] = "Communications, Lights, and Water"; if (cbDep.Checked) load[i++] = "Depreciation Expenses"; if (cbEdu.Checked) load[i++] = "Education";
+            if (cbFood.Checked) load[i++] = "Food"; if (cbGC.Checked) load[i++] = "Guidance and Counselling"; if (cbHonor.Checked) load[i++] = "Honorarium"; if (cbHouse.Checked) load[i++] = "Household Expenses"; if (cbInsurance.Checked) load[i++] = "Insurance Expense";
+            if (cbMed.Checked) load[i++] = "Medical and Dental Supplies"; if (cbMeeting.Checked) load[i++] = "Meeting and Coferences"; if (cbOffice.Checked) load[i++] = "Office Supplies"; if (cbPrintAd.Checked) load[i++] = "Printing and Advertising";
+            if (cbProf.Checked) load[i++] = "Professional Fees"; if (cbRec.Checked) load[i++] = "Recreation"; if (cbRepair.Checked) load[i++] = "Repair and Maintenance"; if (cbSal.Checked) load[i++] = "Salary"; if (cbSD.Checked) load[i++] = "Skills and Development";
+            if (cbSSS.Checked) load[i++] = "SSS, PHIC, and HMDF"; if (cbSVF.Checked) load[i++] = "Spiritual Value Formation"; if (cbTax.Checked) load[i++] = "Taxes and Licenses"; if (cbTranspo.Checked) load[i++] = "Transportation";
+
+            if (i >= 1) cbAll.Checked = false;
+            else cbAll.Checked = true;
+
+            string final = string.Empty;
+            for(int n = 0; n < i; n++)
+            {
+                if (load[n + 1] != null) final += "'" + load[n] + "' OR category = ";
+                else
+                {
+                    final += "'" + load[n] + "'";
+                    break;
+                }
+            }
+
+            if (cbAll.Checked) cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false; 
+            else comm = new MySqlCommand("SELECT * FROM expense WHERE category = " + final, conn);
+            loadTable(comm, 6);
         }
         #endregion
     }

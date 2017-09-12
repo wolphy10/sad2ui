@@ -84,6 +84,11 @@
             // 
             this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedyear.FormattingEnabled = true;
+            this.cbxedyear.Items.AddRange(new object[] {
+            "Preschool",
+            "Elementary",
+            "High School",
+            "College"});
             this.cbxedyear.Location = new System.Drawing.Point(121, 124);
             this.cbxedyear.Name = "cbxedyear";
             this.cbxedyear.Size = new System.Drawing.Size(297, 27);
@@ -181,7 +186,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "edclass";
             this.Text = "edclass";
-            this.Load += new System.EventHandler(this.edclass_Load);
             this.panelNewChild.ResumeLayout(false);
             this.panelNewChild.PerformLayout();
             this.groupBox2.ResumeLayout(false);

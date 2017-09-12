@@ -29,7 +29,48 @@ namespace BalayPasilungan
             menuStripEvent.Renderer = new renderer();
             ERProgress.Renderer = new renderer2();
         }
-        
+
+        #region error and confirm (maybe success let's see nlng)
+        public void errorMessage(string message)            // Error Message
+        {
+            error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            err.lblError.Text = message;
+            dim.Show();
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void successMessage(string message)            // Success Message
+        {
+            success yey = new success();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            yey.lblSuccess.Text = message;
+            dim.Show();
+
+            if (yey.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public bool confirmed;
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location;
+            conf.lblConfirm.Text = message;
+            dim.Show();
+
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
+        }
+        #endregion
+
         #region Functions
         private void resetButtons()
         {
@@ -342,38 +383,22 @@ namespace BalayPasilungan
         }
 
         private void btnNext2_Click(object sender, EventArgs e)
-        {
-            error err = new error();
+        {//Lagyan ng checking the event schedule dito para walang conflict
             if (cbEMonth.Text == "" || cbEDay.Text == "" || cbEYear.Text == "" ||
-            cbEMonth2.Text == "" || cbEDay2.Text == "" || cbEYear2.Text == "")
-            {
-                err.refToERF = this;
-                err.lblError.Text = "You have skipped a blank! Please answer everything.";
-                err.ShowDialog();
-            }
+            cbEMonth2.Text == "" || cbEDay2.Text == "" || cbEYear2.Text == "") errorMessage("You have skipped a blank!Please answer everything.");
             else
             {
                 tabERForm.SelectedIndex = 2;
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 tdTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
-                if (btnRange == "multi")
-                {
-                    confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
+                if (btnRange == "multi") confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
                                          "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-                }
                 else
                 {
-                    if (!allDayState)
-                    {
-                        confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
+                    if(!allDayState) confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
                                          "TO: " + cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-                    }
-                    else
-                    {
-                        confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
+                    else confirm_EDateTime.Text = "FROM: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom + "\n" +
                                          "TO: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-                    }
-                    
                 }
             }
         }
@@ -394,36 +419,18 @@ namespace BalayPasilungan
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-            error err = new error();
-            if(txtEventDes.Text.Equals("Describe the event.") ||
+            if (txtEventDes.Text.Equals("Describe the event.") ||
             txtEventName.Text.Equals("What is the name of the event?") ||
-            txtVenue.Text.Equals("Where will it be held?"))
-            {
-                err.refToERF = this;
-                err.lblError.Text = "You have skipped a blank! Please answer everything.";
-                err.ShowDialog();
-            }
+            txtVenue.Text.Equals("Where will it be held?")) errorMessage("You have skipped a blank! Please answer everything.");
             else
             {
                 tabERForm.SelectedIndex = 3;
                 confirmTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#18764e");
                 oTS.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c5d9d0");
-                if(budgetYN == "yes")
-                {
-
-                }
-                else if(budgetYN == "no")
-                {
-                    confirm_EBudget.Text = "NONE";
-                }
-                if(remindYN == "yes")
-                {
-
-                }
-                else if(remindYN == "no")
-                {
-                    confirm_ERemind.Text = "NONE";
-                }
+                if (budgetYN == "yes") confirm_EBudget.Text = "Available";
+                else if (budgetYN == "no") confirm_EBudget.Text = "NONE";
+                if (remindYN == "yes") confirm_ERemind.Text = "lagyan pa";
+                else if (remindYN == "no") confirm_ERemind.Text = "NONE";
             }
         }
         
@@ -438,70 +445,70 @@ namespace BalayPasilungan
         #region Event Request Form Textboxs
         #region Enter Textbox
         private void txtEventName_Enter(object sender, EventArgs e)
-            {
-                resetLabelsPanels(); resetCounters();
-                txtEventName.ForeColor = Color.Black;            
-                if (txtEventName.Text.Equals("What is the name of the event?")) txtEventName.Text = "";
-                panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
-                lblEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                countEName.Visible = true;       
-            }
+        {
+            resetLabelsPanels(); resetCounters();
+            txtEventName.ForeColor = Color.Black;            
+            if (txtEventName.Text.Equals("What is the name of the event?")) txtEventName.Text = "";
+            panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
+            lblEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            countEName.Visible = true;       
+        }
 
-            private void txtVenue_Enter(object sender, EventArgs e)
-            {
-                resetLabelsPanels(); resetCounters();
-                txtVenue.ForeColor = Color.Black;
-                if (txtVenue.Text.Equals("Where will it be held?")) txtVenue.Text = "";
-                panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
-                lblEVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                countEVenue.Visible = true;
-            }
+        private void txtVenue_Enter(object sender, EventArgs e)
+        {
+            resetLabelsPanels(); resetCounters();
+            txtVenue.ForeColor = Color.Black;
+            if (txtVenue.Text.Equals("Where will it be held?")) txtVenue.Text = "";
+            panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
+            lblEVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            countEVenue.Visible = true;
+        }
 
-            private void txtEventDes_Enter(object sender, EventArgs e)
-            {
-                resetLabelsPanels(); resetCounters();
-                txtEventDes.ForeColor = Color.Black;
-                if (txtEventDes.Text.Equals("Describe the event.")) txtEventDes.Text = "";
-                lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                countEDes.Visible = true;
-            }
+        private void txtEventDes_Enter(object sender, EventArgs e)
+        {
+            resetLabelsPanels(); resetCounters();
+            txtEventDes.ForeColor = Color.Black;
+            if (txtEventDes.Text.Equals("Describe the event.")) txtEventDes.Text = "";
+            lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            countEDes.Visible = true;
+        }
         
-            private void cbEType_Enter(object sender, EventArgs e)
-            {
-                resetLabelsPanels();
-                lblEType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            }
+        private void cbEType_Enter(object sender, EventArgs e)
+        {
+            resetLabelsPanels();
+            lblEType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+        }
 
-            private void eventDate_Enter(object sender, EventArgs e)
-            {
-                resetLabelsPanels();
-                lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            }
+        private void eventDate_Enter(object sender, EventArgs e)
+        {
+            resetLabelsPanels();
+            lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+        }
 
-            private void txtRequestBy_Enter(object sender, EventArgs e)
-            {
-                txtRequestBy.ForeColor = Color.Black;
-                lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-                if (txtRequestBy.Text.Equals("Who requested the event?")) txtRequestBy.Text = "";
-                resetLabelsPanels();
-                panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
-                lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                countRequestBy.Visible = true;
-            }
+        private void txtRequestBy_Enter(object sender, EventArgs e)
+        {
+            txtRequestBy.ForeColor = Color.Black;
+            lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
+            if (txtRequestBy.Text.Equals("Who requested the event?")) txtRequestBy.Text = "";
+            resetLabelsPanels();
+            panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
+            lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            countRequestBy.Visible = true;
+        }
 
-            private void reminderDate_Enter(object sender, EventArgs e)
-            {
-                resetLabelsPanels();
-                lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            }
+        private void reminderDate_Enter(object sender, EventArgs e)
+        {
+            resetLabelsPanels();
+            lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+        }
 
-            private void others_Enter(object sender, EventArgs e)
-            {
-                lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                lblNo.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                //reminderPanel.Height = 0;
-            }
-            #endregion
+        private void others_Enter(object sender, EventArgs e)
+        {
+            lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            lblNo.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            //reminderPanel.Height = 0;
+        }
+        #endregion
 
             #region Leave Methods
             private void txtRequestBy_Leave(object sender, EventArgs e)
@@ -511,23 +518,14 @@ namespace BalayPasilungan
         
             private void txtEventName_Leave(object sender, EventArgs e) //BOOK2
             {
-                error err = new error();
-                err.refToERF = this;
                 resetLabelsPanels(); resetCounters();
-                if (txtEventName.Text.Equals(""))
-                {
-                    txtEventName.Text = "What is the name of the event?";
-                }
+                if (txtEventName.Text.Equals("")) txtEventName.Text = "What is the name of the event?";
                 else
                 {
-                    if (sameEvName(txtEventName.Text))
-                    {
-                        confirm_EName.Text = txtEventName.Text;
-                    }
+                    if (sameEvName(txtEventName.Text)) confirm_EName.Text = txtEventName.Text;
                     else
                     {
-                        err.lblError.Text = "The event name is already present";
-                        err.ShowDialog();
+                        errorMessage("The event name is already present");
                         txtEventName.Text = "What is the name of the event?";
                     }
                 }
@@ -844,14 +842,10 @@ namespace BalayPasilungan
         }
         private void cbEMonth2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             //MessageBox.Show(cbEMonth2.SelectedIndex + "<"+ cbEMonth2.SelectedIndex + " " + cbEYear.SelectedIndex + "==" + cbEYear2.SelectedIndex);
             if (cbEMonth2.SelectedIndex < cbEMonth.SelectedIndex && cbEYear.SelectedIndex == cbEYear2.SelectedIndex)
             {
-                MessageBox.Show("selected index changed");
-                err.lblError.Text = "You cannot set this to an earlier month.";
-                err.ShowDialog();
+                errorMessage("You cannot set this to an earlier month.");
                 cbEMonth2.SelectedIndex = cbEMonth.SelectedIndex;
             }
             int num = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
@@ -860,15 +854,11 @@ namespace BalayPasilungan
 
         private void cbEYear2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (cbEYear2.SelectedIndex < cbEYear.SelectedIndex)
             {
-                err.lblError.Text = "You cannot set this to an earlier year.";
-                err.ShowDialog();
+                errorMessage("You cannot set this to an earlier year.");
                 cbEYear2.SelectedIndex = cbEYear.SelectedIndex;
             }
-            
         }
 
         public void dateRemindInitial(int month, int year)
@@ -941,30 +931,22 @@ namespace BalayPasilungan
 
         private void txtEHours_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if(txtEHours.Text == "")
             {
                 txtEHours.Text = "00";
                 txtEHours.Focus();
             }
             else if (int.Parse(txtEHours.Text) > 12 || int.Parse(txtEHours.Text) <= 0) // bai what if nagleave tapos empty ang textbox magerror ang int.parse
-            {                
-                err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
-                err.ShowDialog();
+            {
+                errorMessage("You cannot set the hours beyond 12 or less than 0.");
                 txtEHours.Text = "00";
                 txtEHours.Focus();
             }
-            else
-            {
-                if (int.Parse(txtEHours.Text) < 10 && txtEHours.TextLength < 2) txtEHours.Text = "0" + txtEHours.Text;
-            }            
+            else if (int.Parse(txtEHours.Text) < 10 && txtEHours.TextLength < 2) txtEHours.Text = "0" + txtEHours.Text;            
         }
 
         private void txtEMins_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if(txtEMins.Text == "")
             {
                 txtEMins.Text = "00";
@@ -972,21 +954,15 @@ namespace BalayPasilungan
             }
             else if (int.Parse(txtEMins.Text) > 59 || int.Parse(txtEMins.Text) < 0)
             {
-                err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
-                err.ShowDialog();                
+                errorMessage("You cannot set the minutes beyond 59 or less than 0.");           
                 txtEMins.Text = "00";
                 txtEMins.Focus();
             }
-            else
-            {
-                if (int.Parse(txtEMins.Text) < 10 && txtEMins.TextLength < 2) txtEMins.Text = "0" + txtEMins.Text;
-            }
+            else if (int.Parse(txtEMins.Text) < 10 && txtEMins.TextLength < 2) txtEMins.Text = "0" + txtEMins.Text;
         }
 
         private void txtEHours2_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if(txtEHours2.Text == "")
             {
                 txtEHours2.Text = "00";
@@ -994,21 +970,15 @@ namespace BalayPasilungan
             }
             else if (int.Parse(txtEHours2.Text) > 12 || int.Parse(txtEHours2.Text) <= 0)
             {
-                err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the hours beyond 12 or less than 0.");
                 txtEHours2.Text = "00";
                 txtEHours2.Focus();
             }
-            else
-            {
-                if (int.Parse(txtEHours2.Text) < 10 && txtEHours2.TextLength < 2) txtEHours2.Text = "0" + txtEHours2.Text;
-            }
+            else if (int.Parse(txtEHours2.Text) < 10 && txtEHours2.TextLength < 2) txtEHours2.Text = "0" + txtEHours2.Text;
         }
 
         private void txtEMins2_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if(txtEMins.Text == "")
             {
                 txtEMins2.Text = "00";
@@ -1016,49 +986,33 @@ namespace BalayPasilungan
             }
             else if (int.Parse(txtEMins2.Text) > 59 || int.Parse(txtEMins2.Text) < 0)
             {
-                err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the minutes beyond 59 or less than 0.");
                 txtEMins2.Text = "00";
                 txtEMins2.Focus();
             }
-            else
-            {
-                if (int.Parse(txtEMins2.Text) < 10 && txtEMins2.TextLength < 2) txtEMins2.Text = "0" + txtEMins2.Text;
-            }
+            else if (int.Parse(txtEMins2.Text) < 10 && txtEMins2.TextLength < 2) txtEMins2.Text = "0" + txtEMins2.Text;
         }
         
         private void txtHrRemind_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtHrRemind.Text) > 12 || int.Parse(txtHrRemind.Text) <= 0)
             {
-                err.lblError.Text = "You cannot set the hours beyond 12 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the hours beyond 12 or less than 0.");
                 txtHrRemind.Text = "00";
                 txtHrRemind.Focus();
             }
-            else
-            {
-                if (int.Parse(txtHrRemind.Text) < 10 && txtHrRemind.TextLength < 2) txtHrRemind.Text = "0" + txtHrRemind.Text;
-            }
+            else if (int.Parse(txtHrRemind.Text) < 10 && txtHrRemind.TextLength < 2) txtHrRemind.Text = "0" + txtHrRemind.Text;
         }
 
         private void txtMinRemind_Leave(object sender, EventArgs e)
         {
-            error err = new error();
-            err.refToERF = this;
             if (int.Parse(txtMinRemind.Text) > 59 || int.Parse(txtMinRemind.Text) < 0)
             {
-                err.lblError.Text = "You cannot set the minutes beyond 59 or less than 0.";
-                err.ShowDialog();
+                errorMessage("You cannot set the minutes beyond 59 or less than 0.");
                 txtMinRemind.Text = "00";
                 txtMinRemind.Focus();
             }
-            else
-            {
-                if (int.Parse(txtMinRemind.Text) < 10 && txtMinRemind.TextLength < 2) txtMinRemind.Text = "0" + txtMinRemind.Text;
-            }
+            else if (int.Parse(txtMinRemind.Text) < 10 && txtMinRemind.TextLength < 2) txtMinRemind.Text = "0" + txtMinRemind.Text;
         }
         #endregion
 
@@ -1255,14 +1209,13 @@ namespace BalayPasilungan
         }
         #endregion
 
+        public int evid = 0;
         #region tabEvent Funtions
         public void displayEvents(string dc, string mc, string yc)
         {
             eventsListView.Items.Clear();
             string date = yc + "-" + mc + "-" + dc;
-            //int evyear;
             string evname, day, timefrom;
-            //MessageBox.Show(m + " "+ yearnav);
             try
             {
 
@@ -1277,10 +1230,6 @@ namespace BalayPasilungan
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        //int dateto = int.Parse(dt.Rows[i]["evDateTo"].ToString());
-                        //MessageBox.Show();
-                        //evmonth = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(5, 2));
-                        //evday = int.Parse(dt.Rows[i]["evDateFrom"].ToString().Substring(8, 2));
                         timefrom = dt.Rows[i]["evTimeFrom"].ToString();
                         evname = dt.Rows[i]["evName"].ToString();
                         ListViewItem itm = new ListViewItem(timefrom);
@@ -1297,55 +1246,27 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
+        private void eventsListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EvEditDetails evedit = new EvEditDetails();
+            evedit.reftoevorg = this;
+            MessageBox.Show(listPending.SelectedItems[1].SubItems[0].Text);
+            evedit.evnEdit = eventsListView.SelectedItems[1].SubItems[0].Text;
+            DialogResult rest = evedit.ShowDialog();
+            if(rest == DialogResult.OK)
+            {
+
+            }
+        }
         private void eventsListView_MouseClick(object sender, MouseEventArgs e)
         {
-            string evn = eventsListView.SelectedItems[0].SubItems[1].Text;
-            evEditDetails(evn);
-            tabEvEdit.SelectedIndex = 0;
+            approveEventDetails(eventsListView.SelectedItems[1].SubItems[0].Text);
         }
 
-        public void evEditDetails(string evn)
+        private void btnEvCancel_Click(object sender, EventArgs e)
         {
-            try
-            {
-                conn.Open();
-
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evName = '" + evn +"'", conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-                conn.Close();
-                if (dt.Rows.Count == 1)
-                {
-                    lblViewName.Text = dt.Rows[0]["evName"].ToString();
-                    lblViewVenue.Text = dt.Rows[0]["evVenue"].ToString();
-                    lblViewDes.Text = dt.Rows[0]["evDesc"].ToString();
-                    lblViewType.Text = dt.Rows[0]["evType"].ToString();
-                    lblViewDate.Text = dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" +
-                                       dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
-                    if(dt.Rows[0]["reminder"].ToString() == "" || dt.Rows[0]["reminder"].ToString() == "true")
-                    {
-                        lblViewRemind.Text = "NONE";
-                    }
-                    else
-                    {
-
-                    }
-                    if(dt.Rows[0]["budget"].ToString() == "")
-                    {
-                        lblViewBudget.Text = "NONE";
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("evedit Details error" + ee);
-                conn.Close();
-            }
+            confirmMessage("Are you sure you want to edit these records? Please double check.");
+            if(confirmed) statusEvent(2);
         }
         #endregion
 
@@ -1354,24 +1275,12 @@ namespace BalayPasilungan
         
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            error err = new error();
-            success scs = new success();
-            if(txtRequestBy.Text == "Who requested the event?" || txtRequestBy.Text == "")
-            {
-                err.refToERF = this;
-                err.lblError.Text = "You have skipped a blank! Please answer everything.";
-                err.ShowDialog();
-            }
+            if (txtRequestBy.Text == "Who requested the event?" || txtRequestBy.Text == "") errorMessage("You have skipped a blank! Please fill everything.");
             else
             {
-                scs.reftoevorg = this;
-                scs.lblSuccess.Text = "EVENT REQUEST SENT.";
-                DialogResult rest = scs.ShowDialog();
+                successMessage("EVENT REQUEST SENT.");
+                tabSecond.SelectedTab = tabPending;
                 int insnum = 0;
-                if(rest == DialogResult.OK)
-                {
-                    tabSecond.SelectedTab = tabPending;
-                }
                 if (remindYN == "yes" && budgetYN == "yes") insnum = 1;
                 else if (remindYN == "yes" && budgetYN == "no") insnum = 2;
                 else if (remindYN == "no" && budgetYN == "yes") insnum = 3;
@@ -1392,16 +1301,8 @@ namespace BalayPasilungan
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
                 conn.Close();
-                if (dt.Rows.Count > 0)
-                {
-                    check = false;
-                }
-                else
-                {
-                    check = true;
-                }
-
-
+                if (dt.Rows.Count > 0) check = false;
+                else check = true;
             }
             catch (Exception ee)
             {
@@ -1411,7 +1312,7 @@ namespace BalayPasilungan
             return check;
         }
         //insert functions for requesting
-        public void insertRequest( int insnum)
+        public void insertRequest(int insnum)
         {
             int monthfrom = 0, monthto = 0;
             string eventtime = "", datefrom = "", timeTo = "", dateTo = "";
@@ -1458,11 +1359,7 @@ namespace BalayPasilungan
                 else if (insnum == 2) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, attendance, requestedBy, reminder, evDateTo, evTimeTo, reminderDate, reminderTime) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "','" + "Pending" + "', 'False' ,'" + txtRequestBy.Text + "','True', '" + dateTo + "', '" + timeTo + "','" + reminddate + "','" + remindtime + "');", conn); // insert with remind
                 else if(insnum == 3) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evVenue, evProgress, evType, status, attendance, requestedBy, budget, evDateTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'Pending' , 'False' ,'" + txtRequestBy.Text + "', 'True', '" + dateTo + "', '" + timeTo + "');", conn); // insert with budget
                 comm.ExecuteNonQuery();
-
                 conn.Close();
-                //displayEvents();
-
-
             }
             catch (Exception ee)
             {
@@ -1475,10 +1372,8 @@ namespace BalayPasilungan
         {
             listPending.Items.Clear();
             string evname, request;
-
             try
-            {
-
+            { 
                 conn.Open();
 
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status='Pending'", conn);
@@ -1495,12 +1390,9 @@ namespace BalayPasilungan
                         //MessageBox.Show(evname+" "+request);
                         ListViewItem itm = new ListViewItem(evname);
                         itm.SubItems.Add(request);
-
                         listPending.Items.Add(itm);
-
                     }
                 }
-
                 conn.Close();
             }
             catch (Exception ee)
@@ -1510,8 +1402,7 @@ namespace BalayPasilungan
             }
         }
       
-        public int evid = 0; //public event id for the event approval only
-
+         //public event id for the event approval only
         private void listPending_MouseClick(object sender, MouseEventArgs e)
         {
             string evn = listPending.SelectedItems[0].SubItems[0].Text;
@@ -1522,14 +1413,12 @@ namespace BalayPasilungan
         {
             try
             {
-
                 conn.Open();
 
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evName='" + evn + "'", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-
                 if (dt.Rows.Count == 1)
                 {
                     evid = int.Parse(dt.Rows[0]["eventID"].ToString());
@@ -1539,22 +1428,10 @@ namespace BalayPasilungan
                     lblPEType.Text = dt.Rows[0]["evType"].ToString();
                     lblPEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" + 
                                     "To: " + dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
-                    if (dt.Rows[0]["reminderDate"].ToString() == "")
-                    {
-                        lblPERemind.Text = "NONE";
-                    }
+                    if (dt.Rows[0]["reminderDate"].ToString() == "") lblPERemind.Text = "NONE";
                     else
-                    {
-
-                    }
-                    if(dt.Rows[0]["budget"].ToString() == "")
-                    {
-                        lblPEBudget.Text = "NONE";
-                    }
-                    else
-                    {
-                        lblPEBudget.Text = dt.Rows[0]["budget"].ToString();
-                    }
+                    if(dt.Rows[0]["budget"].ToString() == "") lblPEBudget.Text = "NONE";
+                    else lblPEBudget.Text = dt.Rows[0]["budget"].ToString();
                 }
                 conn.Close();
             }
@@ -1565,16 +1442,17 @@ namespace BalayPasilungan
             }
         }
         //approve and disapprove buttons
-        public void approveEvent()
+        public void statusEvent(int snum)
         {
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("UPDATE event SET status='Approved' WHERE eventID = '" + evid + "';", conn);
+                MySqlCommand comm = new MySqlCommand();
+                if(snum == 0) comm = new MySqlCommand("UPDATE event SET status='Approved' WHERE eventID = '" + evid + "';", conn);
+                else if(snum == 1) comm = new MySqlCommand("UPDATE event SET status='Disapproved' , evProgress = 'Disapproved' WHERE eventID = '" + evid + "';", conn);
+                else if(snum == 2) comm = new MySqlCommand("UPDATE event SET status='Canceled' , evProgress = 'Canceled' WHERE eventID = '" + evid + "';", conn);
                 comm.ExecuteNonQuery();
-
                 conn.Close();
-
             }
             catch (Exception ee)
             {
@@ -1582,29 +1460,12 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
-        public void disApproveEvent()
-        {
 
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("UPDATE event SET status='Disapproved' , evProgress = 'Disapproved' WHERE eventID = '" + evid + "';", conn);
-                comm.ExecuteNonQuery();
-
-                conn.Close();
-
-            }
-            catch (Exception ee)
-            {
-                MessageBox.Show("" + ee);
-                conn.Close();
-            }
-        }
         private void btnApprove_Click(object sender, EventArgs e)
         {
             try
             {
-                approveEvent();
+                statusEvent(0);
                 success scs = new success();
                 scs.reftoevorg = this;
                 scs.lblSuccess.Text = "Successfully Approved the Event.";
@@ -1626,7 +1487,7 @@ namespace BalayPasilungan
         {
             try
             {
-                disApproveEvent();
+                statusEvent(1);
                 success scs = new success();
                 scs.reftoevorg = this;
                 scs.lblSuccess.Text = "Successfully Rejected the Event.";
@@ -1755,16 +1616,11 @@ namespace BalayPasilungan
 
         public void calendarcolor()
         {
-            int dfrom, mfrom, yfrom;
-            int dto, mto, yto;
-            int m = Array.IndexOf(aMonths, btnMNow.Text) + 1;
-            int year = int.Parse(btnYNow.Text);
+            int dfrom, mfrom, yfrom, dto, mto, yto, m = Array.IndexOf(aMonths, btnMNow.Text) + 1, year = int.Parse(btnYNow.Text);
             string prog;
             try
             {
-
                 conn.Open();
-
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' || status = 'Canceled' ", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -1785,20 +1641,14 @@ namespace BalayPasilungan
                         yto = int.Parse(dt.Rows[i]["evDateTo"].ToString().Substring(0, 4));
                         //DateTime dateto = Convert.ToDateTime(dto.ToString("00") + "/" + mto.ToString("00") + "/" + yto);
                         DateTime dateto = DateTime.ParseExact(dto.ToString("00") + "/" + mto.ToString("00") + "/" + yto, "d/M/yyyy", CultureInfo.InvariantCulture);
-                        //MessageBox.Show(""+ datefrom + "-----" + dateto);
-                        //MessageBox.Show("" + dto);
 
                         foreach (DataGridViewRow row in CalendarView.Rows)
                         {
                             foreach (DataGridViewCell cell in row.Cells)
-                            {
-                                //do operations with cell
-                                //MessageBox.Show(""+cell.Value);
-
+                            {//do operations with cell
                                 if (cell.Value.ToString() != "")
                                 {
                                     //MessageBox.Show(Convert.ToInt32(cell.Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
-                                    //DateTime datecal = Convert.ToDateTime(Convert.ToInt32(cell.Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"));
                                     DateTime datecal = DateTime.ParseExact(Convert.ToInt32(cell.Value).ToString("00") + "/" + m.ToString("00") + "/" + year.ToString("0000"), "d/M/yyyy", CultureInfo.InvariantCulture);
                                     if (datecal >= datefrom && datecal <= dateto)
                                     {
@@ -1826,8 +1676,6 @@ namespace BalayPasilungan
 
                     }
                 }
-
-
                 conn.Close();
             }
             catch (Exception ee)
@@ -1859,8 +1707,6 @@ namespace BalayPasilungan
                         if (ifclick == "view")
                         {
                             tabSecond.SelectedTab = tabEvent;
-                            tabEvEdit.SelectedIndex = 1; // listview tab
-                            //MessageBox.Show(CalendarView.SelectedCells[0].Value.ToString());
                             displayEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text);
                         }
                         else if (ifclick == "add")
@@ -2034,7 +1880,6 @@ namespace BalayPasilungan
             }
         }
         #endregion
-
 
         private void confirmTab_Enter(object sender, EventArgs e)
         {
