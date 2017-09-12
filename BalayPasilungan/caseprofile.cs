@@ -1392,7 +1392,7 @@ namespace BalayPasilungan
                 }
 
 
-                validatecheck(e.ColumnIndex);
+                //validatecheck(e.ColumnIndex);
             }
             
 
