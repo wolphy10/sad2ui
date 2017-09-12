@@ -2659,7 +2659,7 @@ namespace BalayPasilungan
 
         private void btnaddincid_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = tenth;
+            
         }
 
         private void btnaddclass_Click(object sender, EventArgs e)
