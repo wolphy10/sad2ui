@@ -16,7 +16,7 @@ namespace BalayPasilungan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new expense());
+            Application.Run(new eventorg());
         }
     }
 }

@@ -1250,8 +1250,9 @@ namespace BalayPasilungan
         {
             EvEditDetails evedit = new EvEditDetails();
             evedit.reftoevorg = this;
-            MessageBox.Show(listPending.SelectedItems[1].SubItems[0].Text);
-            evedit.evnEdit = eventsListView.SelectedItems[1].SubItems[0].Text;
+            //MessageBox.Show(listPending.SelectedItems[1].SubItems[0].Text);
+            evedit.evnEdit = eventsListView.SelectedItems[0].SubItems[1].Text;
+            this.Hide();
             DialogResult rest = evedit.ShowDialog();
             if(rest == DialogResult.OK)
             {
@@ -1260,7 +1261,8 @@ namespace BalayPasilungan
         }
         private void eventsListView_MouseClick(object sender, MouseEventArgs e)
         {
-            approveEventDetails(eventsListView.SelectedItems[1].SubItems[0].Text);
+            //MessageBox.Show(eventsListView.SelectedItems[0].SubItems[1].Text);
+            approveEventDetails(eventsListView.SelectedItems[0].SubItems[1].Text);
         }
 
         private void btnEvCancel_Click(object sender, EventArgs e)

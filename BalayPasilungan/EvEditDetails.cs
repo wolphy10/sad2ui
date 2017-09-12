@@ -30,7 +30,50 @@ namespace BalayPasilungan
         public string editName, editVenue, editDes, editType, editDate, editRemind = "", editBudget = "";
         private void EvEditDetails_Load(object sender, EventArgs e)
         {
+            if (cb_MRemind.Items.Count == 0)//remind month
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    cb_YRemind.Items.Add(aMonths[i]);
+                }
+            }
+            if (cb_YRemind.Items.Count == 0)//remind year
+            {
+                for (int i = DateTime.Now.Year; i <= 2099; i++)
+                {
+                    cb_YRemind.Items.Add(i);
+                }
+            }
+            if (cbEMonth.Items.Count == 0)//month from
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    cbEMonth.Items.Add(aMonths[i]);
+                }
+            }
+            if (cbEYear.Items.Count == 0)//year from
+            {
+                for (int i = DateTime.Now.Year; i <= 2099; i++)
+                {
+                    cbEYear.Items.Add(i);
+                }
+            }
+            if (cbEMonth2.Items.Count == 0)//month to
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    cbEMonth2.Items.Add(aMonths[i]);
+                }
+            }
+            if (cbEYear2.Items.Count == 0)//year to
+            {
+                for (int i = DateTime.Now.Year; i <= 2099; i++)
+                {
+                    cbEYear2.Items.Add(i);
+                }
+            }
             evViewDetails(evnEdit);
+            viewDataEdit();
         }
         #region error, success and confirm
         public void errorMessage(string message)            // Error Message
@@ -144,7 +187,10 @@ namespace BalayPasilungan
                     txtVenue.Text = editVenue;
                     txtEventDes.Text = editDes;
                     cbEType.Text = editType;
-                    cbEYear.SelectedIndex = cbEYear.FindStringExact(dt.Rows[0]["evDateFrom"].ToString().Substring(0, 4)); cbEMonth.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(5, 2)); cbEDay.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(8, 2));
+                    cbEYear.SelectedIndex = cbEYear.FindStringExact(dt.Rows[0]["evDateFrom"].ToString().Substring(0, 4));
+                    cbEMonth.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(5, 2)) - 1;
+                    MessageBox.Show(int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(8, 2)) + "");
+                    cbEDay.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(8, 2)) - 1;
                     cbEYear2.SelectedIndex = cbEYear2.FindStringExact(dt.Rows[0]["evDateTo"].ToString().Substring(0, 4)); cbEMonth2.SelectedIndex = int.Parse(dt.Rows[0]["evDateTo"].ToString().Substring(5, 2)); cbEDay2.SelectedIndex = int.Parse(dt.Rows[0]["evDateTo"].ToString().Substring(8, 2));
                     txtEHours.Text = dt.Rows[0]["evTimeFrom"].ToString().Substring(0, 2); txtEMins.Text = dt.Rows[0]["evTimeFrom"].ToString().Substring(3, 2);
                     txtEHours2.Text = dt.Rows[0]["evTimeTo"].ToString().Substring(0, 2); txtEMins2.Text = dt.Rows[0]["evTimeTo"].ToString().Substring(3, 2);
