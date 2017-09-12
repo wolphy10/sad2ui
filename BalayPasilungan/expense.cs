@@ -236,7 +236,7 @@ namespace BalayPasilungan
             dim.Close();
         }
         #endregion
-
+        
         #region SQL Connections
 
         public void loadTable(MySqlCommand comm, int type)
@@ -1215,7 +1215,7 @@ namespace BalayPasilungan
         private void txtSearchMoney_Leave(object sender, EventArgs e)
         {
             if (txtSearchMoney.Text == "") txtSearchMoney.Text = "search here";
-            searchOthers.Checked = false; searchDate.Checked = false;                   // Uncheck search options
+            searchOthers.Checked = searchDate.Checked = false;                   // Uncheck search options
         }
 
         private void txtSearchMoney_KeyDown(object sender, KeyEventArgs e)
@@ -1251,14 +1251,12 @@ namespace BalayPasilungan
             if (multiSelect.Checked)
             {
                 btnEditMoneyD.Enabled = false;
-                donationMoney.MultiSelect = true;
-                multi = true;
+                donationMoney.MultiSelect = multi = true;
             }
             else
             {
                 btnEditMoneyD.Enabled = true;
-                donationMoney.MultiSelect = false;
-                multi = false;
+                donationMoney.MultiSelect = multi = false;
             }
         }
 
@@ -1572,7 +1570,7 @@ namespace BalayPasilungan
                 }
             }
         }
-        
+
         private void BRList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1 && !empty)
@@ -1671,7 +1669,7 @@ namespace BalayPasilungan
         #region Expense
         private void btnExpLoad_Click(object sender, EventArgs e)
         {
-            int i = 0; MySqlCommand comm = new MySqlCommand("SELECT * FROM expense", conn);
+            int i = 0; MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             string[] load = new string[50];
             
             if (cbClothing.Checked) load[i++] = "Clothing"; if (cbCLW.Checked) load[i++] = "Communications, Lights, and Water"; if (cbDep.Checked) load[i++] = "Depreciation Expenses"; if (cbEdu.Checked) load[i++] = "Education";
@@ -1695,7 +1693,27 @@ namespace BalayPasilungan
             }
 
             if (cbAll.Checked) cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false; 
-            else comm = new MySqlCommand("SELECT * FROM expense WHERE category = " + final, conn);
+            else comm = new MySqlCommand("SELECT * FROM expense WHERE category = " + final + " ORDER BY dateExpense DESC", conn);
+            loadTable(comm, 6);
+        }
+                
+        private void btnAddExp_Click(object sender, EventArgs e)
+        {
+            moneyDonate mD = overlay();
+            mD.tabSelection.SelectedIndex = 8;
+            mD.refToExpense = this;
+            mD.hasExpense = true;
+            mD.ShowDialog();
+
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
+            loadTable(comm, 6);
+        }
+        
+        private void btnResetCategory_Click(object sender, EventArgs e)
+        {
+            cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
+            cbAll.Checked = true;
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6);
         }
         #endregion
