@@ -19,7 +19,7 @@ namespace BalayPasilungan
         public MySqlConnection conn;
 
         public int id, hid, fammode, famid, eid, classeid;
-        public string filename;
+        public string filename, yearlvl;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
         public bool empty, confirmed;
@@ -855,7 +855,7 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("There are no current consultation records for this case study.");
+                    errorMessage("There are no current consultation records for this case study.");
                 }
                 else
                 {
@@ -932,7 +932,9 @@ namespace BalayPasilungan
                     //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
                     //MessageBox.Show(dtgeducation.ColumnCount.ToString());
 
-                    dtgeducation.Columns["eid"].Visible = false;
+                    //dtgeducation.Columns["eid"].Visible = false;
+
+                    dtgeducation.Refresh();
 
                 }
 
@@ -1006,7 +1008,7 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("There are no current consultation records for this case study.");
+                    errorMessage("There are no current consultation records for this case study.");
                 }
                 else
                 {
@@ -1039,13 +1041,14 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("There are no current incident records for this case study.");
+                    errorMessage("There are no current incident records for this case study.");
                 }
                 else
                 {
                     dtincid.DataSource = dt;
+                    dtincid.Columns[0].Visible = false;
                 }
-                dtincid.Columns[0].Visible = false;
+                
                 conn.Close();
             }
             catch (Exception ee)
@@ -1069,7 +1072,7 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("There are no current incident records for this case study.");
+                    errorMessage("There are no current incident records for this case study.");
                 }
 
                 else
@@ -1122,7 +1125,7 @@ namespace BalayPasilungan
 
                 else
                 {
-                    MessageBox.Show("There are no current family records for this case study.");
+                    errorMessage("There are no current family records for this case study.");
                 }
 
 
@@ -1193,7 +1196,7 @@ namespace BalayPasilungan
 
                 else
                 {
-                    MessageBox.Show("There are no current member records for this case study.");
+                    errorMessage("There are no current member records for this case study.");
                 }
             }
 
@@ -1374,6 +1377,7 @@ namespace BalayPasilungan
 
                 btnadded.Text = "ADD CHANGES";
 
+                MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
                 eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 //MessageBox.Show(eid.ToString());
@@ -1391,10 +1395,21 @@ namespace BalayPasilungan
                     }
                 }
 
+                classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                //validatecheck(e.ColumnIndex);
+
+                validatecheck(e.ColumnIndex, e);
             }
-            
+
+            MessageBox.Show(e.RowIndex.ToString());
+            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+            reloadedclass(eid);
+
+           
+
 
         }
 
@@ -1500,7 +1515,7 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
-        public void validatecheck()
+        public void validatecheck(int classeid, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewRow row in dtgeducation.Rows)
             {
@@ -1509,6 +1524,9 @@ namespace BalayPasilungan
                 if ((bool)cell.Value)
                 {
                     btnaddclass.Enabled = true;
+
+                    
+                    break;
                 }
 
                 else
@@ -2137,7 +2155,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(location) || string.IsNullOrEmpty(details))
             {
-                MessageBox.Show("Please fill out empty fields.");
+               errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -2152,7 +2170,7 @@ namespace BalayPasilungan
                     MessageBox.Show(hid.ToString());
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("Checkup Record Added!");
+                   successMessage("Checkup Record Added!");
 
                     conn.Close();
 
@@ -2194,7 +2212,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(interviewer) || string.IsNullOrEmpty(condes))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -2209,12 +2227,13 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("Consultation Record Added!");
+                    successMessage("Consultation Record Added!");
 
                     conn.Close();
 
                     reloadcon(id);
 
+                    tabCase.SelectedTab = tabInfo;
                     tabControl.SelectedTab = ninth;
 
                     reset4();
@@ -2234,7 +2253,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(famtype))
             {
-                MessageBox.Show("Fill in the empty fields.");
+                errorMessage("Fill in the empty fields.");
             }
 
             else
@@ -2248,7 +2267,7 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("Family Type Added!");
+                    successMessage("Family Type Added!");
 
                     conn.Close();
 
@@ -2276,7 +2295,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency))
             {
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -2291,7 +2310,7 @@ namespace BalayPasilungan
                     MessageBox.Show(famid.ToString());
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("Member Added!");
+                    successMessage("Member Added!");
 
                     conn.Close();
 
@@ -2329,7 +2348,7 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
             {
-                MessageBox.Show("Please fill out empty fields.");
+               errorMessage("Please fill out empty fields.");
             }
 
             else
@@ -2360,7 +2379,7 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    MessageBox.Show("Incident Record Added!");
+                    successMessage("Incident Record Added!");
 
                     conn.Close();
 
@@ -2447,6 +2466,8 @@ namespace BalayPasilungan
         {
             tabCase.SelectedTab = tabInfo;
             tabControl.SelectedTab = eighth;
+
+            reset2();
         }
 
         private void btnedback_Click(object sender, EventArgs e)
@@ -2599,7 +2620,10 @@ namespace BalayPasilungan
         }
         private void btnaddconrec_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixth;
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewCon;
+
+            lbladdeditprofile.Text = "New Consultation Record";
         }
 
         private void btnfamtype_Click(object sender, EventArgs e)
@@ -2610,6 +2634,24 @@ namespace BalayPasilungan
             }
         }
 
+        private void checkinv_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkinv.Checked)
+            {
+                btnaddinvolve.Enabled = true;
+            }
+
+            else
+            {
+                btnaddinvolve.Enabled = false;
+            }
+        }
+
+        private void btnaddinvolve_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = twenty;
@@ -2617,7 +2659,7 @@ namespace BalayPasilungan
 
         private void btnaddincid_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = tenth;
+            
         }
 
         private void btnaddclass_Click(object sender, EventArgs e)

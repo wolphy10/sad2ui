@@ -74,6 +74,7 @@ namespace BalayPasilungan
 
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
+
             string section = txtedsection.Text, year = cbxedyear.Text, adviser = txtedadviser.Text;
 
             if (string.IsNullOrEmpty(section) || string.IsNullOrEmpty(year) || string.IsNullOrEmpty(adviser))
@@ -98,6 +99,10 @@ namespace BalayPasilungan
 
 
                     conn.Close();
+
+                    reftocase.reloadedclass(reftocase.eid);
+
+                    //MessageBox.Show(reftocase.eid.ToString());
 
                     this.Close();
 
