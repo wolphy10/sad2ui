@@ -153,11 +153,11 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + classeid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE edclass SET section = '" + section + "', adviser = '" + adviser + "', yearlevel = '" + year + "' WHERE edclassid = " + classeid, conn);
 
                     comm.ExecuteNonQuery();
 
-                    successMessage("New Class Info Added!");
+                    successMessage("Class Info Changes Added!");
 
 
                     conn.Close();
@@ -165,7 +165,7 @@ namespace BalayPasilungan
                     reftocase.reloaded(reftocase.id);
                     reftocase.reloadedclass(reftocase.eid);
 
-                    //MessageBox.Show(reftocase.eid.ToString());
+                    MessageBox.Show(reftocase.eid.ToString());
 
                     this.Close();
 
@@ -199,7 +199,7 @@ namespace BalayPasilungan
                 counter = 4;
             }
 
-            for (int i = 0; i < counter; i++)
+            for (int i = 1; i <= counter; i++)
             {
                 cbxedyear.Items.Add(i);
             }

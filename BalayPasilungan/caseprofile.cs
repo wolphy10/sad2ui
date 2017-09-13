@@ -136,6 +136,9 @@ namespace BalayPasilungan
 
             ed.reftocase = this;
 
+            ed.lbladdeditprofile.Text = "Edit Class";
+            ed.btnaddedclass.Text = "ADD CHANGES";
+
             ed.classeid = classeid;
             ed.level = yearlvl;
 
@@ -960,14 +963,12 @@ namespace BalayPasilungan
                     EditColumn.Name = "Edit";
                     EditColumn.DataPropertyName = "Edit";
 
-                    
 
-                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
 
-                    chk.Name = "checkdis";
-                    //chk.ValueType = typeof(bool);
-                    chk.FalseValue = false;
-                    chk.TrueValue = true;
+                    DataGridViewButtonColumn AddColumn = new DataGridViewButtonColumn();
+                    AddColumn.Text = "Add";
+                    AddColumn.Name = "Add";
+                    AddColumn.DataPropertyName = "Add";
 
 
                     if (dtgeducation.Columns["Edit"] == null)
@@ -976,31 +977,21 @@ namespace BalayPasilungan
                         
                     }
 
-                    else
+                    
+                    if (dtgeducation.Columns["Add"] == null)
                     {
-                        //dtgeducation.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 2;
-                    }
-
-
-                    if (dtgeducation.Columns["checkdis"] == null)
-                    {
-                        dtgeducation.Columns.Add(chk);
+                        dtgeducation.Columns.Add(AddColumn);
                         
                     }
 
-                    else
-                    {
-                        chk.ValueType = typeof(bool);
-                        chk.FalseValue = false;
-                        chk.TrueValue = true;
-                    }
+                    
 
                     //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
                     //MessageBox.Show(dtgeducation.ColumnCount.ToString());
 
                     //dtgeducation.Columns["eid"].Visible = false;
 
-                    dtgeducation.Refresh();
+                   
 
                 }
 
@@ -1410,55 +1401,55 @@ namespace BalayPasilungan
 
         private void dtgeducation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var senderGrid = (DataGridView)sender;
 
+            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn))
+            {
+                reloadedclass(eid);
+            }
+
+               
         }
 
         private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-
-            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
-
+            
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
             {
-                tabCase.SelectedTab = tabNewChild;
-                tabaddchild.SelectedTab = tabNewEdu;
-
-                lbladdeditprofile.Text = "Edit Education Info";
-
-                btnadded.Text = "ADD CHANGES";
-
-                MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-                
-
-                reloadediteducation(eid);
-
-            }
-
-           else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
-            {
-                foreach (DataGridViewRow row in dtgeducation.Rows)
+                if (senderGrid.Columns[e.ColumnIndex] == senderGrid.Columns["Edit"])
                 {
-                    if (row.Index != e.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
-                    {
-                        row.Cells[e.ColumnIndex].Value = false;
-                        
-                    }
+                    tabCase.SelectedTab = tabNewChild;
+                    tabaddchild.SelectedTab = tabNewEdu;
 
-                    
+
+
+                    lbladdeditprofile.Text = "Edit Education Info";
+
+                    btnadded.Text = "ADD CHANGES";
+
+                    //MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+
+                    reloadediteducation(eid);
+
                 }
-                //MessageBox.Show(senderGrid.Columns[e.ColumnIndex].ValueType.ToString());
-                reloadedclass(eid);
-                validatecheck(sender, e);
+
+                else
+                {
+                    classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+
+                    yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                    edclass(classeid, yearlvl);
+                }
 
             }
-                
-            MessageBox.Show(e.RowIndex.ToString());
-            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString() + "eid index");
+
+           
         
         }
 
@@ -2768,9 +2759,7 @@ namespace BalayPasilungan
 
         private void btnaddclass_Click(object sender, EventArgs e)
         {
-            classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
-
-            edclass(classeid, yearlvl);
+            
         }
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
