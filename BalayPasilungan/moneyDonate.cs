@@ -117,12 +117,6 @@ namespace BalayPasilungan
 
             if (yey.ShowDialog() == DialogResult.OK) dim.Close();
         }
-
-        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
-        }
-
         #endregion
 
         #region Buttons
@@ -214,6 +208,11 @@ namespace BalayPasilungan
         #endregion
 
         #region Cash
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
+        }
+
         private void txtCashAmount_Leave(object sender, EventArgs e)
         {
             if (txtCashAmount.Text == "") txtCashAmount.Text = "0,000,000,000";
@@ -431,9 +430,6 @@ namespace BalayPasilungan
                 existingExpenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
                 existingExpense = true;
             }
-
-            if (cbExpCat.SelectedItem.ToString() == "") btnAddExp.Enabled = false;
-            else btnAddExp.Enabled = true;
         }
 
         private void dateExp_Leave(object sender, EventArgs e)
@@ -487,7 +483,8 @@ namespace BalayPasilungan
                     adp.Fill(dt);
                     int expenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
 
-                    comm = new MySqlCommand("UPDATE expense SET amount = " + decimal.Parse(txtExpTotal.Text) + " WHERE expenseID = " + expenseID, conn);                    
+                    comm = new MySqlCommand("UPDATE expense SET amount = " + decimal.Parse(txtExpTotal.Text) + " WHERE expenseID = " + expenseID, conn);
+                    MessageBox.Show("here");
                 }
                 else comm = new MySqlCommand("UPDATE expense SET amount = " + decimal.Parse(txtExpTotal.Text) + " WHERE expenseID = " + existingExpenseID, conn);                
                 successMessage("New expense record has been added successfully.");

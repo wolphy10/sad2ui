@@ -870,7 +870,6 @@
             this.txtCheckAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtCheckAmount.Enter += new System.EventHandler(this.txt_Enter);
-            this.txtCheckAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtCheckAmount.Leave += new System.EventHandler(this.txtCheckAmount_Leave);
             // 
             // lblDot2
@@ -1386,7 +1385,6 @@
             this.txtCheckCent2.TabIndex = 6;
             this.txtCheckCent2.Text = "00";
             this.txtCheckCent2.Enter += new System.EventHandler(this.txtCentEdit_Enter);
-            this.txtCheckCent2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtCheckCent2.Leave += new System.EventHandler(this.txtCheckCent2_Leave);
             // 
             // lblCheckAmount2
@@ -1414,7 +1412,6 @@
             this.txtCheckAmount2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckAmount2.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtCheckAmount2.Enter += new System.EventHandler(this.txtEdit_Enter);
-            this.txtCheckAmount2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtCheckAmount2.Leave += new System.EventHandler(this.txtCheckAmount2_Leave);
             // 
             // lblDot4
@@ -2203,7 +2200,6 @@
             this.txtExpCent.TabIndex = 2;
             this.txtExpCent.Text = "00";
             this.txtExpCent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.total_KeyDown);
-            this.txtExpCent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // txtExpCurrent
             // 
@@ -2244,7 +2240,6 @@
             this.txtExpAmt.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtExpAmt.Enter += new System.EventHandler(this.txt_Enter);
             this.txtExpAmt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.total_KeyDown);
-            this.txtExpAmt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtExpAmt.Leave += new System.EventHandler(this.txtExpAmt_Leave);
             // 
             // lblDotExp
@@ -2378,7 +2373,6 @@
             // btnAddExp
             // 
             this.btnAddExp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnAddExp.Enabled = false;
             this.btnAddExp.FlatAppearance.BorderSize = 0;
             this.btnAddExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddExp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);

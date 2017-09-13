@@ -73,7 +73,7 @@
             this.btndeletefam = new BalayPasilungan.NoFocusRec();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblnummembers = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lblfamilytype = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -233,6 +233,22 @@
             this.lbllocationcheck = new System.Windows.Forms.Label();
             this.lblcheckdate = new System.Windows.Forms.Label();
             this.twenty = new System.Windows.Forms.TabPage();
+            this.btnbacktofamoverview = new BalayPasilungan.NoFocusRec();
+            this.btnaddmember = new BalayPasilungan.NoFocusRec();
+            this.cbxmemgender = new System.Windows.Forms.ComboBox();
+            this.txtmemocc = new System.Windows.Forms.TextBox();
+            this.txtmemrelationship = new System.Windows.Forms.TextBox();
+            this.txtmemfirstname = new System.Windows.Forms.TextBox();
+            this.txtmemlastname = new System.Windows.Forms.TextBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.label107 = new System.Windows.Forms.Label();
+            this.label108 = new System.Windows.Forms.Label();
+            this.label110 = new System.Windows.Forms.Label();
+            this.dtpmembirth = new System.Windows.Forms.DateTimePicker();
+            this.label113 = new System.Windows.Forms.Label();
+            this.cbxmemdependency = new System.Windows.Forms.ComboBox();
+            this.label114 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label116 = new System.Windows.Forms.Label();
             this.tabCases = new System.Windows.Forms.TabPage();
@@ -383,23 +399,6 @@
             this.btnCases = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tabNewMember = new System.Windows.Forms.TabPage();
-            this.btnbacktofamoverview = new BalayPasilungan.NoFocusRec();
-            this.btnaddmember = new BalayPasilungan.NoFocusRec();
-            this.cbxmemgender = new System.Windows.Forms.ComboBox();
-            this.txtmemocc = new System.Windows.Forms.TextBox();
-            this.txtmemrelationship = new System.Windows.Forms.TextBox();
-            this.txtmemfirstname = new System.Windows.Forms.TextBox();
-            this.txtmemlastname = new System.Windows.Forms.TextBox();
-            this.label100 = new System.Windows.Forms.Label();
-            this.label107 = new System.Windows.Forms.Label();
-            this.label108 = new System.Windows.Forms.Label();
-            this.label110 = new System.Windows.Forms.Label();
-            this.dtpmembirth = new System.Windows.Forms.DateTimePicker();
-            this.label113 = new System.Windows.Forms.Label();
-            this.cbxmemdependency = new System.Windows.Forms.ComboBox();
-            this.label114 = new System.Windows.Forms.Label();
-            this.label115 = new System.Windows.Forms.Label();
             this.upPanel.SuspendLayout();
             this.tabCase.SuspendLayout();
             this.tabInfo.SuspendLayout();
@@ -501,7 +500,6 @@
             this.newChildMenu.SuspendLayout();
             this.profileMenu.SuspendLayout();
             this.taskbar.SuspendLayout();
-            this.tabNewMember.SuspendLayout();
             this.SuspendLayout();
             // 
             // upPanel
@@ -854,7 +852,7 @@
             this.fourth.Controls.Add(this.btndeletefam);
             this.fourth.Controls.Add(this.label4);
             this.fourth.Controls.Add(this.label3);
-            this.fourth.Controls.Add(this.lblnummembers);
+            this.fourth.Controls.Add(this.label73);
             this.fourth.Controls.Add(this.label20);
             this.fourth.Controls.Add(this.lblfamilytype);
             this.fourth.Controls.Add(this.label10);
@@ -933,16 +931,16 @@
             this.label3.TabIndex = 99;
             this.label3.Text = "NO. OF MEMBERS";
             // 
-            // lblnummembers
+            // label73
             // 
-            this.lblnummembers.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.lblnummembers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblnummembers.Location = new System.Drawing.Point(854, 70);
-            this.lblnummembers.Name = "lblnummembers";
-            this.lblnummembers.Size = new System.Drawing.Size(48, 21);
-            this.lblnummembers.TabIndex = 100;
-            this.lblnummembers.Text = "##";
-            this.lblnummembers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label73.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.label73.Location = new System.Drawing.Point(854, 70);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(48, 21);
+            this.label73.TabIndex = 100;
+            this.label73.Text = "##";
+            this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label20
             // 
@@ -1312,7 +1310,6 @@
             this.dtgeducation.Size = new System.Drawing.Size(430, 463);
             this.dtgeducation.TabIndex = 108;
             this.dtgeducation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgeducation_CellContentClick);
-            this.dtgeducation.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgeducation_CellDoubleClick);
             this.dtgeducation.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgeducation_CellValueChanged);
             // 
             // ninth
@@ -3036,6 +3033,22 @@
             // 
             // twenty
             // 
+            this.twenty.Controls.Add(this.btnbacktofamoverview);
+            this.twenty.Controls.Add(this.btnaddmember);
+            this.twenty.Controls.Add(this.cbxmemgender);
+            this.twenty.Controls.Add(this.txtmemocc);
+            this.twenty.Controls.Add(this.txtmemrelationship);
+            this.twenty.Controls.Add(this.txtmemfirstname);
+            this.twenty.Controls.Add(this.txtmemlastname);
+            this.twenty.Controls.Add(this.label100);
+            this.twenty.Controls.Add(this.label107);
+            this.twenty.Controls.Add(this.label108);
+            this.twenty.Controls.Add(this.label110);
+            this.twenty.Controls.Add(this.dtpmembirth);
+            this.twenty.Controls.Add(this.label113);
+            this.twenty.Controls.Add(this.cbxmemdependency);
+            this.twenty.Controls.Add(this.label114);
+            this.twenty.Controls.Add(this.label115);
             this.twenty.Controls.Add(this.panel47);
             this.twenty.Location = new System.Drawing.Point(4, 22);
             this.twenty.Name = "twenty";
@@ -3044,6 +3057,181 @@
             this.twenty.TabIndex = 20;
             this.twenty.Text = "20";
             this.twenty.UseVisualStyleBackColor = true;
+            // 
+            // btnbacktofamoverview
+            // 
+            this.btnbacktofamoverview.BackColor = System.Drawing.Color.DimGray;
+            this.btnbacktofamoverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbacktofamoverview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbacktofamoverview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbacktofamoverview.Location = new System.Drawing.Point(353, 480);
+            this.btnbacktofamoverview.Name = "btnbacktofamoverview";
+            this.btnbacktofamoverview.Size = new System.Drawing.Size(196, 28);
+            this.btnbacktofamoverview.TabIndex = 104;
+            this.btnbacktofamoverview.Text = "Cancel";
+            this.btnbacktofamoverview.UseVisualStyleBackColor = false;
+            this.btnbacktofamoverview.Click += new System.EventHandler(this.btnbacktofamoverview_Click);
+            // 
+            // btnaddmember
+            // 
+            this.btnaddmember.BackColor = System.Drawing.Color.DimGray;
+            this.btnaddmember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddmember.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddmember.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnaddmember.Location = new System.Drawing.Point(31, 480);
+            this.btnaddmember.Name = "btnaddmember";
+            this.btnaddmember.Size = new System.Drawing.Size(196, 28);
+            this.btnaddmember.TabIndex = 103;
+            this.btnaddmember.Text = "Add Member";
+            this.btnaddmember.UseVisualStyleBackColor = false;
+            this.btnaddmember.Click += new System.EventHandler(this.btnaddmember_Click);
+            // 
+            // cbxmemgender
+            // 
+            this.cbxmemgender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxmemgender.CausesValidation = false;
+            this.cbxmemgender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxmemgender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxmemgender.FormattingEnabled = true;
+            this.cbxmemgender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbxmemgender.Location = new System.Drawing.Point(136, 280);
+            this.cbxmemgender.Name = "cbxmemgender";
+            this.cbxmemgender.Size = new System.Drawing.Size(199, 21);
+            this.cbxmemgender.TabIndex = 102;
+            // 
+            // txtmemocc
+            // 
+            this.txtmemocc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemocc.Location = new System.Drawing.Point(136, 358);
+            this.txtmemocc.Name = "txtmemocc";
+            this.txtmemocc.Size = new System.Drawing.Size(199, 20);
+            this.txtmemocc.TabIndex = 101;
+            // 
+            // txtmemrelationship
+            // 
+            this.txtmemrelationship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemrelationship.Location = new System.Drawing.Point(136, 209);
+            this.txtmemrelationship.Name = "txtmemrelationship";
+            this.txtmemrelationship.Size = new System.Drawing.Size(199, 20);
+            this.txtmemrelationship.TabIndex = 94;
+            // 
+            // txtmemfirstname
+            // 
+            this.txtmemfirstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemfirstname.Location = new System.Drawing.Point(136, 170);
+            this.txtmemfirstname.Name = "txtmemfirstname";
+            this.txtmemfirstname.Size = new System.Drawing.Size(199, 20);
+            this.txtmemfirstname.TabIndex = 92;
+            // 
+            // txtmemlastname
+            // 
+            this.txtmemlastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemlastname.Location = new System.Drawing.Point(136, 135);
+            this.txtmemlastname.Name = "txtmemlastname";
+            this.txtmemlastname.Size = new System.Drawing.Size(199, 20);
+            this.txtmemlastname.TabIndex = 83;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label100.Location = new System.Drawing.Point(23, 357);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(101, 18);
+            this.label100.TabIndex = 100;
+            this.label100.Text = "Occupation";
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label107.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label107.Location = new System.Drawing.Point(23, 279);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(68, 18);
+            this.label107.TabIndex = 98;
+            this.label107.Text = "Gender";
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label108.Location = new System.Drawing.Point(23, 208);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(107, 18);
+            this.label108.TabIndex = 93;
+            this.label108.Text = "Relationship";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label110.Location = new System.Drawing.Point(23, 174);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(94, 18);
+            this.label110.TabIndex = 91;
+            this.label110.Text = "First Name";
+            // 
+            // dtpmembirth
+            // 
+            this.dtpmembirth.Location = new System.Drawing.Point(136, 242);
+            this.dtpmembirth.MaxDate = new System.DateTime(9997, 12, 2, 0, 0, 0, 0);
+            this.dtpmembirth.Name = "dtpmembirth";
+            this.dtpmembirth.Size = new System.Drawing.Size(199, 20);
+            this.dtpmembirth.TabIndex = 90;
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label113.Location = new System.Drawing.Point(23, 322);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(109, 18);
+            this.label113.TabIndex = 85;
+            this.label113.Text = "Dependency";
+            // 
+            // cbxmemdependency
+            // 
+            this.cbxmemdependency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxmemdependency.CausesValidation = false;
+            this.cbxmemdependency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxmemdependency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxmemdependency.FormattingEnabled = true;
+            this.cbxmemdependency.Items.AddRange(new object[] {
+            "Dependent",
+            "Independent"});
+            this.cbxmemdependency.Location = new System.Drawing.Point(136, 322);
+            this.cbxmemdependency.Name = "cbxmemdependency";
+            this.cbxmemdependency.Size = new System.Drawing.Size(199, 21);
+            this.cbxmemdependency.TabIndex = 84;
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label114.Location = new System.Drawing.Point(23, 244);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(83, 18);
+            this.label114.TabIndex = 82;
+            this.label114.Text = "Birthdate";
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label115.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label115.Location = new System.Drawing.Point(23, 135);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(93, 18);
+            this.label115.TabIndex = 81;
+            this.label115.Text = "Last Name";
             // 
             // panel47
             // 
@@ -3371,7 +3559,6 @@
             this.tabaddchild.Controls.Add(this.tabNewCon);
             this.tabaddchild.Controls.Add(this.tabNewIncid);
             this.tabaddchild.Controls.Add(this.tabNewInvolve);
-            this.tabaddchild.Controls.Add(this.tabNewMember);
             this.tabaddchild.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabaddchild.Location = new System.Drawing.Point(41, 70);
             this.tabaddchild.Name = "tabaddchild";
@@ -5009,205 +5196,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // tabNewMember
-            // 
-            this.tabNewMember.Controls.Add(this.btnbacktofamoverview);
-            this.tabNewMember.Controls.Add(this.btnaddmember);
-            this.tabNewMember.Controls.Add(this.cbxmemgender);
-            this.tabNewMember.Controls.Add(this.txtmemocc);
-            this.tabNewMember.Controls.Add(this.txtmemrelationship);
-            this.tabNewMember.Controls.Add(this.txtmemfirstname);
-            this.tabNewMember.Controls.Add(this.txtmemlastname);
-            this.tabNewMember.Controls.Add(this.label100);
-            this.tabNewMember.Controls.Add(this.label107);
-            this.tabNewMember.Controls.Add(this.label108);
-            this.tabNewMember.Controls.Add(this.label110);
-            this.tabNewMember.Controls.Add(this.dtpmembirth);
-            this.tabNewMember.Controls.Add(this.label113);
-            this.tabNewMember.Controls.Add(this.cbxmemdependency);
-            this.tabNewMember.Controls.Add(this.label114);
-            this.tabNewMember.Controls.Add(this.label115);
-            this.tabNewMember.Location = new System.Drawing.Point(4, 25);
-            this.tabNewMember.Name = "tabNewMember";
-            this.tabNewMember.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNewMember.Size = new System.Drawing.Size(847, 583);
-            this.tabNewMember.TabIndex = 7;
-            this.tabNewMember.Text = "tabPage1";
-            this.tabNewMember.UseVisualStyleBackColor = true;
-            // 
-            // btnbacktofamoverview
-            // 
-            this.btnbacktofamoverview.BackColor = System.Drawing.Color.DimGray;
-            this.btnbacktofamoverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbacktofamoverview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbacktofamoverview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnbacktofamoverview.Location = new System.Drawing.Point(490, 450);
-            this.btnbacktofamoverview.Name = "btnbacktofamoverview";
-            this.btnbacktofamoverview.Size = new System.Drawing.Size(196, 28);
-            this.btnbacktofamoverview.TabIndex = 120;
-            this.btnbacktofamoverview.Text = "Cancel";
-            this.btnbacktofamoverview.UseVisualStyleBackColor = false;
-            // 
-            // btnaddmember
-            // 
-            this.btnaddmember.BackColor = System.Drawing.Color.DimGray;
-            this.btnaddmember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddmember.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddmember.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnaddmember.Location = new System.Drawing.Point(168, 450);
-            this.btnaddmember.Name = "btnaddmember";
-            this.btnaddmember.Size = new System.Drawing.Size(196, 28);
-            this.btnaddmember.TabIndex = 119;
-            this.btnaddmember.Text = "Add Member";
-            this.btnaddmember.UseVisualStyleBackColor = false;
-            // 
-            // cbxmemgender
-            // 
-            this.cbxmemgender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxmemgender.CausesValidation = false;
-            this.cbxmemgender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxmemgender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxmemgender.FormattingEnabled = true;
-            this.cbxmemgender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.cbxmemgender.Location = new System.Drawing.Point(273, 250);
-            this.cbxmemgender.Name = "cbxmemgender";
-            this.cbxmemgender.Size = new System.Drawing.Size(199, 21);
-            this.cbxmemgender.TabIndex = 118;
-            // 
-            // txtmemocc
-            // 
-            this.txtmemocc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemocc.Location = new System.Drawing.Point(273, 328);
-            this.txtmemocc.Name = "txtmemocc";
-            this.txtmemocc.Size = new System.Drawing.Size(199, 20);
-            this.txtmemocc.TabIndex = 117;
-            // 
-            // txtmemrelationship
-            // 
-            this.txtmemrelationship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemrelationship.Location = new System.Drawing.Point(273, 179);
-            this.txtmemrelationship.Name = "txtmemrelationship";
-            this.txtmemrelationship.Size = new System.Drawing.Size(199, 20);
-            this.txtmemrelationship.TabIndex = 114;
-            // 
-            // txtmemfirstname
-            // 
-            this.txtmemfirstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemfirstname.Location = new System.Drawing.Point(273, 140);
-            this.txtmemfirstname.Name = "txtmemfirstname";
-            this.txtmemfirstname.Size = new System.Drawing.Size(199, 20);
-            this.txtmemfirstname.TabIndex = 112;
-            // 
-            // txtmemlastname
-            // 
-            this.txtmemlastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemlastname.Location = new System.Drawing.Point(273, 105);
-            this.txtmemlastname.Name = "txtmemlastname";
-            this.txtmemlastname.Size = new System.Drawing.Size(199, 20);
-            this.txtmemlastname.TabIndex = 107;
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label100.Location = new System.Drawing.Point(160, 327);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(101, 18);
-            this.label100.TabIndex = 116;
-            this.label100.Text = "Occupation";
-            // 
-            // label107
-            // 
-            this.label107.AutoSize = true;
-            this.label107.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label107.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label107.Location = new System.Drawing.Point(160, 249);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(68, 18);
-            this.label107.TabIndex = 115;
-            this.label107.Text = "Gender";
-            // 
-            // label108
-            // 
-            this.label108.AutoSize = true;
-            this.label108.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label108.Location = new System.Drawing.Point(160, 178);
-            this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(107, 18);
-            this.label108.TabIndex = 113;
-            this.label108.Text = "Relationship";
-            // 
-            // label110
-            // 
-            this.label110.AutoSize = true;
-            this.label110.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label110.Location = new System.Drawing.Point(160, 144);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(94, 18);
-            this.label110.TabIndex = 111;
-            this.label110.Text = "First Name";
-            // 
-            // dtpmembirth
-            // 
-            this.dtpmembirth.Location = new System.Drawing.Point(273, 212);
-            this.dtpmembirth.MaxDate = new System.DateTime(9997, 12, 2, 0, 0, 0, 0);
-            this.dtpmembirth.Name = "dtpmembirth";
-            this.dtpmembirth.Size = new System.Drawing.Size(199, 20);
-            this.dtpmembirth.TabIndex = 110;
-            // 
-            // label113
-            // 
-            this.label113.AutoSize = true;
-            this.label113.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label113.Location = new System.Drawing.Point(160, 292);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(109, 18);
-            this.label113.TabIndex = 109;
-            this.label113.Text = "Dependency";
-            // 
-            // cbxmemdependency
-            // 
-            this.cbxmemdependency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxmemdependency.CausesValidation = false;
-            this.cbxmemdependency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxmemdependency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxmemdependency.FormattingEnabled = true;
-            this.cbxmemdependency.Items.AddRange(new object[] {
-            "Dependent",
-            "Independent"});
-            this.cbxmemdependency.Location = new System.Drawing.Point(273, 292);
-            this.cbxmemdependency.Name = "cbxmemdependency";
-            this.cbxmemdependency.Size = new System.Drawing.Size(199, 21);
-            this.cbxmemdependency.TabIndex = 108;
-            // 
-            // label114
-            // 
-            this.label114.AutoSize = true;
-            this.label114.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label114.Location = new System.Drawing.Point(160, 214);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(83, 18);
-            this.label114.TabIndex = 106;
-            this.label114.Text = "Birthdate";
-            // 
-            // label115
-            // 
-            this.label115.AutoSize = true;
-            this.label115.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label115.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label115.Location = new System.Drawing.Point(160, 105);
-            this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(93, 18);
-            this.label115.TabIndex = 105;
-            this.label115.Text = "Last Name";
-            // 
             // caseprofile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5309,6 +5297,7 @@
             this.panel46.ResumeLayout(false);
             this.panel46.PerformLayout();
             this.twenty.ResumeLayout(false);
+            this.twenty.PerformLayout();
             this.panel47.ResumeLayout(false);
             this.panel47.PerformLayout();
             this.tabCases.ResumeLayout(false);
@@ -5369,8 +5358,6 @@
             this.profileMenu.ResumeLayout(false);
             this.profileMenu.PerformLayout();
             this.taskbar.ResumeLayout(false);
-            this.tabNewMember.ResumeLayout(false);
-            this.tabNewMember.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -5594,6 +5581,22 @@
         private System.Windows.Forms.Label lbllocationcheck;
         private System.Windows.Forms.Label lblcheckdate;
         private System.Windows.Forms.TabPage twenty;
+        private NoFocusRec btnbacktofamoverview;
+        private NoFocusRec btnaddmember;
+        private System.Windows.Forms.ComboBox cbxmemgender;
+        private System.Windows.Forms.TextBox txtmemocc;
+        private System.Windows.Forms.TextBox txtmemrelationship;
+        private System.Windows.Forms.TextBox txtmemfirstname;
+        private System.Windows.Forms.TextBox txtmemlastname;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.Label label107;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.DateTimePicker dtpmembirth;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.ComboBox cbxmemdependency;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.Label label115;
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Label label116;
         private NoFocusRec btnEditProfile;
@@ -5654,7 +5657,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblfamilytype;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblnummembers;
+        private System.Windows.Forms.Label label73;
         private NoFocusRec btnfamtype;
         private System.Windows.Forms.Label label4;
         private NoFocusRec btnAddMem;
@@ -5721,22 +5724,5 @@
         private System.Windows.Forms.Label label47;
         private NoFocusRec btnbackincidrec;
         private NoFocusRec btnaddincidrecord;
-        private System.Windows.Forms.TabPage tabNewMember;
-        private NoFocusRec btnbacktofamoverview;
-        private NoFocusRec btnaddmember;
-        private System.Windows.Forms.ComboBox cbxmemgender;
-        private System.Windows.Forms.TextBox txtmemocc;
-        private System.Windows.Forms.TextBox txtmemrelationship;
-        private System.Windows.Forms.TextBox txtmemfirstname;
-        private System.Windows.Forms.TextBox txtmemlastname;
-        private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.Label label107;
-        private System.Windows.Forms.Label label108;
-        private System.Windows.Forms.Label label110;
-        private System.Windows.Forms.DateTimePicker dtpmembirth;
-        private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.ComboBox cbxmemdependency;
-        private System.Windows.Forms.Label label114;
-        private System.Windows.Forms.Label label115;
     }
 }

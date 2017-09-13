@@ -2553,6 +2553,7 @@
             this.lvChildAttend.Size = new System.Drawing.Size(845, 497);
             this.lvChildAttend.TabIndex = 14;
             this.lvChildAttend.UseCompatibleStateImageBehavior = false;
+            this.lvChildAttend.View = System.Windows.Forms.View.Details;
             // 
             // tabOtherAttend
             // 
