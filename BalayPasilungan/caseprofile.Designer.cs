@@ -73,7 +73,7 @@
             this.btndeletefam = new BalayPasilungan.NoFocusRec();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
+            this.lblnummembers = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lblfamilytype = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -852,7 +852,7 @@
             this.fourth.Controls.Add(this.btndeletefam);
             this.fourth.Controls.Add(this.label4);
             this.fourth.Controls.Add(this.label3);
-            this.fourth.Controls.Add(this.label73);
+            this.fourth.Controls.Add(this.lblnummembers);
             this.fourth.Controls.Add(this.label20);
             this.fourth.Controls.Add(this.lblfamilytype);
             this.fourth.Controls.Add(this.label10);
@@ -931,16 +931,16 @@
             this.label3.TabIndex = 99;
             this.label3.Text = "NO. OF MEMBERS";
             // 
-            // label73
+            // lblnummembers
             // 
-            this.label73.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label73.Location = new System.Drawing.Point(854, 70);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(48, 21);
-            this.label73.TabIndex = 100;
-            this.label73.Text = "##";
-            this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblnummembers.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblnummembers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblnummembers.Location = new System.Drawing.Point(854, 70);
+            this.lblnummembers.Name = "lblnummembers";
+            this.lblnummembers.Size = new System.Drawing.Size(48, 21);
+            this.lblnummembers.TabIndex = 100;
+            this.lblnummembers.Text = "##";
+            this.lblnummembers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label20
             // 
@@ -5657,7 +5657,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblfamilytype;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label lblnummembers;
         private NoFocusRec btnfamtype;
         private System.Windows.Forms.Label label4;
         private NoFocusRec btnAddMem;

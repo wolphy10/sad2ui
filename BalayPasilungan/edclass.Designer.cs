@@ -180,7 +180,6 @@
             this.Controls.Add(this.panelNewChild);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "edclass";
-            this.Text = "edclass";
             this.Load += new System.EventHandler(this.edclass_Load);
             this.panelNewChild.ResumeLayout(false);
             this.panelNewChild.PerformLayout();

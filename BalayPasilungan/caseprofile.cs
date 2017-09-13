@@ -147,6 +147,16 @@ namespace BalayPasilungan
             ed.Show();
         }
 
+        public void famtypecall(int id)
+        {
+            famtype fam = new famtype();
+
+            fam.reftofam = this;
+
+            fam.Show();
+
+        }
+
         public void successMessage(string message)            // Success Message
         {
             success yey = new success();
@@ -955,7 +965,7 @@ namespace BalayPasilungan
                     DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
 
                     chk.Name = "checkdis";
-                    chk.ValueType = typeof(bool);
+                    //chk.ValueType = typeof(bool);
                     chk.FalseValue = false;
                     chk.TrueValue = true;
 
@@ -1173,7 +1183,10 @@ namespace BalayPasilungan
                     famid = int.Parse(dt.Rows[0]["familyid"].ToString());
 
                     lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();
+                    
+
                     MessageBox.Show(famid.ToString());
+
                     reloadmem(famid);
 
                 }
@@ -1203,19 +1216,21 @@ namespace BalayPasilungan
         {
             try
             {
-                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation, COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
 
-                adpmem = new MySqlDataAdapter(comm);
-                tblfam = new DataTable();
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
 
-                adpmem.Fill(tblfam);
+                adp.Fill(dt);
 
 
 
-                if (tblfam.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
-                    dtfamOverview.DataSource = tblfam;
-                    dtfamOverview.Columns[0].Visible = false;
+                    dtfamOverview.DataSource = dt;
+                    dtfamOverview.Columns["memberid"].Visible = false;
+
+                    lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
 
 
                     DataGridViewCheckBoxColumn dc = new DataGridViewCheckBoxColumn();
@@ -1225,28 +1240,14 @@ namespace BalayPasilungan
                     dc.TrueValue = true;
                     dc.FalseValue = false;
 
-
-
                     if (dtfamOverview.Columns["check"] == null)
                     {
                         dtfamOverview.Columns.Add(dc);
 
-                        dtfamOverview.Columns["check"].DisplayIndex = dtfamOverview.ColumnCount - 1;
+                        
                     }
 
-                    foreach (DataGridViewColumn ds in dtfamOverview.Columns)
-                    {
-                        if (ds.Index.Equals(8))
-                        {
-                            ds.ReadOnly = false;
-                        }
-                        else
-                        {
-                            ds.ReadOnly = true;
-                        }
-                    }
-
-
+                    
                 }
 
                 else
@@ -1438,7 +1439,7 @@ namespace BalayPasilungan
 
             }
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
+           else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
                 foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
@@ -1450,7 +1451,7 @@ namespace BalayPasilungan
 
                     
                 }
-                MessageBox.Show(senderGrid.Columns[e.ColumnIndex].ValueType.ToString());
+                //MessageBox.Show(senderGrid.Columns[e.ColumnIndex].ValueType.ToString());
                 reloadedclass(eid);
                 validatecheck(sender, e);
 
@@ -1459,12 +1460,6 @@ namespace BalayPasilungan
             MessageBox.Show(e.RowIndex.ToString());
             MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString() + "eid index");
         
-            
-
-           
-
-            
-
         }
 
         private void dtgedclass_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1604,16 +1599,25 @@ namespace BalayPasilungan
                 //USE DA CELL NASET NAMAN DAAN TRUE VALUE
                 foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
-                    if (Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
-                    {
-                        btnaddclass.Enabled = true;
+                    DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
 
-                        break;
-                    }
-
-                    else
+                    //We don't want a null exception!
+                    if (cell.Value != null)
                     {
-                        btnaddclass.Enabled = false;
+                        MessageBox.Show("NOT NULL");
+                        if (cell.Value == (cell.TrueValue = true))
+                        {
+                            //It's checked!
+                            btnaddclass.Enabled = true;
+                            MessageBox.Show("TRUUUEE");
+                            break;
+                        }
+
+                        else
+                        {
+                            btnaddclass.Enabled = false;
+                            MessageBox.Show("FAAAAAAALLSSEE");
+                        }
                     }
 
                 }
@@ -1695,7 +1699,7 @@ namespace BalayPasilungan
 
                 int UserExist = (int)comm.ExecuteScalar();
 
-                btned.Text = (UserExist > 0) ? "Edit Info" : "Add Info"; //put add info on catch
+                btnfamtype.Text = (UserExist > 0) ? "EDIT TYPE" : "ADD TYPE"; //put add info on catch
 
                 comm = new MySqlCommand("SELECT familyid FROM family WHERE caseid = " + id, conn);
 
@@ -1714,7 +1718,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                btned.Text = "Add Info";
+                btned.Text = "ADD TYPE";
 
                 lblfamilytype.Text = "";
 
@@ -2714,9 +2718,9 @@ namespace BalayPasilungan
 
         private void btnfamtype_Click(object sender, EventArgs e)
         {
-            if (btnfamtype.Text == "add")
+            if (btnfamtype.Text == "ADD TYPE")
             {
-                tabControl.SelectedTab = fifth;
+                famtypecall(id);
             }
         }
 
