@@ -138,6 +138,10 @@ namespace BalayPasilungan
 
             ed.classeid = classeid;
             ed.level = yearlvl;
+
+            ed.txtedadviser.Text = adviser;
+            ed.txtedsection.Text = section;
+            ed.cbxedyear.Text = ed.level;
             
 
             ed.Show();
@@ -780,9 +784,11 @@ namespace BalayPasilungan
                 if (dt.Rows.Count > 0)
                 {
                     
-                     = dt.Rows[0]["height"].ToString();
-                    lblvweight.Text = dt.Rows[0]["weight"].ToString();
-                    lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
+                    section = dt.Rows[0]["section"].ToString();
+                    adviser = dt.Rows[0]["adviser"].ToString();
+                    yearlvl = dt.Rows[0]["yearlevel"].ToString();
+
+                    edclass(classid, yearlvl, section, adviser);
 
                 }
 
@@ -1471,10 +1477,19 @@ namespace BalayPasilungan
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
             {
-               
-                int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
-                reloadeditclass(edclassid);
+               try
+                {
+                    //dtgedclass.Refresh();
 
+                    int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    reloadeditclass(edclassid);
+
+                }
+
+                catch(Exception ee)
+                {
+                    MessageBox.Show(ee.ToString());
+                }
 
             }
         }
