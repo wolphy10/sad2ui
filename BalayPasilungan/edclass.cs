@@ -24,6 +24,7 @@ namespace BalayPasilungan
         }
 
         public int classeid { get; set; }
+        public string level { get; set; }
 
         #region messagefunctions
 
@@ -100,6 +101,7 @@ namespace BalayPasilungan
 
                     conn.Close();
 
+                    reftocase.reloaded(reftocase.id);
                     reftocase.reloadedclass(reftocase.eid);
 
                     //MessageBox.Show(reftocase.eid.ToString());
@@ -114,6 +116,31 @@ namespace BalayPasilungan
                     MessageBox.Show("" + ee);
                     conn.Close();
                 }
+            }
+        }
+
+        private void edclass_Load(object sender, EventArgs e)
+        {
+            int counter;
+
+            if (level == "Preschool")
+            {
+                counter = 3;
+            }
+
+            else if (level == "High School")
+            {
+                counter = 6;
+            }
+
+            else
+            {
+                counter = 4;
+            }
+
+            for (int i = 0; i < counter; i++)
+            {
+                cbxedyear.Items.Add(i);
             }
         }
     }

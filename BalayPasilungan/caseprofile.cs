@@ -118,13 +118,14 @@ namespace BalayPasilungan
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
 
-        public void edclass(int classeid)
+        public void edclass(int classeid, string yearlvl)
         {
             edclass ed = new edclass();
 
             ed.reftocase = this;
 
             ed.classeid = classeid;
+            ed.level = yearlvl;
 
             ed.Show();
         }
@@ -961,13 +962,19 @@ namespace BalayPasilungan
 
                 adp.Fill(dt);
 
-                dtgedclass.DataSource = dt;
+                if (dt.Rows.Count == 0)
+                {
+                    errorMessage("There are currently no class records for this school.");
+                }
 
                 
+               dtgedclass.DataSource = dt;
 
-                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
-                EditColumn.Text = "Edit";
-                EditColumn.Name = "Edit";
+
+
+               DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+               EditColumn.Text = "Edit";
+               EditColumn.Name = "Edit";
                 EditColumn.DataPropertyName = "Edit";
 
                 if (dtgedclass.Columns["Edit"] == null)
@@ -975,15 +982,6 @@ namespace BalayPasilungan
                     dtgedclass.Columns.Add(EditColumn);
 
                 }
-
-                else
-                {
-                    dtgedclass.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 2;
-                }
-
-
-                
-
 
                 conn.Close();
             }
@@ -1406,13 +1404,33 @@ namespace BalayPasilungan
             
 
             MessageBox.Show(e.RowIndex.ToString());
-            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString() + "eid index");
             eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
             yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
 
             validatecheck(sender, e);
 
+            reloadedclass(eid);
+
         }
+
+        private void dtgedclass_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+
+            {
+                edclass ed = new edclass();
+
+                lbladdeditprofile.Text = "Edit Education Info";
+
+                btnadded.Text = "ADD CHANGES";
+
+                
+            }
+        }
+
 
         #endregion
 
@@ -1870,7 +1888,7 @@ namespace BalayPasilungan
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabaddchild.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIncid;
         }
 
         private void btnBackCon_Click(object sender, EventArgs e)   // Current tab: IO
@@ -1884,13 +1902,13 @@ namespace BalayPasilungan
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabaddchild.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIncid;
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
-            tabaddchild.SelectedTab = tabNewConfirm;
+            tabaddchild.SelectedTab = tabNewInvolve;
         }
 
         #endregion
@@ -2372,9 +2390,6 @@ namespace BalayPasilungan
 
                 DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
 
-                //dt.ToString("hh:mm tt");
-
-                //DateTime wut = DateTime.ParseExact(dateincid.Value.Date.ToString("yyyy-MM-dd") + " " + dt.ToString(), "yyyy-MM-dd hh:mm tt", CultureInfo.InvariantCulture);
                 MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
 
                 try
@@ -2392,6 +2407,7 @@ namespace BalayPasilungan
 
                     reloadincid(id);
 
+                    tabCase.SelectedTab = tabInfo;
                     tabControl.SelectedTab = twelfth;
 
                     reset5();
@@ -2526,6 +2542,7 @@ namespace BalayPasilungan
 
         private void btnbackincidrec_Click(object sender, EventArgs e)
         {
+            tabCase.SelectedTab = tabInfo;
             tabControl.SelectedTab = twelfth;
 
             reset5();
@@ -2641,7 +2658,12 @@ namespace BalayPasilungan
             }
         }
 
-        private void checkinv_CheckedChanged(object sender, EventArgs e)
+        private void btnaddinvolve_Click(object sender, EventArgs e)
+        {
+            tabaddchild.SelectedTab = tabNewInvolve;
+        }
+
+        private void checkinv_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkinv.Checked)
             {
@@ -2654,11 +2676,7 @@ namespace BalayPasilungan
             }
         }
 
-        private void btnaddinvolve_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = twenty;
@@ -2666,14 +2684,15 @@ namespace BalayPasilungan
 
         private void btnaddincid_Click(object sender, EventArgs e)
         {
-            
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewIncid;
         }
 
         private void btnaddclass_Click(object sender, EventArgs e)
         {
             classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
 
-            edclass(classeid);
+            edclass(classeid, yearlvl);
         }
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
