@@ -1601,7 +1601,7 @@ namespace BalayPasilungan
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
-
+                //USE DA CELL NASET NAMAN DAAN TRUE VALUE
                 foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
