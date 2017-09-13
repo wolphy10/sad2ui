@@ -75,7 +75,65 @@ namespace BalayPasilungan
 
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
+            if (btnaddedclass.Text == "ADD")
+            {
+                addclass();
+            }
 
+            else
+            {
+                editclass();
+            }
+            
+        }
+
+        public void addclass()
+        {
+            string section = txtedsection.Text, year = cbxedyear.Text, adviser = txtedadviser.Text;
+
+            if (string.IsNullOrEmpty(section) || string.IsNullOrEmpty(year) || string.IsNullOrEmpty(adviser))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + classeid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    successMessage("New Class Info Added!");
+
+
+                    conn.Close();
+
+                    reftocase.reloaded(reftocase.id);
+                    reftocase.reloadedclass(reftocase.eid);
+
+                    //MessageBox.Show(reftocase.eid.ToString());
+
+                    this.Close();
+
+
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        public void editclass()
+        {
             string section = txtedsection.Text, year = cbxedyear.Text, adviser = txtedadviser.Text;
 
             if (string.IsNullOrEmpty(section) || string.IsNullOrEmpty(year) || string.IsNullOrEmpty(adviser))
@@ -128,7 +186,7 @@ namespace BalayPasilungan
                 counter = 3;
             }
 
-            else if (level == "High School")
+            else if (level == "Elementary")
             {
                 counter = 6;
             }

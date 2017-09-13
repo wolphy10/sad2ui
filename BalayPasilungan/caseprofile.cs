@@ -19,7 +19,7 @@ namespace BalayPasilungan
         public MySqlConnection conn;
 
         public int id, hid, fammode, famid, eid, classeid;
-        public string filename, yearlvl;
+        public string filename, yearlvl, section, adviser;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
         public bool empty, confirmed;
@@ -126,6 +126,19 @@ namespace BalayPasilungan
 
             ed.classeid = classeid;
             ed.level = yearlvl;
+
+            ed.Show();
+        }
+
+        public void edclass(int classeid, string yearlvl, string section, string adviser)
+        {
+            edclass ed = new edclass();
+
+            ed.reftocase = this;
+
+            ed.classeid = classeid;
+            ed.level = yearlvl;
+            
 
             ed.Show();
         }
@@ -751,6 +764,41 @@ namespace BalayPasilungan
             }
         }
 
+        public void reloadeditclass(int classid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE edclassid = " + classid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+               
+                if (dt.Rows.Count > 0)
+                {
+                    
+                     = dt.Rows[0]["height"].ToString();
+                    lblvweight.Text = dt.Rows[0]["weight"].ToString();
+                    lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
+
+                }
+
+                conn.Close();
+            }
+
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+
+
+        
+        }
+
         public void reloadedithealth(int id)
         {
             try
@@ -956,7 +1004,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT edclassid, section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -982,6 +1030,8 @@ namespace BalayPasilungan
                     dtgedclass.Columns.Add(EditColumn);
 
                 }
+
+                dtgedclass.Columns["edclassid"].Visible = false;
 
                 conn.Close();
             }
@@ -1421,13 +1471,11 @@ namespace BalayPasilungan
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
             {
-                edclass ed = new edclass();
+               
+                int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
+                reloadeditclass(edclassid);
 
-                lbladdeditprofile.Text = "Edit Education Info";
 
-                btnadded.Text = "ADD CHANGES";
-
-                
             }
         }
 
