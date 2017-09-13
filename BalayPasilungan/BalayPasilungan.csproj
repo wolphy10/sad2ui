@@ -99,6 +99,12 @@
     <Compile Include="expense.Designer.cs">
       <DependentUpon>expense.cs</DependentUpon>
     </Compile>
+    <Compile Include="famtype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="famtype.Designer.cs">
+      <DependentUpon>famtype.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <EmbeddedResource Include="expense.resx">
       <DependentUpon>expense.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="famtype.resx">
+      <DependentUpon>famtype.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +210,7 @@
     <EmbeddedResource Include="success.resx">
       <DependentUpon>success.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

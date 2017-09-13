@@ -84,11 +84,6 @@
             // 
             this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedyear.FormattingEnabled = true;
-            this.cbxedyear.Items.AddRange(new object[] {
-            "Preschool",
-            "Elementary",
-            "High School",
-            "College"});
             this.cbxedyear.Location = new System.Drawing.Point(121, 124);
             this.cbxedyear.Name = "cbxedyear";
             this.cbxedyear.Size = new System.Drawing.Size(297, 27);
@@ -185,7 +180,7 @@
             this.Controls.Add(this.panelNewChild);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "edclass";
-            this.Text = "edclass";
+            this.Load += new System.EventHandler(this.edclass_Load);
             this.panelNewChild.ResumeLayout(false);
             this.panelNewChild.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -199,11 +194,11 @@
         private System.Windows.Forms.Panel panelNewChild;
         private System.Windows.Forms.Label lbladdeditprofile;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cbxedyear;
+        public System.Windows.Forms.ComboBox cbxedyear;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtedadviser;
+        public System.Windows.Forms.TextBox txtedadviser;
         private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.TextBox txtedsection;
+        public System.Windows.Forms.TextBox txtedsection;
         private System.Windows.Forms.Label label18;
         private NoFocusRec btnaddedclass;
         private NoFocusRec btncanceledclass;

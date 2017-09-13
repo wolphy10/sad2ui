@@ -167,7 +167,7 @@
             // 
             // editView
             // 
-            this.editView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(169)))), ((int)(((byte)(104)))));
+            this.editView.BackgroundColor = System.Drawing.Color.White;
             this.editView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.editView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -227,6 +227,7 @@
             // 
             // tpEditView
             // 
+            this.tpEditView.BackColor = System.Drawing.Color.Turquoise;
             this.tpEditView.Controls.Add(this.btnSave);
             this.tpEditView.Controls.Add(this.editView);
             this.tpEditView.Location = new System.Drawing.Point(4, 25);
@@ -234,7 +235,6 @@
             this.tpEditView.Padding = new System.Windows.Forms.Padding(3);
             this.tpEditView.Size = new System.Drawing.Size(1018, 734);
             this.tpEditView.TabIndex = 0;
-            this.tpEditView.UseVisualStyleBackColor = true;
             // 
             // txtEdit
             // 

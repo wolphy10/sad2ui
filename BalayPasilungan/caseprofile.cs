@@ -19,7 +19,7 @@ namespace BalayPasilungan
         public MySqlConnection conn;
 
         public int id, hid, fammode, famid, eid, classeid;
-        public string filename, yearlvl;
+        public string filename, yearlvl, section, adviser;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
         public bool empty, confirmed;
@@ -118,15 +118,43 @@ namespace BalayPasilungan
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
 
-        public void edclass(int classeid)
+        public void edclass(int classeid, string yearlvl)
         {
             edclass ed = new edclass();
 
             ed.reftocase = this;
 
             ed.classeid = classeid;
+            ed.level = yearlvl;
 
             ed.Show();
+        }
+
+        public void edclass(int classeid, string yearlvl, string section, string adviser)
+        {
+            edclass ed = new edclass();
+
+            ed.reftocase = this;
+
+            ed.classeid = classeid;
+            ed.level = yearlvl;
+
+            ed.txtedadviser.Text = adviser;
+            ed.txtedsection.Text = section;
+            ed.cbxedyear.Text = ed.level;
+            
+
+            ed.Show();
+        }
+
+        public void famtypecall(int id)
+        {
+            famtype fam = new famtype();
+
+            fam.reftofam = this;
+
+            fam.Show();
+
         }
 
         public void successMessage(string message)            // Success Message
@@ -639,10 +667,7 @@ namespace BalayPasilungan
                     comm.ExecuteNonQuery();
 
                     successMessage("New Education Info Added!");
-
-
-
-
+                    
                     conn.Close();
 
                     //existsed(id);
@@ -748,6 +773,43 @@ namespace BalayPasilungan
                 MessageBox.Show(ee.ToString());
                 conn.Close();
             }
+        }
+
+        public void reloadeditclass(int classid)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE edclassid = " + classid, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+               
+                if (dt.Rows.Count > 0)
+                {
+                    
+                    section = dt.Rows[0]["section"].ToString();
+                    adviser = dt.Rows[0]["adviser"].ToString();
+                    yearlvl = dt.Rows[0]["yearlevel"].ToString();
+
+                    edclass(classid, yearlvl, section, adviser);
+
+                }
+
+                conn.Close();
+            }
+
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+
+
+        
         }
 
         public void reloadedithealth(int id)
@@ -903,6 +965,9 @@ namespace BalayPasilungan
                     DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
 
                     chk.Name = "checkdis";
+                    //chk.ValueType = typeof(bool);
+                    chk.FalseValue = false;
+                    chk.TrueValue = true;
 
 
                     if (dtgeducation.Columns["Edit"] == null)
@@ -925,8 +990,9 @@ namespace BalayPasilungan
 
                     else
                     {
-                        //dtgeducation.Columns["checkdis"].DisplayIndex = dtgeducation.ColumnCount - 1;
-                        //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
+                        chk.ValueType = typeof(bool);
+                        chk.FalseValue = false;
+                        chk.TrueValue = true;
                     }
 
                     //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
@@ -955,19 +1021,25 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT edclassid, section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
 
-                dtgedclass.DataSource = dt;
+                if (dt.Rows.Count == 0)
+                {
+                    errorMessage("There are currently no class records for this school.");
+                }
 
                 
+               dtgedclass.DataSource = dt;
 
-                DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
-                EditColumn.Text = "Edit";
-                EditColumn.Name = "Edit";
+
+
+               DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
+               EditColumn.Text = "Edit";
+               EditColumn.Name = "Edit";
                 EditColumn.DataPropertyName = "Edit";
 
                 if (dtgedclass.Columns["Edit"] == null)
@@ -976,14 +1048,7 @@ namespace BalayPasilungan
 
                 }
 
-                else
-                {
-                    dtgedclass.Columns["Edit"].DisplayIndex = dtgeducation.ColumnCount - 2;
-                }
-
-
-                dtgedclass.Columns[0].Visible = false;
-
+                //dtgedclass.Columns["edclassid"].Visible = false;
 
                 conn.Close();
             }
@@ -1118,7 +1183,10 @@ namespace BalayPasilungan
                     famid = int.Parse(dt.Rows[0]["familyid"].ToString());
 
                     lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();
+                    
+
                     MessageBox.Show(famid.ToString());
+
                     reloadmem(famid);
 
                 }
@@ -1148,19 +1216,21 @@ namespace BalayPasilungan
         {
             try
             {
-                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation, COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
 
-                adpmem = new MySqlDataAdapter(comm);
-                tblfam = new DataTable();
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
 
-                adpmem.Fill(tblfam);
+                adp.Fill(dt);
 
 
 
-                if (tblfam.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
-                    dtfamOverview.DataSource = tblfam;
-                    dtfamOverview.Columns[0].Visible = false;
+                    dtfamOverview.DataSource = dt;
+                    dtfamOverview.Columns["memberid"].Visible = false;
+
+                    lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
 
 
                     DataGridViewCheckBoxColumn dc = new DataGridViewCheckBoxColumn();
@@ -1170,28 +1240,14 @@ namespace BalayPasilungan
                     dc.TrueValue = true;
                     dc.FalseValue = false;
 
-
-
                     if (dtfamOverview.Columns["check"] == null)
                     {
                         dtfamOverview.Columns.Add(dc);
 
-                        dtfamOverview.Columns["check"].DisplayIndex = dtfamOverview.ColumnCount - 1;
+                        
                     }
 
-                    foreach (DataGridViewColumn ds in dtfamOverview.Columns)
-                    {
-                        if (ds.Index.Equals(8))
-                        {
-                            ds.ReadOnly = false;
-                        }
-                        else
-                        {
-                            ds.ReadOnly = true;
-                        }
-                    }
-
-
+                    
                 }
 
                 else
@@ -1354,18 +1410,17 @@ namespace BalayPasilungan
 
         private void dtgeducation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 3 || e.ColumnIndex != 4)
-            {
-                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                reloadedclass(eid);
-            }
-            
         }
 
         private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
+
+            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
@@ -1378,40 +1433,60 @@ namespace BalayPasilungan
                 btnadded.Text = "ADD CHANGES";
 
                 MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                
 
-                //MessageBox.Show(eid.ToString());
                 reloadediteducation(eid);
 
             }
 
-            if ((sender as DataGridView).CurrentCell is DataGridViewCheckBoxCell)
+           else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
                 foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
-                    if (row.Index != dtgeducation.CurrentCell.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
+                    if (row.Index != e.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
                     {
                         row.Cells[e.ColumnIndex].Value = false;
+                        
                     }
+
+                    
+                }
+                //MessageBox.Show(senderGrid.Columns[e.ColumnIndex].ValueType.ToString());
+                reloadedclass(eid);
+                validatecheck(sender, e);
+
+            }
+                
+            MessageBox.Show(e.RowIndex.ToString());
+            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString() + "eid index");
+        
+        }
+
+        private void dtgedclass_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            MessageBox.Show(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+
+            {
+               try
+                {
+                    
+
+                    int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                    reloadeditclass(edclassid);
+
                 }
 
-                classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                catch(Exception ee)
+                {
+                    MessageBox.Show(ee.ToString());
+                }
 
-
-                validatecheck(e.ColumnIndex, e);
             }
-
-            MessageBox.Show(e.RowIndex.ToString());
-            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
-
-            reloadedclass(eid);
-
-           
-
-
         }
+
 
         #endregion
 
@@ -1515,25 +1590,41 @@ namespace BalayPasilungan
 
         #region existsfunctions
 
-        public void validatecheck(int classeid, DataGridViewCellEventArgs e)
+        public void validatecheck(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in dtgeducation.Rows)
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
-                DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
-                MessageBox.Show(cell.GetType().ToString());
-                if ((bool)cell.Value)
+                //USE DA CELL NASET NAMAN DAAN TRUE VALUE
+                foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
-                    btnaddclass.Enabled = true;
+                    DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
 
-                    
-                    break;
+                    //We don't want a null exception!
+                    if (cell.Value != null)
+                    {
+                        MessageBox.Show("NOT NULL");
+                        if (cell.Value == (cell.TrueValue = true))
+                        {
+                            //It's checked!
+                            btnaddclass.Enabled = true;
+                            MessageBox.Show("TRUUUEE");
+                            break;
+                        }
+
+                        else
+                        {
+                            btnaddclass.Enabled = false;
+                            MessageBox.Show("FAAAAAAALLSSEE");
+                        }
+                    }
+
                 }
 
-                else
-                {
-                    btnaddclass.Enabled = false;
-                }
+
             }
+
         }
         public void existsed(int id)
         {
@@ -1608,7 +1699,7 @@ namespace BalayPasilungan
 
                 int UserExist = (int)comm.ExecuteScalar();
 
-                btned.Text = (UserExist > 0) ? "Edit Info" : "Add Info"; //put add info on catch
+                btnfamtype.Text = (UserExist > 0) ? "EDIT TYPE" : "ADD TYPE"; //put add info on catch
 
                 comm = new MySqlCommand("SELECT familyid FROM family WHERE caseid = " + id, conn);
 
@@ -1627,7 +1718,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                btned.Text = "Add Info";
+                btned.Text = "ADD TYPE";
 
                 lblfamilytype.Text = "";
 
@@ -1863,7 +1954,7 @@ namespace BalayPasilungan
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabaddchild.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIncid;
         }
 
         private void btnBackCon_Click(object sender, EventArgs e)   // Current tab: IO
@@ -1877,13 +1968,13 @@ namespace BalayPasilungan
         {
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            tabaddchild.SelectedTab = tabNewIO;
+            tabaddchild.SelectedTab = tabNewIncid;
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
-            tabaddchild.SelectedTab = tabNewConfirm;
+            tabaddchild.SelectedTab = tabNewInvolve;
         }
 
         #endregion
@@ -2365,9 +2456,6 @@ namespace BalayPasilungan
 
                 DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
 
-                //dt.ToString("hh:mm tt");
-
-                //DateTime wut = DateTime.ParseExact(dateincid.Value.Date.ToString("yyyy-MM-dd") + " " + dt.ToString(), "yyyy-MM-dd hh:mm tt", CultureInfo.InvariantCulture);
                 MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
 
                 try
@@ -2385,6 +2473,7 @@ namespace BalayPasilungan
 
                     reloadincid(id);
 
+                    tabCase.SelectedTab = tabInfo;
                     tabControl.SelectedTab = twelfth;
 
                     reset5();
@@ -2519,6 +2608,7 @@ namespace BalayPasilungan
 
         private void btnbackincidrec_Click(object sender, EventArgs e)
         {
+            tabCase.SelectedTab = tabInfo;
             tabControl.SelectedTab = twelfth;
 
             reset5();
@@ -2628,13 +2718,30 @@ namespace BalayPasilungan
 
         private void btnfamtype_Click(object sender, EventArgs e)
         {
-            if (btnfamtype.Text == "add")
+            if (btnfamtype.Text == "ADD TYPE")
             {
-                tabControl.SelectedTab = fifth;
+                famtypecall(id);
             }
         }
 
-        private void checkinv_CheckedChanged(object sender, EventArgs e)
+        private void dtgeducation_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
+            {
+
+                
+            }
+
+        }
+
+        private void btnaddinvolve_Click(object sender, EventArgs e)
+        {
+            tabaddchild.SelectedTab = tabNewInvolve;
+        }
+
+        private void checkinv_CheckedChanged_1(object sender, EventArgs e)
         {
             if (checkinv.Checked)
             {
@@ -2647,11 +2754,7 @@ namespace BalayPasilungan
             }
         }
 
-        private void btnaddinvolve_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             tabControl.SelectedTab = twenty;
@@ -2659,14 +2762,15 @@ namespace BalayPasilungan
 
         private void btnaddincid_Click(object sender, EventArgs e)
         {
-            
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewIncid;
         }
 
         private void btnaddclass_Click(object sender, EventArgs e)
         {
             classeid = int.Parse(dtgeducation.CurrentCell.RowIndex.ToString());
 
-            edclass(classeid);
+            edclass(classeid, yearlvl);
         }
         private void btnaddedclass_Click(object sender, EventArgs e)
         {

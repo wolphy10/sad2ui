@@ -11,20 +11,21 @@ using MySql.Data.MySqlClient;
 
 namespace BalayPasilungan
 {
-    public partial class edclass : Form
+    public partial class famtype : Form
     {
         public MySqlConnection conn;
         public bool confirmed;
 
-        public caseprofile reftocase { get; set; }
-        public edclass()
+        public caseprofile reftofam { get; set; }
+
+        public famtype()
         {
             InitializeComponent();
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
         }
 
-        public int classeid { get; set; }
-        public string level { get; set; }
+        public string familytypegiven { get; set; }
+        public int familyid { get; set; }
 
         #region messagefunctions
 
@@ -66,13 +67,10 @@ namespace BalayPasilungan
             dim.Close();
         }
 
-#endregion
+        #endregion
 
         private void btncanceledclass_Click(object sender, EventArgs e)
         {
-            
-            reftocase.reloadedclass(reftocase.eid);
-
             this.Close();
         }
 
@@ -80,21 +78,21 @@ namespace BalayPasilungan
         {
             if (btnaddedclass.Text == "ADD")
             {
-                addclass();
+                addtype();
             }
 
             else
             {
-                editclass();
+                edittype();
             }
-            
+
         }
 
-        public void addclass()
+        public void addtype()
         {
-            string section = txtedsection.Text, year = cbxedyear.Text, adviser = txtedadviser.Text;
+            string type = cbxtype.Text;
 
-            if (string.IsNullOrEmpty(section) || string.IsNullOrEmpty(year) || string.IsNullOrEmpty(adviser))
+            if (string.IsNullOrEmpty(type))
             {
                 errorMessage("Please fill out empty fields.");
             }
@@ -108,19 +106,17 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + classeid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(famtype) VALUES('" + type + "')", conn);
 
                     comm.ExecuteNonQuery();
 
-                    successMessage("New Class Info Added!");
+                    successMessage("New Family Type Added!");
 
 
                     conn.Close();
 
-                    reftocase.reloaded(reftocase.id);
-                    reftocase.reloadedclass(reftocase.eid);
-
-                    //MessageBox.Show(reftocase.eid.ToString());
+                    reftofam.existsfam(reftofam.id);
+                    reftofam.reloadfam(reftofam.id);
 
                     this.Close();
 
@@ -135,11 +131,11 @@ namespace BalayPasilungan
             }
         }
 
-        public void editclass()
+        public void edittype()
         {
-            string section = txtedsection.Text, year = cbxedyear.Text, adviser = txtedadviser.Text;
+            string type = cbxtype.Text;
 
-            if (string.IsNullOrEmpty(section) || string.IsNullOrEmpty(year) || string.IsNullOrEmpty(adviser))
+            if (string.IsNullOrEmpty(type))
             {
                 errorMessage("Please fill out empty fields.");
             }
@@ -153,19 +149,17 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO edclass(eid, section, adviser, yearlevel) VALUES('" + classeid + "', '" + section + "', '" + adviser + "','" + year + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "' WHERE familyID = " + familyid, conn);
 
                     comm.ExecuteNonQuery();
 
-                    successMessage("New Class Info Added!");
+                    successMessage("Family Type Edited!");
 
 
                     conn.Close();
 
-                    reftocase.reloaded(reftocase.id);
-                    reftocase.reloadedclass(reftocase.eid);
-
-                    //MessageBox.Show(reftocase.eid.ToString());
+                    reftofam.existsfam(reftofam.id);
+                    reftofam.reloadfam(reftofam.id);
 
                     this.Close();
 
@@ -180,29 +174,5 @@ namespace BalayPasilungan
             }
         }
 
-        private void edclass_Load(object sender, EventArgs e)
-        {
-            int counter;
-
-            if (level == "Preschool")
-            {
-                counter = 3;
-            }
-
-            else if (level == "Elementary")
-            {
-                counter = 6;
-            }
-
-            else
-            {
-                counter = 4;
-            }
-
-            for (int i = 0; i < counter; i++)
-            {
-                cbxedyear.Items.Add(i);
-            }
-        }
     }
 }
