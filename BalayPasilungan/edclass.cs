@@ -70,6 +70,9 @@ namespace BalayPasilungan
 
         private void btncanceledclass_Click(object sender, EventArgs e)
         {
+            
+            reftocase.reloadedclass(reftocase.eid);
+
             this.Close();
         }
 

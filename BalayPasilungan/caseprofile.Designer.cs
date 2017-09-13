@@ -1310,7 +1310,7 @@
             this.dtgeducation.Size = new System.Drawing.Size(430, 463);
             this.dtgeducation.TabIndex = 108;
             this.dtgeducation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgeducation_CellContentClick);
-            this.dtgeducation.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgeducation_CellDoubleClick);
+            this.dtgeducation.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgeducation_CellValueChanged);
             // 
             // ninth
             // 

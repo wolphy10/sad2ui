@@ -657,10 +657,7 @@ namespace BalayPasilungan
                     comm.ExecuteNonQuery();
 
                     successMessage("New Education Info Added!");
-
-
-
-
+                    
                     conn.Close();
 
                     //existsed(id);
@@ -958,6 +955,9 @@ namespace BalayPasilungan
                     DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
 
                     chk.Name = "checkdis";
+                    chk.ValueType = typeof(bool);
+                    chk.FalseValue = false;
+                    chk.TrueValue = true;
 
 
                     if (dtgeducation.Columns["Edit"] == null)
@@ -980,8 +980,9 @@ namespace BalayPasilungan
 
                     else
                     {
-                        //dtgeducation.Columns["checkdis"].DisplayIndex = dtgeducation.ColumnCount - 1;
-                        //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
+                        chk.ValueType = typeof(bool);
+                        chk.FalseValue = false;
+                        chk.TrueValue = true;
                     }
 
                     //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
@@ -1037,7 +1038,7 @@ namespace BalayPasilungan
 
                 }
 
-                dtgedclass.Columns["edclassid"].Visible = false;
+                //dtgedclass.Columns["edclassid"].Visible = false;
 
                 conn.Close();
             }
@@ -1408,18 +1409,17 @@ namespace BalayPasilungan
 
         private void dtgeducation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 3 || e.ColumnIndex != 4)
-            {
-                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                reloadedclass(eid);
-            }
-            
         }
 
         private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
+
+            MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
@@ -1432,9 +1432,8 @@ namespace BalayPasilungan
                 btnadded.Text = "ADD CHANGES";
 
                 MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                
 
-                //MessageBox.Show(eid.ToString());
                 reloadediteducation(eid);
 
             }
@@ -1451,37 +1450,36 @@ namespace BalayPasilungan
 
                     
                 }
+                MessageBox.Show(senderGrid.Columns[e.ColumnIndex].ValueType.ToString());
+                reloadedclass(eid);
+                validatecheck(sender, e);
 
-                classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
                 
-                
-                
-            
-
             MessageBox.Show(e.RowIndex.ToString());
             MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString() + "eid index");
-            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-            yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
+        
+            
 
-            validatecheck(sender, e);
+           
 
-            reloadedclass(eid);
+            
 
         }
 
         private void dtgedclass_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-
+            MessageBox.Show(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
             {
                try
                 {
-                    //dtgedclass.Refresh();
+                    
 
                     int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
+
                     reloadeditclass(edclassid);
 
                 }
@@ -1603,7 +1601,7 @@ namespace BalayPasilungan
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
             {
-                
+
                 foreach (DataGridViewRow row in dtgeducation.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
@@ -1617,11 +1615,12 @@ namespace BalayPasilungan
                     {
                         btnaddclass.Enabled = false;
                     }
-                    
+
                 }
+
+
             }
 
-                
         }
         public void existsed(int id)
         {
@@ -2719,6 +2718,18 @@ namespace BalayPasilungan
             {
                 tabControl.SelectedTab = fifth;
             }
+        }
+
+        private void dtgeducation_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
+            {
+
+                
+            }
+
         }
 
         private void btnaddinvolve_Click(object sender, EventArgs e)
