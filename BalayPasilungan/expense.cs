@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using MySql.Data.MySqlClient;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace BalayPasilungan
 {
@@ -38,7 +40,7 @@ namespace BalayPasilungan
             donorInfo.Renderer = new renderer2(); brInfo.Renderer = new renderer2();
 
             // Setting Dates
-            datePledge.Value = dateBR.MaxDate = datePledge.MaxDate = datePledgeEdit.MaxDate = DateTime.Today;
+            datePledge.Value = dateBR.MaxDate = datePledge.MaxDate = datePledgeEdit.MaxDate = DateTime.Today;            
         }
 
         #region Movable Form
@@ -408,7 +410,7 @@ namespace BalayPasilungan
                     if (dt.Rows.Count == 0)
                     {
                         dt.Rows.Add(-1, null, "No entries.", null);
-                        empty = true; btnDelExp.Enabled = multiExp.Enabled = false;
+                        empty = true; btnExpOp.Enabled = multiExp.Enabled = false;
                     }
 
                     // BR LIST In Kind UI Modifications
@@ -428,7 +430,7 @@ namespace BalayPasilungan
                     {
                         expList.Columns[1].HeaderCell.Style.Padding = expList.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                         expList.Columns[1].DefaultCellStyle.Format = "MMMM";
-                        btnDelExp.Enabled = true;
+                        btnExpOp.Enabled = true;
                         if (dt.Rows.Count == 1) multiExp.Enabled = false;
                         else multiExp.Enabled = true;
                     }
@@ -806,10 +808,7 @@ namespace BalayPasilungan
             }
         }
         #endregion
-
-
-
-
+        
         #region New Donor Form
         private void btnDonorConfirm_Click(object sender, EventArgs e)
         {
@@ -1453,7 +1452,6 @@ namespace BalayPasilungan
         #endregion
 
         #region New Budget Request
-
         private void btnNewBR_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabBudgetRequest;
@@ -1527,24 +1525,20 @@ namespace BalayPasilungan
 
         private void btnBRNext_Click(object sender, EventArgs e)
         {
-            tabBR.SelectedIndex = 1;
-            lblBRPurpose.Text = txtPurpose.Text;
-            string[] check = new string[10];
-            lblBRCategory.Text = "";
-            
-            for(int i = 0; i < clbCategory.Items.Count; i++)
+            if (lblBRCategory.Text != "")
             {
-                if (clbCategory.GetItemChecked(i)) lblBRCategory.Text += (string)clbCategory.Items[i] + ", ";                
+                tabBR.SelectedIndex = 1;
+                lblBRPurpose.Text = txtPurpose.Text;
+                lblBRdateRequested.Text = dateBR.Value.ToString("MMMM dd, yyyy");
+
+                brparTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                brparTS.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+                brTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+                brTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
+
+                String dateRequested = dateBR.Value.Year.ToString() + "-" + dateBR.Value.Month.ToString() + "-" + dateBR.Value.Day.ToString();
             }
-
-            lblBRdateRequested.Text = dateBR.Value.ToString("MMMM dd, yyyy");            
-
-            brparTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            brparTS.Font = new System.Drawing.Font("Segoe UI", 20.25F);
-            brTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
-            brTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
-            
-            String dateRequested = dateBR.Value.Year.ToString() + "-" + dateBR.Value.Month.ToString() + "-" + dateBR.Value.Day.ToString();                        
+            else errorMessage("hala"); // error lmao
         }
 
         private void btnBRBack_Click(object sender, EventArgs e)
@@ -1554,38 +1548,31 @@ namespace BalayPasilungan
             brTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
             brTS.Font = new System.Drawing.Font("Segoe UI", 20.25F);
             brparTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
-            brparTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
+            brparTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);                            
+        }
+
+        private void category_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbClothing.Checked) lblBRCategory.Text = "Clothing";
+            else if (rbFood.Checked) lblBRCategory.Text = "Food";
+            else if (rbHouse.Checked) lblBRCategory.Text = "Repair and Maintenance";
+            else if (rbMeds.Checked) lblBRCategory.Text = "Medical Supplies";
+            else if (rbOffice.Checked) lblBRCategory.Text = "Office Supplies";
+            else if (rbSchool.Checked) lblBRCategory.Text = "Education";
+            else if (rbSkills.Checked) lblBRCategory.Text = "Skills and Development";
+            else if (rbSocial.Checked) lblBRCategory.Text = "Recreation";
+            else if (rbSpiritual.Checked) lblBRCategory.Text = "Spiritual Formation";
+            else if (rbTranspo.Checked) lblBRCategory.Text = "Transportation";
+            else if (((RadioButton)sender).Name == "rbOthers")
+            {
+                if (rbOthers.Checked) panelOthers.Enabled = true;
+                else panelOthers.Enabled = false;
+                lblBRCategory.Text = txtBROthers.Text;
+            }
         }
         #endregion
 
         #region Budget Request List
-        private void cbOthers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbOthers.Checked) panelOthers.Enabled = true;
-            else panelOthers.Enabled = false;
-        }
-        
-        private void clbCategory_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < clbCategory.Items.Count; i++)
-            {
-                if (clbCategory.GetItemRectangle(i).Contains(clbCategory.PointToClient(MousePosition)))
-                {
-                    switch (clbCategory.GetItemCheckState(i))
-                    {
-                        case CheckState.Checked:
-                            clbCategory.SetItemCheckState(i, CheckState.Unchecked);
-                            break;
-                        case CheckState.Indeterminate:
-                        case CheckState.Unchecked:
-                            clbCategory.SetItemCheckState(i, CheckState.Checked);
-                            break;
-                    }
-
-                }
-            }
-        }
-
         private void BRList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1 && !empty)
@@ -1631,14 +1618,11 @@ namespace BalayPasilungan
                 {
                     errorMessage(ex.Message);
                 }
+                
                 // Clear or reset all
                 txtPurpose.Text = "Name of purpose.";
-                dateBR.MaxDate = dateBR.Value = DateTime.Today;
-                cbOthers.Checked = false; txtBROthers.Clear();
-                foreach (int i in clbCategory.CheckedIndices)
-                {
-                    clbCategory.SetItemCheckState(i, CheckState.Unchecked);
-                }
+                dateBR.MaxDate = dateBR.Value = DateTime.Today; txtBROthers.Clear();
+                rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
 
                 tabSelection.SelectedTab = tabFinance;
             }
@@ -1678,7 +1662,7 @@ namespace BalayPasilungan
             MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Approved' ORDER BY budgetID ASC", conn);            
             loadTable(comm, 4);
             tabPBR.SelectedIndex = 2;
-        }
+        }        
         #endregion
 
         #region Expense
@@ -1711,7 +1695,7 @@ namespace BalayPasilungan
             else comm = new MySqlCommand("SELECT * FROM expense WHERE category = " + final + " ORDER BY dateExpense DESC", conn);            
             loadTable(comm, 6);
         }
-                
+
         private void btnAddExp_Click(object sender, EventArgs e)
         {
             moneyDonate mD = overlay();
@@ -1724,7 +1708,7 @@ namespace BalayPasilungan
             MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6);
         }
-        
+
         private void btnResetCategory_Click(object sender, EventArgs e)
         {
             cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
@@ -1739,9 +1723,51 @@ namespace BalayPasilungan
             else expList.MultiSelect = multi = false;
         }
 
+        private void multiABR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (multiABR.Checked) approvedBRList.MultiSelect = multiABR.Checked = false;
+            else approvedBRList.MultiSelect = multiABR.Checked = true;
+        }
+
+        private void btnBtoE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                if (multiABR.Checked)
+                {
+                    
+                }
+                else
+                {
+                    MessageBox.Show("here");
+                    int row = approvedBRList.CurrentCell.RowIndex;
+                    comm = new MySqlCommand("SELECT category, budgetTotal, budgetID FROM budget WHERE budgetID = " + int.Parse(approvedBRList.Rows[row].Cells[0].Value.ToString()), conn);                  
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+
+                    MessageBox.Show("here2");
+                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount, budgetID) VALUES ('" + DateTime.Now + "', '" + dt.Rows[0]["category"].ToString() + "', " + decimal.Parse(dt.Rows[0]["amount"].ToString()) + ", " + int.Parse(dt.Rows[0]["budgetID"].ToString()) + ")", conn);
+                    comm.ExecuteNonQuery();
+                    
+                    successMessage("Budget has been exported successfully as expense record.");
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessage(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Expense Options
         private void btnDelExp_Click(object sender, EventArgs e)
         {
-            if (expList.Rows[0].Cells[2].Value.ToString() != "No entries.")
+            if (expList.Rows[0].Cells[2].Value.ToString() != "No entries." && expList.SelectedRows.Count != 0)
             {
                 int row = expList.CurrentCell.RowIndex;
                 if (multi) confirmMessage("Are you sure you want to delete this expense record?\nThe existing budget will be deleted as well.");
@@ -1749,7 +1775,7 @@ namespace BalayPasilungan
 
                 if (confirmed && !multi)
                 {
-                    del(int.Parse(expList.Rows[row].Cells[0].Value.ToString()), 3);                    
+                    del(int.Parse(expList.Rows[row].Cells[0].Value.ToString()), 3);
                     MySqlCommand comm = new MySqlCommand("SELECT * FROM expense", conn);
                     loadTable(comm, 6);
                 }
@@ -1764,6 +1790,110 @@ namespace BalayPasilungan
                     }
                 }
             }
+            panelExpOp.Visible = false;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            try
+            {
+                conn.Open();
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = "Expenses";
+
+                string[] category = {"Food", "Salary", "Communication, Lights, and Water", "Household Expenses", "Repair and Maintenance", "Depreciation Expense",
+                    "SSS, PHIC, and HMDF", "Education", "Meeting and Conferences", "Transportation", "Spiritual Value Formation", "Medical and Dental Supplies",
+                    "Recreation", "Clothing", "Office Supplies", "Skills and Development", "Taxes and Licenses", "Guidance and Counselling", "Professional Fees",
+                    "Honorarium", "Printing and Advertising", "Insurance Expense"};
+
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Merge();
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Cells.WrapText = true;
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                worksheet.Cells[1, 1] = "MONTH";
+
+                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Merge();
+                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Cells.WrapText = true;
+                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                worksheet.Cells[3, 1] = DateTime.Now;
+                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].NumberFormat = "mmmm yyyy";
+
+                for (int k = 5, cat = 0; cat < 22; k = k + 2, cat++)
+                {
+                    worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Merge();
+                    worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Cells.WrapText = true;
+                    worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    worksheet.Cells[1, k] = category[cat];
+                }
+
+                MySqlDataAdapter adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
+                    {
+                        adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "'", conn);
+                        dt = new DataTable();
+                        adp.Fill(dt);
+
+                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Merge();
+                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].NumberFormat = "#,##0.00";
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[3, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
+                            else worksheet.Cells[3, i] = "0";
+                        }
+                        else worksheet.Cells[3, i] = "0";
+                    }
+                }
+                else errorMessage("Cannot create an empty file.");           // LMAO
+
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 1;
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    successMessage("Export to Excel has been successful.");
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessage(ex.Message);
+            }
+            finally
+            {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+                Marshal.FinalReleaseComObject(worksheet);
+
+                workbook.Close(Type.Missing, Type.Missing, Type.Missing);
+                Marshal.FinalReleaseComObject(workbook);
+
+                excel.Quit();
+                Marshal.FinalReleaseComObject(excel);
+                workbook = null; excel = null;
+            }
+            panelExpOp.Visible = false;
+        }
+
+        private void btnExpOp_Click(object sender, EventArgs e)
+        {
+            if (panelExpOp.Visible == false) panelExpOp.Visible = true;
+            else panelExpOp.Visible = false;
         }
         #endregion
     }

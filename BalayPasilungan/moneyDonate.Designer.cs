@@ -188,6 +188,8 @@
             this.btnAddExp = new BalayPasilungan.NoFocusRec();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.tabExpOp = new System.Windows.Forms.TabPage();
+            this.btnExport = new BalayPasilungan.NoFocusRec();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -232,6 +234,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            this.tabExpOp.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -245,6 +248,7 @@
             this.tabSelection.Controls.Add(this.tabIKEdit);
             this.tabSelection.Controls.Add(this.tabBRDetails);
             this.tabSelection.Controls.Add(this.tabExp);
+            this.tabSelection.Controls.Add(this.tabExpOp);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -2411,6 +2415,26 @@
             this.pictureBox21.TabIndex = 51;
             this.pictureBox21.TabStop = false;
             // 
+            // tabExpOp
+            // 
+            this.tabExpOp.Controls.Add(this.btnExport);
+            this.tabExpOp.Location = new System.Drawing.Point(4, 22);
+            this.tabExpOp.Name = "tabExpOp";
+            this.tabExpOp.Padding = new System.Windows.Forms.Padding(3);
+            this.tabExpOp.Size = new System.Drawing.Size(512, 376);
+            this.tabExpOp.TabIndex = 9;
+            this.tabExpOp.Text = "tabPage1";
+            this.tabExpOp.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(159, 114);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(265, 47);
+            this.btnExport.TabIndex = 41;
+            this.btnExport.Text = "noFocusRec10";
+            this.btnExport.UseVisualStyleBackColor = true;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2485,6 +2509,7 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            this.tabExpOp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2649,5 +2674,7 @@
         public System.Windows.Forms.DateTimePicker dateExp;
         private System.Windows.Forms.Label txtExpCurrent;
         private System.Windows.Forms.CheckBox thisMonth;
+        private System.Windows.Forms.TabPage tabExpOp;
+        private NoFocusRec btnExport;
     }
 }
