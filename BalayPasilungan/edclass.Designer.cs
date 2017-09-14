@@ -180,6 +180,7 @@
             this.Controls.Add(this.panelNewChild);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "edclass";
+            this.Text = "edclass";
             this.Load += new System.EventHandler(this.edclass_Load);
             this.panelNewChild.ResumeLayout(false);
             this.panelNewChild.PerformLayout();
@@ -192,7 +193,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panelNewChild;
-        public System.Windows.Forms.Label lbladdeditprofile;
+        private System.Windows.Forms.Label lbladdeditprofile;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.ComboBox cbxedyear;
         private System.Windows.Forms.Label label16;
@@ -200,7 +201,7 @@
         private System.Windows.Forms.Label lbl2;
         public System.Windows.Forms.TextBox txtedsection;
         private System.Windows.Forms.Label label18;
-        public NoFocusRec btnaddedclass;
+        private NoFocusRec btnaddedclass;
         private NoFocusRec btncanceledclass;
     }
 }
