@@ -813,6 +813,7 @@ namespace BalayPasilungan
 
                     reloadmem(famid);
 
+                    tabCase.SelectedTab = tabInfo;
                     tabControl.SelectedTab = fourth;
 
                     reset8();
@@ -844,16 +845,18 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES('" + famid + "', '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', gender = '" + gender + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
+                                        "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "' WHERE memberid = " + memberid, conn);
                     MessageBox.Show(famid.ToString());
                     comm.ExecuteNonQuery();
 
-                    successMessage("Member Added!");
+                    successMessage("Family Member Info Changes Added!");
 
                     conn.Close();
 
                     reloadmem(famid);
 
+                    tabCase.SelectedTab = tabInfo;
                     tabControl.SelectedTab = fourth;
 
                     reset8();
@@ -883,12 +886,15 @@ namespace BalayPasilungan
                 if (dt.Rows.Count > 0)
                 {
 
-                    section = dt.Rows[0]["section"].ToString();
-                    adviser = dt.Rows[0]["adviser"].ToString();
-                    yearlvl = dt.Rows[0]["yearlevel"].ToString();
+                    txtmemfirstname.Text = dt.Rows[0]["firstname"].ToString();
+                    txtmemlastname.Text = dt.Rows[0]["lastname"].ToString();
+                    txtmemocc.Text = dt.Rows[0]["occupation"].ToString();
+                    txtmemrelationship.Text = dt.Rows[0]["relationship"].ToString();
 
-                    
+                    cbxmemdependency.Text = dt.Rows[0]["dependency"].ToString();
+                    cbxmemgender.Text = dt.Rows[0]["gender"].ToString();
 
+                    dtpmembirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]);
                 }
 
                 conn.Close();
@@ -1402,7 +1408,7 @@ namespace BalayPasilungan
         {
             try
             {
-                MySqlCommand comm = new MySqlCommand("SELECT memberid FROM member WHERE familyid = " + famid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -1413,7 +1419,7 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count > 0)
                 {
-                    comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
+                    comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation, COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
 
                     adp = new MySqlDataAdapter(comm);
                     dt = new DataTable();
