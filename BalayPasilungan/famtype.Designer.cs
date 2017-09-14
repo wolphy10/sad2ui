@@ -32,9 +32,9 @@
             this.btncanceledclass = new BalayPasilungan.NoFocusRec();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbxtype = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panelNewChild = new System.Windows.Forms.Panel();
             this.lbladdeditprofile = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.panelNewChild.SuspendLayout();
             this.SuspendLayout();
@@ -85,10 +85,28 @@
             // 
             this.cbxtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxtype.FormattingEnabled = true;
-            this.cbxtype.Location = new System.Drawing.Point(13, 42);
+            this.cbxtype.Items.AddRange(new object[] {
+            "Nuclear",
+            "Single Parent",
+            "Extended",
+            "Childless",
+            "Step",
+            "Grandparent"});
+            this.cbxtype.Location = new System.Drawing.Point(7, 26);
             this.cbxtype.Name = "cbxtype";
             this.cbxtype.Size = new System.Drawing.Size(297, 27);
             this.cbxtype.TabIndex = 119;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label16.Location = new System.Drawing.Point(10, 95);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(92, 18);
+            this.label16.TabIndex = 81;
+            this.label16.Text = "Year Level";
             // 
             // panelNewChild
             // 
@@ -110,17 +128,6 @@
             this.lbladdeditprofile.Size = new System.Drawing.Size(295, 47);
             this.lbladdeditprofile.TabIndex = 41;
             this.lbladdeditprofile.Text = "Add Family Type";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label16.Location = new System.Drawing.Point(10, 95);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(92, 18);
-            this.label16.TabIndex = 81;
-            this.label16.Text = "Year Level";
             // 
             // famtype
             // 
