@@ -783,6 +783,72 @@ namespace BalayPasilungan
             }
         }
 
+        public void reloadinvcases()
+        {
+
+            try
+            {
+                conn.Open();
+
+                MySqlDataAdapter adp = new MySqlDataAdapter("SELECT caseid, lastname, firstname, program FROM casestudyprofile", conn);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    dt.Rows.Add(-1, "No entries.", null, null);
+                    empty = true;
+                }
+
+                dtginv.DataSource = dt;
+
+                // Case Profile UI Modifications
+                dtginv.Columns[1].HeaderText = "LASTNAME";
+                dtginv.Columns[2].HeaderText = "FIRSTNAME";
+                dtginv.Columns[3].HeaderText = "PROGRAM";
+
+                // For ID purposes (hidden from user)            
+                dtginv.Columns["caseid"].Visible = false;
+
+                // 935 WIDTH
+                dtginv.Columns[1].Width = 380;
+                dtginv.Columns[2].Width = 380;
+                dtginv.Columns[3].Width = 175;
+
+                if (dt.Rows.Count > 0 && !empty)
+                {
+                    dtginv.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
+                    dtginv.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+
+                    DataGridViewCheckBoxColumn dc = new DataGridViewCheckBoxColumn();
+
+                    dc.Name = "check";
+                    dc.Visible = true;
+                    dc.TrueValue = true;
+                    dc.FalseValue = false;
+                    dc.ReadOnly = false;
+
+                    if (dtginv.Columns["check"] == null)
+                    {
+                        dtginv.Columns.Add(dc);
+
+                        dc.TrueValue = true;
+                        dc.FalseValue = false;
+                    }
+
+
+                }
+                else empty = false;
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
         public void reloadeditclass(int classid)
         {
             try
@@ -1241,7 +1307,8 @@ namespace BalayPasilungan
                     {
                         dtfamOverview.Columns.Add(dc);
 
-                        
+                        dc.TrueValue = true;
+                        dc.FalseValue = false;
                     }
 
                     
@@ -2733,9 +2800,21 @@ namespace BalayPasilungan
 
         }
 
+        private void dtginv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is && e.RowIndex >= 0)
+            {
+
+            }
+        }
+
         private void btnaddinvolve_Click(object sender, EventArgs e)
         {
             tabaddchild.SelectedTab = tabNewInvolve;
+
+            reloadinvcases();
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
@@ -2815,5 +2894,9 @@ namespace BalayPasilungan
 
         #endregion
 
+    }
+
+    internal class DataGridViewCheckboxColumn
+    {
     }
 }
