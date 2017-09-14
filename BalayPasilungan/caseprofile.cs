@@ -768,6 +768,11 @@ namespace BalayPasilungan
                     
                 }
 
+                else
+                {
+                    errorMessage("This case study has no records yet.");
+                }
+
                 conn.Close();
             }
 
@@ -1023,8 +1028,9 @@ namespace BalayPasilungan
                     errorMessage("There are currently no class records for this school.");
                 }
 
-                
-               dtgedclass.DataSource = dt;
+
+
+                dtgedclass.DataSource = dt;
 
 
 
