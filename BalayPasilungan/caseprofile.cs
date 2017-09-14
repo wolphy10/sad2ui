@@ -155,6 +155,8 @@ namespace BalayPasilungan
             famtype fam = new famtype();
 
             fam.reftofam = this;
+            
+            fam.caseid = id;
 
             fam.Show();
 
@@ -1292,6 +1294,7 @@ namespace BalayPasilungan
                 {
                     dtfamOverview.DataSource = dt;
                     dtfamOverview.Columns["memberid"].Visible = false;
+                    dtfamOverview.Columns["COUNT(memberid)"].Visible = false;
 
                     lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
 
@@ -1353,6 +1356,7 @@ namespace BalayPasilungan
             }
         }
 
+        
         private void dtghealth_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -2033,6 +2037,8 @@ namespace BalayPasilungan
             resetNewChildTS();
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
             tabaddchild.SelectedTab = tabNewIncid;
+
+            rtinv.Clear();
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
@@ -2402,47 +2408,6 @@ namespace BalayPasilungan
             }
         }
 
-        private void btnaddfamtype_Click(object sender, EventArgs e)
-        {
-            string famtype = cbxfamtype.Text;
-
-            if (string.IsNullOrEmpty(famtype))
-            {
-                errorMessage("Fill in the empty fields.");
-            }
-
-            else
-            {
-                try
-                {
-                    conn.Open();
-
-
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(caseid, famtype) VALUES('" + id + "', '" + famtype + "')", conn);
-
-                    comm.ExecuteNonQuery();
-
-                    successMessage("Family Type Added!");
-
-                    conn.Close();
-
-                    existsfam(id);
-
-                    reloadfam(id);
-
-                    tabControl.SelectedTab = fourth;
-
-                    cbxfamtype.SelectedIndex = -1;
-                }
-
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
-            }
-        }
-
         private void btnaddmember_Click(object sender, EventArgs e)
         {
             string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
@@ -2530,6 +2495,11 @@ namespace BalayPasilungan
                     MySqlCommand comm = new MySqlCommand("INSERT INTO incident(caseid, type, incdate, venue, description, action, dateadded) VALUES('" + id + "', '" + type + "', '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + dt.ToString("hh:mm tt") + "','" + location + "', '" + desc + "', '" + action + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
 
                     comm.ExecuteNonQuery();
+
+                    if (checkinv.Checked)
+                    {
+                        
+                    }
 
                     successMessage("Incident Record Added!");
 
@@ -2788,33 +2758,40 @@ namespace BalayPasilungan
             }
         }
 
-        private void dtgeducation_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void btninvok_Click(object sender, EventArgs e)
+        {
+            tabaddchild.SelectedTab = tabNewIncid;
+        }
+
+        private void dtfamOverview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
-            {
 
-                
+            {
+                foreach (DataGridViewRow row in dtfamOverview.Rows)
+                {
+                    if (row.Index != (sender as DataGridView).CurrentCell.RowIndex && Convert.ToBoolean(row.Cells[e.ColumnIndex].Value) == true)
+                    {
+                        row.Cells[e.ColumnIndex].Value = false;
+                    }
+                }
             }
 
-        }
-
-        private void dtginv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is && e.RowIndex >= 0)
-            {
-
-            }
         }
 
         private void btnaddinvolve_Click(object sender, EventArgs e)
         {
             tabaddchild.SelectedTab = tabNewInvolve;
+            
+            if (btnaddinvolve.Text == "ADD")
+            {
+                reloadinvcases();
+            }
+            
 
-            reloadinvcases();
+            btnaddinvolve.Text = "EDIT";
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
@@ -2833,13 +2810,18 @@ namespace BalayPasilungan
         
         private void btnAddMem_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = twenty;
+            tabCase.SelectedTab = tabNewChild;
+            tabaddchild.SelectedTab = tabNewFamily;
+            
+
         }
 
         private void btnaddincid_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabNewChild;
             tabaddchild.SelectedTab = tabNewIncid;
+
+            btnaddinvolve.Text = "ADD";
         }
 
         private void btnaddclass_Click(object sender, EventArgs e)

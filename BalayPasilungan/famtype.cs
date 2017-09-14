@@ -26,6 +26,7 @@ namespace BalayPasilungan
 
         public string familytypegiven { get; set; }
         public int familyid { get; set; }
+        public int caseid { get; set; }
 
         #region messagefunctions
 
@@ -106,7 +107,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(famtype) VALUES('" + type + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(famtype, caseid) VALUES('" + type + "', '" + caseid + "')", conn);
 
                     comm.ExecuteNonQuery();
 
