@@ -18,7 +18,7 @@ namespace BalayPasilungan
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
 
-        public int id, hid, fammode, famid, eid, classeid, memberid;
+        public int id, hid, fammode, famid, eid, classeid, memberid, incidid;
         public string filename, yearlvl, section, adviser;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
@@ -293,6 +293,97 @@ namespace BalayPasilungan
 
 
         }
+
+        public void addmember()
+        {
+            string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
+                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
+
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO member(familyid, firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES(" + famid + ", '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
+                    MessageBox.Show(famid.ToString());
+                    comm.ExecuteNonQuery();
+
+                    successMessage("Member Added!");
+
+                    conn.Close();
+
+                    reloadmem(famid);
+
+                    tabCase.SelectedTab = tabInfo;
+                    tabControl.SelectedTab = fourth;
+
+                    reset8();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        public void editmember()
+        {
+            string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
+                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
+
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', gender = '" + gender + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
+                                        "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "' WHERE memberid = " + memberid, conn);
+                    MessageBox.Show(famid.ToString());
+                    comm.ExecuteNonQuery();
+
+                    successMessage("Family Member Info Changes Added!");
+
+                    conn.Close();
+
+                    reloadmem(famid);
+
+                    tabCase.SelectedTab = tabInfo;
+                    tabControl.SelectedTab = fourth;
+
+                    reset8();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        public void insertinvolve()
+        {
+
+        }
+
         public void refresh()
         {
             try
@@ -358,48 +449,7 @@ namespace BalayPasilungan
             lbltotalcase.Text = dt.Rows[0]["count(caseid)"].ToString();
         }
 
-        public void reloadeditinfo(int id)
-        {
-            try
-            {
-                conn.Open();
-
-                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                DataTable dt = new DataTable();
-
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-
-                    txtlname.Text = dt.Rows[0]["lastname"].ToString();
-                    txtfname.Text = dt.Rows[0]["firstname"].ToString();
-                    txtcaseaddress.Text = dt.Rows[0]["address"].ToString();
-                    cbxprogram.Text = dt.Rows[0]["program"].ToString();
-                    cbxcasestatus.Text = dt.Rows[0]["status"].ToString();
-
-                    dtbirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]);
-                    dtjoin.Value = Convert.ToDateTime(dt.Rows[0]["datejoined"]);
-
-
-                    pbox1.ImageLocation = dt.Rows[0]["picture"].ToString();
-
-                    filename = dt.Rows[0]["picture"].ToString().Replace(@"\", @"\\");
-
-                }
-
-                conn.Close();
-            }
-
-            catch (Exception ee)
-            {
-                MessageBox.Show(ee.ToString());
-                conn.Close();
-            }
-
-
-        }
+        
 
         public void addprofile()
         {
@@ -785,90 +835,50 @@ namespace BalayPasilungan
             }
         }
 
-        public void addmember()
+        public void reloadeditinfo(int id)
         {
-            string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
-                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
-
-            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency))
+            try
             {
-                errorMessage("Please fill out empty fields.");
-            }
+                conn.Open();
 
-            else
-            {
-                try
+                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
                 {
 
-                    conn.Open();
+                    txtlname.Text = dt.Rows[0]["lastname"].ToString();
+                    txtfname.Text = dt.Rows[0]["firstname"].ToString();
+                    txtcaseaddress.Text = dt.Rows[0]["address"].ToString();
+                    cbxprogram.Text = dt.Rows[0]["program"].ToString();
+                    cbxcasestatus.Text = dt.Rows[0]["status"].ToString();
+
+                    dtbirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]);
+                    dtjoin.Value = Convert.ToDateTime(dt.Rows[0]["datejoined"]);
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO member(familyid, firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES(" + famid + ", '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
-                    MessageBox.Show(famid.ToString());
-                    comm.ExecuteNonQuery();
+                    pbox1.ImageLocation = dt.Rows[0]["picture"].ToString();
 
-                    successMessage("Member Added!");
+                    filename = dt.Rows[0]["picture"].ToString().Replace(@"\", @"\\");
 
-                    conn.Close();
-
-                    reloadmem(famid);
-
-                    tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = fourth;
-
-                    reset8();
                 }
 
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
+                conn.Close();
             }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+                conn.Close();
+            }
+
+
         }
 
-        public void editmember()
-        {
-            string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
-                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
-
-            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency))
-            {
-                errorMessage("Please fill out empty fields.");
-            }
-
-            else
-            {
-                try
-                {
-
-                    conn.Open();
-
-
-                    MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', gender = '" + gender + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
-                                        "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "' WHERE memberid = " + memberid, conn);
-                    MessageBox.Show(famid.ToString());
-                    comm.ExecuteNonQuery();
-
-                    successMessage("Family Member Info Changes Added!");
-
-                    conn.Close();
-
-                    reloadmem(famid);
-
-                    tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = fourth;
-
-                    reset8();
-                }
-
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
-            }
-        }
+        
 
         public void reloadeditmember(int memberid)
         {
@@ -2188,7 +2198,11 @@ namespace BalayPasilungan
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
             tabaddchild.SelectedTab = tabNewIncid;
 
+            reloadinvcases();
             rtinv.Clear();
+
+            btnaddinvolve.Text = "ADD";
+            checkinv.Enabled = true;
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
@@ -2419,6 +2433,33 @@ namespace BalayPasilungan
             }
         }
 
+        public void getincidid(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT incidid FROM incident WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                incidid = int.Parse(dt.Rows[0]["incidid"].ToString());
+
+                conn.Close();
+
+            }
+
+
+            catch (Exception ee)
+            {
+
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+
         #endregion
 
         private void btnMain_Click(object sender, EventArgs e)
@@ -2621,7 +2662,9 @@ namespace BalayPasilungan
 
                     if (checkinv.Checked)
                     {
-                        
+                        getincidid(id);
+
+                        insertinvolve();
                     }
 
                     successMessage("Incident Record Added!");
@@ -2892,6 +2935,7 @@ namespace BalayPasilungan
         private void btninvok_Click(object sender, EventArgs e)
         {
             tabaddchild.SelectedTab = tabNewIncid;
+            checkinv.Enabled = false;
         }
 
        
