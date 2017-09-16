@@ -1320,38 +1320,26 @@ namespace BalayPasilungan
             }
         }
 
-        private void cbDType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDelMoneyD_Click(object sender, EventArgs e)
         {
-            // LMAO CHANGE THIS
             confirm conf = new confirm();
             conf.lblConfirm.Text = "Are you sure you want to delete this donor? You cannot undo this action.";
-            if (multi)
+            if (multi && confirmed)
             {
-                if (conf.ShowDialog() == DialogResult.OK)
+                foreach (DataGridViewRow r in donationMoney.SelectedRows)
                 {
-                    foreach (DataGridViewRow r in donationMoney.SelectedRows)
-                    {
-                        int row = donationMoney.CurrentCell.RowIndex;
-                        delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
-                        comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
-                        loadTable(comm, 1);
-                    }
-                }
+                    int row = donationMoney.CurrentCell.RowIndex;
+                    delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
+                    comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
+                    loadTable(comm, 1);
+                }                
             }
             else
             {
                 int row = donationMoney.CurrentCell.RowIndex;
-                if (conf.ShowDialog() == DialogResult.OK)
-                {
-                    delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
-                    comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
-                    loadTable(comm, 1);
-                }
+                delDonation(int.Parse(donationMoney.Rows[row].Cells[8].Value.ToString()), 1);
+                comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
+                loadTable(comm, 1);
             }
             multiSelect.Checked = false;
         }
@@ -1798,7 +1786,7 @@ namespace BalayPasilungan
                     }
                 }
             }
-            panelExpOp.Visible = false;
+            panelExpOp.Visible = multiExp.Checked = false;            
         }
 
         private void btnExport_Click(object sender, EventArgs e)
