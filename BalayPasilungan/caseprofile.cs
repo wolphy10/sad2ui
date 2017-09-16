@@ -18,7 +18,7 @@ namespace BalayPasilungan
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
 
-        public int id, hid, fammode, famid, eid, classeid, memberid, incidid;
+        public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode;
         public string filename, yearlvl, section, adviser;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
@@ -113,6 +113,7 @@ namespace BalayPasilungan
 
             dim.Location = this.Location;
             err.lblError.Text = message;
+            dim.refToExpense = this;
             dim.Show();
 
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
@@ -169,6 +170,7 @@ namespace BalayPasilungan
 
             dim.Location = this.Location;
             yey.lblSuccess.Text = message;
+            dim.refToExpense = this;
             dim.Show();
 
             if (yey.ShowDialog() == DialogResult.OK) dim.Close();
@@ -427,7 +429,8 @@ namespace BalayPasilungan
                     if (Convert.ToBoolean(row.Cells["check"].Value))
                     {
 
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO involvement(incidid, caseid, lastname, firstname) VALUES(" + incidid + ", '" + id + "', '" + lastname + "', '" + firstname + "')", conn);
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO involvement(incidid, caseid, lastname, firstname) SELECT * FROM (SELECT " + incidid + ", '" + id + "', '" + lastname + "', '" + firstname + "') AS temp WHERE" +
+                                            " NOT EXISTS (SELECT incidid, lastname, firstname FROM involvement WHERE incidid = " + incidid + " AND lastname = '" + lastname + "' AND firstname = '" + firstname + "')", conn);
 
                         comm.ExecuteNonQuery();
 
@@ -437,7 +440,7 @@ namespace BalayPasilungan
 
                     else
                     {
-                        MySqlCommand comm = new MySqlCommand("DELETE * FROM involvement WHERE lastname = '" + lastname + "' AND firstname = '" + firstname + "'", conn);
+                        MySqlCommand comm = new MySqlCommand("DELETE FROM involvement WHERE lastname = '" + lastname + "' AND firstname = '" + firstname + "' AND incidid = " + incidid, conn);
 
                         comm.ExecuteNonQuery();
 
@@ -914,25 +917,25 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT incident.incidid, type, incdate, venue, description, action, lastname, firstname FROM incident " +
-                                    "JOIN involvement ON incident.incidid = involvement.incidid WHERE incident.caseid = " + id,  conn);
+                MySqlCommand comm = new MySqlCommand("SELECT incident.incidid, type, incdate, venue, description, action FROM incident " +
+                                    "WHERE incident.caseid = " + id,  conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
+                MessageBox.Show(id.ToString());
                 adp.Fill(dt);
 
-                incidid = int.Parse(dt.Rows[0]["incidid"].ToString());
                 
-                txttypeincid.Text = dt.Rows[0]["type"].ToString();
-                txtincidlocation.Text = dt.Rows[0]["venue"].ToString();
-                rtxtinciddesc.Text = dt.Rows[0]["description"].ToString();
-                rtxtactiontaken.Text = dt.Rows[0]["action"].ToString();
+                    incidid = int.Parse(dt.Rows[0]["incidid"].ToString());
 
-                dateincid.Value = Convert.ToDateTime(dt.Rows[0]["incdate"]).Date;
+                    txttypeincid.Text = dt.Rows[0]["type"].ToString();
+                    txtincidlocation.Text = dt.Rows[0]["venue"].ToString();
+                    rtxtinciddesc.Text = dt.Rows[0]["description"].ToString();
+                    rtxtactiontaken.Text = dt.Rows[0]["action"].ToString();
 
-                
-                
+                    dateincid.Value = Convert.ToDateTime(dt.Rows[0]["incdate"]).Date;
+            
                 conn.Close();
             }
 
@@ -977,7 +980,7 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    if (checkinv.Checked)
+                    if (checkinv.Checked && mode == 1)
                     {
                         getincidid(id);
 
@@ -1004,6 +1007,8 @@ namespace BalayPasilungan
                 }
 
             }
+
+            
         }
 
         public void editincidrecord()
@@ -1012,8 +1017,8 @@ namespace BalayPasilungan
 
             if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
             {
-                //errorMessage("Please fill out empty fields.");
-                MessageBox.Show("Please fill out empty fields.");
+                errorMessage("Please fill out empty fields.");
+                //MessageBox.Show("Please fill out empty fields.");
             }
 
             else
@@ -1042,7 +1047,7 @@ namespace BalayPasilungan
 
                     comm.ExecuteNonQuery();
 
-                    if (checkinv.Checked)
+                    if (checkinv.Checked && mode == 1)
                     {
                         //getincidid(id);
 
@@ -1059,6 +1064,8 @@ namespace BalayPasilungan
                     tabControl.SelectedTab = twelfth;
 
                     reset5();
+
+                    
                 }
 
                 catch (Exception ee)
@@ -1069,6 +1076,8 @@ namespace BalayPasilungan
                 }
 
             }
+
+            
         }
 
         public void reloadeditinfo(int id)
@@ -2011,6 +2020,9 @@ namespace BalayPasilungan
             cbxmin.SelectedIndex = -1;
 
             dateincid.Value = DateTime.Now.Date;
+
+            checkinv.Enabled = true;
+            checkinv.Checked = false;
         }
 
         public void reset6()
@@ -2445,7 +2457,7 @@ namespace BalayPasilungan
                 btnaddinvolve.Text = "EDIT";
             }
 
-         
+            mode = 0;
             checkinv.Checked = false;
             checkinv.Enabled = true;
         }
@@ -3162,7 +3174,7 @@ namespace BalayPasilungan
             {
                 reloadinvcases();
             }
-           
+            mode = 1;
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
