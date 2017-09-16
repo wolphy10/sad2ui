@@ -725,24 +725,29 @@ namespace BalayPasilungan
                     else btnApprovedBR.Enabled = false;
                     conn.Close();
                 }
-                else if (type == 4)     // Get latest date requested and date donated for new budget requests
+                else if (type == 4)     // Get latest dates for finance viewing
                 {
                     adp = new MySqlDataAdapter("SELECT dateRequested FROM budget ORDER BY dateRequested DESC LIMIT 1", conn);
                     dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (dt.Rows[0]["dateRequested"].ToString() != "") lbllastDateBR.Text = DateTime.Parse(dt.Rows[0]["dateRequested"].ToString()).ToString("MMMM dd, yyyy");
+                    if (dt.Rows.Count != 0) lbllastDateBR.Text = DateTime.Parse(dt.Rows[0]["dateRequested"].ToString()).ToString("MMMM dd, yyyy");
                     else lbllastDateBR.Text = "None";                    
 
                     adp = new MySqlDataAdapter("SELECT dateDonated FROM monetary ORDER BY dateDonated DESC LIMIT 1", conn);
                     dt = new DataTable();
                     adp.Fill(dt);
 
-                    MessageBox.Show(dt.Rows[0]["dateDonated"].ToString());
-
-                    if (dt.Rows[0]["dateDonated"].ToString() != "") lblLastDonate.Text = DateTime.Parse(dt.Rows[0]["dateDonated"].ToString()).ToString("MMMM dd, yyyy");
+                    if (dt.Rows.Count != 0) lblLastDonate.Text = DateTime.Parse(dt.Rows[0]["dateDonated"].ToString()).ToString("MMMM dd, yyyy");
                     else lblLastDonate.Text = "None";
-                    
+
+                    adp = new MySqlDataAdapter("SELECT dateExpense FROM expense ORDER BY dateExpense DESC LIMIT 1", conn);
+                    dt = new DataTable();
+                    adp.Fill(dt);
+
+                    if (dt.Rows.Count != 0) lblLastExpense.Text = DateTime.Parse(dt.Rows[0]["dateExpense"].ToString()).ToString("MMMM dd, yyyy");
+                    else lblLastExpense.Text = "None";
+
                     conn.Close();
                 }
                 else if (type == 5)      // Get total donation sum for this month
@@ -750,6 +755,16 @@ namespace BalayPasilungan
                     adp = new MySqlDataAdapter("SELECT SUM(amount) as total FROM monetary WHERE MONTH(dateDonated) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
                     dt = new DataTable();
                     adp.Fill(dt);
+
+                    if (dt.Rows.Count != 0) lblTotalDonation.Text = dt.Rows[0]["total"].ToString();
+                    else lblTotalDonation.Text = "0.00";
+
+                    adp = new MySqlDataAdapter("SELECT SUM(amount) as total FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
+                    dt = new DataTable();
+                    adp.Fill(dt);
+
+                    if (dt.Rows.Count != 0) lblTotalExp.Text = dt.Rows[0]["total"].ToString();
+                    else lblTotalExp.Text = "0.00";                    
 
                     lblTotalDonation.Text = dt.Rows[0]["total"].ToString();
                     conn.Close();
@@ -1719,7 +1734,7 @@ namespace BalayPasilungan
         private void btnAddExp_Click(object sender, EventArgs e)
         {
             moneyDonate mD = overlay();
-            mD.tabSelection.SelectedIndex = 8;
+            mD.tabSelection.SelectedIndex = 8; mD.cbExpCat.SelectedIndex = 0;
             mD.hasExpense = true;
             mD.ShowDialog();
 
@@ -1832,21 +1847,16 @@ namespace BalayPasilungan
                     worksheet = workbook.ActiveSheet;
                     worksheet.Name = "Expenses";
 
-                    string[] category = {"Food", "Salary", "Communication, Lights, and Water", "Household Expenses", "Repair and Maintenance", "Depreciation Expense",
+                    string[] category = {"Food", "Salary", "Communication, Lights, and Water", "Household Expenses", "Repair and Maintenance", "Depreciation Expenses",
                     "SSS, PHIC, and HMDF", "Education", "Meeting and Conferences", "Transportation", "Spiritual Value Formation", "Medical and Dental Supplies",
                     "Recreation", "Clothing", "Office Supplies", "Skills and Development", "Taxes and Licenses", "Guidance and Counselling", "Professional Fees",
                     "Honorarium", "Printing and Advertising", "Insurance Expense"};
 
+                    // HEADERS
                     worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Merge();
                     worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Cells.WrapText = true;
                     worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                     worksheet.Cells[1, 1] = "MONTH";
-
-                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Merge();
-                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Cells.WrapText = true;
-                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                    worksheet.Cells[3, 1] = DateTime.Now;
-                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].NumberFormat = "mmmm yyyy";
 
                     for (int k = 5, cat = 0; cat < 22; k = k + 2, cat++)
                     {
@@ -1854,31 +1864,41 @@ namespace BalayPasilungan
                         worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                         worksheet.Cells[1, k] = category[cat];
-                    }
+                    } // END OF HEADERS
 
-                    MySqlDataAdapter adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
+                    MySqlDataAdapter adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn); DataTable dt = new DataTable(); adp.Fill(dt);
 
                     if (dt.Rows.Count > 0)
                     {
-                        for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
+                        MessageBox.Show(dt.Rows.Count.ToString());
+                        for (int count = 0, mon = 3; count < dt.Rows.Count; mon++)
                         {
-                            adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "'", conn);
-                            dt = new DataTable();
-                            adp.Fill(dt);
+                            adp = new MySqlDataAdapter("SELECT dateExpense FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn); dt = new DataTable(); adp.Fill(dt);
 
-                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Merge();
-                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Cells.WrapText = true;
-                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].NumberFormat = "#,##0.00";
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].Merge();
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].Cells.WrapText = true;
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            worksheet.Cells[mon, 1] = dt.Rows[count]["dateExpense"].ToString();
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].NumberFormat = "mmmm dd, yyyy";
 
-                            if (dt.Rows.Count > 0)
+                            for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
                             {
-                                if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[3, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
+                                adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "'", conn);
+                                dt = new DataTable();
+                                adp.Fill(dt);
+
+                                worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Merge();
+                                worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Cells.WrapText = true;
+                                worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                                worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].NumberFormat = "#,##0.00";
+
+                                if (dt.Rows.Count > 0)
+                                {
+                                    if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[3, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
+                                    else worksheet.Cells[3, i] = "0";
+                                }
                                 else worksheet.Cells[3, i] = "0";
                             }
-                            else worksheet.Cells[3, i] = "0";
                         }
                     }
                     else errorMessage("Cannot create an empty file.");           // LMAO

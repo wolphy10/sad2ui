@@ -2621,6 +2621,7 @@
             this.btnReport.TabIndex = 61;
             this.btnReport.Text = "GENERATE REPORT";
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // pictureBox22
             // 
@@ -2942,7 +2943,6 @@
         private System.Windows.Forms.TextBox txtExpAmt;
         private System.Windows.Forms.Label lblDotExp;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cbExpCat;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.DateTimePicker dateExp;
         private System.Windows.Forms.Label txtExpCurrent;
@@ -2965,5 +2965,6 @@
         private System.Windows.Forms.RadioButton rbMonths;
         private System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.TabPage tabExpOp;
+        public System.Windows.Forms.ComboBox cbExpCat;
     }
 }

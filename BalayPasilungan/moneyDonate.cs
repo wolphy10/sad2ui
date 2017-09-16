@@ -423,9 +423,9 @@ namespace BalayPasilungan
 
         private void dateExp_Leave(object sender, EventArgs e)
         {
-            MySqlDataAdapter adp = new MySqlDataAdapter("SELECT expenseID, amount FROM expense WHERE MONTH(dateExpense) = '" + dateExp.Value.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter("SELECT expenseID, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(dateExp.Value.Month.ToString()) + " AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
             DataTable dt = new DataTable(); adp.Fill(dt);
-            if (dt.Rows.Count == 0) txtExpCurrent.Text = "0.00";             
+            if (dt.Rows.Count == 0) txtExpCurrent.Text = "0.00";
             else
             {
                 txtExpCurrent.Text = dt.Rows[0]["amount"].ToString();
@@ -523,6 +523,11 @@ namespace BalayPasilungan
         {
             if (((TextBox)sender).Text == "00") ((TextBox)sender).Text = "";
             toYellow();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void txtAmount_TextChanged(object sender, EventArgs e)

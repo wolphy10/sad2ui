@@ -160,9 +160,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotalExp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblLastExpense = new System.Windows.Forms.Label();
             this.header3 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -1882,7 +1882,6 @@
             this.lblLastDonate.Name = "lblLastDonate";
             this.lblLastDonate.Size = new System.Drawing.Size(195, 21);
             this.lblLastDonate.TabIndex = 21;
-            this.lblLastDonate.Text = "February 01, 2009";
             this.lblLastDonate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // header1
@@ -1942,9 +1941,9 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.lblTotalExp);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.lblLastExpense);
             this.panel2.Controls.Add(this.header3);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox7);
@@ -1973,16 +1972,16 @@
             this.panel9.Size = new System.Drawing.Size(425, 142);
             this.panel9.TabIndex = 99;
             // 
-            // label6
+            // lblTotalExp
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label6.Location = new System.Drawing.Point(224, 86);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(195, 21);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "December 15, 2016";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalExp.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblTotalExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblTotalExp.Location = new System.Drawing.Point(224, 86);
+            this.lblTotalExp.Name = "lblTotalExp";
+            this.lblTotalExp.Size = new System.Drawing.Size(195, 21);
+            this.lblTotalExp.TabIndex = 25;
+            this.lblTotalExp.Text = "0.00";
+            this.lblTotalExp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -1995,16 +1994,15 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "LAST UPDATED";
             // 
-            // label10
+            // lblLastExpense
             // 
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label10.Location = new System.Drawing.Point(224, 51);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(195, 21);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "February 01, 2009";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLastExpense.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblLastExpense.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblLastExpense.Location = new System.Drawing.Point(224, 51);
+            this.lblLastExpense.Name = "lblLastExpense";
+            this.lblLastExpense.Size = new System.Drawing.Size(195, 21);
+            this.lblLastExpense.TabIndex = 21;
+            this.lblLastExpense.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // header3
             // 
@@ -3736,11 +3734,11 @@
             this.tabEx.Controls.Add(this.cbAll);
             this.tabEx.Controls.Add(this.label5);
             this.tabEx.Controls.Add(this.panelExp);
-            this.tabEx.Controls.Add(this.pictureBox17);
             this.tabEx.Controls.Add(this.btnResetCategory);
             this.tabEx.Controls.Add(this.btnExpOp);
             this.tabEx.Controls.Add(this.btnAddExp);
             this.tabEx.Controls.Add(this.btnExpLoad);
+            this.tabEx.Controls.Add(this.pictureBox17);
             this.tabEx.Location = new System.Drawing.Point(4, 25);
             this.tabEx.Name = "tabEx";
             this.tabEx.Padding = new System.Windows.Forms.Padding(3);
@@ -5196,10 +5194,10 @@
         private System.Windows.Forms.Label header2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTotalExp;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblLastExpense;
         private System.Windows.Forms.Label header3;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
