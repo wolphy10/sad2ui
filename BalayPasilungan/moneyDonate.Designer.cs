@@ -184,12 +184,28 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.noFocusRec7 = new BalayPasilungan.NoFocusRec();
-            this.noFocusRec9 = new BalayPasilungan.NoFocusRec();
+            this.btnExpBack = new BalayPasilungan.NoFocusRec();
             this.btnAddExp = new BalayPasilungan.NoFocusRec();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabExpOp = new System.Windows.Forms.TabPage();
-            this.btnExport = new BalayPasilungan.NoFocusRec();
+            this.label22 = new System.Windows.Forms.Label();
+            this.dateTo = new System.Windows.Forms.DateTimePicker();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.noFocusRec10 = new BalayPasilungan.NoFocusRec();
+            this.btnReportBack = new BalayPasilungan.NoFocusRec();
+            this.btnReport = new BalayPasilungan.NoFocusRec();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.rbAnnual = new System.Windows.Forms.RadioButton();
+            this.rbMonths = new System.Windows.Forms.RadioButton();
+            this.rbMonth = new System.Windows.Forms.RadioButton();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -235,6 +251,10 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.tabExpOp.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -271,7 +291,7 @@
             this.tabChoice.Size = new System.Drawing.Size(512, 376);
             this.tabChoice.TabIndex = 0;
             this.tabChoice.Text = "tabPage1";
-            this.tabChoice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabChoice_MouseDown);
+            this.tabChoice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // btnClose
             // 
@@ -380,6 +400,7 @@
             this.tabCash.Size = new System.Drawing.Size(512, 376);
             this.tabCash.TabIndex = 1;
             this.tabCash.Text = " ";
+            this.tabCash.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // upPanel
             // 
@@ -391,6 +412,7 @@
             this.upPanel.Name = "upPanel";
             this.upPanel.Size = new System.Drawing.Size(512, 33);
             this.upPanel.TabIndex = 17;
+            this.upPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label1
             // 
@@ -616,6 +638,7 @@
             this.tabCheck.TabIndex = 2;
             this.tabCheck.Text = "tabPage1";
             this.tabCheck.UseVisualStyleBackColor = true;
+            this.tabCheck.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // txtBank
             // 
@@ -664,6 +687,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(512, 33);
             this.panel1.TabIndex = 49;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label2
             // 
@@ -928,6 +952,7 @@
             this.tabCashEdit.TabIndex = 3;
             this.tabCashEdit.Text = "tabPage1";
             this.tabCashEdit.UseVisualStyleBackColor = true;
+            this.tabCashEdit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // panel2
             // 
@@ -939,6 +964,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(512, 33);
             this.panel2.TabIndex = 39;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label3
             // 
@@ -982,7 +1008,7 @@
             this.btnCashBack2.Text = "GO BACK";
             this.btnCashBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCashBack2.UseVisualStyleBackColor = false;
-            this.btnCashBack2.Click += new System.EventHandler(this.btnCashBack2_Click);
+            this.btnCashBack2.Click += new System.EventHandler(this.btn_Close);
             // 
             // pictureBox4
             // 
@@ -1162,6 +1188,7 @@
             this.tabCheckEdit.TabIndex = 4;
             this.tabCheckEdit.Text = "tabPage2";
             this.tabCheckEdit.UseVisualStyleBackColor = true;
+            this.tabCheckEdit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // btnEditCheck
             // 
@@ -1210,6 +1237,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(512, 33);
             this.panel3.TabIndex = 69;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label4
             // 
@@ -1253,7 +1281,7 @@
             this.btnCheckBack2.Text = "GO BACK";
             this.btnCheckBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckBack2.UseVisualStyleBackColor = false;
-            this.btnCheckBack2.Click += new System.EventHandler(this.btnCashBack2_Click);
+            this.btnCheckBack2.Click += new System.EventHandler(this.btn_Close);
             // 
             // dateCheck2
             // 
@@ -1470,6 +1498,7 @@
             this.tabIK.TabIndex = 5;
             this.tabIK.Text = "tabPage1";
             this.tabIK.UseVisualStyleBackColor = true;
+            this.tabIK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // txtQuantity
             // 
@@ -1528,6 +1557,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(512, 33);
             this.panel4.TabIndex = 25;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label5
             // 
@@ -1676,6 +1706,7 @@
             this.tabIKEdit.TabIndex = 6;
             this.tabIKEdit.Text = "tabPage2";
             this.tabIKEdit.UseVisualStyleBackColor = true;
+            this.tabIKEdit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // btnEditIK
             // 
@@ -1749,6 +1780,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(512, 33);
             this.panel5.TabIndex = 36;
+            this.panel5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label8
             // 
@@ -1884,6 +1916,7 @@
             this.tabBRDetails.TabIndex = 7;
             this.tabBRDetails.Text = "tabBRDetails";
             this.tabBRDetails.UseVisualStyleBackColor = true;
+            this.tabBRDetails.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // txtBRTotal
             // 
@@ -1964,6 +1997,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(512, 33);
             this.panel6.TabIndex = 40;
+            this.panel6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // lbltabBRDetails
             // 
@@ -2122,6 +2156,7 @@
             this.tabExp.Text = "tabPage1";
             this.tabExp.UseVisualStyleBackColor = true;
             this.tabExp.Click += new System.EventHandler(this.tabExp_Click);
+            this.tabExp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // thisMonth
             // 
@@ -2218,7 +2253,7 @@
             this.txtExpCurrent.Name = "txtExpCurrent";
             this.txtExpCurrent.Size = new System.Drawing.Size(332, 58);
             this.txtExpCurrent.TabIndex = 57;
-            this.txtExpCurrent.Text = "0,000,000,000.00";
+            this.txtExpCurrent.Text = "0.00";
             this.txtExpCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label19
@@ -2243,7 +2278,7 @@
             this.txtExpAmt.Name = "txtExpAmt";
             this.txtExpAmt.Size = new System.Drawing.Size(274, 54);
             this.txtExpAmt.TabIndex = 1;
-            this.txtExpAmt.Text = "0,000,000,000";
+            this.txtExpAmt.Text = "0";
             this.txtExpAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtExpAmt.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtExpAmt.Enter += new System.EventHandler(this.txt_Enter);
@@ -2329,11 +2364,12 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Controls.Add(this.label16);
             this.panel7.Controls.Add(this.noFocusRec7);
-            this.panel7.Controls.Add(this.noFocusRec9);
+            this.panel7.Controls.Add(this.btnExpBack);
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(512, 33);
             this.panel7.TabIndex = 54;
+            this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // label16
             // 
@@ -2360,24 +2396,24 @@
             this.noFocusRec7.Text = "X";
             this.noFocusRec7.UseVisualStyleBackColor = true;
             // 
-            // noFocusRec9
+            // btnExpBack
             // 
-            this.noFocusRec9.BackColor = System.Drawing.Color.Transparent;
-            this.noFocusRec9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.noFocusRec9.FlatAppearance.BorderSize = 0;
-            this.noFocusRec9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.noFocusRec9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.noFocusRec9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noFocusRec9.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.noFocusRec9.ForeColor = System.Drawing.Color.White;
-            this.noFocusRec9.Location = new System.Drawing.Point(6, 8);
-            this.noFocusRec9.Name = "noFocusRec9";
-            this.noFocusRec9.Size = new System.Drawing.Size(76, 22);
-            this.noFocusRec9.TabIndex = 4;
-            this.noFocusRec9.Text = "GO BACK";
-            this.noFocusRec9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.noFocusRec9.UseVisualStyleBackColor = false;
-            this.noFocusRec9.Click += new System.EventHandler(this.btn_Close);
+            this.btnExpBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnExpBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExpBack.FlatAppearance.BorderSize = 0;
+            this.btnExpBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExpBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExpBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnExpBack.ForeColor = System.Drawing.Color.White;
+            this.btnExpBack.Location = new System.Drawing.Point(6, 8);
+            this.btnExpBack.Name = "btnExpBack";
+            this.btnExpBack.Size = new System.Drawing.Size(76, 22);
+            this.btnExpBack.TabIndex = 4;
+            this.btnExpBack.Text = "GO BACK";
+            this.btnExpBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExpBack.UseVisualStyleBackColor = false;
+            this.btnExpBack.Click += new System.EventHandler(this.btn_Close);
             // 
             // btnAddExp
             // 
@@ -2417,7 +2453,17 @@
             // 
             // tabExpOp
             // 
-            this.tabExpOp.Controls.Add(this.btnExport);
+            this.tabExpOp.Controls.Add(this.label22);
+            this.tabExpOp.Controls.Add(this.dateTo);
+            this.tabExpOp.Controls.Add(this.label21);
+            this.tabExpOp.Controls.Add(this.label20);
+            this.tabExpOp.Controls.Add(this.label14);
+            this.tabExpOp.Controls.Add(this.dateFrom);
+            this.tabExpOp.Controls.Add(this.panel8);
+            this.tabExpOp.Controls.Add(this.btnReport);
+            this.tabExpOp.Controls.Add(this.pictureBox22);
+            this.tabExpOp.Controls.Add(this.pictureBox23);
+            this.tabExpOp.Controls.Add(this.panel9);
             this.tabExpOp.Location = new System.Drawing.Point(4, 22);
             this.tabExpOp.Name = "tabExpOp";
             this.tabExpOp.Padding = new System.Windows.Forms.Padding(3);
@@ -2425,15 +2471,235 @@
             this.tabExpOp.TabIndex = 9;
             this.tabExpOp.Text = "tabPage1";
             this.tabExpOp.UseVisualStyleBackColor = true;
+            this.tabExpOp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
-            // btnExport
+            // label22
             // 
-            this.btnExport.Location = new System.Drawing.Point(159, 114);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(265, 47);
-            this.btnExport.TabIndex = 41;
-            this.btnExport.Text = "noFocusRec10";
-            this.btnExport.UseVisualStyleBackColor = true;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label22.Location = new System.Drawing.Point(19, 287);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(21, 13);
+            this.label22.TabIndex = 71;
+            this.label22.Text = "TO";
+            // 
+            // dateTo
+            // 
+            this.dateTo.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateTo.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateTo.CustomFormat = "MMMM yyyy";
+            this.dateTo.Enabled = false;
+            this.dateTo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTo.Location = new System.Drawing.Point(165, 279);
+            this.dateTo.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateTo.Name = "dateTo";
+            this.dateTo.Size = new System.Drawing.Size(227, 29);
+            this.dateTo.TabIndex = 70;
+            this.dateTo.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label21.Location = new System.Drawing.Point(19, 235);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(39, 13);
+            this.label21.TabIndex = 68;
+            this.label21.Text = "FROM";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label20.Location = new System.Drawing.Point(18, 59);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(98, 19);
+            this.label20.TabIndex = 67;
+            this.label20.Text = "SELECT MODE";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label14.Location = new System.Drawing.Point(19, 111);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 13);
+            this.label14.TabIndex = 64;
+            this.label14.Text = "DATE OF EXPENSE";
+            // 
+            // dateFrom
+            // 
+            this.dateFrom.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateFrom.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateFrom.CustomFormat = "MMMM yyyy";
+            this.dateFrom.Enabled = false;
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFrom.Location = new System.Drawing.Point(165, 227);
+            this.dateFrom.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(227, 29);
+            this.dateFrom.TabIndex = 65;
+            this.dateFrom.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel8.Controls.Add(this.label18);
+            this.panel8.Controls.Add(this.noFocusRec10);
+            this.panel8.Controls.Add(this.btnReportBack);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(512, 33);
+            this.panel8.TabIndex = 63;
+            this.panel8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label18.Location = new System.Drawing.Point(347, 8);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(159, 19);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Generate Month Record";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec10
+            // 
+            this.noFocusRec10.FlatAppearance.BorderSize = 0;
+            this.noFocusRec10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec10.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec10.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec10.Name = "noFocusRec10";
+            this.noFocusRec10.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec10.TabIndex = 11;
+            this.noFocusRec10.Text = "X";
+            this.noFocusRec10.UseVisualStyleBackColor = true;
+            // 
+            // btnReportBack
+            // 
+            this.btnReportBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReportBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnReportBack.FlatAppearance.BorderSize = 0;
+            this.btnReportBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReportBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReportBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnReportBack.ForeColor = System.Drawing.Color.White;
+            this.btnReportBack.Location = new System.Drawing.Point(6, 8);
+            this.btnReportBack.Name = "btnReportBack";
+            this.btnReportBack.Size = new System.Drawing.Size(76, 22);
+            this.btnReportBack.TabIndex = 4;
+            this.btnReportBack.Text = "GO BACK";
+            this.btnReportBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportBack.UseVisualStyleBackColor = false;
+            this.btnReportBack.Click += new System.EventHandler(this.btn_Close);
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnReport.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnReport.Enabled = false;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(0, 336);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(512, 40);
+            this.btnReport.TabIndex = 61;
+            this.btnReport.Text = "GENERATE REPORT";
+            this.btnReport.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
+            this.pictureBox22.Location = new System.Drawing.Point(12, 72);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox22.TabIndex = 62;
+            this.pictureBox22.TabStop = false;
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
+            this.pictureBox23.Location = new System.Drawing.Point(12, 186);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox23.TabIndex = 69;
+            this.pictureBox23.TabStop = false;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.rbAnnual);
+            this.panel9.Controls.Add(this.rbMonths);
+            this.panel9.Controls.Add(this.rbMonth);
+            this.panel9.Location = new System.Drawing.Point(165, 104);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(313, 83);
+            this.panel9.TabIndex = 72;
+            // 
+            // rbAnnual
+            // 
+            this.rbAnnual.AutoSize = true;
+            this.rbAnnual.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbAnnual.FlatAppearance.BorderSize = 0;
+            this.rbAnnual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbAnnual.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.rbAnnual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbAnnual.Location = new System.Drawing.Point(3, 54);
+            this.rbAnnual.Name = "rbAnnual";
+            this.rbAnnual.Size = new System.Drawing.Size(62, 19);
+            this.rbAnnual.TabIndex = 69;
+            this.rbAnnual.TabStop = true;
+            this.rbAnnual.Text = "Annual";
+            this.rbAnnual.UseVisualStyleBackColor = true;
+            this.rbAnnual.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
+            // 
+            // rbMonths
+            // 
+            this.rbMonths.AutoSize = true;
+            this.rbMonths.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbMonths.FlatAppearance.BorderSize = 0;
+            this.rbMonths.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbMonths.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.rbMonths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbMonths.Location = new System.Drawing.Point(3, 29);
+            this.rbMonths.Name = "rbMonths";
+            this.rbMonths.Size = new System.Drawing.Size(110, 19);
+            this.rbMonths.TabIndex = 68;
+            this.rbMonths.TabStop = true;
+            this.rbMonths.Text = "Multiple months";
+            this.rbMonths.UseVisualStyleBackColor = true;
+            this.rbMonths.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
+            // 
+            // rbMonth
+            // 
+            this.rbMonth.AutoSize = true;
+            this.rbMonth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbMonth.FlatAppearance.BorderSize = 0;
+            this.rbMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbMonth.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.rbMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbMonth.Location = new System.Drawing.Point(3, 4);
+            this.rbMonth.Name = "rbMonth";
+            this.rbMonth.Size = new System.Drawing.Size(109, 19);
+            this.rbMonth.TabIndex = 67;
+            this.rbMonth.TabStop = true;
+            this.rbMonth.Text = "This month only";
+            this.rbMonth.UseVisualStyleBackColor = true;
+            this.rbMonth.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
             // 
             // moneyDonate
             // 
@@ -2510,6 +2776,13 @@
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.tabExpOp.ResumeLayout(false);
+            this.tabExpOp.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2660,7 +2933,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label16;
         private NoFocusRec noFocusRec7;
-        private NoFocusRec noFocusRec9;
+        private NoFocusRec btnExpBack;
         private NoFocusRec btnAddExp;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.TextBox txtExpCent;
@@ -2674,7 +2947,23 @@
         public System.Windows.Forms.DateTimePicker dateExp;
         private System.Windows.Forms.Label txtExpCurrent;
         private System.Windows.Forms.CheckBox thisMonth;
-        private System.Windows.Forms.TabPage tabExpOp;
-        private NoFocusRec btnExport;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.DateTimePicker dateFrom;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label18;
+        private NoFocusRec noFocusRec10;
+        private NoFocusRec btnReportBack;
+        private NoFocusRec btnReport;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.PictureBox pictureBox23;
+        private System.Windows.Forms.Label label22;
+        public System.Windows.Forms.DateTimePicker dateTo;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.RadioButton rbMonth;
+        private System.Windows.Forms.RadioButton rbMonths;
+        private System.Windows.Forms.RadioButton rbAnnual;
+        public System.Windows.Forms.TabPage tabExpOp;
     }
 }

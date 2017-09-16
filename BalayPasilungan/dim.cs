@@ -12,9 +12,22 @@ namespace BalayPasilungan
 {
     public partial class dim : Form
     {
+        public Form refToExpense { get; set; }
+
         public dim()
         {
             InitializeComponent();
+        }
+
+        private void dim_Load(object sender, EventArgs e)
+        {
+            refToExpense.Enabled = false;
+        }
+
+        private void dim_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            refToExpense.Enabled = true;            
+            refToExpense.Focus();
         }
     }
 }

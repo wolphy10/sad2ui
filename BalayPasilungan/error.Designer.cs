@@ -96,7 +96,9 @@
             this.Controls.Add(this.lblError);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "error";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);
 

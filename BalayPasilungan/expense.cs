@@ -128,12 +128,11 @@ namespace BalayPasilungan
         {
             moneyDonate mD = new moneyDonate();
             dim dim = new dim();
-
-            this.Enabled = false;
+                        
             dim.Location = this.Location;
-            dim.Show();
+            dim.refToExpense = this;
+            dim.Show(this);
             mD.refToDim = dim;
-            mD.refToExpense = this;
 
             return mD;
         }
@@ -145,7 +144,8 @@ namespace BalayPasilungan
 
             dim.Location = this.Location;
             err.lblError.Text = message;
-            dim.Show();
+            dim.refToExpense = this;
+            dim.Show(this);
 
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
@@ -157,7 +157,8 @@ namespace BalayPasilungan
 
             dim.Location = this.Location;
             yey.lblSuccess.Text = message;
-            dim.Show();
+            dim.refToExpense = this;
+            dim.Show(this);
 
             if (yey.ShowDialog() == DialogResult.OK) dim.Close();
         }
@@ -168,9 +169,10 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToExpense = this;
+            dim.Show(this);            
+            
             conf.lblConfirm.Text = message;
-            dim.Show();
-
             if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
             else confirmed = false;
             dim.Close();
@@ -180,6 +182,11 @@ namespace BalayPasilungan
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
         }       // Numbers only
+        
+        private void tableNoSelect_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            ((DataGridView)sender).ClearSelection(); 
+        }
         #endregion
 
         #region Main Buttons (Taskbar and Close)
@@ -214,7 +221,8 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
-            dim.Show();
+            dim.refToExpense = this;
+            dim.Show(this);
             conf.lblConfirm.Text = "Are you sure you want to leave?";
             conf.refToExpense = this;
 
@@ -406,6 +414,8 @@ namespace BalayPasilungan
                 }
                 else if (type == 6)          // Expenses Table
                 {
+
+
                     expList.DataSource = dt;
                     if (dt.Rows.Count == 0)
                     {
@@ -1464,7 +1474,6 @@ namespace BalayPasilungan
             moneyDonate mD = overlay();
             mD.budgetID = current_budgetID;
             mD.tabSelection.SelectedIndex = 7;
-            mD.refToExpense = this;
             mD.ShowDialog();
 
             MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
@@ -1520,7 +1529,7 @@ namespace BalayPasilungan
 
         private void BRDetails_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && !empty) current_item = int.Parse(BRDetails.Rows[e.RowIndex].Cells[0].FormattedValue.ToString());            
+            if (e.RowIndex != -1 && !empty) current_item = int.Parse(((DataGridView)sender).Rows[e.RowIndex].Cells[0].FormattedValue.ToString());            
         }
 
         private void btnBRNext_Click(object sender, EventArgs e)
@@ -1700,7 +1709,6 @@ namespace BalayPasilungan
         {
             moneyDonate mD = overlay();
             mD.tabSelection.SelectedIndex = 8;
-            mD.refToExpense = this;
             mD.hasExpense = true;
             mD.ShowDialog();
 
@@ -1741,20 +1749,20 @@ namespace BalayPasilungan
                 }
                 else
                 {
-                    MessageBox.Show("here");
                     int row = approvedBRList.CurrentCell.RowIndex;
                     comm = new MySqlCommand("SELECT category, budgetTotal, budgetID FROM budget WHERE budgetID = " + int.Parse(approvedBRList.Rows[row].Cells[0].Value.ToString()), conn);                  
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
-
-                    MessageBox.Show("here2");
-                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount, budgetID) VALUES ('" + DateTime.Now + "', '" + dt.Rows[0]["category"].ToString() + "', " + decimal.Parse(dt.Rows[0]["amount"].ToString()) + ", " + int.Parse(dt.Rows[0]["budgetID"].ToString()) + ")", conn);
-                    comm.ExecuteNonQuery();
                     
+                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount, budgetID) VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + dt.Rows[0]["category"].ToString() + "', " + decimal.Parse(dt.Rows[0]["budgetTotal"].ToString()) + ", " + int.Parse(dt.Rows[0]["budgetID"].ToString()) + ")", conn);
+                    comm.ExecuteNonQuery();
+
+                    comm = new MySqlCommand("UPDATE budget SET status = 'Expense' WHERE budgetID = " + int.Parse(dt.Rows[0]["budgetID"].ToString()), conn);
+                    comm.ExecuteNonQuery();
+
                     successMessage("Budget has been exported successfully as expense record.");
                 }
-
                 conn.Close();
             }
             catch (Exception ex)
@@ -1795,97 +1803,106 @@ namespace BalayPasilungan
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            moneyDonate mD = overlay();
+            mD.hasExpense = true;
+            mD.dateFrom.MaxDate = mD.dateTo.MaxDate = DateTime.Today;
+            mD.dateFrom.Value = mD.dateTo.Value = DateTime.Today;
+            mD.tabSelection.SelectedIndex = 9;
 
-            try
-            {
-                conn.Open();
-                worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Expenses";
+            if (mD.ShowDialog() == DialogResult.OK)
+            {   
+                Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
 
-                string[] category = {"Food", "Salary", "Communication, Lights, and Water", "Household Expenses", "Repair and Maintenance", "Depreciation Expense",
+                try
+                {
+                    conn.Open();
+                    worksheet = workbook.ActiveSheet;
+                    worksheet.Name = "Expenses";
+
+                    string[] category = {"Food", "Salary", "Communication, Lights, and Water", "Household Expenses", "Repair and Maintenance", "Depreciation Expense",
                     "SSS, PHIC, and HMDF", "Education", "Meeting and Conferences", "Transportation", "Spiritual Value Formation", "Medical and Dental Supplies",
                     "Recreation", "Clothing", "Office Supplies", "Skills and Development", "Taxes and Licenses", "Guidance and Counselling", "Professional Fees",
                     "Honorarium", "Printing and Advertising", "Insurance Expense"};
 
-                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Merge();
-                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Cells.WrapText = true;
-                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                worksheet.Cells[1, 1] = "MONTH";
+                    worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Merge();
+                    worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Cells.WrapText = true;
+                    worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    worksheet.Cells[1, 1] = "MONTH";
 
-                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Merge();
-                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Cells.WrapText = true;
-                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                worksheet.Cells[3, 1] = DateTime.Now;
-                worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].NumberFormat = "mmmm yyyy";
+                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Merge();
+                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].Cells.WrapText = true;
+                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                    worksheet.Cells[3, 1] = DateTime.Now;
+                    worksheet.Range[worksheet.Cells[3, 1], worksheet.Cells[3, 4]].NumberFormat = "mmmm yyyy";
 
-                for (int k = 5, cat = 0; cat < 22; k = k + 2, cat++)
-                {
-                    worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Merge();
-                    worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Cells.WrapText = true;
-                    worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                    worksheet.Cells[1, k] = category[cat];
-                }
-
-                MySqlDataAdapter adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
+                    for (int k = 5, cat = 0; cat < 22; k = k + 2, cat++)
                     {
-                        adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "'", conn);
-                        dt = new DataTable();
-                        adp.Fill(dt);
+                        worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Merge();
+                        worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[1, k], worksheet.Cells[2, k + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Cells[1, k] = category[cat];
+                    }
 
-                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Merge();
-                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Cells.WrapText = true;
-                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                        worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].NumberFormat = "#,##0.00";
+                    MySqlDataAdapter adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
 
-                        if (dt.Rows.Count > 0)
+                    if (dt.Rows.Count > 0)
+                    {
+                        for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
                         {
-                            if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[3, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
+                            adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "'", conn);
+                            dt = new DataTable();
+                            adp.Fill(dt);
+
+                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Merge();
+                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].Cells.WrapText = true;
+                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            worksheet.Range[worksheet.Cells[3, i], worksheet.Cells[3, i + 1]].NumberFormat = "#,##0.00";
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[3, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
+                                else worksheet.Cells[3, i] = "0";
+                            }
                             else worksheet.Cells[3, i] = "0";
                         }
-                        else worksheet.Cells[3, i] = "0";
                     }
+                    else errorMessage("Cannot create an empty file.");           // LMAO
+
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveDialog.FilterIndex = 1;
+
+                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        workbook.SaveAs(saveDialog.FileName);
+                        successMessage("Export to Excel has been successful.");
+                    }
+                    conn.Close();
                 }
-                else errorMessage("Cannot create an empty file.");           // LMAO
-
-                SaveFileDialog saveDialog = new SaveFileDialog();
-                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                saveDialog.FilterIndex = 1;
-
-                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                catch (Exception ex)
                 {
-                    workbook.SaveAs(saveDialog.FileName);
-                    successMessage("Export to Excel has been successful.");
+                    errorMessage(ex.Message);
                 }
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                errorMessage(ex.Message);
-            }
-            finally
-            {
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                finally
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
 
-                Marshal.FinalReleaseComObject(worksheet);
+                    Marshal.FinalReleaseComObject(worksheet);
 
-                workbook.Close(Type.Missing, Type.Missing, Type.Missing);
-                Marshal.FinalReleaseComObject(workbook);
+                    workbook.Close(Type.Missing, Type.Missing, Type.Missing);
+                    Marshal.FinalReleaseComObject(workbook);
 
-                excel.Quit();
-                Marshal.FinalReleaseComObject(excel);
-                workbook = null; excel = null;
+                    excel.Quit();
+                    Marshal.FinalReleaseComObject(excel);
+                    workbook = null; excel = null;
+                }
             }
             panelExpOp.Visible = false;
         }

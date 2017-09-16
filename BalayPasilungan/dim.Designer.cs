@@ -36,17 +36,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1024, 700);
-            this.Enabled = false;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(-500, -500);
             this.Name = "dim";
             this.Opacity = 0.7D;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "dim";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.dim_FormClosing);
+            this.Load += new System.EventHandler(this.dim_Load);
             this.ResumeLayout(false);
-
-            this.ShowInTaskbar = false;
 
         }
 

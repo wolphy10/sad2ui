@@ -116,8 +116,10 @@
             this.Controls.Add(this.pbHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "confirm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "confirm";
+            this.TopMost = true;
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.upPanel_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             this.ResumeLayout(false);

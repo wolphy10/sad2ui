@@ -18,11 +18,9 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public int donorID, donationID, budgetID;
-
-        public Form refToExpense { get; set; }
+        
         public Form refToDim { get; set; }
         public bool hasExpense;
-        public bool existingExpense = false;                // True - override amount for existing expense record
         public int existingExpenseID;
 
         public moneyDonate()
@@ -40,8 +38,6 @@ namespace BalayPasilungan
         private void moneyDonate_FormClosing(object sender, FormClosingEventArgs e)
         {
             refToDim.Close();
-            refToExpense.Enabled = true;
-            refToExpense.Focus();
         }
 
         #region Movable Form
@@ -54,15 +50,6 @@ namespace BalayPasilungan
         public static extern bool ReleaseCapture();
 
         private void moneyDonate_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        private void tabChoice_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -109,13 +96,7 @@ namespace BalayPasilungan
         public void successMessage(string message)            // Success Message
         {
             success yey = new success();
-            dim dim = new dim();
-
-            dim.Location = refToExpense.Location;
             yey.lblSuccess.Text = message;
-            dim.Show();
-
-            if (yey.ShowDialog() == DialogResult.OK) dim.Close();
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -201,14 +182,9 @@ namespace BalayPasilungan
             txtOR.Clear(); txtCheckOR.Clear(); txtCheckNo.Clear();
         }
 
-        private void btnCashBack2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            refToExpense.Enabled = true;
-        }
-
         private void btn_Close(object sender, EventArgs e)
         {
+
             this.Close();
         }
         #endregion
@@ -416,24 +392,33 @@ namespace BalayPasilungan
         }
 
         #endregion
-
+        
         #region Expense   
         private void cbExpCat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlDataAdapter adp = new MySqlDataAdapter("", conn);
-            if(thisMonth.Checked) adp = new MySqlDataAdapter("SELECT amount, expenseID FROM expense WHERE MONTH(dateExpense) = '" + DateTime.Now.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
-            else adp = new MySqlDataAdapter("SELECT amount, expenseID FROM expense WHERE MONTH(dateExpense) = '" + dateExp.Value.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
-            DataTable dt = new DataTable(); adp.Fill(dt);
-            if (dt.Rows.Count == 0) txtExpCurrent.Text = "0.00";
-            else
+            try
             {
-                txtExpCurrent.Text = dt.Rows[0]["amount"].ToString();
-                existingExpenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
-                existingExpense = true;
-            }
+                conn.Open();
+                MySqlDataAdapter adp = new MySqlDataAdapter("", conn);
+                if (thisMonth.Checked) adp = new MySqlDataAdapter("SELECT COUNT(expenseID), SUM(amount), expenseID FROM expense WHERE MONTH(dateExpense) = '" + DateTime.Now.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
+                else adp = new MySqlDataAdapter("SELECT COUNT(expenseID), SUM(amount), expenseID FROM expense WHERE MONTH(dateExpense) = '" + dateExp.Value.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
+                DataTable dt = new DataTable(); adp.Fill(dt);
 
-            if (cbExpCat.SelectedItem.ToString() == "") btnAddExp.Enabled = false;
-            else btnAddExp.Enabled = true;
+                if (decimal.Parse(dt.Rows[0]["count(expenseID)"].ToString()) == 0) txtExpCurrent.Text = "0.00";
+                else
+                {
+                    txtExpCurrent.Text = dt.Rows[0]["SUM(amount)"].ToString();
+                    existingExpenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
+                }
+
+                if (cbExpCat.SelectedItem.ToString() == "") btnAddExp.Enabled = false;
+                else btnAddExp.Enabled = true;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dateExp_Leave(object sender, EventArgs e)
@@ -445,7 +430,6 @@ namespace BalayPasilungan
             {
                 txtExpCurrent.Text = dt.Rows[0]["amount"].ToString();
                 existingExpenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
-                existingExpense = true;
             }
         }
 
@@ -464,36 +448,20 @@ namespace BalayPasilungan
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("");
-
-                if (!existingExpense)
-                {
-                    if (thisMonth.Checked)
+                MySqlCommand comm = new MySqlCommand("", conn);
+                if (thisMonth.Checked)
                     {
                         comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
                             + " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
                     }
-                    else
+                else
                     {
                         comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
                             + " VALUES ('" + dateExp.Value.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
                     }
-
-                    comm.ExecuteNonQuery();
-
-                    // Get latest expenseID (previous addition)                
-                    MySqlDataAdapter adp = new MySqlDataAdapter("SELECT expenseID FROM expense ORDER BY expenseID DESC LIMIT 1", conn);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    int expenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
-
-                    comm = new MySqlCommand("UPDATE expense SET amount = " + decimal.Parse(txtExpTotal.Text) + " WHERE expenseID = " + expenseID, conn);                    
-                }
-                else comm = new MySqlCommand("UPDATE expense SET amount = " + decimal.Parse(txtExpTotal.Text) + " WHERE expenseID = " + existingExpenseID, conn);                
-                successMessage("New expense record has been added successfully.");
                 comm.ExecuteNonQuery();
-                conn.Close();
-                this.Close();
+                successMessage("New expense record has been added successfully.");
+                conn.Close(); this.Close();
             }
             catch(Exception ex)
             {
@@ -572,7 +540,12 @@ namespace BalayPasilungan
         #endregion
 
         #region Expense Options
-        
+        private void ExpMode_CheckedChanged(object sender, EventArgs e)
+        {
+            btnReport.Enabled = true;
+            if (((RadioButton)sender).Name == "rbMonth" || ((RadioButton)sender).Name == "rbAnnual") dateFrom.Enabled = dateTo.Enabled = false;
+            else if (((RadioButton)sender).Name == "rbMonths") dateFrom.Enabled = dateTo.Enabled = true;
+        }
         #endregion
     }
 }
