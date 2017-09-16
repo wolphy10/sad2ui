@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EvEditDetails));
             this.btnClose = new System.Windows.Forms.Button();
             this.upPanel = new System.Windows.Forms.Panel();
-            this.editView = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
             this.tcEdit = new System.Windows.Forms.TabControl();
             this.tpEditView = new System.Windows.Forms.TabPage();
+            this.editListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtEdit = new System.Windows.Forms.TabPage();
             this.btnLock1 = new System.Windows.Forms.Button();
             this.btnEType = new System.Windows.Forms.Button();
@@ -61,8 +61,6 @@
             this.dateEdit = new System.Windows.Forms.TabPage();
             this.btnLock2 = new System.Windows.Forms.Button();
             this.btnBack2 = new System.Windows.Forms.Button();
-            this.lbStraight = new System.Windows.Forms.Label();
-            this.lbBlock = new System.Windows.Forms.Label();
             this.lbAllDay = new System.Windows.Forms.Label();
             this.lbTo = new System.Windows.Forms.Label();
             this.lbFrom = new System.Windows.Forms.Label();
@@ -84,7 +82,6 @@
             this.btnAllDay = new System.Windows.Forms.Button();
             this.lblETime = new System.Windows.Forms.Label();
             this.lblEDate = new System.Windows.Forms.Label();
-            this.btnTmRng = new System.Windows.Forms.Button();
             this.btnRAllDay = new System.Windows.Forms.Button();
             this.panelEMins2 = new System.Windows.Forms.Panel();
             this.txtEMins2 = new System.Windows.Forms.TextBox();
@@ -122,7 +119,6 @@
             this.btnBudget = new System.Windows.Forms.Button();
             this.btnRemind = new System.Windows.Forms.Button();
             this.upPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editView)).BeginInit();
             this.tcEdit.SuspendLayout();
             this.tpEditView.SuspendLayout();
             this.txtEdit.SuspendLayout();
@@ -165,38 +161,6 @@
             this.upPanel.Size = new System.Drawing.Size(1016, 31);
             this.upPanel.TabIndex = 2;
             // 
-            // editView
-            // 
-            this.editView.BackgroundColor = System.Drawing.Color.White;
-            this.editView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.editView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.editView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.editView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.editView.EnableHeadersVisualStyles = false;
-            this.editView.Location = new System.Drawing.Point(22, 98);
-            this.editView.Name = "editView";
-            this.editView.RowHeadersVisible = false;
-            this.editView.RowTemplate.Height = 24;
-            this.editView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.editView.Size = new System.Drawing.Size(963, 613);
-            this.editView.TabIndex = 3;
-            this.editView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.editView_CellClick);
-            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(174)))), ((int)(((byte)(138)))));
@@ -228,13 +192,38 @@
             // tpEditView
             // 
             this.tpEditView.BackColor = System.Drawing.Color.Turquoise;
+            this.tpEditView.Controls.Add(this.editListView);
             this.tpEditView.Controls.Add(this.btnSave);
-            this.tpEditView.Controls.Add(this.editView);
             this.tpEditView.Location = new System.Drawing.Point(4, 25);
             this.tpEditView.Name = "tpEditView";
             this.tpEditView.Padding = new System.Windows.Forms.Padding(3);
             this.tpEditView.Size = new System.Drawing.Size(1018, 734);
             this.tpEditView.TabIndex = 0;
+            // 
+            // editListView
+            // 
+            this.editListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.editListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editListView.FullRowSelect = true;
+            this.editListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.editListView.Location = new System.Drawing.Point(44, 107);
+            this.editListView.Name = "editListView";
+            this.editListView.Size = new System.Drawing.Size(931, 579);
+            this.editListView.TabIndex = 7;
+            this.editListView.UseCompatibleStateImageBehavior = false;
+            this.editListView.View = System.Windows.Forms.View.Details;
+            this.editListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.editListView_MouseDoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = 300;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Width = 300;
             // 
             // txtEdit
             // 
@@ -538,8 +527,6 @@
             this.dateEdit.BackColor = System.Drawing.Color.White;
             this.dateEdit.Controls.Add(this.btnLock2);
             this.dateEdit.Controls.Add(this.btnBack2);
-            this.dateEdit.Controls.Add(this.lbStraight);
-            this.dateEdit.Controls.Add(this.lbBlock);
             this.dateEdit.Controls.Add(this.lbAllDay);
             this.dateEdit.Controls.Add(this.lbTo);
             this.dateEdit.Controls.Add(this.lbFrom);
@@ -561,7 +548,6 @@
             this.dateEdit.Controls.Add(this.btnAllDay);
             this.dateEdit.Controls.Add(this.lblETime);
             this.dateEdit.Controls.Add(this.lblEDate);
-            this.dateEdit.Controls.Add(this.btnTmRng);
             this.dateEdit.Controls.Add(this.btnRAllDay);
             this.dateEdit.Controls.Add(this.panelEMins2);
             this.dateEdit.Controls.Add(this.panelEHours2);
@@ -602,32 +588,6 @@
             this.btnBack2.Text = "BACK";
             this.btnBack2.UseVisualStyleBackColor = false;
             this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
-            // 
-            // lbStraight
-            // 
-            this.lbStraight.AutoSize = true;
-            this.lbStraight.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStraight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lbStraight.Location = new System.Drawing.Point(404, 489);
-            this.lbStraight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbStraight.Name = "lbStraight";
-            this.lbStraight.Size = new System.Drawing.Size(105, 28);
-            this.lbStraight.TabIndex = 79;
-            this.lbStraight.Text = "STRAIGHT";
-            this.lbStraight.Visible = false;
-            // 
-            // lbBlock
-            // 
-            this.lbBlock.AutoSize = true;
-            this.lbBlock.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBlock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lbBlock.Location = new System.Drawing.Point(202, 489);
-            this.lbBlock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbBlock.Name = "lbBlock";
-            this.lbBlock.Size = new System.Drawing.Size(72, 28);
-            this.lbBlock.TabIndex = 78;
-            this.lbBlock.Text = "BLOCK";
-            this.lbBlock.Visible = false;
             // 
             // lbAllDay
             // 
@@ -969,22 +929,6 @@
             this.lblEDate.Size = new System.Drawing.Size(110, 28);
             this.lblEDate.TabIndex = 65;
             this.lblEDate.Text = "Event Date";
-            // 
-            // btnTmRng
-            // 
-            this.btnTmRng.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
-            this.btnTmRng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTmRng.FlatAppearance.BorderSize = 0;
-            this.btnTmRng.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTmRng.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTmRng.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTmRng.Location = new System.Drawing.Point(298, 492);
-            this.btnTmRng.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTmRng.Name = "btnTmRng";
-            this.btnTmRng.Size = new System.Drawing.Size(79, 31);
-            this.btnTmRng.TabIndex = 77;
-            this.btnTmRng.UseVisualStyleBackColor = true;
-            this.btnTmRng.Visible = false;
             // 
             // btnRAllDay
             // 
@@ -1506,7 +1450,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EvEditDetails_FormClosing);
             this.Load += new System.EventHandler(this.EvEditDetails_Load);
             this.upPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.editView)).EndInit();
             this.tcEdit.ResumeLayout(false);
             this.tpEditView.ResumeLayout(false);
             this.txtEdit.ResumeLayout(false);
@@ -1542,7 +1485,6 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel upPanel;
-        private System.Windows.Forms.DataGridView editView;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TabControl tcEdit;
         private System.Windows.Forms.TabPage tpEditView;
@@ -1568,8 +1510,6 @@
         private System.Windows.Forms.Button btnEDes;
         private System.Windows.Forms.Button btnEVen;
         private System.Windows.Forms.Button btnEName;
-        private System.Windows.Forms.Label lbStraight;
-        private System.Windows.Forms.Label lbBlock;
         private System.Windows.Forms.Label lbAllDay;
         private System.Windows.Forms.Label lbTo;
         private System.Windows.Forms.Label lbFrom;
@@ -1591,7 +1531,6 @@
         private System.Windows.Forms.Button btnAllDay;
         private System.Windows.Forms.Label lblETime;
         private System.Windows.Forms.Label lblEDate;
-        private System.Windows.Forms.Button btnTmRng;
         private System.Windows.Forms.Button btnRAllDay;
         private System.Windows.Forms.Panel panelEMins2;
         private System.Windows.Forms.TextBox txtEMins2;
@@ -1630,5 +1569,8 @@
         private System.Windows.Forms.Button btnLock1;
         private System.Windows.Forms.Button btnLock2;
         private System.Windows.Forms.Button btnLock3;
+        private System.Windows.Forms.ListView editListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

@@ -321,58 +321,6 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Attendance
-        private void tabAttend_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabList_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Pen p = new Pen(Color.Blue, 4);
-            g.DrawRectangle(p, this.tabList.Bounds);
-        }
-
-        private void btnOther_Click(object sender, EventArgs e)
-        {
-            tabList.SelectedTab = tabOtherList;
-            tabAttendance.SelectedTab = tabOtherAttend;
-        }
-
-        private void btnChild_Click(object sender, EventArgs e)
-        {
-            tabList.SelectedTab = tabChildList;
-            tabAttendance.SelectedTab = tabChildAttend;
-        }
-
-        private void tabAttendance_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Pen p = new Pen(Color.White, 4);
-            g.DrawRectangle(p, this.tabAttendance.Bounds);
-        }
-
-        private void tabEventDetails_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Pen p = new Pen(Color.Blue, 4);
-            g.DrawRectangle(p, this.tabEventDetails.Bounds);
-        }
-
-        private void tabERForm_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Pen p = new Pen(Color.Blue, 4);
-            g.DrawRectangle(p, this.tabEventDetails.Bounds);
-        }
-
-        private void btnAddAttendance_Click(object sender, EventArgs e)
-        {
-            tabSecond.SelectedTab = tabAttend;
-        }
-        #endregion
-
         #region Next Back Buttons (request events)       
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -600,8 +548,7 @@ namespace BalayPasilungan
             cbEMonth.Enabled = true; cbEDay.Enabled = true; cbEYear.Enabled = true;
             cbEMonth2.Visible = false; cbEDay2.Visible = false; cbEYear2.Visible = false;
             lbAllDay.Visible = true; btnRAllDay.Visible = true;
-            lbBlock.Visible = false; lbStraight.Visible = false;
-            btnTmRng.Visible = false; lbFrom.Visible = false; lbTo.Visible = false;
+            lbFrom.Visible = false; lbTo.Visible = false;
             //panelEHours2.Visible = false; panelEMins2.Visible = false; lblColon2.Visible = false; btnAM2.Visible = false; btnPM2.Visible = false;
         }
 
@@ -616,8 +563,7 @@ namespace BalayPasilungan
             cbEMonth2.Enabled = true; cbEDay2.Enabled = true; cbEYear2.Enabled = true;
             cbEMonth2.Visible = true; cbEDay2.Visible = true; cbEYear2.Visible = true;
             lbAllDay.Visible = false; btnRAllDay.Visible = false;
-            lbBlock.Visible = true; lbStraight.Visible = true;
-            btnTmRng.Visible = true; lbFrom.Visible = true; lbTo.Visible = true;
+            lbFrom.Visible = true; lbTo.Visible = true;
             panelEHours2.Visible = true; panelEMins2.Visible = true; lblColon2.Visible = true; btnAM2.Visible = true; btnPM2.Visible = true;
             //btnRAllDay
             lbAllDay.ForeColor = Color.FromArgb(42, 42, 42);
@@ -723,24 +669,6 @@ namespace BalayPasilungan
                 ampmFrom = ""; ampmTo = "";
                 lbFrom.Visible = false; lbTo.Visible = false;
                 cbEDay2.Visible = false; cbEMonth2.Visible = false; cbEYear2.Visible = false;
-            }
-        }
-
-        private void btnTmRng_Click(object sender, EventArgs e)
-        {
-            if (!timeRngState)
-            {
-                lbBlock.ForeColor = Color.FromArgb(42, 42, 42);
-                lbStraight.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                btnTmRng.BackgroundImage = global::BalayPasilungan.Properties.Resources.on;
-                timeRngState = true;
-            }
-            else
-            {
-                lbBlock.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                lbStraight.ForeColor = Color.FromArgb(42, 42, 42);
-                btnTmRng.BackgroundImage = global::BalayPasilungan.Properties.Resources.on2;
-                timeRngState = false;
             }
         }
         #endregion
@@ -1043,7 +971,7 @@ namespace BalayPasilungan
 
         private void eventorg_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("gawa ng dialog box for event view na edit isip din kun asan ilagay ang cancel. ui design nanaman for tabevent i'm not satisfied");
+            //MessageBox.Show("gawa ng dialog box for event view na edit isip din kun asan ilagay ang cancel. ui design nanaman for tabevent i'm not satisfied");
             btnMPrev.Text = aMonths[DateTime.Now.Month - 2];
             btnMNow.Text = aMonths[DateTime.Now.Month - 1];
             btnMNext.Text = aMonths[DateTime.Now.Month];
@@ -1218,7 +1146,6 @@ namespace BalayPasilungan
             string evname, day, timefrom;
             try
             {
-
                 conn.Open();
 
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status = 'Approved' AND ('" + date + "' >= str_to_date(evDateFrom, '%Y-%m-%d')) AND ('" + date + "' <= str_to_date(evDateTo, '%Y-%m-%d'))", conn);
@@ -1237,8 +1164,6 @@ namespace BalayPasilungan
                         eventsListView.Items.Add(itm);
                     }
                 }
-
-
             }
             catch (Exception ee)
             {
@@ -1248,6 +1173,7 @@ namespace BalayPasilungan
         }
         private void eventsListView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
             EvEditDetails evedit = new EvEditDetails();
             evedit.reftoevorg = this;
             //MessageBox.Show(listPending.SelectedItems[1].SubItems[0].Text);
@@ -1256,19 +1182,24 @@ namespace BalayPasilungan
             DialogResult rest = evedit.ShowDialog();
             if(rest == DialogResult.OK)
             {
-
+                displayEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text);
             }
         }
         private void eventsListView_MouseClick(object sender, MouseEventArgs e)
         {
-            //MessageBox.Show(eventsListView.SelectedItems[0].SubItems[1].Text);
             approveEventDetails(eventsListView.SelectedItems[0].SubItems[1].Text);
+            btnEvCancel.Enabled = true; btnAddAttendance.Enabled = true; btnViewBudget.Enabled = true;
         }
 
         private void btnEvCancel_Click(object sender, EventArgs e)
         {
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
             confirmMessage("Are you sure you want to edit these records? Please double check.");
-            if(confirmed) statusEvent(2);
+            if (confirmed) {
+                statusEvent(2);
+                displayEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text);
+                btnEvCancel.Enabled = false;
+            }
         }
         #endregion
 
@@ -1605,11 +1536,11 @@ namespace BalayPasilungan
             foreach (DataGridViewColumn ya in CalendarView.Columns)
             {   
                 ya.SortMode = DataGridViewColumnSortMode.NotSortable;
-                ya.Width = 132;
+                ya.Width = 146;
             }
             foreach (DataGridViewRow ro in CalendarView.Rows)
             {
-                ro.Height = 106;
+                ro.Height = 105;
             }
             calendarcolor();
             //MessageBox.Show("Lagyan ng dialog box sa cell click add request and view request");
@@ -1689,7 +1620,7 @@ namespace BalayPasilungan
 
         public string option { get; set; }
         public string ifclick { get; set; }
-
+        public int cellday;
         private void CalendarView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
@@ -1697,7 +1628,7 @@ namespace BalayPasilungan
             if (CalendarView.SelectedCells[0].Value.ToString() != "")
             {// the plan is to check if the date picked is before the date today so that it will only show a view it cannot add but it is argueable because sometimes people want to records events from the past so it will only matter on the reminder
                 DateTime datecell = DateTime.ParseExact(Convert.ToInt32(CalendarView.SelectedCells[0].Value).ToString("00") + "/" + monthnum.ToString("00") + "/" + btnYNow.Text, "d/M/yyyy", CultureInfo.InvariantCulture);
-                int cellday = int.Parse(CalendarView.SelectedCells[0].Value.ToString());
+                cellday = int.Parse(CalendarView.SelectedCells[0].Value.ToString());
                 if (checkEvents(cellday.ToString("00"), monthnum.ToString("00"), btnYNow.Text))
                 {
                     option = "view";
@@ -1883,6 +1814,170 @@ namespace BalayPasilungan
         }
         #endregion
 
+        #region Attendance
+        //design and buttons
+        private void tabAttend_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabList_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.Blue, 4);
+            g.DrawRectangle(p, this.tabList.Bounds);
+        }
+
+        private void btnOther_Click(object sender, EventArgs e)
+        {
+            tabList.SelectedTab = tabOtherList;
+            tabAttendance.SelectedTab = tabOtherAttend;
+        }
+
+        private void btnChild_Click(object sender, EventArgs e)
+        {
+            tabList.SelectedTab = tabChildList;
+            tabAttendance.SelectedTab = tabChildAttend;
+        }
+
+        private void tabAttendance_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.White, 4);
+            g.DrawRectangle(p, this.tabAttendance.Bounds);
+        }
+
+        private void tabEventDetails_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.Blue, 4);
+            g.DrawRectangle(p, this.tabEventDetails.Bounds);
+        }
+
+        private void tabERForm_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Pen p = new Pen(Color.Blue, 4);
+            g.DrawRectangle(p, this.tabEventDetails.Bounds);
+        }
+
+        private void btnViewBudget_Click(object sender, EventArgs e)
+        {
+            btnViewBudget.Enabled = false;
+        }
+
+        private void btnAddAttendance_Click(object sender, EventArgs e)
+        {
+            CaseProfile();
+            viewCaseAttendance();
+            tabSecond.SelectedTab = tabAttend;
+            tabAttendance.SelectedIndex = 1;
+            btnAddAttendance.Enabled = false;
+        }
+        //functions
+        public string[] casefname = new string[100];
+        public string[] caselname = new string[100];
+        public void CaseProfile()
+        {
+            int cid; string attend = "False";
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            string datet = btnYNow.Text + "-" + monthnum.ToString("00") + "-" + cellday.ToString("00");
+            try
+            {
+                conn.Open();
+                MySqlCommand comm2 = new MySqlCommand("SELECT * FROM event WHERE eventID = '"+ evid +"'", conn);
+                MySqlDataAdapter adp2 = new MySqlDataAdapter(comm2); DataTable dt2 = new DataTable(); adp2.Fill(dt2);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM casestudyprofile", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
+                if (dt2.Rows.Count >= 1) attend = dt2.Rows[0]["attendance"].ToString();
+                if (attend == "False")
+                {
+                    if (dt.Rows.Count >= 1)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            casefname[i] = dt.Rows[i]["lastName"].ToString();
+                            caselname[i] = dt.Rows[i]["firstName"].ToString();
+                            cid = int.Parse(dt.Rows[i]["caseID"].ToString());
+                            conn.Close();
+                            insertCaseView(casefname[i], caselname[i], cid);
+                        }
+                    }
+                }
+                else
+                {
+                    MySqlCommand comm3 = new MySqlCommand("SELECT * FROM attendance WHERE attendDate = '" + datet + "' AND eventID = '" + evid + "'", conn);
+                    MySqlDataAdapter adp3 = new MySqlDataAdapter(comm3); DataTable dt3 = new DataTable(); adp3.Fill(dt3);
+                    if(dt3.Rows.Count == 0)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            casefname[i] = dt.Rows[i]["lastName"].ToString();
+                            caselname[i] = dt.Rows[i]["firstName"].ToString();
+                            cid = int.Parse(dt.Rows[i]["caseID"].ToString());
+                            conn.Close();
+                            insertCaseView(casefname[i], caselname[i], cid);
+                        }
+                    }
+                }
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+        public void insertCaseView(string cfn, string cln, int cid)
+        {
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            string cn = cln + ", " + cfn, datet = btnYNow.Text + "-" + monthnum.ToString("00") + "-" + cellday.ToString("00");
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("INSERT INTO attendance(eventID, caseID, attendee, status, role, attendDate) VALUES('" + evid + "','" + cid + "','" + cn + "', 'none', 'child', '" + datet + "')", conn);
+                MySqlCommand comm2 = new MySqlCommand("UPDATE event SET attendance = 'True' WHERE eventID ='"+ evid +"'", conn);
+                comm.ExecuteNonQuery(); comm2.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+        public void viewCaseAttendance()
+        {
+            lvChildAttend.Items.Clear();
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            string datet = btnYNow.Text + "-" + monthnum.ToString("00") + "-" + cellday.ToString("00");
+            string[] attendees = new string[100];
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM attendance JOIN event ON attendance.eventID = event.eventID WHERE attendance.eventID = '" + evid + "' AND attendance.status = 'none' AND attendDate ='"+ datet +"'", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        attendees[i] = dt.Rows[i]["attendee"].ToString();
+                        ListViewItem item = new ListViewItem(attendees[i]);
+                        lvChildAttend.Items.Add(item);
+                    }
+                }
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Nah!" + ee);
+                conn.Close();
+            }
+        }
+        #endregion
         private void confirmTab_Enter(object sender, EventArgs e)
         {
             lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#acacac");

@@ -200,7 +200,7 @@ namespace BalayPasilungan
             resetMainButtons();
             btnFinance.BackColor = Color.White;
             btnFinance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_green;
-            get(2); get(3); get(4);
+            get(2); get(3); get(4); get(5);
             tabSelection.SelectedTab = tabFinance;
         }
 
@@ -586,7 +586,8 @@ namespace BalayPasilungan
                     if (searchMonthDay)
                     {
                         searchMonthDay = false;
-                        searchWords = "((MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + ") OR (MONTH(dateCheck) = " + fromDateValue.ToString("MM") + " AND DAY(dateCheck) = " + fromDateValue.ToString("dd") + "))";
+                        searchWords = "((MONTH(dateDonated) = " + fromDateValue.ToString("MM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + ") OR (MONTH(dateCheck) = " + fromDateValue.ToString("MM") + " AND DAY(dateCheck) = " + fromDateValue.ToString("dd")
+                            + ") OR (MONTH(dateDonated) = " + fromDateValue.ToString("MMM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + ") OR (MONTH(dateDonated) = " + fromDateValue.ToString("MMMM") + " AND DAY(dateDonated) = " + fromDateValue.ToString("dd") + "))";
                     }
                     else if (searchMonthYr)
                     {
@@ -724,13 +725,33 @@ namespace BalayPasilungan
                     else btnApprovedBR.Enabled = false;
                     conn.Close();
                 }
-                else if (type == 4)     // Get latest date requested for new budget requests
+                else if (type == 4)     // Get latest date requested and date donated for new budget requests
                 {
                     adp = new MySqlDataAdapter("SELECT dateRequested FROM budget ORDER BY dateRequested DESC LIMIT 1", conn);
                     dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (dt.Rows.Count != 0) lbllastDateBR.Text = DateTime.Parse(dt.Rows[0]["dateRequested"].ToString()).ToString("MMMM dd, yyyy");
+                    if (dt.Rows[0]["dateRequested"].ToString() != "") lbllastDateBR.Text = DateTime.Parse(dt.Rows[0]["dateRequested"].ToString()).ToString("MMMM dd, yyyy");
+                    else lbllastDateBR.Text = "None";                    
+
+                    adp = new MySqlDataAdapter("SELECT dateDonated FROM monetary ORDER BY dateDonated DESC LIMIT 1", conn);
+                    dt = new DataTable();
+                    adp.Fill(dt);
+
+                    MessageBox.Show(dt.Rows[0]["dateDonated"].ToString());
+
+                    if (dt.Rows[0]["dateDonated"].ToString() != "") lblLastDonate.Text = DateTime.Parse(dt.Rows[0]["dateDonated"].ToString()).ToString("MMMM dd, yyyy");
+                    else lblLastDonate.Text = "None";
+                    
+                    conn.Close();
+                }
+                else if (type == 5)      // Get total donation sum for this month
+                {
+                    adp = new MySqlDataAdapter("SELECT SUM(amount) as total FROM monetary WHERE MONTH(dateDonated) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
+                    dt = new DataTable();
+                    adp.Fill(dt);
+
+                    lblTotalDonation.Text = dt.Rows[0]["total"].ToString();
                     conn.Close();
                 }
             }
@@ -1230,13 +1251,15 @@ namespace BalayPasilungan
             {
                 try
                 {
+                    var mon = new[] { "MM dd", "MMM dd", "MMMM dd" };
                     var mononly = new[] { "MM", "MMM", "MMMM" }; var monyr = new[] { "MM yyyy", "MMM yyyy", "MMMM yyyy" }; var yronly = new[] { "yyyy" };
                     var formats = new[] { "MM", "MMM", "MMMM", "MM yyyy", "MMM yyyy", "MMMM yyyy", "yyyy" };
                     allMoneyDonation = true;
                     
                     if (DateTime.TryParseExact(txtMDSearch.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue))
                     {
-                        if (DateTime.TryParseExact(txtMDSearch.Text, monyr, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthYr = true;
+                        if (DateTime.TryParseExact(txtMDSearch.Text, mon, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthDay = true;                        
+                        else if (DateTime.TryParseExact(txtMDSearch.Text, monyr, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthYr = true;
                         else if (DateTime.TryParseExact(txtMDSearch.Text, yronly, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchYr = true;
                         else if (DateTime.TryParseExact(txtMDSearch.Text, mononly, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonth = true;
                         searchDateBool = true;
