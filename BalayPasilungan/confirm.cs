@@ -59,7 +59,6 @@ namespace BalayPasilungan
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (boolLogin) refToLogin.Close();
-
             this.Close();                 
         }
 

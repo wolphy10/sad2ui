@@ -98,6 +98,12 @@
     <Compile Include="EvEditDetails.Designer.cs">
       <DependentUpon>EvEditDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="eventBudget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eventBudget.Designer.cs">
+      <DependentUpon>eventBudget.cs</DependentUpon>
+    </Compile>
     <Compile Include="expense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EvEditDetails.resx">
       <DependentUpon>EvEditDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eventBudget.resx">
+      <DependentUpon>eventBudget.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="expense.resx">
       <DependentUpon>expense.cs</DependentUpon>
