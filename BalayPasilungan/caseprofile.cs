@@ -2446,15 +2446,17 @@ namespace BalayPasilungan
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
             tabaddchild.SelectedTab = tabNewIncid;
 
-            if (btnaddincid.Text == "ADD")
+            if (btnaddincidrecord.Text == "ADD")
             {
                 btnaddinvolve.Text = "ADD";
                 reloadinvcases();
+                lbladdeditprofile.Text = "New Incident Record";
             }
 
             else
             {
                 btnaddinvolve.Text = "EDIT";
+                lbladdeditprofile.Text = "Update Incident Record";
             }
 
             mode = 0;
@@ -3129,6 +3131,11 @@ namespace BalayPasilungan
             lbladdeditprofile.Text = "New Consultation Record";
         }
 
+        private void btnArchive_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void dtginv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             btnaddinvolve.Text = "EDIT";
@@ -3140,6 +3147,8 @@ namespace BalayPasilungan
             tabaddchild.SelectedTab = tabNewIncid;
 
             btnaddincidrecord.Text = "ADD CHANGES";
+
+            lbladdeditprofile.Text = "Update Incident Record";
 
             checkinv.Text = "Change people involved?";
 
@@ -3169,12 +3178,11 @@ namespace BalayPasilungan
         private void btnaddinvolve_Click(object sender, EventArgs e)
         {
             tabaddchild.SelectedTab = tabNewInvolve;
+            reloadinvcases();
 
-            if (btnaddinvolve.Text == "ADD")
-            {
-                reloadinvcases();
-            }
-            mode = 1;
+            
+                lbladdeditprofile.Text = "People Involved";
+            
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
