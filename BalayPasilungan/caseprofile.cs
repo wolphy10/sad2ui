@@ -2878,7 +2878,16 @@ namespace BalayPasilungan
 
         private void btnArchive_Click(object sender, EventArgs e)
         {
+            DataGridViewCheckBoxColumn lulz = new DataGridViewCheckBoxColumn();
+            
+            lulz.Name = "lolz";
+            lulz.DataPropertyName = "lolz";
 
+            dtgcs.Columns.Add(lulz);
+            dtgcs.Refresh();
+
+            btnaddarchive.Visible = true;
+            btncancelarchive.Visible = true;
         }
 
         private void dtginv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -2919,6 +2928,14 @@ namespace BalayPasilungan
         {
             if (multiChild.Checked) dtgcs.MultiSelect = true;
             else dtgcs.MultiSelect = false;
+        }
+
+        private void btncancelarchive_Click(object sender, EventArgs e)
+        {
+            refresh();
+
+            btnaddarchive.Visible = false;
+            btncancelarchive.Visible = false;
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
