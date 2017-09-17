@@ -2039,7 +2039,7 @@ namespace BalayPasilungan
 
             if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Document doc = new Document(iTextSharp.text.PageSize.A4, 40, 40, 40, 40);
+                Document doc = new Document(iTextSharp.text.PageSize.A4, 50, 50, 40, 40);
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(saveDialog.FileName, FileMode.Create));
                 doc.Open();
                 
@@ -2052,35 +2052,37 @@ namespace BalayPasilungan
                 Paragraph par = new Paragraph(chunk); par.Alignment = Element.ALIGN_CENTER; doc.Add(par);
 
                 iTextSharp.text.Font bold = FontFactory.GetFont("Segoe UI", 11, 1, BaseColor.BLACK);
-                iTextSharp.text.Font normal = FontFactory.GetFont("Segoe UI", 11, BaseColor.BLACK);
-                
+                iTextSharp.text.Font normal = FontFactory.GetFont("Segoe UI", 12, 4, BaseColor.BLACK);
+                                
                 Phrase phrase = new Phrase();
                 phrase.Add(new Chunk("\n\nPURPOSE: ", bold));
                 phrase.Add(new Chunk(lblPBRPurpose.Text, normal));
                 phrase.Add(new Chunk("\nDATE REQUESTED: ", bold));
                 phrase.Add(new Chunk(lblPBRdate.Text, normal));
                 phrase.Add(new Chunk("\nCATEGORY: ", bold));
-                phrase.Add(new Chunk(lblPBRCategory.Text + "\n\n\n", normal));
+                phrase.Add(new Chunk(lblPBRCategory.Text, normal));
                 par = new Paragraph(); par.Add(phrase); doc.Add(par);
-                
+
+                phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
+
                 PdfPTable pdfTable = new PdfPTable(4);
                 float[] widths = new float[] { 4f, 2f, 2f, 2f };
                 pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
 
-                PdfPCell cell = new PdfPCell(new Phrase("PARTICULAR"));
+                phrase = new Phrase(); phrase.Add(new Chunk("\nPARTICULAR\n", bold)); PdfPCell cell = new PdfPCell(phrase);
                 cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Phrase("QUANTITY"));
+                phrase = new Phrase(); phrase.Add(new Chunk("\nQUANTITY\n", bold)); cell = new PdfPCell(phrase);
                 cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Phrase("UNIT PRICE"));
+                phrase = new Phrase(); phrase.Add(new Chunk("\nUNIT PRICE\n", bold)); cell = new PdfPCell(phrase);
                 cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                cell = new PdfPCell(new Phrase("AMOUNT"));
+                phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
                 cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
 
                 foreach (DataGridViewRow r in PBRDetails.Rows)
                 {
                     try
-                    {
-                        pdfTable.AddCell(r.Cells[1].Value.ToString());
+                    {                        
+                        pdfTable.AddCell(r.Cells[1].Value.ToString());                        
                         pdfTable.AddCell(r.Cells[2].Value.ToString());
                         pdfTable.AddCell(r.Cells[3].Value.ToString());
                         pdfTable.AddCell(r.Cells[4].Value.ToString());
@@ -2088,17 +2090,6 @@ namespace BalayPasilungan
                     catch { }
                 }
 
-                /*foreach (DataGridViewRow row in PBRDetails.Rows)
-                {
-                    foreach (DataGridViewCell celli in row.Cells)
-                    {
-                        try
-                        {
-                            pdfTable.AddCell(celli.Value.ToString());
-                        }
-                        catch { }
-                    }
-                }*/
                 doc.Add(pdfTable);
 
                 doc.Close();
