@@ -335,8 +335,9 @@ namespace BalayPasilungan
                     if (dt.Rows.Count == 0)
                     {
                         dt.Rows.Add(-1, "No entries.", null, null, null, null);
-                        empty = true;
+                        empty = true; btnEditBR.Enabled = btnDelBR.Enabled = false;
                     }
+                    else empty = false; btnDelBR.Enabled = btnEditBR.Enabled = true;
 
                     BRDetails.DataSource = dt;
 
@@ -354,12 +355,7 @@ namespace BalayPasilungan
                     BRDetails.Columns[2].Width = 73;
                     BRDetails.Columns[3].Width = BRDetails.Columns[4].Width = 120;
 
-                    if (dt.Rows.Count > 0 && !empty)
-                    {
-                        BRDetails.Columns[1].HeaderCell.Style.Padding = BRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
-                        btnDelBR.Enabled = btnEditBR.Enabled = true; //multiSelect2.Enabled = true;
-                    }
-                    else btnDelBR.Enabled = btnEditBR.Enabled = empty = false; //multiSelect2.Enabled = false;                    
+                    if (dt.Rows.Count > 0 && !empty) BRDetails.Columns[1].HeaderCell.Style.Padding = BRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                 }
                 else if (type == 4)          // List of budget requests
                 {
@@ -368,6 +364,7 @@ namespace BalayPasilungan
                         dt.Rows.Add(-1, null, "No entries.", null, null, null, null);
                         empty = true; multiBR.Enabled = multiBR.Checked = false;
                     }
+                    else empty = false;
 
                     DataGridView table;
                     if (aBR) table = approvedBRList;
@@ -950,110 +947,7 @@ namespace BalayPasilungan
         {
             tabSelection.SelectedTab = tabDonors;
         }
-
-        #region New Donor Textboxes
-
-        private void txtNew_Enter(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text == "Name of purpose." || ((TextBox)sender).Text == "29xxxxx" || ((TextBox)sender).Text == "jmiguel@example.com" || ((TextBox)sender).Text == "09xx" || ((TextBox)sender).Text == "xxx" || ((TextBox)sender).Text == "xxxx") ((TextBox)sender).Text = "";
-            ((TextBox)sender).ForeColor = Color.Black;
-
-            if (((TextBox)sender).Name == "txtMobile1" || ((TextBox)sender).Name == "txtMobile2" || ((TextBox)sender).Name == "txtMobile3")
-            {
-                lblMobile.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-            }
-
-            if (((TextBox)sender).Name == "txtDName")
-            {
-                lblDName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                countDName.Visible = true;
-            }
-            else if (((TextBox)sender).Name == "txtPhone")
-            {
-                lblPhone.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                countPhone.Visible = true;
-            }
-            else if (((TextBox)sender).Name == "txtEmail")
-            {
-                lblEmail.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                countEmail.Visible = true;
-            }
-        }
-
-        private void txtNewCount_TextChanged(object sender, EventArgs e)
-        {
-            if(((TextBox)sender).Name == "txtNewCount") countDName.Text = ((TextBox)sender).TextLength + "/250";
-            else if (((TextBox)sender).Name == "txtPhone") countPhone.Text = ((TextBox)sender).TextLength + "/7";
-            else if (((TextBox)sender).Name == "txtEmail") countEmail.Text = ((TextBox)sender).TextLength + "/100";            
-        }
-
-        private void txtNew_Leave(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text == "")
-            {
-                if (((TextBox)sender).Name == "txtDName") ((TextBox)sender).Text = "Name of purpose.";
-                else if (((TextBox)sender).Name == "txtPhone") ((TextBox)sender).Text = "29xxxxx";
-                else if (((TextBox)sender).Name == "txtEmail") ((TextBox)sender).Text = "jmiguel@example.com";
-                else if (((TextBox)sender).Name == "txtMobile1") ((TextBox)sender).Text = "09xx";
-                else if (((TextBox)sender).Name == "txtMobile2") ((TextBox)sender).Text = "xxx";
-                else if (((TextBox)sender).Name == "txtMobile3") ((TextBox)sender).Text = "xxxx";
-            }
-            ((TextBox)sender).ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
-
-            if (((TextBox)sender).Name == "txtDName")
-            {
-                lblDName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-                countDName.Visible = false;
-            }
-            else if (((TextBox)sender).Name == "txtPhone")
-            {
-                lblPhone.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-                countPhone.Visible = false;
-            }
-            else if (((TextBox)sender).Name == "txtEmail")
-            {
-                lblEmail.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-                countEmail.Visible = false;
-            }
-            else if (((TextBox)sender).Name == "txtMobile1" || ((TextBox)sender).Name == "txtMobile2" || ((TextBox)sender).Name == "txtMobile3")
-            {
-                lblMobile.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            }
-        }
-
-        private void txtMobile1_TextChanged(object sender, EventArgs e)
-        {
-            if (txtMobile1.TextLength == 4) txtMobile2.Focus();
-        }
-
-        private void txtMobile2_TextChanged(object sender, EventArgs e)
-        {
-            if (txtMobile2.TextLength == 3) txtMobile3.Focus();
-        }
-
-        private void txtMobile3_TextChanged(object sender, EventArgs e)
-        {
-            if (txtMobile3.TextLength == 4)
-            {
-                // Leave textbox     
-                // LMAO          
-            }
-        }
-
-        private void tabNewInfo_Click(object sender, EventArgs e)
-        {
-            tabNewInfo.Focus();
-        }
-        #endregion
-
+        
         #endregion
 
         #region Donor Edit
@@ -1508,6 +1402,17 @@ namespace BalayPasilungan
             loadTable(comm, 3);
         }
 
+        private void btnEditBR_Click(object sender, EventArgs e)
+        {
+            int row = BRDetails.CurrentCell.RowIndex;
+            moneyDonate mD = overlay();
+            mD.tabSelection.SelectedIndex = 11;
+            mD.txtBRPart2.Text = BRDetails.Rows[row].Cells[2].Value.ToString();
+            mD.txtBRQuantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[3].Value.ToString());
+            mD.txtBRTotal2.Text = BRDetails.Rows[row].Cells[4].Value.ToString();
+            mD.ShowDialog();               
+        }
+
         private void btnDelBR_Click(object sender, EventArgs e)
         {      
             int row = BRDetails.CurrentCell.RowIndex;
@@ -1736,7 +1641,7 @@ namespace BalayPasilungan
             MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Approved' ORDER BY budgetID ASC", conn);            
             loadTable(comm, 4);
             tabPBR.SelectedIndex = 2;
-        }        
+        }
         #endregion
 
         #region Expense
@@ -2033,68 +1938,198 @@ namespace BalayPasilungan
         #region Reports
         private void exportPDF_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "PDF Files (*.pdf)|*.pdf";
-            saveDialog.FilterIndex = 1;
-
-            if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            confirmMessage("Please close all PDF applications before exporting.");
+            if (confirmed)
             {
-                Document doc = new Document(iTextSharp.text.PageSize.A4, 50, 50, 40, 40);
-                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(saveDialog.FileName, FileMode.Create));
-                doc.Open();
-                
-                System.Drawing.Image image = Properties.Resources.login_logo;
-                iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(image, System.Drawing.Imaging.ImageFormat.Png);
-                pdfImage.ScalePercent(25F); pdfImage.Alignment = Element.ALIGN_CENTER;
-                doc.Add(pdfImage);
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+                saveDialog.FilterIndex = 1;
 
-                Chunk chunk = new Chunk("BUDGET REQUEST FORM"); chunk.SetUnderline(2, -3);
-                Paragraph par = new Paragraph(chunk); par.Alignment = Element.ALIGN_CENTER; doc.Add(par);
-
-                iTextSharp.text.Font bold = FontFactory.GetFont("Segoe UI", 11, 1, BaseColor.BLACK);
-                iTextSharp.text.Font normal = FontFactory.GetFont("Segoe UI", 12, 4, BaseColor.BLACK);
-                                
-                Phrase phrase = new Phrase();
-                phrase.Add(new Chunk("\n\nPURPOSE: ", bold));
-                phrase.Add(new Chunk(lblPBRPurpose.Text, normal));
-                phrase.Add(new Chunk("\nDATE REQUESTED: ", bold));
-                phrase.Add(new Chunk(lblPBRdate.Text, normal));
-                phrase.Add(new Chunk("\nCATEGORY: ", bold));
-                phrase.Add(new Chunk(lblPBRCategory.Text, normal));
-                par = new Paragraph(); par.Add(phrase); doc.Add(par);
-
-                phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
-
-                PdfPTable pdfTable = new PdfPTable(4);
-                float[] widths = new float[] { 4f, 2f, 2f, 2f };
-                pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
-
-                phrase = new Phrase(); phrase.Add(new Chunk("\nPARTICULAR\n", bold)); PdfPCell cell = new PdfPCell(phrase);
-                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                phrase = new Phrase(); phrase.Add(new Chunk("\nQUANTITY\n", bold)); cell = new PdfPCell(phrase);
-                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                phrase = new Phrase(); phrase.Add(new Chunk("\nUNIT PRICE\n", bold)); cell = new PdfPCell(phrase);
-                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
-                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-
-                foreach (DataGridViewRow r in PBRDetails.Rows)
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    try
-                    {                        
-                        pdfTable.AddCell(r.Cells[1].Value.ToString());                        
-                        pdfTable.AddCell(r.Cells[2].Value.ToString());
-                        pdfTable.AddCell(r.Cells[3].Value.ToString());
-                        pdfTable.AddCell(r.Cells[4].Value.ToString());
+                    Document doc = new Document(iTextSharp.text.PageSize.A4, 50, 50, 40, 40);
+                    PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(saveDialog.FileName, FileMode.Create));
+                    doc.Open();
+
+                    System.Drawing.Image image = Properties.Resources.login_logo;
+                    iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(image, System.Drawing.Imaging.ImageFormat.Png);
+                    pdfImage.ScalePercent(25F); pdfImage.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(pdfImage);
+
+                    Chunk chunk = new Chunk("BUDGET REQUEST FORM"); chunk.SetUnderline(2, -3);
+                    Paragraph par = new Paragraph(chunk); par.Alignment = Element.ALIGN_CENTER; doc.Add(par);
+
+                    iTextSharp.text.Font bold = FontFactory.GetFont("Segoe UI", 11, 1, BaseColor.BLACK);
+                    iTextSharp.text.Font normal = FontFactory.GetFont("Segoe UI", 12, 4, BaseColor.BLACK);
+
+                    Phrase phrase = new Phrase();
+                    phrase.Add(new Chunk("\n\nPURPOSE: ", bold));
+                    phrase.Add(new Chunk(lblPBRPurpose.Text, normal));
+                    phrase.Add(new Chunk("\nDATE REQUESTED: ", bold));
+                    phrase.Add(new Chunk(lblPBRdate.Text, normal));
+                    phrase.Add(new Chunk("\nCATEGORY: ", bold));
+                    phrase.Add(new Chunk(lblPBRCategory.Text, normal));
+                    par = new Paragraph(); par.Add(phrase); doc.Add(par);
+
+                    phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
+
+                    PdfPTable pdfTable = new PdfPTable(4);
+                    float[] widths = new float[] { 4f, 2f, 2f, 2f };
+                    pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
+
+                    phrase = new Phrase(); phrase.Add(new Chunk("\nPARTICULAR\n", bold)); PdfPCell cell = new PdfPCell(phrase);
+                    cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                    phrase = new Phrase(); phrase.Add(new Chunk("\nQUANTITY\n", bold)); cell = new PdfPCell(phrase);
+                    cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                    phrase = new Phrase(); phrase.Add(new Chunk("\nUNIT PRICE\n", bold)); cell = new PdfPCell(phrase);
+                    cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                    phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
+                    cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+
+                    foreach (DataGridViewRow r in PBRDetails.Rows)
+                    {
+                        try
+                        {
+                            pdfTable.AddCell(r.Cells[1].Value.ToString());
+                            pdfTable.AddCell(r.Cells[2].Value.ToString());
+                            pdfTable.AddCell(r.Cells[3].Value.ToString());
+                            pdfTable.AddCell(r.Cells[4].Value.ToString());
+                        }
+                        catch { }
                     }
-                    catch { }
+
+                    doc.Add(pdfTable);
+
+                    doc.Close();
+                    successMessage("Budget request exported successfully!");
                 }
+            }            
+        }
+        #endregion
 
-                doc.Add(pdfTable);
+        #region Textboxes
+        private void txtNew_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "Name of donor." || ((TextBox)sender).Text == "29xxxxx" || ((TextBox)sender).Text == "example@example.com" || ((TextBox)sender).Text == "09xx" || ((TextBox)sender).Text == "xxx" || ((TextBox)sender).Text == "xxxx") ((TextBox)sender).Text = "";
+            ((TextBox)sender).ForeColor = Color.Black;
 
-                doc.Close();
-                successMessage("Budget request exported successfully!");
+            if (((TextBox)sender).Name == "txtMobile1" || ((TextBox)sender).Name == "txtMobile2" || ((TextBox)sender).Name == "txtMobile3")
+            {
+                lblMobile.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
             }
+
+            if (((TextBox)sender).Name == "txtDName")
+            {
+                lblDName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countDName.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtPhone")
+            {
+                lblPhone.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countPhone.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtEmail")
+            {
+                lblEmail.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countEmail.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtPurpose")
+            {
+                lblPurpose.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countPurpose.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtBROthers")
+            {
+                lblOthers.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+            }
+        }
+
+        private void txtNewCount_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Name == "txtNewCount") countDName.Text = ((TextBox)sender).TextLength + "/250";
+            else if (((TextBox)sender).Name == "txtPhone") countPhone.Text = ((TextBox)sender).TextLength + "/7";
+            else if (((TextBox)sender).Name == "txtEmail") countEmail.Text = ((TextBox)sender).TextLength + "/100";
+            else if (((TextBox)sender).Name == "txtPurpose") countPurpose.Text = ((TextBox)sender).TextLength + "/100";
+        }
+
+        private void txtNew_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+            {
+                if (((TextBox)sender).Name == "txtDName") ((TextBox)sender).Text = "Name of donor.";
+                else if (((TextBox)sender).Name == "txtPhone") ((TextBox)sender).Text = "29xxxxx";
+                else if (((TextBox)sender).Name == "txtEmail") ((TextBox)sender).Text = "example@example.com";
+                else if (((TextBox)sender).Name == "txtMobile1") ((TextBox)sender).Text = "09xx";
+                else if (((TextBox)sender).Name == "txtMobile2") ((TextBox)sender).Text = "xxx";
+                else if (((TextBox)sender).Name == "txtMobile3") ((TextBox)sender).Text = "xxxx";
+                else if (((TextBox)sender).Name == "txtPurpose") ((TextBox)sender).Text = "Name of purpose.";
+            }
+            ((TextBox)sender).ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+
+            if (((TextBox)sender).Name == "txtDName")
+            {
+                lblDName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                countDName.Visible = false;
+            }
+            else if (((TextBox)sender).Name == "txtPhone")
+            {
+                lblPhone.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                countPhone.Visible = false;
+            }
+            else if (((TextBox)sender).Name == "txtEmail")
+            {
+                lblEmail.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                countEmail.Visible = false;
+            }
+            else if (((TextBox)sender).Name == "txtMobile1" || ((TextBox)sender).Name == "txtMobile2" || ((TextBox)sender).Name == "txtMobile3")
+            {
+                lblMobile.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            }
+            else if (((TextBox)sender).Name == "txtPurpose")
+            {
+                lblPurpose.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; ;
+                countPurpose.Visible = false;
+            }
+            else if (((TextBox)sender).Name == "txtBROthers")
+            {
+                lblOthers.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            }
+        }
+
+        private void txtMobile1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMobile1.TextLength == 4) txtMobile2.Focus();
+        }
+
+        private void txtMobile2_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMobile2.TextLength == 3) txtMobile3.Focus();
+        }
+
+        private void txtMobile3_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMobile3.TextLength == 4)
+            {
+                // Leave textbox     
+                // LMAO          
+            }
+        }
+
+        private void tabNewInfo_Click(object sender, EventArgs e)
+        {
+            tabNewInfo.Focus();
         }
         #endregion
     }

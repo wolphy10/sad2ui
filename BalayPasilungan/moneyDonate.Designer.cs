@@ -213,6 +213,23 @@
             this.label23 = new System.Windows.Forms.Label();
             this.noFocusRec9 = new BalayPasilungan.NoFocusRec();
             this.btnBackDisapprove = new BalayPasilungan.NoFocusRec();
+            this.tabBREdit = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtBRTotal2 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtBRUP2 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.noFocusRec11 = new BalayPasilungan.NoFocusRec();
+            this.btnBRCancel2 = new BalayPasilungan.NoFocusRec();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.btnBREdit = new BalayPasilungan.NoFocusRec();
+            this.txtBRQuantity2 = new System.Windows.Forms.NumericUpDown();
+            this.txtBRPart2 = new System.Windows.Forms.TextBox();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -264,6 +281,12 @@
             this.panel9.SuspendLayout();
             this.tabBRDisapprove.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.tabBREdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -279,6 +302,7 @@
             this.tabSelection.Controls.Add(this.tabExp);
             this.tabSelection.Controls.Add(this.tabExpOp);
             this.tabSelection.Controls.Add(this.tabBRDisapprove);
+            this.tabSelection.Controls.Add(this.tabBREdit);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -504,7 +528,7 @@
             this.txtOR.Size = new System.Drawing.Size(316, 25);
             this.txtOR.TabIndex = 0;
             this.txtOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtOR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtOR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // lblOR
             // 
@@ -793,7 +817,7 @@
             this.txtCheckNo.Size = new System.Drawing.Size(184, 22);
             this.txtCheckNo.TabIndex = 1;
             this.txtCheckNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCheckNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtCheckNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // lblCheckNo
             // 
@@ -818,7 +842,7 @@
             this.txtCheckOR.Size = new System.Drawing.Size(118, 22);
             this.txtCheckOR.TabIndex = 0;
             this.txtCheckOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCheckOR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtCheckOR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // lblCheckOR
             // 
@@ -880,7 +904,7 @@
             this.txtCheckCent.TabIndex = 6;
             this.txtCheckCent.Text = "00";
             this.txtCheckCent.Enter += new System.EventHandler(this.txtCent_Enter);
-            this.txtCheckCent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtCheckCent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             this.txtCheckCent.Leave += new System.EventHandler(this.txtCheckCent_Leave);
             // 
             // lblCheckAmount
@@ -908,7 +932,7 @@
             this.txtCheckAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtCheckAmount.Enter += new System.EventHandler(this.txt_Enter);
-            this.txtCheckAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtCheckAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             this.txtCheckAmount.Leave += new System.EventHandler(this.txtCheckAmount_Leave);
             // 
             // lblDot2
@@ -1065,7 +1089,7 @@
             this.txtOR2.Size = new System.Drawing.Size(316, 25);
             this.txtOR2.TabIndex = 0;
             this.txtOR2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtOR2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtOR2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // lblOR2
             // 
@@ -1343,6 +1367,7 @@
             this.txtCheckNo2.Size = new System.Drawing.Size(184, 22);
             this.txtCheckNo2.TabIndex = 1;
             this.txtCheckNo2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCheckNo2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // lblCheckNo2
             // 
@@ -1367,6 +1392,7 @@
             this.txtCheckOR2.Size = new System.Drawing.Size(118, 22);
             this.txtCheckOR2.TabIndex = 0;
             this.txtCheckOR2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCheckOR2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // lblCheckOR2
             // 
@@ -1428,7 +1454,7 @@
             this.txtCheckCent2.TabIndex = 6;
             this.txtCheckCent2.Text = "00";
             this.txtCheckCent2.Enter += new System.EventHandler(this.txtCentEdit_Enter);
-            this.txtCheckCent2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtCheckCent2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             this.txtCheckCent2.Leave += new System.EventHandler(this.txtCheckCent2_Leave);
             // 
             // lblCheckAmount2
@@ -1456,7 +1482,7 @@
             this.txtCheckAmount2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCheckAmount2.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtCheckAmount2.Enter += new System.EventHandler(this.txtEdit_Enter);
-            this.txtCheckAmount2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtCheckAmount2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             this.txtCheckAmount2.Leave += new System.EventHandler(this.txtCheckAmount2_Leave);
             // 
             // lblDot4
@@ -1721,6 +1747,7 @@
             // btnEditIK
             // 
             this.btnEditIK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnEditIK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEditIK.FlatAppearance.BorderSize = 0;
             this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -1821,6 +1848,7 @@
             // 
             this.btnIKBack2.BackColor = System.Drawing.Color.Transparent;
             this.btnIKBack2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIKBack2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnIKBack2.FlatAppearance.BorderSize = 0;
             this.btnIKBack2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnIKBack2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -2106,7 +2134,6 @@
             0,
             0,
             0});
-            this.txtBRQuantity.Leave += new System.EventHandler(this.txtBRUP_Leave);
             // 
             // txtBRPart
             // 
@@ -2255,7 +2282,7 @@
             this.txtExpCent.TabIndex = 2;
             this.txtExpCent.Text = "00";
             this.txtExpCent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.total_KeyDown);
-            this.txtExpCent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtExpCent.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             // 
             // txtExpCurrent
             // 
@@ -2296,7 +2323,7 @@
             this.txtExpAmt.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             this.txtExpAmt.Enter += new System.EventHandler(this.txt_Enter);
             this.txtExpAmt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.total_KeyDown);
-            this.txtExpAmt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtExpAmt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.noDot_KeyPress);
             this.txtExpAmt.Leave += new System.EventHandler(this.txtExpAmt_Leave);
             // 
             // lblDotExp
@@ -2819,6 +2846,241 @@
             this.btnBackDisapprove.UseVisualStyleBackColor = false;
             this.btnBackDisapprove.Click += new System.EventHandler(this.btn_Close);
             // 
+            // tabBREdit
+            // 
+            this.tabBREdit.Controls.Add(this.label29);
+            this.tabBREdit.Controls.Add(this.txtBRTotal2);
+            this.tabBREdit.Controls.Add(this.label25);
+            this.tabBREdit.Controls.Add(this.txtBRUP2);
+            this.tabBREdit.Controls.Add(this.label26);
+            this.tabBREdit.Controls.Add(this.pictureBox24);
+            this.tabBREdit.Controls.Add(this.label27);
+            this.tabBREdit.Controls.Add(this.panel11);
+            this.tabBREdit.Controls.Add(this.pictureBox25);
+            this.tabBREdit.Controls.Add(this.btnBREdit);
+            this.tabBREdit.Controls.Add(this.txtBRQuantity2);
+            this.tabBREdit.Controls.Add(this.txtBRPart2);
+            this.tabBREdit.Controls.Add(this.pictureBox26);
+            this.tabBREdit.Location = new System.Drawing.Point(4, 22);
+            this.tabBREdit.Name = "tabBREdit";
+            this.tabBREdit.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBREdit.Size = new System.Drawing.Size(512, 376);
+            this.tabBREdit.TabIndex = 11;
+            this.tabBREdit.Text = "tabPage1";
+            this.tabBREdit.UseVisualStyleBackColor = true;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label29.Location = new System.Drawing.Point(25, 57);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(88, 19);
+            this.label29.TabIndex = 58;
+            this.label29.Text = "PARTICULAR";
+            // 
+            // txtBRTotal2
+            // 
+            this.txtBRTotal2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtBRTotal2.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
+            this.txtBRTotal2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.txtBRTotal2.Location = new System.Drawing.Point(156, 268);
+            this.txtBRTotal2.Name = "txtBRTotal2";
+            this.txtBRTotal2.Size = new System.Drawing.Size(332, 58);
+            this.txtBRTotal2.TabIndex = 50;
+            this.txtBRTotal2.Text = "0,000,000,000.00";
+            this.txtBRTotal2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label25.Location = new System.Drawing.Point(25, 288);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(50, 19);
+            this.label25.TabIndex = 57;
+            this.label25.Text = "TOTAL";
+            // 
+            // txtBRUP2
+            // 
+            this.txtBRUP2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRUP2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRUP2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRUP2.ForeColor = System.Drawing.Color.Black;
+            this.txtBRUP2.Location = new System.Drawing.Point(164, 208);
+            this.txtBRUP2.MaxLength = 50;
+            this.txtBRUP2.Name = "txtBRUP2";
+            this.txtBRUP2.Size = new System.Drawing.Size(316, 25);
+            this.txtBRUP2.TabIndex = 48;
+            this.txtBRUP2.Text = "0";
+            this.txtBRUP2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRUP2.TextChanged += new System.EventHandler(this.txtBRUP_TextChanged);
+            this.txtBRUP2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBRUP_KeyDown);
+            this.txtBRUP2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtBRUP2.Leave += new System.EventHandler(this.txtBRUP_Leave);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label26.Location = new System.Drawing.Point(25, 211);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(80, 19);
+            this.label26.TabIndex = 55;
+            this.label26.Text = "UNIT PRICE";
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
+            this.pictureBox24.Location = new System.Drawing.Point(11, 239);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox24.TabIndex = 56;
+            this.pictureBox24.TabStop = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label27.Location = new System.Drawing.Point(25, 129);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(75, 19);
+            this.label27.TabIndex = 52;
+            this.label27.Text = "QUANTITY";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.noFocusRec11);
+            this.panel11.Controls.Add(this.btnBRCancel2);
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(512, 33);
+            this.panel11.TabIndex = 54;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label28.Location = new System.Drawing.Point(306, 8);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(200, 19);
+            this.label28.TabIndex = 19;
+            this.label28.Text = "Add Budget Request Particular";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec11
+            // 
+            this.noFocusRec11.FlatAppearance.BorderSize = 0;
+            this.noFocusRec11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec11.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec11.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec11.Name = "noFocusRec11";
+            this.noFocusRec11.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec11.TabIndex = 11;
+            this.noFocusRec11.Text = "X";
+            this.noFocusRec11.UseVisualStyleBackColor = true;
+            // 
+            // btnBRCancel2
+            // 
+            this.btnBRCancel2.BackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBRCancel2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBRCancel2.FlatAppearance.BorderSize = 0;
+            this.btnBRCancel2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRCancel2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRCancel2.ForeColor = System.Drawing.Color.White;
+            this.btnBRCancel2.Location = new System.Drawing.Point(6, 8);
+            this.btnBRCancel2.Name = "btnBRCancel2";
+            this.btnBRCancel2.Size = new System.Drawing.Size(76, 22);
+            this.btnBRCancel2.TabIndex = 5;
+            this.btnBRCancel2.Text = "GO BACK";
+            this.btnBRCancel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBRCancel2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
+            this.pictureBox25.Location = new System.Drawing.Point(11, 166);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox25.TabIndex = 53;
+            this.pictureBox25.TabStop = false;
+            // 
+            // btnBREdit
+            // 
+            this.btnBREdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnBREdit.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnBREdit.FlatAppearance.BorderSize = 0;
+            this.btnBREdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBREdit.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBREdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnBREdit.Location = new System.Drawing.Point(0, 336);
+            this.btnBREdit.Name = "btnBREdit";
+            this.btnBREdit.Size = new System.Drawing.Size(512, 40);
+            this.btnBREdit.TabIndex = 49;
+            this.btnBREdit.Text = "EDIT PARTICULAR";
+            this.btnBREdit.UseVisualStyleBackColor = false;
+            this.btnBREdit.Click += new System.EventHandler(this.btnBREdit_Click);
+            // 
+            // txtBRQuantity2
+            // 
+            this.txtBRQuantity2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRQuantity2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRQuantity2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtBRQuantity2.ForeColor = System.Drawing.Color.Black;
+            this.txtBRQuantity2.Location = new System.Drawing.Point(164, 124);
+            this.txtBRQuantity2.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBRQuantity2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtBRQuantity2.Name = "txtBRQuantity2";
+            this.txtBRQuantity2.Size = new System.Drawing.Size(316, 28);
+            this.txtBRQuantity2.TabIndex = 47;
+            this.txtBRQuantity2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRQuantity2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtBRPart2
+            // 
+            this.txtBRPart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRPart2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRPart2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRPart2.ForeColor = System.Drawing.Color.Black;
+            this.txtBRPart2.Location = new System.Drawing.Point(164, 54);
+            this.txtBRPart2.MaxLength = 50;
+            this.txtBRPart2.Name = "txtBRPart2";
+            this.txtBRPart2.Size = new System.Drawing.Size(316, 25);
+            this.txtBRPart2.TabIndex = 46;
+            this.txtBRPart2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
+            this.pictureBox26.Location = new System.Drawing.Point(11, 85);
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox26.TabIndex = 51;
+            this.pictureBox26.TabStop = false;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2904,6 +3166,14 @@
             this.tabBRDisapprove.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.tabBREdit.ResumeLayout(false);
+            this.tabBREdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3036,16 +3306,12 @@
         private NoFocusRec btnBRCancel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.NumericUpDown txtBRQuantity;
-        private System.Windows.Forms.TextBox txtBRPart;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtBRUP;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.TabPage tabBRDetails;
-        private System.Windows.Forms.Label txtBRTotal;
         private System.Windows.Forms.TabPage tabExp;
         private System.Windows.Forms.Label txtExpTotal;
         private System.Windows.Forms.Label label13;
@@ -3093,5 +3359,26 @@
         private NoFocusRec btnBackDisapprove;
         private NoFocusRec btnDelBR;
         private NoFocusRec btnEditBR;
+        private System.Windows.Forms.TabPage tabBREdit;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.PictureBox pictureBox24;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label28;
+        private NoFocusRec noFocusRec11;
+        private NoFocusRec btnBRCancel2;
+        private System.Windows.Forms.PictureBox pictureBox25;
+        private NoFocusRec btnBREdit;
+        private System.Windows.Forms.PictureBox pictureBox26;
+        private System.Windows.Forms.Label label29;
+        public System.Windows.Forms.NumericUpDown txtBRQuantity;
+        public System.Windows.Forms.TextBox txtBRPart;
+        public System.Windows.Forms.TextBox txtBRUP;
+        public System.Windows.Forms.Label txtBRTotal;
+        public System.Windows.Forms.Label txtBRTotal2;
+        public System.Windows.Forms.TextBox txtBRUP2;
+        public System.Windows.Forms.NumericUpDown txtBRQuantity2;
+        public System.Windows.Forms.TextBox txtBRPart2;
     }
 }

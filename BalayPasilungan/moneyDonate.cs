@@ -21,14 +21,14 @@ namespace BalayPasilungan
         
         public Form refToDim { get; set; }
         public bool hasExpense;
-        public bool dot;                    // True - if user entered '.'
+        public bool dot = true;                    // True - if user entered '.'
         public int existingExpenseID;
 
         public moneyDonate()
         {
             InitializeComponent();
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
-
+            
             // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = dateCash.MaxDate;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Now; dateOfCheck.MaxDate = DateTime.Now.AddMonths(3); dateOfCheck.Value = DateTime.Now;
@@ -103,16 +103,12 @@ namespace BalayPasilungan
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if( ((TextBox)sender).Name == "txtBRUP")
-            {
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-                {
-                    e.Handled = true;
-                    if (e.KeyChar == '.') dot = true;
-                    else dot = false;
-                }                   
-            }
-            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
+            if(!(e.KeyChar != '.')) if (((TextBox)sender).Text.Contains(".")) e.Handled = true;                   
+        }
+
+        private void noDot_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar != '.')) e.Handled = true;
         }
         #endregion
 
@@ -397,20 +393,51 @@ namespace BalayPasilungan
             }
             else errorMessage("You cannot have a total of 0.");
         }
+        
+        private void btnBREdit_Click(object sender, EventArgs e)
+        {
+            if (decimal.Parse(txtBRTotal2.Text).ToString() != "0.00")
+            {
+                try
+                {
+                    conn.Open();
+                    // EDIT BUDGET REQUEST ITEM
+                    MySqlCommand comm = new MySqlCommand("UPDATE item SET particular = '" + txtBRPart2.Text 
+                        + "', quantity = " + int.Parse(txtBRQuantity2.Value.ToString()) + ", unitPrice = " + decimal.Parse(txtBRUP.Text)
+                        + ", amount = " + decimal.Parse(txtBRTotal.Text) + ", budgetID = " + budgetID + ");", conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close(); this.Close();
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+            }
+            else errorMessage("You cannot have a total of 0.");
+        }
 
         private void txtBRUP_Leave(object sender, EventArgs e)
         {
-            txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+            if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+            else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
         }
 
         private void txtBRUP_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+            }
         }
 
         private void txtBRUP_TextChanged(object sender, EventArgs e)
         {
-            if (!dot) txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+            if (!dot)
+            {
+                if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+            }                
         }
         #endregion
 
