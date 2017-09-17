@@ -49,6 +49,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.tabCase = new System.Windows.Forms.TabControl();
             this.tabInfo = new System.Windows.Forms.TabPage();
+            this.btnEditProfile = new BalayPasilungan.NoFocusRec();
             this.divider2 = new System.Windows.Forms.PictureBox();
             this.pbox2 = new System.Windows.Forms.PictureBox();
             this.divider = new System.Windows.Forms.PictureBox();
@@ -83,8 +84,10 @@
             this.label78 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnAddMem = new BalayPasilungan.NoFocusRec();
+            this.btnbackfrommember = new BalayPasilungan.NoFocusRec();
+            this.btnfamtype = new BalayPasilungan.NoFocusRec();
             this.eighth = new System.Windows.Forms.TabPage();
-            this.btnaddclass = new System.Windows.Forms.Button();
             this.btnaddedclass = new System.Windows.Forms.Button();
             this.dtgedclass = new System.Windows.Forms.DataGridView();
             this.btnedback = new System.Windows.Forms.Button();
@@ -93,7 +96,10 @@
             this.tabconrecords = new System.Windows.Forms.TabControl();
             this.tabrecords = new System.Windows.Forms.TabPage();
             this.dtgcon = new System.Windows.Forms.DataGridView();
+            this.btncancelcon = new BalayPasilungan.NoFocusRec();
+            this.btnaddconrec = new BalayPasilungan.NoFocusRec();
             this.document = new System.Windows.Forms.TabPage();
+            this.btncancelviewrec = new BalayPasilungan.NoFocusRec();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.lbldatecon = new System.Windows.Forms.Label();
             this.lblintcon = new System.Windows.Forms.Label();
@@ -106,7 +112,11 @@
             this.dtincid = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnbackmainincid = new BalayPasilungan.NoFocusRec();
+            this.btnaddincid = new BalayPasilungan.NoFocusRec();
             this.thirteen = new System.Windows.Forms.TabPage();
+            this.btneditincid = new BalayPasilungan.NoFocusRec();
+            this.btnbackfrominc = new BalayPasilungan.NoFocusRec();
             this.incidlocation = new System.Windows.Forms.TextBox();
             this.repincidaction = new System.Windows.Forms.RichTextBox();
             this.repinciddesc = new System.Windows.Forms.RichTextBox();
@@ -128,6 +138,7 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
+            this.btnincidview = new BalayPasilungan.NoFocusRec();
             this.label65 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
@@ -135,12 +146,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
+            this.btnfover = new BalayPasilungan.NoFocusRec();
             this.label59 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label55 = new System.Windows.Forms.Label();
+            this.btnhealth = new BalayPasilungan.NoFocusRec();
             this.lblbmi = new System.Windows.Forms.Label();
             this.lblblood = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
@@ -150,11 +163,13 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label70 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btncon = new BalayPasilungan.NoFocusRec();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbledschool = new System.Windows.Forms.RichTextBox();
+            this.btned = new BalayPasilungan.NoFocusRec();
             this.lbledlvl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -173,7 +188,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnbackcasestud = new BalayPasilungan.NoFocusRec();
             this.seventeen = new System.Windows.Forms.TabPage();
+            this.btngotocheckup = new BalayPasilungan.NoFocusRec();
+            this.btnbackfromhealthview = new BalayPasilungan.NoFocusRec();
+            this.btnedithealth = new BalayPasilungan.NoFocusRec();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.rviewcondition = new System.Windows.Forms.RichTextBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -189,6 +208,8 @@
             this.lblviewhealthname = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
             this.eighteen = new System.Windows.Forms.TabPage();
+            this.btnbackfromcheck = new BalayPasilungan.NoFocusRec();
+            this.btnaddcheckuprec = new BalayPasilungan.NoFocusRec();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.dtpcheck = new System.Windows.Forms.DateTimePicker();
             this.txtlocationcheck = new System.Windows.Forms.TextBox();
@@ -200,6 +221,7 @@
             this.lblnamecheck = new System.Windows.Forms.Label();
             this.label99 = new System.Windows.Forms.Label();
             this.nineteen = new System.Windows.Forms.TabPage();
+            this.bttnbackfromcheckrec = new BalayPasilungan.NoFocusRec();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.rvcheckdetails = new System.Windows.Forms.RichTextBox();
             this.panel46 = new System.Windows.Forms.Panel();
@@ -208,6 +230,8 @@
             this.tabCases = new System.Windows.Forms.TabPage();
             this.txtSearchMoney = new System.Windows.Forms.TextBox();
             this.searchLine = new System.Windows.Forms.PictureBox();
+            this.btnArchive = new BalayPasilungan.NoFocusRec();
+            this.btnAdd = new BalayPasilungan.NoFocusRec();
             this.multiChild = new System.Windows.Forms.CheckBox();
             this.dtgcs = new System.Windows.Forms.DataGridView();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -229,6 +253,7 @@
             this.tabaddchild = new System.Windows.Forms.TabControl();
             this.tabaddinfo = new System.Windows.Forms.TabPage();
             this.countAd = new System.Windows.Forms.Label();
+            this.btnaddeditcase = new BalayPasilungan.NoFocusRec();
             this.lblAd = new System.Windows.Forms.Label();
             this.dtjoin = new System.Windows.Forms.DateTimePicker();
             this.lblDateJoin = new System.Windows.Forms.Label();
@@ -239,6 +264,7 @@
             this.lblProgram = new System.Windows.Forms.Label();
             this.lblLName = new System.Windows.Forms.Label();
             this.dtbirth = new System.Windows.Forms.DateTimePicker();
+            this.btncancel = new BalayPasilungan.NoFocusRec();
             this.lblFName = new System.Windows.Forms.Label();
             this.pbox1 = new System.Windows.Forms.PictureBox();
             this.txtcaseaddress = new System.Windows.Forms.RichTextBox();
@@ -259,6 +285,8 @@
             this.lblEDT = new System.Windows.Forms.Label();
             this.lblED = new System.Windows.Forms.Label();
             this.countED = new System.Windows.Forms.Label();
+            this.btnadded = new BalayPasilungan.NoFocusRec();
+            this.btncanceled = new BalayPasilungan.NoFocusRec();
             this.tabNewHealth = new System.Windows.Forms.TabPage();
             this.txtweight = new System.Windows.Forms.TextBox();
             this.panelWeight = new System.Windows.Forms.PictureBox();
@@ -272,6 +300,8 @@
             this.lblWeight = new System.Windows.Forms.Label();
             this.lblCondition = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
+            this.btnaddhealth = new BalayPasilungan.NoFocusRec();
+            this.btncancelhealth = new BalayPasilungan.NoFocusRec();
             this.tabNewCon = new System.Windows.Forms.TabPage();
             this.lblIntDetails = new System.Windows.Forms.Label();
             this.richconbox = new System.Windows.Forms.RichTextBox();
@@ -281,7 +311,11 @@
             this.condate = new System.Windows.Forms.DateTimePicker();
             this.lblInterviewer = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnaddcon = new BalayPasilungan.NoFocusRec();
+            this.btncancon = new BalayPasilungan.NoFocusRec();
             this.tabNewIncid = new System.Windows.Forms.TabPage();
+            this.btnaddincidrecord = new BalayPasilungan.NoFocusRec();
+            this.btnbackincidrec = new BalayPasilungan.NoFocusRec();
             this.panel36 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
             this.rtxtactiontaken = new System.Windows.Forms.RichTextBox();
@@ -309,8 +343,12 @@
             this.txttypeincid = new System.Windows.Forms.TextBox();
             this.label101 = new System.Windows.Forms.Label();
             this.tabNewInvolve = new System.Windows.Forms.TabPage();
+            this.btninvok = new BalayPasilungan.NoFocusRec();
             this.dtginv = new System.Windows.Forms.DataGridView();
+            this.btnBackIO = new BalayPasilungan.NoFocusRec();
             this.tabNewMember = new System.Windows.Forms.TabPage();
+            this.btnaddmember = new BalayPasilungan.NoFocusRec();
+            this.btnbacktofamoverview = new BalayPasilungan.NoFocusRec();
             this.cbxmemgender = new System.Windows.Forms.ComboBox();
             this.txtmemocc = new System.Windows.Forms.TextBox();
             this.txtmemrelationship = new System.Windows.Forms.TextBox();
@@ -344,45 +382,6 @@
             this.btnCases = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnEditProfile = new BalayPasilungan.NoFocusRec();
-            this.btnAddMem = new BalayPasilungan.NoFocusRec();
-            this.btnbackfrommember = new BalayPasilungan.NoFocusRec();
-            this.btnfamtype = new BalayPasilungan.NoFocusRec();
-            this.btncancelcon = new BalayPasilungan.NoFocusRec();
-            this.btnaddconrec = new BalayPasilungan.NoFocusRec();
-            this.btncancelviewrec = new BalayPasilungan.NoFocusRec();
-            this.btnbackmainincid = new BalayPasilungan.NoFocusRec();
-            this.btnaddincid = new BalayPasilungan.NoFocusRec();
-            this.btneditincid = new BalayPasilungan.NoFocusRec();
-            this.btnbackfrominc = new BalayPasilungan.NoFocusRec();
-            this.btnincidview = new BalayPasilungan.NoFocusRec();
-            this.btnfover = new BalayPasilungan.NoFocusRec();
-            this.btnhealth = new BalayPasilungan.NoFocusRec();
-            this.btncon = new BalayPasilungan.NoFocusRec();
-            this.btned = new BalayPasilungan.NoFocusRec();
-            this.btnbackcasestud = new BalayPasilungan.NoFocusRec();
-            this.btngotocheckup = new BalayPasilungan.NoFocusRec();
-            this.btnbackfromhealthview = new BalayPasilungan.NoFocusRec();
-            this.btnedithealth = new BalayPasilungan.NoFocusRec();
-            this.btnbackfromcheck = new BalayPasilungan.NoFocusRec();
-            this.btnaddcheckuprec = new BalayPasilungan.NoFocusRec();
-            this.bttnbackfromcheckrec = new BalayPasilungan.NoFocusRec();
-            this.btnArchive = new BalayPasilungan.NoFocusRec();
-            this.btnAdd = new BalayPasilungan.NoFocusRec();
-            this.btnaddeditcase = new BalayPasilungan.NoFocusRec();
-            this.btncancel = new BalayPasilungan.NoFocusRec();
-            this.btnadded = new BalayPasilungan.NoFocusRec();
-            this.btncanceled = new BalayPasilungan.NoFocusRec();
-            this.btnaddhealth = new BalayPasilungan.NoFocusRec();
-            this.btncancelhealth = new BalayPasilungan.NoFocusRec();
-            this.btnaddcon = new BalayPasilungan.NoFocusRec();
-            this.btncancon = new BalayPasilungan.NoFocusRec();
-            this.btnaddincidrecord = new BalayPasilungan.NoFocusRec();
-            this.btnbackincidrec = new BalayPasilungan.NoFocusRec();
-            this.btninvok = new BalayPasilungan.NoFocusRec();
-            this.btnBackIO = new BalayPasilungan.NoFocusRec();
-            this.btnaddmember = new BalayPasilungan.NoFocusRec();
-            this.btnbacktofamoverview = new BalayPasilungan.NoFocusRec();
             this.upPanel.SuspendLayout();
             this.tabCase.SuspendLayout();
             this.tabInfo.SuspendLayout();
@@ -536,6 +535,24 @@
             this.tabInfo.Size = new System.Drawing.Size(955, 678);
             this.tabInfo.TabIndex = 0;
             this.tabInfo.Text = "tabPage1";
+            // 
+            // btnEditProfile
+            // 
+            this.btnEditProfile.BackColor = System.Drawing.Color.White;
+            this.btnEditProfile.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEditProfile.FlatAppearance.BorderSize = 0;
+            this.btnEditProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnEditProfile.Location = new System.Drawing.Point(718, 70);
+            this.btnEditProfile.Name = "btnEditProfile";
+            this.btnEditProfile.Size = new System.Drawing.Size(194, 48);
+            this.btnEditProfile.TabIndex = 53;
+            this.btnEditProfile.UseVisualStyleBackColor = false;
+            this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
             // 
             // divider2
             // 
@@ -911,7 +928,7 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label20.Location = new System.Drawing.Point(352, 73);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(78, 15);
+            this.label20.Size = new System.Drawing.Size(76, 15);
             this.label20.TabIndex = 97;
             this.label20.Text = "FAMILY TYPE";
             // 
@@ -933,7 +950,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label10.Location = new System.Drawing.Point(34, 73);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 15);
+            this.label10.Size = new System.Drawing.Size(47, 15);
             this.label10.TabIndex = 94;
             this.label10.Text = "STATUS";
             // 
@@ -970,9 +987,53 @@
             this.pictureBox2.TabIndex = 96;
             this.pictureBox2.TabStop = false;
             // 
+            // btnAddMem
+            // 
+            this.btnAddMem.BackColor = System.Drawing.Color.White;
+            this.btnAddMem.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddMem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddMem.FlatAppearance.BorderSize = 0;
+            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMem.Location = new System.Drawing.Point(690, 412);
+            this.btnAddMem.Name = "btnAddMem";
+            this.btnAddMem.Size = new System.Drawing.Size(212, 40);
+            this.btnAddMem.TabIndex = 103;
+            this.btnAddMem.UseVisualStyleBackColor = false;
+            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
+            // 
+            // btnbackfrommember
+            // 
+            this.btnbackfrommember.BackColor = System.Drawing.Color.White;
+            this.btnbackfrommember.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnbackfrommember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnbackfrommember.FlatAppearance.BorderSize = 0;
+            this.btnbackfrommember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfrommember.Location = new System.Drawing.Point(37, 412);
+            this.btnbackfrommember.Name = "btnbackfrommember";
+            this.btnbackfrommember.Size = new System.Drawing.Size(212, 40);
+            this.btnbackfrommember.TabIndex = 104;
+            this.btnbackfrommember.UseVisualStyleBackColor = false;
+            this.btnbackfrommember.Click += new System.EventHandler(this.btnbackfrommember_Click);
+            // 
+            // btnfamtype
+            // 
+            this.btnfamtype.BackColor = System.Drawing.Color.Transparent;
+            this.btnfamtype.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnfamtype.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnfamtype.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnfamtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfamtype.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnfamtype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnfamtype.Location = new System.Drawing.Point(749, 31);
+            this.btnfamtype.Name = "btnfamtype";
+            this.btnfamtype.Size = new System.Drawing.Size(153, 29);
+            this.btnfamtype.TabIndex = 101;
+            this.btnfamtype.Text = "ADD TYPE";
+            this.btnfamtype.UseVisualStyleBackColor = false;
+            this.btnfamtype.Click += new System.EventHandler(this.btnfamtype_Click);
+            // 
             // eighth
             // 
-            this.eighth.Controls.Add(this.btnaddclass);
             this.eighth.Controls.Add(this.btnaddedclass);
             this.eighth.Controls.Add(this.dtgedclass);
             this.eighth.Controls.Add(this.btnedback);
@@ -984,21 +1045,6 @@
             this.eighth.TabIndex = 8;
             this.eighth.Text = "8";
             this.eighth.UseVisualStyleBackColor = true;
-            // 
-            // btnaddclass
-            // 
-            this.btnaddclass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnaddclass.Enabled = false;
-            this.btnaddclass.FlatAppearance.BorderSize = 0;
-            this.btnaddclass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddclass.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnaddclass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnaddclass.Location = new System.Drawing.Point(431, 29);
-            this.btnaddclass.Name = "btnaddclass";
-            this.btnaddclass.Size = new System.Drawing.Size(91, 49);
-            this.btnaddclass.TabIndex = 112;
-            this.btnaddclass.Text = "ADD CLASS";
-            this.btnaddclass.UseVisualStyleBackColor = false;
             // 
             // btnaddedclass
             // 
@@ -1211,6 +1257,34 @@
             this.dtgcon.TabIndex = 106;
             this.dtgcon.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgcon_CellClick);
             // 
+            // btncancelcon
+            // 
+            this.btncancelcon.BackColor = System.Drawing.Color.DimGray;
+            this.btncancelcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelcon.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelcon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btncancelcon.Location = new System.Drawing.Point(337, 374);
+            this.btncancelcon.Name = "btncancelcon";
+            this.btncancelcon.Size = new System.Drawing.Size(196, 28);
+            this.btncancelcon.TabIndex = 87;
+            this.btncancelcon.Text = "Cancel";
+            this.btncancelcon.UseVisualStyleBackColor = false;
+            this.btncancelcon.Click += new System.EventHandler(this.btncancelcon_Click);
+            // 
+            // btnaddconrec
+            // 
+            this.btnaddconrec.BackColor = System.Drawing.Color.DimGray;
+            this.btnaddconrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddconrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddconrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnaddconrec.Location = new System.Drawing.Point(15, 374);
+            this.btnaddconrec.Name = "btnaddconrec";
+            this.btnaddconrec.Size = new System.Drawing.Size(196, 28);
+            this.btnaddconrec.TabIndex = 86;
+            this.btnaddconrec.Text = "Add Profile";
+            this.btnaddconrec.UseVisualStyleBackColor = false;
+            this.btnaddconrec.Click += new System.EventHandler(this.btnaddconrec_Click);
+            // 
             // document
             // 
             this.document.Controls.Add(this.btncancelviewrec);
@@ -1223,6 +1297,20 @@
             this.document.TabIndex = 1;
             this.document.Text = "2";
             this.document.UseVisualStyleBackColor = true;
+            // 
+            // btncancelviewrec
+            // 
+            this.btncancelviewrec.BackColor = System.Drawing.Color.DimGray;
+            this.btncancelviewrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelviewrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncancelviewrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btncancelviewrec.Location = new System.Drawing.Point(337, 383);
+            this.btncancelviewrec.Name = "btncancelviewrec";
+            this.btncancelviewrec.Size = new System.Drawing.Size(196, 28);
+            this.btncancelviewrec.TabIndex = 92;
+            this.btncancelviewrec.Text = "Back";
+            this.btncancelviewrec.UseVisualStyleBackColor = false;
+            this.btncancelviewrec.Click += new System.EventHandler(this.btncancelviewrec_Click);
             // 
             // groupBox8
             // 
@@ -1394,6 +1482,34 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Incident Records";
             // 
+            // btnbackmainincid
+            // 
+            this.btnbackmainincid.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackmainincid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackmainincid.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackmainincid.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackmainincid.Location = new System.Drawing.Point(333, 483);
+            this.btnbackmainincid.Name = "btnbackmainincid";
+            this.btnbackmainincid.Size = new System.Drawing.Size(196, 28);
+            this.btnbackmainincid.TabIndex = 89;
+            this.btnbackmainincid.Text = "Cancel";
+            this.btnbackmainincid.UseVisualStyleBackColor = false;
+            this.btnbackmainincid.Click += new System.EventHandler(this.btnbackmainincid_Click);
+            // 
+            // btnaddincid
+            // 
+            this.btnaddincid.BackColor = System.Drawing.Color.DimGray;
+            this.btnaddincid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddincid.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddincid.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnaddincid.Location = new System.Drawing.Point(11, 483);
+            this.btnaddincid.Name = "btnaddincid";
+            this.btnaddincid.Size = new System.Drawing.Size(196, 28);
+            this.btnaddincid.TabIndex = 88;
+            this.btnaddincid.Text = "Add Record";
+            this.btnaddincid.UseVisualStyleBackColor = false;
+            this.btnaddincid.Click += new System.EventHandler(this.btnaddincid_Click);
+            // 
             // thirteen
             // 
             this.thirteen.Controls.Add(this.btneditincid);
@@ -1412,6 +1528,34 @@
             this.thirteen.TabIndex = 13;
             this.thirteen.Text = "13";
             this.thirteen.UseVisualStyleBackColor = true;
+            // 
+            // btneditincid
+            // 
+            this.btneditincid.BackColor = System.Drawing.Color.DimGray;
+            this.btneditincid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneditincid.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneditincid.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btneditincid.Location = new System.Drawing.Point(11, 477);
+            this.btneditincid.Name = "btneditincid";
+            this.btneditincid.Size = new System.Drawing.Size(196, 28);
+            this.btneditincid.TabIndex = 93;
+            this.btneditincid.Text = "Edit";
+            this.btneditincid.UseVisualStyleBackColor = false;
+            this.btneditincid.Click += new System.EventHandler(this.btneditincid_Click);
+            // 
+            // btnbackfrominc
+            // 
+            this.btnbackfrominc.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackfrominc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfrominc.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackfrominc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackfrominc.Location = new System.Drawing.Point(366, 477);
+            this.btnbackfrominc.Name = "btnbackfrominc";
+            this.btnbackfrominc.Size = new System.Drawing.Size(196, 28);
+            this.btnbackfrominc.TabIndex = 92;
+            this.btnbackfrominc.Text = "Back";
+            this.btnbackfrominc.UseVisualStyleBackColor = false;
+            this.btnbackfrominc.Click += new System.EventHandler(this.btnbackfrominc_Click);
             // 
             // incidlocation
             // 
@@ -1701,6 +1845,23 @@
             this.label64.TabIndex = 92;
             this.label64.Text = "TYPE";
             // 
+            // btnincidview
+            // 
+            this.btnincidview.BackColor = System.Drawing.Color.Transparent;
+            this.btnincidview.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnincidview.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnincidview.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnincidview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnincidview.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnincidview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnincidview.Location = new System.Drawing.Point(24, 179);
+            this.btnincidview.Name = "btnincidview";
+            this.btnincidview.Size = new System.Drawing.Size(153, 29);
+            this.btnincidview.TabIndex = 91;
+            this.btnincidview.Text = "RECORDS";
+            this.btnincidview.UseVisualStyleBackColor = false;
+            this.btnincidview.Click += new System.EventHandler(this.btnincidview_Click);
+            // 
             // label65
             // 
             this.label65.AutoSize = true;
@@ -1708,7 +1869,7 @@
             this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label65.Location = new System.Drawing.Point(23, 53);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(117, 15);
+            this.label65.Size = new System.Drawing.Size(116, 15);
             this.label65.TabIndex = 20;
             this.label65.Text = "LAST INVOLVEMENT";
             // 
@@ -1782,6 +1943,23 @@
             this.label57.Text = "Single Parent";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnfover
+            // 
+            this.btnfover.BackColor = System.Drawing.Color.Transparent;
+            this.btnfover.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnfover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnfover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnfover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfover.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnfover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnfover.Location = new System.Drawing.Point(24, 145);
+            this.btnfover.Name = "btnfover";
+            this.btnfover.Size = new System.Drawing.Size(205, 29);
+            this.btnfover.TabIndex = 91;
+            this.btnfover.Text = "OVERVIEW";
+            this.btnfover.UseVisualStyleBackColor = false;
+            this.btnfover.Click += new System.EventHandler(this.btnfover_Click);
+            // 
             // label59
             // 
             this.label59.AutoSize = true;
@@ -1789,7 +1967,7 @@
             this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label59.Location = new System.Drawing.Point(24, 51);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(78, 15);
+            this.label59.Size = new System.Drawing.Size(76, 15);
             this.label59.TabIndex = 20;
             this.label59.Text = "FAMILY TYPE";
             // 
@@ -1854,6 +2032,23 @@
             this.label55.TabIndex = 92;
             this.label55.Text = "February 01, 2009";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnhealth
+            // 
+            this.btnhealth.BackColor = System.Drawing.Color.Transparent;
+            this.btnhealth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnhealth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnhealth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnhealth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnhealth.Location = new System.Drawing.Point(24, 220);
+            this.btnhealth.Name = "btnhealth";
+            this.btnhealth.Size = new System.Drawing.Size(205, 29);
+            this.btnhealth.TabIndex = 92;
+            this.btnhealth.Text = "RECORDS";
+            this.btnhealth.UseVisualStyleBackColor = false;
+            this.btnhealth.Click += new System.EventHandler(this.btnhealth_Click);
             // 
             // lblbmi
             // 
@@ -1953,6 +2148,23 @@
             this.panel3.Size = new System.Drawing.Size(206, 151);
             this.panel3.TabIndex = 96;
             // 
+            // btncon
+            // 
+            this.btncon.BackColor = System.Drawing.Color.Transparent;
+            this.btncon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btncon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btncon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btncon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncon.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btncon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btncon.Location = new System.Drawing.Point(22, 102);
+            this.btncon.Name = "btncon";
+            this.btncon.Size = new System.Drawing.Size(153, 29);
+            this.btncon.TabIndex = 91;
+            this.btncon.Text = "RECORDS";
+            this.btncon.UseVisualStyleBackColor = false;
+            this.btncon.Click += new System.EventHandler(this.btncon_Click);
+            // 
             // label49
             // 
             this.label49.AutoSize = true;
@@ -1960,7 +2172,7 @@
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label49.Location = new System.Drawing.Point(21, 51);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(104, 15);
+            this.label49.Size = new System.Drawing.Size(103, 15);
             this.label49.TabIndex = 20;
             this.label49.Text = "LAST CONSULTED";
             // 
@@ -2021,6 +2233,23 @@
             this.lbledschool.TabIndex = 92;
             this.lbledschool.Tag = "";
             this.lbledschool.Text = "";
+            // 
+            // btned
+            // 
+            this.btned.BackColor = System.Drawing.Color.Transparent;
+            this.btned.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btned.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btned.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btned.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btned.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btned.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btned.Location = new System.Drawing.Point(204, 200);
+            this.btned.Name = "btned";
+            this.btned.Size = new System.Drawing.Size(112, 29);
+            this.btned.TabIndex = 91;
+            this.btned.Text = "VIEW MORE";
+            this.btned.UseVisualStyleBackColor = false;
+            this.btned.Click += new System.EventHandler(this.btned_Click);
             // 
             // lbledlvl
             // 
@@ -2097,7 +2326,7 @@
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label44.Location = new System.Drawing.Point(24, 124);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(132, 15);
+            this.label44.Size = new System.Drawing.Size(131, 15);
             this.label44.TabIndex = 22;
             this.label44.Text = "CURRENTLY ENROLLED";
             // 
@@ -2161,7 +2390,7 @@
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label51.Location = new System.Drawing.Point(24, 51);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(69, 15);
+            this.label51.Size = new System.Drawing.Size(67, 15);
             this.label51.TabIndex = 20;
             this.label51.Text = "BIRTHDATE";
             // 
@@ -2183,7 +2412,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label2.Location = new System.Drawing.Point(24, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 15);
+            this.label2.Size = new System.Drawing.Size(77, 15);
             this.label2.TabIndex = 89;
             this.label2.Text = "DATE JOINED";
             // 
@@ -2229,6 +2458,23 @@
             this.pictureBox5.TabIndex = 90;
             this.pictureBox5.TabStop = false;
             // 
+            // btnbackcasestud
+            // 
+            this.btnbackcasestud.BackColor = System.Drawing.Color.White;
+            this.btnbackcasestud.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnbackcasestud.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnbackcasestud.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnbackcasestud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackcasestud.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnbackcasestud.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnbackcasestud.Location = new System.Drawing.Point(686, 460);
+            this.btnbackcasestud.Name = "btnbackcasestud";
+            this.btnbackcasestud.Size = new System.Drawing.Size(206, 40);
+            this.btnbackcasestud.TabIndex = 96;
+            this.btnbackcasestud.Text = "GO BACK";
+            this.btnbackcasestud.UseVisualStyleBackColor = false;
+            this.btnbackcasestud.Click += new System.EventHandler(this.btnbackcasestud_Click);
+            // 
             // seventeen
             // 
             this.seventeen.Controls.Add(this.btngotocheckup);
@@ -2246,6 +2492,48 @@
             this.seventeen.TabIndex = 17;
             this.seventeen.Text = "17";
             this.seventeen.UseVisualStyleBackColor = true;
+            // 
+            // btngotocheckup
+            // 
+            this.btngotocheckup.BackColor = System.Drawing.Color.DimGray;
+            this.btngotocheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btngotocheckup.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngotocheckup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btngotocheckup.Location = new System.Drawing.Point(231, 501);
+            this.btngotocheckup.Name = "btngotocheckup";
+            this.btngotocheckup.Size = new System.Drawing.Size(196, 28);
+            this.btngotocheckup.TabIndex = 99;
+            this.btngotocheckup.Text = "View Checkup Records";
+            this.btngotocheckup.UseVisualStyleBackColor = false;
+            this.btngotocheckup.Click += new System.EventHandler(this.btngotocheckup_Click);
+            // 
+            // btnbackfromhealthview
+            // 
+            this.btnbackfromhealthview.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackfromhealthview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfromhealthview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackfromhealthview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackfromhealthview.Location = new System.Drawing.Point(453, 501);
+            this.btnbackfromhealthview.Name = "btnbackfromhealthview";
+            this.btnbackfromhealthview.Size = new System.Drawing.Size(196, 28);
+            this.btnbackfromhealthview.TabIndex = 98;
+            this.btnbackfromhealthview.Text = "Back";
+            this.btnbackfromhealthview.UseVisualStyleBackColor = false;
+            this.btnbackfromhealthview.Click += new System.EventHandler(this.btnbackfromhealthview_Click);
+            // 
+            // btnedithealth
+            // 
+            this.btnedithealth.BackColor = System.Drawing.Color.DimGray;
+            this.btnedithealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnedithealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnedithealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnedithealth.Location = new System.Drawing.Point(14, 501);
+            this.btnedithealth.Name = "btnedithealth";
+            this.btnedithealth.Size = new System.Drawing.Size(196, 28);
+            this.btnedithealth.TabIndex = 97;
+            this.btnedithealth.Text = "Edit Info";
+            this.btnedithealth.UseVisualStyleBackColor = false;
+            this.btnedithealth.Click += new System.EventHandler(this.btnedithealth_Click);
             // 
             // groupBox12
             // 
@@ -2418,6 +2706,34 @@
             this.eighteen.Text = "18";
             this.eighteen.UseVisualStyleBackColor = true;
             // 
+            // btnbackfromcheck
+            // 
+            this.btnbackfromcheck.BackColor = System.Drawing.Color.DimGray;
+            this.btnbackfromcheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfromcheck.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackfromcheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnbackfromcheck.Location = new System.Drawing.Point(334, 496);
+            this.btnbackfromcheck.Name = "btnbackfromcheck";
+            this.btnbackfromcheck.Size = new System.Drawing.Size(196, 28);
+            this.btnbackfromcheck.TabIndex = 100;
+            this.btnbackfromcheck.Text = "Cancel";
+            this.btnbackfromcheck.UseVisualStyleBackColor = false;
+            this.btnbackfromcheck.Click += new System.EventHandler(this.btnbackfromcheck_Click);
+            // 
+            // btnaddcheckuprec
+            // 
+            this.btnaddcheckuprec.BackColor = System.Drawing.Color.DimGray;
+            this.btnaddcheckuprec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddcheckuprec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaddcheckuprec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnaddcheckuprec.Location = new System.Drawing.Point(12, 496);
+            this.btnaddcheckuprec.Name = "btnaddcheckuprec";
+            this.btnaddcheckuprec.Size = new System.Drawing.Size(196, 28);
+            this.btnaddcheckuprec.TabIndex = 99;
+            this.btnaddcheckuprec.Text = "Add Profile";
+            this.btnaddcheckuprec.UseVisualStyleBackColor = false;
+            this.btnaddcheckuprec.Click += new System.EventHandler(this.btnaddcheckuprec_Click);
+            // 
             // groupBox17
             // 
             this.groupBox17.Controls.Add(this.dtpcheck);
@@ -2534,6 +2850,20 @@
             this.nineteen.Text = "19";
             this.nineteen.UseVisualStyleBackColor = true;
             // 
+            // bttnbackfromcheckrec
+            // 
+            this.bttnbackfromcheckrec.BackColor = System.Drawing.Color.DimGray;
+            this.bttnbackfromcheckrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnbackfromcheckrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bttnbackfromcheckrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bttnbackfromcheckrec.Location = new System.Drawing.Point(409, 492);
+            this.bttnbackfromcheckrec.Name = "bttnbackfromcheckrec";
+            this.bttnbackfromcheckrec.Size = new System.Drawing.Size(196, 28);
+            this.bttnbackfromcheckrec.TabIndex = 103;
+            this.bttnbackfromcheckrec.Text = "Back";
+            this.bttnbackfromcheckrec.UseVisualStyleBackColor = false;
+            this.bttnbackfromcheckrec.Click += new System.EventHandler(this.bttnbackfromcheckrec_Click);
+            // 
             // groupBox18
             // 
             this.groupBox18.Controls.Add(this.rvcheckdetails);
@@ -2625,6 +2955,40 @@
             this.searchLine.Size = new System.Drawing.Size(232, 23);
             this.searchLine.TabIndex = 16;
             this.searchLine.TabStop = false;
+            // 
+            // btnArchive
+            // 
+            this.btnArchive.BackColor = System.Drawing.Color.Transparent;
+            this.btnArchive.FlatAppearance.BorderSize = 0;
+            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnArchive.Location = new System.Drawing.Point(574, 159);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(112, 29);
+            this.btnArchive.TabIndex = 55;
+            this.btnArchive.Text = "ARCHIVE DONOR";
+            this.btnArchive.UseVisualStyleBackColor = false;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnAdd.Location = new System.Drawing.Point(454, 159);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(112, 29);
+            this.btnAdd.TabIndex = 54;
+            this.btnAdd.Text = "NEW CHILD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // multiChild
             // 
@@ -2759,7 +3123,7 @@
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(73)))), ((int)(((byte)(60)))));
             this.label34.Location = new System.Drawing.Point(814, 41);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(38, 13);
+            this.label34.Size = new System.Drawing.Size(36, 13);
             this.label34.TabIndex = 4;
             this.label34.Text = "TOTAL";
             // 
@@ -2931,6 +3295,21 @@
             this.countAd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countAd.Visible = false;
             // 
+            // btnaddeditcase
+            // 
+            this.btnaddeditcase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnaddeditcase.FlatAppearance.BorderSize = 0;
+            this.btnaddeditcase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddeditcase.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddeditcase.ForeColor = System.Drawing.Color.White;
+            this.btnaddeditcase.Location = new System.Drawing.Point(422, 540);
+            this.btnaddeditcase.Name = "btnaddeditcase";
+            this.btnaddeditcase.Size = new System.Drawing.Size(426, 40);
+            this.btnaddeditcase.TabIndex = 100;
+            this.btnaddeditcase.Text = "NEXT STEP";
+            this.btnaddeditcase.UseVisualStyleBackColor = false;
+            this.btnaddeditcase.Click += new System.EventHandler(this.btnaddeditcase_Click);
+            // 
             // lblAd
             // 
             this.lblAd.AccessibleDescription = "";
@@ -3062,6 +3441,21 @@
             this.dtbirth.Size = new System.Drawing.Size(255, 29);
             this.dtbirth.TabIndex = 102;
             this.dtbirth.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // btncancel
+            // 
+            this.btncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btncancel.FlatAppearance.BorderSize = 0;
+            this.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btncancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btncancel.Location = new System.Drawing.Point(0, 540);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Size = new System.Drawing.Size(424, 40);
+            this.btncancel.TabIndex = 101;
+            this.btncancel.Text = "CANCEL";
+            this.btncancel.UseVisualStyleBackColor = false;
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
             // lblFName
             // 
@@ -3263,7 +3657,7 @@
             this.cbxedlvl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.cbxedlvl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedlvl.DropDownWidth = 255;
-            this.cbxedlvl.Font = new System.Drawing.Font("Nyala", 8.25F);
+            this.cbxedlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.cbxedlvl.FormattingEnabled = true;
             this.cbxedlvl.Items.AddRange(new object[] {
             "Preschool",
@@ -3327,6 +3721,36 @@
             this.countED.Text = "0/100";
             this.countED.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countED.Visible = false;
+            // 
+            // btnadded
+            // 
+            this.btnadded.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnadded.FlatAppearance.BorderSize = 0;
+            this.btnadded.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnadded.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnadded.ForeColor = System.Drawing.Color.White;
+            this.btnadded.Location = new System.Drawing.Point(422, 540);
+            this.btnadded.Name = "btnadded";
+            this.btnadded.Size = new System.Drawing.Size(426, 40);
+            this.btnadded.TabIndex = 112;
+            this.btnadded.Text = "NEXT STEP";
+            this.btnadded.UseVisualStyleBackColor = false;
+            this.btnadded.Click += new System.EventHandler(this.btnadded_Click);
+            // 
+            // btncanceled
+            // 
+            this.btncanceled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btncanceled.FlatAppearance.BorderSize = 0;
+            this.btncanceled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncanceled.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btncanceled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btncanceled.Location = new System.Drawing.Point(0, 540);
+            this.btncanceled.Name = "btncanceled";
+            this.btncanceled.Size = new System.Drawing.Size(424, 40);
+            this.btncanceled.TabIndex = 113;
+            this.btncanceled.Text = "GO BACK";
+            this.btncanceled.UseVisualStyleBackColor = false;
+            this.btncanceled.Click += new System.EventHandler(this.btncanceled_Click);
             // 
             // tabNewHealth
             // 
@@ -3509,6 +3933,36 @@
             this.lblHeight.TabIndex = 77;
             this.lblHeight.Text = "HEIGHT (cm)";
             // 
+            // btnaddhealth
+            // 
+            this.btnaddhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnaddhealth.FlatAppearance.BorderSize = 0;
+            this.btnaddhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddhealth.ForeColor = System.Drawing.Color.White;
+            this.btnaddhealth.Location = new System.Drawing.Point(422, 540);
+            this.btnaddhealth.Name = "btnaddhealth";
+            this.btnaddhealth.Size = new System.Drawing.Size(426, 40);
+            this.btnaddhealth.TabIndex = 102;
+            this.btnaddhealth.Text = "NEXT STEP";
+            this.btnaddhealth.UseVisualStyleBackColor = false;
+            this.btnaddhealth.Click += new System.EventHandler(this.btnaddhealth_Click);
+            // 
+            // btncancelhealth
+            // 
+            this.btncancelhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btncancelhealth.FlatAppearance.BorderSize = 0;
+            this.btncancelhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btncancelhealth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btncancelhealth.Location = new System.Drawing.Point(0, 540);
+            this.btncancelhealth.Name = "btncancelhealth";
+            this.btncancelhealth.Size = new System.Drawing.Size(424, 40);
+            this.btncancelhealth.TabIndex = 103;
+            this.btncancelhealth.Text = "GO BACK";
+            this.btncancelhealth.UseVisualStyleBackColor = false;
+            this.btncancelhealth.Click += new System.EventHandler(this.btncancelhealth_Click);
+            // 
             // tabNewCon
             // 
             this.tabNewCon.BackColor = System.Drawing.Color.White;
@@ -3626,6 +4080,36 @@
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label9.Visible = false;
             // 
+            // btnaddcon
+            // 
+            this.btnaddcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnaddcon.FlatAppearance.BorderSize = 0;
+            this.btnaddcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddcon.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddcon.ForeColor = System.Drawing.Color.White;
+            this.btnaddcon.Location = new System.Drawing.Point(422, 540);
+            this.btnaddcon.Name = "btnaddcon";
+            this.btnaddcon.Size = new System.Drawing.Size(426, 40);
+            this.btnaddcon.TabIndex = 104;
+            this.btnaddcon.Text = "GO BACK";
+            this.btnaddcon.UseVisualStyleBackColor = false;
+            this.btnaddcon.Click += new System.EventHandler(this.btnaddcon_Click);
+            // 
+            // btncancon
+            // 
+            this.btncancon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btncancon.FlatAppearance.BorderSize = 0;
+            this.btncancon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancon.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btncancon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btncancon.Location = new System.Drawing.Point(0, 540);
+            this.btncancon.Name = "btncancon";
+            this.btncancon.Size = new System.Drawing.Size(424, 40);
+            this.btncancon.TabIndex = 105;
+            this.btncancon.Text = "GO BACK";
+            this.btncancon.UseVisualStyleBackColor = false;
+            this.btncancon.Click += new System.EventHandler(this.btncancon_Click);
+            // 
             // tabNewIncid
             // 
             this.tabNewIncid.BackColor = System.Drawing.Color.White;
@@ -3645,6 +4129,36 @@
             this.tabNewIncid.Size = new System.Drawing.Size(847, 583);
             this.tabNewIncid.TabIndex = 5;
             this.tabNewIncid.Text = "tabPage2";
+            // 
+            // btnaddincidrecord
+            // 
+            this.btnaddincidrecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnaddincidrecord.FlatAppearance.BorderSize = 0;
+            this.btnaddincidrecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddincidrecord.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddincidrecord.ForeColor = System.Drawing.Color.White;
+            this.btnaddincidrecord.Location = new System.Drawing.Point(422, 540);
+            this.btnaddincidrecord.Name = "btnaddincidrecord";
+            this.btnaddincidrecord.Size = new System.Drawing.Size(426, 40);
+            this.btnaddincidrecord.TabIndex = 106;
+            this.btnaddincidrecord.Text = "NEXT STEP";
+            this.btnaddincidrecord.UseVisualStyleBackColor = false;
+            this.btnaddincidrecord.Click += new System.EventHandler(this.btnaddincidrecord_Click);
+            // 
+            // btnbackincidrec
+            // 
+            this.btnbackincidrec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnbackincidrec.FlatAppearance.BorderSize = 0;
+            this.btnbackincidrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackincidrec.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnbackincidrec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnbackincidrec.Location = new System.Drawing.Point(0, 540);
+            this.btnbackincidrec.Name = "btnbackincidrec";
+            this.btnbackincidrec.Size = new System.Drawing.Size(424, 40);
+            this.btnbackincidrec.TabIndex = 107;
+            this.btnbackincidrec.Text = "GO BACK";
+            this.btnbackincidrec.UseVisualStyleBackColor = false;
+            this.btnbackincidrec.Click += new System.EventHandler(this.btnbackincidrec_Click);
             // 
             // panel36
             // 
@@ -4016,6 +4530,21 @@
             this.tabNewInvolve.TabIndex = 6;
             this.tabNewInvolve.Text = "tabPage1";
             // 
+            // btninvok
+            // 
+            this.btninvok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btninvok.FlatAppearance.BorderSize = 0;
+            this.btninvok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btninvok.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btninvok.ForeColor = System.Drawing.Color.White;
+            this.btninvok.Location = new System.Drawing.Point(422, 540);
+            this.btninvok.Name = "btninvok";
+            this.btninvok.Size = new System.Drawing.Size(426, 40);
+            this.btninvok.TabIndex = 120;
+            this.btninvok.Text = "OK";
+            this.btninvok.UseVisualStyleBackColor = false;
+            this.btninvok.Click += new System.EventHandler(this.btninvok_Click);
+            // 
             // dtginv
             // 
             this.dtginv.AllowUserToAddRows = false;
@@ -4063,6 +4592,21 @@
             this.dtginv.TabIndex = 118;
             this.dtginv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtginv_CellValueChanged);
             // 
+            // btnBackIO
+            // 
+            this.btnBackIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnBackIO.FlatAppearance.BorderSize = 0;
+            this.btnBackIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackIO.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBackIO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnBackIO.Location = new System.Drawing.Point(0, 540);
+            this.btnBackIO.Name = "btnBackIO";
+            this.btnBackIO.Size = new System.Drawing.Size(424, 40);
+            this.btnBackIO.TabIndex = 115;
+            this.btnBackIO.Text = "RESET";
+            this.btnBackIO.UseVisualStyleBackColor = false;
+            this.btnBackIO.Click += new System.EventHandler(this.btnBackIO_Click);
+            // 
             // tabNewMember
             // 
             this.tabNewMember.BackColor = System.Drawing.Color.White;
@@ -4088,6 +4632,36 @@
             this.tabNewMember.Size = new System.Drawing.Size(847, 583);
             this.tabNewMember.TabIndex = 7;
             this.tabNewMember.Text = "tabPage1";
+            // 
+            // btnaddmember
+            // 
+            this.btnaddmember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnaddmember.FlatAppearance.BorderSize = 0;
+            this.btnaddmember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaddmember.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnaddmember.ForeColor = System.Drawing.Color.White;
+            this.btnaddmember.Location = new System.Drawing.Point(422, 540);
+            this.btnaddmember.Name = "btnaddmember";
+            this.btnaddmember.Size = new System.Drawing.Size(426, 40);
+            this.btnaddmember.TabIndex = 121;
+            this.btnaddmember.Text = "ADD";
+            this.btnaddmember.UseVisualStyleBackColor = false;
+            this.btnaddmember.Click += new System.EventHandler(this.btnaddmember_Click);
+            // 
+            // btnbacktofamoverview
+            // 
+            this.btnbacktofamoverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnbacktofamoverview.FlatAppearance.BorderSize = 0;
+            this.btnbacktofamoverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbacktofamoverview.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnbacktofamoverview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.btnbacktofamoverview.Location = new System.Drawing.Point(0, 540);
+            this.btnbacktofamoverview.Name = "btnbacktofamoverview";
+            this.btnbacktofamoverview.Size = new System.Drawing.Size(424, 40);
+            this.btnbacktofamoverview.TabIndex = 122;
+            this.btnbacktofamoverview.Text = "CANCEL";
+            this.btnbacktofamoverview.UseVisualStyleBackColor = false;
+            this.btnbacktofamoverview.Click += new System.EventHandler(this.btnbacktofamoverview_Click);
             // 
             // cbxmemgender
             // 
@@ -4456,597 +5030,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnEditProfile
-            // 
-            this.btnEditProfile.BackColor = System.Drawing.Color.White;
-            this.btnEditProfile.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnEditProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditProfile.FlatAppearance.BorderSize = 0;
-            this.btnEditProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
-            this.btnEditProfile.Location = new System.Drawing.Point(718, 70);
-            this.btnEditProfile.Name = "btnEditProfile";
-            this.btnEditProfile.Size = new System.Drawing.Size(194, 48);
-            this.btnEditProfile.TabIndex = 53;
-            this.btnEditProfile.UseVisualStyleBackColor = false;
-            this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
-            // 
-            // btnAddMem
-            // 
-            this.btnAddMem.BackColor = System.Drawing.Color.White;
-            this.btnAddMem.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAddMem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddMem.FlatAppearance.BorderSize = 0;
-            this.btnAddMem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMem.Location = new System.Drawing.Point(690, 412);
-            this.btnAddMem.Name = "btnAddMem";
-            this.btnAddMem.Size = new System.Drawing.Size(212, 40);
-            this.btnAddMem.TabIndex = 103;
-            this.btnAddMem.UseVisualStyleBackColor = false;
-            this.btnAddMem.Click += new System.EventHandler(this.btnAddMem_Click);
-            // 
-            // btnbackfrommember
-            // 
-            this.btnbackfrommember.BackColor = System.Drawing.Color.White;
-            this.btnbackfrommember.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnbackfrommember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnbackfrommember.FlatAppearance.BorderSize = 0;
-            this.btnbackfrommember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfrommember.Location = new System.Drawing.Point(37, 412);
-            this.btnbackfrommember.Name = "btnbackfrommember";
-            this.btnbackfrommember.Size = new System.Drawing.Size(212, 40);
-            this.btnbackfrommember.TabIndex = 104;
-            this.btnbackfrommember.UseVisualStyleBackColor = false;
-            this.btnbackfrommember.Click += new System.EventHandler(this.btnbackfrommember_Click);
-            // 
-            // btnfamtype
-            // 
-            this.btnfamtype.BackColor = System.Drawing.Color.Transparent;
-            this.btnfamtype.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnfamtype.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnfamtype.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnfamtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfamtype.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnfamtype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnfamtype.Location = new System.Drawing.Point(749, 31);
-            this.btnfamtype.Name = "btnfamtype";
-            this.btnfamtype.Size = new System.Drawing.Size(153, 29);
-            this.btnfamtype.TabIndex = 101;
-            this.btnfamtype.Text = "ADD TYPE";
-            this.btnfamtype.UseVisualStyleBackColor = false;
-            this.btnfamtype.Click += new System.EventHandler(this.btnfamtype_Click);
-            // 
-            // btncancelcon
-            // 
-            this.btncancelcon.BackColor = System.Drawing.Color.DimGray;
-            this.btncancelcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelcon.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelcon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btncancelcon.Location = new System.Drawing.Point(337, 374);
-            this.btncancelcon.Name = "btncancelcon";
-            this.btncancelcon.Size = new System.Drawing.Size(196, 28);
-            this.btncancelcon.TabIndex = 87;
-            this.btncancelcon.Text = "Cancel";
-            this.btncancelcon.UseVisualStyleBackColor = false;
-            this.btncancelcon.Click += new System.EventHandler(this.btncancelcon_Click);
-            // 
-            // btnaddconrec
-            // 
-            this.btnaddconrec.BackColor = System.Drawing.Color.DimGray;
-            this.btnaddconrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddconrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddconrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnaddconrec.Location = new System.Drawing.Point(15, 374);
-            this.btnaddconrec.Name = "btnaddconrec";
-            this.btnaddconrec.Size = new System.Drawing.Size(196, 28);
-            this.btnaddconrec.TabIndex = 86;
-            this.btnaddconrec.Text = "Add Profile";
-            this.btnaddconrec.UseVisualStyleBackColor = false;
-            this.btnaddconrec.Click += new System.EventHandler(this.btnaddconrec_Click);
-            // 
-            // btncancelviewrec
-            // 
-            this.btncancelviewrec.BackColor = System.Drawing.Color.DimGray;
-            this.btncancelviewrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelviewrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelviewrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btncancelviewrec.Location = new System.Drawing.Point(337, 383);
-            this.btncancelviewrec.Name = "btncancelviewrec";
-            this.btncancelviewrec.Size = new System.Drawing.Size(196, 28);
-            this.btncancelviewrec.TabIndex = 92;
-            this.btncancelviewrec.Text = "Back";
-            this.btncancelviewrec.UseVisualStyleBackColor = false;
-            this.btncancelviewrec.Click += new System.EventHandler(this.btncancelviewrec_Click);
-            // 
-            // btnbackmainincid
-            // 
-            this.btnbackmainincid.BackColor = System.Drawing.Color.DimGray;
-            this.btnbackmainincid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackmainincid.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackmainincid.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnbackmainincid.Location = new System.Drawing.Point(333, 483);
-            this.btnbackmainincid.Name = "btnbackmainincid";
-            this.btnbackmainincid.Size = new System.Drawing.Size(196, 28);
-            this.btnbackmainincid.TabIndex = 89;
-            this.btnbackmainincid.Text = "Cancel";
-            this.btnbackmainincid.UseVisualStyleBackColor = false;
-            this.btnbackmainincid.Click += new System.EventHandler(this.btnbackmainincid_Click);
-            // 
-            // btnaddincid
-            // 
-            this.btnaddincid.BackColor = System.Drawing.Color.DimGray;
-            this.btnaddincid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddincid.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddincid.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnaddincid.Location = new System.Drawing.Point(11, 483);
-            this.btnaddincid.Name = "btnaddincid";
-            this.btnaddincid.Size = new System.Drawing.Size(196, 28);
-            this.btnaddincid.TabIndex = 88;
-            this.btnaddincid.Text = "Add Record";
-            this.btnaddincid.UseVisualStyleBackColor = false;
-            this.btnaddincid.Click += new System.EventHandler(this.btnaddincid_Click);
-            // 
-            // btneditincid
-            // 
-            this.btneditincid.BackColor = System.Drawing.Color.DimGray;
-            this.btneditincid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btneditincid.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneditincid.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btneditincid.Location = new System.Drawing.Point(11, 477);
-            this.btneditincid.Name = "btneditincid";
-            this.btneditincid.Size = new System.Drawing.Size(196, 28);
-            this.btneditincid.TabIndex = 93;
-            this.btneditincid.Text = "Edit";
-            this.btneditincid.UseVisualStyleBackColor = false;
-            this.btneditincid.Click += new System.EventHandler(this.btneditincid_Click);
-            // 
-            // btnbackfrominc
-            // 
-            this.btnbackfrominc.BackColor = System.Drawing.Color.DimGray;
-            this.btnbackfrominc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfrominc.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackfrominc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnbackfrominc.Location = new System.Drawing.Point(366, 477);
-            this.btnbackfrominc.Name = "btnbackfrominc";
-            this.btnbackfrominc.Size = new System.Drawing.Size(196, 28);
-            this.btnbackfrominc.TabIndex = 92;
-            this.btnbackfrominc.Text = "Back";
-            this.btnbackfrominc.UseVisualStyleBackColor = false;
-            this.btnbackfrominc.Click += new System.EventHandler(this.btnbackfrominc_Click);
-            // 
-            // btnincidview
-            // 
-            this.btnincidview.BackColor = System.Drawing.Color.Transparent;
-            this.btnincidview.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnincidview.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnincidview.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnincidview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnincidview.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnincidview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnincidview.Location = new System.Drawing.Point(24, 179);
-            this.btnincidview.Name = "btnincidview";
-            this.btnincidview.Size = new System.Drawing.Size(153, 29);
-            this.btnincidview.TabIndex = 91;
-            this.btnincidview.Text = "RECORDS";
-            this.btnincidview.UseVisualStyleBackColor = false;
-            this.btnincidview.Click += new System.EventHandler(this.btnincidview_Click);
-            // 
-            // btnfover
-            // 
-            this.btnfover.BackColor = System.Drawing.Color.Transparent;
-            this.btnfover.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnfover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnfover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnfover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnfover.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnfover.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnfover.Location = new System.Drawing.Point(24, 145);
-            this.btnfover.Name = "btnfover";
-            this.btnfover.Size = new System.Drawing.Size(205, 29);
-            this.btnfover.TabIndex = 91;
-            this.btnfover.Text = "OVERVIEW";
-            this.btnfover.UseVisualStyleBackColor = false;
-            this.btnfover.Click += new System.EventHandler(this.btnfover_Click);
-            // 
-            // btnhealth
-            // 
-            this.btnhealth.BackColor = System.Drawing.Color.Transparent;
-            this.btnhealth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnhealth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnhealth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnhealth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnhealth.Location = new System.Drawing.Point(24, 220);
-            this.btnhealth.Name = "btnhealth";
-            this.btnhealth.Size = new System.Drawing.Size(205, 29);
-            this.btnhealth.TabIndex = 92;
-            this.btnhealth.Text = "RECORDS";
-            this.btnhealth.UseVisualStyleBackColor = false;
-            this.btnhealth.Click += new System.EventHandler(this.btnhealth_Click);
-            // 
-            // btncon
-            // 
-            this.btncon.BackColor = System.Drawing.Color.Transparent;
-            this.btncon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btncon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btncon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btncon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncon.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btncon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btncon.Location = new System.Drawing.Point(22, 102);
-            this.btncon.Name = "btncon";
-            this.btncon.Size = new System.Drawing.Size(153, 29);
-            this.btncon.TabIndex = 91;
-            this.btncon.Text = "RECORDS";
-            this.btncon.UseVisualStyleBackColor = false;
-            this.btncon.Click += new System.EventHandler(this.btncon_Click);
-            // 
-            // btned
-            // 
-            this.btned.BackColor = System.Drawing.Color.Transparent;
-            this.btned.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btned.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btned.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btned.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btned.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btned.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btned.Location = new System.Drawing.Point(204, 200);
-            this.btned.Name = "btned";
-            this.btned.Size = new System.Drawing.Size(112, 29);
-            this.btned.TabIndex = 91;
-            this.btned.Text = "VIEW MORE";
-            this.btned.UseVisualStyleBackColor = false;
-            this.btned.Click += new System.EventHandler(this.btned_Click);
-            // 
-            // btnbackcasestud
-            // 
-            this.btnbackcasestud.BackColor = System.Drawing.Color.White;
-            this.btnbackcasestud.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnbackcasestud.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnbackcasestud.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnbackcasestud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackcasestud.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnbackcasestud.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnbackcasestud.Location = new System.Drawing.Point(686, 460);
-            this.btnbackcasestud.Name = "btnbackcasestud";
-            this.btnbackcasestud.Size = new System.Drawing.Size(206, 40);
-            this.btnbackcasestud.TabIndex = 96;
-            this.btnbackcasestud.Text = "GO BACK";
-            this.btnbackcasestud.UseVisualStyleBackColor = false;
-            this.btnbackcasestud.Click += new System.EventHandler(this.btnbackcasestud_Click);
-            // 
-            // btngotocheckup
-            // 
-            this.btngotocheckup.BackColor = System.Drawing.Color.DimGray;
-            this.btngotocheckup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btngotocheckup.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btngotocheckup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btngotocheckup.Location = new System.Drawing.Point(231, 501);
-            this.btngotocheckup.Name = "btngotocheckup";
-            this.btngotocheckup.Size = new System.Drawing.Size(196, 28);
-            this.btngotocheckup.TabIndex = 99;
-            this.btngotocheckup.Text = "View Checkup Records";
-            this.btngotocheckup.UseVisualStyleBackColor = false;
-            this.btngotocheckup.Click += new System.EventHandler(this.btngotocheckup_Click);
-            // 
-            // btnbackfromhealthview
-            // 
-            this.btnbackfromhealthview.BackColor = System.Drawing.Color.DimGray;
-            this.btnbackfromhealthview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfromhealthview.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackfromhealthview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnbackfromhealthview.Location = new System.Drawing.Point(453, 501);
-            this.btnbackfromhealthview.Name = "btnbackfromhealthview";
-            this.btnbackfromhealthview.Size = new System.Drawing.Size(196, 28);
-            this.btnbackfromhealthview.TabIndex = 98;
-            this.btnbackfromhealthview.Text = "Back";
-            this.btnbackfromhealthview.UseVisualStyleBackColor = false;
-            this.btnbackfromhealthview.Click += new System.EventHandler(this.btnbackfromhealthview_Click);
-            // 
-            // btnedithealth
-            // 
-            this.btnedithealth.BackColor = System.Drawing.Color.DimGray;
-            this.btnedithealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnedithealth.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnedithealth.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnedithealth.Location = new System.Drawing.Point(14, 501);
-            this.btnedithealth.Name = "btnedithealth";
-            this.btnedithealth.Size = new System.Drawing.Size(196, 28);
-            this.btnedithealth.TabIndex = 97;
-            this.btnedithealth.Text = "Edit Info";
-            this.btnedithealth.UseVisualStyleBackColor = false;
-            this.btnedithealth.Click += new System.EventHandler(this.btnedithealth_Click);
-            // 
-            // btnbackfromcheck
-            // 
-            this.btnbackfromcheck.BackColor = System.Drawing.Color.DimGray;
-            this.btnbackfromcheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackfromcheck.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbackfromcheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnbackfromcheck.Location = new System.Drawing.Point(334, 496);
-            this.btnbackfromcheck.Name = "btnbackfromcheck";
-            this.btnbackfromcheck.Size = new System.Drawing.Size(196, 28);
-            this.btnbackfromcheck.TabIndex = 100;
-            this.btnbackfromcheck.Text = "Cancel";
-            this.btnbackfromcheck.UseVisualStyleBackColor = false;
-            this.btnbackfromcheck.Click += new System.EventHandler(this.btnbackfromcheck_Click);
-            // 
-            // btnaddcheckuprec
-            // 
-            this.btnaddcheckuprec.BackColor = System.Drawing.Color.DimGray;
-            this.btnaddcheckuprec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddcheckuprec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddcheckuprec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnaddcheckuprec.Location = new System.Drawing.Point(12, 496);
-            this.btnaddcheckuprec.Name = "btnaddcheckuprec";
-            this.btnaddcheckuprec.Size = new System.Drawing.Size(196, 28);
-            this.btnaddcheckuprec.TabIndex = 99;
-            this.btnaddcheckuprec.Text = "Add Profile";
-            this.btnaddcheckuprec.UseVisualStyleBackColor = false;
-            this.btnaddcheckuprec.Click += new System.EventHandler(this.btnaddcheckuprec_Click);
-            // 
-            // bttnbackfromcheckrec
-            // 
-            this.bttnbackfromcheckrec.BackColor = System.Drawing.Color.DimGray;
-            this.bttnbackfromcheckrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bttnbackfromcheckrec.Font = new System.Drawing.Font("Baskerville Old Face", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bttnbackfromcheckrec.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bttnbackfromcheckrec.Location = new System.Drawing.Point(409, 492);
-            this.bttnbackfromcheckrec.Name = "bttnbackfromcheckrec";
-            this.bttnbackfromcheckrec.Size = new System.Drawing.Size(196, 28);
-            this.bttnbackfromcheckrec.TabIndex = 103;
-            this.bttnbackfromcheckrec.Text = "Back";
-            this.bttnbackfromcheckrec.UseVisualStyleBackColor = false;
-            this.bttnbackfromcheckrec.Click += new System.EventHandler(this.bttnbackfromcheckrec_Click);
-            // 
-            // btnArchive
-            // 
-            this.btnArchive.BackColor = System.Drawing.Color.Transparent;
-            this.btnArchive.FlatAppearance.BorderSize = 0;
-            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnArchive.Location = new System.Drawing.Point(574, 159);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(112, 29);
-            this.btnArchive.TabIndex = 55;
-            this.btnArchive.Text = "ARCHIVE DONOR";
-            this.btnArchive.UseVisualStyleBackColor = false;
-            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnAdd.Location = new System.Drawing.Point(454, 159);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(112, 29);
-            this.btnAdd.TabIndex = 54;
-            this.btnAdd.Text = "NEW CHILD";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnaddeditcase
-            // 
-            this.btnaddeditcase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnaddeditcase.FlatAppearance.BorderSize = 0;
-            this.btnaddeditcase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddeditcase.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnaddeditcase.ForeColor = System.Drawing.Color.White;
-            this.btnaddeditcase.Location = new System.Drawing.Point(422, 540);
-            this.btnaddeditcase.Name = "btnaddeditcase";
-            this.btnaddeditcase.Size = new System.Drawing.Size(426, 40);
-            this.btnaddeditcase.TabIndex = 100;
-            this.btnaddeditcase.Text = "NEXT STEP";
-            this.btnaddeditcase.UseVisualStyleBackColor = false;
-            this.btnaddeditcase.Click += new System.EventHandler(this.btnaddeditcase_Click);
-            // 
-            // btncancel
-            // 
-            this.btncancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btncancel.FlatAppearance.BorderSize = 0;
-            this.btncancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btncancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btncancel.Location = new System.Drawing.Point(0, 540);
-            this.btncancel.Name = "btncancel";
-            this.btncancel.Size = new System.Drawing.Size(424, 40);
-            this.btncancel.TabIndex = 101;
-            this.btncancel.Text = "CANCEL";
-            this.btncancel.UseVisualStyleBackColor = false;
-            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
-            // 
-            // btnadded
-            // 
-            this.btnadded.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnadded.FlatAppearance.BorderSize = 0;
-            this.btnadded.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadded.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnadded.ForeColor = System.Drawing.Color.White;
-            this.btnadded.Location = new System.Drawing.Point(422, 540);
-            this.btnadded.Name = "btnadded";
-            this.btnadded.Size = new System.Drawing.Size(426, 40);
-            this.btnadded.TabIndex = 112;
-            this.btnadded.Text = "NEXT STEP";
-            this.btnadded.UseVisualStyleBackColor = false;
-            this.btnadded.Click += new System.EventHandler(this.btnadded_Click);
-            // 
-            // btncanceled
-            // 
-            this.btncanceled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btncanceled.FlatAppearance.BorderSize = 0;
-            this.btncanceled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncanceled.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btncanceled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btncanceled.Location = new System.Drawing.Point(0, 540);
-            this.btncanceled.Name = "btncanceled";
-            this.btncanceled.Size = new System.Drawing.Size(424, 40);
-            this.btncanceled.TabIndex = 113;
-            this.btncanceled.Text = "GO BACK";
-            this.btncanceled.UseVisualStyleBackColor = false;
-            this.btncanceled.Click += new System.EventHandler(this.btncanceled_Click);
-            // 
-            // btnaddhealth
-            // 
-            this.btnaddhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnaddhealth.FlatAppearance.BorderSize = 0;
-            this.btnaddhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnaddhealth.ForeColor = System.Drawing.Color.White;
-            this.btnaddhealth.Location = new System.Drawing.Point(422, 540);
-            this.btnaddhealth.Name = "btnaddhealth";
-            this.btnaddhealth.Size = new System.Drawing.Size(426, 40);
-            this.btnaddhealth.TabIndex = 102;
-            this.btnaddhealth.Text = "NEXT STEP";
-            this.btnaddhealth.UseVisualStyleBackColor = false;
-            this.btnaddhealth.Click += new System.EventHandler(this.btnaddhealth_Click);
-            // 
-            // btncancelhealth
-            // 
-            this.btncancelhealth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btncancelhealth.FlatAppearance.BorderSize = 0;
-            this.btncancelhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancelhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btncancelhealth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btncancelhealth.Location = new System.Drawing.Point(0, 540);
-            this.btncancelhealth.Name = "btncancelhealth";
-            this.btncancelhealth.Size = new System.Drawing.Size(424, 40);
-            this.btncancelhealth.TabIndex = 103;
-            this.btncancelhealth.Text = "GO BACK";
-            this.btncancelhealth.UseVisualStyleBackColor = false;
-            this.btncancelhealth.Click += new System.EventHandler(this.btncancelhealth_Click);
-            // 
-            // btnaddcon
-            // 
-            this.btnaddcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnaddcon.FlatAppearance.BorderSize = 0;
-            this.btnaddcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddcon.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnaddcon.ForeColor = System.Drawing.Color.White;
-            this.btnaddcon.Location = new System.Drawing.Point(422, 540);
-            this.btnaddcon.Name = "btnaddcon";
-            this.btnaddcon.Size = new System.Drawing.Size(426, 40);
-            this.btnaddcon.TabIndex = 104;
-            this.btnaddcon.Text = "GO BACK";
-            this.btnaddcon.UseVisualStyleBackColor = false;
-            this.btnaddcon.Click += new System.EventHandler(this.btnaddcon_Click);
-            // 
-            // btncancon
-            // 
-            this.btncancon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btncancon.FlatAppearance.BorderSize = 0;
-            this.btncancon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncancon.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btncancon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btncancon.Location = new System.Drawing.Point(0, 540);
-            this.btncancon.Name = "btncancon";
-            this.btncancon.Size = new System.Drawing.Size(424, 40);
-            this.btncancon.TabIndex = 105;
-            this.btncancon.Text = "GO BACK";
-            this.btncancon.UseVisualStyleBackColor = false;
-            this.btncancon.Click += new System.EventHandler(this.btncancon_Click);
-            // 
-            // btnaddincidrecord
-            // 
-            this.btnaddincidrecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnaddincidrecord.FlatAppearance.BorderSize = 0;
-            this.btnaddincidrecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddincidrecord.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnaddincidrecord.ForeColor = System.Drawing.Color.White;
-            this.btnaddincidrecord.Location = new System.Drawing.Point(422, 540);
-            this.btnaddincidrecord.Name = "btnaddincidrecord";
-            this.btnaddincidrecord.Size = new System.Drawing.Size(426, 40);
-            this.btnaddincidrecord.TabIndex = 106;
-            this.btnaddincidrecord.Text = "NEXT STEP";
-            this.btnaddincidrecord.UseVisualStyleBackColor = false;
-            this.btnaddincidrecord.Click += new System.EventHandler(this.btnaddincidrecord_Click);
-            // 
-            // btnbackincidrec
-            // 
-            this.btnbackincidrec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnbackincidrec.FlatAppearance.BorderSize = 0;
-            this.btnbackincidrec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbackincidrec.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnbackincidrec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnbackincidrec.Location = new System.Drawing.Point(0, 540);
-            this.btnbackincidrec.Name = "btnbackincidrec";
-            this.btnbackincidrec.Size = new System.Drawing.Size(424, 40);
-            this.btnbackincidrec.TabIndex = 107;
-            this.btnbackincidrec.Text = "GO BACK";
-            this.btnbackincidrec.UseVisualStyleBackColor = false;
-            this.btnbackincidrec.Click += new System.EventHandler(this.btnbackincidrec_Click);
-            // 
-            // btninvok
-            // 
-            this.btninvok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btninvok.FlatAppearance.BorderSize = 0;
-            this.btninvok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btninvok.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btninvok.ForeColor = System.Drawing.Color.White;
-            this.btninvok.Location = new System.Drawing.Point(422, 540);
-            this.btninvok.Name = "btninvok";
-            this.btninvok.Size = new System.Drawing.Size(426, 40);
-            this.btninvok.TabIndex = 120;
-            this.btninvok.Text = "OK";
-            this.btninvok.UseVisualStyleBackColor = false;
-            this.btninvok.Click += new System.EventHandler(this.btninvok_Click);
-            // 
-            // btnBackIO
-            // 
-            this.btnBackIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnBackIO.FlatAppearance.BorderSize = 0;
-            this.btnBackIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackIO.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBackIO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnBackIO.Location = new System.Drawing.Point(0, 540);
-            this.btnBackIO.Name = "btnBackIO";
-            this.btnBackIO.Size = new System.Drawing.Size(424, 40);
-            this.btnBackIO.TabIndex = 115;
-            this.btnBackIO.Text = "RESET";
-            this.btnBackIO.UseVisualStyleBackColor = false;
-            this.btnBackIO.Click += new System.EventHandler(this.btnBackIO_Click);
-            // 
-            // btnaddmember
-            // 
-            this.btnaddmember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnaddmember.FlatAppearance.BorderSize = 0;
-            this.btnaddmember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnaddmember.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnaddmember.ForeColor = System.Drawing.Color.White;
-            this.btnaddmember.Location = new System.Drawing.Point(422, 540);
-            this.btnaddmember.Name = "btnaddmember";
-            this.btnaddmember.Size = new System.Drawing.Size(426, 40);
-            this.btnaddmember.TabIndex = 121;
-            this.btnaddmember.Text = "ADD";
-            this.btnaddmember.UseVisualStyleBackColor = false;
-            this.btnaddmember.Click += new System.EventHandler(this.btnaddmember_Click);
-            // 
-            // btnbacktofamoverview
-            // 
-            this.btnbacktofamoverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnbacktofamoverview.FlatAppearance.BorderSize = 0;
-            this.btnbacktofamoverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnbacktofamoverview.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnbacktofamoverview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnbacktofamoverview.Location = new System.Drawing.Point(0, 540);
-            this.btnbacktofamoverview.Name = "btnbacktofamoverview";
-            this.btnbacktofamoverview.Size = new System.Drawing.Size(424, 40);
-            this.btnbacktofamoverview.TabIndex = 122;
-            this.btnbacktofamoverview.Text = "CANCEL";
-            this.btnbacktofamoverview.UseVisualStyleBackColor = false;
-            this.btnbacktofamoverview.Click += new System.EventHandler(this.btnbacktofamoverview_Click);
             // 
             // caseprofile
             // 
@@ -5458,7 +5441,6 @@
         private System.Windows.Forms.Button btnaddedclass;
         private NoFocusRec btncancon;
         private NoFocusRec btnaddcon;
-        private System.Windows.Forms.Button btnaddclass;
         private System.Windows.Forms.DataGridView dtgcon;
         private System.Windows.Forms.Panel panel36;
         private System.Windows.Forms.Panel panel35;

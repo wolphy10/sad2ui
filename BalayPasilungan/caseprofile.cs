@@ -33,6 +33,7 @@ namespace BalayPasilungan
             //male.Checked = true;
 
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
+
         }        
 
         #region Functions
@@ -197,6 +198,8 @@ namespace BalayPasilungan
             btnaddeditcase.Text = "Add New Profile";
 
             dtbirth.MaxDate = dtjoin.MaxDate = condate.MaxDate = dtpcheck.MaxDate = dateincid.MaxDate = dtpmembirth.MaxDate = DateTime.Now;
+
+            tabCase.SelectedTab = tabCases;
 
             try
             {
@@ -1199,7 +1202,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
@@ -1585,7 +1588,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-
+                MessageBox.Show(ee.ToString());
             }
         }
 
@@ -1726,7 +1729,9 @@ namespace BalayPasilungan
         private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-            
+
+            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
 
             {
@@ -1901,36 +1906,6 @@ namespace BalayPasilungan
         #endregion
 
         #region existsfunctions
-        public void validatecheck(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0)
-            {
-                //USE DA CELL NASET NAMAN DAAN TRUE VALUE
-                foreach (DataGridViewRow row in dtgeducation.Rows)
-                {
-                    DataGridViewCheckBoxCell cell = row.Cells["checkdis"] as DataGridViewCheckBoxCell;
-
-                    //We don't want a null exception!
-                    if (cell.Value != null)
-                    {
-                        MessageBox.Show("NOT NULL");
-                        if (cell.Value == (cell.TrueValue = true))
-                        {
-                            //It's checked!
-                            btnaddclass.Enabled = true;
-                            MessageBox.Show("TRUUUEE");
-                            break;
-                        }
-                        else
-                        {
-                            btnaddclass.Enabled = false;
-                            MessageBox.Show("FAAAAAAALLSSEE");
-                        }
-                    }
-                }
-            }
-        }
 
         public void existsed(int id)
         {
@@ -2007,7 +1982,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                //MessageBox.Show(ee.ToString());
                 btnhealth.Text = "ADD";
                 lblblood.Text = lblbmi.Text = "";
                 conn.Close();
