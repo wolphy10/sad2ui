@@ -206,6 +206,13 @@
             this.rbAnnual = new System.Windows.Forms.RadioButton();
             this.rbMonths = new System.Windows.Forms.RadioButton();
             this.rbMonth = new System.Windows.Forms.RadioButton();
+            this.tabBRDisapprove = new System.Windows.Forms.TabPage();
+            this.btnDelBR = new BalayPasilungan.NoFocusRec();
+            this.btnEditBR = new BalayPasilungan.NoFocusRec();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.noFocusRec9 = new BalayPasilungan.NoFocusRec();
+            this.btnBackDisapprove = new BalayPasilungan.NoFocusRec();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -255,6 +262,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             this.panel9.SuspendLayout();
+            this.tabBRDisapprove.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -269,6 +278,7 @@
             this.tabSelection.Controls.Add(this.tabBRDetails);
             this.tabSelection.Controls.Add(this.tabExp);
             this.tabSelection.Controls.Add(this.tabExpOp);
+            this.tabSelection.Controls.Add(this.tabBRDisapprove);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -1954,6 +1964,9 @@
             this.txtBRUP.TabIndex = 2;
             this.txtBRUP.Text = "0";
             this.txtBRUP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRUP.TextChanged += new System.EventHandler(this.txtBRUP_TextChanged);
+            this.txtBRUP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBRUP_KeyDown);
+            this.txtBRUP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             this.txtBRUP.Leave += new System.EventHandler(this.txtBRUP_Leave);
             // 
             // label11
@@ -2130,6 +2143,7 @@
             // 
             // tabExp
             // 
+            this.tabExp.BackColor = System.Drawing.Color.White;
             this.tabExp.Controls.Add(this.thisMonth);
             this.tabExp.Controls.Add(this.pictureBox20);
             this.tabExp.Controls.Add(this.label6);
@@ -2154,7 +2168,6 @@
             this.tabExp.Size = new System.Drawing.Size(512, 376);
             this.tabExp.TabIndex = 8;
             this.tabExp.Text = "tabPage1";
-            this.tabExp.UseVisualStyleBackColor = true;
             this.tabExp.Click += new System.EventHandler(this.tabExp_Click);
             this.tabExp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
@@ -2418,6 +2431,7 @@
             // btnAddExp
             // 
             this.btnAddExp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddExp.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAddExp.Enabled = false;
             this.btnAddExp.FlatAppearance.BorderSize = 0;
             this.btnAddExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2702,6 +2716,109 @@
             this.rbMonth.UseVisualStyleBackColor = true;
             this.rbMonth.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
             // 
+            // tabBRDisapprove
+            // 
+            this.tabBRDisapprove.BackColor = System.Drawing.Color.White;
+            this.tabBRDisapprove.Controls.Add(this.btnDelBR);
+            this.tabBRDisapprove.Controls.Add(this.btnEditBR);
+            this.tabBRDisapprove.Controls.Add(this.panel10);
+            this.tabBRDisapprove.Location = new System.Drawing.Point(4, 22);
+            this.tabBRDisapprove.Name = "tabBRDisapprove";
+            this.tabBRDisapprove.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBRDisapprove.Size = new System.Drawing.Size(512, 376);
+            this.tabBRDisapprove.TabIndex = 10;
+            this.tabBRDisapprove.Text = "tabPage1";
+            // 
+            // btnDelBR
+            // 
+            this.btnDelBR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnDelBR.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnDelBR.FlatAppearance.BorderSize = 0;
+            this.btnDelBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnDelBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnDelBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelBR.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.btnDelBR.ForeColor = System.Drawing.Color.White;
+            this.btnDelBR.Location = new System.Drawing.Point(0, 204);
+            this.btnDelBR.Name = "btnDelBR";
+            this.btnDelBR.Size = new System.Drawing.Size(512, 172);
+            this.btnDelBR.TabIndex = 66;
+            this.btnDelBR.Text = "REMOVE BUDGET REQUEST";
+            this.btnDelBR.UseVisualStyleBackColor = false;
+            // 
+            // btnEditBR
+            // 
+            this.btnEditBR.BackColor = System.Drawing.Color.White;
+            this.btnEditBR.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnEditBR.FlatAppearance.BorderSize = 0;
+            this.btnEditBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEditBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnEditBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditBR.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.btnEditBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnEditBR.Location = new System.Drawing.Point(0, 31);
+            this.btnEditBR.Name = "btnEditBR";
+            this.btnEditBR.Size = new System.Drawing.Size(512, 172);
+            this.btnEditBR.TabIndex = 65;
+            this.btnEditBR.Text = "EDIT DETAILS";
+            this.btnEditBR.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel10.Controls.Add(this.label23);
+            this.panel10.Controls.Add(this.noFocusRec9);
+            this.panel10.Controls.Add(this.btnBackDisapprove);
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(512, 33);
+            this.panel10.TabIndex = 64;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label23.Location = new System.Drawing.Point(325, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(181, 19);
+            this.label23.TabIndex = 19;
+            this.label23.Text = "Disapprove Budget Request";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec9
+            // 
+            this.noFocusRec9.FlatAppearance.BorderSize = 0;
+            this.noFocusRec9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec9.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec9.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec9.Name = "noFocusRec9";
+            this.noFocusRec9.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec9.TabIndex = 11;
+            this.noFocusRec9.Text = "X";
+            this.noFocusRec9.UseVisualStyleBackColor = true;
+            // 
+            // btnBackDisapprove
+            // 
+            this.btnBackDisapprove.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackDisapprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBackDisapprove.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBackDisapprove.FlatAppearance.BorderSize = 0;
+            this.btnBackDisapprove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBackDisapprove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBackDisapprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackDisapprove.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBackDisapprove.ForeColor = System.Drawing.Color.White;
+            this.btnBackDisapprove.Location = new System.Drawing.Point(6, 8);
+            this.btnBackDisapprove.Name = "btnBackDisapprove";
+            this.btnBackDisapprove.Size = new System.Drawing.Size(76, 22);
+            this.btnBackDisapprove.TabIndex = 4;
+            this.btnBackDisapprove.Text = "GO BACK";
+            this.btnBackDisapprove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBackDisapprove.UseVisualStyleBackColor = false;
+            this.btnBackDisapprove.Click += new System.EventHandler(this.btn_Close);
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2784,6 +2901,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.tabBRDisapprove.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2966,5 +3086,12 @@
         private System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.TabPage tabExpOp;
         public System.Windows.Forms.ComboBox cbExpCat;
+        private System.Windows.Forms.TabPage tabBRDisapprove;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label23;
+        private NoFocusRec noFocusRec9;
+        private NoFocusRec btnBackDisapprove;
+        private NoFocusRec btnDelBR;
+        private NoFocusRec btnEditBR;
     }
 }

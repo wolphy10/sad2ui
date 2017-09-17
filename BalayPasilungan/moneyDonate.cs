@@ -21,6 +21,7 @@ namespace BalayPasilungan
         
         public Form refToDim { get; set; }
         public bool hasExpense;
+        public bool dot;                    // True - if user entered '.'
         public int existingExpenseID;
 
         public moneyDonate()
@@ -93,15 +94,25 @@ namespace BalayPasilungan
             txtCheckAmount2.ForeColor = txtCheckCent2.ForeColor = lblCheckAmount2.ForeColor = lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");            
         }
 
-        public void successMessage(string message)            // Success Message
+        public void errorMessage(string message)            // Error Message
         {
-            success yey = new success();
-            yey.lblSuccess.Text = message;
+            error err = new error();
+            err.lblError.Text = message;
+            err.ShowDialog();
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
+            if( ((TextBox)sender).Name == "txtBRUP")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                    if (e.KeyChar == '.') dot = true;
+                    else dot = false;
+                }                   
+            }
+            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
         }
         #endregion
 
@@ -219,7 +230,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 
@@ -238,7 +249,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 
@@ -274,7 +285,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 
@@ -306,7 +317,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 
@@ -342,7 +353,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 
@@ -358,7 +369,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
         #endregion
@@ -366,23 +377,25 @@ namespace BalayPasilungan
         #region Budget Request
         private void btnAddBR_Click(object sender, EventArgs e)
         {
-            try
+            if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00")
             {
-                conn.Open();
-
-                // ADD BUDGET REQUEST ITEM
-                MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount, budgetID)"
-                    + " VALUES ('" + txtBRPart.Text + "', " + int.Parse(txtBRQuantity.Value.ToString()) + ", "
-                    + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ", " + budgetID + ");", conn);
-                
-                comm.ExecuteNonQuery();                
-                conn.Close();
-                this.Close();
+                try
+                {
+                    conn.Open();
+                    // ADD BUDGET REQUEST ITEM
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount, budgetID)"
+                        + " VALUES ('" + txtBRPart.Text + "', " + int.Parse(txtBRQuantity.Value.ToString()) + ", "
+                        + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ", " + budgetID + ");", conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            else errorMessage("You cannot have a total of 0.");
         }
 
         private void txtBRUP_Leave(object sender, EventArgs e)
@@ -390,8 +403,17 @@ namespace BalayPasilungan
             txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
         }
 
+        private void txtBRUP_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+        }
+
+        private void txtBRUP_TextChanged(object sender, EventArgs e)
+        {
+            if (!dot) txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
+        }
         #endregion
-        
+
         #region Expense   
         private void cbExpCat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -416,7 +438,7 @@ namespace BalayPasilungan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 
@@ -459,12 +481,11 @@ namespace BalayPasilungan
                             + " VALUES ('" + dateExp.Value.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
                     }
                 comm.ExecuteNonQuery();
-                successMessage("New expense record has been added successfully.");
                 conn.Close(); this.Close();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                errorMessage(ex.Message);
             }
         }
 

@@ -13,6 +13,10 @@ using System.Globalization;
 using MySql.Data.MySqlClient;
 using Excel = Microsoft.Office.Interop.Excel;
 
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
 namespace BalayPasilungan
 {
     public partial class expense : Form
@@ -21,7 +25,6 @@ namespace BalayPasilungan
         public MySqlCommand comm;
         public int current_donorID, current_budgetID, current_item;
         public DateTime fromDateValue;
-        public bool multi;                      // True - Multiple Selection
         public bool editDonor;                  // True - Donor for edit
         public bool confirmed;                  // True - clicked OK in confirm window
         public bool empty;                      // True - Table is empty
@@ -236,7 +239,6 @@ namespace BalayPasilungan
         #endregion
 
         #region SQL Connections
-
         public void loadTable(MySqlCommand comm, int type)
         {
             try
@@ -363,8 +365,8 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, "No entries.", null, null);
-                        empty = true;
+                        dt.Rows.Add(-1, null, "No entries.", null, null, null, null);
+                        empty = true; multiBR.Enabled = multiBR.Checked = false;
                     }
 
                     DataGridView table;
@@ -389,9 +391,9 @@ namespace BalayPasilungan
                     {
                         table.Columns[2].HeaderCell.Style.Padding = table.Columns[2].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                         table.Columns[5].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                        multiBR.Enabled = multiABR.Enabled = true;
+                        btnViewBR.Enabled = notifBR.Visible = btnApprovedBR.Enabled = multiBR.Enabled = multiABR.Enabled = true;
                     }
-                    else multiBR.Enabled = multiABR.Enabled = false;
+                    if (empty && table == BRList) btnViewBR.Enabled = notifBR.Visible = false;                    
                 }
                 else if (type == 5)          // Selected budget request details load
                 {
@@ -414,14 +416,14 @@ namespace BalayPasilungan
                 }
                 else if (type == 6)          // Expenses Table
                 {
-
-
-                    expList.DataSource = dt;
                     if (dt.Rows.Count == 0)
                     {
                         dt.Rows.Add(-1, null, "No entries.", null);
                         empty = true; btnExpOp.Enabled = multiExp.Enabled = false;
                     }
+                    else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;
+
+                    expList.DataSource = dt;
 
                     // BR LIST In Kind UI Modifications
                     expList.Columns[1].HeaderText = "MONTH";
@@ -509,7 +511,7 @@ namespace BalayPasilungan
         public void loadDonorInfo(int id)
         {
             tabSelection.SelectedTab = tabDonorInfo;
-
+            tabDonorDetails.SelectedIndex = 0;
             try
             {
                 conn.Open();
@@ -669,7 +671,8 @@ namespace BalayPasilungan
                 else if (type == 2) comm = new MySqlCommand("DELETE FROM item WHERE itemID = " + ID, conn);
                 // Delete expense record
                 else if (type == 3) comm = new MySqlCommand("DELETE FROM expense WHERE expenseID = " + ID, conn);
-
+                // Delete budget record
+                else if (type == 4) comm = new MySqlCommand("DELETE FROM budget WHERE budgetID = " + ID, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
             }
@@ -713,6 +716,7 @@ namespace BalayPasilungan
                         if (int.Parse(dt.Rows[0]["COUNT"].ToString()) < 10) notifBR.Text = "0" + dt.Rows[0]["COUNT"].ToString();
                         else notifBR.Text = dt.Rows[0]["COUNT"].ToString();
                     }
+                    else notifBR.Visible = btnViewBR.Enabled = false;
                     conn.Close();
                 }
                 else if (type == 3)      // Enable button if existing approved budget requests
@@ -830,8 +834,8 @@ namespace BalayPasilungan
 
         private void multiDonor_CheckedChanged(object sender, EventArgs e)
         {
-            if (multiDonor.Checked) donorsGV.MultiSelect = multi = true;
-            else donorsGV.MultiSelect = multi = false;
+            if (multiDonor.Checked) donorsGV.MultiSelect = true;
+            else donorsGV.MultiSelect = false;
         }
 
         private void btnRemoveDonor_Click(object sender, EventArgs e)
@@ -1306,12 +1310,12 @@ namespace BalayPasilungan
             if (multiSelect.Checked)
             {
                 btnEditMoneyD.Enabled = false;
-                donationMoney.MultiSelect = multi = true;
+                donationMoney.MultiSelect = true;
             }
             else
             {
                 btnEditMoneyD.Enabled = true;
-                donationMoney.MultiSelect = multi = false;
+                donationMoney.MultiSelect = false;
             }
         }
 
@@ -1362,7 +1366,7 @@ namespace BalayPasilungan
         {
             confirm conf = new confirm();
             conf.lblConfirm.Text = "Are you sure you want to delete this donor? You cannot undo this action.";
-            if (multi && confirmed)
+            if (multiSelect.Checked && confirmed)
             {
                 foreach (DataGridViewRow r in donationMoney.SelectedRows)
                 {
@@ -1419,7 +1423,7 @@ namespace BalayPasilungan
         {
             confirm conf = new confirm();
             conf.lblConfirm.Text = "Are you sure you want to delete them? There's no chance to get them again.";
-            if (multi)
+            if (multiSelect2.Checked)
             {
                 if (conf.ShowDialog() == DialogResult.OK)
                 {
@@ -1449,13 +1453,11 @@ namespace BalayPasilungan
             {
                 btnEditIK.Enabled = false;
                 donationIK.MultiSelect = true;
-                multi = true;
             }
             else
             {
                 btnEditIK.Enabled = true;
                 donationIK.MultiSelect = false;
-                multi = false;
             }
         }
         #endregion
@@ -1463,9 +1465,9 @@ namespace BalayPasilungan
         #region Finance
         private void btnViewBR_Click(object sender, EventArgs e)
         {
-            lblBRHeader.Text = "Pending Budget Requests"; btnPBRBack.Visible = true; aBR = false;
+            lblBRHeader.Text = "Pending Budget Requests"; aBR = false;
             tabSelection.SelectedTab = tabBRList;
-            MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);            
             loadTable(comm, 4);
             tabPBR.SelectedIndex = 0;
         }
@@ -1526,26 +1528,35 @@ namespace BalayPasilungan
         {
             try
             {
-                confirmMessage("Are you sure you want to request this budget?");
-                if (confirmed)
-                {                    
-                    conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT SUM(amount) as SUM FROM item WHERE budgetID = " + current_budgetID, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
 
-                    MySqlCommand comm = new MySqlCommand("SELECT SUM(amount) as SUM FROM item WHERE budgetID = " + current_budgetID, conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    
-                    decimal sum = Decimal.Round(decimal.Parse(dt.Rows[0]["SUM"].ToString()), 2);
+                if (dt.Rows.Count != 0)
+                {
+                    if (dt.Rows[0]["SUM"].ToString() != "") 
+                    {
+                        confirmMessage("Are you sure you want to request this budget?");
+                        if (confirmed)
+                        {
+                            conn.Open();
 
-                    comm = new MySqlCommand("UPDATE budget SET purpose = '" + lblBRPurpose.Text + "', category = '"
-                        + lblBRCategory.Text + "', budgetTotal = " + sum + ", dateRequested = '" + dateBR.Value.ToString("yyyy-MM-dd") + "' WHERE budgetID = " + current_budgetID, conn);
-                    comm.ExecuteNonQuery();
-                    
-                    conn.Close();
-                    get(2); get(4);
-                    tabSelection.SelectedTab = tabFinance;
+                            comm = new MySqlCommand("SELECT SUM(amount) as SUM FROM item WHERE budgetID = " + current_budgetID, conn);
+                            adp = new MySqlDataAdapter(comm); dt = new DataTable(); adp.Fill(dt);
+
+                            decimal sum = Decimal.Round(decimal.Parse(dt.Rows[0]["SUM"].ToString()), 2);
+
+                            comm = new MySqlCommand("UPDATE budget SET purpose = '" + lblBRPurpose.Text + "', category = '"
+                                + lblBRCategory.Text + "', budgetTotal = " + sum + ", dateRequested = '" + dateBR.Value.ToString("yyyy-MM-dd") + "' WHERE budgetID = " + current_budgetID, conn);
+                            comm.ExecuteNonQuery();
+
+                            conn.Close();
+                            get(2); get(4);
+                            tabSelection.SelectedTab = tabFinance;
+                        }
+                    }
+                    else errorMessage("Please do not submit empty details.");
                 }
+                else errorMessage("Please do not submit empty details.");
             }
             catch (Exception ex)
             {
@@ -1559,8 +1570,8 @@ namespace BalayPasilungan
         }
 
         private void btnBRNext_Click(object sender, EventArgs e)
-        {
-            if (lblBRCategory.Text != "")
+        {            
+            if (lblBRCategory.Text != "" && txtPurpose.Text != "Name of purpose.")
             {
                 tabBR.SelectedIndex = 1;
                 lblBRPurpose.Text = txtPurpose.Text;
@@ -1573,17 +1584,48 @@ namespace BalayPasilungan
 
                 String dateRequested = dateBR.Value.Year.ToString() + "-" + dateBR.Value.Month.ToString() + "-" + dateBR.Value.Day.ToString();
             }
-            else errorMessage("hala"); // error lmao
+            else errorMessage("Please fill up all fields or choose a category.");
         }
 
-        private void btnBRBack_Click(object sender, EventArgs e)
+        private void btnBRCancel_Click(object sender, EventArgs e)
         {
-            tabBR.SelectedIndex = 0;
+            if (((Button)sender).Name == "btnBRCancel") confirmMessage("Are you sure you want to cancel this request?");
+            else if (((Button)sender).Name == "btnBRBack")
+            {
+                tabBR.SelectedIndex = 0; confirmed = false;
+                brTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                brTS.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+                brparTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+                brparTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);                
+            }
+            if (confirmed)
+            {
+                try
+                {
+                    conn.Open();
 
-            brTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            brTS.Font = new System.Drawing.Font("Segoe UI", 20.25F);
-            brparTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
-            brparTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);                            
+                    MySqlCommand comm = new MySqlCommand("DELETE FROM budget WHERE budgetID = " + current_budgetID, conn);
+                    comm.ExecuteNonQuery();
+
+                    comm = new MySqlCommand("ALTER TABLE budget AUTO_INCREMENT = " + current_budgetID, conn);
+                    comm.ExecuteNonQuery();
+
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+
+                if(((Button)sender).Name == "btnBRCancel")
+                {
+                    txtPurpose.Text = "Name of purpose.";
+                    dateBR.MaxDate = dateBR.Value = DateTime.Today; txtBROthers.Clear();
+                    rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
+
+                    tabSelection.SelectedTab = tabFinance;
+                }
+            }
         }
 
         private void category_CheckedChanged(object sender, EventArgs e)
@@ -1620,48 +1662,15 @@ namespace BalayPasilungan
                 lblPBRTotal.Text = BRList.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);                
                 loadTable(comm, 5);
-                btnPBRBack.Visible = false;
-                tabPBR.SelectedIndex = 1;                            
+                tabPBR.SelectedIndex = 1;
             }
         }
 
         private void btnPBRBack_Click(object sender, EventArgs e)
         {                        
-            btnPBRBack.Visible = false;
-            if (tabPBR.SelectedIndex != 2) tabPBR.SelectedIndex = 0;
+            if (tabPBR.SelectedIndex == 1) tabPBR.SelectedIndex = 0;
             else tabSelection.SelectedTab = tabFinance;
         }            
-
-        private void btnBRCancel_Click(object sender, EventArgs e)
-        {
-            confirmMessage("Are you sure you want to cancel this request?");
-            if (confirmed)
-            {
-                try
-                {
-                    conn.Open();
-
-                    MySqlCommand comm = new MySqlCommand("DELETE FROM budget WHERE budgetID = " + current_budgetID, conn);
-                    comm.ExecuteNonQuery();
-
-                    comm = new MySqlCommand("ALTER TABLE budget AUTO_INCREMENT = " + current_budgetID, conn);
-                    comm.ExecuteNonQuery();
-
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    errorMessage(ex.Message);
-                }
-                
-                // Clear or reset all
-                txtPurpose.Text = "Name of purpose.";
-                dateBR.MaxDate = dateBR.Value = DateTime.Today; txtBROthers.Clear();
-                rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
-
-                tabSelection.SelectedTab = tabFinance;
-            }
-        }
 
         private void btnBRApprove_Click(object sender, EventArgs e)
         {
@@ -1688,11 +1697,41 @@ namespace BalayPasilungan
                 }
             }
         }
+        
+        private void btnBRDisapprove_Click(object sender, EventArgs e)
+        {
+            confirmMessage("Are you sure you want to disapprove this request?");
+            if (confirmed)
+            {
+                moneyDonate mD = overlay();
+                mD.tabSelection.SelectedIndex = 10;
+                DialogResult choice = mD.ShowDialog();
+                if (choice == DialogResult.Yes)            // DELETE BUDGET REQUEST
+                {
+                    try
+                    {
+                        del(current_budgetID, 4);
+                        successMessage("Budget has been removed successfully.");
+                        tabSelection.SelectedTab = tabBRList;
+                        comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
+                        loadTable(comm, 4);
+                        tabPBR.SelectedIndex = 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        errorMessage(ex.Message);
+                    }
+                }
+                else if (choice == DialogResult.No)         // EDIT BUDGET REQUEST
+                {
+
+                }
+            }
+        }
 
         private void btnApprovedBR_Click(object sender, EventArgs e)
         {
-            lblBRHeader.Text = "Approved Budget Requests"; btnPBRBack.Visible = true;
-
+            lblBRHeader.Text = "Approved Budget Requests";
             tabSelection.SelectedTab = tabBRList; aBR = true;
             MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Approved' ORDER BY budgetID ASC", conn);            
             loadTable(comm, 4);
@@ -1736,8 +1775,9 @@ namespace BalayPasilungan
             moneyDonate mD = overlay();
             mD.tabSelection.SelectedIndex = 8; mD.cbExpCat.SelectedIndex = 0;
             mD.hasExpense = true;
-            mD.ShowDialog();
 
+            if(mD.ShowDialog() == DialogResult.OK) successMessage("Expense record has been added successfully!");
+            
             empty = false;
             MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6);
@@ -1753,43 +1793,50 @@ namespace BalayPasilungan
 
         private void multiExp_CheckedChanged(object sender, EventArgs e)
         {
-            if (multiExp.Checked) expList.MultiSelect = multi = true;
-            else expList.MultiSelect = multi = false;
+            if (multiExp.Checked) expList.MultiSelect = true;
+            else expList.MultiSelect = false;
         }
 
         private void multiABR_CheckedChanged(object sender, EventArgs e)
         {
-            if (multiABR.Checked) approvedBRList.MultiSelect = multiABR.Checked = false;
-            else approvedBRList.MultiSelect = multiABR.Checked = true;
+            if (multiABR.Checked) approvedBRList.MultiSelect = false;
+            else approvedBRList.MultiSelect = true;
         }
 
         private void btnBtoE_Click(object sender, EventArgs e)
         {
             try
-            {
-                conn.Open();
-
+            {                
                 if (multiABR.Checked)
                 {
-                    
+                    foreach (DataGridViewRow r in approvedBRList.SelectedRows)
+                    {
+                        int row = expList.CurrentCell.RowIndex;
+                        del(int.Parse(expList.Rows[row].Cells[0].Value.ToString()), 3);
+                        comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
+                        loadTable(comm, 4);
+                    }
                 }
                 else
                 {
+                    conn.Open();
                     int row = approvedBRList.CurrentCell.RowIndex;
-                    comm = new MySqlCommand("SELECT category, budgetTotal, budgetID FROM budget WHERE budgetID = " + int.Parse(approvedBRList.Rows[row].Cells[0].Value.ToString()), conn);                  
+                    comm = new MySqlCommand("SELECT category, budgetTotal, budgetID FROM budget WHERE budgetID = " + int.Parse(approvedBRList.Rows[row].Cells[0].Value.ToString()), conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
-                    
+
                     comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount, budgetID) VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + dt.Rows[0]["category"].ToString() + "', " + decimal.Parse(dt.Rows[0]["budgetTotal"].ToString()) + ", " + int.Parse(dt.Rows[0]["budgetID"].ToString()) + ")", conn);
                     comm.ExecuteNonQuery();
 
                     comm = new MySqlCommand("UPDATE budget SET status = 'Expense' WHERE budgetID = " + int.Parse(dt.Rows[0]["budgetID"].ToString()), conn);
                     comm.ExecuteNonQuery();
+                    conn.Close();
 
-                    successMessage("Budget has been exported successfully as expense record.");
+                    comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
+                    loadTable(comm, 4);
                 }
-                conn.Close();
+                successMessage("Budget has been exported successfully as expense record.");                
             }
             catch (Exception ex)
             {
@@ -1804,16 +1851,16 @@ namespace BalayPasilungan
             if (expList.Rows[0].Cells[2].Value.ToString() != "No entries." && expList.SelectedRows.Count != 0)
             {
                 int row = expList.CurrentCell.RowIndex;
-                if (multi) confirmMessage("Are you sure you want to delete this expense record?\nThe existing budget will be deleted as well.");
+                if (multiExp.Checked) confirmMessage("Are you sure you want to delete this expense record?\nThe existing budget will be deleted as well.");
                 else confirmMessage("Are you sure you want to delete these expense records?\nThe existing budget will be deleted as well.");
 
-                if (confirmed && !multi)
+                if (confirmed && !multiExp.Checked)
                 {
                     del(int.Parse(expList.Rows[row].Cells[0].Value.ToString()), 3);
                     MySqlCommand comm = new MySqlCommand("SELECT * FROM expense", conn);
                     loadTable(comm, 6);
                 }
-                else if (confirmed && multi)
+                else if (confirmed && multiExp.Checked)
                 {
                     foreach (DataGridViewRow r in expList.SelectedRows)
                     {
@@ -1975,11 +2022,79 @@ namespace BalayPasilungan
             }
             panelExpOp.Visible = false;
         }
-
+    
         private void btnExpOp_Click(object sender, EventArgs e)
         {
             if (panelExpOp.Visible == false) panelExpOp.Visible = true;
             else panelExpOp.Visible = false;
+        }
+        #endregion
+
+        #region Reports
+        private void exportPDF_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+            saveDialog.FilterIndex = 1;
+
+            if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Document doc = new Document(iTextSharp.text.PageSize.A4, 50, 50, 40, 40);
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(saveDialog.FileName, FileMode.Create));
+                doc.Open();
+                
+                System.Drawing.Image image = Properties.Resources.login_logo;
+                iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(image, System.Drawing.Imaging.ImageFormat.Png);
+                pdfImage.ScalePercent(25F); pdfImage.Alignment = Element.ALIGN_CENTER;
+                doc.Add(pdfImage);
+
+                Chunk chunk = new Chunk("BUDGET REQUEST FORM"); chunk.SetUnderline(2, -3);
+                Paragraph par = new Paragraph(chunk); par.Alignment = Element.ALIGN_CENTER; doc.Add(par);
+
+                iTextSharp.text.Font bold = FontFactory.GetFont("Segoe UI", 11, 1, BaseColor.BLACK);
+                iTextSharp.text.Font normal = FontFactory.GetFont("Segoe UI", 12, 4, BaseColor.BLACK);
+                                
+                Phrase phrase = new Phrase();
+                phrase.Add(new Chunk("\n\nPURPOSE: ", bold));
+                phrase.Add(new Chunk(lblPBRPurpose.Text, normal));
+                phrase.Add(new Chunk("\nDATE REQUESTED: ", bold));
+                phrase.Add(new Chunk(lblPBRdate.Text, normal));
+                phrase.Add(new Chunk("\nCATEGORY: ", bold));
+                phrase.Add(new Chunk(lblPBRCategory.Text, normal));
+                par = new Paragraph(); par.Add(phrase); doc.Add(par);
+
+                phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
+
+                PdfPTable pdfTable = new PdfPTable(4);
+                float[] widths = new float[] { 4f, 2f, 2f, 2f };
+                pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
+
+                phrase = new Phrase(); phrase.Add(new Chunk("\nPARTICULAR\n", bold)); PdfPCell cell = new PdfPCell(phrase);
+                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                phrase = new Phrase(); phrase.Add(new Chunk("\nQUANTITY\n", bold)); cell = new PdfPCell(phrase);
+                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                phrase = new Phrase(); phrase.Add(new Chunk("\nUNIT PRICE\n", bold)); cell = new PdfPCell(phrase);
+                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
+                cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+
+                foreach (DataGridViewRow r in PBRDetails.Rows)
+                {
+                    try
+                    {                        
+                        pdfTable.AddCell(r.Cells[1].Value.ToString());                        
+                        pdfTable.AddCell(r.Cells[2].Value.ToString());
+                        pdfTable.AddCell(r.Cells[3].Value.ToString());
+                        pdfTable.AddCell(r.Cells[4].Value.ToString());
+                    }
+                    catch { }
+                }
+
+                doc.Add(pdfTable);
+
+                doc.Close();
+                successMessage("Budget request exported successfully!");
+            }
         }
         #endregion
     }
