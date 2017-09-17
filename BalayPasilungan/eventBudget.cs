@@ -65,7 +65,7 @@ namespace BalayPasilungan
 
             dim.Location = this.Location;
             dim.Size = this.Size;
-            dim.refToExpense = this;
+            dim.refToPrev = this;
             dim.Show(this);
 
             conf.lblConfirm.Text = message;
@@ -82,7 +82,7 @@ namespace BalayPasilungan
             dim.Location = this.Location;
             dim.Size = this.Size;
             yey.lblSuccess.Text = message;
-            dim.refToExpense = this;
+            dim.refToPrev = this;
             dim.Show(this);
 
             if (yey.ShowDialog() == DialogResult.OK) dim.Close();
@@ -96,7 +96,7 @@ namespace BalayPasilungan
             dim.Location = this.Location;
             dim.Size = this.Size;
             err.lblError.Text = message;
-            dim.refToExpense = this;
+            dim.refToPrev = this;
             dim.Show(this);
 
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
@@ -108,7 +108,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
-            dim.refToExpense = this;
+            dim.refToPrev = this;
             dim.Show(this);
             mD.refToDim = dim;
 

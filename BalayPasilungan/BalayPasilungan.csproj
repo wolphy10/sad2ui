@@ -168,6 +168,12 @@
     <Compile Include="success.Designer.cs">
       <DependentUpon>success.cs</DependentUpon>
     </Compile>
+    <Compile Include="waiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waiting.Designer.cs">
+      <DependentUpon>waiting.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="caseprofile.resx">
       <DependentUpon>caseprofile.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="success.resx">
       <DependentUpon>success.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="waiting.resx">
+      <DependentUpon>waiting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

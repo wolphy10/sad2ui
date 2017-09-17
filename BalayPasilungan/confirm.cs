@@ -13,8 +13,7 @@ namespace BalayPasilungan
     public partial class confirm : Form
     {
         public Form refToLogin { get; set; }
-        public Form refToExpense { get; set; }
-        public Form refToDim { get; set; }
+        public Form refToPrev { get; set; }
 
         public bool boolLogin { get; set; }
 

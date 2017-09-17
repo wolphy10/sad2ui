@@ -24,9 +24,7 @@ namespace BalayPasilungan
             tabSecond.SelectedTab = tabCalendar;
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
             //Load += btnEvent_Click; onload automatically click the btnevent which instantiating it always on tabevent onload
-            menuStrip.Renderer = new renderer();
-            menuStrip1.Renderer = new renderer();
-            menuStripEvent.Renderer = new renderer();
+            menuStrip.Renderer = menuStrip1.Renderer = menuStripEvent.Renderer = new renderer();            
             ERProgress.Renderer = new renderer2();
         }
 
@@ -349,6 +347,10 @@ namespace BalayPasilungan
                                          "TO: " + cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
                 }
             }
+        }
+        public void checkConflict()//event conflict check if the doesn't conflict with other
+        {
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -1267,7 +1269,7 @@ namespace BalayPasilungan
                     eventtime = txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom;
                     datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
                     timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-                    dateTo = cbEYear.Text + "-" + monthto.ToString("00") + "-" + cbEDay.Text;
+                    dateTo = cbEYear.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
                 }
             }
             else if(btnRange == "multi")
@@ -1877,6 +1879,7 @@ namespace BalayPasilungan
         //functions
         public string[] casefname = new string[100];
         public string[] caselname = new string[100];
+        public string clickCase, clickAttended;
         public void CaseProfile()
         {
             int cid; string attend = "False";
@@ -1928,6 +1931,7 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
+
         public void insertCaseView(string cfn, string cln, int cid)
         {
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
@@ -1949,16 +1953,22 @@ namespace BalayPasilungan
         public void viewCaseAttendance()
         {
             lvChildAttend.Items.Clear();
+            childList.Items.Clear();
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
             string datet = btnYNow.Text + "-" + monthnum.ToString("00") + "-" + cellday.ToString("00");
-            string[] attendees = new string[100];
+            string[] attendees = new string[100], onlistAttendee = new string[100];
+
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM attendance JOIN event ON attendance.eventID = event.eventID WHERE attendance.eventID = '" + evid + "' AND attendance.status = 'none' AND attendDate ='"+ datet +"'", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM attendance JOIN event ON attendance.eventID = event.eventID WHERE attendance.eventID = '" + evid + "' AND attendance.status = 'none' AND attendDate ='" + datet + "'", conn);                
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
+                MySqlCommand comm2 = new MySqlCommand("SELECT * FROM attendance JOIN event ON attendance.eventID = event.eventID WHERE attendance.eventID = '" + evid + "' AND attendDate ='" + datet + "' AND attendance.status = 'Present' OR attendance.status = 'Absent'", conn);
+                MySqlDataAdapter adp2 = new MySqlDataAdapter(comm2);
+                DataTable dt2 = new DataTable();
+                adp2.Fill(dt2);
 
                 if (dt.Rows.Count >= 1)
                 {
@@ -1969,6 +1979,15 @@ namespace BalayPasilungan
                         lvChildAttend.Items.Add(item);
                     }
                 }
+                if(dt2.Rows.Count >= 1)
+                {
+                    for (int i = 0; i < dt2.Rows.Count; i++)
+                    {
+                        onlistAttendee[i] = dt2.Rows[i]["attendee"].ToString();
+                        ListViewItem itm = new ListViewItem(onlistAttendee[i]);
+                        childList.Items.Add(itm);
+                    }
+                }
                 conn.Close();
             }
             catch (Exception ee)
@@ -1976,6 +1995,52 @@ namespace BalayPasilungan
                 MessageBox.Show("Nah!" + ee);
                 conn.Close();
             }
+        }
+        private void btnPresent_Click(object sender, EventArgs e)
+        {
+            updateCAttend(0);
+            viewCaseAttendance();
+        }
+
+        private void btnAbsent_Click(object sender, EventArgs e)
+        {
+            updateCAttend(1);
+            viewCaseAttendance();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            updateCAttend(2);
+            viewCaseAttendance();
+        }
+
+        public void updateCAttend(int anum)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand();
+                if (anum == 0) comm = new MySqlCommand("UPDATE attendance SET status ='Present' WHERE attendee = '" + clickCase + "' AND eventID = '" + evid + "';", conn);
+                else if(anum == 1) comm = new MySqlCommand("UPDATE attendance SET status ='Absent' WHERE attendee = '" + clickCase + "' AND eventID = '" + evid + "';", conn);
+                else if(anum == 2) comm = new MySqlCommand("UPDATE attendance SET status ='none' WHERE attendee = '" + clickAttended + "' AND eventID = '" + evid + "';", conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("" + ee);
+                conn.Close();
+            }
+        }
+        private void lvChildAttend_MouseClick(object sender, MouseEventArgs e)
+        {
+            clickCase = lvChildAttend.SelectedItems[0].SubItems[0].Text;
+            btnRemove.Enabled = false; btnAbsent.Enabled = true; btnPresent.Enabled = true;
+        }
+        private void childList_MouseClick(object sender, MouseEventArgs e)
+        {
+            clickAttended = childList.SelectedItems[0].SubItems[0].Text;
+            btnRemove.Enabled = true; btnAbsent.Enabled = false; btnPresent.Enabled = false;
         }
         #endregion
         private void confirmTab_Enter(object sender, EventArgs e)

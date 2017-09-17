@@ -103,7 +103,6 @@ namespace BalayPasilungan
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) e.Handled = true;
         }
-
         #endregion
 
         #region Buttons

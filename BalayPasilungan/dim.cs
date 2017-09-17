@@ -12,7 +12,7 @@ namespace BalayPasilungan
 {
     public partial class dim : Form
     {
-        public Form refToExpense { get; set; }
+        public Form refToPrev { get; set; }
 
         public dim()
         {
@@ -21,13 +21,13 @@ namespace BalayPasilungan
 
         private void dim_Load(object sender, EventArgs e)
         {
-            refToExpense.Enabled = false;
+            refToPrev.Enabled = false;
         }
 
         private void dim_FormClosing(object sender, FormClosingEventArgs e)
         {
-            refToExpense.Enabled = true;            
-            refToExpense.Focus();
+            refToPrev.Enabled = true;
+            refToPrev.Focus();
         }
     }
 }
