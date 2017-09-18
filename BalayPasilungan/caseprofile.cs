@@ -228,6 +228,7 @@ namespace BalayPasilungan
                 dtgcs.Columns[1].Width = 380;
                 dtgcs.Columns[2].Width = 380;
                 dtgcs.Columns[3].Width = 175;
+                
 
                 if (dt.Rows.Count > 0 && !empty)
                 {
@@ -391,7 +392,11 @@ namespace BalayPasilungan
 
                 dtgcs.DataSource = dt;
 
-                dtgcs.Columns[0].Visible = false;
+                dtgcs.Columns["caseid"].Visible = false;
+
+                dtgcs.Columns[1].Width = 380;
+                dtgcs.Columns[2].Width = 380;
+                dtgcs.Columns[3].Width = 175;
 
                 getdrop();
                 getresidential();
@@ -1198,6 +1203,7 @@ namespace BalayPasilungan
 
                 }
 
+
                 btnaddarchive.Visible = false;
                 btncancelarchive.Visible = false;
 
@@ -1896,6 +1902,11 @@ namespace BalayPasilungan
             cbxmemgender.SelectedIndex = cbxmemdependency.SelectedIndex = -1;
 
             dtpmembirth.Value = DateTime.Now.Date;
+        }
+
+        public void reset9()
+        {
+
         }
 
         public void resetall()
@@ -2886,18 +2897,25 @@ namespace BalayPasilungan
         private void btnArchive_Click(object sender, EventArgs e)
         {
             DataGridViewCheckBoxColumn lulz = new DataGridViewCheckBoxColumn();
-            
-            
+
+            dtgcs.Columns[1].Width = 233;
+            dtgcs.Columns[2].Width = 233;
+            dtgcs.Columns[3].Width = 234;
+
             lulz.Name = "lolz";
-            lulz.DataPropertyName = "lolz";
+            
 
             if (dtgcs.Columns["lolz"] == null)
             {
                 MessageBox.Show("aaaaaaa");
+
+
                 dtgcs.Columns.Add(lulz);
 
+
+
             }
-            
+
             //dtgcs.Refresh();
 
             btnaddarchive.Visible = true;
@@ -2947,6 +2965,8 @@ namespace BalayPasilungan
         private void btncancelarchive_Click(object sender, EventArgs e)
         {
             refresh();
+
+            dtgcs.Columns.Remove("lolz");
 
             btnaddarchive.Visible = false;
             btncancelarchive.Visible = false;
