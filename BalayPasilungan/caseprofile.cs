@@ -238,6 +238,8 @@ namespace BalayPasilungan
                     multiChild.Enabled = true;
                 }
                 else multiChild.Checked = multiChild.Enabled = false;
+
+                
                 conn.Close();
             }
             catch (Exception ee)
@@ -413,9 +415,43 @@ namespace BalayPasilungan
             //tabControl.SelectedTab = first;
         }
 
+        public void refresh2()
+        {
+            MySqlDataAdapter adp = new MySqlDataAdapter("SELECT caseid, lastname, firstname FROM casestudyprofile WHERE profilestatus = " + 0, conn);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            if (dt.Rows.Count == 0)
+            {
+                dt.Rows.Add(-1, "No entries.", null, null);
+                empty = true;
+            }
+
+            dtgarchive.DataSource = dt;
+            // Case Profile UI Modifications
+            dtgarchive.Columns[1].HeaderText = "LASTNAME";
+            dtgarchive.Columns[2].HeaderText = "FIRSTNAME";
+
+            // For ID purposes (hidden from user)            
+            dtgarchive.Columns["caseid"].Visible = false;
+
+            // 935 WIDTH
+            dtgarchive.Columns[1].Width = 380;
+            dtgarchive.Columns[2].Width = 380;
+
+
+            if (dt.Rows.Count > 0 && !empty)
+            {
+                dtgarchive.Columns[1].HeaderCell.Style.Padding = dtgarchive.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                getcount2();
+                multiChild.Enabled = true;
+            }
+            else multiChild.Checked = multiChild.Enabled = false;
+        }
+
         public void getdrop()
         {
-            MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM casestudyprofile WHERE program = 'Drop-In'", conn);
+            MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM casestudyprofile WHERE program = 'Drop-In' AND profilestatus = " + 1, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             DataTable dt = new DataTable();
 
@@ -426,7 +462,7 @@ namespace BalayPasilungan
 
         public void getresidential()
         {
-            MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM casestudyprofile WHERE program = 'Residential'", conn);
+            MySqlCommand comm = new MySqlCommand("SELECT COUNT(*) FROM casestudyprofile WHERE program = 'Residential' AND profilestatus = " + 1, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             DataTable dt = new DataTable();
 
@@ -437,7 +473,7 @@ namespace BalayPasilungan
 
         public void getcount()
         {
-            MySqlCommand comm = new MySqlCommand("SELECT COUNT(caseid) FROM casestudyprofile", conn);
+            MySqlCommand comm = new MySqlCommand("SELECT COUNT(caseid) FROM casestudyprofile WHERE profilestatus = " + 1, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             DataTable dt = new DataTable();
 
@@ -445,7 +481,18 @@ namespace BalayPasilungan
 
             lbltotalcase.Text = dt.Rows[0]["count(caseid)"].ToString();
         }
-        
+
+        public void getcount2()
+        {
+            MySqlCommand comm = new MySqlCommand("SELECT COUNT(caseid) FROM casestudyprofile WHERE profilestatus = " + 0, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+
+            adp.Fill(dt);
+
+            lblnumberofarchive.Text = dt.Rows[0]["count(caseid)"].ToString();
+        }
+
         public void addprofile()
         {
             string lname = txtlname.Text, fname = txtfname.Text, status = cbxcasestatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
@@ -2506,6 +2553,43 @@ namespace BalayPasilungan
             
         }
 
+        private void btnaddarchive_Click(object sender, EventArgs e)
+        {
+            int archiveid;
+
+            confirmMessage("You are about to archive the following case studies. Once you archive, you will be no longer able to tamper with the " +
+                "information pertaining to the case studies. \nContinue?");
+
+            if (confirmed)
+            {
+                try
+                {
+                    conn.Open();
+
+                    foreach (DataGridViewRow row in dtgcs.Rows)
+                    {
+                        archiveid = int.Parse(row.Cells["caseid"].Value.ToString());
+
+                        if (Convert.ToBoolean(row.Cells["lolz"].Value))
+                        {
+                            MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET profilestatus = " + 0 + " WHERE caseid = " + archiveid, conn);
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+
+                    conn.Close();
+                    refresh();
+
+                }
+                catch (Exception ee)
+                {
+                    errorMessage(ee.Message);
+                    conn.Close();
+                }
+            }
+
+        }
+
         private void btnaddhealth_Click(object sender, EventArgs e)
         {
             if (btnaddhealth.Text == "ADD")
@@ -2680,6 +2764,17 @@ namespace BalayPasilungan
 
             reset();
         }
+
+        private void btncancelarchive_Click(object sender, EventArgs e)
+        {
+            refresh();
+
+            dtgcs.Columns.Remove("lolz");
+
+            btnaddarchive.Visible = false;
+            btncancelarchive.Visible = false;
+        }
+
 
         private void btnbackcasestud_Click(object sender, EventArgs e)
         {
@@ -2963,51 +3058,14 @@ namespace BalayPasilungan
             else dtgcs.MultiSelect = false;
         }
 
-        private void btncancelarchive_Click(object sender, EventArgs e)
+        
+        
+
+        private void btnseearchive_Click(object sender, EventArgs e)
         {
-            refresh();
-
-            dtgcs.Columns.Remove("lolz");
-
-            btnaddarchive.Visible = false;
-            btncancelarchive.Visible = false;
-        }
-
-        private void btnaddarchive_Click(object sender, EventArgs e)
-        {
-            int archiveid;
-
-            confirmMessage("You are about to archive the following case studies. Once you archive, you will be no longer able to tamper with the " +
-                "information pertaining to the case studies. \nContinue?");
-
-            if (confirmed)
-            {
-                try
-                {
-                    conn.Open();
-
-                    foreach (DataGridViewRow row in dtgcs.Rows)
-                    {
-                        archiveid = int.Parse(row.Cells["caseid"].Value.ToString());
-                        
-                        if (Convert.ToBoolean(row.Cells["lolz"].Value))
-                        {
-                            MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET profilestatus = " + 0 + " WHERE caseid = " + archiveid, conn);
-                            comm.ExecuteNonQuery();
-                        }
-                    }
-
-                    conn.Close();
-                    refresh();
-
-                }
-                catch (Exception ee)
-                {
-                    errorMessage(ee.Message);
-                    conn.Close();
-                }
-            }
-            
+            tabCase.SelectedTab = tabArchive;
+            refresh2();
+           
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
