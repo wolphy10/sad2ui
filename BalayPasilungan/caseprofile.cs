@@ -1198,6 +1198,9 @@ namespace BalayPasilungan
 
                 }
 
+                btnaddarchive.Visible = false;
+                btncancelarchive.Visible = false;
+
                 conn.Close();
             }
             catch (Exception ee)
@@ -1577,6 +1580,9 @@ namespace BalayPasilungan
 
                 tabControl.SelectedTab = sixteen;
                 tabCase.SelectedTab = tabInfo;
+
+                btnaddarchive.Visible = false;
+                btncancelarchive.Visible = false;
 
                 reload(id);
 
@@ -2666,6 +2672,7 @@ namespace BalayPasilungan
         private void btnbackcasestud_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabCases;
+            
         }
 
         private void btncancelhealth_Click(object sender, EventArgs e)
@@ -2880,11 +2887,18 @@ namespace BalayPasilungan
         {
             DataGridViewCheckBoxColumn lulz = new DataGridViewCheckBoxColumn();
             
+            
             lulz.Name = "lolz";
             lulz.DataPropertyName = "lolz";
 
-            dtgcs.Columns.Add(lulz);
-            dtgcs.Refresh();
+            if (dtgcs.Columns["lolz"] == null)
+            {
+                MessageBox.Show("aaaaaaa");
+                dtgcs.Columns.Add(lulz);
+
+            }
+            
+            //dtgcs.Refresh();
 
             btnaddarchive.Visible = true;
             btncancelarchive.Visible = true;
