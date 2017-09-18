@@ -174,6 +174,7 @@ namespace BalayPasilungan
 
             dim.Location = this.Location;
             conf.lblConfirm.Text = message;
+            dim.refToPrev = this;
             dim.Show();
 
             if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
@@ -384,7 +385,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT caseid, lastname, firstname, program FROM casestudyprofile", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT caseid, lastname, firstname, program FROM casestudyprofile WHERE profilestatus = " + 1, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -2970,6 +2971,43 @@ namespace BalayPasilungan
 
             btnaddarchive.Visible = false;
             btncancelarchive.Visible = false;
+        }
+
+        private void btnaddarchive_Click(object sender, EventArgs e)
+        {
+            int archiveid;
+
+            confirmMessage("You are about to archive the following case studies. Once you archive, you will be no longer able to tamper with the " +
+                "information pertaining to the case studies. \nContinue?");
+
+            if (confirmed)
+            {
+                try
+                {
+                    conn.Open();
+
+                    foreach (DataGridViewRow row in dtgcs.Rows)
+                    {
+                        archiveid = int.Parse(row.Cells["caseid"].Value.ToString());
+                        
+                        if (Convert.ToBoolean(row.Cells["lolz"].Value))
+                        {
+                            MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET profilestatus = " + 0 + " WHERE caseid = " + archiveid, conn);
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+
+                    conn.Close();
+                    refresh();
+
+                }
+                catch (Exception ee)
+                {
+                    errorMessage(ee.Message);
+                    conn.Close();
+                }
+            }
+            
         }
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)

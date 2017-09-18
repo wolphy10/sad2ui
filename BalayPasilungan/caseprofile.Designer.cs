@@ -2976,6 +2976,7 @@
             this.btnaddarchive.Text = "ARCHIVE";
             this.btnaddarchive.UseVisualStyleBackColor = false;
             this.btnaddarchive.Visible = false;
+            this.btnaddarchive.Click += new System.EventHandler(this.btnaddarchive_Click);
             // 
             // btncancelarchive
             // 
@@ -3096,7 +3097,6 @@
             this.dtgcs.Location = new System.Drawing.Point(0, 186);
             this.dtgcs.MultiSelect = false;
             this.dtgcs.Name = "dtgcs";
-            this.dtgcs.ReadOnly = true;
             this.dtgcs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtgcs.RowHeadersVisible = false;
             this.dtgcs.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
@@ -4199,7 +4199,7 @@
             this.btnaddincidrecord.Name = "btnaddincidrecord";
             this.btnaddincidrecord.Size = new System.Drawing.Size(426, 40);
             this.btnaddincidrecord.TabIndex = 106;
-            this.btnaddincidrecord.Text = "NEXT STEP";
+            this.btnaddincidrecord.Text = "ADD";
             this.btnaddincidrecord.UseVisualStyleBackColor = false;
             this.btnaddincidrecord.Click += new System.EventHandler(this.btnaddincidrecord_Click);
             // 
