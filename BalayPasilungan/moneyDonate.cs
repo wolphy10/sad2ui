@@ -20,6 +20,7 @@ namespace BalayPasilungan
         public int donorID, donationID, budgetID;
         
         public Form refToDim { get; set; }
+        public Form refToExpense { get; set; }
         public bool hasExpense;
         public bool dot = true;                    // True - if user entered '.'
         public int existingExpenseID;
@@ -28,7 +29,7 @@ namespace BalayPasilungan
         {
             InitializeComponent();
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
-            
+            tabSelection.SelectedTab = tabExpOp;
             // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = dateCash.MaxDate;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Now; dateOfCheck.MaxDate = DateTime.Now.AddMonths(3); dateOfCheck.Value = DateTime.Now;
@@ -589,14 +590,23 @@ namespace BalayPasilungan
         #region Expense Options
         private void ExpMode_CheckedChanged(object sender, EventArgs e)
         {
-            btnReport.Enabled = true;
-            if (((RadioButton)sender).Name == "rbMonth" || ((RadioButton)sender).Name == "rbAnnual") dateFrom.Enabled = false;
-            else if (((RadioButton)sender).Name == "rbMonthSelect") dateFrom.Enabled = true;
-        }
+            btnReport.Enabled = true; dateFrom.Enabled = false;
 
+            if (rbMonth.Checked) btnReport.DialogResult = DialogResult.OK;
+            else if (rbMonthSelect.Checked)
+            {
+                dateFrom.Enabled = true;
+
+                dateFrom.Items.Clear();
+                dateFrom.Items.Add("January"); dateFrom.Items.Add("February"); dateFrom.Items.Add("March"); dateFrom.Items.Add("April"); dateFrom.Items.Add("May"); dateFrom.Items.Add("June");
+                dateFrom.Items.Add("July"); dateFrom.Items.Add("August"); dateFrom.Items.Add("September"); dateFrom.Items.Add("October"); dateFrom.Items.Add("November"); dateFrom.Items.Add("December");
+
+                btnReport.DialogResult = DialogResult.Yes;
+            }
+            else if (rbAnnual.Checked) btnReport.DialogResult = DialogResult.Retry;
+        }
         private void btnReport_Click(object sender, EventArgs e)
         {
-            
         }
         #endregion
     }
