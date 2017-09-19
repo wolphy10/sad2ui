@@ -142,13 +142,14 @@ namespace BalayPasilungan
             ed.Show();
         }
 
-        public void famtypecall(int id)
+        public void famtypecall(int id, string text)
         {
             famtype fam = new famtype();
 
             fam.reftofam = this;
             
             fam.caseid = id;
+            fam.text = text;
 
             fam.Show();
 
@@ -630,7 +631,7 @@ namespace BalayPasilungan
                         conn.Open();
 
 
-                        MySqlCommand comm = new MySqlCommand("UPDATE health SET height = '" + height + "', weight = '" + weight + "', bloodtype = '" + blood + "', allergies = '" + allergy + "', hecondition = '" + condition + "' WHERE caseid = " + id, conn);
+                        MySqlCommand comm = new MySqlCommand("UPDATE health SET height = '" + height + "', weight = '" + weight + "', bloodtype = '" + blood + "', allergies = '" + allergy + "', hecondition = '" + condition + "', bmi = '" + weight / (height * height) + "' WHERE caseid = " + id, conn);
 
                         comm.ExecuteNonQuery();
 
@@ -1207,7 +1208,7 @@ namespace BalayPasilungan
 
         }
 
-        public void reload(int x)
+        public void reload(int id)
         {
             DateTime checkupdate, consuldate;
 
@@ -1215,7 +1216,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + x, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1238,7 +1239,7 @@ namespace BalayPasilungan
 
                 }
 
-                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + x, conn); // Educational Background
+                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn); // Educational Background
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1253,7 +1254,7 @@ namespace BalayPasilungan
 
                 }
 
-                comm = new MySqlCommand("SELECT bmi, bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + x, conn); //Heatlh & Checkup
+                comm = new MySqlCommand("SELECT bmi, bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + id, conn); //Heatlh & Checkup
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1280,7 +1281,7 @@ namespace BalayPasilungan
                     lblblood.Text = "";
                 }
 
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + x, conn); //
+                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1296,7 +1297,7 @@ namespace BalayPasilungan
                  
                 }
 
-                comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + x, conn);
+                comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1308,7 +1309,7 @@ namespace BalayPasilungan
                     lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
                 }
 
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + x, conn);
+                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1718,6 +1719,8 @@ namespace BalayPasilungan
                 btnaddarchive.Visible = false;
                 btncancelarchive.Visible = false;
 
+                archivemode = 0;
+
                 reload(id);
 
                 //existsed(id);
@@ -1961,6 +1964,8 @@ namespace BalayPasilungan
 
                 tabControl.SelectedTab = sixteen;
                 tabCase.SelectedTab = tabInfo;
+
+                archivemode = 1;
 
                 reload(archiveid);
 
@@ -3056,7 +3061,17 @@ namespace BalayPasilungan
             btnaddeditcase.Text = "Add Changes";
             lbladdeditprofile.Text = "Edit Profile";
 
-            reloadeditinfo(id);
+            if (archivemode == 0)
+            {
+                reloadeditinfo(id);
+            }
+
+            else
+            {
+                reloadeditinfo(archiveid);
+            }
+
+           
         }
 
         private void btngotocheckup_Click(object sender, EventArgs e)
@@ -3139,7 +3154,7 @@ namespace BalayPasilungan
 
         private void btnfamtype_Click(object sender, EventArgs e)
         {
-            if (btnfamtype.Text == "ADD TYPE") famtypecall(id);            
+           famtypecall(id, btnfamtype.Text);            
         }
    
         private void btninvok_Click(object sender, EventArgs e)
