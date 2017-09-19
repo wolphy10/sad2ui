@@ -530,7 +530,7 @@ namespace BalayPasilungan
                 archiveDonors.Columns[1].HeaderText = "DONOR NAME";
                 archiveDonors.Columns[2].HeaderText = "PLEDGE";
                 archiveDonors.Columns[3].HeaderText = "DATE OF PLEDGE";
-                archiveDonors.Columns[4].HeaderText = "ADDED OF ARCHIVE";
+                archiveDonors.Columns[4].HeaderText = "INACTIVE SINCE";
                 archiveDonors.Columns[0].Visible = false;
 
                 // 935 WIDTH
@@ -887,16 +887,16 @@ namespace BalayPasilungan
 
         private void btnRemoveDonor_Click(object sender, EventArgs e)
         {
-            confirmMessage("Are you sure you want to archive this donor?\n\nData will be hidden but can be recovered if activated again.");
+            confirmMessage("Are you sure you want to make this donor inactive?");
             if (confirmed)
             {
                 try
                 {
                     conn.Open();
-                    MySqlCommand comm = new MySqlCommand("UPDATE donor SET status = 0 WHERE donorID = " + current_donorID, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE donor SET status = 0, dateArchived = '" + DateTime.Today + "' WHERE donorID = " + current_donorID, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
-                    successMessage("Donor has been archived successfully!");
+                    successMessage("Donor has been changed to inactive.");
                 }
                 catch (Exception ex)
                 {
@@ -2114,7 +2114,7 @@ namespace BalayPasilungan
         {
             tabInnerDonors.SelectedIndex = 2;
             panelListChild.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
-            lblListOfDonors.Text = "List of Archived Donors";
+            lblListOfDonors.Text = "List of Inactive Donors";
             loadArchiveDonor();
         }
 
