@@ -1207,7 +1207,7 @@ namespace BalayPasilungan
 
         }
 
-        public void reload(int id)
+        public void reload(int x)
         {
             DateTime checkupdate, consuldate;
 
@@ -1215,7 +1215,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + x, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1238,7 +1238,7 @@ namespace BalayPasilungan
 
                 }
 
-                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn); // Educational Background
+                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + x, conn); // Educational Background
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1253,7 +1253,7 @@ namespace BalayPasilungan
 
                 }
 
-                comm = new MySqlCommand("SELECT bmi, bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + id, conn); //Heatlh & Checkup
+                comm = new MySqlCommand("SELECT bmi, bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + x, conn); //Heatlh & Checkup
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1267,15 +1267,20 @@ namespace BalayPasilungan
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
+
                         checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"]);
 
                       
                     }
-                    lbledschool.Text = dt.Rows[0]["school"].ToString();
 
                 }
 
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
+                else
+                {
+                    lblblood.Text = "";
+                }
+
+                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + x, conn); //
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1291,7 +1296,7 @@ namespace BalayPasilungan
                  
                 }
 
-                comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
+                comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + x, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1303,7 +1308,7 @@ namespace BalayPasilungan
                     lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
                 }
 
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn);
+                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + x, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1647,33 +1652,43 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count > 0)
                 {
-                    comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation, COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
+                    comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
 
                     adp = new MySqlDataAdapter(comm);
                     dt = new DataTable();
 
                     adp.Fill(dt);
 
-                    dtfamOverview.DataSource = dt;
-                    dtfamOverview.Columns["memberid"].Visible = false;
-                    dtfamOverview.Columns["COUNT(memberid)"].Visible = false;
-
-                    lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
-
-
-                    DataGridViewButtonColumn dc = new DataGridViewButtonColumn();
-
-                    dc.Name = "check";
-                    dc.Visible = true;
-                    
-                    if (dtfamOverview.Columns["check"] == null)
+                    if (dt.Rows.Count > 0)
                     {
-                        dtfamOverview.Columns.Add(dc);
+                        dtfamOverview.DataSource = dt;
+                        dtfamOverview.Columns["memberid"].Visible = false;
 
-                        
+                        comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
+                        adp = new MySqlDataAdapter(comm);
+                        dt = new DataTable();
+
+                        adp.Fill(dt);
+
+                        lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
+
+
+                        DataGridViewButtonColumn dc = new DataGridViewButtonColumn();
+
+                        dc.Name = "check";
+                        dc.Visible = true;
+
+                        if (dtfamOverview.Columns["check"] == null)
+                        {
+                            dtfamOverview.Columns.Add(dc);
+
+
+                        }
+
                     }
-                    
                 }
+
+                    
 
                 else
                 {

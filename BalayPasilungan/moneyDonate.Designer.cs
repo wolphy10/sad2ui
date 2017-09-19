@@ -3351,6 +3351,6 @@
         public System.Windows.Forms.RadioButton rbMonth;
         public System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.RadioButton rbMonthSelect;
-        //public BBBNOVA.BNComboBox dateFrom;
+        public BBBNOVA.BNComboBox dateFrom;
     }
 }
