@@ -18,7 +18,7 @@ namespace BalayPasilungan
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
 
-        public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode;
+        public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode, archiveid, archivemode;
         public string filename, yearlvl, section, adviser;
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
@@ -447,6 +447,9 @@ namespace BalayPasilungan
                 multiChild.Enabled = true;
             }
             else multiChild.Checked = multiChild.Enabled = false;
+
+            btnaddarchive.Visible = false;
+            btncancelarchive.Visible = false;
         }
 
         public void getdrop()
@@ -576,7 +579,7 @@ namespace BalayPasilungan
                     try
                     {                    
                         conn.Open();
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO health(caseid, height, weight, bloodtype, allergies, hecondition) VALUES('" + id + "', '" + height + "', '" + weight + "','" + blood + "','" + allergy + "','" + condition + "')", conn);
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO health(caseid, height, weight, bloodtype, allergies, hecondition, bmi) VALUES('" + id + "', '" + height + "', '" + weight + "','" + blood + "','" + allergy + "','" + condition + "', '" + weight / (height * height) + "')", conn);
                         comm.ExecuteNonQuery();
                         successMessage("New Health Biography Added!");
                         conn.Close();
@@ -1206,8 +1209,7 @@ namespace BalayPasilungan
 
         public void reload(int id)
         {
-            //for (int m = 0; m <= dtgcs.ColumnCount - 1; m++)
-            //dtgcs.Columns[m].SortMode = DataGridViewColumnSortMode.NotSortable;
+            DateTime checkupdate, consuldate;
 
             try
             {
@@ -1222,7 +1224,7 @@ namespace BalayPasilungan
                 if (dt.Rows.Count > 0)
                 {
 
-                    lblcasename.Text = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString();
+                    lblcasename.Text = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString(); //Basic Info
                     lblcaseaddress.Text = dt.Rows[0]["address"].ToString();
                     lblcaseage.Text = dt.Rows[0]["caseAge"].ToString() + " years old";
                     lblcaseprogram.Text = dt.Rows[0]["program"].ToString();
@@ -1236,7 +1238,7 @@ namespace BalayPasilungan
 
                 }
 
-                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn);
+                comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn); // Educational Background
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1250,6 +1252,69 @@ namespace BalayPasilungan
                     lbledschool.Text = dt.Rows[0]["school"].ToString();
 
                 }
+
+                comm = new MySqlCommand("SELECT bmi, bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + id, conn); //Heatlh & Checkup
+                adp = new MySqlDataAdapter(comm);
+                dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    lblbmi.Text = (double.Parse(dt.Rows[0]["bmi"].ToString())).ToString("0.##");
+                    lblblood.Text = dt.Rows[0]["bloodtype"].ToString();
+
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"]);
+
+                      
+                    }
+                    lbledschool.Text = dt.Rows[0]["school"].ToString();
+
+                }
+
+                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
+                adp = new MySqlDataAdapter(comm);
+                dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]);
+                        
+                    }
+                 
+                }
+
+                comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
+                adp = new MySqlDataAdapter(comm);
+                dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    lblfamtypedis.Text = dt.Rows[0]["famtype"].ToString();
+                    lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
+                }
+
+                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn);
+                adp = new MySqlDataAdapter(comm);
+                dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                   
+                }
+
+
 
 
                 btnaddarchive.Visible = false;
@@ -1871,6 +1936,29 @@ namespace BalayPasilungan
                 reloadeditmember(memberid);
             }
 
+        }
+
+        private void dtgarchive_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                archiveid = int.Parse(dtgarchive.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                tabControl.SelectedTab = sixteen;
+                tabCase.SelectedTab = tabInfo;
+
+                reload(archiveid);
+
+                //existsed(id);
+
+                existshealth(archiveid);
+
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+            }
         }
 
 
@@ -2901,7 +2989,7 @@ namespace BalayPasilungan
 
         private void btnhealth_Click(object sender, EventArgs e)
         {
-            if (btnhealth.Text == "Add Info")
+            if (btnhealth.Text == "ADD")
             {
                 tabCase.SelectedTab = tabNewChild;
                 tabaddchild.SelectedTab = tabNewHealth;
@@ -2999,7 +3087,7 @@ namespace BalayPasilungan
             dtgcs.Columns[3].Width = 234;
 
             lulz.Name = "lolz";
-            
+            lulz.Width = 233;
 
             if (dtgcs.Columns["lolz"] == null)
             {
@@ -3067,6 +3155,8 @@ namespace BalayPasilungan
             refresh2();
            
         }
+
+        
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
         {
