@@ -1973,6 +1973,8 @@ namespace BalayPasilungan
 
                 existshealth(archiveid);
 
+                hidedem();
+
             }
 
             catch (Exception ee)
@@ -3240,7 +3242,16 @@ namespace BalayPasilungan
             btnadded.Text = "ADD";
         }
         #endregion
-        
+
+        #region hide functions
+
+        public void hidedem()
+        {
+
+        }
+
+#endregion
+
         private void newprofilepic_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
