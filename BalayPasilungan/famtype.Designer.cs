@@ -140,6 +140,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panelNewChild);
             this.Name = "famtype";
+            this.Load += new System.EventHandler(this.famtype_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panelNewChild.ResumeLayout(false);

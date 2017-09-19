@@ -2873,6 +2873,13 @@ namespace BalayPasilungan
             reset();
         }
 
+        private void btnbackfromarchive_Click(object sender, EventArgs e)
+        {
+            tabCase.SelectedTab = tabCases;
+            reload(id);
+        }
+
+
         private void btncancelarchive_Click(object sender, EventArgs e)
         {
             refresh();
@@ -3009,17 +3016,28 @@ namespace BalayPasilungan
 
         private void btnhealth_Click(object sender, EventArgs e)
         {
-            if (btnhealth.Text == "ADD")
+            if (archivemode == 0)
             {
-                tabCase.SelectedTab = tabNewChild;
-                tabaddchild.SelectedTab = tabNewHealth;
-                lbladdeditprofile.Text = "Add New Health Biography";
+                if (btnhealth.Text == "ADD")
+                {
+                    tabCase.SelectedTab = tabNewChild;
+                    tabaddchild.SelectedTab = tabNewHealth;
+                    lbladdeditprofile.Text = "Add New Health Biography";
+                }
+                else
+                {
+                    tabControl.SelectedTab = seventeen;
+                    reloadedithealth(id);
+                }
             }
+
             else
             {
                 tabControl.SelectedTab = seventeen;
                 reloadedithealth(id);
             }
+
+            
         }
 
         private void btned_Click(object sender, EventArgs e)
@@ -3170,6 +3188,7 @@ namespace BalayPasilungan
             lbladdeditprofile.Text = "People Involved";            
         }
 
+        
         private void multiChild_CheckedChanged(object sender, EventArgs e)
         {
             if (multiChild.Checked) dtgcs.MultiSelect = true;

@@ -79,15 +79,15 @@ namespace BalayPasilungan
 
         private void btnaddedclass_Click(object sender, EventArgs e)
         {
-            if (text == "ADD TYPE")
+            if (btnaddedclass.Text == "ADD")
             {
-                btnaddedclass.Text = "ADD";
+                
                 addtype();
             }
 
             else
             {
-                btnaddedclass.Text = "ADD CHANGES";
+                
                 edittype();
             }
 
@@ -179,5 +179,19 @@ namespace BalayPasilungan
             }
         }
 
+        private void famtype_Load(object sender, EventArgs e)
+        {
+            if (text == "ADD TYPE")
+            {
+
+                btnaddedclass.Text = "ADD";
+            }
+
+            else
+            {
+
+                btnaddedclass.Text = "ADD CHANGES";
+            }
+        }
     }
 }
