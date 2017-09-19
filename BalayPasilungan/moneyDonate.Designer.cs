@@ -189,7 +189,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabExpOp = new System.Windows.Forms.TabPage();
-            this.dateFrom = new BBBNOVA.BNComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -228,6 +227,7 @@
             this.txtBRQuantity2 = new System.Windows.Forms.NumericUpDown();
             this.txtBRPart2 = new System.Windows.Forms.TextBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.dateFrom = new System.Windows.Forms.ComboBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -2510,29 +2510,6 @@
             this.tabExpOp.UseVisualStyleBackColor = true;
             this.tabExpOp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
-            // dateFrom
-            // 
-            this.dateFrom.BackColor = System.Drawing.Color.White;
-            this.dateFrom.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.dateFrom.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.dateFrom.Color3 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.dateFrom.Color4 = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.dateFrom.DrawMode = System.Windows.Forms.DrawMode.Normal;
-            this.dateFrom.DropDownHeight = 500;
-            this.dateFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.dateFrom.DropDownWidth = 313;
-            this.dateFrom.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.dateFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.dateFrom.IsDroppedDown = false;
-            this.dateFrom.Location = new System.Drawing.Point(165, 267);
-            this.dateFrom.MaxDropDownItems = 12;
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.SelectedIndex = -1;
-            this.dateFrom.SelectedItem = null;
-            this.dateFrom.Size = new System.Drawing.Size(313, 30);
-            this.dateFrom.Soreted = false;
-            this.dateFrom.TabIndex = 3;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -3055,6 +3032,30 @@
             this.pictureBox26.TabIndex = 51;
             this.pictureBox26.TabStop = false;
             // 
+            // dateFrom
+            // 
+            this.dateFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.dateFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.dateFrom.FormattingEnabled = true;
+            this.dateFrom.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.dateFrom.Location = new System.Drawing.Point(165, 268);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(313, 29);
+            this.dateFrom.TabIndex = 73;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3351,6 +3352,6 @@
         public System.Windows.Forms.RadioButton rbMonth;
         public System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.RadioButton rbMonthSelect;
-        public BBBNOVA.BNComboBox dateFrom;
+        public System.Windows.Forms.ComboBox dateFrom;
     }
 }

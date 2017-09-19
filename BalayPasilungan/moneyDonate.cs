@@ -596,11 +596,6 @@ namespace BalayPasilungan
             else if (rbMonthSelect.Checked)
             {
                 dateFrom.Enabled = true;
-
-                dateFrom.Items.Clear();
-                dateFrom.Items.Add("January"); dateFrom.Items.Add("February"); dateFrom.Items.Add("March"); dateFrom.Items.Add("April"); dateFrom.Items.Add("May"); dateFrom.Items.Add("June");
-                dateFrom.Items.Add("July"); dateFrom.Items.Add("August"); dateFrom.Items.Add("September"); dateFrom.Items.Add("October"); dateFrom.Items.Add("November"); dateFrom.Items.Add("December");
-
                 btnReport.DialogResult = DialogResult.Yes;
             }
             else if (rbAnnual.Checked) btnReport.DialogResult = DialogResult.Retry;
