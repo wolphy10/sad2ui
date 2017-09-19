@@ -1593,7 +1593,7 @@ namespace BalayPasilungan
             else if (rbSchool.Checked) lblBRCategory.Text = "Education";
             else if (rbSkills.Checked) lblBRCategory.Text = "Skills and Development";
             else if (rbSocial.Checked) lblBRCategory.Text = "Recreation";
-            else if (rbSpiritual.Checked) lblBRCategory.Text = "Spiritual Formation";
+            else if (rbSpiritual.Checked) lblBRCategory.Text = "Spiritual Value Formation";
             else if (rbTranspo.Checked) lblBRCategory.Text = "Transportation";
             else if (((RadioButton)sender).Name == "rbOthers")
             {
@@ -1864,15 +1864,16 @@ namespace BalayPasilungan
                     if (result == DialogResult.OK || result == DialogResult.Yes)
                     {
                         if(result == DialogResult.Yes) month = (mD.dateFrom.SelectedIndex + 1);
-                        adp = new MySqlDataAdapter("SELECT dateExpense FROM expense WHERE MONTH(dateExpense) = " + month + " ORDER BY dateExpense ASC", conn);                                               
+                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE MONTH(dateExpense) = " + month + " ORDER BY dateExpense ASC", conn);                                               
                     }
-                    else adp = new MySqlDataAdapter("SELECT dateExpense FROM expense WHERE YEAR(dateExpense) = " + DateTime.Today.Year + " ORDER BY dateExpense ASC", conn);
+                    else adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE YEAR(dateExpense) = " + DateTime.Today.Year + " ORDER BY dateExpense ASC", conn);
 
                     DataTable dt1 = new DataTable(); adp.Fill(dt1); int limit = dt1.Rows.Count;
 
                     if (dt1.Rows.Count > 0)
                     {
-                        wait.lblMsg.Text = "Exporting to Excel..."; dim.Show(this); wait.Show();                        
+                        wait.lblMsg.Text = "Exporting to Excel..."; dim.Show(this); wait.Show(); 
+                                               
                         // HEADERS
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[2, 4]].Cells.WrapText = true;
@@ -1902,7 +1903,7 @@ namespace BalayPasilungan
 
                             for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
                             {
-                                adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND dateExpense = '" + DateTime.Parse(dt1.Rows[count]["dateExpense"].ToString()).ToString("yyyy-MM-dd") +"'", conn);
+                                adp = new MySqlDataAdapter("SELECT category, amount, expenseID FROM expense WHERE category = '" + category[cat] + "' AND dateExpense = '" + DateTime.Parse(dt1.Rows[count]["dateExpense"].ToString()).ToString("yyyy-MM-dd") +"' AND expenseID = " + dt1.Rows[count]["expenseID"].ToString(), conn);
                                 DataTable dt = new DataTable();
                                 adp.Fill(dt);
                                 
