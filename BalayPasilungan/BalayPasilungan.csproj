@@ -125,6 +125,12 @@
     <Compile Include="famtype.Designer.cs">
       <DependentUpon>famtype.cs</DependentUpon>
     </Compile>
+    <Compile Include="forgotpass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forgotpass.Designer.cs">
+      <DependentUpon>forgotpass.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="famtype.resx">
       <DependentUpon>famtype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forgotpass.resx">
+      <DependentUpon>forgotpass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

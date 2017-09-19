@@ -28,44 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
             this.lblConfirm = new System.Windows.Forms.RichTextBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
+            this.btnConfirm = new BalayPasilungan.NoFocusRec();
+            this.btnBack = new BalayPasilungan.NoFocusRec();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.White;
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
-            this.btnBack.Location = new System.Drawing.Point(0, 247);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(249, 52);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "NO, I\'LL CANCEL";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.Color.White;
-            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirm.FlatAppearance.BorderSize = 0;
-            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(143)))), ((int)(((byte)(5)))));
-            this.btnConfirm.Location = new System.Drawing.Point(250, 248);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(249, 52);
-            this.btnConfirm.TabIndex = 0;
-            this.btnConfirm.Text = "YES, DO IT";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // lblConfirm
             // 
@@ -103,6 +71,36 @@
             this.pbHeader.TabStop = false;
             this.pbHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbHeader_MouseDown);
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnConfirm.FlatAppearance.BorderSize = 0;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(143)))), ((int)(((byte)(5)))));
+            this.btnConfirm.Location = new System.Drawing.Point(250, 248);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(249, 52);
+            this.btnConfirm.TabIndex = 0;
+            this.btnConfirm.Text = "YES, DO IT";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnBack.Location = new System.Drawing.Point(0, 247);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(249, 52);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "NO, I\'LL CANCEL";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // confirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,9 +108,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(500, 300);
             this.ControlBox = false;
-            this.Controls.Add(this.lblConfirm);
-            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.lblConfirm);
             this.Controls.Add(this.pbHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "confirm";
@@ -128,8 +126,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnBack;
         public System.Windows.Forms.RichTextBox lblConfirm;
+        private NoFocusRec btnConfirm;
+        private NoFocusRec btnBack;
     }
 }

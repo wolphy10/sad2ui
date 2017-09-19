@@ -30,7 +30,7 @@
         {
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.lblError = new System.Windows.Forms.RichTextBox();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnBack = new BalayPasilungan.NoFocusRec();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +70,6 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.White;
             this.btnBack.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -79,9 +78,9 @@
             this.btnBack.Location = new System.Drawing.Point(251, 248);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(249, 52);
-            this.btnBack.TabIndex = 5;
+            this.btnBack.TabIndex = 0;
             this.btnBack.Text = "GO BACK";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // error
@@ -108,6 +107,6 @@
 
         private System.Windows.Forms.PictureBox pbHeader;
         public System.Windows.Forms.RichTextBox lblError;
-        private System.Windows.Forms.Button btnBack;
+        private NoFocusRec btnBack;
     }
 }

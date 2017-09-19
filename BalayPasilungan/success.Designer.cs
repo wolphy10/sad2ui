@@ -30,7 +30,7 @@
         {
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.lblSuccess = new System.Windows.Forms.RichTextBox();
-            this.btnSuccess = new System.Windows.Forms.Button();
+            this.btnSuccess = new BalayPasilungan.NoFocusRec();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +68,6 @@
             // 
             // btnSuccess
             // 
-            this.btnSuccess.BackColor = System.Drawing.Color.White;
             this.btnSuccess.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSuccess.FlatAppearance.BorderSize = 0;
             this.btnSuccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,9 +76,9 @@
             this.btnSuccess.Location = new System.Drawing.Point(250, 247);
             this.btnSuccess.Name = "btnSuccess";
             this.btnSuccess.Size = new System.Drawing.Size(249, 52);
-            this.btnSuccess.TabIndex = 6;
+            this.btnSuccess.TabIndex = 0;
             this.btnSuccess.Text = "GOT IT!";
-            this.btnSuccess.UseVisualStyleBackColor = false;
+            this.btnSuccess.UseVisualStyleBackColor = true;
             this.btnSuccess.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // success
@@ -89,8 +88,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(500, 300);
             this.ControlBox = false;
-            this.Controls.Add(this.lblSuccess);
             this.Controls.Add(this.btnSuccess);
+            this.Controls.Add(this.lblSuccess);
             this.Controls.Add(this.pbHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "success";
@@ -107,6 +106,6 @@
 
         private System.Windows.Forms.PictureBox pbHeader;
         public System.Windows.Forms.RichTextBox lblSuccess;
-        private System.Windows.Forms.Button btnSuccess;
+        private NoFocusRec btnSuccess;
     }
 }

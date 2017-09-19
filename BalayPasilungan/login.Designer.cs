@@ -32,7 +32,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.member = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnForgot = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@
             this.btnSW = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.btnClose = new BalayPasilungan.NoFocusRec();
             this.tabControl.SuspendLayout();
             this.member.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,7 +106,7 @@
             // member
             // 
             this.member.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.member.Controls.Add(this.button2);
+            this.member.Controls.Add(this.btnForgot);
             this.member.Controls.Add(this.btnLogin);
             this.member.Controls.Add(this.panel2);
             this.member.Controls.Add(this.btnPeek);
@@ -120,31 +121,32 @@
             this.member.TabIndex = 0;
             this.member.Text = "tabPage1";
             // 
-            // button2
+            // btnForgot
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(96, 147);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Forgot my password.";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnForgot.FlatAppearance.BorderSize = 0;
+            this.btnForgot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnForgot.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForgot.ForeColor = System.Drawing.Color.White;
+            this.btnForgot.Location = new System.Drawing.Point(96, 147);
+            this.btnForgot.Name = "btnForgot";
+            this.btnForgot.Size = new System.Drawing.Size(145, 23);
+            this.btnForgot.TabIndex = 4;
+            this.btnForgot.Text = "Forgot my password.";
+            this.btnForgot.UseVisualStyleBackColor = true;
+            this.btnForgot.Click += new System.EventHandler(this.btnForgot_Click);
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(0, 191);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(332, 45);
             this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -248,8 +250,8 @@
             // 
             // newUser
             // 
-            this.newUser.Controls.Add(this.btnRegister);
             this.newUser.Controls.Add(this.btnHelp);
+            this.newUser.Controls.Add(this.btnRegister);
             this.newUser.Controls.Add(this.lblIAm);
             this.newUser.Controls.Add(this.btnStaff);
             this.newUser.Controls.Add(this.btnSW);
@@ -268,13 +270,13 @@
             this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
             this.btnRegister.Location = new System.Drawing.Point(0, 191);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(332, 45);
             this.btnRegister.TabIndex = 7;
-            this.btnRegister.Text = "Please select first";
+            this.btnRegister.Text = "PLEASE SELECT FIRST";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
@@ -368,12 +370,29 @@
             this.button3.TabIndex = 10;
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnClose.Location = new System.Drawing.Point(309, -2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(23, 23);
+            this.btnClose.TabIndex = 12;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(332, 432);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnMember);
             this.Controls.Add(this.btnNew);
@@ -401,7 +420,6 @@
 
         private System.Windows.Forms.Button btnMember;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage member;
         private System.Windows.Forms.TabPage newUser;
         private System.Windows.Forms.TextBox txtPass;
@@ -413,7 +431,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnForgot;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnSW;
@@ -421,5 +439,7 @@
         private System.Windows.Forms.Label lblIAm;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnRegister;
+        private NoFocusRec btnClose;
+        public System.Windows.Forms.TabControl tabControl;
     }
 }

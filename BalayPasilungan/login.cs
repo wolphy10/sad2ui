@@ -13,10 +13,9 @@ namespace BalayPasilungan
 {
     public partial class login : Form
     {
-        public bool typeDone = false;
-        public int typeMember = 0;
-        public bool pass = true;
         public MySqlConnection conn;
+        public bool typeDone = false, pass = true;
+        public int typeMember = 0;
         public string type;
 
         public login()
@@ -46,10 +45,43 @@ namespace BalayPasilungan
         }
         #endregion
 
+        #region Buttons
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Color set = new Color();
+            error err = new error();
+            register reg = new register();
+
+            if (typeDone)
+            {
+                if (typeMember == 0) set = System.Drawing.ColorTranslator.FromHtml("#d34949");
+                else if (typeMember == 1) set = System.Drawing.ColorTranslator.FromHtml("#c1a13a");
+                else set = System.Drawing.ColorTranslator.FromHtml("#019cde");
+
+                reg.refToLogin = this;
+                reg.type = typeMember;
+                reg.lblWelcome.ForeColor = reg.btnRegister.BackColor = set;                
+                reg.Show();
+                this.Hide();
+
+                tabControl.SelectedIndex = 0;
+            }
+            else
+            {
+                err.lblError.Text = "Please choose a member type.";
+                err.ShowDialog();
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtUser.Clear();
-            txtPass.Text = "password";     
+            txtPass.Text = "password";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -91,8 +123,17 @@ namespace BalayPasilungan
                     conn.Close();
                 }
             }
-           
         }
+        
+        private void btnForgot_Click(object sender, EventArgs e)
+        {
+            forgotpass fp = new forgotpass();
+            fp.refToLogin = this;
+            this.Hide();
+            fp.ShowDialog();       
+        }
+
+        #endregion
 
         #region Password
         private void btnHide_Click(object sender, EventArgs e)
@@ -119,8 +160,8 @@ namespace BalayPasilungan
             resetColorMember();
             btnAdmin.BackColor = System.Drawing.ColorTranslator.FromHtml("#e8e8e8");
             btnRegister.BackColor = System.Drawing.ColorTranslator.FromHtml("#d34949");
-            btnRegister.Text = "Continue registration";
-            typeMember = 1;
+            btnRegister.Text = "CONTINUE REGISTRATION";
+            typeMember = 0;
         }
 
         private void btnSW_Click(object sender, EventArgs e)
@@ -128,8 +169,8 @@ namespace BalayPasilungan
             resetColorMember();
             btnSW.BackColor = System.Drawing.ColorTranslator.FromHtml("#e8e8e8");
             btnRegister.BackColor = System.Drawing.ColorTranslator.FromHtml("#cea728");
-            btnRegister.Text = "Continue registration";
-            typeMember = 2;
+            btnRegister.Text = "CONTINUE REGISTRATION";
+            typeMember = 1;
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
@@ -137,8 +178,8 @@ namespace BalayPasilungan
             resetColorMember();
             btnStaff.BackColor = System.Drawing.ColorTranslator.FromHtml("#e8e8e8");
             btnRegister.BackColor = System.Drawing.ColorTranslator.FromHtml("#1191c7");            
-            btnRegister.Text = "Continue registration";
-            typeMember = 3;
+            btnRegister.Text = "CONTINUE REGISTRATION";
+            typeMember = 2;
         }
         #endregion
 
@@ -167,31 +208,6 @@ namespace BalayPasilungan
             btnMember.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c3c3c3");
             btnMember.BackColor = System.Drawing.ColorTranslator.FromHtml("#e8e8e8");
         }
-        #endregion
-
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            Color set = new Color();
-            error err = new error();
-            register reg = new register();
-
-            if (typeDone)
-            {
-                if(typeMember == 1) set = System.Drawing.ColorTranslator.FromHtml("#d34949");
-                else if(typeMember == 2) set = System.Drawing.ColorTranslator.FromHtml("#c1a13a");
-                else set = System.Drawing.ColorTranslator.FromHtml("#019cde");
-
-                reg.refToLogin = this;
-                reg.lblWelcome.ForeColor = set;
-                reg.btnRegister.BackColor = set;
-                reg.Show();
-                this.Hide();
-            }
-            else
-            {
-                err.lblError.Text = "Please choose a member type.";
-                err.Show();
-            }            
-        }
+        #endregion        
     }
 }
