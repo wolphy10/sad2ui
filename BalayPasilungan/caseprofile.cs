@@ -499,11 +499,11 @@ namespace BalayPasilungan
 
         public void addprofile()
         {
-            string lname = txtlname.Text, fname = txtfname.Text, status = cbxcasestatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
+            string lname = txtlname.Text, fname = txtfname.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
             DateTime now = DateTime.Today, birthyear = dtbirth.Value;
 
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status)) errorMessage("Please fill out empty fields.");           
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program)) errorMessage("Please fill out empty fields.");           
             else if (pbox1.Image == null) errorMessage("Please insert a proper picture.");
             else
             {
@@ -512,7 +512,7 @@ namespace BalayPasilungan
                 try
                 {
                     conn.Open();
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO casestudyprofile(lastname, firstname, birthdate, status, caseage, program, dateJoined, picture, address, profilestatus) VALUES('" + lname + "', '" + fname + "', '" + dtbirth.Value.Date.ToString("yyyyMMdd") + "','" + status + "','" + age + "','" + program + "','" + dtjoin.Value.Date.ToString("yyyy/MM/dd") + "', '" + filename + "', '" + address + "', " + 1 + ")", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO casestudyprofile(lastname, firstname, birthdate, civilStatus, program, dateJoined, picture, address, profilestatus) VALUES('" + lname + "', '" + fname + "', '" + dtbirth.Value.Date.ToString("yyyyMMdd") + "','" + "sample" + "','" + age + "','" + program + "','" + dtjoin.Value.Date.ToString("yyyy/MM/dd") + "', '" + filename + "', '" + address + "', " + 1 + ")", conn);
 
                     comm.ExecuteNonQuery();
                     conn.Close();
@@ -531,11 +531,11 @@ namespace BalayPasilungan
 
         public void editprofile()
         {
-            string lname = txtlname.Text, fname = txtfname.Text, status = cbxcasestatus.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
+            string lname = txtlname.Text, fname = txtfname.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
             DateTime now = DateTime.Today, birthyear = dtbirth.Value;
             
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program) || string.IsNullOrEmpty(status)) errorMessage("PLease fill out empty fields.");
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program)) errorMessage("PLease fill out empty fields.");
             else if (pbox1.Image == null) errorMessage("Please enter a proper picture.");
 
             else
@@ -546,8 +546,8 @@ namespace BalayPasilungan
                 {
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
-                                        "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", status = '" + status + "', " +
-                                        "caseage = " + age + ", program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
+                                        "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", civilStatus = '" + "sample" + "', " +
+                                        ", program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
                                         "picture = '" + filename + "', address = '" + address + "' WHERE caseid = " + id, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
@@ -994,7 +994,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, program, civilStatus, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1007,7 +1007,6 @@ namespace BalayPasilungan
                     txtfname.Text = dt.Rows[0]["firstname"].ToString();
                     txtcaseaddress.Text = dt.Rows[0]["address"].ToString();
                     cbxprogram.Text = dt.Rows[0]["program"].ToString();
-                    cbxcasestatus.Text = dt.Rows[0]["status"].ToString();
 
                     dtbirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]).Date;
                     dtjoin.Value = Convert.ToDateTime(dt.Rows[0]["datejoined"]).Date;
@@ -1216,7 +1215,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, caseAge, program, status, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT lastname, firstname, birthdate, program, civilStatus, address, datejoined, picture FROM casestudyprofile WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1227,9 +1226,8 @@ namespace BalayPasilungan
 
                     lblcasename.Text = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString(); //Basic Info
                     lblcaseaddress.Text = dt.Rows[0]["address"].ToString();
-                    lblcaseage.Text = dt.Rows[0]["caseAge"].ToString() + " years old";
                     lblcaseprogram.Text = dt.Rows[0]["program"].ToString();
-                    lblcasestatus.Text = dt.Rows[0]["status"].ToString();
+                    lblcasestatus.Text = dt.Rows[0]["civilStatus"].ToString();
 
                     lbldate.Text = Convert.ToDateTime(dt.Rows[0]["birthdate"]).ToString("MMMM dd, yyyy");
                     lbljoined.Text = Convert.ToDateTime(dt.Rows[0]["datejoined"]).ToString("MMMM dd, yyyy");
@@ -1995,7 +1993,7 @@ namespace BalayPasilungan
             txtfname.Clear();
             txtcaseaddress.Clear();
 
-            cbxprogram.SelectedIndex = cbxcasestatus.SelectedIndex = -1;
+            //cbxprogram.SelectedIndex = cbxcasestatus.SelectedIndex = -1;
             dtbirth.Value = dtjoin.Value = DateTime.Now.Date;
         }
 
@@ -3190,7 +3188,11 @@ namespace BalayPasilungan
             lbladdeditprofile.Text = "People Involved";            
         }
 
-        
+        private void tabaddinfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void multiChild_CheckedChanged(object sender, EventArgs e)
         {
             if (multiChild.Checked) dtgcs.MultiSelect = true;
@@ -3361,7 +3363,7 @@ namespace BalayPasilungan
 
         private void richTxt_TextChanged(object sender, EventArgs e)
         {
-            if (((RichTextBox)sender).Name == "txtcaseaddress") countAd.Text = ((RichTextBox)sender).TextLength + "/100";
+            //if (((RichTextBox)sender).Name == "txtcaseaddress") countAd.Text = ((RichTextBox)sender).TextLength + "/100";
         }
 
         private void richTxt_Leave(object sender, EventArgs e)
