@@ -3352,6 +3352,6 @@
         public System.Windows.Forms.RadioButton rbMonth;
         public System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.RadioButton rbMonthSelect;
-        private System.Windows.Forms.ComboBox dateFrom;
+        public System.Windows.Forms.ComboBox dateFrom;
     }
 }
