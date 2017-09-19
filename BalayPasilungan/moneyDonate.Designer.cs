@@ -189,8 +189,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabExpOp = new System.Windows.Forms.TabPage();
-            this.label22 = new System.Windows.Forms.Label();
-            this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -204,7 +202,6 @@
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.rbAnnual = new System.Windows.Forms.RadioButton();
-            this.rbMonths = new System.Windows.Forms.RadioButton();
             this.rbMonth = new System.Windows.Forms.RadioButton();
             this.tabBRDisapprove = new System.Windows.Forms.TabPage();
             this.btnDelBR = new BalayPasilungan.NoFocusRec();
@@ -230,6 +227,7 @@
             this.txtBRQuantity2 = new System.Windows.Forms.NumericUpDown();
             this.txtBRPart2 = new System.Windows.Forms.TextBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.rbMonthSelect = new System.Windows.Forms.RadioButton();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -2494,8 +2492,6 @@
             // 
             // tabExpOp
             // 
-            this.tabExpOp.Controls.Add(this.label22);
-            this.tabExpOp.Controls.Add(this.dateTo);
             this.tabExpOp.Controls.Add(this.label21);
             this.tabExpOp.Controls.Add(this.label20);
             this.tabExpOp.Controls.Add(this.label14);
@@ -2514,43 +2510,16 @@
             this.tabExpOp.UseVisualStyleBackColor = true;
             this.tabExpOp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label22.Location = new System.Drawing.Point(19, 287);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(21, 13);
-            this.label22.TabIndex = 71;
-            this.label22.Text = "TO";
-            // 
-            // dateTo
-            // 
-            this.dateTo.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTo.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.dateTo.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.dateTo.CustomFormat = "MMMM yyyy";
-            this.dateTo.Enabled = false;
-            this.dateTo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTo.Location = new System.Drawing.Point(165, 279);
-            this.dateTo.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(227, 29);
-            this.dateTo.TabIndex = 70;
-            this.dateTo.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label21.Location = new System.Drawing.Point(19, 235);
+            this.label21.Location = new System.Drawing.Point(19, 276);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(39, 13);
+            this.label21.Size = new System.Drawing.Size(99, 13);
             this.label21.TabIndex = 68;
-            this.label21.Text = "FROM";
+            this.label21.Text = "SELECTED MONTH";
             // 
             // label20
             // 
@@ -2568,7 +2537,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label14.Location = new System.Drawing.Point(19, 111);
+            this.label14.Location = new System.Drawing.Point(19, 132);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(98, 13);
             this.label14.TabIndex = 64;
@@ -2583,7 +2552,7 @@
             this.dateFrom.Enabled = false;
             this.dateFrom.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.dateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateFrom.Location = new System.Drawing.Point(165, 227);
+            this.dateFrom.Location = new System.Drawing.Point(165, 268);
             this.dateFrom.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(227, 29);
@@ -2676,7 +2645,7 @@
             // pictureBox23
             // 
             this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
-            this.pictureBox23.Location = new System.Drawing.Point(12, 186);
+            this.pictureBox23.Location = new System.Drawing.Point(12, 227);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(486, 23);
             this.pictureBox23.TabIndex = 69;
@@ -2685,9 +2654,9 @@
             // panel9
             // 
             this.panel9.Controls.Add(this.rbAnnual);
-            this.panel9.Controls.Add(this.rbMonths);
+            this.panel9.Controls.Add(this.rbMonthSelect);
             this.panel9.Controls.Add(this.rbMonth);
-            this.panel9.Location = new System.Drawing.Point(165, 104);
+            this.panel9.Location = new System.Drawing.Point(165, 125);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(313, 83);
             this.panel9.TabIndex = 72;
@@ -2708,23 +2677,6 @@
             this.rbAnnual.Text = "Annual";
             this.rbAnnual.UseVisualStyleBackColor = true;
             this.rbAnnual.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
-            // 
-            // rbMonths
-            // 
-            this.rbMonths.AutoSize = true;
-            this.rbMonths.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.rbMonths.FlatAppearance.BorderSize = 0;
-            this.rbMonths.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbMonths.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
-            this.rbMonths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.rbMonths.Location = new System.Drawing.Point(3, 29);
-            this.rbMonths.Name = "rbMonths";
-            this.rbMonths.Size = new System.Drawing.Size(110, 19);
-            this.rbMonths.TabIndex = 68;
-            this.rbMonths.TabStop = true;
-            this.rbMonths.Text = "Multiple months";
-            this.rbMonths.UseVisualStyleBackColor = true;
-            this.rbMonths.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
             // 
             // rbMonth
             // 
@@ -3081,6 +3033,23 @@
             this.pictureBox26.TabIndex = 51;
             this.pictureBox26.TabStop = false;
             // 
+            // rbMonthSelect
+            // 
+            this.rbMonthSelect.AutoSize = true;
+            this.rbMonthSelect.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbMonthSelect.FlatAppearance.BorderSize = 0;
+            this.rbMonthSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbMonthSelect.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.rbMonthSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.rbMonthSelect.Location = new System.Drawing.Point(3, 29);
+            this.rbMonthSelect.Name = "rbMonthSelect";
+            this.rbMonthSelect.Size = new System.Drawing.Size(110, 19);
+            this.rbMonthSelect.TabIndex = 68;
+            this.rbMonthSelect.TabStop = true;
+            this.rbMonthSelect.Text = "Multiple months";
+            this.rbMonthSelect.UseVisualStyleBackColor = true;
+            this.rbMonthSelect.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3344,12 +3313,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.PictureBox pictureBox23;
-        private System.Windows.Forms.Label label22;
-        public System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.RadioButton rbMonth;
-        private System.Windows.Forms.RadioButton rbMonths;
-        private System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.TabPage tabExpOp;
         public System.Windows.Forms.ComboBox cbExpCat;
         private System.Windows.Forms.TabPage tabBRDisapprove;
@@ -3380,5 +3344,8 @@
         public System.Windows.Forms.TextBox txtBRUP2;
         public System.Windows.Forms.NumericUpDown txtBRQuantity2;
         public System.Windows.Forms.TextBox txtBRPart2;
+        public System.Windows.Forms.RadioButton rbMonth;
+        public System.Windows.Forms.RadioButton rbAnnual;
+        public System.Windows.Forms.RadioButton rbMonthSelect;
     }
 }

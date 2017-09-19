@@ -572,11 +572,6 @@ namespace BalayPasilungan
             toYellow();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             string value = ((TextBox)sender).Text.Replace(",", "");
@@ -595,8 +590,13 @@ namespace BalayPasilungan
         private void ExpMode_CheckedChanged(object sender, EventArgs e)
         {
             btnReport.Enabled = true;
-            if (((RadioButton)sender).Name == "rbMonth" || ((RadioButton)sender).Name == "rbAnnual") dateFrom.Enabled = dateTo.Enabled = false;
-            else if (((RadioButton)sender).Name == "rbMonths") dateFrom.Enabled = dateTo.Enabled = true;
+            if (((RadioButton)sender).Name == "rbMonth" || ((RadioButton)sender).Name == "rbAnnual") dateFrom.Enabled = false;
+            else if (((RadioButton)sender).Name == "rbMonthSelect") dateFrom.Enabled = true;
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            
         }
         #endregion
     }

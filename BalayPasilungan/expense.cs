@@ -213,7 +213,7 @@ namespace BalayPasilungan
             tabInnerDonors.SelectedIndex = 0;
             btnDonation.BackColor = Color.White;
             btnDonation.BackgroundImage = global::BalayPasilungan.Properties.Resources.donation_green;
-            tabSelection.SelectedTab = tabDonors;
+            tabSelection.SelectedTab = tabDonors; lblListOfDonors.Text = "List of Donors"; panelListChild.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
             loadDonorList();
             current_donorID = 0;
         }
@@ -459,7 +459,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateAdded FROM donor", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateAdded FROM donor WHERE status = 1 ORDER BY dateAdded DESC", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -502,6 +502,55 @@ namespace BalayPasilungan
             {
                 errorMessage(ex.Message);
                 conn.Close();
+            }
+        }
+
+        public void loadArchiveDonor()
+        {            
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateArchive FROM donor WHERE status = 0 ORDER BY dateArchive DESC", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    dt.Rows.Add(-1, "No entries.", null, null);
+                    empty = true; multiArchiveD.Enabled = false;
+                }
+                else empty = false; multiArchiveD.Enabled = true;
+
+                archiveDonors.DataSource = dt;
+
+                // Donors Grid View UI Modificationsddddd
+                archiveDonors.Columns[1].HeaderText = "DONOR NAME";
+                archiveDonors.Columns[2].HeaderText = "PLEDGE";
+                archiveDonors.Columns[3].HeaderText = "DATE OF PLEDGE";
+                archiveDonors.Columns[4].HeaderText = "ADDED OF ARCHIVE";
+                archiveDonors.Columns[0].Visible = false;
+
+                // 935 WIDTH
+                archiveDonors.Columns[1].Width = 403;
+                archiveDonors.Columns[2].Width = 132;
+                archiveDonors.Columns[3].Width = archiveDonors.Columns[4].Width = 200;
+
+                archiveDonors.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
+                archiveDonors.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+
+                if (dt.Rows.Count > 0 && !empty)
+                {
+                    archiveDonors.Columns[3].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                    archiveDonors.Columns[4].DefaultCellStyle.Format = "MMMM dd, yyyy hh:mm tt";
+                    multiDonor.Enabled = true;
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessage(ex.Message);
             }
         }
 
@@ -837,7 +886,7 @@ namespace BalayPasilungan
 
         private void btnRemoveDonor_Click(object sender, EventArgs e)
         {
-            confirmMessage("Are you sure you want to archive this donor?\nYou cannot undo this action.");
+            confirmMessage("Are you sure you want to archive this donor?\n\nData will be hidden but can be recovered if activated again.");
             if (confirmed)
             {
                 try
@@ -1629,6 +1678,9 @@ namespace BalayPasilungan
                 }
                 else if (choice == DialogResult.No)         // EDIT BUDGET REQUEST
                 {
+                    tabSelection.SelectedTab = tabNewDonor;
+                    tabNewDonorInput.SelectedIndex = 2;
+
 
                 }
             }
@@ -1783,8 +1835,8 @@ namespace BalayPasilungan
         {
             moneyDonate mD = overlay();
             mD.hasExpense = true;
-            mD.dateFrom.MaxDate = mD.dateTo.MaxDate = DateTime.Today;
-            mD.dateFrom.Value = mD.dateTo.Value = DateTime.Today;
+            mD.dateFrom.MaxDate = DateTime.Today;
+            mD.dateFrom.Value = DateTime.Today;
             mD.tabSelection.SelectedIndex = 9;
 
             if (mD.ShowDialog() == DialogResult.OK)
@@ -1806,8 +1858,13 @@ namespace BalayPasilungan
                     waiting wait = new waiting();
                     dim dim = new dim();
                     dim.Location = this.Location; dim.Size = this.Size; dim.refToPrev = this;
-                    
-                    MySqlDataAdapter adp = new MySqlDataAdapter("SELECT dateExpense FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()) + " ORDER BY dateExpense ASC", conn);
+
+                    int month = 0;
+                    if (mD.rbMonth.Checked) month = int.Parse(DateTime.Today.Month.ToString());
+                    else int.Parse(DateTime.Parse(mD.dateFrom.Value.ToString()).ToString("MM"));                    
+
+
+                    MySqlDataAdapter adp = new MySqlDataAdapter("SELECT dateExpense FROM expense WHERE MONTH(dateExpense) = " + month + " ORDER BY dateExpense ASC", conn);
                     DataTable dt1 = new DataTable(); adp.Fill(dt1); int limit = dt1.Rows.Count;
 
                     if (dt1.Rows.Count > 0)
@@ -2048,6 +2105,14 @@ namespace BalayPasilungan
                 lblOthers.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
                 panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
             }
+        }
+
+        private void btnArchive_Click(object sender, EventArgs e)
+        {
+            tabInnerDonors.SelectedIndex = 2;
+            panelListChild.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
+            lblListOfDonors.Text = "List of Archived Donors";
+            loadArchiveDonor();
         }
 
         private void txtNewCount_TextChanged(object sender, EventArgs e)
