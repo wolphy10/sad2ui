@@ -28,6 +28,8 @@ namespace BalayPasilungan
         public int familyid { get; set; }
         public int caseid { get; set; }
 
+        public string text {get; set;}
+
         #region messagefunctions
 
         public void errorMessage(string message)            // Error Message
@@ -79,11 +81,13 @@ namespace BalayPasilungan
         {
             if (btnaddedclass.Text == "ADD")
             {
+                
                 addtype();
             }
 
             else
             {
+                
                 edittype();
             }
 
@@ -175,5 +179,19 @@ namespace BalayPasilungan
             }
         }
 
+        private void famtype_Load(object sender, EventArgs e)
+        {
+            if (text == "ADD TYPE")
+            {
+
+                btnaddedclass.Text = "ADD";
+            }
+
+            else
+            {
+
+                btnaddedclass.Text = "ADD CHANGES";
+            }
+        }
     }
 }
