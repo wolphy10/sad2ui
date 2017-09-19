@@ -1399,31 +1399,18 @@ namespace BalayPasilungan
                     AddColumn.DataPropertyName = "Add";
 
 
-                    if (dtgeducation.Columns["Edit"] == null)
+                    if (dtgeducation.Columns["Edit"] == null && archivemode == 0)
                     {
-                        dtgeducation.Columns.Add(EditColumn) 
-
-
-                                
-                   ;
+                        dtgeducation.Columns.Add(EditColumn);
                         
                     }
 
                     
-                    if (dtgeducation.Columns["Add"] == null)
+                    if (dtgeducation.Columns["Add"] == null && archivemode == 0)
                     {
                         dtgeducation.Columns.Add(AddColumn);
                         
                     }
-
-                    
-
-                    //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
-                    //MessageBox.Show(dtgeducation.ColumnCount.ToString());
-
-                    //dtgeducation.Columns["eid"].Visible = false;
-
-                   
 
                 }
 
@@ -1466,7 +1453,7 @@ namespace BalayPasilungan
                EditColumn.Name = "Edit";
                 EditColumn.DataPropertyName = "Edit";
 
-                if (dtgedclass.Columns["Edit"] == null)
+                if (dtgedclass.Columns["Edit"] == null && archivemode == 0)
                 {
                     dtgedclass.Columns.Add(EditColumn);
 
@@ -1724,6 +1711,8 @@ namespace BalayPasilungan
                 //existsed(id);
 
                 existshealth(id);
+
+                showdem();
 
             }
 
@@ -3249,7 +3238,34 @@ namespace BalayPasilungan
 
         public void hidedem()
         {
+            btnfamtype.Visible = false;
+            btnAddMem.Visible = false;
+            btnaddedclass.Visible = false;
+            btnaddconrec.Visible = false;
+            btnaddincid.Visible = false;
+            btneditincid.Visible = false;
+            btngotohealth.Visible = false;
+            btnedithealth.Visible = false;
+            btnaddcheckuprec.Visible = false;
 
+            btncancelcon.Text = "BACK";
+            btnbackfromcheck.Text = "BACK";
+        }
+
+        public void showdem()
+        {
+            btnfamtype.Visible = true;
+            btnAddMem.Visible = true;
+            btnaddedclass.Visible = true;
+            btnaddconrec.Visible = true;
+            btnaddincid.Visible = true;
+            btneditincid.Visible = true;
+            btngotohealth.Visible = true;
+            btnedithealth.Visible = true;
+            btnaddcheckuprec.Visible = true;
+
+            btncancelcon.Text = "CANCEL";
+            btnbackfromcheck.Text = "CANCEL";
         }
 
 #endregion
