@@ -26,5 +26,15 @@ namespace BalayPasilungan
         {
 
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void erActs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
