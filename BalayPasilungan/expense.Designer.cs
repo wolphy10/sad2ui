@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expense));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expense));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -559,7 +559,7 @@
             // 
             // btnMain
             // 
-            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
+            this.btnMain.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMain.BackgroundImage")));
             this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMain.FlatAppearance.BorderSize = 0;
             this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -802,7 +802,7 @@
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Image = global::BalayPasilungan.Properties.Resources.line_grey;
+            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
             this.pictureBox20.Location = new System.Drawing.Point(677, 12);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(239, 23);
@@ -2167,7 +2167,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(24, 57);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(395, 33);
@@ -2176,7 +2176,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(24, 96);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(395, 33);
@@ -2334,7 +2334,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(24, 57);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(395, 33);
@@ -2343,7 +2343,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(24, 96);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(395, 33);
@@ -2469,7 +2469,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(24, 57);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(395, 33);
@@ -3074,7 +3074,7 @@
             // btnAddBR
             // 
             this.btnAddBR.BackColor = System.Drawing.Color.White;
-            this.btnAddBR.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddBR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddBR.BackgroundImage")));
             this.btnAddBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddBR.FlatAppearance.BorderSize = 0;
             this.btnAddBR.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -3091,7 +3091,7 @@
             // btnEditBR
             // 
             this.btnEditBR.BackColor = System.Drawing.Color.White;
-            this.btnEditBR.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditBR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditBR.BackgroundImage")));
             this.btnEditBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEditBR.FlatAppearance.BorderSize = 0;
             this.btnEditBR.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -3749,7 +3749,7 @@
             // btnAddMoneyD
             // 
             this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnAddMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddMoneyD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddMoneyD.BackgroundImage")));
             this.btnAddMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddMoneyD.FlatAppearance.BorderSize = 0;
             this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3763,7 +3763,7 @@
             // btnEditMoneyD
             // 
             this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnEditMoneyD.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditMoneyD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditMoneyD.BackgroundImage")));
             this.btnEditMoneyD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEditMoneyD.FlatAppearance.BorderSize = 0;
             this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -3855,7 +3855,7 @@
             // 
             // searchLine
             // 
-            this.searchLine.Image = global::BalayPasilungan.Properties.Resources.line_grey;
+            this.searchLine.Image = ((System.Drawing.Image)(resources.GetObject("searchLine.Image")));
             this.searchLine.Location = new System.Drawing.Point(657, 24);
             this.searchLine.Name = "searchLine";
             this.searchLine.Size = new System.Drawing.Size(232, 23);
@@ -4029,7 +4029,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BalayPasilungan.Properties.Resources.line_grey;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(657, 24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(232, 23);
@@ -4039,7 +4039,7 @@
             // btnAddIK
             // 
             this.btnAddIK.BackColor = System.Drawing.Color.White;
-            this.btnAddIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAddIK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddIK.BackgroundImage")));
             this.btnAddIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddIK.FlatAppearance.BorderSize = 0;
             this.btnAddIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4053,7 +4053,7 @@
             // btnEditIK
             // 
             this.btnEditIK.BackColor = System.Drawing.Color.White;
-            this.btnEditIK.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
+            this.btnEditIK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditIK.BackgroundImage")));
             this.btnEditIK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEditIK.FlatAppearance.BorderSize = 0;
             this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -4805,7 +4805,7 @@
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Image = global::BalayPasilungan.Properties.Resources.line_grey;
+            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
             this.pictureBox19.Location = new System.Drawing.Point(723, 238);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(200, 23);
@@ -5398,7 +5398,7 @@
             // 
             // hdivider
             // 
-            this.hdivider.Image = global::BalayPasilungan.Properties.Resources.divider_horizon;
+            this.hdivider.Image = ((System.Drawing.Image)(resources.GetObject("hdivider.Image")));
             this.hdivider.Location = new System.Drawing.Point(90, 202);
             this.hdivider.Name = "hdivider";
             this.hdivider.Size = new System.Drawing.Size(821, 33);
