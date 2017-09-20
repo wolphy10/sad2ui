@@ -1274,17 +1274,35 @@ namespace BalayPasilungan
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
+                        for (int j = 1; j < dt.Rows.Count; j++)
+                        {
+                            if (Convert.ToDateTime(dt.Rows[i]["checkupdate"]).Date > Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date)
+                            {
+                                checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"].Date);
 
-                        checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"]);
+                                
+                            }
 
-                      
+                            else
+                            {
+                                checkupdate = Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date;
+                            }
+
+                            lblcheckupdis.Text = checkupdate.ToString("MMMM dd, yyyy");
+                        }
+
+                        
                     }
+
+                    
 
                 }
 
                 else
                 {
+                    lblbmi.Text = "";
                     lblblood.Text = "";
+                    lblcheckupdis.Text = "";
                 }
 
                 comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
@@ -1297,10 +1315,31 @@ namespace BalayPasilungan
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]);
-                        
+                        for (int j = 1; j < dt.Rows.Count; j++)
+                        {
+                            if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
+                            {
+                                consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
+
+                                
+                            }
+
+                            else
+                            {
+                                consuldate = Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date;
+                            }
+
+                            lblconsuldate.Text = consuldate.ToString("MMMM dd, yyyy");
+                        }
+
+
                     }
-                 
+
+                }
+
+                else
+                {
+                    lblconsuldate.Text = "";
                 }
 
                 comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
@@ -1315,7 +1354,13 @@ namespace BalayPasilungan
                     lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
                 }
 
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn);
+                else
+                {
+                    lblfamtypedis.Text = "";
+                    lblmemcountdis.Text = "";
+                }
+
+                comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1407,31 +1452,18 @@ namespace BalayPasilungan
                     AddColumn.DataPropertyName = "Add";
 
 
-                    if (dtgeducation.Columns["Edit"] == null)
+                    if (dtgeducation.Columns["Edit"] == null && archivemode == 0)
                     {
-                        dtgeducation.Columns.Add(EditColumn) 
-
-
-                                
-                   ;
+                        dtgeducation.Columns.Add(EditColumn);
                         
                     }
 
                     
-                    if (dtgeducation.Columns["Add"] == null)
+                    if (dtgeducation.Columns["Add"] == null && archivemode == 0)
                     {
                         dtgeducation.Columns.Add(AddColumn);
                         
                     }
-
-                    
-
-                    //MessageBox.Show(dtgeducation.Columns["checkdis"].DisplayIndex.ToString());
-                    //MessageBox.Show(dtgeducation.ColumnCount.ToString());
-
-                    //dtgeducation.Columns["eid"].Visible = false;
-
-                   
 
                 }
 
@@ -1474,7 +1506,7 @@ namespace BalayPasilungan
                EditColumn.Name = "Edit";
                 EditColumn.DataPropertyName = "Edit";
 
-                if (dtgedclass.Columns["Edit"] == null)
+                if (dtgedclass.Columns["Edit"] == null && archivemode == 0)
                 {
                     dtgedclass.Columns.Add(EditColumn);
 
@@ -1731,6 +1763,8 @@ namespace BalayPasilungan
                 //existsed(id);
                 existshealth(id);
 
+                showdem();
+
             }
 
             catch (Exception ee)
@@ -1974,6 +2008,8 @@ namespace BalayPasilungan
                 reload(archiveid);
                 //existsed(id);
                 existshealth(archiveid);
+
+                hidedem();
 
             }
 
@@ -3229,7 +3265,43 @@ namespace BalayPasilungan
             btnadded.Text = "ADD";
         }
         #endregion
-        
+
+        #region hide functions
+
+        public void hidedem()
+        {
+            btnfamtype.Visible = false;
+            btnAddMem.Visible = false;
+            btnaddedclass.Visible = false;
+            btnaddconrec.Visible = false;
+            btnaddincid.Visible = false;
+            btneditincid.Visible = false;
+            btngotohealth.Visible = false;
+            btnedithealth.Visible = false;
+            btnaddcheckuprec.Visible = false;
+
+            btncancelcon.Text = "BACK";
+            btnbackfromcheck.Text = "BACK";
+        }
+
+        public void showdem()
+        {
+            btnfamtype.Visible = true;
+            btnAddMem.Visible = true;
+            btnaddedclass.Visible = true;
+            btnaddconrec.Visible = true;
+            btnaddincid.Visible = true;
+            btneditincid.Visible = true;
+            btngotohealth.Visible = true;
+            btnedithealth.Visible = true;
+            btnaddcheckuprec.Visible = true;
+
+            btncancelcon.Text = "CANCEL";
+            btnbackfromcheck.Text = "CANCEL";
+        }
+
+#endregion
+
         private void newprofilepic_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dlg = new OpenFileDialog())
