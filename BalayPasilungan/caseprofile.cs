@@ -856,26 +856,16 @@ namespace BalayPasilungan
 
         public void addincidrecord()
         {
-            string type = txttypeincid.Text, hour = cbxhour.Text, minute = cbxmin.Text, zone, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
+            string type = txttypeincid.Text, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
 
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action))
             {
                 errorMessage("Please fill out empty fields.");
             }
 
             else
             {
-                if (rbam.Checked == true)
-                {
-                    zone = "AM";
-                }
-
-                else
-                {
-                    zone = "PM";
-                }
-
-                DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
+                
 
                 MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
 
@@ -884,7 +874,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO incident(caseid, type, incdate, venue, description, action, dateadded) VALUES('" + id + "', '" + type + "', '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + dt.ToString("hh:mm tt") + "','" + location + "', '" + desc + "', '" + action + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO incident(caseid, type, incdate, venue, description, action, dateadded) VALUES('" + id + "', '" + type + "', '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + "','" + location + "', '" + desc + "', '" + action + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
 
                     comm.ExecuteNonQuery();
 
@@ -921,9 +911,9 @@ namespace BalayPasilungan
 
         public void editincidrecord()
         {
-            string type = txttypeincid.Text, hour = cbxhour.Text, minute = cbxmin.Text, zone, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
+            string type = txttypeincid.Text, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
 
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action))
             {
                 errorMessage("Please fill out empty fields.");
                 //MessageBox.Show("Please fill out empty fields.");
@@ -931,18 +921,7 @@ namespace BalayPasilungan
 
             else
             {
-                if (rbam.Checked == true)
-                {
-                    zone = "AM";
-                }
-
-                else
-                {
-                    zone = "PM";
-                }
-
-                DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
-
+               
                 MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
 
                 try
@@ -950,7 +929,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE incident SET type = '" + type + "', incdate = '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + dt.ToString("hh:mm tt") + "', " +
+                    MySqlCommand comm = new MySqlCommand("UPDATE incident SET type = '" + type + "', incdate = '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + "', " +
                         "venue = '" + location + "', description = '" + desc + "', action = '" + action + "' WHERE incidid = " + incidid, conn);
 
                     comm.ExecuteNonQuery();
@@ -1209,7 +1188,8 @@ namespace BalayPasilungan
 
         public void reload(int id)
         {
-            DateTime checkupdate, consuldate;
+            DateTime checkupdate, consuldate, incdate;
+            string inctype;
 
             try
             {
@@ -1277,7 +1257,7 @@ namespace BalayPasilungan
                         {
                             if (Convert.ToDateTime(dt.Rows[i]["checkupdate"]).Date > Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date)
                             {
-                                checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"].Date);
+                                checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"]).Date;
 
                                 
                             }
@@ -1318,6 +1298,7 @@ namespace BalayPasilungan
                         {
                             if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
                             {
+                               
                                 consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
 
                                 
@@ -1359,7 +1340,7 @@ namespace BalayPasilungan
                     lblmemcountdis.Text = "";
                 }
 
-                comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
+                comm = new MySqlCommand("SELECT incdate, type FROM incident WHERE caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1367,7 +1348,29 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count > 0)
                 {
-                   
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        for (int j = 1; j < dt.Rows.Count; j++)
+                        {
+                            if (Convert.ToDateTime(dt.Rows[i]["incdate"]).Date > Convert.ToDateTime(dt.Rows[j]["incdate"]).Date)
+                            {
+                                incdate = Convert.ToDateTime(dt.Rows[i]["incdate"]).Date;
+                                inctype = dt.Rows[i]["type"].ToString();
+
+                            }
+
+                            else
+                            {
+                                incdate = Convert.ToDateTime(dt.Rows[j]["incdate"]).Date;
+                                inctype = dt.Rows[j]["type"].ToString();
+                            }
+
+                            lblincdatedis.Text = incdate.ToString("MMMM dd, yyyy");
+                            lbltypeincdis.Text = inctype;
+                        }
+
+
+                    }
                 }
 
 
@@ -2066,10 +2069,6 @@ namespace BalayPasilungan
             txtincidlocation.Clear();
             rtxtactiontaken.Clear();
             rtxtinciddesc.Clear();
-
-            rbam.Checked = rbpm.Checked = false;
-
-            cbxhour.SelectedIndex = cbxmin.SelectedIndex = -1;
 
             dateincid.Value = DateTime.Now.Date;
 
@@ -3300,8 +3299,8 @@ namespace BalayPasilungan
             btnedithealth.Visible = false;
             btnaddcheckuprec.Visible = false;
 
-            btncancelcon.Text = "BACK";
-            btnbackfromcheck.Text = "BACK";
+            btncancelcon.Text = "Back";
+            btnbackfromcheck.Text = "Back";
         }
 
         public void showdem()
@@ -3316,8 +3315,8 @@ namespace BalayPasilungan
             btnedithealth.Visible = true;
             btnaddcheckuprec.Visible = true;
 
-            btncancelcon.Text = "CANCEL";
-            btnbackfromcheck.Text = "CANCEL";
+            btncancelcon.Text = "Cancel";
+            btnbackfromcheck.Text = "Cancel";
         }
 
 #endregion
