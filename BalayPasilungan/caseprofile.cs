@@ -563,8 +563,8 @@ namespace BalayPasilungan
                     tabCase.SelectedTab = tabInfo;
                     reset(); refresh();
                     reload(id);                
-                    //existsed(id);
-                    existshealth(id);
+                    
+                    
                 }
                 catch (Exception ee)
                 {
@@ -593,17 +593,18 @@ namespace BalayPasilungan
                         conn.Close();
 
                         tabCase.SelectedTab = tabInfo;
-                        existshealth(id);                    
-                        reloadedithealth(id);
-                        lblblood.Text = blood;
-                        lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
-                        tabChild.SelectedTab = sixteen;
+                        existshealth(id);     
+                        
+                        reloadedithealth(id);
+
+                        tabChild.SelectedTab = fifteen;
+
                         reset3();
                     }
                     catch (Exception ee)
                     {
-                        errorMessage(ee.Message);
+                        MessageBox.Show(ee.ToString());
                     }                
                 }
                 else
@@ -651,9 +652,6 @@ namespace BalayPasilungan
                         existshealth(id);
 
                         reloadedithealth(id);
-
-                        lblblood.Text = blood;
-                        lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
                         tabChild.SelectedTab = fifteen;
 
@@ -715,7 +713,7 @@ namespace BalayPasilungan
                     
                     conn.Close();
 
-                    //existsed(id);
+                    
 
                     tabCase.SelectedTab = tabInfo;
 
@@ -763,7 +761,7 @@ namespace BalayPasilungan
 
                     conn.Close();
 
-                    //existsed(id);
+                    
 
                     tabCase.SelectedTab = tabInfo;
 
@@ -1200,6 +1198,11 @@ namespace BalayPasilungan
                     rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
                 }
 
+                else
+                {
+                    errorMessage("There are currently no existing health records for this case study.");
+                }
+
                 conn.Close();
             }
 
@@ -1212,7 +1215,8 @@ namespace BalayPasilungan
         }
 
         public void reload(int id)
-        {            
+        {
+           
             try
             {
                 conn.Open();
@@ -1249,60 +1253,17 @@ namespace BalayPasilungan
                     if(dt.Rows[0]["picture"].ToString() != null) pbox2.ImageLocation = dt.Rows[0]["picture"].ToString();
                 }
 
-                /*comm = new MySqlCommand("SELECT school, edutype, level FROM education WHERE caseid = " + id, conn); // Educational Background
-                adp = new MySqlDataAdapter(comm);
-                dt = new DataTable();
+                //-------------------------------------------------------------------------------------------------------------
+                // Educational Background
 
-                adp.Fill(dt);
+                existsed(id);
 
-                if (dt.Rows.Count > 0)
-                {
-                    lbledlvl.Text = dt.Rows[0]["level"].ToString();                    
-                    lbledschool.Text = dt.Rows[0]["school"].ToString();
-                }
+                //-------------------------------------------------------------------------------------------------------------
+                // Health
 
-                comm = new MySqlCommand("SELECT bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + id, conn); //Heatlh & Checkup
-                adp = new MySqlDataAdapter(comm);
-                dt = new DataTable();
+                existshealth(id);
 
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {                    
-                    lblblood.Text = dt.Rows[0]["bloodtype"].ToString();
-
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        for (int j = 1; j < dt.Rows.Count; j++)
-                        {
-                            if (Convert.ToDateTime(dt.Rows[i]["checkupdate"]).Date > Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date)
-                            {
-                                //checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"].Date);
-
-                                
-                            }
-
-                            else
-                            {
-                                checkupdate = Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date;
-                            }
-
-                            //lblcheckupdis.Text = checkupdate.ToString("MMMM dd, yyyy");
-                        }
-
-                        
-                    }
-
-                    
-
-                }
-
-                else
-                {
-                    lblbmi.Text = "";
-                    lblblood.Text = "";
-                    //lblcheckupdis.Text = "";
-                }
+                
 
                 comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
                 adp = new MySqlDataAdapter(comm);
@@ -1371,7 +1332,7 @@ namespace BalayPasilungan
                 }
                 btnArchive.Visible = true;
                 btncancelarchive.Visible = false;
-                */
+                
                 conn.Close();
             }
             catch (Exception ee)
@@ -1752,8 +1713,8 @@ namespace BalayPasilungan
                 btncancelarchive.Visible = false;
                 archivemode = 0;
                 reload(id);
-                //existsed(id);
-                //existshealth(id);
+                
+               
                 showdem();
             }
             catch (Exception ee)
@@ -1995,7 +1956,7 @@ namespace BalayPasilungan
                 archivemode = 1;
 
                 reload(archiveid);
-                //existsed(id);
+                
                 existshealth(archiveid);
 
                 hidedem();
@@ -2109,20 +2070,57 @@ namespace BalayPasilungan
 
         public void existsed(int id)
         {
+            string school, level;
+
             try
             {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT caseid FROM education WHERE caseid = " + id, conn);
-                int UserExist = (int)comm.ExecuteScalar();
-                btned.Text = (UserExist > 0) ? "VIEW MORE" : "ADD"; //put add info on catch
-                conn.Close();
+                MySqlCommand comm = new MySqlCommand("SELECT school, level, dateadded FROM education WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        for (int j = 1; j < dt.Rows.Count; j++)
+                        {
+                            //if (dt.Rows[i]["dateadded"] != null && dt.Rows[j]["dateadded"] != null) { }
+
+                            if (Convert.ToDateTime(dt.Rows[i]["dateadded"]).Date > Convert.ToDateTime(dt.Rows[j]["dateadded"]).Date)
+                            {
+                                school = dt.Rows[i]["school"].ToString();
+                                level = dt.Rows[i]["level"].ToString();
+
+                            }
+
+                            else
+                            {
+                                school = dt.Rows[j]["school"].ToString();
+                                level = dt.Rows[j]["level"].ToString();
+                            }
+
+                            lbledlvl.Text = level;
+                            lbledschool.Text = school;
+                            
+                        }
+
+                    }
+
+                }
+
+                else
+                {
+                    lbledlvl.Text = "";
+                    lbledschool.Text = "";
+                }
             }
             catch (Exception ee)
             {
                 errorMessage(ee.Message);
-                btned.Text = "ADD";
-                lbledlvl.Text = lbledschool.Text = "";
-                conn.Close();
+                
+                
             }
         }
 
@@ -2174,20 +2172,31 @@ namespace BalayPasilungan
         {
             try
             {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT caseid FROM health WHERE caseid = " + id, conn);
-                int UserExist = (int)comm.ExecuteScalar();
-                btnhealth.Text = (UserExist > 0) ? "VIEW MORE" : "ADD"; //put add info on catch
-                conn.Close();
+                MySqlCommand comm = new MySqlCommand("SELECT bloodtype, height, weight FROM health WHERE caseid = " + id, conn); //Heatlh & Checkup
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    lblblood.Text = dt.Rows[0]["bloodtype"].ToString();
+                    lblH.Text = dt.Rows[0]["height"].ToString();
+                    lblW.Text = dt.Rows[0]["weight"].ToString();
+
+                }
+
+                else
+                {
+                    lblblood.Text = "";
+                    lblH.Text = "";
+                    lblW.Text = "";
+                }
             }
             catch (Exception ee)
             {
                 MessageBox.Show(ee.ToString());
-
-                lblblood.Text = "";
-                lblbmi.Text = "";
-                lblH.Text = "";
-                lblW.Text = "";
+                
             }
         }
         #endregion
@@ -2909,9 +2918,8 @@ namespace BalayPasilungan
 
         private void btncancelhealth_Click(object sender, EventArgs e)
         {
-            if (btnaddhealth.Text == "ADD") tabCase.SelectedTab = tabInfo;           
-            else tabCase.SelectedTab = tabInfo;
-            reset3();
+           tabCase.SelectedTab = tabInfo;
+           reset3();
         }        
 
         private void btnbackfromcheck_Click(object sender, EventArgs e)
@@ -3004,26 +3012,15 @@ namespace BalayPasilungan
 
         private void btnhealth_Click(object sender, EventArgs e)
         {
-            if (archivemode == 0)
-            {
-                tabCase.SelectedTab = tabInfo;
-                tabChild.SelectedTab = fifteen;
-                reloadedithealth(id);
-            }
-            else
-            {
-                tabChild.SelectedTab = fifteen;
-                reloadedithealth(id);
-            }
+            tabChild.SelectedTab = fifteen;
+            reloadedithealth(id);
         }
 
         private void btned_Click(object sender, EventArgs e)
         {
            
                 tabChild.SelectedTab = eighth;
-
-                
-
+            
                 reloaded(id);
             
         }
@@ -3195,7 +3192,8 @@ namespace BalayPasilungan
             tabCase.SelectedTab = tabNewChild;
             tabaddchild.SelectedTab = tabNewHealth;                
             lbladdeditprofile.Text = "Add Health Record";
-            reloadedithealth(id);
+            
+            //reloadedithealth(id);
         }
 
         private void btnEduRepro_Click(object sender, EventArgs e)
