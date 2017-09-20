@@ -189,6 +189,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabExpOp = new System.Windows.Forms.TabPage();
+            this.year = new System.Windows.Forms.ComboBox();
             this.dateFrom = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -205,6 +206,7 @@
             this.rbMonthSelect = new System.Windows.Forms.RadioButton();
             this.rbMonth = new System.Windows.Forms.RadioButton();
             this.tabBRDisapprove = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
             this.btnDelBR = new BalayPasilungan.NoFocusRec();
             this.btnEditBR = new BalayPasilungan.NoFocusRec();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -228,6 +230,7 @@
             this.txtBRQuantity2 = new System.Windows.Forms.NumericUpDown();
             this.txtBRPart2 = new System.Windows.Forms.TextBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.lblEnter = new System.Windows.Forms.Label();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -2169,6 +2172,7 @@
             // tabExp
             // 
             this.tabExp.BackColor = System.Drawing.Color.White;
+            this.tabExp.Controls.Add(this.lblEnter);
             this.tabExp.Controls.Add(this.thisMonth);
             this.tabExp.Controls.Add(this.pictureBox20);
             this.tabExp.Controls.Add(this.label6);
@@ -2380,7 +2384,7 @@
             this.lblAddExp.AutoSize = true;
             this.lblAddExp.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblAddExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lblAddExp.Location = new System.Drawing.Point(19, 233);
+            this.lblAddExp.Location = new System.Drawing.Point(19, 227);
             this.lblAddExp.Name = "lblAddExp";
             this.lblAddExp.Size = new System.Drawing.Size(77, 13);
             this.lblAddExp.TabIndex = 55;
@@ -2492,6 +2496,7 @@
             // 
             // tabExpOp
             // 
+            this.tabExpOp.Controls.Add(this.year);
             this.tabExpOp.Controls.Add(this.dateFrom);
             this.tabExpOp.Controls.Add(this.label21);
             this.tabExpOp.Controls.Add(this.label20);
@@ -2509,6 +2514,31 @@
             this.tabExpOp.Text = "tabPage1";
             this.tabExpOp.UseVisualStyleBackColor = true;
             this.tabExpOp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            // 
+            // year
+            // 
+            this.year.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.year.Enabled = false;
+            this.year.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.year.FormattingEnabled = true;
+            this.year.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.year.Location = new System.Drawing.Point(382, 268);
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(96, 29);
+            this.year.TabIndex = 74;
             // 
             // dateFrom
             // 
@@ -2532,7 +2562,7 @@
             "December"});
             this.dateFrom.Location = new System.Drawing.Point(165, 268);
             this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(313, 29);
+            this.dateFrom.Size = new System.Drawing.Size(199, 29);
             this.dateFrom.TabIndex = 73;
             // 
             // label21
@@ -2542,9 +2572,9 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
             this.label21.Location = new System.Drawing.Point(19, 276);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(85, 13);
+            this.label21.Size = new System.Drawing.Size(119, 13);
             this.label21.TabIndex = 68;
-            this.label21.Text = "SELECT MONTH";
+            this.label21.Text = "SELECT MONTH | YEAR";
             // 
             // label20
             // 
@@ -2678,10 +2708,10 @@
             this.rbAnnual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.rbAnnual.Location = new System.Drawing.Point(3, 54);
             this.rbAnnual.Name = "rbAnnual";
-            this.rbAnnual.Size = new System.Drawing.Size(62, 19);
+            this.rbAnnual.Size = new System.Drawing.Size(127, 19);
             this.rbAnnual.TabIndex = 2;
             this.rbAnnual.TabStop = true;
-            this.rbAnnual.Text = "Annual";
+            this.rbAnnual.Text = "Annual (select year)";
             this.rbAnnual.UseVisualStyleBackColor = true;
             this.rbAnnual.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
             // 
@@ -2695,10 +2725,10 @@
             this.rbMonthSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.rbMonthSelect.Location = new System.Drawing.Point(3, 29);
             this.rbMonthSelect.Name = "rbMonthSelect";
-            this.rbMonthSelect.Size = new System.Drawing.Size(92, 19);
+            this.rbMonthSelect.Size = new System.Drawing.Size(80, 19);
             this.rbMonthSelect.TabIndex = 1;
             this.rbMonthSelect.TabStop = true;
-            this.rbMonthSelect.Text = "Select month";
+            this.rbMonthSelect.Text = "Select date";
             this.rbMonthSelect.UseVisualStyleBackColor = true;
             this.rbMonthSelect.CheckedChanged += new System.EventHandler(this.ExpMode_CheckedChanged);
             // 
@@ -2722,6 +2752,7 @@
             // tabBRDisapprove
             // 
             this.tabBRDisapprove.BackColor = System.Drawing.Color.White;
+            this.tabBRDisapprove.Controls.Add(this.label22);
             this.tabBRDisapprove.Controls.Add(this.btnDelBR);
             this.tabBRDisapprove.Controls.Add(this.btnEditBR);
             this.tabBRDisapprove.Controls.Add(this.panel10);
@@ -2732,19 +2763,28 @@
             this.tabBRDisapprove.TabIndex = 10;
             this.tabBRDisapprove.Text = "tabPage1";
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Bold);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.label22.Location = new System.Drawing.Point(192, 75);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(118, 19);
+            this.label22.TabIndex = 69;
+            this.label22.Text = "SELECT ACTION";
+            // 
             // btnDelBR
             // 
-            this.btnDelBR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnDelBR.BackColor = System.Drawing.Color.White;
             this.btnDelBR.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnDelBR.FlatAppearance.BorderSize = 0;
-            this.btnDelBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
-            this.btnDelBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnDelBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnDelBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelBR.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.btnDelBR.ForeColor = System.Drawing.Color.White;
-            this.btnDelBR.Location = new System.Drawing.Point(0, 204);
+            this.btnDelBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDelBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnDelBR.Location = new System.Drawing.Point(281, 127);
             this.btnDelBR.Name = "btnDelBR";
-            this.btnDelBR.Size = new System.Drawing.Size(512, 172);
+            this.btnDelBR.Size = new System.Drawing.Size(178, 62);
             this.btnDelBR.TabIndex = 66;
             this.btnDelBR.Text = "REMOVE BUDGET REQUEST";
             this.btnDelBR.UseVisualStyleBackColor = false;
@@ -2753,15 +2793,13 @@
             // 
             this.btnEditBR.BackColor = System.Drawing.Color.White;
             this.btnEditBR.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnEditBR.FlatAppearance.BorderSize = 0;
-            this.btnEditBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnEditBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnEditBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnEditBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditBR.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.btnEditBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnEditBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
-            this.btnEditBR.Location = new System.Drawing.Point(0, 31);
+            this.btnEditBR.Location = new System.Drawing.Point(45, 127);
             this.btnEditBR.Name = "btnEditBR";
-            this.btnEditBR.Size = new System.Drawing.Size(512, 172);
+            this.btnEditBR.Size = new System.Drawing.Size(178, 62);
             this.btnEditBR.TabIndex = 65;
             this.btnEditBR.Text = "EDIT DETAILS";
             this.btnEditBR.UseVisualStyleBackColor = false;
@@ -3057,6 +3095,16 @@
             this.pictureBox26.TabIndex = 51;
             this.pictureBox26.TabStop = false;
             // 
+            // lblEnter
+            // 
+            this.lblEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lblEnter.Location = new System.Drawing.Point(19, 242);
+            this.lblEnter.Name = "lblEnter";
+            this.lblEnter.Size = new System.Drawing.Size(120, 14);
+            this.lblEnter.TabIndex = 189;
+            this.lblEnter.Text = "press ENTER to add";
+            this.lblEnter.Visible = false;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3140,6 +3188,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.tabBRDisapprove.ResumeLayout(false);
+            this.tabBRDisapprove.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.tabBREdit.ResumeLayout(false);
@@ -3354,5 +3403,8 @@
         public System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.RadioButton rbMonthSelect;
         public System.Windows.Forms.ComboBox dateFrom;
+        public System.Windows.Forms.ComboBox year;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblEnter;
     }
 }

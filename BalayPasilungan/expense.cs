@@ -95,10 +95,10 @@ namespace BalayPasilungan
         public void resetNewDonor()                         // Clear new donor textboxes and set to default values
         {
             tabNewDonorInput.SelectedIndex = 0;
-            txtDName.Text = "Name of purpose.";
+            txtDName.Text = "Name of donor.";
             cbDType.SelectedIndex = 0; cbPledge.SelectedIndex = 0;
             txtPhone.Text = "29xxxxx"; txtMobile1.Text = "09xx"; txtMobile2.Text = "xxx"; txtMobile3.Text = "xxxx";
-            txtEmail.Text = "jmiguel@example.com";
+            txtEmail.Text = "example@example.com"; txtDonorAd.Text = "Enter address.";
             datePledge.Value = DateTime.Today;
         }
 
@@ -112,10 +112,6 @@ namespace BalayPasilungan
 
         public void resetDonorShowTS()                      // Reset buttons (acting like toolstrips)
         {
-            moneyTS.BackColor = System.Drawing.Color.FromArgb(248, 248, 248);
-            ikTS.BackColor = System.Drawing.Color.FromArgb(248, 248, 248);
-            donorOTS.BackColor = System.Drawing.Color.FromArgb(248, 248, 248);
-
             moneyTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
             ikTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
             donorOTS.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
@@ -125,7 +121,7 @@ namespace BalayPasilungan
         {
             lblDNameEdit.ForeColor = lblDTypeEdit.ForeColor = lblPledgeEdit.ForeColor = lblPhoneEdit.ForeColor = lblMobileEdit.ForeColor = lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
             panelDNameEdit.BackgroundImage = panelPhoneEdit.BackgroundImage = panelEmailEdit.BackgroundImage = panelMobileEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            countDNameEdit.Visible = countEmailEdit.Visible = countPhoneEdit.Visible = false;
+            countDNameEdit.Visible = countEmailEdit.Visible = lblPhoneEdit.Visible = false;
         }
 
         public moneyDonate overlay()
@@ -363,7 +359,7 @@ namespace BalayPasilungan
                     if (dt.Rows.Count == 0)
                     {
                         dt.Rows.Add(-1, null, "No entries.", null, null, null, null);
-                        empty = true; multiBR.Enabled = multiBR.Checked = false;
+                        empty = true;
                     }
                     else empty = false;
 
@@ -389,7 +385,7 @@ namespace BalayPasilungan
                     {
                         table.Columns[2].HeaderCell.Style.Padding = table.Columns[2].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                         table.Columns[5].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                        btnViewBR.Enabled = notifBR.Visible = btnApprovedBR.Enabled = multiBR.Enabled = multiABR.Enabled = true;
+                        btnViewBR.Enabled = notifBR.Visible = btnApprovedBR.Enabled = multiABR.Enabled = true;
                     }
                     if (empty && table == BRList) btnViewBR.Enabled = notifBR.Visible = false;
                 }
@@ -416,30 +412,41 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, null, "No entries.", null);
+                        dt.Rows.Add(-1, null, "No entries.", null, null);
                         empty = true; btnExpOp.Enabled = multiExp.Enabled = false;
                     }
-                    else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;
+                    else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;                                           
 
                     expList.DataSource = dt;
 
+                    // ADD COLUMN TO CHECK BUDGET
+                    DataColumn hasBudget = new System.Data.DataColumn("hasBudget", typeof(System.String));
+                    hasBudget.DefaultValue = "No";
+                    dt.Columns.Add(hasBudget);
+
                     // BR LIST In Kind UI Modifications
-                    expList.Columns[1].HeaderText = "MONTH";
+                    expList.Columns[1].HeaderText = "EXPENSE DATE";
                     expList.Columns[2].HeaderText = "CATEGORY";
                     expList.Columns[3].HeaderText = "AMOUNT";
+                    expList.Columns[5].HeaderText = "FROM BUDGET";
 
                     // For ID purposes (hidden from user)            
                     expList.Columns[0].Visible = expList.Columns[4].Visible = false;
 
                     // 935 TOTAL WIDTH
-                    expList.Columns[1].Width = 250;
-                    expList.Columns[2].Width = 400;
-                    expList.Columns[3].Width = 285;
+                    expList.Columns[1].Width = 220;
+                    expList.Columns[2].Width = 380;
+                    expList.Columns[3].Width = 240;
+                    expList.Columns[5].Width = 95;
 
                     if (dt.Rows.Count > 0 && !empty)
                     {
+                        for(int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            if (dt.Rows[i]["budgetID"].ToString() != "") dt.Rows[i]["hasBudget"] = "Yes";                            
+                        }
                         expList.Columns[1].HeaderCell.Style.Padding = expList.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
-                        expList.Columns[1].DefaultCellStyle.Format = "MMMM";
+                        expList.Columns[1].DefaultCellStyle.Format = "MMMM dd, yyyy";
                         btnExpOp.Enabled = true;
                         if (dt.Rows.Count == 1) multiExp.Enabled = false;
                         else multiExp.Enabled = true;
@@ -626,6 +633,10 @@ namespace BalayPasilungan
                         query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
                         + " AND (amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%' ORDER BY dateDonated DESC)";
                     }
+                    else if (id == -20)
+                    {
+                        query = "SELECT * FROM expense WHERE amount LIKE " + decimal.Parse(doubs) + " category = %'" + search + "% ORDER BY dateExpense DESC)";
+                    }
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%' ORDER BY dateDonated DESC";
                 }
                 else if (searchDateBool)
@@ -660,11 +671,13 @@ namespace BalayPasilungan
                     }
 
                     if (id != -10) query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ") AND " + searchWords + " ORDER BY dateDonated DESC";
+                    else if (id == -20) query = "SELECT * FROM expense WHERE " + searchWords + " ORDER BY dateExpense DESC";
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE " + searchWords + " ORDER BY dateDonated DESC";
                 }
                 else
                 {
                     if (id != -10) query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ") AND (ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "')";
+                    else if (id != -20) query = "SELECT * FROM expense WHERE catergory LIKE %" + search + "% ORDER BY dateExpense DESC";
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "'";
                 }
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -923,8 +936,10 @@ namespace BalayPasilungan
                 else conf_phone.Text = txtPhone.Text;
                 if (txtMobile1.Text == "09xx") conf_mobile.Text = "N/A";
                 else conf_mobile.Text = txtMobile1.Text + "-" + txtMobile2.Text + "-" + txtMobile3.Text;
-                if (txtEmail.Text == "jmiguel@example.com") conf_email.Text = "N/A";
+                if (txtEmail.Text == "example@example.com") conf_email.Text = "N/A";
                 else conf_email.Text = txtEmail.Text;
+                if (txtDonorAd.Text == "Enter address.") conf_DonorAd.Text = "N/A";
+                else conf_DonorAd.Text = txtDonorAd.Text;
 
                 conf_donorName.Text = txtDName.Text;
                 conf_donorType.Text = cbDType.Text;
@@ -964,9 +979,9 @@ namespace BalayPasilungan
                     String datePledgeSTR = datePledge.Value.Year.ToString() + "-" + datePledge.Value.Month.ToString() + "-" + datePledge.Value.Day.ToString();
                     if (conf_mobile.Text != "N/A") mobile = txtMobile1.Text + txtMobile2.Text + txtMobile3.Text;
 
-                    comm = new MySqlCommand("INSERT INTO donor (type, donorName, telephone, mobile, email, pledge, datePledge, dateAdded, status)"
+                    comm = new MySqlCommand("INSERT INTO donor (type, donorName, telephone, mobile, email, pledge, datePledge, dateAdded, status, address)"
                         + " VALUES (" + (int.Parse(cbDType.SelectedIndex.ToString()) + 1) + ", '" + conf_donorName.Text + "', '" + conf_phone.Text
-                        + "', '" + mobile + "', '" + conf_email.Text + "', '" + conf_pledge.Text + "', '" + datePledge.Value.ToString("yyyy-MM-dd") + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', 1);", conn);
+                        + "', '" + mobile + "', '" + conf_email.Text + "', '" + conf_pledge.Text + "', '" + datePledge.Value.ToString("yyyy-MM-dd") + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', 1, '" + conf_DonorAd.Text + "');", conn);
 
                     successMessage("Donor profile has been added successfully.");
                 }
@@ -974,11 +989,11 @@ namespace BalayPasilungan
                 {
                     String mobile = "N/A";
                     String datePledgeSTR = datePledgeEdit.Value.Year.ToString() + "-" + datePledgeEdit.Value.Month.ToString() + "-" + datePledge.Value.Day.ToString();
-                    if (conf_mobile.Text != "N/A") mobile = txtMobile1Edit.Text + txtMobile2Edit.Text + txtMobile3Edit.Text;
+                    if (conf_mobile.Text != "N/A") mobile = txtMobile1Edit.Text + txtMobile2Edit.Text + txtMobile3Edit.Text;                   
 
                     comm = new MySqlCommand("UPDATE donor SET type = " + (int.Parse(cbDTypeEdit.SelectedIndex.ToString()) + 1) + ", donorName = '" + conf_donorName.Text
                         + "', telephone = '" + conf_phone.Text + "', mobile = '" + mobile + "', email = '" + conf_email.Text
-                        + "', pledge = '" + conf_pledge.Text + "' WHERE donorID = " + current_donorID, conn);
+                        + "', pledge = '" + conf_pledge.Text + "', address = '" + conf_DonorAd.Text + "' WHERE donorID = " + current_donorID, conn);
 
                     successMessage("Donor profile has been changed successfully.");
                 }
@@ -1027,77 +1042,46 @@ namespace BalayPasilungan
         }
 
         private void editDonor_Enter(object sender, EventArgs e)
-        {
-            resetEditColorDefault();
-            if (((TextBox)sender).Text == "Name of purpose." || ((TextBox)sender).Text == "29xxxxx" || ((TextBox)sender).Text == "jmiguel@example.com" || ((TextBox)sender).Text == "09xx" || ((TextBox)sender).Text == "xxx" || ((TextBox)sender).Text == "xxxx") ((TextBox)sender).Text = "";
-            ((TextBox)sender).ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+        {            
+            if (((TextBox)sender).Text == "Name of donor." || ((TextBox)sender).Text == "29xxxxx" || ((TextBox)sender).Text == "example@example.com" || ((TextBox)sender).Text == "09xx" || ((TextBox)sender).Text == "xxx" || ((TextBox)sender).Text == "xxxx") ((TextBox)sender).Text = "";
+            ((TextBox)sender).ForeColor = Color.Black;
 
-            if (((TextBox)sender).Name == "txtMobile1" || ((TextBox)sender).Name == "txtMobile2" || ((TextBox)sender).Name == "txtMobile3")
+            if (((TextBox)sender).Name == "txtMobile1Edit" || ((TextBox)sender).Name == "txtMobile2Edit" || ((TextBox)sender).Name == "txtMobile3Edit")
             {
-                lblMobile.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                lblMobile.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
                 panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
             }
 
-            if (((TextBox)sender).Name == "txtDName")
+            if (((TextBox)sender).Name == "txtDNameEdit") 
             {
-                lblDName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                countDName.Visible = true;
+                lblDNameEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                panelDNameEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countDNameEdit.Visible = true;
             }
-            else if (((TextBox)sender).Name == "txtPhone")
+            else if (((TextBox)sender).Name == "txtPhoneEdit") 
             {
-                lblPhone.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelPhone.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                countPhone.Visible = true;
+                lblPhone.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                panelPhoneEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                lblPhoneEdit.Visible = true;
             }
-            else if (((TextBox)sender).Name == "txtEmail")
+            else if (((TextBox)sender).Name == "txtEmailEdit") 
             {
-                lblEmail.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                countEmail.Visible = true;
+                lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                panelEmailEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countEmailEdit.Visible = true;
             }
         }
 
-        private void txtDNameEdit_Enter(object sender, EventArgs e)
+        private void editDonor_TextChanged(object sender, EventArgs e)
         {
-            panelDNameEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
-            countDNameEdit.Visible = true;
+            if(((TextBox)sender).Name == "txtDNameEdit") countDNameEdit.Text = ((TextBox)sender).TextLength + "/250";            
+            else if (((TextBox)sender).Name == "txtPhoneEdit") countPhoneEdit.Text = ((TextBox)sender).TextLength + "/7";
+            else if (((TextBox)sender).Name == "txtDNameEdit") countEmailEdit.Text = ((TextBox)sender).TextLength + "/100";
         }
 
-        private void txtDNameEdit_TextChanged(object sender, EventArgs e)
-        {
-            countDNameEdit.Text = txtDNameEdit.TextLength + "/250";
-        }
-
-        private void txtDNameEdit_Leave(object sender, EventArgs e)
+        private void editDonor_Leave(object sender, EventArgs e)
         {
             resetEditColorDefault();
-        }
-
-        private void txtPhoneEdit_Enter(object sender, EventArgs e)
-        {
-            resetEditColorDefault();
-            lblPhoneEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-            panelPhoneEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
-            countPhoneEdit.Visible = true;
-        }
-
-        private void txtPhoneEdit_TextChanged(object sender, EventArgs e)
-        {
-            countPhoneEdit.Text = txtPhoneEdit.TextLength + "/7";
-        }
-
-        private void txtEmailEdit_Enter(object sender, EventArgs e)
-        {
-            resetEditColorDefault();
-            lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-            panelEmailEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
-            countEmailEdit.Visible = true;
-        }
-
-        private void txtEmailEdit_TextChanged(object sender, EventArgs e)
-        {
-            countEmailEdit.Text = txtEmailEdit.TextLength + "/100";
         }
 
         private void btnDonorEditConf_Click(object sender, EventArgs e)
@@ -1116,7 +1100,7 @@ namespace BalayPasilungan
 
                 conf_donorName.Text = txtDNameEdit.Text; conf_donorType.Text = cbDTypeEdit.SelectedText; conf_pledge.Text = cbPledgeEdit.SelectedText;
                 conf_phone.Text = txtPhoneEdit.Text; conf_mobile.Text = txtMobile1Edit.Text + txtMobile2Edit.Text + txtMobile3Edit.Text;
-                conf_email.Text = txtEmailEdit.Text;
+                conf_email.Text = txtEmailEdit.Text; conf_donorName.Text = txtDonorAdEdit.Text;
             }
         }
         #endregion
@@ -1139,30 +1123,29 @@ namespace BalayPasilungan
                 loadTable(comm, 1);
             }
         }
-
-        private void moneyTS_Click(object sender, EventArgs e)
+        
+        private void donorInfo_TS(object sender, EventArgs e)
         {
-            resetDonorShowTS();
-            tabDonorDetails.SelectedIndex = 0;
-            moneyTS.BackColor = Color.White;
-            moneyTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-        }
-
-        private void ikTS_Click(object sender, EventArgs e)
-        {
-            resetDonorShowTS();
-            tabDonorDetails.SelectedIndex = 1;
-            ikTS.BackColor = Color.White;
-            ikTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-            loadIK(current_donorID);
-        }
-
-        private void donorOTS_Click(object sender, EventArgs e)
-        {
-            resetDonorShowTS();
-            tabDonorDetails.SelectedIndex = 2;
-            donorOTS.BackColor = System.Drawing.Color.FromArgb(197, 202, 179);
-            donorOTS.ForeColor = Color.White;
+            resetDonorShowTS(); donorOTS.BackColor = Color.White;
+            ((Button)sender).ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            if (((Button)sender).Name == "moneyTS")
+            {
+                tabDonorDetails.SelectedIndex = 0;
+                allMoneyDonation = false;
+                comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
+                loadTable(comm, 1);
+            }   
+            else if (((Button)sender).Name == "ikTS")
+            {
+                tabDonorDetails.SelectedIndex = 1;
+                loadIK(current_donorID);
+            }
+            else
+            {
+                tabDonorDetails.SelectedIndex = 2;
+                ((Button)sender).ForeColor = Color.White;
+                ((Button)sender).BackColor = System.Drawing.Color.FromArgb(197, 202, 179);
+            }           
         }
         #endregion
 
@@ -1229,6 +1212,35 @@ namespace BalayPasilungan
                     }
                     else searchDateBool = false;
                     searchMonetary(-10, txtMDSearch.Text);
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+            }
+        }
+
+        private void txtExpSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    var mon = new[] { "MM dd", "MMM dd", "MMMM dd" };
+                    var mononly = new[] { "MM", "MMM", "MMMM" }; var monyr = new[] { "MM yyyy", "MMM yyyy", "MMMM yyyy" }; var yronly = new[] { "yyyy" };
+                    var formats = new[] { "MM", "MMM", "MMMM", "MM yyyy", "MMM yyyy", "MMMM yyyy", "yyyy" };
+                    allMoneyDonation = true;
+
+                    if (DateTime.TryParseExact(txtExpSearch.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue))
+                    {
+                        if (DateTime.TryParseExact(txtExpSearch.Text, mon, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthDay = true;
+                        else if (DateTime.TryParseExact(txtExpSearch.Text, monyr, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonthYr = true;
+                        else if (DateTime.TryParseExact(txtExpSearch.Text, yronly, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchYr = true;
+                        else if (DateTime.TryParseExact(txtExpSearch.Text, mononly, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) searchMonth = true;
+                        searchDateBool = true;
+                    }
+                    else searchDateBool = false;
+                    searchMonetary(-20, txtExpSearch.Text);
                 }
                 catch (Exception ex)
                 {
@@ -1410,6 +1422,9 @@ namespace BalayPasilungan
         private void btnViewBR_Click(object sender, EventArgs e)
         {
             lblBRHeader.Text = "Pending Budget Requests"; aBR = false;
+            panelPBR.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            lblBudgetTotal.Text = "Budget Total (PHP)"; lblOn.Text = "on";
+           
             tabSelection.SelectedTab = tabBRList;
             MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Pending' ORDER BY budgetID ASC", conn);
             loadTable(comm, 4);
@@ -1575,7 +1590,8 @@ namespace BalayPasilungan
                 if (((Button)sender).Name == "btnBRCancel")
                 {
                     txtPurpose.Text = "Name of purpose.";
-                    dateBR.MaxDate = dateBR.Value = DateTime.Today; txtBROthers.Clear();
+                    dateBR.MaxDate = dateBR.Value = DateTime.Today;
+                    lblOthers.Visible = cbExpCat.Visible = false; cbExpCat.SelectedIndex = 0;
                     rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
 
                     tabSelection.SelectedTab = tabFinance;
@@ -1597,9 +1613,9 @@ namespace BalayPasilungan
             else if (rbTranspo.Checked) lblBRCategory.Text = "Transportation";
             else if (((RadioButton)sender).Name == "rbOthers")
             {
-                if (rbOthers.Checked) panelOthers.Enabled = true;
-                else panelOthers.Enabled = false;
-                lblBRCategory.Text = txtBROthers.Text;
+                if (rbOthers.Checked) cbExpCat.Visible = true;
+                else cbExpCat.Visible = false;
+                lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
             }
         }
         #endregion
@@ -1607,23 +1623,40 @@ namespace BalayPasilungan
         #region Budget Request List
         private void BRList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && !empty)
+            if (e.RowIndex != -1 && !empty) // BOOK 2
             {
+                expList.Size = new System.Drawing.Size(935, 324); panelExpOp.Visible = true;
                 current_budgetID = int.Parse(BRList.Rows[e.RowIndex].Cells[0].FormattedValue.ToString());
                 lblPBRPurpose.Text = BRList.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                 lblPBRCategory.Text = BRList.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
                 lblPBRBy.Text = BRList.Rows[e.RowIndex].Cells[6].FormattedValue.ToString();
                 lblPBRdate.Text = BRList.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
                 lblPBRTotal.Text = BRList.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+
+                lblBRHeader.Text = "Pending Budget Requests"; aBR = false;
+                panelPBR.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                lblBudgetTotal.Text = "Budget Total (PHP)"; lblOn.Text = "on";
+
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
                 loadTable(comm, 5);
+
+                PBRDetails.Size = new System.Drawing.Size(935, 324);
+                panelOptions.Visible = true;
+
                 tabPBR.SelectedIndex = 1;
             }
         }
 
         private void btnPBRBack_Click(object sender, EventArgs e)
         {
-            if (tabPBR.SelectedIndex == 1) tabPBR.SelectedIndex = 0;
+            if (tabPBR.SelectedIndex == 1 && lblBRHeader.Text == "Pending Budget Requests") tabPBR.SelectedIndex = 0;
+            else if (lblBRHeader.Text == "Requests")
+            {                
+                lblBRHeader.Text = "Pending Budget Requests"; aBR = false;
+                panelPBR.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                lblBudgetTotal.Text = "Budget Total (PHP)"; lblOn.Text = "on";
+                tabSelection.SelectedTab = tabFinance;
+            }            
             else tabSelection.SelectedTab = tabFinance;
         }
 
@@ -1659,6 +1692,7 @@ namespace BalayPasilungan
             if (confirmed)
             {
                 moneyDonate mD = overlay();
+                mD.Size = new System.Drawing.Size(510, 235);
                 mD.tabSelection.SelectedIndex = 10;
                 DialogResult choice = mD.ShowDialog();
                 if (choice == DialogResult.Yes)            // DELETE BUDGET REQUEST
@@ -1679,10 +1713,8 @@ namespace BalayPasilungan
                 }
                 else if (choice == DialogResult.No)         // EDIT BUDGET REQUEST
                 {
-                    tabSelection.SelectedTab = tabNewDonor;
-                    tabNewDonorInput.SelectedIndex = 2;
-
-
+                    tabSelection.SelectedTab = tabBudgetRequest;
+                    tabBR.SelectedIndex = 0;
                 }
             }
         }
@@ -1700,6 +1732,7 @@ namespace BalayPasilungan
         #region Expense
         private void btnExpLoad_Click(object sender, EventArgs e)
         {
+            panelExpOp.Visible = false;
             int i = 0; MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             string[] load = new string[50];
 
@@ -1730,6 +1763,7 @@ namespace BalayPasilungan
 
         private void btnAddExp_Click(object sender, EventArgs e)
         {
+            panelExpOp.Visible = false;
             moneyDonate mD = overlay();
             mD.tabSelection.SelectedIndex = 8; mD.cbExpCat.SelectedIndex = 0;
             mD.hasExpense = true;
@@ -1743,6 +1777,7 @@ namespace BalayPasilungan
 
         private void btnResetCategory_Click(object sender, EventArgs e)
         {
+            panelExpOp.Visible = false;
             cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
             cbAll.Checked = true;
             MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
@@ -1751,6 +1786,7 @@ namespace BalayPasilungan
 
         private void multiExp_CheckedChanged(object sender, EventArgs e)
         {
+            panelExpOp.Visible = false;
             if (multiExp.Checked) expList.MultiSelect = true;
             else expList.MultiSelect = false;
         }
@@ -1860,13 +1896,22 @@ namespace BalayPasilungan
                     dim dim = new dim();
                     dim.Location = this.Location; dim.Size = this.Size; dim.refToPrev = this;
                     
-                    int month = int.Parse(DateTime.Today.Month.ToString()); MySqlDataAdapter adp = new MySqlDataAdapter();
+                    int month = int.Parse(DateTime.Today.Month.ToString()); int year = DateTime.Today.Year;
+                    MySqlDataAdapter adp = new MySqlDataAdapter();
                     if (result == DialogResult.OK || result == DialogResult.Yes)
                     {
-                        if(result == DialogResult.Yes) month = (mD.dateFrom.SelectedIndex + 1);
-                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE MONTH(dateExpense) = " + month + " ORDER BY dateExpense ASC", conn);                                               
+                        if (result == DialogResult.Yes)
+                        {
+                            month = (mD.dateFrom.SelectedIndex + 1);
+                            year = int.Parse(mD.year.SelectedItem.ToString());
+                        }
+                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                     }
-                    else adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE YEAR(dateExpense) = " + DateTime.Today.Year + " ORDER BY dateExpense ASC", conn);
+                    else
+                    {
+                        year = int.Parse(mD.year.SelectedItem.ToString());
+                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                    }
 
                     DataTable dt1 = new DataTable(); adp.Fill(dt1); int limit = dt1.Rows.Count;
 
@@ -2104,11 +2149,6 @@ namespace BalayPasilungan
                 panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                 countPurpose.Visible = true;
             }
-            else if (((TextBox)sender).Name == "txtBROthers")
-            {
-                lblOthers.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-            }
         }
 
         private void btnArchive_Click(object sender, EventArgs e)
@@ -2117,6 +2157,87 @@ namespace BalayPasilungan
             panelListChild.BackColor = System.Drawing.Color.FromArgb(60, 60, 60);
             lblListOfDonors.Text = "List of Inactive Donors";
             loadArchiveDonor();
+        }
+
+        private void richNew_Enter(object sender, EventArgs e)
+        {
+            if (((RichTextBox)sender).Text == "Address of donor.") ((RichTextBox)sender).Text = "";
+            ((RichTextBox)sender).ForeColor = Color.Black;
+            ((RichTextBox)sender).BackColor = System.Drawing.Color.FromArgb(250, 250, 250);
+
+            if (((RichTextBox)sender).Name == "txtDonorAd")
+            {
+                lblDonorAd.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                countAd.Visible = true;
+            }
+            else if (((RichTextBox)sender).Name == "txtDonorAdEdit")
+            {
+                lblDonorAdEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                countAdEdit.Visible = true;
+            }
+        }
+
+        private void richNew_TextChanged(object sender, EventArgs e)
+        {
+            if (((RichTextBox)sender).Name == "txtDonorAd") countAd.Text = ((RichTextBox)sender).TextLength + "/250";
+            else if (((RichTextBox)sender).Name == "txtDonorAdEdit") countAdEdit.Text = ((RichTextBox)sender).TextLength + "/250";
+        }
+
+        private void richNew_Leave(object sender, EventArgs e)
+        {
+            if (((RichTextBox)sender).Text == "")
+            {
+                ((RichTextBox)sender).Text = "Address of donor.";
+            }
+            ((RichTextBox)sender).ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            ((RichTextBox)sender).BackColor = System.Drawing.Color.FromArgb(250, 250, 250);
+
+            if (((RichTextBox)sender).Name == "txtDonorAd")
+            {
+                lblDonorAd.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);                
+                countAd.Visible = false;
+            }
+            else if (((RichTextBox)sender).Name == "txtDonorAdEdit")
+            {
+                resetEditColorDefault();
+                countAdEdit.Visible = true;
+            }
+        }
+
+        private void expList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // BOOK            
+            int row = expList.CurrentCell.RowIndex;
+            if (expList.Rows[row].Cells[5].FormattedValue.ToString() == "Yes")
+            {
+                expList.Size = new System.Drawing.Size(935, 324); panelExpOp.Visible = true;
+                current_budgetID = int.Parse(expList.Rows[row].Cells[4].FormattedValue.ToString());                
+
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM budget WHERE budgetID = " + current_budgetID, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
+                comm = new MySqlCommand("SELECT * FROM expense WHERE budgetID = " + current_budgetID, conn);
+                MySqlDataAdapter adp2 = new MySqlDataAdapter(comm); DataTable dt2 = new DataTable(); adp2.Fill(dt2);                
+
+                lblPBRPurpose.Text = dt.Rows[0]["purpose"].ToString();
+                lblPBRCategory.Text = dt2.Rows[0]["category"].ToString();
+                lblPBRBy.Text = dt.Rows[0]["requestedBy"].ToString();
+                lblPBRdate.Text = dt2.Rows[0]["dateExpense"].ToString();
+                lblPBRTotal.Text = dt2.Rows[0]["amount"].ToString();
+
+                conn.Close();
+
+                lblBRHeader.Text = "Expense Details";
+                panelPBR.BackColor = System.Drawing.Color.FromArgb(65, 64, 77);
+                lblBudgetTotal.Text = "Expense Total (PHP)"; lblOn.Text = "converted to expense on";
+
+                comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+                loadTable(comm, 5);
+
+                PBRDetails.Size = new System.Drawing.Size(935, 409);
+                panelOptions.Visible = false;
+                tabSelection.SelectedTab = tabBRList; tabPBR.SelectedTab = PBRDecide;
+            }
         }
 
         private void txtNewCount_TextChanged(object sender, EventArgs e)
@@ -2169,11 +2290,6 @@ namespace BalayPasilungan
                 lblPurpose.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
                 panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; ;
                 countPurpose.Visible = false;
-            }
-            else if (((TextBox)sender).Name == "txtBROthers")
-            {
-                lblOthers.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
             }
         }
 

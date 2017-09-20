@@ -18,7 +18,7 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public int donorID, donationID, budgetID;
-        
+
         public Form refToDim { get; set; }
         public Form refToExpense { get; set; }
         public bool hasExpense;
@@ -28,6 +28,7 @@ namespace BalayPasilungan
         public moneyDonate()
         {
             InitializeComponent();
+            this.Size = new System.Drawing.Size(510, 376);
             conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
             tabSelection.SelectedTab = tabExpOp;
             // Add
@@ -36,7 +37,7 @@ namespace BalayPasilungan
             dateIK.MaxDate = DateTime.Now; dateIK.Value = dateCash.MaxDate;
             dateExp.MaxDate = DateTime.Now; dateExp.Value = dateCash.MaxDate;
         }
-        
+
         private void moneyDonate_FormClosing(object sender, FormClosingEventArgs e)
         {
             refToDim.Close();
@@ -72,27 +73,27 @@ namespace BalayPasilungan
         public void toDefault()
         {
             // ADD
-            txtCashAmount.ForeColor = txtCashCent.ForeColor = lblDot1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");            
+            txtCashAmount.ForeColor = txtCashCent.ForeColor = lblDot1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
             lblCashAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
-            txtCheckAmount.ForeColor = txtCheckCent.ForeColor = lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");            
+            txtCheckAmount.ForeColor = txtCheckCent.ForeColor = lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
             lblCheckAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
             txtExpAmt.ForeColor = txtExpCent.ForeColor = lblDotExp.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
             lblAddExp.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
             // EDIT
-            txtCashAmount2.ForeColor = txtCashCent2.ForeColor = lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");            
+            txtCashAmount2.ForeColor = txtCashCent2.ForeColor = lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
             lblCashAmount2.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
-            txtCheckAmount2.ForeColor = txtCheckCent2.ForeColor = lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");            
+            txtCheckAmount2.ForeColor = txtCheckCent2.ForeColor = lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
             lblCheckAmount2.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
         }
 
         public void toYellow()
         {
             txtCashAmount2.ForeColor = txtCashCent2.ForeColor = lblCashAmount2.ForeColor = lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
-            txtCheckAmount2.ForeColor = txtCheckCent2.ForeColor = lblCheckAmount2.ForeColor = lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");            
+            txtCheckAmount2.ForeColor = txtCheckCent2.ForeColor = lblCheckAmount2.ForeColor = lblDot4.ForeColor = System.Drawing.ColorTranslator.FromHtml("#c4b617");
         }
 
         public void errorMessage(string message)            // Error Message
@@ -104,7 +105,11 @@ namespace BalayPasilungan
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!(e.KeyChar != '.')) if (((TextBox)sender).Text.Contains(".")) e.Handled = true;                   
+            if (!(e.KeyChar != '.'))
+            {
+                if (((TextBox)sender).Text.Contains(".")) e.Handled = dot = true;
+            }
+            else dot = false;
         }
 
         private void noDot_KeyPress(object sender, KeyPressEventArgs e)
@@ -140,14 +145,14 @@ namespace BalayPasilungan
             int c_donationID = int.Parse(dt.Rows[0]["donationID"].ToString());                                                // Get current donation ID            
 
             // ADD SQL COMMAND
-            if(type == 1)
+            if (type == 1)
             {
 
                 decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, dateDonated, donationID)"
                 + " VALUES ('Cash', '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
             }
-            else if(type == 2)
+            else if (type == 2)
             {
                 decimal amount = decimal.Parse(txtCheckAmount.Text + "." + txtCheckCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, checkNO, bankName, dateCheck, dateDonated, donationID)"
@@ -214,7 +219,7 @@ namespace BalayPasilungan
             try
             {
                 conn.Open();
-                
+
                 // ADD NEW DONATION
                 MySqlCommand comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
                     + " VALUES (1, " + donorID + ", + '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
@@ -223,7 +228,7 @@ namespace BalayPasilungan
 
                 // GET THAT DONATION ID
                 comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
-                addSQL(comm, 1);    
+                addSQL(comm, 1);
             }
             catch (Exception ex)
             {
@@ -262,7 +267,7 @@ namespace BalayPasilungan
             toDefault();
         }
         #endregion
-        
+
         #region Check
         private void btnCheckAdd_Click(object sender, EventArgs e)
         {
@@ -394,7 +399,7 @@ namespace BalayPasilungan
             }
             else errorMessage("You cannot have a total of 0.");
         }
-        
+
         private void btnBREdit_Click(object sender, EventArgs e)
         {
             if (decimal.Parse(txtBRTotal2.Text).ToString() != "0.00")
@@ -403,7 +408,7 @@ namespace BalayPasilungan
                 {
                     conn.Open();
                     // EDIT BUDGET REQUEST ITEM
-                    MySqlCommand comm = new MySqlCommand("UPDATE item SET particular = '" + txtBRPart2.Text 
+                    MySqlCommand comm = new MySqlCommand("UPDATE item SET particular = '" + txtBRPart2.Text
                         + "', quantity = " + int.Parse(txtBRQuantity2.Value.ToString()) + ", unitPrice = " + decimal.Parse(txtBRUP.Text)
                         + ", amount = " + decimal.Parse(txtBRTotal.Text) + ", budgetID = " + budgetID + ");", conn);
                     comm.ExecuteNonQuery();
@@ -429,16 +434,18 @@ namespace BalayPasilungan
             {
                 if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+
             }
         }
 
         private void txtBRUP_TextChanged(object sender, EventArgs e)
         {
-            if (!dot)
+            if (!dot && (((TextBox)sender).Text != "" || ((TextBox)sender).Text != "0" || ((TextBox)sender).Text != null))
             {
                 if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
-            }                
+            }
         }
         #endregion
 
@@ -491,7 +498,7 @@ namespace BalayPasilungan
                 txtExpTotal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             }
         }
-        
+
         private void btnAddExp_Click(object sender, EventArgs e)
         {
             try
@@ -499,19 +506,19 @@ namespace BalayPasilungan
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("", conn);
                 if (thisMonth.Checked)
-                    {
-                        comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
-                            + " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
-                    }
+                {
+                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
+                        + " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
+                }
                 else
-                    {
-                        comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
-                            + " VALUES ('" + dateExp.Value.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
-                    }
+                {
+                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
+                        + " VALUES ('" + dateExp.Value.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
+                }
                 comm.ExecuteNonQuery();
                 conn.Close(); this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 errorMessage(ex.Message);
             }
@@ -533,7 +540,7 @@ namespace BalayPasilungan
                 txtExpTotal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             }
         }
-        
+
         private void total_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -553,6 +560,7 @@ namespace BalayPasilungan
         {
             if (((TextBox)sender).Text == "0,000,000,000") ((TextBox)sender).Text = "";
             if (((TextBox)sender).Name != "txtExpAmt") toGreen();
+            lblEnter.Visible = true;
         }
 
         private void txtEdit_Enter(object sender, EventArgs e)
@@ -590,7 +598,7 @@ namespace BalayPasilungan
         #region Expense Options
         private void ExpMode_CheckedChanged(object sender, EventArgs e)
         {
-            btnReport.Enabled = true; dateFrom.Enabled = false;
+            btnReport.Enabled = true; dateFrom.Enabled = year.Enabled = false;
 
             if (rbMonth.Checked) btnReport.DialogResult = DialogResult.OK;
             else if (rbMonthSelect.Checked)
@@ -599,9 +607,17 @@ namespace BalayPasilungan
                 btnReport.DialogResult = DialogResult.Yes;
             }
             else if (rbAnnual.Checked) btnReport.DialogResult = DialogResult.Retry;
-        }
-        private void btnReport_Click(object sender, EventArgs e)
-        {
+        
+            if (rbMonthSelect.Checked || rbAnnual.Checked)
+            {
+                year.Items.Clear();
+                year.Enabled = true; int count = 0;
+                for (int i = 2000; i <= DateTime.Now.Year; i++, count++)
+                {
+                    year.Items.Add(i);
+                }
+                year.SelectedIndex = count - 1;
+            }
         }
         #endregion
     }
