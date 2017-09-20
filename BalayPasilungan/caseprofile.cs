@@ -1252,6 +1252,13 @@ namespace BalayPasilungan
 
                 }
 
+                else
+                {
+                    lbledlvl.Text = "";
+                    lbledtype.Text = "";
+                    lbledschool.Text = "";
+                }
+
                 comm = new MySqlCommand("SELECT bmi, bloodtype, checkupdate FROM health JOIN checkup ON health.hid = checkup.hid WHERE health.caseid = " + id, conn); //Heatlh & Checkup
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
@@ -1266,17 +1273,35 @@ namespace BalayPasilungan
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
+                        for (int j = 1; j < dt.Rows.Count; j++)
+                        {
+                            if (Convert.ToDateTime(dt.Rows[i]["checkupdate"]).Date > Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date)
+                            {
+                                checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"].Date);
 
-                        checkupdate = Convert.ToDateTime(dt.Rows[i]["checkupdate"]);
+                                
+                            }
 
-                      
+                            else
+                            {
+                                checkupdate = Convert.ToDateTime(dt.Rows[j]["checkupdate"]).Date;
+                            }
+
+                            lblcheckupdis.Text = checkupdate.ToString("MMMM dd, yyyy");
+                        }
+
+                        
                     }
+
+                    
 
                 }
 
                 else
                 {
+                    lblbmi.Text = "";
                     lblblood.Text = "";
+                    lblcheckupdis.Text = "";
                 }
 
                 comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
@@ -1289,10 +1314,31 @@ namespace BalayPasilungan
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]);
-                        
+                        for (int j = 1; j < dt.Rows.Count; j++)
+                        {
+                            if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
+                            {
+                                consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
+
+                                
+                            }
+
+                            else
+                            {
+                                consuldate = Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date;
+                            }
+
+                            lblconsuldate.Text = consuldate.ToString("MMMM dd, yyyy");
+                        }
+
+
                     }
-                 
+
+                }
+
+                else
+                {
+                    lblconsuldate.Text = "";
                 }
 
                 comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
@@ -1307,7 +1353,13 @@ namespace BalayPasilungan
                     lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
                 }
 
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn);
+                else
+                {
+                    lblfamtypedis.Text = "";
+                    lblmemcountdis.Text = "";
+                }
+
+                comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
