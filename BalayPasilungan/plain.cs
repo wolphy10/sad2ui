@@ -36,5 +36,25 @@ namespace BalayPasilungan
         {
 
         }
+
+        private void panelDName_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void countPhone_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fifteen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDonorConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
