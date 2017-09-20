@@ -404,6 +404,13 @@ namespace BalayPasilungan
                 getresidential();
                 getcount();
 
+                if (dtgcs.Columns["lolz"] != null)
+                {
+                    dtgcs.Columns.Remove("lolz");
+                }
+                    
+                    
+
                 conn.Close();
             }
             catch (Exception ee)
@@ -2175,7 +2182,12 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);                
+                MessageBox.Show(ee.ToString());
+
+                lblblood.Text = "";
+                lblbmi.Text = "";
+                lblH.Text = "";
+                lblW.Text = "";
             }
         }
         #endregion
@@ -2671,6 +2683,7 @@ namespace BalayPasilungan
         private void btnaddarchive_Click(object sender, EventArgs e)
         {
             int archiveid;
+
             confirmMessage("You are about to archive the following case studies. Once you archive, you will be no longer able to tamper with the " +
                 "information pertaining to the case studies.\nContinue?");
             if (confirmed)
@@ -2884,9 +2897,9 @@ namespace BalayPasilungan
         private void btncancelarchive_Click(object sender, EventArgs e)
         {
             refresh();
-            dtgcs.Columns.Remove("lolz");
-            btncancelarchive.Visible = true;
-            btnArchive.Visible = false;
+           
+            btncancelarchive.Visible = false;
+            btnaddarchive.Visible = false;
         }
         
         private void btnbackcasestud_Click(object sender, EventArgs e)
@@ -3083,7 +3096,30 @@ namespace BalayPasilungan
 
         private void btnArchive_Click(object sender, EventArgs e)
         {
+            DataGridViewCheckBoxColumn lulz = new DataGridViewCheckBoxColumn();
 
+            dtgcs.Columns[1].Width = 233;
+            dtgcs.Columns[2].Width = 233;
+            dtgcs.Columns[3].Width = 234;
+
+            lulz.Name = "lolz";
+            lulz.Width = 233;
+
+            if (dtgcs.Columns["lolz"] == null)
+            {
+                MessageBox.Show("aaaaaaa");
+
+
+                dtgcs.Columns.Add(lulz);
+
+
+
+            }
+
+            //dtgcs.Refresh();
+
+            btnaddarchive.Visible = true;
+            btncancelarchive.Visible = true;
         }
 
         private void dtginv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -3209,6 +3245,7 @@ namespace BalayPasilungan
             }
         }
 
+        
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabNewChild;
