@@ -786,7 +786,7 @@ namespace BalayPasilungan
 
         #region reloadfunctions
 
-        public void reloadediteducation(int eid)
+        public void reloadediteducation(int eid) //LOAD DATAGRIDVIEW CONCERNING SCHOOL
         {
             try
             {
@@ -1263,45 +1263,11 @@ namespace BalayPasilungan
 
                 existshealth(id);
 
+                //-------------------------------------------------------------------------------------------------------------
+                // Consultation
+
+                existscon(id);
                 
-
-                comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
-                adp = new MySqlDataAdapter(comm);
-                dt = new DataTable();
-
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        for (int j = 1; j < dt.Rows.Count; j++)
-                        {
-                            if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
-                            {
-                                consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
-
-                                
-                            }
-
-                            else
-                            {
-                                consuldate = Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date;
-                            }
-
-                            //lblconsuldate.Text = consuldate.ToString("MMMM dd, yyyy");
-                        }
-
-
-                    }
-
-                }
-
-                else
-                {
-                    //lblconsuldate.Text = "";
-                }
-
                 comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
@@ -1320,7 +1286,7 @@ namespace BalayPasilungan
                     lblmemcountdis.Text = "";
                 }
 
-                comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
+                /*comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
 
@@ -1329,7 +1295,7 @@ namespace BalayPasilungan
                 if (dt.Rows.Count > 0)
                 {
                    
-                }
+                }*/
                 btnArchive.Visible = true;
                 btncancelarchive.Visible = false;
                 
@@ -2142,6 +2108,48 @@ namespace BalayPasilungan
             }
         }
 
+        public void existscon(int id)
+        {
+            MySqlCommand comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+
+            DateTime consuldate;
+
+            adp.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    for (int j = 1; j < dt.Rows.Count; j++)
+                    {
+                        if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
+                        {
+                            consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
+
+
+                        }
+
+                        else
+                        {
+                            consuldate = Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date;
+                        }
+
+                        lblconsuldate.Text = consuldate.ToString("MMMM dd, yyyy");
+                    }
+
+
+                }
+
+            }
+
+            else
+            {
+                lblconsuldate.Text = "";
+            }
+        }
+
         public void existsfam(int id)
         {
             try
@@ -2757,7 +2765,7 @@ namespace BalayPasilungan
 
 
                     MySqlCommand comm = new MySqlCommand("INSERT INTO checkup(hid, checkupdetails, checkupdate, checkuplocation) VALUES('" + hid + "', '" + details + "', '" + dtpcheck.Value.Date.ToString("yyyyMMdd") + "', '" + location + "')", conn);
-                    MessageBox.Show(hid.ToString());
+                    
                     comm.ExecuteNonQuery();
 
                    successMessage("Checkup Record Added!");
@@ -3013,7 +3021,10 @@ namespace BalayPasilungan
         private void btnhealth_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = fifteen;
+
             reloadedithealth(id);
+
+            reloadhealth(id);
         }
 
         private void btned_Click(object sender, EventArgs e)
@@ -3028,7 +3039,9 @@ namespace BalayPasilungan
         private void btncon_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = ninth;
+
             tabconrecords.SelectedTab = tabrecords;
+
             reloadcon(id);
         }
 
@@ -3060,7 +3073,7 @@ namespace BalayPasilungan
         private void btngotocheckup_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = fifteen;
-            reloadhealth(id);
+            
         }
 
         private void btnedithealth_Click(object sender, EventArgs e)
@@ -3178,6 +3191,7 @@ namespace BalayPasilungan
         private void btnseearchive_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabArchive;
+
             refresh2();
         }
 
@@ -3282,7 +3296,7 @@ namespace BalayPasilungan
             btnaddconrec.Visible = false;
             btnaddincid.Visible = false;
             btneditincid.Visible = false;
-            btngotohealth.Visible = false;
+            btngotohealthreports.Visible = false;
             btnedithealth.Visible = false;
             btnaddcheckuprec.Visible = false;
 
@@ -3298,7 +3312,7 @@ namespace BalayPasilungan
             btnaddconrec.Visible = true;
             btnaddincid.Visible = true;
             btneditincid.Visible = true;
-            btngotohealth.Visible = true;
+            btngotohealthreports.Visible = true;
             btnedithealth.Visible = true;
             btnaddcheckuprec.Visible = true;
 
