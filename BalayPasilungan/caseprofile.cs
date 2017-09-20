@@ -285,7 +285,7 @@ namespace BalayPasilungan
 
                     reloadmem(famid);
                     tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = fourth;
+                    tabReport.SelectedTab = fourth;
                     reset8();
                 }
                 catch (Exception ee)
@@ -316,7 +316,7 @@ namespace BalayPasilungan
 
                     reloadmem(famid);
                     tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = fourth;
+                    tabReport.SelectedTab = fourth;
                     reset8();
                 }
                 catch (Exception ee)
@@ -551,7 +551,7 @@ namespace BalayPasilungan
                     comm.ExecuteNonQuery();
                     conn.Close();
                     successMessage("Profile details has been changed successfully!");
-                    tabControl.SelectedTab = sixteen;
+                    tabReport.SelectedTab = sixteen;
                     tabCase.SelectedTab = tabInfo;
                     reset(); refresh();
                     reload(id);                
@@ -590,7 +590,7 @@ namespace BalayPasilungan
                         lblblood.Text = blood;
                         lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
-                        tabControl.SelectedTab = sixteen;
+                        tabReport.SelectedTab = sixteen;
                         reset3();
                     }
                     catch (Exception ee)
@@ -647,7 +647,7 @@ namespace BalayPasilungan
                         lblblood.Text = blood;
                         lblbmi.Text = (weight / (Math.Pow(height, 2))).ToString("0.##");
 
-                        tabControl.SelectedTab = fifteen;
+                        tabReport.SelectedTab = fifteen;
 
                         reset3();
 
@@ -711,7 +711,7 @@ namespace BalayPasilungan
 
                     tabCase.SelectedTab = tabInfo;
 
-                    tabControl.SelectedTab = eighth;
+                    tabReport.SelectedTab = eighth;
 
                     reloaded(id);
 
@@ -759,7 +759,7 @@ namespace BalayPasilungan
 
                     tabCase.SelectedTab = tabInfo;
 
-                    tabControl.SelectedTab = eighth;
+                    tabReport.SelectedTab = eighth;
 
                     reloaded(id);
 
@@ -901,7 +901,7 @@ namespace BalayPasilungan
                     reloadincid(id);
 
                     tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = twelfth;
+                    tabReport.SelectedTab = twelfth;
 
                     reset5();
                 }
@@ -968,7 +968,7 @@ namespace BalayPasilungan
                     reloadincid(id);
 
                     tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = twelfth;
+                    tabReport.SelectedTab = twelfth;
 
                     reset5();
 
@@ -1740,7 +1740,7 @@ namespace BalayPasilungan
             {
                 id = int.Parse(dtgcs.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                tabControl.SelectedTab = sixteen;
+                tabReport.SelectedTab = sixteen;
                 tabCase.SelectedTab = tabInfo;
 
                 btnArchive.Visible = true;
@@ -1764,7 +1764,7 @@ namespace BalayPasilungan
             {
                 int checkid = int.Parse(dtghealth.Rows[e.RowIndex].Cells[0].Value.ToString());
                 MessageBox.Show(checkid.ToString());
-                tabControl.SelectedTab = nineteen;
+                tabReport.SelectedTab = nineteen;
 
                 conn.Open();
 
@@ -1842,7 +1842,7 @@ namespace BalayPasilungan
             {
                 int incid = int.Parse(dtincid.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                tabControl.SelectedTab = thirteen;
+                tabReport.SelectedTab = thirteen;
 
                 conn.Open();
 
@@ -1864,7 +1864,7 @@ namespace BalayPasilungan
 
                 }
 
-                tabControl.SelectedTab = thirteen;
+                tabReport.SelectedTab = thirteen;
 
                 conn.Close();
 
@@ -1984,7 +1984,7 @@ namespace BalayPasilungan
             {
                 archiveid = int.Parse(dtgarchive.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                tabControl.SelectedTab = sixteen;
+                tabReport.SelectedTab = sixteen;
                 tabCase.SelectedTab = tabInfo;
 
                 archivemode = 1;
@@ -2206,7 +2206,7 @@ namespace BalayPasilungan
             infoTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             infoTS.ForeColor = Color.Black;
             infoTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedTab = sixteen;
+            tabReport.SelectedTab = sixteen;
 
             resetall();
         }
@@ -2217,7 +2217,7 @@ namespace BalayPasilungan
             familyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             familyTS.ForeColor = Color.Black;
             familyTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedIndex = 1;
+            tabReport.SelectedIndex = 1;
 
             resetall();
             btnfover_Click(sender, e);
@@ -2229,7 +2229,7 @@ namespace BalayPasilungan
             eduTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             eduTS.ForeColor = Color.Black;
             eduTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedIndex = 2;
+            tabReport.SelectedIndex = 2;
         }
 
         private void healthTS_Click(object sender, EventArgs e)
@@ -2238,7 +2238,7 @@ namespace BalayPasilungan
             healthTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             healthTS.ForeColor = Color.Black;
             healthTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedIndex = 3;
+            tabReport.SelectedIndex = 3;
         }
 
         private void consulTS_Click(object sender, EventArgs e)
@@ -2247,7 +2247,7 @@ namespace BalayPasilungan
             consulTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             consulTS.ForeColor = Color.Black;
             consulTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedIndex = 4;
+            tabReport.SelectedIndex = 4;
         }
 
         private void othersTS_Click(object sender, EventArgs e)
@@ -2256,7 +2256,7 @@ namespace BalayPasilungan
             othersTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             othersTS.ForeColor = Color.Black;
             othersTS.BackgroundImage = global::BalayPasilungan.Properties.Resources.tsLine;
-            tabControl.SelectedIndex = 5;
+            tabReport.SelectedIndex = 5;
         }
         #endregion
 
@@ -2746,7 +2746,7 @@ namespace BalayPasilungan
 
                     reloadhealth(id);
 
-                    tabControl.SelectedTab = fifteen;
+                    tabReport.SelectedTab = fifteen;
                    
 
                     reset6();
@@ -2804,7 +2804,7 @@ namespace BalayPasilungan
                     reloadcon(id);
 
                     tabCase.SelectedTab = tabInfo;
-                    tabControl.SelectedTab = ninth;
+                    tabReport.SelectedTab = ninth;
 
                     reset4();
                 }
@@ -2905,35 +2905,35 @@ namespace BalayPasilungan
 
         private void btnbackfromcheck_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = fifteen;
+            tabReport.SelectedTab = fifteen;
             reset6();
         }
 
         private void bttnbackfromcheckrec_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = fifteen;
+            tabReport.SelectedTab = fifteen;
         }
 
         private void btncanceled_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabInfo;
-            tabControl.SelectedTab = eighth;
+            tabReport.SelectedTab = eighth;
             reset2();
         }
 
         private void btnedback_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
+            tabReport.SelectedTab = sixteen;
         }
 
         private void btncancelcon_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
+            tabReport.SelectedTab = sixteen;
         }
 
         private void btncancon_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = ninth;
+            tabReport.SelectedTab = ninth;
         }
 
         private void btncancelviewrec_Click(object sender, EventArgs e)
@@ -2946,12 +2946,12 @@ namespace BalayPasilungan
 
         private void btncanfamtype_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = fourth;
+            tabReport.SelectedTab = fourth;
         }
 
         private void btnbackfam_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
+            tabReport.SelectedTab = sixteen;
 
             reset7();
         }
@@ -2959,32 +2959,32 @@ namespace BalayPasilungan
         private void btnbacktofamoverview_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabInfo;
-            tabControl.SelectedTab = fourth;
+            tabReport.SelectedTab = fourth;
 
             reset8();
         }
 
         private void btnbackmainincid_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
+            tabReport.SelectedTab = sixteen;
         }
 
         private void btnbackincidrec_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabInfo;
-            tabControl.SelectedTab = twelfth;
+            tabReport.SelectedTab = twelfth;
 
             reset5();
         }
 
         private void btnbackfrominc_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = twelfth;
+            tabReport.SelectedTab = twelfth;
         }
 
         private void btnbackfrommember_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = sixteen;
+            tabReport.SelectedTab = sixteen;
         }
 
         #endregion
@@ -2996,12 +2996,12 @@ namespace BalayPasilungan
             if (archivemode == 0)
             {
                 tabCase.SelectedTab = tabInfo;
-                tabControl.SelectedTab = fifteen;
+                tabReport.SelectedTab = fifteen;
                 reloadedithealth(id);
             }
             else
             {
-                tabControl.SelectedTab = fifteen;
+                tabReport.SelectedTab = fifteen;
                 reloadedithealth(id);
             }
         }
@@ -3009,7 +3009,7 @@ namespace BalayPasilungan
         private void btned_Click(object sender, EventArgs e)
         {
            
-                tabControl.SelectedTab = eighth;
+                tabReport.SelectedTab = eighth;
 
                 
 
@@ -3019,21 +3019,21 @@ namespace BalayPasilungan
 
         private void btncon_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = ninth;
+            tabReport.SelectedTab = ninth;
             tabconrecords.SelectedTab = tabrecords;
             reloadcon(id);
         }
 
         private void btnfover_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = fourth;
+            tabReport.SelectedTab = fourth;
             existsfam(id);
             reloadfam(id);
         }
 
         private void btnincidview_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = twelfth;       
+            tabReport.SelectedTab = twelfth;       
             reloadincid(id);
         }
 
@@ -3051,7 +3051,7 @@ namespace BalayPasilungan
 
         private void btngotocheckup_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = fifteen;
+            tabReport.SelectedTab = fifteen;
             reloadhealth(id);
         }
 
@@ -3073,7 +3073,7 @@ namespace BalayPasilungan
 
         private void btngotohealth_Click(object sender, EventArgs e)
         {
-            tabControl.SelectedTab = eighteen;
+            tabReport.SelectedTab = eighteen;
         }
 
         private void btnaddconrec_Click(object sender, EventArgs e)
@@ -3162,6 +3162,11 @@ namespace BalayPasilungan
             tabaddchild.SelectedTab = tabNewHealth;                
             lbladdeditprofile.Text = "Add Health Record";
             reloadedithealth(id);
+        }
+
+        private void btnEduRepro_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnAddMem_Click(object sender, EventArgs e)
@@ -3276,12 +3281,31 @@ namespace BalayPasilungan
                 lblWeight.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
                 panelWeight.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
             }
+            else if (((TextBox)sender).Name == "txtAlias")
+            {
+                lblAlias.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelAlias.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countAlias.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtReligion")
+            {
+                lblReligion.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelReligion.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countReligion.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtIP")
+            {
+                cbIP.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelIP.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countIP.Visible = true;
+            }
         }
 
         private void txtNewCount_TextChanged(object sender, EventArgs e)
         {
             if (((TextBox)sender).Name == "txtfname") countFName.Text = ((TextBox)sender).TextLength + "/100";
             else if (((TextBox)sender).Name == "txtlname") countLName.Text = ((TextBox)sender).TextLength + "/100";
+            else if (((TextBox)sender).Name == "txtedname") countED.Text = ((TextBox)sender).TextLength + "/100";
             else if (((TextBox)sender).Name == "txtedname") countED.Text = ((TextBox)sender).TextLength + "/100";
         }
 
