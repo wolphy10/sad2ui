@@ -278,7 +278,7 @@ namespace BalayPasilungan
                 try
                 {
                     conn.Open();
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO member(familyid, firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES(" + famid + ", '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO member(caseid, firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES(" + id + ", '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
                     MessageBox.Show(famid.ToString());
                     comm.ExecuteNonQuery();
                     successMessage("Member has been added successfully!");
@@ -291,7 +291,7 @@ namespace BalayPasilungan
                 }
                 catch (Exception ee)
                 {
-                    errorMessage(ee.Message);
+                    MessageBox.Show(ee.ToString());
                 }
             }
         }
@@ -916,7 +916,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT incident.incidid, type, incdate, venue, description, action FROM incident " +
+                MySqlCommand comm = new MySqlCommand("SELECT incident.incidid, type, incdate, venue, description, action, witnesses FROM incident " +
                                     "WHERE incident.caseid = " + id,  conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -932,6 +932,7 @@ namespace BalayPasilungan
                     txtincidlocation.Text = dt.Rows[0]["venue"].ToString();
                     rtxtinciddesc.Text = dt.Rows[0]["description"].ToString();
                     rtxtactiontaken.Text = dt.Rows[0]["action"].ToString();
+                    rtinvolve.Text = dt.Rows[0]["witnesses"].ToString();
 
                     dateincid.Value = Convert.ToDateTime(dt.Rows[0]["incdate"]).Date;
             
@@ -947,27 +948,16 @@ namespace BalayPasilungan
 
         public void addincidrecord()
         {
-            string type = txttypeincid.Text, hour = cbxhour.Text, minute = cbxmin.Text, zone, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
+            string type = txttypeincid.Text, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text, witnesses = rtinvolve.Text;
 
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || string.IsNullOrEmpty(witnesses))
             {
                 errorMessage("Please fill out empty fields.");
             }
 
             else
             {
-                if (rbam.Checked == true)
-                {
-                    zone = "AM";
-                }
-
-                else
-                {
-                    zone = "PM";
-                }
-
-                DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
-
+                
                 MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
 
                 try
@@ -975,17 +965,11 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO incident(caseid, type, incdate, venue, description, action, dateadded) VALUES('" + id + "', '" + type + "', '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + dt.ToString("hh:mm tt") + "','" + location + "', '" + desc + "', '" + action + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO incident(caseid, type, incdate, venue, description, action, dateadded, witnesses) VALUES('" + id + "', '" + type + "', '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + "','" + location + "', '" + desc + "', '" + action + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + witnesses + "')", conn);
 
                     comm.ExecuteNonQuery();
 
-                    if (checkinv.Checked && mode == 1)
-                    {
-                        getincidid(id);
-
-                        insertinvolve();
-                    }
-
+                    
                     successMessage("Incident Record Added!");
 
                     conn.Close();
@@ -1012,9 +996,9 @@ namespace BalayPasilungan
 
         public void editincidrecord()
         {
-            string type = txttypeincid.Text, hour = cbxhour.Text, minute = cbxmin.Text, zone, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text;
+            string type = txttypeincid.Text, location = txtincidlocation.Text, desc = rtxtinciddesc.Text, action = rtxtactiontaken.Text, witnessses = rtinvolve.Text;
 
-            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(hour) || string.IsNullOrEmpty(minute) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || (rbam.Checked == false && rbpm.Checked == false))
+            if (string.IsNullOrEmpty(type) || string.IsNullOrEmpty(location) || string.IsNullOrEmpty(desc) || string.IsNullOrEmpty(action) || string.IsNullOrEmpty(witnessses))
             {
                 errorMessage("Please fill out empty fields.");
                 //MessageBox.Show("Please fill out empty fields.");
@@ -1022,18 +1006,7 @@ namespace BalayPasilungan
 
             else
             {
-                if (rbam.Checked == true)
-                {
-                    zone = "AM";
-                }
-
-                else
-                {
-                    zone = "PM";
-                }
-
-                DateTime dt = DateTime.Parse(hour + ":" + minute + " " + zone);
-
+                
                 MessageBox.Show(dateincid.Value.Date.ToString("yyyy-MM-dd"));
 
                 try
@@ -1041,19 +1014,14 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE incident SET type = '" + type + "', incdate = '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + dt.ToString("hh:mm tt") + "', " +
-                        "venue = '" + location + "', description = '" + desc + "', action = '" + action + "' WHERE incidid = " + incidid, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE incident SET type = '" + type + "', incdate = '" + dateincid.Value.Date.ToString("yyyy-MM-dd ") + "', " +
+                        "venue = '" + location + "', description = '" + desc + "', action = '" + action + "', witnesses = '" + witnessses + "' WHERE incidid = " + incidid, conn);
 
                     comm.ExecuteNonQuery();
 
-                    if (checkinv.Checked && mode == 1)
-                    {
-                        //getincidid(id);
+                    
 
-                        editinvolve();
-                    }
-
-                    successMessage("Incident Record Added!");
+                    successMessage("Incident Record Changes Added!");
 
                     conn.Close();
 
@@ -1359,17 +1327,13 @@ namespace BalayPasilungan
 
                 existsfam(id);
 
+                //-------------------------------------------------------------------------------------------------------------
+                // Incident
+
+                existsincid(id);
+
+
                 
-                /*comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
-                adp = new MySqlDataAdapter(comm);
-                dt = new DataTable();
-
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                   
-                }*/
                 btnArchive.Visible = true;
                 btncancelarchive.Visible = false;
                 
@@ -1554,11 +1518,12 @@ namespace BalayPasilungan
 
         public void reloadincid(int id)
         {
+            string[] involve;
             try
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT incidid, type, incdate FROM incident WHERE caseid = " + id + " ORDER BY incdate", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT incidid, type, incdate, witnesses FROM incident WHERE caseid = " + id + " ORDER BY incdate", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1571,14 +1536,22 @@ namespace BalayPasilungan
                 else
                 {
                     dtincid.DataSource = dt;
-                    dtincid.Columns[0].Visible = false;
+                    dtincid.Columns["incidid"].Visible = false;
+                    dtincid.Columns["witnesses"].Visible = false;
+
+                    involve = dt.Rows[0]["witnesses"].ToString().Split('\n');
+
+                    foreach (string words in involve)
+                    {
+                        rtwitnesses.AppendText(words + "\n");
+                    }
                 }
                 
                 conn.Close();
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
@@ -1631,7 +1604,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT familyid, famtype FROM family WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT famtype FROM family WHERE caseid = " + id, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -1640,14 +1613,14 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count > 0)
                 {
-                    famid = int.Parse(dt.Rows[0]["familyid"].ToString());
+                    
 
                     lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();
                     
 
                     MessageBox.Show(famid.ToString());
 
-                    reloadmem(famid);
+                    
 
                 }
 
@@ -1666,11 +1639,12 @@ namespace BalayPasilungan
         }
 
 
-        public void reloadmem(int famid)
+        public void reloadmem(int id)
         {
             try
             {
-                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
+                MessageBox.Show(id.ToString());
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE caseid = " + id, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -1683,7 +1657,7 @@ namespace BalayPasilungan
 
                         dtfamOverview.Columns["memberid"].Visible = false;
 
-                        comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
+                        comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE caseid = " + id, conn);
                         adp = new MySqlDataAdapter(comm);
                         dt = new DataTable();
 
@@ -2033,15 +2007,10 @@ namespace BalayPasilungan
             txtincidlocation.Clear();
             rtxtactiontaken.Clear();
             rtxtinciddesc.Clear();
-
-            rbam.Checked = rbpm.Checked = false;
-
-            cbxhour.SelectedIndex = cbxmin.SelectedIndex = -1;
-
+            
             dateincid.Value = DateTime.Now.Date;
 
-            checkinv.Enabled = true;
-            checkinv.Checked = false;
+           
         }
 
         public void reset6()
@@ -2144,23 +2113,68 @@ namespace BalayPasilungan
             }
         }
 
-        public void existsinvolve(int incidid)
+        
+
+        public void existsincid(int id)
         {
             try
             {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT involveid FROM involvement WHERE caseid = " + id, conn);
-                int UserExist = (int)comm.ExecuteScalar();
-                btnaddinvolve.Text = (UserExist > 0) ? "View Info" : "Add Info"; //put add info on catch
-                conn.Close();
+                MySqlCommand comm = new MySqlCommand("SELECT incdate FROM incident WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                DateTime incdate;
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    if (dt.Rows.Count == 1)
+                    {
+                        incdate = Convert.ToDateTime(dt.Rows[0]["incdate"]).Date;
+                        lblincdatedis.Text = incdate.ToString("MMMM dd, yyyy");
+                    }
+
+                    else
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            for (int j = 1; j < dt.Rows.Count; j++)
+                            {
+
+                                if (Convert.ToDateTime(dt.Rows[i]["incdate"]).Date > Convert.ToDateTime(dt.Rows[j]["incdate"]).Date)
+                                {
+                                    incdate = Convert.ToDateTime(dt.Rows[i]["incdate"]).Date;
+
+                                }
+
+                                else
+                                {
+                                    incdate = Convert.ToDateTime(dt.Rows[j]["incdate"]).Date;
+                                }
+
+                                lblincdatedis.Text = incdate.ToString("MMMM dd, yyyy");
+
+                            }
+
+                        }
+                    }
+
+
+                }
+
+                else
+                {
+                    lblincdatedis.Text = "";
+                }
             }
+
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
-                btnaddinvolve.Text = "Add Info";                
-                conn.Close();
+                MessageBox.Show(ee.ToString());
+
             }
-        }
+        } 
 
         public void existscon(int id)
         {
@@ -2228,8 +2242,8 @@ namespace BalayPasilungan
         {
             try
             {
-
-                MySqlCommand comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
+                MessageBox.Show(id.ToString());
+                MySqlCommand comm = new MySqlCommand("SELECT famtype FROM family WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -2237,31 +2251,26 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count > 0)
                 {
-                    lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
-
-                    if (int.Parse(lblmemcountdis.Text) != 0)
-                    {
+                    
                         lblfamtypedis.Text = dt.Rows[0]["famtype"].ToString();
                         btnfamtype.Text = "CHANGE FAMILY TYPE";
-                    }
-
-                    else
-                    {
-                        lblfamtypedis.Text = "";
-                    }
-
-                    
                 }
 
                 else
                 {
                     lblfamtypedis.Text = "";
-                    lblmemcountdis.Text = "";
 
                     btnfamtype.Text = "ADD FAMILY TYPE";
                 }
 
+                comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE caseid = " + id, conn);
+                adp = new MySqlDataAdapter(comm);
+                dt = new DataTable();
 
+                adp.Fill(dt);
+
+                lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
+                
             }
             catch (Exception ee)
             {
@@ -2509,20 +2518,19 @@ namespace BalayPasilungan
 
             if (btnaddincidrecord.Text == "ADD")
             {
-                btnaddinvolve.Text = "ADD";
+                
                 reloadinvcases();
                 lbladdeditprofile.Text = "New Incident Record";
             }
 
             else
             {
-                btnaddinvolve.Text = "EDIT";
+                
                 lbladdeditprofile.Text = "Update Incident Record";
             }
 
             mode = 0;
-            checkinv.Checked = false;
-            checkinv.Enabled = true;
+            
         }
 
         private void btnNewConfirm_Click(object sender, EventArgs e)
@@ -3117,11 +3125,13 @@ namespace BalayPasilungan
             tabChild.SelectedTab = fourth;
            
             reloadfam(id);
+            reloadmem(id);
         }
 
         private void btnincidview_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = twelfth;       
+
             reloadincid(id);
         }
 
@@ -3201,7 +3211,7 @@ namespace BalayPasilungan
 
         private void dtginv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            btnaddinvolve.Text = "EDIT";
+            
         }
 
         private void btneditincid_Click(object sender, EventArgs e)
@@ -3210,8 +3220,9 @@ namespace BalayPasilungan
             tabaddchild.SelectedTab = tabNewIncid;
             btnaddincidrecord.Text = "ADD CHANGES";
             lbladdeditprofile.Text = "UPDATE INCIDENT RECORD";
-            checkinv.Text = "Change people involved?";
+            
             reloadinvcases();
+
             reloadeditincid(id);
         }
 
@@ -3223,7 +3234,7 @@ namespace BalayPasilungan
         private void btninvok_Click(object sender, EventArgs e)
         {
             tabaddchild.SelectedTab = tabNewIncid;
-            checkinv.Enabled = false;
+           
         }        
 
         private void btnaddinvolve_Click(object sender, EventArgs e)
@@ -3264,8 +3275,7 @@ namespace BalayPasilungan
 
         private void checkinv_CheckedChanged_1(object sender, EventArgs e)
         {
-            if (checkinv.Checked) btnaddinvolve.Enabled = true;
-            else btnaddinvolve.Enabled = false;
+            
         }
 
         private void addhrecord_Click(object sender, EventArgs e)
@@ -3339,8 +3349,7 @@ namespace BalayPasilungan
             tabCase.SelectedTab = tabNewChild;
             tabaddchild.SelectedTab = tabNewIncid;
 
-            btnaddinvolve.Text = "ADD";
-            checkinv.Text = "Are there other people involved?";
+            
         }
 
         private void btnaddedclass_Click(object sender, EventArgs e)

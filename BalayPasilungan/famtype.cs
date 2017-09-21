@@ -38,6 +38,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToPrev = this;
             err.lblError.Text = message;
             dim.Show();
 
@@ -50,6 +51,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToPrev = this;
             yey.lblSuccess.Text = message;
             dim.Show();
 
@@ -62,6 +64,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToPrev = this;
             conf.lblConfirm.Text = message;
             dim.Show();
 
@@ -154,7 +157,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "' WHERE familyID = " + familyid, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "' WHERE caseid = " + caseid, conn);
 
                     comm.ExecuteNonQuery();
 
