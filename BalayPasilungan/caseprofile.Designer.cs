@@ -431,10 +431,6 @@
             this.dtginv = new System.Windows.Forms.DataGridView();
             this.btnBackIO = new BalayPasilungan.NoFocusRec();
             this.tabNewMember = new System.Windows.Forms.TabPage();
-            this.txtmemincome = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.cbxmemeduattain = new System.Windows.Forms.ComboBox();
-            this.label50 = new System.Windows.Forms.Label();
             this.cbxmemstatus = new System.Windows.Forms.ComboBox();
             this.txtmemocc = new System.Windows.Forms.TextBox();
             this.txtmemrelationship = new System.Windows.Forms.TextBox();
