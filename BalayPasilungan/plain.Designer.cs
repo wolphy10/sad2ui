@@ -28,52 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(plain));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.fifteen = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.erRec = new System.Windows.Forms.RichTextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.erAwards = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.txtmemincome = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.cbxmemeduattain = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.cbxmemstatus = new System.Windows.Forms.ComboBox();
+            this.txtmemocc = new System.Windows.Forms.TextBox();
+            this.txtmemrelationship = new System.Windows.Forms.TextBox();
+            this.txtmemfirstname = new System.Windows.Forms.TextBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.label107 = new System.Windows.Forms.Label();
+            this.label108 = new System.Windows.Forms.Label();
+            this.label110 = new System.Windows.Forms.Label();
+            this.dtpmembirth = new System.Windows.Forms.DateTimePicker();
+            this.label113 = new System.Windows.Forms.Label();
+            this.cbxmemdependency = new System.Windows.Forms.ComboBox();
+            this.label114 = new System.Windows.Forms.Label();
+            this.cbDType = new System.Windows.Forms.ComboBox();
+            this.datePledge = new System.Windows.Forms.DateTimePicker();
+            this.ASD = new System.Windows.Forms.TextBox();
+            this.panelDName = new System.Windows.Forms.PictureBox();
+            this.countDName = new System.Windows.Forms.Label();
+            this.lblDName = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtmemlastname = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
             this.btnaddeditcase = new BalayPasilungan.NoFocusRec();
-            this.label29 = new System.Windows.Forms.Label();
-            this.countDName = new System.Windows.Forms.Label();
-            this.txtDName = new System.Windows.Forms.TextBox();
-            this.lblDName = new System.Windows.Forms.Label();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.panelDName = new System.Windows.Forms.PictureBox();
-            this.cbDType = new System.Windows.Forms.ComboBox();
-            this.lblDType = new System.Windows.Forms.Label();
-            this.cbPledge = new System.Windows.Forms.ComboBox();
-            this.lblPledge = new System.Windows.Forms.Label();
-            this.txtMobile3 = new System.Windows.Forms.TextBox();
-            this.txtMobile2 = new System.Windows.Forms.TextBox();
-            this.txtMobile1 = new System.Windows.Forms.TextBox();
-            this.lblMobile = new System.Windows.Forms.Label();
-            this.countPhone = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.panelPhone = new System.Windows.Forms.PictureBox();
-            this.panelMobile = new System.Windows.Forms.PictureBox();
-            this.datePledge = new System.Windows.Forms.DateTimePicker();
-            this.panelEmail = new System.Windows.Forms.Panel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.countEmail = new System.Windows.Forms.Label();
-            this.lblDatePledge = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.fifteen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPhone)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMobile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -87,39 +85,39 @@
             // 
             // fifteen
             // 
-            this.fifteen.Controls.Add(this.txtEmail);
-            this.fifteen.Controls.Add(this.datePledge);
-            this.fifteen.Controls.Add(this.panelEmail);
-            this.fifteen.Controls.Add(this.lblEmail);
-            this.fifteen.Controls.Add(this.countEmail);
-            this.fifteen.Controls.Add(this.lblDatePledge);
-            this.fifteen.Controls.Add(this.txtMobile3);
-            this.fifteen.Controls.Add(this.txtMobile2);
-            this.fifteen.Controls.Add(this.txtMobile1);
-            this.fifteen.Controls.Add(this.panelMobile);
-            this.fifteen.Controls.Add(this.txtPhone);
-            this.fifteen.Controls.Add(this.panelPhone);
-            this.fifteen.Controls.Add(this.lblMobile);
-            this.fifteen.Controls.Add(this.countPhone);
-            this.fifteen.Controls.Add(this.lblPhone);
+            this.fifteen.Controls.Add(this.textBox1);
+            this.fifteen.Controls.Add(this.pictureBox2);
+            this.fifteen.Controls.Add(this.label3);
+            this.fifteen.Controls.Add(this.label4);
+            this.fifteen.Controls.Add(this.txtmemincome);
+            this.fifteen.Controls.Add(this.label67);
+            this.fifteen.Controls.Add(this.cbxmemeduattain);
+            this.fifteen.Controls.Add(this.label50);
+            this.fifteen.Controls.Add(this.cbxmemstatus);
+            this.fifteen.Controls.Add(this.txtmemocc);
+            this.fifteen.Controls.Add(this.txtmemrelationship);
+            this.fifteen.Controls.Add(this.txtmemfirstname);
+            this.fifteen.Controls.Add(this.label100);
+            this.fifteen.Controls.Add(this.label107);
+            this.fifteen.Controls.Add(this.label108);
+            this.fifteen.Controls.Add(this.label110);
+            this.fifteen.Controls.Add(this.dtpmembirth);
+            this.fifteen.Controls.Add(this.label113);
+            this.fifteen.Controls.Add(this.cbxmemdependency);
+            this.fifteen.Controls.Add(this.label114);
             this.fifteen.Controls.Add(this.cbDType);
-            this.fifteen.Controls.Add(this.lblDType);
-            this.fifteen.Controls.Add(this.cbPledge);
-            this.fifteen.Controls.Add(this.lblPledge);
-            this.fifteen.Controls.Add(this.txtDName);
+            this.fifteen.Controls.Add(this.datePledge);
+            this.fifteen.Controls.Add(this.ASD);
             this.fifteen.Controls.Add(this.panelDName);
             this.fifteen.Controls.Add(this.countDName);
             this.fifteen.Controls.Add(this.lblDName);
             this.fifteen.Controls.Add(this.label29);
-            this.fifteen.Controls.Add(this.label4);
-            this.fifteen.Controls.Add(this.erRec);
-            this.fifteen.Controls.Add(this.label19);
-            this.fifteen.Controls.Add(this.label3);
-            this.fifteen.Controls.Add(this.erAwards);
-            this.fifteen.Controls.Add(this.label2);
-            this.fifteen.Controls.Add(this.pictureBox20);
             this.fifteen.Controls.Add(this.pictureBox15);
             this.fifteen.Controls.Add(this.panel1);
+            this.fifteen.Controls.Add(this.txtmemlastname);
+            this.fifteen.Controls.Add(this.pictureBox1);
+            this.fifteen.Controls.Add(this.label1);
+            this.fifteen.Controls.Add(this.label2);
             this.fifteen.Location = new System.Drawing.Point(4, 22);
             this.fifteen.Name = "fifteen";
             this.fifteen.Padding = new System.Windows.Forms.Padding(3);
@@ -128,89 +126,279 @@
             this.fifteen.Text = "15";
             this.fifteen.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // txtmemincome
             // 
-            this.label4.AccessibleDescription = "";
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label4.Location = new System.Drawing.Point(51, 397);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 15);
-            this.label4.TabIndex = 192;
-            this.label4.Text = "RECOMMENDATIONS";
+            this.txtmemincome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemincome.Location = new System.Drawing.Point(710, 434);
+            this.txtmemincome.Name = "txtmemincome";
+            this.txtmemincome.Size = new System.Drawing.Size(199, 20);
+            this.txtmemincome.TabIndex = 233;
             // 
-            // erRec
+            // label67
             // 
-            this.erRec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.erRec.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.erRec.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.erRec.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.erRec.Location = new System.Drawing.Point(237, 359);
-            this.erRec.Margin = new System.Windows.Forms.Padding(10);
-            this.erRec.MaxLength = 100;
-            this.erRec.Name = "erRec";
-            this.erRec.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.erRec.Size = new System.Drawing.Size(660, 90);
-            this.erRec.TabIndex = 191;
-            this.erRec.Text = "Comments";
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label67.Location = new System.Drawing.Point(597, 433);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(74, 36);
+            this.label67.TabIndex = 232;
+            this.label67.Text = "Monthly \r\nIncome";
             // 
-            // label19
+            // cbxmemeduattain
             // 
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.label19.Location = new System.Drawing.Point(51, 282);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(106, 62);
-            this.label19.TabIndex = 190;
-            this.label19.Text = "relationship with teacher and peers; pressure management; incident involvement\r\n";
+            this.cbxmemeduattain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxmemeduattain.CausesValidation = false;
+            this.cbxmemeduattain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxmemeduattain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxmemeduattain.FormattingEnabled = true;
+            this.cbxmemeduattain.Items.AddRange(new object[] {
+            "Elementary",
+            "High School",
+            "College",
+            "Masters",
+            "Doctorate"});
+            this.cbxmemeduattain.Location = new System.Drawing.Point(710, 390);
+            this.cbxmemeduattain.Name = "cbxmemeduattain";
+            this.cbxmemeduattain.Size = new System.Drawing.Size(199, 21);
+            this.cbxmemeduattain.TabIndex = 231;
             // 
-            // label3
+            // label50
             // 
-            this.label3.AccessibleDescription = "";
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label3.Location = new System.Drawing.Point(51, 267);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 15);
-            this.label3.TabIndex = 170;
-            this.label3.Text = "BEHAVORIAL";
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label50.Location = new System.Drawing.Point(597, 389);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(103, 36);
+            this.label50.TabIndex = 230;
+            this.label50.Text = "Educational\r\nAttainment";
             // 
-            // erAwards
+            // cbxmemstatus
             // 
-            this.erAwards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.erAwards.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.erAwards.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.erAwards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.erAwards.Location = new System.Drawing.Point(474, 343);
-            this.erAwards.Margin = new System.Windows.Forms.Padding(10);
-            this.erAwards.MaxLength = 100;
-            this.erAwards.Name = "erAwards";
-            this.erAwards.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.erAwards.Size = new System.Drawing.Size(647, 53);
-            this.erAwards.TabIndex = 168;
-            this.erAwards.Text = "Comments";
+            this.cbxmemstatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxmemstatus.CausesValidation = false;
+            this.cbxmemstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxmemstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxmemstatus.FormattingEnabled = true;
+            this.cbxmemstatus.Items.AddRange(new object[] {
+            "Single",
+            "Married",
+            "Widowed",
+            "Legally Separated",
+            "Divorced/Annulled"});
+            this.cbxmemstatus.Location = new System.Drawing.Point(710, 275);
+            this.cbxmemstatus.Name = "cbxmemstatus";
+            this.cbxmemstatus.Size = new System.Drawing.Size(199, 21);
+            this.cbxmemstatus.TabIndex = 229;
             // 
-            // label2
+            // txtmemocc
             // 
-            this.label2.AccessibleDescription = "";
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.label2.Location = new System.Drawing.Point(51, 218);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 15);
-            this.label2.TabIndex = 167;
-            this.label2.Text = "AWARDS RECEIVED";
+            this.txtmemocc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemocc.Location = new System.Drawing.Point(710, 353);
+            this.txtmemocc.Name = "txtmemocc";
+            this.txtmemocc.Size = new System.Drawing.Size(199, 20);
+            this.txtmemocc.TabIndex = 228;
             // 
-            // pictureBox20
+            // txtmemrelationship
             // 
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(29, 249);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox20.TabIndex = 147;
-            this.pictureBox20.TabStop = false;
+            this.txtmemrelationship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemrelationship.Location = new System.Drawing.Point(710, 204);
+            this.txtmemrelationship.Name = "txtmemrelationship";
+            this.txtmemrelationship.Size = new System.Drawing.Size(199, 20);
+            this.txtmemrelationship.TabIndex = 225;
+            // 
+            // txtmemfirstname
+            // 
+            this.txtmemfirstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtmemfirstname.Location = new System.Drawing.Point(710, 165);
+            this.txtmemfirstname.Name = "txtmemfirstname";
+            this.txtmemfirstname.Size = new System.Drawing.Size(199, 20);
+            this.txtmemfirstname.TabIndex = 223;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label100.Location = new System.Drawing.Point(597, 352);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(101, 18);
+            this.label100.TabIndex = 227;
+            this.label100.Text = "Occupation";
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label107.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label107.Location = new System.Drawing.Point(597, 274);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(97, 18);
+            this.label107.TabIndex = 226;
+            this.label107.Text = "Civil Status";
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label108.Location = new System.Drawing.Point(597, 203);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(107, 18);
+            this.label108.TabIndex = 224;
+            this.label108.Text = "Relationship";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label110.Location = new System.Drawing.Point(597, 169);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(94, 18);
+            this.label110.TabIndex = 222;
+            this.label110.Text = "First Name";
+            // 
+            // dtpmembirth
+            // 
+            this.dtpmembirth.Location = new System.Drawing.Point(710, 237);
+            this.dtpmembirth.MaxDate = new System.DateTime(9997, 12, 2, 0, 0, 0, 0);
+            this.dtpmembirth.Name = "dtpmembirth";
+            this.dtpmembirth.Size = new System.Drawing.Size(199, 20);
+            this.dtpmembirth.TabIndex = 221;
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label113.Location = new System.Drawing.Point(597, 317);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(109, 18);
+            this.label113.TabIndex = 220;
+            this.label113.Text = "Dependency";
+            // 
+            // cbxmemdependency
+            // 
+            this.cbxmemdependency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxmemdependency.CausesValidation = false;
+            this.cbxmemdependency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxmemdependency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxmemdependency.FormattingEnabled = true;
+            this.cbxmemdependency.Items.AddRange(new object[] {
+            "Dependent",
+            "Independent"});
+            this.cbxmemdependency.Location = new System.Drawing.Point(710, 317);
+            this.cbxmemdependency.Name = "cbxmemdependency";
+            this.cbxmemdependency.Size = new System.Drawing.Size(199, 21);
+            this.cbxmemdependency.TabIndex = 219;
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.label114.Location = new System.Drawing.Point(597, 239);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(83, 18);
+            this.label114.TabIndex = 217;
+            this.label114.Text = "Birthdate";
+            // 
+            // cbDType
+            // 
+            this.cbDType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDType.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbDType.FormattingEnabled = true;
+            this.cbDType.Items.AddRange(new object[] {
+            "Individual",
+            "Organization"});
+            this.cbDType.Location = new System.Drawing.Point(371, 248);
+            this.cbDType.Name = "cbDType";
+            this.cbDType.Size = new System.Drawing.Size(193, 25);
+            this.cbDType.TabIndex = 215;
+            // 
+            // datePledge
+            // 
+            this.datePledge.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datePledge.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.datePledge.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.datePledge.CustomFormat = "MMMM dd, yyyy";
+            this.datePledge.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.datePledge.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePledge.Location = new System.Drawing.Point(362, 204);
+            this.datePledge.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.datePledge.Name = "datePledge";
+            this.datePledge.Size = new System.Drawing.Size(215, 29);
+            this.datePledge.TabIndex = 214;
+            this.datePledge.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // ASD
+            // 
+            this.ASD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ASD.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.ASD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.ASD.Location = new System.Drawing.Point(349, 54);
+            this.ASD.MaxLength = 250;
+            this.ASD.Name = "ASD";
+            this.ASD.Size = new System.Drawing.Size(506, 22);
+            this.ASD.TabIndex = 0;
+            this.ASD.Text = "Name of donor.";
+            // 
+            // panelDName
+            // 
+            this.panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelDName.Location = new System.Drawing.Point(349, 64);
+            this.panelDName.Name = "panelDName";
+            this.panelDName.Size = new System.Drawing.Size(506, 33);
+            this.panelDName.TabIndex = 198;
+            this.panelDName.TabStop = false;
+            // 
+            // countDName
+            // 
+            this.countDName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countDName.Location = new System.Drawing.Point(280, 74);
+            this.countDName.Name = "countDName";
+            this.countDName.Size = new System.Drawing.Size(53, 17);
+            this.countDName.TabIndex = 196;
+            this.countDName.Text = "0/250";
+            this.countDName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countDName.Visible = false;
+            // 
+            // lblDName
+            // 
+            this.lblDName.AccessibleDescription = "";
+            this.lblDName.AutoSize = true;
+            this.lblDName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblDName.Location = new System.Drawing.Point(257, 59);
+            this.lblDName.Name = "lblDName";
+            this.lblDName.Size = new System.Drawing.Size(76, 15);
+            this.lblDName.TabIndex = 195;
+            this.lblDName.Text = "FIRST NAME";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
+            this.label29.Location = new System.Drawing.Point(73, 120);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(84, 26);
+            this.label29.TabIndex = 193;
+            this.label29.Text = "DONOR\r\nINFORMATION";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox15.Location = new System.Drawing.Point(29, 15);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox15.TabIndex = 137;
+            this.pictureBox15.TabStop = false;
             // 
             // panel1
             // 
@@ -221,6 +409,51 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(934, 59);
             this.panel1.TabIndex = 152;
+            // 
+            // txtmemlastname
+            // 
+            this.txtmemlastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtmemlastname.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtmemlastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtmemlastname.Location = new System.Drawing.Point(349, 105);
+            this.txtmemlastname.MaxLength = 250;
+            this.txtmemlastname.Name = "txtmemlastname";
+            this.txtmemlastname.Size = new System.Drawing.Size(506, 22);
+            this.txtmemlastname.TabIndex = 234;
+            this.txtmemlastname.Text = "Name of donor.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox1.Location = new System.Drawing.Point(349, 115);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(506, 33);
+            this.pictureBox1.TabIndex = 237;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.label1.Location = new System.Drawing.Point(280, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.TabIndex = 236;
+            this.label1.Text = "0/250";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AccessibleDescription = "";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label2.Location = new System.Drawing.Point(257, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.TabIndex = 235;
+            this.label2.Text = "FIRST NAME";
             // 
             // noFocusRec1
             // 
@@ -250,301 +483,50 @@
             this.btnaddeditcase.Text = "NEXT";
             this.btnaddeditcase.UseVisualStyleBackColor = false;
             // 
-            // label29
+            // textBox1
             // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
-            this.label29.Location = new System.Drawing.Point(73, 120);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(84, 26);
-            this.label29.TabIndex = 193;
-            this.label29.Text = "DONOR\r\nINFORMATION";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox1.Location = new System.Drawing.Point(130, 260);
+            this.textBox1.MaxLength = 250;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(506, 22);
+            this.textBox1.TabIndex = 238;
+            this.textBox1.Text = "Name of donor.";
             // 
-            // countDName
+            // pictureBox2
             // 
-            this.countDName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countDName.Location = new System.Drawing.Point(280, 87);
-            this.countDName.Name = "countDName";
-            this.countDName.Size = new System.Drawing.Size(53, 17);
-            this.countDName.TabIndex = 196;
-            this.countDName.Text = "0/250";
-            this.countDName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countDName.Visible = false;
+            this.pictureBox2.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox2.Location = new System.Drawing.Point(130, 270);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(506, 33);
+            this.pictureBox2.TabIndex = 241;
+            this.pictureBox2.TabStop = false;
             // 
-            // txtDName
+            // label3
             // 
-            this.txtDName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDName.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtDName.Location = new System.Drawing.Point(349, 67);
-            this.txtDName.MaxLength = 250;
-            this.txtDName.Name = "txtDName";
-            this.txtDName.Size = new System.Drawing.Size(506, 22);
-            this.txtDName.TabIndex = 0;
-            this.txtDName.Text = "Name of donor.";
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.label3.Location = new System.Drawing.Point(61, 280);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 17);
+            this.label3.TabIndex = 240;
+            this.label3.Text = "0/250";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Visible = false;
             // 
-            // lblDName
+            // label4
             // 
-            this.lblDName.AccessibleDescription = "";
-            this.lblDName.AutoSize = true;
-            this.lblDName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblDName.Location = new System.Drawing.Point(245, 72);
-            this.lblDName.Name = "lblDName";
-            this.lblDName.Size = new System.Drawing.Size(88, 15);
-            this.lblDName.TabIndex = 195;
-            this.lblDName.Text = "DONOR NAME";
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(29, 28);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox15.TabIndex = 137;
-            this.pictureBox15.TabStop = false;
-            // 
-            // panelDName
-            // 
-            this.panelDName.Image = ((System.Drawing.Image)(resources.GetObject("panelDName.Image")));
-            this.panelDName.Location = new System.Drawing.Point(349, 77);
-            this.panelDName.Name = "panelDName";
-            this.panelDName.Size = new System.Drawing.Size(506, 33);
-            this.panelDName.TabIndex = 198;
-            this.panelDName.TabStop = false;
-            // 
-            // cbDType
-            // 
-            this.cbDType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbDType.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.cbDType.FormattingEnabled = true;
-            this.cbDType.Items.AddRange(new object[] {
-            "Individual",
-            "Organization"});
-            this.cbDType.Location = new System.Drawing.Point(349, 120);
-            this.cbDType.Name = "cbDType";
-            this.cbDType.Size = new System.Drawing.Size(193, 25);
-            this.cbDType.TabIndex = 199;
-            // 
-            // lblDType
-            // 
-            this.lblDType.AccessibleDescription = "";
-            this.lblDType.AutoSize = true;
-            this.lblDType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblDType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblDType.Location = new System.Drawing.Point(234, 125);
-            this.lblDType.Name = "lblDType";
-            this.lblDType.Size = new System.Drawing.Size(99, 15);
-            this.lblDType.TabIndex = 202;
-            this.lblDType.Text = "TYPE OF DONOR";
-            // 
-            // cbPledge
-            // 
-            this.cbPledge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPledge.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.cbPledge.FormattingEnabled = true;
-            this.cbPledge.Items.AddRange(new object[] {
-            "None",
-            "Weekly",
-            "Monthly",
-            "Annual"});
-            this.cbPledge.Location = new System.Drawing.Point(640, 117);
-            this.cbPledge.Name = "cbPledge";
-            this.cbPledge.Size = new System.Drawing.Size(215, 29);
-            this.cbPledge.TabIndex = 200;
-            // 
-            // lblPledge
-            // 
-            this.lblPledge.AutoSize = true;
-            this.lblPledge.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPledge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblPledge.Location = new System.Drawing.Point(570, 125);
-            this.lblPledge.Name = "lblPledge";
-            this.lblPledge.Size = new System.Drawing.Size(50, 15);
-            this.lblPledge.TabIndex = 201;
-            this.lblPledge.Text = "PLEDGE";
-            // 
-            // txtMobile3
-            // 
-            this.txtMobile3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMobile3.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtMobile3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtMobile3.Location = new System.Drawing.Point(778, 156);
-            this.txtMobile3.MaxLength = 4;
-            this.txtMobile3.Name = "txtMobile3";
-            this.txtMobile3.Size = new System.Drawing.Size(66, 22);
-            this.txtMobile3.TabIndex = 6;
-            this.txtMobile3.Text = "xxxx";
-            this.txtMobile3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtMobile2
-            // 
-            this.txtMobile2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMobile2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtMobile2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtMobile2.Location = new System.Drawing.Point(728, 156);
-            this.txtMobile2.MaxLength = 7;
-            this.txtMobile2.Name = "txtMobile2";
-            this.txtMobile2.Size = new System.Drawing.Size(48, 22);
-            this.txtMobile2.TabIndex = 5;
-            this.txtMobile2.Text = "xxx";
-            this.txtMobile2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtMobile1
-            // 
-            this.txtMobile1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMobile1.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtMobile1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtMobile1.Location = new System.Drawing.Point(656, 156);
-            this.txtMobile1.MaxLength = 7;
-            this.txtMobile1.Name = "txtMobile1";
-            this.txtMobile1.Size = new System.Drawing.Size(71, 22);
-            this.txtMobile1.TabIndex = 4;
-            this.txtMobile1.Text = "09xx";
-            this.txtMobile1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblMobile
-            // 
-            this.lblMobile.AccessibleDescription = "";
-            this.lblMobile.AutoSize = true;
-            this.lblMobile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblMobile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblMobile.Location = new System.Drawing.Point(569, 164);
-            this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(51, 15);
-            this.lblMobile.TabIndex = 207;
-            this.lblMobile.Text = "MOBILE";
-            // 
-            // countPhone
-            // 
-            this.countPhone.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countPhone.Location = new System.Drawing.Point(280, 176);
-            this.countPhone.Name = "countPhone";
-            this.countPhone.Size = new System.Drawing.Size(53, 17);
-            this.countPhone.TabIndex = 206;
-            this.countPhone.Text = "0/7";
-            this.countPhone.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countPhone.Visible = false;
-            this.countPhone.Click += new System.EventHandler(this.countPhone_Click);
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtPhone.Location = new System.Drawing.Point(349, 157);
-            this.txtPhone.MaxLength = 7;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(193, 22);
-            this.txtPhone.TabIndex = 3;
-            this.txtPhone.Text = "29xxxxx";
-            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AccessibleDescription = "";
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblPhone.Location = new System.Drawing.Point(286, 161);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(47, 15);
-            this.lblPhone.TabIndex = 205;
-            this.lblPhone.Text = "PHONE";
-            // 
-            // panelPhone
-            // 
-            this.panelPhone.Image = ((System.Drawing.Image)(resources.GetObject("panelPhone.Image")));
-            this.panelPhone.Location = new System.Drawing.Point(349, 163);
-            this.panelPhone.Name = "panelPhone";
-            this.panelPhone.Size = new System.Drawing.Size(193, 33);
-            this.panelPhone.TabIndex = 208;
-            this.panelPhone.TabStop = false;
-            // 
-            // panelMobile
-            // 
-            this.panelMobile.Image = ((System.Drawing.Image)(resources.GetObject("panelMobile.Image")));
-            this.panelMobile.Location = new System.Drawing.Point(640, 164);
-            this.panelMobile.Name = "panelMobile";
-            this.panelMobile.Size = new System.Drawing.Size(215, 33);
-            this.panelMobile.TabIndex = 209;
-            this.panelMobile.TabStop = false;
-            // 
-            // datePledge
-            // 
-            this.datePledge.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePledge.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.datePledge.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.datePledge.CustomFormat = "MMMM dd, yyyy";
-            this.datePledge.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.datePledge.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePledge.Location = new System.Drawing.Point(330, 304);
-            this.datePledge.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            this.datePledge.Name = "datePledge";
-            this.datePledge.Size = new System.Drawing.Size(414, 29);
-            this.datePledge.TabIndex = 214;
-            this.datePledge.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            // 
-            // panelEmail
-            // 
-            this.panelEmail.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelEmail.Location = new System.Drawing.Point(306, 298);
-            this.panelEmail.Name = "panelEmail";
-            this.panelEmail.Size = new System.Drawing.Size(549, 48);
-            this.panelEmail.TabIndex = 210;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtEmail.Location = new System.Drawing.Point(335, 263);
-            this.txtEmail.MaxLength = 100;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(535, 25);
-            this.txtEmail.TabIndex = 7;
-            this.txtEmail.Text = "example@example.com";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AccessibleDescription = "";
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblEmail.Location = new System.Drawing.Point(234, 218);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(99, 15);
-            this.lblEmail.TabIndex = 213;
-            this.lblEmail.Text = "EMAIL ADDRESS";
-            // 
-            // countEmail
-            // 
-            this.countEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countEmail.Location = new System.Drawing.Point(691, 187);
-            this.countEmail.Name = "countEmail";
-            this.countEmail.Size = new System.Drawing.Size(53, 17);
-            this.countEmail.TabIndex = 212;
-            this.countEmail.Text = "0/100";
-            this.countEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countEmail.Visible = false;
-            // 
-            // lblDatePledge
-            // 
-            this.lblDatePledge.AutoSize = true;
-            this.lblDatePledge.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblDatePledge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblDatePledge.Location = new System.Drawing.Point(192, 313);
-            this.lblDatePledge.Name = "lblDatePledge";
-            this.lblDatePledge.Size = new System.Drawing.Size(100, 15);
-            this.lblDatePledge.TabIndex = 211;
-            this.lblDatePledge.Text = "DATE OF PLEDGE";
+            this.label4.AccessibleDescription = "";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label4.Location = new System.Drawing.Point(38, 265);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 15);
+            this.label4.TabIndex = 239;
+            this.label4.Text = "FIRST NAME";
             // 
             // plain
             // 
@@ -558,12 +540,11 @@
             this.tabControl.ResumeLayout(false);
             this.fifteen.ResumeLayout(false);
             this.fifteen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPhone)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMobile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,40 +553,40 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage fifteen;
-        private System.Windows.Forms.PictureBox pictureBox20;
         private NoFocusRec btnaddeditcase;
         private NoFocusRec noFocusRec1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox erAwards;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox erRec;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label countDName;
-        private System.Windows.Forms.TextBox txtDName;
+        private System.Windows.Forms.TextBox ASD;
         private System.Windows.Forms.Label lblDName;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox panelDName;
-        private System.Windows.Forms.ComboBox cbDType;
-        private System.Windows.Forms.Label lblDType;
-        private System.Windows.Forms.ComboBox cbPledge;
-        private System.Windows.Forms.Label lblPledge;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.PictureBox panelPhone;
-        private System.Windows.Forms.TextBox txtMobile3;
-        private System.Windows.Forms.TextBox txtMobile2;
-        private System.Windows.Forms.TextBox txtMobile1;
-        private System.Windows.Forms.Label lblMobile;
-        private System.Windows.Forms.Label countPhone;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.PictureBox panelMobile;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DateTimePicker datePledge;
-        private System.Windows.Forms.Panel panelEmail;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label countEmail;
-        private System.Windows.Forms.Label lblDatePledge;
+        private System.Windows.Forms.ComboBox cbDType;
+        private System.Windows.Forms.TextBox txtmemincome;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.ComboBox cbxmemeduattain;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.ComboBox cbxmemstatus;
+        private System.Windows.Forms.TextBox txtmemocc;
+        private System.Windows.Forms.TextBox txtmemrelationship;
+        private System.Windows.Forms.TextBox txtmemfirstname;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.Label label107;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.DateTimePicker dtpmembirth;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.ComboBox cbxmemdependency;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.TextBox txtmemlastname;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
