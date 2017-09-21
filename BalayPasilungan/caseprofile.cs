@@ -429,8 +429,10 @@ namespace BalayPasilungan
 
             if (dt.Rows.Count == 0)
             {
-                dt.Rows.Add(-1, "No entries.", null, null);
+                dt.Rows.Add(-1, "No entries.", null);
                 empty = true;
+
+                dtgarchive.Enabled = false;
             }
 
             dtgarchive.DataSource = dt;
@@ -451,6 +453,7 @@ namespace BalayPasilungan
                 dtgarchive.Columns[1].HeaderCell.Style.Padding = dtgarchive.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                 getcount2();
                 multiChild.Enabled = true;
+                dtgarchive.Enabled = true;
             }
             else multiChild.Checked = multiChild.Enabled = false;
 
