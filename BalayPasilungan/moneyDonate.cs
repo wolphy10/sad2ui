@@ -29,8 +29,7 @@ namespace BalayPasilungan
         {
             InitializeComponent();
             this.Size = new System.Drawing.Size(510, 376);
-            conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
-            tabSelection.SelectedTab = tabExpOp;
+            conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");            
             // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = dateCash.MaxDate;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Now; dateOfCheck.MaxDate = DateTime.Now.AddMonths(3); dateOfCheck.Value = DateTime.Now;
@@ -99,8 +98,27 @@ namespace BalayPasilungan
         public void errorMessage(string message)            // Error Message
         {
             error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
             err.lblError.Text = message;
-            err.ShowDialog();
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
+
+        public void successMessage(string message)            // Success Message
+        {
+            success yey = new success();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            yey.lblSuccess.Text = message;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            if (yey.ShowDialog() == DialogResult.OK) dim.Close();
         }
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -150,27 +168,25 @@ namespace BalayPasilungan
 
                 decimal amount = decimal.Parse(txtCashAmount.Text + "." + txtCashCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, dateDonated, donationID)"
-                + " VALUES ('Cash', '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+                + " VALUES ('Cash', '" + txtOR.Text + "', " + amount + ", '" + dateCash.Value.Date.ToString("yyyy-MM-dd") + "', " + c_donationID + ");", conn);
             }
             else if (type == 2)
             {
                 decimal amount = decimal.Parse(txtCheckAmount.Text + "." + txtCheckCent.Text);
                 comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORno, amount, checkNO, bankName, dateCheck, dateDonated, donationID)"
                 + " VALUES ('Check', '" + txtOR.Text + "', " + amount + ", '" + txtCheckNo.Text + "', '" + txtBank.Text + "', '"
-                + dateOfCheck.Value.Date.ToString("yyyyMMdd") + "', '" + dateCheck.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+                + dateOfCheck.Value.Date.ToString("yyyy-MM-dd") + "', '" + dateCheck.Value.Date.ToString("yyyy-MM-dd") + "', " + c_donationID + ");", conn);
             }
             else if (type == 3)
             {
                 comm = new MySqlCommand("INSERT INTO inkind (particular, quantity, dateDonated, donationID)"
-                + " VALUES ('" + txtPart.Text + "', " + txtQuantity.Text + ", '" + dateIK.Value.Date.ToString("yyyyMMdd") + "', " + c_donationID + ");", conn);
+                + " VALUES ('" + txtPart.Text + "', " + txtQuantity.Text + ", '" + dateIK.Value.Date.ToString("yyyy-MM-dd") + "', " + c_donationID + ");", conn);
             }
 
             comm.ExecuteNonQuery();
             conn.Close();
 
-            success yey = new success();
-            yey.lblSuccess.Text = "Donation has been added successfully!";
-            yey.ShowDialog();
+            successMessage("Donation has been added successfully!");            
             this.Close();
         }
 
@@ -178,10 +194,7 @@ namespace BalayPasilungan
         {
             comm.ExecuteNonQuery();
             conn.Close();
-
-            success yey = new success();
-            yey.lblSuccess.Text = "Donation has been edited successfully!";
-            yey.ShowDialog();
+            successMessage("Donation has been edited successfully!");            
             this.Close();
         }
         #endregion
@@ -245,7 +258,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtOR2.Text
-                        + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", dateDonated = '" + dateCash2.Value.Date.ToString("yyyyMMdd")
+                        + "', amount = " + decimal.Parse(txtCashAmount2.Text + "." + txtCashCent2.Text) + ", dateDonated = '" + dateCash2.Value.Date.ToString("yyyy-MM-dd")
                         + "' WHERE donationID = " + donationID, conn);
                 editSQL(comm);
             }
@@ -271,24 +284,28 @@ namespace BalayPasilungan
         #region Check
         private void btnCheckAdd_Click(object sender, EventArgs e)
         {
-            try
+            if (txtCheckNo.MaskFull)
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
 
-                // ADD NEW DONATION
-                MySqlCommand comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
-                    + " VALUES (1, " + donorID + ", + '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
+                    // ADD NEW DONATION
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
+                        + " VALUES (1, " + donorID + ", + '" + DateTime.Now.ToString("yyyy-MM-dd") + "');", conn);
 
-                comm.ExecuteNonQuery();
+                    comm.ExecuteNonQuery();
 
-                // GET THAT DONATION ID
-                comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
-                addSQL(comm, 2);
+                    // GET THAT DONATION ID
+                    comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);                // Get latest donation ID (previous addition)
+                    addSQL(comm, 2);
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                errorMessage(ex.Message);
-            }
+            else errorMessage("Invalid check no.");
         }
 
         private void txtCheckAmount_Leave(object sender, EventArgs e)
@@ -308,19 +325,23 @@ namespace BalayPasilungan
         #region Check Edit
         private void btnEditCheck_Click(object sender, EventArgs e)
         {
-            try
+            if (txtCheckNo2.MaskFull)
             {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtCheckOR2.Text + "', checkNo = '" + txtCheckNo2.Text
-                    + "', amount = " + decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text) + ", bankName = '" + txtBank2.Text
-                    + "', dateDonated = '" + dateCheck2.Value.Date.ToString("yyyyMMdd") + "', dateCheck = '" + dateOfCheck2.Value.Date.ToString("yyyyMMdd")
-                    + "' WHERE donationID = " + donationID, conn);
-                editSQL(comm);
+                try
+                {
+                    conn.Open();
+                    MySqlCommand comm = new MySqlCommand("UPDATE monetary SET ORno = '" + txtCheckOR2.Text + "', checkNo = '" + txtCheckNo2.Text
+                        + "', amount = " + decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text) + ", bankName = '" + txtBank2.Text
+                        + "', dateDonated = '" + dateCheck2.Value.Date.ToString("yyyy-MM-dd") + "', dateCheck = '" + dateOfCheck2.Value.Date.ToString("yyyy-MM-dd")
+                        + "' WHERE donationID = " + donationID, conn);
+                    editSQL(comm);
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                errorMessage(ex.Message);
-            }
+            else errorMessage("Invalid check no.");
         }
 
         private void txtCheckAmount2_Leave(object sender, EventArgs e)
@@ -365,7 +386,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("UPDATE inkind SET particular = '" + txtPart2.Text
-                    + "', quantity = " + txtQuantity2.Text + ", dateDonated = '" + dateIK2.Value.Date.ToString("yyyyMMdd")
+                    + "', quantity = " + txtQuantity2.Text + ", dateDonated = '" + dateIK2.Value.Date.ToString("yyyy-MM-dd")
                     + "' WHERE donationID = " + donationID, conn);
                 editSQL(comm);
             }
@@ -579,6 +600,16 @@ namespace BalayPasilungan
         {
             if (((TextBox)sender).Text == "00") ((TextBox)sender).Text = "";
             toYellow();
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDateCheckInfo_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void txtAmount_TextChanged(object sender, EventArgs e)

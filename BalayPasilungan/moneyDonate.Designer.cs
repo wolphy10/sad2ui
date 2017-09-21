@@ -79,6 +79,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tabCashEdit = new System.Windows.Forms.TabPage();
+            this.btnEditCash = new BalayPasilungan.NoFocusRec();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.noFocusRec3 = new BalayPasilungan.NoFocusRec();
@@ -89,14 +90,13 @@
             this.txtOR2 = new System.Windows.Forms.TextBox();
             this.lblOR2 = new System.Windows.Forms.Label();
             this.dateCash2 = new System.Windows.Forms.DateTimePicker();
-            this.btnEditCash = new System.Windows.Forms.Button();
             this.lbldateCash2 = new System.Windows.Forms.Label();
             this.lblPeso3 = new System.Windows.Forms.Label();
             this.lblCashAmount2 = new System.Windows.Forms.Label();
             this.txtCashAmount2 = new System.Windows.Forms.TextBox();
             this.lblDot3 = new System.Windows.Forms.Label();
             this.tabCheckEdit = new System.Windows.Forms.TabPage();
-            this.btnEditCheck = new System.Windows.Forms.Button();
+            this.btnEditCheck = new BalayPasilungan.NoFocusRec();
             this.txtBank2 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -167,6 +167,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.tabExp = new System.Windows.Forms.TabPage();
+            this.lblEnter = new System.Windows.Forms.Label();
             this.thisMonth = new System.Windows.Forms.CheckBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -230,7 +231,24 @@
             this.txtBRQuantity2 = new System.Windows.Forms.NumericUpDown();
             this.txtBRPart2 = new System.Windows.Forms.TextBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.lblEnter = new System.Windows.Forms.Label();
+            this.tabCheckInfo = new System.Windows.Forms.TabPage();
+            this.txtDonateCheckInfo = new System.Windows.Forms.TextBox();
+            this.txtDateCheckInfo = new System.Windows.Forms.TextBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.noFocusRec12 = new BalayPasilungan.NoFocusRec();
+            this.btnCheckInfoClose = new BalayPasilungan.NoFocusRec();
+            this.pictureBox27 = new System.Windows.Forms.PictureBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtCheckInfo = new System.Windows.Forms.MaskedTextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtORInfo = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.txtBankInfo = new System.Windows.Forms.RichTextBox();
+            this.margin = new System.Windows.Forms.RichTextBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -288,6 +306,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            this.tabCheckInfo.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -304,6 +326,7 @@
             this.tabSelection.Controls.Add(this.tabExpOp);
             this.tabSelection.Controls.Add(this.tabBRDisapprove);
             this.tabSelection.Controls.Add(this.tabBREdit);
+            this.tabSelection.Controls.Add(this.tabCheckInfo);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -967,6 +990,7 @@
             // 
             // tabCashEdit
             // 
+            this.tabCashEdit.Controls.Add(this.btnEditCash);
             this.tabCashEdit.Controls.Add(this.panel2);
             this.tabCashEdit.Controls.Add(this.pictureBox4);
             this.tabCashEdit.Controls.Add(this.pictureBox8);
@@ -974,7 +998,6 @@
             this.tabCashEdit.Controls.Add(this.txtOR2);
             this.tabCashEdit.Controls.Add(this.lblOR2);
             this.tabCashEdit.Controls.Add(this.dateCash2);
-            this.tabCashEdit.Controls.Add(this.btnEditCash);
             this.tabCashEdit.Controls.Add(this.lbldateCash2);
             this.tabCashEdit.Controls.Add(this.lblPeso3);
             this.tabCashEdit.Controls.Add(this.lblCashAmount2);
@@ -988,6 +1011,21 @@
             this.tabCashEdit.Text = "tabPage1";
             this.tabCashEdit.UseVisualStyleBackColor = true;
             this.tabCashEdit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            // 
+            // btnEditCash
+            // 
+            this.btnEditCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnEditCash.FlatAppearance.BorderSize = 0;
+            this.btnEditCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditCash.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnEditCash.Location = new System.Drawing.Point(0, 336);
+            this.btnEditCash.Name = "btnEditCash";
+            this.btnEditCash.Size = new System.Drawing.Size(512, 40);
+            this.btnEditCash.TabIndex = 4;
+            this.btnEditCash.Text = "EDIT DONATION";
+            this.btnEditCash.UseVisualStyleBackColor = false;
+            this.btnEditCash.Click += new System.EventHandler(this.btnEditCash_Click);
             // 
             // panel2
             // 
@@ -1117,21 +1155,6 @@
             this.dateCash2.Size = new System.Drawing.Size(316, 29);
             this.dateCash2.TabIndex = 1;
             this.dateCash2.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            // 
-            // btnEditCash
-            // 
-            this.btnEditCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
-            this.btnEditCash.FlatAppearance.BorderSize = 0;
-            this.btnEditCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditCash.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnEditCash.Location = new System.Drawing.Point(0, 336);
-            this.btnEditCash.Name = "btnEditCash";
-            this.btnEditCash.Size = new System.Drawing.Size(512, 40);
-            this.btnEditCash.TabIndex = 4;
-            this.btnEditCash.Text = "EDIT DONATION";
-            this.btnEditCash.UseVisualStyleBackColor = false;
-            this.btnEditCash.Click += new System.EventHandler(this.btnEditCash_Click);
             // 
             // lbldateCash2
             // 
@@ -2200,6 +2223,16 @@
             this.tabExp.Click += new System.EventHandler(this.tabExp_Click);
             this.tabExp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
+            // lblEnter
+            // 
+            this.lblEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lblEnter.Location = new System.Drawing.Point(19, 242);
+            this.lblEnter.Name = "lblEnter";
+            this.lblEnter.Size = new System.Drawing.Size(120, 14);
+            this.lblEnter.TabIndex = 189;
+            this.lblEnter.Text = "press ENTER to add";
+            this.lblEnter.Visible = false;
+            // 
             // thisMonth
             // 
             this.thisMonth.AutoSize = true;
@@ -3095,15 +3128,245 @@
             this.pictureBox26.TabIndex = 51;
             this.pictureBox26.TabStop = false;
             // 
-            // lblEnter
+            // tabCheckInfo
             // 
-            this.lblEnter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.lblEnter.Location = new System.Drawing.Point(19, 242);
-            this.lblEnter.Name = "lblEnter";
-            this.lblEnter.Size = new System.Drawing.Size(120, 14);
-            this.lblEnter.TabIndex = 189;
-            this.lblEnter.Text = "press ENTER to add";
-            this.lblEnter.Visible = false;
+            this.tabCheckInfo.Controls.Add(this.txtDonateCheckInfo);
+            this.tabCheckInfo.Controls.Add(this.txtDateCheckInfo);
+            this.tabCheckInfo.Controls.Add(this.panel12);
+            this.tabCheckInfo.Controls.Add(this.pictureBox27);
+            this.tabCheckInfo.Controls.Add(this.label24);
+            this.tabCheckInfo.Controls.Add(this.label30);
+            this.tabCheckInfo.Controls.Add(this.txtCheckInfo);
+            this.tabCheckInfo.Controls.Add(this.label31);
+            this.tabCheckInfo.Controls.Add(this.txtORInfo);
+            this.tabCheckInfo.Controls.Add(this.label32);
+            this.tabCheckInfo.Controls.Add(this.label33);
+            this.tabCheckInfo.Controls.Add(this.pictureBox29);
+            this.tabCheckInfo.Controls.Add(this.txtBankInfo);
+            this.tabCheckInfo.Controls.Add(this.margin);
+            this.tabCheckInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabCheckInfo.Name = "tabCheckInfo";
+            this.tabCheckInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCheckInfo.Size = new System.Drawing.Size(512, 376);
+            this.tabCheckInfo.TabIndex = 12;
+            this.tabCheckInfo.Text = "tabCheckInfo";
+            this.tabCheckInfo.UseVisualStyleBackColor = true;
+            // 
+            // txtDonateCheckInfo
+            // 
+            this.txtDonateCheckInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtDonateCheckInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDonateCheckInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtDonateCheckInfo.ForeColor = System.Drawing.Color.Black;
+            this.txtDonateCheckInfo.Location = new System.Drawing.Point(183, 319);
+            this.txtDonateCheckInfo.MaxLength = 10;
+            this.txtDonateCheckInfo.Name = "txtDonateCheckInfo";
+            this.txtDonateCheckInfo.ReadOnly = true;
+            this.txtDonateCheckInfo.Size = new System.Drawing.Size(260, 22);
+            this.txtDonateCheckInfo.TabIndex = 87;
+            this.txtDonateCheckInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtDateCheckInfo
+            // 
+            this.txtDateCheckInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtDateCheckInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDateCheckInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtDateCheckInfo.ForeColor = System.Drawing.Color.Black;
+            this.txtDateCheckInfo.Location = new System.Drawing.Point(183, 278);
+            this.txtDateCheckInfo.MaxLength = 10;
+            this.txtDateCheckInfo.Name = "txtDateCheckInfo";
+            this.txtDateCheckInfo.ReadOnly = true;
+            this.txtDateCheckInfo.Size = new System.Drawing.Size(260, 22);
+            this.txtDateCheckInfo.TabIndex = 86;
+            this.txtDateCheckInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDateCheckInfo.TextChanged += new System.EventHandler(this.txtDateCheckInfo_TextChanged);
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel12.Controls.Add(this.label34);
+            this.panel12.Controls.Add(this.noFocusRec12);
+            this.panel12.Controls.Add(this.btnCheckInfoClose);
+            this.panel12.Location = new System.Drawing.Point(0, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(512, 33);
+            this.panel12.TabIndex = 85;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label34.Location = new System.Drawing.Point(412, 8);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(94, 19);
+            this.label34.TabIndex = 19;
+            this.label34.Text = "Check Details";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec12
+            // 
+            this.noFocusRec12.FlatAppearance.BorderSize = 0;
+            this.noFocusRec12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec12.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec12.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec12.Name = "noFocusRec12";
+            this.noFocusRec12.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec12.TabIndex = 11;
+            this.noFocusRec12.Text = "X";
+            this.noFocusRec12.UseVisualStyleBackColor = true;
+            // 
+            // btnCheckInfoClose
+            // 
+            this.btnCheckInfoClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckInfoClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckInfoClose.FlatAppearance.BorderSize = 0;
+            this.btnCheckInfoClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCheckInfoClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCheckInfoClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckInfoClose.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCheckInfoClose.ForeColor = System.Drawing.Color.White;
+            this.btnCheckInfoClose.Location = new System.Drawing.Point(6, 8);
+            this.btnCheckInfoClose.Name = "btnCheckInfoClose";
+            this.btnCheckInfoClose.Size = new System.Drawing.Size(76, 22);
+            this.btnCheckInfoClose.TabIndex = 8;
+            this.btnCheckInfoClose.Text = "GO BACK";
+            this.btnCheckInfoClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckInfoClose.UseVisualStyleBackColor = false;
+            this.btnCheckInfoClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox27
+            // 
+            this.pictureBox27.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox27.Location = new System.Drawing.Point(11, 131);
+            this.pictureBox27.Name = "pictureBox27";
+            this.pictureBox27.Size = new System.Drawing.Size(487, 23);
+            this.pictureBox27.TabIndex = 83;
+            this.pictureBox27.TabStop = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label24.Location = new System.Drawing.Point(57, 323);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(94, 15);
+            this.label24.TabIndex = 82;
+            this.label24.Text = "DATE DONATED";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label30.Location = new System.Drawing.Point(113, 193);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(38, 15);
+            this.label30.TabIndex = 81;
+            this.label30.Text = "BANK";
+            // 
+            // txtCheckInfo
+            // 
+            this.txtCheckInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtCheckInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCheckInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtCheckInfo.ForeColor = System.Drawing.Color.Black;
+            this.txtCheckInfo.Location = new System.Drawing.Point(183, 96);
+            this.txtCheckInfo.Mask = "000000000-00000000-0000";
+            this.txtCheckInfo.Name = "txtCheckInfo";
+            this.txtCheckInfo.PromptChar = ' ';
+            this.txtCheckInfo.ReadOnly = true;
+            this.txtCheckInfo.Size = new System.Drawing.Size(260, 22);
+            this.txtCheckInfo.TabIndex = 73;
+            this.txtCheckInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label31.Location = new System.Drawing.Point(82, 100);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(69, 15);
+            this.label31.TabIndex = 80;
+            this.label31.Text = "CHECK NO.";
+            // 
+            // txtORInfo
+            // 
+            this.txtORInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtORInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtORInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtORInfo.ForeColor = System.Drawing.Color.Black;
+            this.txtORInfo.Location = new System.Drawing.Point(183, 57);
+            this.txtORInfo.MaxLength = 10;
+            this.txtORInfo.Name = "txtORInfo";
+            this.txtORInfo.ReadOnly = true;
+            this.txtORInfo.Size = new System.Drawing.Size(260, 22);
+            this.txtORInfo.TabIndex = 72;
+            this.txtORInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label32.Location = new System.Drawing.Point(104, 61);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(47, 15);
+            this.label32.TabIndex = 78;
+            this.label32.Text = "OR. NO";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label33.Location = new System.Drawing.Point(56, 283);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(95, 15);
+            this.label33.TabIndex = 77;
+            this.label33.Text = "DATE OF CHECK";
+            this.label33.Click += new System.EventHandler(this.label33_Click);
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
+            this.pictureBox29.Location = new System.Drawing.Point(12, 239);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox29.TabIndex = 84;
+            this.pictureBox29.TabStop = false;
+            // 
+            // txtBankInfo
+            // 
+            this.txtBankInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBankInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBankInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtBankInfo.ForeColor = System.Drawing.Color.Black;
+            this.txtBankInfo.Location = new System.Drawing.Point(188, 171);
+            this.txtBankInfo.MaxLength = 500;
+            this.txtBankInfo.Name = "txtBankInfo";
+            this.txtBankInfo.ReadOnly = true;
+            this.txtBankInfo.Size = new System.Drawing.Size(250, 58);
+            this.txtBankInfo.TabIndex = 88;
+            this.txtBankInfo.Text = "";
+            // 
+            // margin
+            // 
+            this.margin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.margin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.margin.Enabled = false;
+            this.margin.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.margin.ForeColor = System.Drawing.Color.Black;
+            this.margin.Location = new System.Drawing.Point(183, 167);
+            this.margin.MaxLength = 500;
+            this.margin.Name = "margin";
+            this.margin.ReadOnly = true;
+            this.margin.Size = new System.Drawing.Size(260, 66);
+            this.margin.TabIndex = 89;
+            this.margin.Text = "";
             // 
             // moneyDonate
             // 
@@ -3199,6 +3462,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            this.tabCheckInfo.ResumeLayout(false);
+            this.tabCheckInfo.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3219,7 +3488,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblDot3;
         private System.Windows.Forms.Label lblOR2;
-        private System.Windows.Forms.Button btnEditCash;
         private System.Windows.Forms.Label lbldateCash2;
         private System.Windows.Forms.Label lblPeso3;
         private System.Windows.Forms.Label lblCashAmount2;
@@ -3266,7 +3534,6 @@
         private NoFocusRec btnCashBack2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button btnEditCheck;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
@@ -3406,5 +3673,25 @@
         public System.Windows.Forms.ComboBox year;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lblEnter;
+        private NoFocusRec btnEditCheck;
+        private NoFocusRec btnEditCash;
+        private System.Windows.Forms.TabPage tabCheckInfo;
+        public System.Windows.Forms.TextBox txtDonateCheckInfo;
+        public System.Windows.Forms.TextBox txtDateCheckInfo;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label34;
+        private NoFocusRec noFocusRec12;
+        private NoFocusRec btnCheckInfoClose;
+        private System.Windows.Forms.PictureBox pictureBox27;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label30;
+        public System.Windows.Forms.MaskedTextBox txtCheckInfo;
+        private System.Windows.Forms.Label label31;
+        public System.Windows.Forms.TextBox txtORInfo;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.PictureBox pictureBox29;
+        public System.Windows.Forms.RichTextBox txtBankInfo;
+        public System.Windows.Forms.RichTextBox margin;
     }
 }
