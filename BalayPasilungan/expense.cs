@@ -116,9 +116,9 @@ namespace BalayPasilungan
 
         public void resetEditColorDefault()                 // Reset to default colors on Edit Donor Profile (gray)
         {
-            lblDNameEdit.ForeColor = lblDTypeEdit.ForeColor = lblPledgeEdit.ForeColor = lblPhoneEdit.ForeColor = lblMobileEdit.ForeColor = lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+            lblDNameEdit.ForeColor = lblDTypeEdit.ForeColor = lblPledgeEdit.ForeColor = lblPhoneEdit.ForeColor = lblMobileEdit.ForeColor = lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
             panelDNameEdit.BackgroundImage = panelPhoneEdit.BackgroundImage = panelEmailEdit.BackgroundImage = panelMobileEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            countDNameEdit.Visible = countEmailEdit.Visible = lblPhoneEdit.Visible = false;
+            countDNameEdit.Visible = countEmailEdit.Visible = countPhoneEdit.Visible = false;
         }
 
         public void resetBudgetRequest()
@@ -253,7 +253,7 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, null, null, null, null, "No entries.", null, null, -1);
+                        dt.Rows.Add(-1, "No entries.", null, null, null, null, null, null, -1);
                         empty = true;
                     }
 
@@ -470,7 +470,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateAdded FROM donor WHERE status = 1 ORDER BY dateAdded DESC", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateAdded, address FROM donor WHERE status = 1 ORDER BY dateAdded DESC", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -479,7 +479,7 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
-                    dt.Rows.Add(-1, "No entries.", null, null);
+                    dt.Rows.Add(-1, "No entries.", null, null, null);
                     empty = true; multiDonor.Enabled = false;
                 }
                 else empty = false;
@@ -491,7 +491,7 @@ namespace BalayPasilungan
                 donorsGV.Columns[2].HeaderText = "PLEDGE";
                 donorsGV.Columns[3].HeaderText = "DATE OF PLEDGE";
                 donorsGV.Columns[4].HeaderText = "ADDED ON";
-                donorsGV.Columns[0].Visible = false;
+                donorsGV.Columns[0].Visible = donorsGV.Columns[5].Visible = false;
 
                 // 935 WIDTH
                 donorsGV.Columns[1].Width = 403;
@@ -874,6 +874,7 @@ namespace BalayPasilungan
         #region Donors
         private void btnAddDonor_Click(object sender, EventArgs e)
         {
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = false;
             resetNewDonor(); editDonor = false;
             tabSelection.SelectedTab = tabNewDonor;
             donorTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
@@ -928,13 +929,16 @@ namespace BalayPasilungan
         private void btnDonorConfirm_Click(object sender, EventArgs e)
         {
             if (txtDName.Text == "" || txtMobile1.TextLength + txtMobile2.TextLength + txtMobile3.TextLength != 11 || txtPhone.TextLength != 7) errorMessage("You have an error in at least one of the fields.");
-            else //Transferring details for confirmation
+            else
             {
                 tabNewDonorInput.SelectedTab = tabDonorConfirm;
                 donorCTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141); donorTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
                 donorCTS.Font = new System.Drawing.Font("Segoe UI", 20.25f); donorTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
+                
+                btnDonorFinal.BackColor = btnDonorBack2.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                btnDonorFinal.ForeColor = Color.White;
 
-                conf1.ForeColor = conf2.ForeColor = conf3.ForeColor = conf4.ForeColor = conf5.ForeColor = conf6.ForeColor = conf7.ForeColor = btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                conf1.ForeColor = conf2.ForeColor = conf3.ForeColor = conf4.ForeColor = conf5.ForeColor = conf6.ForeColor = conf7.ForeColor = conf10.ForeColor = btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(113, 176, 168);
                 conf_header.Text = "CONFIRM NEW DONOR"; conf_header.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
 
                 if (txtPhone.Text == "29xxxxx") conf_phone.Text = "N/A";
@@ -948,7 +952,6 @@ namespace BalayPasilungan
 
                 conf_donorName.Text = txtDName.Text;
                 conf_donorType.Text = cbDType.Text;
-
                 conf_pledge.Text = cbPledge.Text;
                 conf_datePledge.Text = datePledge.Text;
             }
@@ -975,6 +978,7 @@ namespace BalayPasilungan
         {
             try
             {
+                btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = true;
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("");
 
@@ -1016,13 +1020,28 @@ namespace BalayPasilungan
         private void btnDonorCancel_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabDonors;
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = true;
         }
 
+        private void btnDonorBack2_Click(object sender, EventArgs e)
+        {            
+            if(btnDonorFinal.ForeColor == Color.White)
+            {
+                tabSelection.SelectedTab = tabNewDonor;
+                tabNewDonorInput.SelectedTab = tabNewInfo;
+            }
+            else
+            {
+                tabSelection.SelectedTab = tabNewDonor;
+                tabNewDonorInput.SelectedTab = tabEditDonor;
+            }
+        }
         #endregion
 
         #region Donor Edit
         private void btnEditDonor_Click(object sender, EventArgs e)
         {
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = false;
             tabSelection.SelectedTab = tabNewDonor;
             tabNewDonorInput.SelectedTab = tabEditDonor;
             donorTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); donorCTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
@@ -1037,11 +1056,19 @@ namespace BalayPasilungan
                 txtMobile2Edit.Text = txtDMobile.Text[4].ToString() + txtDMobile.Text[5].ToString() + txtDMobile.Text[6].ToString();
                 txtMobile3Edit.Text = txtDMobile.Text[7].ToString() + txtDMobile.Text[8].ToString() + txtDMobile.Text[9].ToString() + txtDMobile.Text[10].ToString();
             }
+
+            datePledgeEdit.MaxDate = DateTime.Today;
+            var formats = new[] { "MMMM dd, yyyy" };
+            if (DateTime.TryParseExact(txtDDatePledge.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) datePledgeEdit.Value = fromDateValue;
+            else datePledgeEdit.Value = dateBR.MaxDate;
+
             txtEmailEdit.Text = txtDEmail.Text;
+            txtDonorAdEdit.Text = txtDAddress.Text;
         }
 
         private void btnDonorEditCancel_Click(object sender, EventArgs e)
         {
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = true;
             tabSelection.SelectedTab = tabDonorInfo;
             tabDonorDetails.SelectedTab = tabMoney;
         }
@@ -1053,25 +1080,25 @@ namespace BalayPasilungan
 
             if (((TextBox)sender).Name == "txtMobile1Edit" || ((TextBox)sender).Name == "txtMobile2Edit" || ((TextBox)sender).Name == "txtMobile3Edit")
             {
-                lblMobile.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-                panelMobile.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                lblMobileEdit.ForeColor = System.Drawing.Color.FromArgb(218, 195, 87);
+                panelMobileEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
             }
 
             if (((TextBox)sender).Name == "txtDNameEdit") 
             {
-                lblDNameEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                lblDNameEdit.ForeColor = System.Drawing.Color.FromArgb(218, 195, 87);
                 panelDNameEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                 countDNameEdit.Visible = true;
             }
             else if (((TextBox)sender).Name == "txtPhoneEdit") 
             {
-                lblPhone.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                lblPhoneEdit.ForeColor = System.Drawing.Color.FromArgb(218, 195, 87);
                 panelPhoneEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
-                lblPhoneEdit.Visible = true;
+                countPhoneEdit.Visible = true;
             }
             else if (((TextBox)sender).Name == "txtEmailEdit") 
             {
-                lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                lblEmailEdit.ForeColor = System.Drawing.Color.FromArgb(218, 195, 87);
                 panelEmailEdit.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                 countEmailEdit.Visible = true;
             }
@@ -1081,7 +1108,7 @@ namespace BalayPasilungan
         {
             if(((TextBox)sender).Name == "txtDNameEdit") countDNameEdit.Text = ((TextBox)sender).TextLength + "/250";            
             else if (((TextBox)sender).Name == "txtPhoneEdit") countPhoneEdit.Text = ((TextBox)sender).TextLength + "/7";
-            else if (((TextBox)sender).Name == "txtDNameEdit") countEmailEdit.Text = ((TextBox)sender).TextLength + "/100";
+            else if (((TextBox)sender).Name == "txtEmailEdit") countEmailEdit.Text = ((TextBox)sender).TextLength + "/100";
         }
 
         private void editDonor_Leave(object sender, EventArgs e)
@@ -1096,16 +1123,22 @@ namespace BalayPasilungan
             else
             {
                 tabNewDonorInput.SelectedTab = tabDonorConfirm;
-                donorCTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); donorTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
-                donorCTS.Font = new System.Drawing.Font("Segoe UI", 20.25f); donorTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
+                donorCTS.ForeColor = System.Drawing.Color.FromArgb(218, 195, 87);
+                donorTS.ForeColor = System.Drawing.Color.FromArgb(197, 217, 208);
+                donorCTS.Font = new System.Drawing.Font("Segoe UI", 20.25f);
+                donorTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25f);
 
-                conf1.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf2.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf3.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf4.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf5.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf6.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92); conf7.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-                btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(219, 209, 92); btnDonorFinal.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+                conf1.ForeColor = conf2.ForeColor = conf3.ForeColor = conf4.ForeColor = conf5.ForeColor = conf6.ForeColor = conf7.ForeColor = conf10.ForeColor = System.Drawing.Color.FromArgb(218, 195, 87);
+
+                btnDonorFinal.ForeColor = btnDonorBack2.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
+                btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(218, 195, 87);
+
                 conf_header.Text = "CONFIRM DONOR CHANGES"; conf_header.ForeColor = System.Drawing.ColorTranslator.FromHtml("#eae6b4");
 
-                conf_donorName.Text = txtDNameEdit.Text; conf_donorType.Text = cbDTypeEdit.SelectedText; conf_pledge.Text = cbPledgeEdit.SelectedText;
+                conf_donorName.Text = txtDNameEdit.Text; conf_donorType.Text = cbDTypeEdit.Text; conf_pledge.Text = cbPledgeEdit.Text;
+                conf_datePledge.Text = datePledgeEdit.Value.ToString("MMMM dd, yyyy");
                 conf_phone.Text = txtPhoneEdit.Text; conf_mobile.Text = txtMobile1Edit.Text + txtMobile2Edit.Text + txtMobile3Edit.Text;
-                conf_email.Text = txtEmailEdit.Text; conf_donorName.Text = txtDonorAdEdit.Text;
+                conf_email.Text = txtEmailEdit.Text; conf_DonorAd.Text = txtDonorAdEdit.Text;
             }
         }
         
@@ -1162,6 +1195,8 @@ namespace BalayPasilungan
                 current_donorID = int.Parse(donorsGV.Rows[e.RowIndex].Cells[0].FormattedValue.ToString());
                 loadDonorInfo(current_donorID);
                 txtDDatePledge.Text = donorsGV.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+                txtDAddress.Text = donorsGV.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
+
                 allMoneyDonation = false;
                 comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
                 loadTable(comm, 1);
@@ -1196,21 +1231,25 @@ namespace BalayPasilungan
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilter.SelectedItem.ToString() == "Both")
+            // BOOK            
+            if (((ComboBox)sender).SelectedItem.ToString() == "Both")
             {
-                allMoneyDonation = false;
+                if (((ComboBox)sender).Name == "cbFilter") allMoneyDonation = false;
+                else allMoneyDonation = true;
                 comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
                 loadTable(comm, 1);
             }
-            else if (cbFilter.SelectedItem.ToString() == "Cash")
+            else if (((ComboBox)sender).SelectedItem.ToString() == "Cash")
             {
-                allMoneyDonation = false;
+                if (((ComboBox)sender).Name == "cbFilter") allMoneyDonation = false;
+                else allMoneyDonation = true;
                 comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ") AND paymentType = 'Cash'", conn);
                 loadTable(comm, 1);
             }
-            else if (cbFilter.SelectedItem.ToString() == "Check")
+            else if (((ComboBox)sender).SelectedItem.ToString() == "Check")
             {
-                allMoneyDonation = false;
+                if (((ComboBox)sender).Name == "cbFilter") allMoneyDonation = false;
+                else allMoneyDonation = true;
                 comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ") AND paymentType = 'Check'", conn);
                 loadTable(comm, 1);
             }
@@ -1419,7 +1458,7 @@ namespace BalayPasilungan
 
         private void cbFilter_DropDownClosed(object sender, EventArgs e)
         {
-            this.BeginInvoke(new Action(() => { cbFilter.Select(0, 0); }));
+            this.BeginInvoke(new Action(() => { ((ComboBox)sender).Select(0, 0); }));
         }
         
         private void donationMoney_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1840,8 +1879,7 @@ namespace BalayPasilungan
                     btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = false;
                     tabSelection.SelectedTab = tabBudgetRequest;
                     tabBR.SelectedIndex = 0;
-
-                    // BOOK
+                    
                     txtPurpose.Text = lblPBRPurpose.Text;
                     txtBRRequest.Text = lblPBRBy.Text;
 
@@ -2344,7 +2382,7 @@ namespace BalayPasilungan
         #region Textboxes
         private void txtNew_Enter(object sender, EventArgs e)
         {
-            if (((TextBox)sender).Text == "Name of purpose." || ((TextBox)sender).Text == "Name." || ((TextBox)sender).Text == "29xxxxx" || ((TextBox)sender).Text == "example@example.com" || ((TextBox)sender).Text == "09xx" || ((TextBox)sender).Text == "xxx" || ((TextBox)sender).Text == "xxxx") ((TextBox)sender).Text = "";
+            if (((TextBox)sender).Text == "Name of donor." || ((TextBox)sender).Text == "Name of purpose." || ((TextBox)sender).Text == "Name." || ((TextBox)sender).Text == "29xxxxx" || ((TextBox)sender).Text == "example@example.com" || ((TextBox)sender).Text == "09xx" || ((TextBox)sender).Text == "xxx" || ((TextBox)sender).Text == "xxxx") ((TextBox)sender).Text = "";
             ((TextBox)sender).ForeColor = Color.Black;
 
             if (((TextBox)sender).Name == "txtMobile1" || ((TextBox)sender).Name == "txtMobile2" || ((TextBox)sender).Name == "txtMobile3")
@@ -2405,7 +2443,7 @@ namespace BalayPasilungan
 
         private void txtNewCount_TextChanged(object sender, EventArgs e)
         {
-            if (((TextBox)sender).Name == "txtNewCount") countDName.Text = ((TextBox)sender).TextLength + "/250";
+            if (((TextBox)sender).Name == "txtDName") countDName.Text = ((TextBox)sender).TextLength + "/250";
             else if (((TextBox)sender).Name == "txtPhone") countPhone.Text = ((TextBox)sender).TextLength + "/7";
             else if (((TextBox)sender).Name == "txtEmail") countEmail.Text = ((TextBox)sender).TextLength + "/100";
             else if (((TextBox)sender).Name == "txtPurpose") countPurpose.Text = ((TextBox)sender).TextLength + "/100";
@@ -2494,7 +2532,7 @@ namespace BalayPasilungan
         {
             if (((RichTextBox)sender).Name == "txtDonorAd") countAd.Text = ((RichTextBox)sender).TextLength + "/250";
             else if (((RichTextBox)sender).Name == "txtDonorAdEdit") countAdEdit.Text = ((RichTextBox)sender).TextLength + "/250";
-        }
+        }        
 
         private void richNew_Leave(object sender, EventArgs e)
         {

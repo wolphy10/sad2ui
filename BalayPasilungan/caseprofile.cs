@@ -83,29 +83,15 @@ namespace BalayPasilungan
             tsNewIO.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
         }
 
-        public void resetTextboxes()    // Reset unfocused textbox, line and label colors to default dark
-        {
-            // Textboxes
-            //txtNewFName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewLName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtNewNName.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtAddress.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
-            //txtKinder.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtHS.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135); txtElementary.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
-
-            // Labels
-            //lblFName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblLName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblNName.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); lblAddress.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-            //kinder.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); elementary.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42); highschool.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-
-            // Lines
-            //panelFName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelLName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line; panelNName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-        }
-
         public void errorMessage(string message)            // Error Message
         {
             error err = new error();
             dim dim = new dim();
 
-            dim.Location = this.Location;
+            dim.Location = this.Location; dim.Size = this.Size;
             err.lblError.Text = message;
             dim.refToPrev = this;
-            dim.Show();
+            dim.Show(this);
 
             if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
@@ -160,10 +146,10 @@ namespace BalayPasilungan
             success yey = new success();
             dim dim = new dim();
 
-            dim.Location = this.Location;
+            dim.Location = this.Location; dim.Size = this.Size;
             yey.lblSuccess.Text = message;
             dim.refToPrev = this;
-            dim.Show();
+            dim.Show(this);
 
             if (yey.ShowDialog() == DialogResult.OK) dim.Close();
         }
@@ -173,11 +159,11 @@ namespace BalayPasilungan
             confirm conf = new confirm();
             dim dim = new dim();
 
-            dim.Location = this.Location;
-            conf.lblConfirm.Text = message;
+            dim.Location = this.Location; dim.Size = this.Size;
             dim.refToPrev = this;
-            dim.Show();
+            dim.Show(this);
 
+            conf.lblConfirm.Text = message;
             if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
             else confirmed = false;
             dim.Close();
@@ -1716,27 +1702,43 @@ namespace BalayPasilungan
         {
             try
             {
-                MessageBox.Show(id.ToString());
-                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, civilstatus, age, birthdate, relationship, remarks, occupation, eduattain, monthlyincome FROM member WHERE caseid = " + id, conn);
+                //MessageBox.Show(id.ToString());
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, civilstatus, age, birthdate, relationship, dependency, occupation, eduattain, monthlyincome FROM member WHERE caseid = " + id, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
+                dtfamOverview.DataSource = dt;
 
-                if (dt.Rows.Count > 0)
-                    {
-                        dtfamOverview.DataSource = dt;
+                if (dt.Rows.Count == 0)
+                {
+                    dt.Rows.Add(-1, "No entries.", null, null, null, null, null, null, null, null, null);
+                    empty = true;
+                }                
+                
+                // UI Modifications
+                dtfamOverview.Columns[1].HeaderText = "FIRST NAME";
+                dtfamOverview.Columns[2].HeaderText = "LAST NAME";
+                dtfamOverview.Columns[3].HeaderText = "CIVIL STATUS";
+                dtfamOverview.Columns[4].HeaderText = "AGE";
+                dtfamOverview.Columns[5].HeaderText = "BIRTHDATE";
+                dtfamOverview.Columns[6].HeaderText = "RELATIONSHIP";
+                dtfamOverview.Columns[7].HeaderText = "DEPENDENCY";
+                dtfamOverview.Columns[8].HeaderText = "OCCUPATION";
+                dtfamOverview.Columns[9].HeaderText = "EDUCATIONAL ATTAINMENT";
+                dtfamOverview.Columns[10].HeaderText = "MONTHLY INCOME";
 
-                        dtfamOverview.Columns["memberid"].Visible = false;
+                // For ID purposes (hidden from user)            
+                dtfamOverview.Columns[0].Visible = false;                
 
-                        dtfamOverview.Columns["age"].HeaderText = "Age (years old)";
+                if (dt.Rows.Count > 0 && !empty)
+                {                    
+                    comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE caseid = " + id, conn);
+                    adp = new MySqlDataAdapter(comm);
+                    dt = new DataTable();
 
-                        comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE caseid = " + id, conn);
-                        adp = new MySqlDataAdapter(comm);
-                        dt = new DataTable();
-
-                        adp.Fill(dt);
+                    adp.Fill(dt);
 
                         lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
 
@@ -1765,8 +1767,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                MessageBox.Show(ee.ToString());
-                conn.Close();
+                errorMessage(ee.Message);                
             }
         }
 
