@@ -270,60 +270,116 @@ namespace BalayPasilungan
         public void addmember()
         {
             string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
-                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
-            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency)) errorMessage("Please fill out empty fields.");
+                   status = cbxmemstatus.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text, eduattain = cbxmemeduattain.Text;
 
+            double income;
+
+            DateTime birthdate = dtpmembirth.Value;
+
+            int age = DateTime.Now.Year - birthdate.Year;
+
+            if (birthdate.DayOfYear > DateTime.Now.DayOfYear)
+                age--;
+
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency)
+                || string.IsNullOrEmpty(eduattain) || string.IsNullOrEmpty(txtmemincome.Text))
+            {
+
+                errorMessage("Please fill out empty fields.");
+
+            }
             else
             {
-                try
+                if (double.TryParse(txtmemincome.Text, out income))
                 {
-                    conn.Open();
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO member(caseid, firstname, lastname, gender, birthdate, relationship, dependency, occupation) VALUES(" + id + ", '" + firstname + "', '" + lastname + "', '" + gender + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "', '" + occupation + "')", conn);
-                    MessageBox.Show(famid.ToString());
-                    comm.ExecuteNonQuery();
-                    successMessage("Member has been added successfully!");
-                    conn.Close();
+                    income = double.Parse(txtmemincome.Text);
 
-                    reloadmem(id);
-                    tabCase.SelectedTab = tabInfo;
-                    tabChild.SelectedTab = fourth;
-                    reset8();
+                    try
+                    {
+                        conn.Open();
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO member(caseid, firstname, lastname, civilstatus, birthdate, relationship, dependency, occupation, age, eduattain, monthlyincome) " +
+                            "VALUES(" + id + ", '" + firstname + "', '" + lastname + "', '" + status + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "'" +
+                            ", '" + occupation + "' , '" + age + "', '" + eduattain + "', '" + income + "')", conn);
+                        
+                        comm.ExecuteNonQuery();
+
+                        successMessage("Member has been added successfully!");
+
+                        conn.Close();
+
+                        reloadmem(id);
+                        existsfam(id);
+
+                        tabCase.SelectedTab = tabInfo;
+                        tabChild.SelectedTab = fourth;
+
+                        reset8();
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.ToString());
+                        conn.Close();
+                    }
                 }
-                catch (Exception ee)
-                {
-                    MessageBox.Show(ee.ToString());
-                }
+                   
+                    
             }
         }
 
         public void editmember()
         {
             string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
-                   gender = cbxmemgender.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text;
+                   status = cbxmemstatus.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text, eduattain = cbxmemeduattain.Text;
 
-            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency)) errorMessage("Please fill out empty fields.");
+            double income;
 
+            DateTime birthdate = dtpmembirth.Value;
+
+            int age = DateTime.Now.Year - birthdate.Year;
+
+            if (birthdate.DayOfYear > DateTime.Now.DayOfYear)
+                age--;
+
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency)
+                || string.IsNullOrEmpty(eduattain) || string.IsNullOrEmpty(txtmemincome.Text))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
             else
             {
-                try
+                if (double.TryParse(txtmemincome.Text, out income))
                 {
-                    conn.Open();
-                    MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', gender = '" + gender + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
-                                        "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "' WHERE memberid = " + memberid, conn);
-                    MessageBox.Show(memberid.ToString());
-                    comm.ExecuteNonQuery();
-                    successMessage("Changes in family member has been added successfully!");
-                    conn.Close();
+                    income = double.Parse(txtmemincome.Text);
 
-                    reloadmem(id);
-                    tabCase.SelectedTab = tabInfo;
-                    tabChild.SelectedTab = fourth;
-                    reset8();
+                    try
+                    {
+                        conn.Open();
+                        MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', civilstatus = '" + status + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
+                                            "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "', eduattain = '" + eduattain + "', monthlyincome = '" + income + "'" +
+                                            ", age = '" + age + "'WHERE memberid = " + memberid, conn);
+
+                        comm.ExecuteNonQuery();
+
+                        successMessage("Changes in family member has been added successfully!");
+
+                        conn.Close();
+
+                        reloadmem(id);
+                        existsfam(id);
+
+                        tabCase.SelectedTab = tabInfo;
+                        tabChild.SelectedTab = fourth;
+
+                        reset8();
+                    }
+                    catch (Exception ee)
+                    {
+                        errorMessage(ee.Message);
+                        conn.Close();
+                    }
+
                 }
-                catch (Exception ee)
-                {
-                    errorMessage(ee.Message);
-                }
+                    
             }
         }
 
@@ -338,6 +394,7 @@ namespace BalayPasilungan
 
             else
             {
+
                 try
                 {
 
@@ -353,6 +410,7 @@ namespace BalayPasilungan
                     conn.Close();
 
                     reloadcon(id);
+                    existscon(id);
 
                     tabCase.SelectedTab = tabInfo;
                     tabChild.SelectedTab = ninth;
@@ -394,6 +452,7 @@ namespace BalayPasilungan
                     conn.Close();
 
                     reloadcon(id);
+                    existscon(id);
 
                     tabCase.SelectedTab = tabInfo;
                     tabChild.SelectedTab = ninth;
@@ -592,6 +651,14 @@ namespace BalayPasilungan
             if (string.IsNullOrEmpty(txtcaseaddress.Text) || string.IsNullOrEmpty(txtfname.Text) || string.IsNullOrEmpty(txtlname.Text) || string.IsNullOrEmpty(txtReligion.Text)) errorMessage("Please fill out empty fields.");
             else
             {
+                DateTime birthdate = dtbirth.Value;
+
+                int age = DateTime.Now.Year - birthdate.Year;
+
+                if (birthdate.DayOfYear > DateTime.Now.DayOfYear)
+                    age--;
+
+               
                 try
                 {
                     conn.Open();
@@ -599,15 +666,15 @@ namespace BalayPasilungan
                     MySqlCommand comm = new MySqlCommand();
                     if (cbIP.Checked)       // IP
                     {
-                        comm = new MySqlCommand("INSERT INTO casestudyprofile (lastname, firstname, birthdate, alias, birthplace, civilstatus, program, dateJoined, picture, address, profilestatus, religion)"
+                        comm = new MySqlCommand("INSERT INTO casestudyprofile (lastname, firstname, birthdate, alias, birthplace, civilstatus, program, dateJoined, picture, address, profilestatus, religion, age)"
                         + " VALUES('" + txtlname.Text + "', '" + txtfname.Text + "', '" + dtbirth.Value.Date.ToString("yyyy-MM-dd") + "','" + txtAlias.Text + "','" + txtBirthplace.Text + "', '" + cbCivilStatus.SelectedItem
-                        + "', '" + cbxprogram.SelectedItem + "', '" + dtjoin.Value.ToString("yyyy-MM-dd") + "', '" + filename + "', '" + txtcaseaddress.Text + "', 1, '" + txtIP.Text + "')", conn);
+                        + "', '" + cbxprogram.SelectedItem + "', '" + dtjoin.Value.ToString("yyyy-MM-dd") + "', '" + filename + "', '" + txtcaseaddress.Text + "', 1, '" + txtIP.Text + "', '" + age + "')", conn);
                     }
                     else                    // Religion
                     {
-                        comm = new MySqlCommand("INSERT INTO casestudyprofile (lastname, firstname, birthdate, alias, birthplace, civilstatus, program, dateJoined, picture, address, profilestatus, religion)"
+                        comm = new MySqlCommand("INSERT INTO casestudyprofile (lastname, firstname, birthdate, alias, birthplace, civilstatus, program, dateJoined, picture, address, profilestatus, religion, age)"
                         + " VALUES('" + txtlname.Text + "', '" + txtfname.Text + "', '" + dtbirth.Value.Date.ToString("yyyy-MM-dd") + "','" + txtAlias.Text + "','" + txtBirthplace.Text + "', '" + cbCivilStatus.SelectedItem
-                        + "', '" + cbxprogram.SelectedItem + "', '" + dtjoin.Value.ToString("yyyy-MM-dd") + "', '" + filename + "', '" + txtcaseaddress.Text + "', 1, '" + txtReligion.Text + "')", conn);
+                        + "', '" + cbxprogram.SelectedItem + "', '" + dtjoin.Value.ToString("yyyy-MM-dd") + "', '" + filename + "', '" + txtcaseaddress.Text + "', 1, '" + txtReligion.Text + "', '" + age + "')", conn);
                     }
                     
                     comm.ExecuteNonQuery();
@@ -627,20 +694,24 @@ namespace BalayPasilungan
         {
             string lname = txtlname.Text, fname = txtfname.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
             int age;
-            DateTime now = DateTime.Today, birthyear = dtbirth.Value;
+            DateTime birthdate = dtbirth.Value;
             
             if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program)) errorMessage("PLease fill out empty fields.");            
             else
             {
-                age = now.Year - birthyear.Year;
-                if (now < birthyear.AddYears(age)) age -= 1;
+               
+
+                age = DateTime.Now.Year - birthdate.Year;
+
+                if (birthdate.DayOfYear > DateTime.Now.DayOfYear)
+                    age--;
                 try
                 {
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
                                         "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", civilStatus = '" + "sample" + "', " +
-                                        ", program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
-                                        "picture = '" + filename + "', address = '" + address + "' WHERE caseid = " + id, conn);
+                                        "program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
+                                        "picture = '" + filename + "', address = '" + address + "', age = " + age + "  WHERE caseid = " + id, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
                     successMessage("Profile details has been changed successfully!");
@@ -654,7 +725,8 @@ namespace BalayPasilungan
                 }
                 catch (Exception ee)
                 {
-                    errorMessage(ee.Message);                    
+                    errorMessage(ee.Message);
+                    conn.Close();
                 }                
             }
         }
@@ -806,7 +878,7 @@ namespace BalayPasilungan
                     tabChild.SelectedTab = eighth;
 
                     reloaded(id);
-
+                    existsed(id);
 
                     reset2();
 
@@ -854,6 +926,7 @@ namespace BalayPasilungan
                     tabChild.SelectedTab = eighth;
 
                     reloaded(id);
+                    existsed(id);
 
 
                     reset2();
@@ -975,6 +1048,7 @@ namespace BalayPasilungan
                     conn.Close();
 
                     reloadincid(id);
+                    existsincid(id);
 
                     tabCase.SelectedTab = tabInfo;
                     tabChild.SelectedTab = twelfth;
@@ -1026,6 +1100,7 @@ namespace BalayPasilungan
                     conn.Close();
 
                     reloadincid(id);
+                    existsincid(id);
 
                     tabCase.SelectedTab = tabInfo;
                     tabChild.SelectedTab = twelfth;
@@ -1097,7 +1172,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE memberid = " + memberid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT firstname, lastname, civilstatus, birthdate, relationship, dependency, occupation, eduattain, monthlyincome FROM member WHERE memberid = " + memberid, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1113,7 +1188,10 @@ namespace BalayPasilungan
                     txtmemrelationship.Text = dt.Rows[0]["relationship"].ToString();
 
                     cbxmemdependency.Text = dt.Rows[0]["dependency"].ToString();
-                    cbxmemgender.Text = dt.Rows[0]["gender"].ToString();
+                    cbxmemstatus.Text = dt.Rows[0]["civilstatus"].ToString();
+
+                    cbxmemeduattain.Text = dt.Rows[0]["eduattain"].ToString();
+                    txtmemincome.Text = dt.Rows[0]["monthlyincome"].ToString();
 
                     dtpmembirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]).Date;
                 }
@@ -1291,8 +1369,9 @@ namespace BalayPasilungan
                     lblcaseaddress.Text = dt.Rows[0]["address"].ToString();
                     lblcaseprogram.Text = dt.Rows[0]["program"].ToString();
                     lblcasestatus.Text = dt.Rows[0]["civilstatus"].ToString();
+                    lblcaseage.Text = dt.Rows[0]["age"].ToString() + "years old";
 
-                    if(dt.Rows[0]["religion"].ToString() != null)
+                    if (dt.Rows[0]["religion"].ToString() != null)
                     {
                         lblReligion.Text = "RELIGION";
                         lblrel.Text = dt.Rows[0]["religion"].ToString();
@@ -1658,7 +1737,7 @@ namespace BalayPasilungan
             try
             {
                 MessageBox.Show(id.ToString());
-                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, civilstatus, age, birthdate, relationship, dependency, occupation, eduattain, monthlyincome FROM member WHERE caseid = " + id, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -2048,7 +2127,7 @@ namespace BalayPasilungan
             txtmemocc.Clear();
             txtmemrelationship.Clear();
 
-            cbxmemgender.SelectedIndex = cbxmemdependency.SelectedIndex = -1;
+            cbxmemstatus.SelectedIndex = cbxmemdependency.SelectedIndex = -1;
 
             dtpmembirth.Value = DateTime.Now.Date;
         }
@@ -2096,7 +2175,6 @@ namespace BalayPasilungan
                         school = dt.Rows[0]["school"].ToString();
                         level = dt.Rows[0]["level"].ToString();
                        
-                        
                     }
 
                     else
@@ -2126,8 +2204,7 @@ namespace BalayPasilungan
 
                         }
                     }
-                    
-
+                   
                 }
 
                 else
