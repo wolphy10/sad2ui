@@ -284,7 +284,7 @@ namespace BalayPasilungan
                     successMessage("Member has been added successfully!");
                     conn.Close();
 
-                    reloadmem(famid);
+                    reloadmem(id);
                     tabCase.SelectedTab = tabInfo;
                     tabChild.SelectedTab = fourth;
                     reset8();
@@ -310,12 +310,12 @@ namespace BalayPasilungan
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', gender = '" + gender + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
                                         "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "' WHERE memberid = " + memberid, conn);
-                    MessageBox.Show(famid.ToString());
+                    MessageBox.Show(memberid.ToString());
                     comm.ExecuteNonQuery();
                     successMessage("Changes in family member has been added successfully!");
                     conn.Close();
 
-                    reloadmem(famid);
+                    reloadmem(id);
                     tabCase.SelectedTab = tabInfo;
                     tabChild.SelectedTab = fourth;
                     reset8();
@@ -1200,7 +1200,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE edclassid = " + classid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT section, adviser, yearlevel FROM edclass WHERE classeid = " + classid, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1250,11 +1250,15 @@ namespace BalayPasilungan
                     lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
                     rviewall.Text = dt.Rows[0]["allergies"].ToString();
                     rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
+
+                    btnedithealth.Enabled = true;
                 }
 
                 else
                 {
                     errorMessage("There are currently no existing health records for this case study.");
+
+                    btnedithealth.Enabled = false;
                 }
 
                 conn.Close();
@@ -1407,8 +1411,10 @@ namespace BalayPasilungan
 
 
 
-                    DataGridViewButtonColumn AddColumn = new DataGridViewButtonColumn();
-                    AddColumn.Text = "Add";
+                    DataGridViewImageColumn AddColumn = new DataGridViewImageColumn();
+
+                    AddColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    AddColumn.Image = Properties.Resources.add;
                     AddColumn.Name = "Add";
                     AddColumn.DataPropertyName = "Add";
 
@@ -1425,6 +1431,8 @@ namespace BalayPasilungan
                         dtgeducation.Columns.Add(AddColumn);
                         
                     }
+
+                    dtgeducation.Columns["eid"].Visible = false;
 
                 }
 
@@ -1445,7 +1453,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT edclassid, section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT classeid, section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1456,24 +1464,29 @@ namespace BalayPasilungan
                     errorMessage("There are currently no class records for this school.");
                 }
 
-
-
-                dtgedclass.DataSource = dt;
-
-
-
-               DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
-               EditColumn.Text = "Edit";
-               EditColumn.Name = "Edit";
-                EditColumn.DataPropertyName = "Edit";
-
-                if (dtgedclass.Columns["Edit"] == null && archivemode == 0)
+                else
                 {
-                    dtgedclass.Columns.Add(EditColumn);
+                    dtgedclass.DataSource = dt;
 
+
+
+                    DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
+
+                    EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    EditColumn.Image = Properties.Resources.editrmm;
+                    EditColumn.Name = "Edit";
+                    EditColumn.DataPropertyName = "Edit";
+
+                    if (dtgedclass.Columns["Edit"] == null && archivemode == 0)
+                    {
+                        dtgedclass.Columns.Add(EditColumn);
+
+                    }
+
+                    dtgedclass.Columns["classeid"].Visible = false;
                 }
 
-                //dtgedclass.Columns["edclassid"].Visible = false;
+                
 
                 conn.Close();
             }
@@ -1571,14 +1584,14 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
-                    errorMessage("There are no current incident records for this case study.");
+                    errorMessage("There are no current checkup records for this case study.");
                 }
 
                 else
 
                 {
                     dtghealth.DataSource = dt;
-                    dtghealth.Columns[0].Visible = false;
+                    dtghealth.Columns["checkid"].Visible = false;
                     //dtincid.Columns[1].Visible = false;
 
                     //hid = int.Parse(dt.Rows[0]["health.hid"].ToString());
@@ -1667,8 +1680,10 @@ namespace BalayPasilungan
                         lblnummembers.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
 
 
-                        DataGridViewButtonColumn dc = new DataGridViewButtonColumn();
+                        DataGridViewImageColumn dc = new DataGridViewImageColumn();
 
+                        dc.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                        dc.Image = Properties.Resources.editrmm;
                         dc.Name = "check";
                         dc.Visible = true;
 
@@ -1844,7 +1859,7 @@ namespace BalayPasilungan
 
             eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
 
-            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn))
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn))
             {
                 reloadedclass(eid);
             }
@@ -1898,14 +1913,14 @@ namespace BalayPasilungan
         {
             var senderGrid = (DataGridView)sender;
             MessageBox.Show(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
 
             {
                try
                 {
                     
 
-                    int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells["classeid"].Value.ToString());
 
                     reloadeditclass(edclassid);
 
@@ -1923,7 +1938,7 @@ namespace BalayPasilungan
         {
             var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
 
             {
                 tabCase.SelectedTab = tabNewChild;

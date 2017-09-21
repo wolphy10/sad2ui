@@ -34,6 +34,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToPrev = this;
             err.lblError.Text = message;
             dim.Show();
 
@@ -46,6 +47,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToPrev = this;
             yey.lblSuccess.Text = message;
             dim.Show();
 
@@ -58,6 +60,7 @@ namespace BalayPasilungan
             dim dim = new dim();
 
             dim.Location = this.Location;
+            dim.refToPrev = this;
             conf.lblConfirm.Text = message;
             dim.Show();
 
