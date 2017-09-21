@@ -443,8 +443,6 @@
             this.label108 = new System.Windows.Forms.Label();
             this.label110 = new System.Windows.Forms.Label();
             this.dtpmembirth = new System.Windows.Forms.DateTimePicker();
-            this.label113 = new System.Windows.Forms.Label();
-            this.cbxmemdependency = new System.Windows.Forms.ComboBox();
             this.label114 = new System.Windows.Forms.Label();
             this.label115 = new System.Windows.Forms.Label();
             this.newChildMenu = new System.Windows.Forms.MenuStrip();
@@ -472,6 +470,9 @@
             this.cbxmemeduattain = new System.Windows.Forms.ComboBox();
             this.label50 = new System.Windows.Forms.Label();
             this.txtmemincome = new System.Windows.Forms.TextBox();
+            this.btnbackfromhealth = new BalayPasilungan.NoFocusRec();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rtremarks = new System.Windows.Forms.RichTextBox();
             this.label67 = new System.Windows.Forms.Label();
             this.upPanel.SuspendLayout();
             this.tabCase.SuspendLayout();
@@ -587,6 +588,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgarchive)).BeginInit();
             this.taskbar.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // upPanel
@@ -1461,6 +1463,7 @@
             // 
             // fifteen
             // 
+            this.fifteen.Controls.Add(this.btnbackfromhealth);
             this.fifteen.Controls.Add(this.btngotohealth);
             this.fifteen.Controls.Add(this.lblvblood);
             this.fifteen.Controls.Add(this.label23);
@@ -1637,6 +1640,7 @@
             this.dtghealth.ShowRowErrors = false;
             this.dtghealth.Size = new System.Drawing.Size(868, 226);
             this.dtghealth.TabIndex = 123;
+            this.dtghealth.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtghealth_CellClick);
             // 
             // label74
             // 
@@ -2611,7 +2615,7 @@
             this.groupBox11.Size = new System.Drawing.Size(600, 259);
             this.groupBox11.TabIndex = 97;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Remarks/Recommendations";
+            this.groupBox11.Text = "Details";
             // 
             // rcheckdetails
             // 
@@ -5710,7 +5714,6 @@
             this.dtginv.ShowRowErrors = false;
             this.dtginv.Size = new System.Drawing.Size(829, 525);
             this.dtginv.TabIndex = 118;
-            this.dtginv.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtginv_CellValueChanged);
             // 
             // btnBackIO
             // 
@@ -5730,6 +5733,7 @@
             // tabNewMember
             // 
             this.tabNewMember.BackColor = System.Drawing.Color.White;
+            this.tabNewMember.Controls.Add(this.groupBox2);
             this.tabNewMember.Controls.Add(this.txtmemincome);
             this.tabNewMember.Controls.Add(this.label67);
             this.tabNewMember.Controls.Add(this.cbxmemeduattain);
@@ -5746,8 +5750,6 @@
             this.tabNewMember.Controls.Add(this.label108);
             this.tabNewMember.Controls.Add(this.label110);
             this.tabNewMember.Controls.Add(this.dtpmembirth);
-            this.tabNewMember.Controls.Add(this.label113);
-            this.tabNewMember.Controls.Add(this.cbxmemdependency);
             this.tabNewMember.Controls.Add(this.label114);
             this.tabNewMember.Controls.Add(this.label115);
             this.tabNewMember.Location = new System.Drawing.Point(4, 25);
@@ -5800,7 +5802,7 @@
             "Widowed",
             "Legally Separated",
             "Divorced/Annulled"});
-            this.cbxmemstatus.Location = new System.Drawing.Point(263, 178);
+            this.cbxmemstatus.Location = new System.Drawing.Point(136, 164);
             this.cbxmemstatus.Name = "cbxmemstatus";
             this.cbxmemstatus.Size = new System.Drawing.Size(199, 21);
             this.cbxmemstatus.TabIndex = 118;
@@ -5808,7 +5810,7 @@
             // txtmemocc
             // 
             this.txtmemocc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemocc.Location = new System.Drawing.Point(263, 256);
+            this.txtmemocc.Location = new System.Drawing.Point(573, 33);
             this.txtmemocc.Name = "txtmemocc";
             this.txtmemocc.Size = new System.Drawing.Size(199, 20);
             this.txtmemocc.TabIndex = 117;
@@ -5816,7 +5818,7 @@
             // txtmemrelationship
             // 
             this.txtmemrelationship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemrelationship.Location = new System.Drawing.Point(263, 107);
+            this.txtmemrelationship.Location = new System.Drawing.Point(136, 93);
             this.txtmemrelationship.Name = "txtmemrelationship";
             this.txtmemrelationship.Size = new System.Drawing.Size(199, 20);
             this.txtmemrelationship.TabIndex = 114;
@@ -5824,7 +5826,7 @@
             // txtmemfirstname
             // 
             this.txtmemfirstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemfirstname.Location = new System.Drawing.Point(263, 68);
+            this.txtmemfirstname.Location = new System.Drawing.Point(136, 54);
             this.txtmemfirstname.Name = "txtmemfirstname";
             this.txtmemfirstname.Size = new System.Drawing.Size(199, 20);
             this.txtmemfirstname.TabIndex = 112;
@@ -5832,7 +5834,7 @@
             // txtmemlastname
             // 
             this.txtmemlastname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemlastname.Location = new System.Drawing.Point(263, 33);
+            this.txtmemlastname.Location = new System.Drawing.Point(136, 19);
             this.txtmemlastname.Name = "txtmemlastname";
             this.txtmemlastname.Size = new System.Drawing.Size(199, 20);
             this.txtmemlastname.TabIndex = 107;
@@ -5842,7 +5844,7 @@
             this.label100.AutoSize = true;
             this.label100.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label100.Location = new System.Drawing.Point(150, 255);
+            this.label100.Location = new System.Drawing.Point(460, 32);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(101, 18);
             this.label100.TabIndex = 116;
@@ -5853,7 +5855,7 @@
             this.label107.AutoSize = true;
             this.label107.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label107.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label107.Location = new System.Drawing.Point(150, 177);
+            this.label107.Location = new System.Drawing.Point(23, 163);
             this.label107.Name = "label107";
             this.label107.Size = new System.Drawing.Size(97, 18);
             this.label107.TabIndex = 115;
@@ -5864,7 +5866,7 @@
             this.label108.AutoSize = true;
             this.label108.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label108.Location = new System.Drawing.Point(150, 106);
+            this.label108.Location = new System.Drawing.Point(23, 92);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(107, 18);
             this.label108.TabIndex = 113;
@@ -5875,7 +5877,7 @@
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label110.Location = new System.Drawing.Point(150, 72);
+            this.label110.Location = new System.Drawing.Point(23, 58);
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(94, 18);
             this.label110.TabIndex = 111;
@@ -5883,44 +5885,18 @@
             // 
             // dtpmembirth
             // 
-            this.dtpmembirth.Location = new System.Drawing.Point(263, 140);
+            this.dtpmembirth.Location = new System.Drawing.Point(136, 126);
             this.dtpmembirth.MaxDate = new System.DateTime(9997, 12, 2, 0, 0, 0, 0);
             this.dtpmembirth.Name = "dtpmembirth";
             this.dtpmembirth.Size = new System.Drawing.Size(199, 20);
             this.dtpmembirth.TabIndex = 110;
-            // 
-            // label113
-            // 
-            this.label113.AutoSize = true;
-            this.label113.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label113.Location = new System.Drawing.Point(150, 220);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(109, 18);
-            this.label113.TabIndex = 109;
-            this.label113.Text = "Dependency";
-            // 
-            // cbxmemdependency
-            // 
-            this.cbxmemdependency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxmemdependency.CausesValidation = false;
-            this.cbxmemdependency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxmemdependency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxmemdependency.FormattingEnabled = true;
-            this.cbxmemdependency.Items.AddRange(new object[] {
-            "Dependent",
-            "Independent"});
-            this.cbxmemdependency.Location = new System.Drawing.Point(263, 220);
-            this.cbxmemdependency.Name = "cbxmemdependency";
-            this.cbxmemdependency.Size = new System.Drawing.Size(199, 21);
-            this.cbxmemdependency.TabIndex = 108;
             // 
             // label114
             // 
             this.label114.AutoSize = true;
             this.label114.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label114.Location = new System.Drawing.Point(150, 142);
+            this.label114.Location = new System.Drawing.Point(23, 128);
             this.label114.Name = "label114";
             this.label114.Size = new System.Drawing.Size(83, 18);
             this.label114.TabIndex = 106;
@@ -5931,7 +5907,7 @@
             this.label115.AutoSize = true;
             this.label115.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label115.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label115.Location = new System.Drawing.Point(150, 33);
+            this.label115.Location = new System.Drawing.Point(23, 19);
             this.label115.Name = "label115";
             this.label115.Size = new System.Drawing.Size(93, 18);
             this.label115.TabIndex = 105;
@@ -6232,7 +6208,7 @@
             "College",
             "Masters",
             "Doctorate"});
-            this.cbxmemeduattain.Location = new System.Drawing.Point(263, 293);
+            this.cbxmemeduattain.Location = new System.Drawing.Point(573, 70);
             this.cbxmemeduattain.Name = "cbxmemeduattain";
             this.cbxmemeduattain.Size = new System.Drawing.Size(199, 21);
             this.cbxmemeduattain.TabIndex = 124;
@@ -6242,7 +6218,7 @@
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label50.Location = new System.Drawing.Point(150, 292);
+            this.label50.Location = new System.Drawing.Point(460, 69);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(103, 36);
             this.label50.TabIndex = 123;
@@ -6251,17 +6227,53 @@
             // txtmemincome
             // 
             this.txtmemincome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemincome.Location = new System.Drawing.Point(263, 337);
+            this.txtmemincome.Location = new System.Drawing.Point(573, 114);
             this.txtmemincome.Name = "txtmemincome";
             this.txtmemincome.Size = new System.Drawing.Size(199, 20);
             this.txtmemincome.TabIndex = 126;
+            // 
+            // btnbackfromhealth
+            // 
+            this.btnbackfromhealth.BackColor = System.Drawing.Color.White;
+            this.btnbackfromhealth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnbackfromhealth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnbackfromhealth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnbackfromhealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnbackfromhealth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnbackfromhealth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnbackfromhealth.Location = new System.Drawing.Point(348, 459);
+            this.btnbackfromhealth.Name = "btnbackfromhealth";
+            this.btnbackfromhealth.Size = new System.Drawing.Size(206, 40);
+            this.btnbackfromhealth.TabIndex = 136;
+            this.btnbackfromhealth.Text = "GO BACK";
+            this.btnbackfromhealth.UseVisualStyleBackColor = false;
+            this.btnbackfromhealth.Click += new System.EventHandler(this.btnbackfromhealth_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rtremarks);
+            this.groupBox2.Font = new System.Drawing.Font("Mistral", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(6, 191);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(835, 343);
+            this.groupBox2.TabIndex = 127;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Details";
+            // 
+            // rtremarks
+            // 
+            this.rtremarks.Location = new System.Drawing.Point(6, 26);
+            this.rtremarks.Name = "rtremarks";
+            this.rtremarks.Size = new System.Drawing.Size(829, 311);
+            this.rtremarks.TabIndex = 89;
+            this.rtremarks.Text = "";
             // 
             // label67
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label67.Location = new System.Drawing.Point(150, 336);
+            this.label67.Location = new System.Drawing.Point(460, 113);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(74, 36);
             this.label67.TabIndex = 125;
@@ -6437,6 +6449,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgarchive)).EndInit();
             this.taskbar.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6669,8 +6682,6 @@
         private System.Windows.Forms.Label label108;
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.DateTimePicker dtpmembirth;
-        private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.ComboBox cbxmemdependency;
         private System.Windows.Forms.Label label114;
         private System.Windows.Forms.Label label115;
         private System.Windows.Forms.DataGridView dtincid;
@@ -6866,8 +6877,11 @@
         private NoFocusRec btnbackfrommember;
         private System.Windows.Forms.RichTextBox rtinvolve;
         private System.Windows.Forms.TextBox txtmemincome;
-        private System.Windows.Forms.Label label67;
         private System.Windows.Forms.ComboBox cbxmemeduattain;
         private System.Windows.Forms.Label label50;
+        private NoFocusRec btnbackfromhealth;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox rtremarks;
+        private System.Windows.Forms.Label label67;
     }
 }
