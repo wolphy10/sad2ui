@@ -377,7 +377,7 @@ namespace BalayPasilungan
                     table.Columns[6].HeaderText = "REQUESTED BY";
 
                     // For ID purposes (hidden from user)            
-                    table.Columns[0].Visible = table.Columns[1].Visible = table.Columns[3].Visible = table.Columns[4].Visible = false;
+                    table.Columns[0].Visible = table.Columns[1].Visible = table.Columns[3].Visible = table.Columns[4].Visible = table.Columns[7].Visible = false;
 
                     // 935 TOTAL WIDTH
                     table.Columns[2].Width = 505;
@@ -423,8 +423,8 @@ namespace BalayPasilungan
 
                     // ADD COLUMN TO CHECK BUDGET
                     DataColumn hasBudget = new System.Data.DataColumn("hasBudget", typeof(System.String));
-                    hasBudget.DefaultValue = "No";
-                    dt.Columns.Add(hasBudget);
+                    hasBudget.DefaultValue = "";
+                    dt.Columns.Add(hasBudget);                                        
 
                     // BR LIST In Kind UI Modifications
                     expList.Columns[1].HeaderText = "EXPENSE DATE";
@@ -445,7 +445,8 @@ namespace BalayPasilungan
                     {
                         for(int i = 0; i < dt.Rows.Count; i++)
                         {
-                            if (dt.Rows[i]["budgetID"].ToString() != "") dt.Rows[i]["hasBudget"] = "Yes";                            
+                            if (dt.Rows[i]["budgetID"].ToString() != "") dt.Rows[i]["hasBudget"] = "Yes";   
+                            else dt.Rows[i]["hasBudget"] = "No";
                         }
                         expList.Columns[1].HeaderCell.Style.Padding = expList.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                         expList.Columns[1].DefaultCellStyle.Format = "MMMM dd, yyyy";
@@ -1489,6 +1490,7 @@ namespace BalayPasilungan
 
         private void btnViewEx_Click(object sender, EventArgs e)
         {
+            panelExpOp.Visible = false;
             tabSelection.SelectedTab = tabEx;
             MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6); cbAll.Checked = true;
@@ -1507,6 +1509,7 @@ namespace BalayPasilungan
         #region New Budget Request
         private void btnNewBR_Click(object sender, EventArgs e)
         {
+            btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = false;
             resetBudgetRequest(); brEdit = false;
             tabSelection.SelectedTab = tabBudgetRequest;
             dateBR.MaxDate = dateBR.Value = DateTime.Today;
@@ -1529,8 +1532,9 @@ namespace BalayPasilungan
             int row = BRDetails.CurrentCell.RowIndex;
             moneyDonate mD = overlay();
             mD.tabSelection.SelectedIndex = 11;
-            mD.txtBRPart2.Text = BRDetails.Rows[row].Cells[2].Value.ToString();
-            mD.txtBRQuantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[3].Value.ToString());
+            mD.txtBRPart2.Text = BRDetails.Rows[row].Cells[1].Value.ToString();
+            mD.txtBRQuantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[2].Value.ToString());
+            mD.txtBRUP2.Text = BRDetails.Rows[row].Cells[3].Value.ToString();
             mD.txtBRTotal2.Text = BRDetails.Rows[row].Cells[4].Value.ToString();
             mD.ShowDialog();
         }
@@ -1577,6 +1581,7 @@ namespace BalayPasilungan
                             comm.ExecuteNonQuery();
 
                             conn.Close();
+                            btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = true;
                             get(2); get(4);
                             tabSelection.SelectedTab = tabFinance;
                         }
@@ -1613,6 +1618,9 @@ namespace BalayPasilungan
                 else brparTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
                 
                 String dateRequested = dateBR.Value.Year.ToString() + "-" + dateBR.Value.Month.ToString() + "-" + dateBR.Value.Day.ToString();
+
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+                loadTable(comm, 5);
             }
             else errorMessage("Please fill up all fields or choose a category.");
         }
@@ -1646,18 +1654,25 @@ namespace BalayPasilungan
                 {
                     errorMessage(ex.Message);
                 }
-
                 if (((Button)sender).Name == "btnBRCancel")
                 {
-                    txtPurpose.Text = "Name of purpose.";
-                    txtBRRequest.Text = "Name.";
-                    dateBR.MaxDate = dateBR.Value = DateTime.Today;
-                    lblOthers.Visible = cbExpCat.Visible = false; cbExpCat.SelectedIndex = 0;
-                    rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
+                    if (!brEdit)
+                    {
+                        txtPurpose.Text = "Name of purpose.";
+                        txtBRRequest.Text = "Name.";
+                        dateBR.MaxDate = dateBR.Value = DateTime.Today;
+                        lblOthers.Visible = cbExpCat.Visible = false; cbExpCat.SelectedIndex = 0;
+                        rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
 
-                    tabSelection.SelectedTab = tabFinance;
+                        tabSelection.SelectedTab = tabFinance;
+                    }
+                    else
+                    {
+                        tabSelection.SelectedTab = tabBRList;
+                        tabPBR.SelectedIndex = 1;
+                    }
                 }
-            }
+            }                                  
         }
 
         private void category_CheckedChanged(object sender, EventArgs e)
@@ -1711,14 +1726,14 @@ namespace BalayPasilungan
         private void btnPBRBack_Click(object sender, EventArgs e)
         {
             if (tabPBR.SelectedIndex == 1 && lblBRHeader.Text == "Pending Budget Requests") tabPBR.SelectedIndex = 0;
-            else if (lblBRHeader.Text == "Requests")
+            else if (lblBRHeader.Text == "Pending Budget Requests")
             {                
                 lblBRHeader.Text = "Pending Budget Requests"; aBR = false;
                 panelPBR.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
                 lblBudgetTotal.Text = "Budget Total (PHP)"; lblOn.Text = "on";
                 tabSelection.SelectedTab = tabFinance;
             }            
-            else tabSelection.SelectedTab = tabFinance;
+            else tabSelection.SelectedTab = tabEx;
         }
 
         private void btnBRApprove_Click(object sender, EventArgs e)
@@ -1774,6 +1789,7 @@ namespace BalayPasilungan
                 }
                 else if (choice == DialogResult.No)         // EDIT BUDGET REQUEST
                 {
+                    btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = false;
                     tabSelection.SelectedTab = tabBudgetRequest;
                     tabBR.SelectedIndex = 0;
 
@@ -1803,10 +1819,10 @@ namespace BalayPasilungan
                         {
                             cbExpCat.SelectedIndex = i;
                             if (cbExpCat.SelectedItem.ToString() == lblPBRCategory.Text) break;
-                        }                        
+                        }
                     }
-                    MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
-                    loadTable(comm, 5);
+                    comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+                    loadTable(comm, 3);
 
                     brTS.ForeColor = btnBRNext.BackColor = btnBRConfirm.BackColor = System.Drawing.Color.FromArgb(219, 209, 92);
                     btnBRNext.ForeColor = btnBRConfirm.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
@@ -2164,22 +2180,25 @@ namespace BalayPasilungan
                     pdfImage.ScalePercent(25F); pdfImage.Alignment = Element.ALIGN_CENTER;
                     doc.Add(pdfImage);
 
-                    Chunk chunk = new Chunk("BUDGET REQUEST FORM"); chunk.SetUnderline(2, -3);
-                    Paragraph par = new Paragraph(chunk); par.Alignment = Element.ALIGN_CENTER; doc.Add(par);
-
-                    iTextSharp.text.Font bold = FontFactory.GetFont("Segoe UI", 11, 1, BaseColor.BLACK);
-                    iTextSharp.text.Font normal = FontFactory.GetFont("Segoe UI", 12, 4, BaseColor.BLACK);
+                    iTextSharp.text.Font title = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 12, 5, BaseColor.BLACK);
+                    iTextSharp.text.Font bold = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 12, 1, BaseColor.BLACK);
+                    iTextSharp.text.Font underline = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 12, 4, BaseColor.BLACK);
+                    iTextSharp.text.Font normal = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 11, BaseColor.BLACK);
 
                     Phrase phrase = new Phrase();
-                    phrase.Add(new Chunk("\n\nPURPOSE: ", bold));
-                    phrase.Add(new Chunk(lblPBRPurpose.Text, normal));
-                    phrase.Add(new Chunk("\nDATE REQUESTED: ", bold));
-                    phrase.Add(new Chunk(lblPBRdate.Text, normal));
-                    phrase.Add(new Chunk("\nCATEGORY: ", bold));
-                    phrase.Add(new Chunk(lblPBRCategory.Text, normal));
+                    phrase.Add(new Chunk("BUDGET REQUEST FORM", title));
+                    Paragraph par = new Paragraph(); par.Alignment = Element.ALIGN_CENTER; par.Add(phrase); doc.Add(par);
+
+                    phrase = new Phrase();
+                    phrase.Add(new Chunk("\nPURPOSE: ", normal));
+                    phrase.Add(new Chunk(lblPBRPurpose.Text, underline));
+                    phrase.Add(new Chunk("\nDATE REQUESTED: ", normal));
+                    phrase.Add(new Chunk(lblPBRdate.Text, underline));
+                    phrase.Add(new Chunk("\nCATEGORY: ", normal));
+                    phrase.Add(new Chunk(lblPBRCategory.Text, underline));
                     par = new Paragraph(); par.Add(phrase); doc.Add(par);
 
-                    phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
+                    phrase = new Phrase(); phrase.Add(new Chunk("\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
 
                     PdfPTable pdfTable = new PdfPTable(4);
                     float[] widths = new float[] { 4f, 2f, 2f, 2f };
@@ -2194,6 +2213,7 @@ namespace BalayPasilungan
                     phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
                     cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
 
+                    int count = 0;
                     foreach (DataGridViewRow r in PBRDetails.Rows)
                     {
                         try
@@ -2202,11 +2222,41 @@ namespace BalayPasilungan
                             pdfTable.AddCell(r.Cells[2].Value.ToString());
                             pdfTable.AddCell(r.Cells[3].Value.ToString());
                             pdfTable.AddCell(r.Cells[4].Value.ToString());
+                            count++;
                         }
                         catch { }
                     }
+                    for(int i = count; i < 24; i++)
+                    {                       
+                        pdfTable.AddCell(" ");
+                        pdfTable.AddCell(" ");
+                        pdfTable.AddCell(" ");
+                        pdfTable.AddCell(" ");
+                    }
+                                  
+                    // TOTAL
+                    comm = new MySqlCommand("SELECT SUM(amount) as TOTAL FROM item WHERE budgetID = " + current_budgetID, conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
+
+                    phrase = new Phrase(); phrase.Add(new Chunk("TOTAL", bold)); cell = new PdfPCell(phrase);
+                    cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                    pdfTable.AddCell(" ");
+                    pdfTable.AddCell(" ");
+                    phrase = new Phrase(); phrase.Add(new Chunk(dt.Rows[0][0].ToString(), bold)); cell = new PdfPCell(phrase);
+                    cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
 
                     doc.Add(pdfTable);
+
+                    PdfContentByte cb = wri.DirectContent;
+                    ColumnText ct = new ColumnText(cb); Phrase right = new Phrase();
+                    right.Add(new Chunk("Prepared by: ", normal));
+                    right.Add(new Chunk(lblPBRBy.Text, underline));
+                    ct.SetSimpleColumn(right, 65, 25, 65 * 4, 25 * 4, 15, Element.ALIGN_LEFT); ct.Go();
+
+                    right = new Phrase(); right.Add(new Chunk("Approved by: Fr. Lionel R. Mechavez, SM", normal)); // BOOK LMAO change director
+                    ct.SetSimpleColumn(right, 300, 25, 560, 25 * 4, 15, Element.ALIGN_CENTER); ct.Go();
+                    right = new Phrase(); right.Add(new Chunk("Executive Director", normal));
+                    ct.SetSimpleColumn(right, 310, 20, 570, 20 * 4, 15, Element.ALIGN_CENTER); ct.Go();
 
                     doc.Close();
                     successMessage("Budget request exported successfully!");
@@ -2396,7 +2446,7 @@ namespace BalayPasilungan
             int row = expList.CurrentCell.RowIndex;
             if (expList.Rows[row].Cells[5].FormattedValue.ToString() == "Yes")
             {
-                expList.Size = new System.Drawing.Size(935, 324); panelExpOp.Visible = true;
+                expList.Size = new System.Drawing.Size(935, 324); panelExpOp.Visible = false;
                 current_budgetID = int.Parse(expList.Rows[row].Cells[4].FormattedValue.ToString());                
 
                 conn.Open();
@@ -2408,7 +2458,7 @@ namespace BalayPasilungan
                 lblPBRPurpose.Text = dt.Rows[0]["purpose"].ToString();
                 lblPBRCategory.Text = dt2.Rows[0]["category"].ToString();
                 lblPBRBy.Text = dt.Rows[0]["requestedBy"].ToString();
-                lblPBRdate.Text = dt2.Rows[0]["dateExpense"].ToString();
+                lblPBRdate.Text = DateTime.Parse(dt2.Rows[0]["dateExpense"].ToString()).ToString("MMMM dd, yyyy").ToString();
                 lblPBRTotal.Text = dt2.Rows[0]["amount"].ToString();
 
                 conn.Close();
