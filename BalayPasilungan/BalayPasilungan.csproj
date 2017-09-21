@@ -446,9 +446,7 @@
     <None Include="Resources\logo paper.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\add.ico" />
     <None Include="Resources\add.png" />
-    <Content Include="Resources\akame3.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

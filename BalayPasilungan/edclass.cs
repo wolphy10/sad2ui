@@ -73,8 +73,6 @@ namespace BalayPasilungan
 
         private void btncanceledclass_Click(object sender, EventArgs e)
         {
-            
-            reftocase.reloadedclass(reftocase.eid);
 
             this.Close();
         }
@@ -156,7 +154,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE edclass SET section = '" + section + "', adviser = '" + adviser + "', yearlevel = '" + year + "' WHERE edclassid = " + classeid, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE edclass SET section = '" + section + "', adviser = '" + adviser + "', yearlevel = '" + year + "' WHERE classeid = " + classeid, conn);
 
                     comm.ExecuteNonQuery();
 
