@@ -327,6 +327,88 @@ namespace BalayPasilungan
             }
         }
 
+        public void addcon()
+        {
+            string interviewer = txtintname.Text, condes = richconbox.Text;
+
+            if (string.IsNullOrEmpty(interviewer) || string.IsNullOrEmpty(condes))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO consultation(caseid, condes, interviewdate, interviewer) VALUES('" + id + "', '" + condes + "', '" + condate.Value.Date.ToString("yyyyMMdd") + "','" + interviewer + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    successMessage("Consultation Record Added!");
+
+                    conn.Close();
+
+                    reloadcon(id);
+
+                    tabCase.SelectedTab = tabInfo;
+                    tabChild.SelectedTab = ninth;
+
+                    reset4();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
+        public void editcon()
+        {
+            string interviewer = txtintname.Text, condes = richconbox.Text;
+
+            if (string.IsNullOrEmpty(interviewer) || string.IsNullOrEmpty(condes))
+            {
+                errorMessage("Please fill out empty fields.");
+            }
+
+            else
+            {
+                try
+                {
+
+                    conn.Open();
+
+
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO consultation(caseid, condes, interviewdate, interviewer) VALUES('" + id + "', '" + condes + "', '" + condate.Value.Date.ToString("yyyyMMdd") + "','" + interviewer + "')", conn);
+
+                    comm.ExecuteNonQuery();
+
+                    successMessage("Consultation Record Added!");
+
+                    conn.Close();
+
+                    reloadcon(id);
+
+                    tabCase.SelectedTab = tabInfo;
+                    tabChild.SelectedTab = ninth;
+
+                    reset4();
+                }
+
+                catch (Exception ee)
+                {
+                    MessageBox.Show("" + ee);
+                    conn.Close();
+                }
+            }
+        }
+
         public void insertinvolve()
         {
             string lastname, firstname;
@@ -565,6 +647,7 @@ namespace BalayPasilungan
                     tabChild.SelectedTab = sixteen;
                     tabCase.SelectedTab = tabInfo;
                     reset(); refresh();
+
                     reload(id);                
                     
                     
@@ -1270,25 +1353,13 @@ namespace BalayPasilungan
                 // Consultation
 
                 existscon(id);
+
+                //-------------------------------------------------------------------------------------------------------------
+                // Family + Members
+
+                existsfam(id);
+
                 
-                comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
-                adp = new MySqlDataAdapter(comm);
-                dt = new DataTable();
-
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    lblfamtypedis.Text = dt.Rows[0]["famtype"].ToString();
-                    lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
-                }
-
-                else
-                {
-                    lblfamtypedis.Text = "";
-                    lblmemcountdis.Text = "";
-                }
-
                 /*comm = new MySqlCommand("SELECT incdate FROM consultation WHERE caseid = " + id, conn);
                 adp = new MySqlDataAdapter(comm);
                 dt = new DataTable();
@@ -1307,6 +1378,7 @@ namespace BalayPasilungan
             catch (Exception ee)
             {
                 MessageBox.Show(ee.ToString());
+                conn.Close();
             }
         }
 
@@ -1579,12 +1651,6 @@ namespace BalayPasilungan
 
                 }
 
-                else
-                {
-                    errorMessage("There are no current family records for this case study.");
-                }
-
-
                 conn.Close();
 
             }
@@ -1604,27 +1670,17 @@ namespace BalayPasilungan
         {
             try
             {
-                MySqlCommand comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
                 adp.Fill(dt);
 
-
-
                 if (dt.Rows.Count > 0)
-                {
-                    comm = new MySqlCommand("SELECT memberid, firstname, lastname, gender, birthdate, relationship, dependency, occupation FROM member WHERE familyid = " + famid, conn);
-
-                    adp = new MySqlDataAdapter(comm);
-                    dt = new DataTable();
-
-                    adp.Fill(dt);
-
-                    if (dt.Rows.Count > 0)
                     {
                         dtfamOverview.DataSource = dt;
+
                         dtfamOverview.Columns["memberid"].Visible = false;
 
                         comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE familyid = " + famid, conn);
@@ -1644,15 +1700,12 @@ namespace BalayPasilungan
                         if (dtfamOverview.Columns["check"] == null)
                         {
                             dtfamOverview.Columns.Add(dc);
-
-
+                        
                         }
 
                     }
-                }
-
-                    
-
+                
+                
                 else
                 {
                     errorMessage("There are no current member records for this case study.");
@@ -1756,9 +1809,7 @@ namespace BalayPasilungan
 
                 }
 
-                tabconrecords.SelectedTab = document;
-
-                lblcontitle.Visible = false;
+                tabChild.SelectedTab = seventeen;
 
                 conn.Close();
 
@@ -1766,7 +1817,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                //MessageBox.Show("" + ee);
+                MessageBox.Show("" + ee);
                 conn.Close();
             }
         }
@@ -2113,69 +2164,109 @@ namespace BalayPasilungan
 
         public void existscon(int id)
         {
-            MySqlCommand comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn); //
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            DataTable dt = new DataTable();
-
-            DateTime consuldate;
-
-            adp.Fill(dt);
-
-            if (dt.Rows.Count > 0)
+            try
             {
-                for (int i = 0; i < dt.Rows.Count; i++)
+                MySqlCommand comm = new MySqlCommand("SELECT interviewdate FROM consultation WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                DateTime consuldate;
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
                 {
-                    for (int j = 1; j < dt.Rows.Count; j++)
+                    if (dt.Rows.Count == 1)
                     {
-                        if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
-                        {
-                            consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
-
-
-                        }
-
-                        else
-                        {
-                            consuldate = Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date;
-                        }
-
+                        consuldate = Convert.ToDateTime(dt.Rows[0]["interviewdate"]).Date;
                         lblconsuldate.Text = consuldate.ToString("MMMM dd, yyyy");
                     }
 
+                    else
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            for (int j = 1; j < dt.Rows.Count; j++)
+                            {
+
+                                if (Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date > Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date)
+                                {
+                                    consuldate = Convert.ToDateTime(dt.Rows[i]["interviewdate"]).Date;
+
+                                }
+
+                                else
+                                {
+                                    consuldate = Convert.ToDateTime(dt.Rows[j]["interviewdate"]).Date;
+                                }
+
+                                lblconsuldate.Text = consuldate.ToString("MMMM dd, yyyy");
+
+                            }
+
+                        }
+                    }
+                    
 
                 }
 
+                else
+                {
+                    lblconsuldate.Text = "";
+                }
             }
 
-            else
+            catch (Exception ee)
             {
-                lblconsuldate.Text = "";
+                MessageBox.Show(ee.ToString());
+                
             }
+
         }
 
         public void existsfam(int id)
         {
             try
             {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT caseid FROM family WHERE caseid = " + id, conn);
-                int UserExist = (int)comm.ExecuteScalar();
-                btnfamtype.Text = (UserExist > 0) ? "EDIT TYPE" : "ADD TYPE"; //put add info on catch
 
-                comm = new MySqlCommand("SELECT familyid FROM family WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT famtype, COUNT(memberid) FROM family JOIN member ON family.familyid = member.familyid WHERE family.caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
+
                 adp.Fill(dt);
 
-                famid = int.Parse(dt.Rows[0]["familyid"].ToString());
-                conn.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
+
+                    if (int.Parse(lblmemcountdis.Text) != 0)
+                    {
+                        lblfamtypedis.Text = dt.Rows[0]["famtype"].ToString();
+                        btnfamtype.Text = "CHANGE FAMILY TYPE";
+                    }
+
+                    else
+                    {
+                        lblfamtypedis.Text = "";
+                    }
+
+                    
+                }
+
+                else
+                {
+                    lblfamtypedis.Text = "";
+                    lblmemcountdis.Text = "";
+
+                    btnfamtype.Text = "ADD FAMILY TYPE";
+                }
+
+
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
-                btned.Text = "ADD TYPE";           
-                lblfamilytype.Text = "";
-                conn.Close();
+                MessageBox.Show(ee.ToString());
+               
             }
         }
 
@@ -2809,42 +2900,14 @@ namespace BalayPasilungan
 
         private void btnaddcon_Click(object sender, EventArgs e)
         {
-            string interviewer = txtintname.Text, condes = richconbox.Text;
-
-            if (string.IsNullOrEmpty(interviewer) || string.IsNullOrEmpty(condes))
+            if (btnaddcon.Text == "ADD")
             {
-                errorMessage("Please fill out empty fields.");
+                addcon();
             }
 
             else
             {
-                try
-                {
-
-                    conn.Open();
-
-
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO consultation(caseid, condes, interviewdate, interviewer) VALUES('" + id + "', '" + condes + "', '" + condate.Value.Date.ToString("yyyyMMdd") + "','" + interviewer + "')", conn);
-
-                    comm.ExecuteNonQuery();
-
-                    successMessage("Consultation Record Added!");
-
-                    conn.Close();
-
-                    reloadcon(id);
-
-                    tabCase.SelectedTab = tabInfo;
-                    tabChild.SelectedTab = ninth;
-
-                    reset4();
-                }
-
-                catch (Exception ee)
-                {
-                    MessageBox.Show("" + ee);
-                    conn.Close();
-                }
+                editcon();
             }
         }
 
@@ -2968,10 +3031,11 @@ namespace BalayPasilungan
 
         private void btncancelviewrec_Click(object sender, EventArgs e)
         {
-            tabconrecords.SelectedTab = tabrecords;
+            tabChild.SelectedTab = twelfth;
+
             richboxrecords.Clear();
 
-            lblcontitle.Visible = true;
+            
         }
 
         private void btncanfamtype_Click(object sender, EventArgs e)
@@ -3043,7 +3107,7 @@ namespace BalayPasilungan
         {
             tabChild.SelectedTab = ninth;
 
-            tabconrecords.SelectedTab = tabrecords;
+            
 
             reloadcon(id);
         }
@@ -3051,7 +3115,7 @@ namespace BalayPasilungan
         private void btnfover_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = fourth;
-            existsfam(id);
+           
             reloadfam(id);
         }
 
@@ -3260,7 +3324,7 @@ namespace BalayPasilungan
             }
         }
 
-        
+       
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabNewChild;
