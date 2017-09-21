@@ -791,7 +791,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO education(caseid, school, eduType, level) VALUES('" + id + "', '" + edname + "', '" + type + "','" + level + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO education(caseid, school, program, level) VALUES('" + id + "', '" + edname + "', '" + type + "','" + level + "')", conn);
 
                     comm.ExecuteNonQuery();
 
@@ -838,7 +838,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE education SET school = '" + edname + "', eduType = '" + type + "', level = '" + level + "' WHERE eid = " + eid, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE education SET school = '" + edname + "', program = '" + type + "', level = '" + level + "' WHERE eid = " + eid, conn);
 
                     comm.ExecuteNonQuery();
 
@@ -878,7 +878,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT school, eduType, level FROM education WHERE eid = " + eid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT school, program, level FROM education WHERE eid = " + eid, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -888,7 +888,7 @@ namespace BalayPasilungan
                 {
 
                     txtedname.Text = dt.Rows[0]["school"].ToString();
-                    cbxtype.Text = dt.Rows[0]["eduType"].ToString();
+                    cbxtype.Text = dt.Rows[0]["program"].ToString();
                     cbxedlvl.Text = dt.Rows[0]["level"].ToString();
                     
                 }
@@ -1398,8 +1398,9 @@ namespace BalayPasilungan
                 {
                     dtgeducation.DataSource = dt;
 
-                    DataGridViewButtonColumn EditColumn = new DataGridViewButtonColumn();
-                    EditColumn.Text = "Edit";
+                    DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
+                    EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    EditColumn.Image = Properties.Resources.editrmm;
                     EditColumn.Name = "Edit";
                     EditColumn.DataPropertyName = "Edit";
                     
@@ -1857,7 +1858,7 @@ namespace BalayPasilungan
 
             eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
 
             {
                 if (senderGrid.Columns[e.ColumnIndex] == senderGrid.Columns["Edit"])
@@ -2069,33 +2070,48 @@ namespace BalayPasilungan
 
                 adp.Fill(dt);
 
+                MessageBox.Show(dt.Rows[0]["school"].ToString());
+
+                MessageBox.Show(dt.Rows.Count.ToString());
+
                 if (dt.Rows.Count > 0)
                 {
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    if (dt.Rows.Count == 1)
                     {
-                        for (int j = 1; j < dt.Rows.Count; j++)
-                        {
-                            //if (dt.Rows[i]["dateadded"] != null && dt.Rows[j]["dateadded"] != null) { }
-
-                            if (Convert.ToDateTime(dt.Rows[i]["dateadded"]).Date > Convert.ToDateTime(dt.Rows[j]["dateadded"]).Date)
-                            {
-                                school = dt.Rows[i]["school"].ToString();
-                                level = dt.Rows[i]["level"].ToString();
-
-                            }
-
-                            else
-                            {
-                                school = dt.Rows[j]["school"].ToString();
-                                level = dt.Rows[j]["level"].ToString();
-                            }
-
-                            lbledlvl.Text = level;
-                            lbledschool.Text = school;
-                            
-                        }
-
+                        school = dt.Rows[0]["school"].ToString();
+                        level = dt.Rows[0]["level"].ToString();
+                       
+                        
                     }
+
+                    else
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            for (int j = 1; j < dt.Rows.Count; j++)
+                            {
+                           
+                                if (Convert.ToDateTime(dt.Rows[i]["dateadded"]).Date > Convert.ToDateTime(dt.Rows[j]["dateadded"]).Date)
+                                {
+                                    school = dt.Rows[i]["school"].ToString();
+                                    level = dt.Rows[i]["level"].ToString();
+
+                                }
+
+                                else
+                                {
+                                    school = dt.Rows[j]["school"].ToString();
+                                    level = dt.Rows[j]["level"].ToString();
+                                }
+
+                                lbledlvl.Text = level;
+                                lbledschool.Text = school;
+
+                            }
+
+                        }
+                    }
+                    
 
                 }
 
@@ -2107,7 +2123,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 
                 
             }
@@ -2141,20 +2157,31 @@ namespace BalayPasilungan
                         {
                             for (int j = 1; j < dt.Rows.Count; j++)
                             {
-
-                                if (Convert.ToDateTime(dt.Rows[i]["incdate"]).Date > Convert.ToDateTime(dt.Rows[j]["incdate"]).Date)
+                                if (dt.Rows.Count == 1)
                                 {
-                                    incdate = Convert.ToDateTime(dt.Rows[i]["incdate"]).Date;
+                                    incdate = Convert.ToDateTime(dt.Rows[0]["incdate"]).Date;
+
+                                    
 
                                 }
 
                                 else
                                 {
-                                    incdate = Convert.ToDateTime(dt.Rows[j]["incdate"]).Date;
+                                    if (Convert.ToDateTime(dt.Rows[i]["incdate"]).Date > Convert.ToDateTime(dt.Rows[j]["incdate"]).Date)
+                                    {
+                                        incdate = Convert.ToDateTime(dt.Rows[i]["incdate"]).Date;
+
+                                    }
+
+                                    else
+                                    {
+                                        incdate = Convert.ToDateTime(dt.Rows[j]["incdate"]).Date;
+                                    }
+
+                                    
                                 }
 
                                 lblincdatedis.Text = incdate.ToString("MMMM dd, yyyy");
-
                             }
 
                         }
