@@ -522,7 +522,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateArchive FROM donor WHERE status = 0 ORDER BY dateArchive DESC", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT donorID, donorName, pledge, datePledge, dateArchived FROM donor WHERE status = 0 ORDER BY dateArchived DESC", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -733,7 +733,8 @@ namespace BalayPasilungan
                 // Delete expense record
                 else if (type == 3) comm = new MySqlCommand("DELETE FROM expense WHERE expenseID = " + ID, conn);
                 // Delete budget record
-                else if (type == 4) comm = new MySqlCommand("DELETE FROM budget WHERE budgetID = " + ID, conn);
+                else if (type == 4) comm = new MySqlCommand("DELETE FROM budget WHERE budgetID = " + ID, conn);                
+
                 comm.ExecuteNonQuery();
                 conn.Close();
             }
@@ -907,7 +908,7 @@ namespace BalayPasilungan
                 try
                 {
                     conn.Open();
-                    MySqlCommand comm = new MySqlCommand("UPDATE donor SET status = 0, dateArchived = '" + DateTime.Today + "' WHERE donorID = " + current_donorID, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE donor SET status = 0, dateArchived = '" + DateTime.Today.ToString("yyyy-MM-dd") + "' WHERE donorID = " + current_donorID, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
                     successMessage("Donor has been changed to inactive.");
@@ -916,6 +917,9 @@ namespace BalayPasilungan
                 {
                     errorMessage(ex.Message);
                 }
+                resetDonorShowTS();
+                loadDonorList();
+                tabSelection.SelectedTab = tabDonors;
             }
         }
         #endregion
@@ -1103,6 +1107,44 @@ namespace BalayPasilungan
                 conf_phone.Text = txtPhoneEdit.Text; conf_mobile.Text = txtMobile1Edit.Text + txtMobile2Edit.Text + txtMobile3Edit.Text;
                 conf_email.Text = txtEmailEdit.Text; conf_donorName.Text = txtDonorAdEdit.Text;
             }
+        }
+        
+        private void btnActiveAgain_Click(object sender, EventArgs e)
+        {
+            confirmMessage("Are you sure you want to activate this donor again?");
+            if (confirmed)
+            {                
+                if (!multiArchiveD.Checked)
+                {
+                    int row = archiveDonors.CurrentCell.RowIndex;
+                    conn.Open();
+                    comm = new MySqlCommand("UPDATE donor SET status = 1 WHERE donorID = " + archiveDonors.Rows[row].Cells[0].Value, conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                    successMessage("Selected donor has been activated successfullly.");
+                }
+                else
+                {
+                    foreach (DataGridViewRow r in archiveDonors.SelectedRows)
+                    {
+                        int row = archiveDonors.CurrentCell.RowIndex;
+                        conn.Open();                       
+                        comm = new MySqlCommand("UPDATE donor SET status = 1 WHERE donorID = " + archiveDonors.Rows[row].Cells[0].Value, conn);
+                        comm.ExecuteNonQuery();
+                        conn.Close();
+                        loadArchiveDonor();
+                    }
+                    multiArchiveD.Checked = false;
+                    successMessage("Selected donors have been activated successfullly.");
+                }
+                loadArchiveDonor();
+            }
+        }
+        
+        private void multiArchiveD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (multiArchiveD.Checked) archiveDonors.MultiSelect = true;
+            else archiveDonors.MultiSelect = false;
         }
         #endregion
 
@@ -1434,11 +1476,10 @@ namespace BalayPasilungan
 
         private void btnDelIK_Click(object sender, EventArgs e)
         {
-            confirm conf = new confirm();
-            conf.lblConfirm.Text = "Are you sure you want to delete them? There's no chance to get them again.";
+            confirmMessage("Are you sure you want to delete them? There's no chance to get them again.");
             if (multiSelect2.Checked)
             {
-                if (conf.ShowDialog() == DialogResult.OK)
+                if (confirmed)
                 {
                     foreach (DataGridViewRow r in donationIK.SelectedRows)
                     {
@@ -1451,7 +1492,7 @@ namespace BalayPasilungan
             else
             {
                 int row = donationMoney.CurrentCell.RowIndex;
-                if (conf.ShowDialog() == DialogResult.OK)
+                if (confirmed)
                 {
                     delDonation(int.Parse(donationIK.Rows[row].Cells[4].Value.ToString()), 2);
                     loadIK(current_donorID);
@@ -1511,9 +1552,16 @@ namespace BalayPasilungan
         {
             btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = false;
             resetBudgetRequest(); brEdit = false;
-            tabSelection.SelectedTab = tabBudgetRequest;
+
+            txtPurpose.Text = "Name of purpose.";
+            txtBRRequest.Text = "Name.";            
+            lblOthers.Visible = cbExpCat.Visible = false; cbExpCat.SelectedIndex = 0;
+            rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
             dateBR.MaxDate = dateBR.Value = DateTime.Today;
+
             get(1);
+            tabSelection.SelectedTab = tabBudgetRequest;
+            tabBR.SelectedIndex = 0;           
         }
 
         private void btnAddBR_Click(object sender, EventArgs e)
@@ -1726,7 +1774,7 @@ namespace BalayPasilungan
         private void btnPBRBack_Click(object sender, EventArgs e)
         {
             if (tabPBR.SelectedIndex == 1 && lblBRHeader.Text == "Pending Budget Requests") tabPBR.SelectedIndex = 0;
-            else if (lblBRHeader.Text == "Pending Budget Requests")
+            else if (lblBRHeader.Text == "Pending Budget Requests" || lblBRHeader.Text == "Approved Budget Requests")
             {                
                 lblBRHeader.Text = "Pending Budget Requests"; aBR = false;
                 panelPBR.BackColor = System.Drawing.Color.FromArgb(62, 153, 141);
@@ -1844,6 +1892,34 @@ namespace BalayPasilungan
         {
             lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
         }
+
+        private void btnCancelABR_Click(object sender, EventArgs e)
+        {
+            confirmMessage("Are you sure you want to cancel this approved budget request?\n\nIt will be deleted permanently.");
+            if (confirmed)
+            {
+                if (!multiABR.Checked)
+                {
+                    int row = approvedBRList.CurrentCell.RowIndex;
+                    del(int.Parse(approvedBRList.Rows[row].Cells[0].Value.ToString()), 4);
+                    successMessage("Selected request has been deleted successfullly.");                                        
+                }
+                else
+                {
+                    foreach (DataGridViewRow r in approvedBRList.SelectedRows)
+                    {
+                        int row = approvedBRList.CurrentCell.RowIndex;
+                        del(int.Parse(approvedBRList.Rows[row].Cells[0].Value.ToString()), 4);
+                        comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Approved' ORDER BY budgetID ASC", conn);
+                        loadTable(comm, 4);
+                    }
+                    multiABR.Checked = false;
+                    successMessage("Selected requests have been deleted successfullly.");                    
+                }
+            }
+            comm = new MySqlCommand("SELECT * FROM budget WHERE status = 'Approved' ORDER BY budgetID ASC", conn);
+            loadTable(comm, 4);
+        }
         #endregion
 
         #region Expense
@@ -1910,8 +1986,8 @@ namespace BalayPasilungan
 
         private void multiABR_CheckedChanged(object sender, EventArgs e)
         {
-            if (multiABR.Checked) approvedBRList.MultiSelect = false;
-            else approvedBRList.MultiSelect = true;
+            if (multiABR.Checked) approvedBRList.MultiSelect = true;
+            else approvedBRList.MultiSelect = false;
         }
 
         private void btnBtoE_Click(object sender, EventArgs e)
