@@ -204,11 +204,17 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count == 0)
                 {
+                    btnArchive.Enabled = false;
                     dt.Rows.Add(-1, "No entries.", null, null);
                     empty = true;
                 }
-                else multiChild.Checked = multiChild.Enabled = false;
+                else
+                {
+                    multiChild.Checked = multiChild.Enabled = false;
+                    btnArchive.Enabled = true;
+                }
 
+                
                 dtgcs.DataSource = dt;
                 // Case Profile UI Modifications
                 dtgcs.Columns[1].HeaderText = "LASTNAME";
@@ -230,6 +236,8 @@ namespace BalayPasilungan
                     getdrop(); getresidential(); getcount();
                     multiChild.Enabled = true;
                 }
+
+                
 
                 conn.Close();
             }
@@ -500,27 +508,44 @@ namespace BalayPasilungan
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
-                adp.Fill(dt);
+               
+                    adp.Fill(dt);
 
-                dtgcs.DataSource = dt;
+                    dtgcs.DataSource = dt;
 
-                dtgcs.Columns["caseid"].Visible = false;
+                    dtgcs.Columns["caseid"].Visible = false;
 
-                dtgcs.Columns[1].Width = 380;
-                dtgcs.Columns[2].Width = 380;
-                dtgcs.Columns[3].Width = 175;
+                    dtgcs.Columns[1].Width = 380;
+                    dtgcs.Columns[2].Width = 380;
+                    dtgcs.Columns[3].Width = 175;
 
-                getdrop();
-                getresidential();
-                getcount();
+                    getdrop();
+                    getresidential();
+                    getcount();
 
-                if (dtgcs.Columns["lolz"] != null)
+                    if (dtgcs.Columns["Discharge"] != null)
+                    {
+                        dtgcs.Columns.Remove("Discharge");
+                    }
+
+                    btncancelarchive.Visible = false;
+                    btnaddarchive.Visible = false;
+
+                    if (dt.Rows.Count > 0)
                 {
-                    dtgcs.Columns.Remove("lolz");
+                    btnArchive.Enabled = true;
+                    dtgcs.Enabled = true;
                 }
-                    
-                    
 
+                    else
+                {
+                    btnArchive.Enabled = false;
+                    dtgcs.Enabled = false;
+                }
+                
+
+                
+                
                 conn.Close();
             }
             catch (Exception ee)
@@ -542,7 +567,14 @@ namespace BalayPasilungan
                 dt.Rows.Add(-1, "No entries.", null);
                 empty = true;
 
+                btnrestorecaseprof.Enabled = false;
                 dtgarchive.Enabled = false;
+            }
+
+            else
+            {
+                btnrestorecaseprof.Enabled = true;
+                dtgarchive.Enabled = true;
             }
 
             dtgarchive.DataSource = dt;
@@ -567,8 +599,15 @@ namespace BalayPasilungan
             }
             else multiChild.Checked = multiChild.Enabled = false;
 
-            btnArchive.Visible = true;
-            btncancelarchive.Visible = false;
+            btncancelrestore.Visible = false;
+            btnrestore.Visible = false;
+
+            if (dtgarchive.Columns["Restore"] != null)
+            {
+                dtgarchive.Columns.Remove("Restore");
+            }
+
+            getcount2();
         }
 
         public void getdrop()
@@ -1574,25 +1613,31 @@ namespace BalayPasilungan
         #region cellclicks
         private void dtgcs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                id = int.Parse(dtgcs.Rows[e.RowIndex].Cells[0].Value.ToString());
+            var senderGrid = (DataGridView)sender;
 
-                tabChild.SelectedTab = sixteen;
-                tabCase.SelectedTab = tabInfo;
-
-                btnArchive.Visible = true;
-                btncancelarchive.Visible = false;
-                archivemode = 0;
-                reload(id);
-                
-               
-                showdem();
-            }
-            catch (Exception ee)
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn))
             {
-                errorMessage(ee.ToString());
+                try
+                {
+                    id = int.Parse(dtgcs.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                    tabChild.SelectedTab = sixteen;
+                    tabCase.SelectedTab = tabInfo;
+
+                    btnArchive.Visible = true;
+                    btncancelarchive.Visible = false;
+                    archivemode = 0;
+                    reload(id);
+
+
+                    showdem();
+                }
+                catch (Exception ee)
+                {
+                    errorMessage(ee.ToString());
+                }
             }
+            
         }
 
         
@@ -1816,28 +1861,34 @@ namespace BalayPasilungan
 
         private void dtgarchive_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            var senderGrid = (DataGridView)sender;
+
+            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn))
             {
-                archiveid = int.Parse(dtgarchive.Rows[e.RowIndex].Cells["caseid"].Value.ToString());
+                try
+                {
+                    archiveid = int.Parse(dtgarchive.Rows[e.RowIndex].Cells["caseid"].Value.ToString());
 
-                tabChild.SelectedTab = sixteen;
-                tabCase.SelectedTab = tabInfo;
+                    tabChild.SelectedTab = sixteen;
+                    tabCase.SelectedTab = tabInfo;
 
-                archivemode = 1;
+                    archivemode = 1;
 
-                reload(archiveid);
+                    reload(archiveid);
+
+                    //existshealth(archiveid);
+
+                    hidedem();
+
+                }
+
+                catch (Exception ee)
+                {
+                    errorMessage(ee.Message);
+                    conn.Close();
+                }
+            }
                 
-                //existshealth(archiveid);
-
-                hidedem();
-
-            }
-
-            catch (Exception ee)
-            {
-                errorMessage(ee.Message);
-                conn.Close();
-            }
         }
 
 
@@ -2654,8 +2705,9 @@ namespace BalayPasilungan
         {
             int archiveid;
 
-            confirmMessage("You are about to archive the following case studies. Once you archive, you will be no longer able to tamper with the " +
-                "information pertaining to the case studies.\nContinue?");
+            confirmMessage("You are about to discharge the following case studies. Discharging a case study means the case study is no longer being" +
+                "supported by the shelter either of graduating from or voluntarily leaving the program, and therefore all information regarding the case studies will" +
+                "not be updated anymore. \nContinue?");
             if (confirmed)
             {
                 try
@@ -2664,7 +2716,7 @@ namespace BalayPasilungan
                     foreach (DataGridViewRow row in dtgcs.Rows)
                     {
                         archiveid = int.Parse(row.Cells["caseid"].Value.ToString());
-                        if (Convert.ToBoolean(row.Cells["lolz"].Value))
+                        if (Convert.ToBoolean(row.Cells["Discharge"].Value))
                         {
                             MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET profilestatus = " + 0 + " WHERE caseid = " + archiveid, conn);
                             comm.ExecuteNonQuery();
@@ -2672,6 +2724,7 @@ namespace BalayPasilungan
                     }
                     conn.Close();
                     refresh();
+                    refresh2();
                 }
                 catch (Exception ee)
                 {
@@ -2679,8 +2732,14 @@ namespace BalayPasilungan
                     conn.Close();
                 }
             }
-            btncancelarchive.Visible = true;
-            btnArchive.Visible = false;
+
+            else
+            {
+                refresh();
+                refresh2();
+            }
+            btncancelarchive.Visible = false;
+            btnaddarchive.Visible = false;
         }
 
         private void btnaddhealth_Click(object sender, EventArgs e)
@@ -2824,7 +2883,8 @@ namespace BalayPasilungan
         private void btnbackfromarchive_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabCases;
-            reload(id);
+            refresh();
+            refresh2();
         }
         
         private void btncancelarchive_Click(object sender, EventArgs e)
@@ -3050,12 +3110,12 @@ namespace BalayPasilungan
             dtgcs.Columns[1].Width = dtgcs.Columns[2].Width = 233;
             dtgcs.Columns[3].Width = 234;
 
-            lulz.Name = "lolz";
+            lulz.Name = "Discharge";
             lulz.Width = 233;
             lulz.ReadOnly = false;
             
 
-            if (dtgcs.Columns["lolz"] == null)
+            if (dtgcs.Columns["Discharge"] == null)
             {
                 //MessageBox.Show("aaaaaaa");                
                 dtgcs.Columns.Add(lulz);
@@ -3122,13 +3182,10 @@ namespace BalayPasilungan
         {
             tabCase.SelectedTab = tabArchive;
 
+            refresh();
             refresh2();
         }
-
-        private void checkinv_CheckedChanged_1(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void addhrecord_Click(object sender, EventArgs e)
         {
@@ -3191,10 +3248,75 @@ namespace BalayPasilungan
             if (tabChild.SelectedTab != sixteen) btnEditProfile.Visible = false;
             else btnEditProfile.Visible = true;
         }
-
-        private void bttnbackfromcheckrec_Click(object sender, EventArgs e)
+        private void btnrestorecaseprof_Click(object sender, EventArgs e)
         {
+            DataGridViewCheckBoxColumn lulz = new DataGridViewCheckBoxColumn();
 
+            dtgarchive.Columns[1].Width = dtgarchive.Columns[2].Width = 233;
+            
+
+            lulz.Name = "Restore";
+            lulz.Width = 233;
+            lulz.ReadOnly = false;
+
+            
+
+            if (dtgarchive.Columns["Restore"] == null)
+            {
+                //MessageBox.Show("aaaaaaa");                
+                dtgarchive.Columns.Add(lulz);
+                dtgarchive.Columns["Restore"].Width = 234;
+            }
+
+            //dtgarchive.Refresh();
+
+            btnrestore.Visible = btncancelrestore.Visible = true;
+        }
+
+        private void btncancelrestore_Click(object sender, EventArgs e)
+        {
+            refresh2();
+
+            btnrestore.Visible = false;
+            btncancelrestore.Visible = false;
+        }
+
+        private void btnrestore_Click(object sender, EventArgs e)
+        {
+            int restoreid;
+
+            confirmMessage("Restoring case profile will bring back the authority to update selected case profile/s' information. This is usually done" +
+                " when case profile voluntarily left the program but returned again. \nContinue?");
+            if (confirmed)
+            {
+                try
+                {
+                    conn.Open();
+                    foreach (DataGridViewRow row in dtgarchive.Rows)
+                    {
+                        restoreid = int.Parse(row.Cells["caseid"].Value.ToString());
+                        if (Convert.ToBoolean(row.Cells["Restore"].Value))
+                        {
+                            MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET profilestatus = " + 1 + " WHERE caseid = " + restoreid, conn);
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+                    conn.Close();
+                    refresh();
+                    refresh2();
+                }
+                catch (Exception ee)
+                {
+                    errorMessage(ee.Message);
+                    conn.Close();
+                }
+            }
+
+            else
+            {
+                refresh2();
+            }
+            
         }
 
         private void btnbackfromhealth_Click(object sender, EventArgs e)
