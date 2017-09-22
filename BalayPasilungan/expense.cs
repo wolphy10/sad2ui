@@ -951,7 +951,7 @@ namespace BalayPasilungan
                 else conf_DonorAd.Text = txtDonorAd.Text;
 
                 conf_donorName.Text = txtDName.Text;
-                conf_donorType.Text = cbDType.Text;
+                conf_donorType.Text = cbDType.Text; 
                 conf_pledge.Text = cbPledge.Text;
                 conf_datePledge.Text = datePledge.Text;
             }

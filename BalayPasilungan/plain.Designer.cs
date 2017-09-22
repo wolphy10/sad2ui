@@ -85,10 +85,6 @@
             // 
             // fifteen
             // 
-            this.fifteen.Controls.Add(this.textBox1);
-            this.fifteen.Controls.Add(this.pictureBox2);
-            this.fifteen.Controls.Add(this.label3);
-            this.fifteen.Controls.Add(this.label4);
             this.fifteen.Controls.Add(this.txtmemincome);
             this.fifteen.Controls.Add(this.label67);
             this.fifteen.Controls.Add(this.cbxmemeduattain);
@@ -118,6 +114,10 @@
             this.fifteen.Controls.Add(this.pictureBox1);
             this.fifteen.Controls.Add(this.label1);
             this.fifteen.Controls.Add(this.label2);
+            this.fifteen.Controls.Add(this.textBox1);
+            this.fifteen.Controls.Add(this.pictureBox2);
+            this.fifteen.Controls.Add(this.label3);
+            this.fifteen.Controls.Add(this.label4);
             this.fifteen.Location = new System.Drawing.Point(4, 22);
             this.fifteen.Name = "fifteen";
             this.fifteen.Padding = new System.Windows.Forms.Padding(3);
@@ -369,14 +369,14 @@
             // lblDName
             // 
             this.lblDName.AccessibleDescription = "";
-            this.lblDName.AutoSize = true;
             this.lblDName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblDName.Location = new System.Drawing.Point(257, 59);
+            this.lblDName.Location = new System.Drawing.Point(178, 59);
             this.lblDName.Name = "lblDName";
-            this.lblDName.Size = new System.Drawing.Size(76, 15);
+            this.lblDName.Size = new System.Drawing.Size(155, 15);
             this.lblDName.TabIndex = 195;
             this.lblDName.Text = "FIRST NAME";
+            this.lblDName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label29
             // 
@@ -446,14 +446,14 @@
             // label2
             // 
             this.label2.AccessibleDescription = "";
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label2.Location = new System.Drawing.Point(257, 110);
+            this.label2.Location = new System.Drawing.Point(178, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.Size = new System.Drawing.Size(155, 15);
             this.label2.TabIndex = 235;
-            this.label2.Text = "FIRST NAME";
+            this.label2.Text = "LAST NAME";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // noFocusRec1
             // 
@@ -488,7 +488,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox1.Location = new System.Drawing.Point(130, 260);
+            this.textBox1.Location = new System.Drawing.Point(230, 167);
             this.textBox1.MaxLength = 250;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(506, 22);
@@ -498,7 +498,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox2.Location = new System.Drawing.Point(130, 270);
+            this.pictureBox2.Location = new System.Drawing.Point(230, 177);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(506, 33);
             this.pictureBox2.TabIndex = 241;
@@ -508,7 +508,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.label3.Location = new System.Drawing.Point(61, 280);
+            this.label3.Location = new System.Drawing.Point(161, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 240;
@@ -519,14 +519,14 @@
             // label4
             // 
             this.label4.AccessibleDescription = "";
-            this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label4.Location = new System.Drawing.Point(38, 265);
+            this.label4.Location = new System.Drawing.Point(59, 172);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 15);
+            this.label4.Size = new System.Drawing.Size(155, 15);
             this.label4.TabIndex = 239;
-            this.label4.Text = "FIRST NAME";
+            this.label4.Text = "RELATIONSHIP";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // plain
             // 
