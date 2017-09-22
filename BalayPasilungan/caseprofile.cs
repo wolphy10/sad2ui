@@ -3071,8 +3071,7 @@ namespace BalayPasilungan
             tabCase.SelectedTab = tabNewChild;
             tabaddchild.SelectedTab = tabNewIncid;
             btnaddincidrecord.Text = "ADD CHANGES";
-            lbladdeditprofile.Text = "UPDATE INCIDENT RECORD";
-            
+            lbladdeditprofile.Text = "UPDATE INCIDENT RECORD";            
             reloadinvcases();
 
             reloadeditincid(id);
