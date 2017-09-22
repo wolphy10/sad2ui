@@ -119,26 +119,19 @@ namespace BalayPasilungan
 
             ed.classeid = classeid;
             ed.level = yearlvl;
-
             ed.txtedadviser.Text = adviser;
             ed.txtedsection.Text = section;
             ed.cbxedyear.Text = ed.level;
-
-
             ed.Show();
         }
 
         public void famtypecall(int id, string text)
         {
             famtype fam = new famtype();
-
             fam.reftofam = this;
-
             fam.caseid = id;
             fam.text = text;
-
             fam.Show();
-
         }
 
         public void successMessage(string message)            // Success Message
@@ -173,7 +166,21 @@ namespace BalayPasilungan
         #region Main            
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            dim.refToPrev = this;
+            dim.Show(this);
+            conf.lblConfirm.Text = "Are you sure you want to leave?";
+            conf.refToPrev = this;
+
+            if (conf.ShowDialog() == DialogResult.OK)
+            {
+                conf.Close();
+                this.Close();
+            }
+            dim.Close();
         }
         #endregion
 
@@ -3045,6 +3052,8 @@ namespace BalayPasilungan
 
             lulz.Name = "lolz";
             lulz.Width = 233;
+            lulz.ReadOnly = false;
+            
 
             if (dtgcs.Columns["lolz"] == null)
             {
