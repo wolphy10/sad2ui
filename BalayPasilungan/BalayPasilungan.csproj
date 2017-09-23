@@ -158,6 +158,9 @@
     <Compile Include="moneyDonate.Designer.cs">
       <DependentUpon>moneyDonate.cs</DependentUpon>
     </Compile>
+    <Compile Include="noBorderTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NoFocusRec.cs">
       <SubType>Component</SubType>
     </Compile>

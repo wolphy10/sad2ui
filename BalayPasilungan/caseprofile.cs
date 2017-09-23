@@ -1218,17 +1218,13 @@ namespace BalayPasilungan
                     lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
                     rviewall.Text = dt.Rows[0]["allergies"].ToString();
                     rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
-
                     btnedithealth.Enabled = true;
                 }
-
                 else
                 {
                     errorMessage("There are currently no existing health records for this case study.");
-
                     btnedithealth.Enabled = false;
                 }
-
                 conn.Close();
             }
 
@@ -3329,6 +3325,21 @@ namespace BalayPasilungan
         private void healthType_DrawItem(object sender, DrawItemEventArgs e)
         {
 
+        }
+
+        private void tabInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void all_cond_Click(object sender, EventArgs e)
+        {
+            btnAllergy.BackColor = btnCondition.BackColor = Color.Transparent;
+            btnAllergy.ForeColor = btnCondition.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
+            ((Button)sender).ForeColor = Color.Black;
+            ((Button)sender).BackColor = Color.White;
+            if (((Button)sender).Name == "btnAllergy") panelAll.Visible = true;
+            else if (((Button)sender).Name == "btnCondition") panelAll.Visible = false;
         }
 
         private void btnbackfromhealth_Click(object sender, EventArgs e)
