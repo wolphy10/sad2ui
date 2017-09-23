@@ -206,6 +206,8 @@ namespace BalayPasilungan
         }
         #endregion
 
+
+        
         #region Case Profile Load
         private void caseprofile_Load(object sender, EventArgs e)
         {
@@ -256,9 +258,6 @@ namespace BalayPasilungan
                     getdrop(); getresidential(); getcount();
                     multiChild.Enabled = true;
                 }
-
-                
-
                 conn.Close();
             }
             catch (Exception ee)
@@ -527,8 +526,7 @@ namespace BalayPasilungan
                 MySqlCommand comm = new MySqlCommand("SELECT caseid, lastname, firstname, program FROM casestudyprofile WHERE profilestatus = " + 1, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
-
-               
+                
                     adp.Fill(dt);
 
                     dtgcs.DataSource = dt;
@@ -562,10 +560,6 @@ namespace BalayPasilungan
                     btnArchive.Enabled = false;
                     dtgcs.Enabled = false;
                 }
-                
-
-                
-                
                 conn.Close();
             }
             catch (Exception ee)
@@ -1536,7 +1530,6 @@ namespace BalayPasilungan
                     dtghealth.DataSource = dt;
                     dtghealth.Columns["checkid"].Visible = false;
                     //dtincid.Columns[1].Visible = false;
-
                     //hid = int.Parse(dt.Rows[0]["health.hid"].ToString());
                     //MessageBox.Show(hid.ToString());
                 }
@@ -1631,10 +1624,9 @@ namespace BalayPasilungan
         #endregion
 
         #region cellclicks
-        private void dtgcs_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgcs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-
             if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn))
             {
                 try
@@ -1683,8 +1675,6 @@ namespace BalayPasilungan
 
                     lblcheckdate.Text = Convert.ToDateTime(dt.Rows[0]["checkupdate"]).ToString("MMMM dd, yyyy");
                     lbllocationcheck.Text = dt.Rows[0]["checkuplocation"].ToString();
-
-
                 }
 
                 conn.Close();
@@ -3325,6 +3315,22 @@ namespace BalayPasilungan
             
         }
 
+        private void taskbar_Paint(object sender, PaintEventArgs e)
+        {
+            Pen p = new Pen(System.Drawing.Color.FromArgb(240, 240, 240), 1);
+            e.Graphics.DrawRectangle(p,
+              e.ClipRectangle.Left,
+              e.ClipRectangle.Top,
+              e.ClipRectangle.Width - 1,
+              e.ClipRectangle.Height - 1);
+            base.OnPaint(e);
+        }
+
+        private void healthType_DrawItem(object sender, DrawItemEventArgs e)
+        {
+
+        }
+
         private void btnbackfromhealth_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = sixteen;
@@ -3417,7 +3423,8 @@ namespace BalayPasilungan
         #region Textbox
         private void txtNew_Enter(object sender, EventArgs e)
         {
-            if (((TextBox)sender).Text == "Name of member." || ((TextBox)sender).Text == "Relationship to donor." || ((TextBox)sender).Text == "Occupation of member." || ((TextBox)sender).Text == "Enter first name." || ((TextBox)sender).Text == "Enter last name.") ((TextBox)sender).Text = "";
+            if (((TextBox)sender).Text == "Name of member." || ((TextBox)sender).Text == "Relationship to donor." || ((TextBox)sender).Text == "Occupation of member." || ((TextBox)sender).Text == "Enter first name."
+                || ((TextBox)sender).Text == "Enter last name." || ((TextBox)sender).Text == "Enter alias." || ((TextBox)sender).Text == "Enter place of birth." || ((TextBox)sender).Text == "Enter religion." || ((TextBox)sender).Text == "Specify IP.") ((TextBox)sender).Text = "";
             ((TextBox)sender).ForeColor = Color.Black;
 
             if (((TextBox)sender).Name == "txtfname")
@@ -3453,6 +3460,12 @@ namespace BalayPasilungan
                 lblAlias.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
                 panelAlias.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                 countAlias.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtBirthplace")
+            {
+                lblBirthPlace.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelBirthPlace.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countBirthPlace.Visible = true;
             }
             else if (((TextBox)sender).Name == "txtReligion")
             {
@@ -3505,6 +3518,10 @@ namespace BalayPasilungan
             else if (((TextBox)sender).Name == "txtedname") countED.Text = ((TextBox)sender).TextLength + "/100";
             else if (((TextBox)sender).Name == "txtmemfirstname") countMFName.Text = ((TextBox)sender).TextLength + "/250";
             else if (((TextBox)sender).Name == "txtmemlastname") countMLName.Text = ((TextBox)sender).TextLength + "/250";
+            else if (((TextBox)sender).Name == "txtAlias") countAlias.Text = ((TextBox)sender).TextLength + "/50";
+            else if (((TextBox)sender).Name == "txtBirthplace") countBirthPlace.Text = ((TextBox)sender).TextLength + "/100";
+            else if (((TextBox)sender).Name == "txtReligion") countBirthPlace.Text = ((TextBox)sender).TextLength + "/50";
+            else if (((TextBox)sender).Name == "txtIP") countIP.Text = ((TextBox)sender).TextLength + "/50";
             else if (((TextBox)sender).Name == "txtmemrelationship") countRelationship.Text = ((TextBox)sender).TextLength + "/45";
             else if (((TextBox)sender).Name == "txtmemocc") countOccupation.Text = ((TextBox)sender).TextLength + "/100";           
         }
@@ -3515,6 +3532,10 @@ namespace BalayPasilungan
             {
                 if (((TextBox)sender).Name == "txtfname") ((TextBox)sender).Text = "Enter first name.";
                 else if (((TextBox)sender).Name == "txtlname") ((TextBox)sender).Text = "Enter last name.";
+                else if (((TextBox)sender).Name == "txtAlias") ((TextBox)sender).Text = "Enter alias.";
+                else if (((TextBox)sender).Name == "txtBirthplace") ((TextBox)sender).Text = "Enter place of birth.";
+                else if (((TextBox)sender).Name == "txtReligion") ((TextBox)sender).Text = "Enter religion.";
+                else if (((TextBox)sender).Name == "txtIP") ((TextBox)sender).Text = "Specify IP.";
                 else if (((TextBox)sender).Name == "txtedname") ((TextBox)sender).Text = "Enter name of school.";
                 else if (((TextBox)sender).Name == "txtmemfirstname" || ((TextBox)sender).Name == "txtmemlastname") ((TextBox)sender).Text = "Name of member.";
                 else if (((TextBox)sender).Name == "txtmemrelationship") ((TextBox)sender).Text = "Relationship to donor.";
@@ -3595,13 +3616,14 @@ namespace BalayPasilungan
         private void richTxt_TextChanged(object sender, EventArgs e)
         {
             if (((RichTextBox)sender).Name == "rtremarks") countRemarks.Text = ((RichTextBox)sender).TextLength + "/1000";
+            if (((RichTextBox)sender).Name == "txtcaseaddress") countAd.Text = ((RichTextBox)sender).TextLength + "/250";
         }
 
         private void richTxt_Leave(object sender, EventArgs e)
         {
             if (((RichTextBox)sender).Text == "")
             {
-                if (((RichTextBox)sender).Name == "txtcaseaddress") ((RichTextBox)sender).Text = "Enter name of school.";
+                if (((RichTextBox)sender).Name == "txtcaseaddress") ((RichTextBox)sender).Text = "Enter address.";
                 else if (((RichTextBox)sender).Name == "rtxtall") ((RichTextBox)sender).Text = "Enter allergies.";
                 else if (((RichTextBox)sender).Name == "rtxtcondition") ((RichTextBox)sender).Text = "Enter condition.";
                 else if (((RichTextBox)sender).Name == "rtremarks") ((RichTextBox)sender).Text = "Enter remarks.";
