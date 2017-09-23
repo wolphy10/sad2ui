@@ -296,22 +296,10 @@
     <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\main_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\main_green.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\events_green.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\events_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings_small.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\test.png" />
@@ -350,9 +338,6 @@
     <None Include="Resources\request_white2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\main_white2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\divider.png" />
   </ItemGroup>
   <ItemGroup>
@@ -362,12 +347,6 @@
     <None Include="Resources\tsLineHover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cases_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cases_green.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\btnAdmin.png" />
   </ItemGroup>
   <ItemGroup>
@@ -375,9 +354,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnStaff.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cases_black.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\line_blue.png" />
@@ -393,27 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_thin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_notfocus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\donation_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\donation_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\finance_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\finance_white.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\divider_horizon.png" />
@@ -447,6 +402,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

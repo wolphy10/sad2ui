@@ -13,7 +13,6 @@ using MySql.Data.MySqlClient;
 
 namespace BalayPasilungan
 {
-
     public partial class moneyDonate : Form
     {
         public MySqlConnection conn;
@@ -135,6 +134,16 @@ namespace BalayPasilungan
         private void noDot_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !(e.KeyChar != '.')) e.Handled = true;
+        }
+
+        private void cbFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbFilter_DropDownClosed(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new Action(() => { ((ComboBox)sender).Select(0, 0); }));
         }
         #endregion
 
@@ -402,7 +411,7 @@ namespace BalayPasilungan
         #region Budget Request
         private void btnAddBR_Click(object sender, EventArgs e)
         {
-            if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00")
+            if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00" || txtBRPart.Text != "")
             {
                 try
                 {
@@ -420,7 +429,8 @@ namespace BalayPasilungan
                     errorMessage(ex.Message);
                 }
             }
-            else errorMessage("You cannot have a total of 0.");
+            else if (decimal.Parse(txtBRTotal.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
+            else if (txtBRPart.Text != "") errorMessage("Please enter the name of particular.");
         }
 
         private void btnBREdit_Click(object sender, EventArgs e)
@@ -600,16 +610,6 @@ namespace BalayPasilungan
         {
             if (((TextBox)sender).Text == "00") ((TextBox)sender).Text = "";
             toYellow();
-        }
-
-        private void label33_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDateCheckInfo_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtAmount_TextChanged(object sender, EventArgs e)

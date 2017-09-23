@@ -171,7 +171,6 @@
             this.thisMonth = new System.Windows.Forms.CheckBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbExpCat = new System.Windows.Forms.ComboBox();
             this.txtExpCent = new System.Windows.Forms.TextBox();
             this.txtExpCurrent = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -190,8 +189,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabExpOp = new System.Windows.Forms.TabPage();
-            this.year = new System.Windows.Forms.ComboBox();
-            this.dateFrom = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -249,6 +246,30 @@
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.txtBankInfo = new System.Windows.Forms.RichTextBox();
             this.margin = new System.Windows.Forms.RichTextBox();
+            this.tabAllCash = new System.Windows.Forms.TabPage();
+            this.btnViewDonor = new BalayPasilungan.NoFocusRec();
+            this.txtAllDName = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.txtAllDateDonate = new System.Windows.Forms.TextBox();
+            this.txtAllDateCheck = new System.Windows.Forms.TextBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.noFocusRec13 = new BalayPasilungan.NoFocusRec();
+            this.btnAllCashBack = new BalayPasilungan.NoFocusRec();
+            this.pictureBox28 = new System.Windows.Forms.PictureBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtAllCheckNo = new System.Windows.Forms.MaskedTextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtAllORNO = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.txtAllBank = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.cbExpCat = new System.Windows.Forms.ComboBox();
+            this.dateFrom = new System.Windows.Forms.ComboBox();
+            this.year = new System.Windows.Forms.ComboBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -310,6 +331,10 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            this.tabAllCash.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -327,6 +352,7 @@
             this.tabSelection.Controls.Add(this.tabBRDisapprove);
             this.tabSelection.Controls.Add(this.tabBREdit);
             this.tabSelection.Controls.Add(this.tabCheckInfo);
+            this.tabSelection.Controls.Add(this.tabAllCash);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -2195,11 +2221,11 @@
             // tabExp
             // 
             this.tabExp.BackColor = System.Drawing.Color.White;
+            this.tabExp.Controls.Add(this.cbExpCat);
             this.tabExp.Controls.Add(this.lblEnter);
             this.tabExp.Controls.Add(this.thisMonth);
             this.tabExp.Controls.Add(this.pictureBox20);
             this.tabExp.Controls.Add(this.label6);
-            this.tabExp.Controls.Add(this.cbExpCat);
             this.tabExp.Controls.Add(this.txtExpCent);
             this.tabExp.Controls.Add(this.txtExpCurrent);
             this.tabExp.Controls.Add(this.label19);
@@ -2269,40 +2295,6 @@
             this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 58;
             this.label6.Text = "DATE OF EXPENSE";
-            // 
-            // cbExpCat
-            // 
-            this.cbExpCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbExpCat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.cbExpCat.FormattingEnabled = true;
-            this.cbExpCat.Items.AddRange(new object[] {
-            "Clothing",
-            "Communication, Lights, and Water",
-            "Depreciation Expenses",
-            "Education",
-            "Food",
-            "Guidance and Counselling",
-            "Honorarium",
-            "Household Expenses",
-            "Insurance Expense",
-            "Medical and Dental Supplies",
-            "Meeting and Conferences",
-            "Office Supplies",
-            "Printing and Advertising",
-            "Professional Fees",
-            "Recreation",
-            "Repair and Maintenance",
-            "Salary",
-            "Skills and Development",
-            "Spiritual Value Formation",
-            "SSS, PHIC, and HMDF",
-            "Taxes and Licenses",
-            "Transportation"});
-            this.cbExpCat.Location = new System.Drawing.Point(164, 53);
-            this.cbExpCat.Name = "cbExpCat";
-            this.cbExpCat.Size = new System.Drawing.Size(316, 25);
-            this.cbExpCat.TabIndex = 0;
-            this.cbExpCat.SelectedIndexChanged += new System.EventHandler(this.cbExpCat_SelectedIndexChanged);
             // 
             // txtExpCent
             // 
@@ -2548,56 +2540,6 @@
             this.tabExpOp.UseVisualStyleBackColor = true;
             this.tabExpOp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
-            // year
-            // 
-            this.year.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.year.Enabled = false;
-            this.year.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.year.FormattingEnabled = true;
-            this.year.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.year.Location = new System.Drawing.Point(382, 268);
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(96, 29);
-            this.year.TabIndex = 74;
-            // 
-            // dateFrom
-            // 
-            this.dateFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dateFrom.Enabled = false;
-            this.dateFrom.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dateFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.dateFrom.FormattingEnabled = true;
-            this.dateFrom.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.dateFrom.Location = new System.Drawing.Point(165, 268);
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(199, 29);
-            this.dateFrom.TabIndex = 73;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -2682,7 +2624,7 @@
             this.btnReportBack.Location = new System.Drawing.Point(6, 8);
             this.btnReportBack.Name = "btnReportBack";
             this.btnReportBack.Size = new System.Drawing.Size(76, 22);
-            this.btnReportBack.TabIndex = 5;
+            this.btnReportBack.TabIndex = 6;
             this.btnReportBack.Text = "GO BACK";
             this.btnReportBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportBack.UseVisualStyleBackColor = false;
@@ -2699,7 +2641,7 @@
             this.btnReport.Location = new System.Drawing.Point(0, 336);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(512, 40);
-            this.btnReport.TabIndex = 4;
+            this.btnReport.TabIndex = 5;
             this.btnReport.Text = "GENERATE REPORT";
             this.btnReport.UseVisualStyleBackColor = false;
             // 
@@ -3179,7 +3121,6 @@
             this.txtDateCheckInfo.Size = new System.Drawing.Size(260, 22);
             this.txtDateCheckInfo.TabIndex = 86;
             this.txtDateCheckInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDateCheckInfo.TextChanged += new System.EventHandler(this.txtDateCheckInfo_TextChanged);
             // 
             // panel12
             // 
@@ -3328,7 +3269,6 @@
             this.label33.Size = new System.Drawing.Size(95, 15);
             this.label33.TabIndex = 77;
             this.label33.Text = "DATE OF CHECK";
-            this.label33.Click += new System.EventHandler(this.label33_Click);
             // 
             // pictureBox29
             // 
@@ -3357,7 +3297,6 @@
             // 
             this.margin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.margin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.margin.Enabled = false;
             this.margin.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.margin.ForeColor = System.Drawing.Color.Black;
             this.margin.Location = new System.Drawing.Point(183, 167);
@@ -3367,6 +3306,374 @@
             this.margin.Size = new System.Drawing.Size(260, 66);
             this.margin.TabIndex = 89;
             this.margin.Text = "";
+            // 
+            // tabAllCash
+            // 
+            this.tabAllCash.Controls.Add(this.btnViewDonor);
+            this.tabAllCash.Controls.Add(this.txtAllDName);
+            this.tabAllCash.Controls.Add(this.label41);
+            this.tabAllCash.Controls.Add(this.txtAllDateDonate);
+            this.tabAllCash.Controls.Add(this.txtAllDateCheck);
+            this.tabAllCash.Controls.Add(this.panel13);
+            this.tabAllCash.Controls.Add(this.pictureBox28);
+            this.tabAllCash.Controls.Add(this.label36);
+            this.tabAllCash.Controls.Add(this.label37);
+            this.tabAllCash.Controls.Add(this.txtAllCheckNo);
+            this.tabAllCash.Controls.Add(this.label38);
+            this.tabAllCash.Controls.Add(this.txtAllORNO);
+            this.tabAllCash.Controls.Add(this.label39);
+            this.tabAllCash.Controls.Add(this.label40);
+            this.tabAllCash.Controls.Add(this.pictureBox30);
+            this.tabAllCash.Controls.Add(this.txtAllBank);
+            this.tabAllCash.Controls.Add(this.richTextBox2);
+            this.tabAllCash.Location = new System.Drawing.Point(4, 22);
+            this.tabAllCash.Name = "tabAllCash";
+            this.tabAllCash.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAllCash.Size = new System.Drawing.Size(512, 376);
+            this.tabAllCash.TabIndex = 13;
+            this.tabAllCash.Text = "tabPage1";
+            this.tabAllCash.UseVisualStyleBackColor = true;
+            // 
+            // btnViewDonor
+            // 
+            this.btnViewDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewDonor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnViewDonor.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnViewDonor.FlatAppearance.BorderSize = 0;
+            this.btnViewDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnViewDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnViewDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewDonor.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnViewDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnViewDonor.Location = new System.Drawing.Point(428, 51);
+            this.btnViewDonor.Name = "btnViewDonor";
+            this.btnViewDonor.Size = new System.Drawing.Size(47, 22);
+            this.btnViewDonor.TabIndex = 20;
+            this.btnViewDonor.Text = "VIEW";
+            this.btnViewDonor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewDonor.UseVisualStyleBackColor = false;
+            // 
+            // txtAllDName
+            // 
+            this.txtAllDName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllDName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllDName.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllDName.ForeColor = System.Drawing.Color.Black;
+            this.txtAllDName.Location = new System.Drawing.Point(162, 50);
+            this.txtAllDName.MaxLength = 10;
+            this.txtAllDName.Name = "txtAllDName";
+            this.txtAllDName.ReadOnly = true;
+            this.txtAllDName.Size = new System.Drawing.Size(260, 22);
+            this.txtAllDName.TabIndex = 104;
+            this.txtAllDName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label41.Location = new System.Drawing.Point(81, 54);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(49, 15);
+            this.label41.TabIndex = 105;
+            this.label41.Text = "DONOR";
+            // 
+            // txtAllDateDonate
+            // 
+            this.txtAllDateDonate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllDateDonate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllDateDonate.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllDateDonate.ForeColor = System.Drawing.Color.Black;
+            this.txtAllDateDonate.Location = new System.Drawing.Point(162, 325);
+            this.txtAllDateDonate.MaxLength = 10;
+            this.txtAllDateDonate.Name = "txtAllDateDonate";
+            this.txtAllDateDonate.ReadOnly = true;
+            this.txtAllDateDonate.Size = new System.Drawing.Size(260, 22);
+            this.txtAllDateDonate.TabIndex = 101;
+            this.txtAllDateDonate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtAllDateCheck
+            // 
+            this.txtAllDateCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllDateCheck.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllDateCheck.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllDateCheck.ForeColor = System.Drawing.Color.Black;
+            this.txtAllDateCheck.Location = new System.Drawing.Point(162, 291);
+            this.txtAllDateCheck.MaxLength = 10;
+            this.txtAllDateCheck.Name = "txtAllDateCheck";
+            this.txtAllDateCheck.ReadOnly = true;
+            this.txtAllDateCheck.Size = new System.Drawing.Size(260, 22);
+            this.txtAllDateCheck.TabIndex = 100;
+            this.txtAllDateCheck.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel13.Controls.Add(this.label35);
+            this.panel13.Controls.Add(this.noFocusRec13);
+            this.panel13.Controls.Add(this.btnAllCashBack);
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(512, 33);
+            this.panel13.TabIndex = 99;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label35.Location = new System.Drawing.Point(410, 8);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(96, 19);
+            this.label35.TabIndex = 19;
+            this.label35.Text = "Donation Info";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec13
+            // 
+            this.noFocusRec13.FlatAppearance.BorderSize = 0;
+            this.noFocusRec13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec13.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec13.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec13.Name = "noFocusRec13";
+            this.noFocusRec13.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec13.TabIndex = 11;
+            this.noFocusRec13.Text = "X";
+            this.noFocusRec13.UseVisualStyleBackColor = true;
+            // 
+            // btnAllCashBack
+            // 
+            this.btnAllCashBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnAllCashBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAllCashBack.FlatAppearance.BorderSize = 0;
+            this.btnAllCashBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAllCashBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAllCashBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAllCashBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAllCashBack.ForeColor = System.Drawing.Color.White;
+            this.btnAllCashBack.Location = new System.Drawing.Point(6, 8);
+            this.btnAllCashBack.Name = "btnAllCashBack";
+            this.btnAllCashBack.Size = new System.Drawing.Size(76, 22);
+            this.btnAllCashBack.TabIndex = 8;
+            this.btnAllCashBack.Text = "GO BACK";
+            this.btnAllCashBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllCashBack.UseVisualStyleBackColor = false;
+            this.btnAllCashBack.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox28
+            // 
+            this.pictureBox28.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox28.Location = new System.Drawing.Point(11, 152);
+            this.pictureBox28.Name = "pictureBox28";
+            this.pictureBox28.Size = new System.Drawing.Size(487, 23);
+            this.pictureBox28.TabIndex = 97;
+            this.pictureBox28.TabStop = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label36.Location = new System.Drawing.Point(36, 329);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(94, 15);
+            this.label36.TabIndex = 96;
+            this.label36.Text = "DATE DONATED";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label37.Location = new System.Drawing.Point(92, 214);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(38, 15);
+            this.label37.TabIndex = 95;
+            this.label37.Text = "BANK";
+            // 
+            // txtAllCheckNo
+            // 
+            this.txtAllCheckNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllCheckNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllCheckNo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllCheckNo.ForeColor = System.Drawing.Color.Black;
+            this.txtAllCheckNo.Location = new System.Drawing.Point(162, 126);
+            this.txtAllCheckNo.Mask = "000000000-00000000-0000";
+            this.txtAllCheckNo.Name = "txtAllCheckNo";
+            this.txtAllCheckNo.PromptChar = ' ';
+            this.txtAllCheckNo.ReadOnly = true;
+            this.txtAllCheckNo.Size = new System.Drawing.Size(260, 22);
+            this.txtAllCheckNo.TabIndex = 91;
+            this.txtAllCheckNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label38.Location = new System.Drawing.Point(61, 131);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(69, 15);
+            this.label38.TabIndex = 94;
+            this.label38.Text = "CHECK NO.";
+            // 
+            // txtAllORNO
+            // 
+            this.txtAllORNO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllORNO.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllORNO.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllORNO.ForeColor = System.Drawing.Color.Black;
+            this.txtAllORNO.Location = new System.Drawing.Point(162, 88);
+            this.txtAllORNO.MaxLength = 10;
+            this.txtAllORNO.Name = "txtAllORNO";
+            this.txtAllORNO.ReadOnly = true;
+            this.txtAllORNO.Size = new System.Drawing.Size(260, 22);
+            this.txtAllORNO.TabIndex = 90;
+            this.txtAllORNO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label39.Location = new System.Drawing.Point(83, 92);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(47, 15);
+            this.label39.TabIndex = 93;
+            this.label39.Text = "OR. NO";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label40.Location = new System.Drawing.Point(35, 296);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(95, 15);
+            this.label40.TabIndex = 92;
+            this.label40.Text = "DATE OF CHECK";
+            // 
+            // pictureBox30
+            // 
+            this.pictureBox30.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox30.Image")));
+            this.pictureBox30.Location = new System.Drawing.Point(12, 255);
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox30.TabIndex = 98;
+            this.pictureBox30.TabStop = false;
+            // 
+            // txtAllBank
+            // 
+            this.txtAllBank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllBank.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllBank.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllBank.ForeColor = System.Drawing.Color.Black;
+            this.txtAllBank.Location = new System.Drawing.Point(167, 192);
+            this.txtAllBank.MaxLength = 500;
+            this.txtAllBank.Name = "txtAllBank";
+            this.txtAllBank.ReadOnly = true;
+            this.txtAllBank.Size = new System.Drawing.Size(250, 58);
+            this.txtAllBank.TabIndex = 102;
+            this.txtAllBank.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.richTextBox2.ForeColor = System.Drawing.Color.Black;
+            this.richTextBox2.Location = new System.Drawing.Point(162, 188);
+            this.richTextBox2.MaxLength = 500;
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.Size = new System.Drawing.Size(260, 66);
+            this.richTextBox2.TabIndex = 103;
+            this.richTextBox2.Text = "";
+            // 
+            // cbExpCat
+            // 
+            this.cbExpCat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbExpCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.cbExpCat.FormattingEnabled = true;
+            this.cbExpCat.Items.AddRange(new object[] {
+            "Clothing",
+            "Communication, Lights, and Water",
+            "Depreciation Expenses",
+            "Education",
+            "Food",
+            "Guidance and Counselling",
+            "Honorarium",
+            "Household Expenses",
+            "Insurance Expense",
+            "Medical and Dental Supplies",
+            "Meeting and Conferences",
+            "Office Supplies",
+            "Printing and Advertising",
+            "Professional Fees",
+            "Recreation",
+            "Repair and Maintenance",
+            "Salary",
+            "Skills and Development",
+            "Spiritual Value Formation",
+            "SSS, PHIC, and HMDF",
+            "Taxes and Licenses",
+            "Transportation"});
+            this.cbExpCat.Location = new System.Drawing.Point(164, 53);
+            this.cbExpCat.Name = "cbExpCat";
+            this.cbExpCat.Size = new System.Drawing.Size(316, 25);
+            this.cbExpCat.TabIndex = 190;
+            this.cbExpCat.SelectedIndexChanged += new System.EventHandler(this.cbExpCat_SelectedIndexChanged);
+            this.cbExpCat.DropDownClosed += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.cbExpCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
+            // 
+            // dateFrom
+            // 
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.dateFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.dateFrom.FormattingEnabled = true;
+            this.dateFrom.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.dateFrom.Location = new System.Drawing.Point(165, 270);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(199, 25);
+            this.dateFrom.TabIndex = 3;
+            // 
+            // year
+            // 
+            this.year.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.year.FormattingEnabled = true;
+            this.year.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.year.Location = new System.Drawing.Point(382, 270);
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(96, 25);
+            this.year.TabIndex = 73;
+            this.year.DropDownStyleChanged += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.year.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
             // 
             // moneyDonate
             // 
@@ -3468,6 +3775,12 @@
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            this.tabAllCash.ResumeLayout(false);
+            this.tabAllCash.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3637,7 +3950,6 @@
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.Panel panel9;
         public System.Windows.Forms.TabPage tabExpOp;
-        public System.Windows.Forms.ComboBox cbExpCat;
         private System.Windows.Forms.TabPage tabBRDisapprove;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label23;
@@ -3669,8 +3981,6 @@
         public System.Windows.Forms.RadioButton rbMonth;
         public System.Windows.Forms.RadioButton rbAnnual;
         public System.Windows.Forms.RadioButton rbMonthSelect;
-        public System.Windows.Forms.ComboBox dateFrom;
-        public System.Windows.Forms.ComboBox year;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lblEnter;
         private NoFocusRec btnEditCheck;
@@ -3693,5 +4003,29 @@
         private System.Windows.Forms.PictureBox pictureBox29;
         public System.Windows.Forms.RichTextBox txtBankInfo;
         public System.Windows.Forms.RichTextBox margin;
+        private System.Windows.Forms.TabPage tabAllCash;
+        public System.Windows.Forms.TextBox txtAllDateDonate;
+        public System.Windows.Forms.TextBox txtAllDateCheck;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label35;
+        private NoFocusRec noFocusRec13;
+        private NoFocusRec btnAllCashBack;
+        private System.Windows.Forms.PictureBox pictureBox28;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        public System.Windows.Forms.MaskedTextBox txtAllCheckNo;
+        private System.Windows.Forms.Label label38;
+        public System.Windows.Forms.TextBox txtAllORNO;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.PictureBox pictureBox30;
+        public System.Windows.Forms.RichTextBox txtAllBank;
+        public System.Windows.Forms.RichTextBox richTextBox2;
+        public System.Windows.Forms.TextBox txtAllDName;
+        private System.Windows.Forms.Label label41;
+        private NoFocusRec btnViewDonor;
+        public System.Windows.Forms.ComboBox cbExpCat;
+        public System.Windows.Forms.ComboBox dateFrom;
+        public System.Windows.Forms.ComboBox year;
     }
 }

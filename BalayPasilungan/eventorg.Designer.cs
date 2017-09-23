@@ -364,7 +364,6 @@
             // 
             // btnMain
             // 
-            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
             this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMain.FlatAppearance.BorderSize = 0;
             this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -54,13 +54,13 @@
             this.lblSuccess.DetectUrls = false;
             this.lblSuccess.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lblSuccess.Location = new System.Drawing.Point(12, 151);
+            this.lblSuccess.Location = new System.Drawing.Point(12, 143);
             this.lblSuccess.MaxLength = 1000;
             this.lblSuccess.Name = "lblSuccess";
             this.lblSuccess.ReadOnly = true;
             this.lblSuccess.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.lblSuccess.ShowSelectionMargin = true;
-            this.lblSuccess.Size = new System.Drawing.Size(476, 64);
+            this.lblSuccess.Size = new System.Drawing.Size(476, 88);
             this.lblSuccess.TabIndex = 5;
             this.lblSuccess.TabStop = false;
             this.lblSuccess.Text = "Success message here";

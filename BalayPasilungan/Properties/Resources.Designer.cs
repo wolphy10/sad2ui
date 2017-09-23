@@ -63,6 +63,16 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _case {
+            get {
+                object obj = ResourceManager.GetObject("_case", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _lock {
             get {
                 object obj = ResourceManager.GetObject("_lock", resourceCulture);
@@ -193,29 +203,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cases_black {
+        internal static System.Drawing.Bitmap case_fade {
             get {
-                object obj = ResourceManager.GetObject("cases_black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cases_green {
-            get {
-                object obj = ResourceManager.GetObject("cases_green", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cases_white {
-            get {
-                object obj = ResourceManager.GetObject("cases_white", resourceCulture);
+                object obj = ResourceManager.GetObject("case_fade", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +233,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap donation_green {
+        internal static System.Drawing.Bitmap donation {
             get {
-                object obj = ResourceManager.GetObject("donation_green", resourceCulture);
+                object obj = ResourceManager.GetObject("donation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +243,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap donation_white {
+        internal static System.Drawing.Bitmap donation_fade {
             get {
-                object obj = ResourceManager.GetObject("donation_white", resourceCulture);
+                object obj = ResourceManager.GetObject("donation_fade", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +313,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap finance_green {
+        internal static System.Drawing.Bitmap finance {
             get {
-                object obj = ResourceManager.GetObject("finance_green", resourceCulture);
+                object obj = ResourceManager.GetObject("finance", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +323,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap finance_white {
+        internal static System.Drawing.Bitmap finance_fade {
             get {
-                object obj = ResourceManager.GetObject("finance_white", resourceCulture);
+                object obj = ResourceManager.GetObject("finance_fade", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,9 +403,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap main_green {
+        internal static System.Drawing.Bitmap main {
             get {
-                object obj = ResourceManager.GetObject("main_green", resourceCulture);
+                object obj = ResourceManager.GetObject("main", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,9 +413,9 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap main_white {
+        internal static System.Drawing.Bitmap main_fade {
             get {
-                object obj = ResourceManager.GetObject("main_white", resourceCulture);
+                object obj = ResourceManager.GetObject("main_fade", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,36 +506,6 @@ namespace BalayPasilungan.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap search_notfocus {
-            get {
-                object obj = ResourceManager.GetObject("search_notfocus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap search_thin {
-            get {
-                object obj = ResourceManager.GetObject("search_thin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap search_white {
-            get {
-                object obj = ResourceManager.GetObject("search_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

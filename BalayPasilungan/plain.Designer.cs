@@ -28,50 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(plain));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.fifteen = new System.Windows.Forms.TabPage();
-            this.txtmemincome = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.cbxmemeduattain = new System.Windows.Forms.ComboBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.cbxmemstatus = new System.Windows.Forms.ComboBox();
-            this.txtmemocc = new System.Windows.Forms.TextBox();
-            this.txtmemrelationship = new System.Windows.Forms.TextBox();
-            this.txtmemfirstname = new System.Windows.Forms.TextBox();
-            this.label100 = new System.Windows.Forms.Label();
-            this.label107 = new System.Windows.Forms.Label();
-            this.label108 = new System.Windows.Forms.Label();
-            this.label110 = new System.Windows.Forms.Label();
-            this.dtpmembirth = new System.Windows.Forms.DateTimePicker();
-            this.label113 = new System.Windows.Forms.Label();
-            this.cbxmemdependency = new System.Windows.Forms.ComboBox();
-            this.label114 = new System.Windows.Forms.Label();
-            this.cbDType = new System.Windows.Forms.ComboBox();
-            this.datePledge = new System.Windows.Forms.DateTimePicker();
-            this.ASD = new System.Windows.Forms.TextBox();
-            this.panelDName = new System.Windows.Forms.PictureBox();
-            this.countDName = new System.Windows.Forms.Label();
-            this.lblDName = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtmemlastname = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
             this.btnaddeditcase = new BalayPasilungan.NoFocusRec();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.cbIP = new System.Windows.Forms.CheckBox();
+            this.txtIP = new System.Windows.Forms.TextBox();
+            this.panelIP = new System.Windows.Forms.PictureBox();
+            this.txtReligion = new System.Windows.Forms.TextBox();
+            this.panelReligion = new System.Windows.Forms.PictureBox();
+            this.txtBirthplace = new System.Windows.Forms.TextBox();
+            this.panelBirthPlace = new System.Windows.Forms.PictureBox();
+            this.lblBirthPlace = new System.Windows.Forms.Label();
+            this.countBirthPlace = new System.Windows.Forms.Label();
+            this.cbCivilStatus = new System.Windows.Forms.ComboBox();
+            this.lblCivilStatus = new System.Windows.Forms.Label();
+            this.txtAlias = new System.Windows.Forms.TextBox();
+            this.panelAlias = new System.Windows.Forms.PictureBox();
+            this.lblAlias = new System.Windows.Forms.Label();
+            this.countAlias = new System.Windows.Forms.Label();
+            this.txtlname = new System.Windows.Forms.TextBox();
+            this.panelLName = new System.Windows.Forms.PictureBox();
+            this.txtfname = new System.Windows.Forms.TextBox();
+            this.panelFName = new System.Windows.Forms.PictureBox();
+            this.countReligion = new System.Windows.Forms.Label();
+            this.lblAd = new System.Windows.Forms.Label();
+            this.dtjoin = new System.Windows.Forms.DateTimePicker();
+            this.lblDateJoin = new System.Windows.Forms.Label();
+            this.lblBDate = new System.Windows.Forms.Label();
+            this.cbxprogram = new System.Windows.Forms.ComboBox();
+            this.lblReligion = new System.Windows.Forms.Label();
+            this.lblProgram = new System.Windows.Forms.Label();
+            this.lblLName = new System.Windows.Forms.Label();
+            this.dtbirth = new System.Windows.Forms.DateTimePicker();
+            this.lblFName = new System.Windows.Forms.Label();
+            this.countLName = new System.Windows.Forms.Label();
+            this.countFName = new System.Windows.Forms.Label();
+            this.txtcaseaddress = new System.Windows.Forms.RichTextBox();
+            this.countIP = new System.Windows.Forms.Label();
+            this.countAd = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.fifteen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelDName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelIP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelReligion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelBirthPlace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAlias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelLName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelFName)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -80,303 +89,56 @@
             this.tabControl.Location = new System.Drawing.Point(4, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(942, 547);
+            this.tabControl.Size = new System.Drawing.Size(942, 551);
             this.tabControl.TabIndex = 19;
             // 
             // fifteen
             // 
-            this.fifteen.Controls.Add(this.txtmemincome);
-            this.fifteen.Controls.Add(this.label67);
-            this.fifteen.Controls.Add(this.cbxmemeduattain);
-            this.fifteen.Controls.Add(this.label50);
-            this.fifteen.Controls.Add(this.cbxmemstatus);
-            this.fifteen.Controls.Add(this.txtmemocc);
-            this.fifteen.Controls.Add(this.txtmemrelationship);
-            this.fifteen.Controls.Add(this.txtmemfirstname);
-            this.fifteen.Controls.Add(this.label100);
-            this.fifteen.Controls.Add(this.label107);
-            this.fifteen.Controls.Add(this.label108);
-            this.fifteen.Controls.Add(this.label110);
-            this.fifteen.Controls.Add(this.dtpmembirth);
-            this.fifteen.Controls.Add(this.label113);
-            this.fifteen.Controls.Add(this.cbxmemdependency);
-            this.fifteen.Controls.Add(this.label114);
-            this.fifteen.Controls.Add(this.cbDType);
-            this.fifteen.Controls.Add(this.datePledge);
-            this.fifteen.Controls.Add(this.ASD);
-            this.fifteen.Controls.Add(this.panelDName);
-            this.fifteen.Controls.Add(this.countDName);
-            this.fifteen.Controls.Add(this.lblDName);
+            this.fifteen.Controls.Add(this.countAd);
+            this.fifteen.Controls.Add(this.countIP);
+            this.fifteen.Controls.Add(this.txtIP);
+            this.fifteen.Controls.Add(this.panelIP);
+            this.fifteen.Controls.Add(this.txtfname);
+            this.fifteen.Controls.Add(this.panelFName);
+            this.fifteen.Controls.Add(this.cbIP);
+            this.fifteen.Controls.Add(this.txtReligion);
+            this.fifteen.Controls.Add(this.panelReligion);
+            this.fifteen.Controls.Add(this.txtBirthplace);
+            this.fifteen.Controls.Add(this.panelBirthPlace);
+            this.fifteen.Controls.Add(this.lblBirthPlace);
+            this.fifteen.Controls.Add(this.countBirthPlace);
+            this.fifteen.Controls.Add(this.cbCivilStatus);
+            this.fifteen.Controls.Add(this.lblCivilStatus);
+            this.fifteen.Controls.Add(this.txtAlias);
+            this.fifteen.Controls.Add(this.panelAlias);
+            this.fifteen.Controls.Add(this.lblAlias);
+            this.fifteen.Controls.Add(this.countAlias);
+            this.fifteen.Controls.Add(this.txtlname);
+            this.fifteen.Controls.Add(this.panelLName);
+            this.fifteen.Controls.Add(this.countReligion);
+            this.fifteen.Controls.Add(this.lblAd);
+            this.fifteen.Controls.Add(this.dtjoin);
+            this.fifteen.Controls.Add(this.lblDateJoin);
+            this.fifteen.Controls.Add(this.lblBDate);
+            this.fifteen.Controls.Add(this.cbxprogram);
+            this.fifteen.Controls.Add(this.lblReligion);
+            this.fifteen.Controls.Add(this.lblProgram);
+            this.fifteen.Controls.Add(this.lblLName);
+            this.fifteen.Controls.Add(this.dtbirth);
+            this.fifteen.Controls.Add(this.lblFName);
+            this.fifteen.Controls.Add(this.countLName);
+            this.fifteen.Controls.Add(this.countFName);
             this.fifteen.Controls.Add(this.label29);
             this.fifteen.Controls.Add(this.pictureBox15);
             this.fifteen.Controls.Add(this.panel1);
-            this.fifteen.Controls.Add(this.txtmemlastname);
-            this.fifteen.Controls.Add(this.pictureBox1);
-            this.fifteen.Controls.Add(this.label1);
-            this.fifteen.Controls.Add(this.label2);
-            this.fifteen.Controls.Add(this.textBox1);
-            this.fifteen.Controls.Add(this.pictureBox2);
-            this.fifteen.Controls.Add(this.label3);
-            this.fifteen.Controls.Add(this.label4);
+            this.fifteen.Controls.Add(this.txtcaseaddress);
             this.fifteen.Location = new System.Drawing.Point(4, 22);
             this.fifteen.Name = "fifteen";
             this.fifteen.Padding = new System.Windows.Forms.Padding(3);
-            this.fifteen.Size = new System.Drawing.Size(934, 521);
+            this.fifteen.Size = new System.Drawing.Size(934, 525);
             this.fifteen.TabIndex = 15;
             this.fifteen.Text = "15";
             this.fifteen.UseVisualStyleBackColor = true;
-            // 
-            // txtmemincome
-            // 
-            this.txtmemincome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemincome.Location = new System.Drawing.Point(710, 434);
-            this.txtmemincome.Name = "txtmemincome";
-            this.txtmemincome.Size = new System.Drawing.Size(199, 20);
-            this.txtmemincome.TabIndex = 233;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label67.Location = new System.Drawing.Point(597, 433);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(74, 36);
-            this.label67.TabIndex = 232;
-            this.label67.Text = "Monthly \r\nIncome";
-            // 
-            // cbxmemeduattain
-            // 
-            this.cbxmemeduattain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxmemeduattain.CausesValidation = false;
-            this.cbxmemeduattain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxmemeduattain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxmemeduattain.FormattingEnabled = true;
-            this.cbxmemeduattain.Items.AddRange(new object[] {
-            "Elementary",
-            "High School",
-            "College",
-            "Masters",
-            "Doctorate"});
-            this.cbxmemeduattain.Location = new System.Drawing.Point(710, 390);
-            this.cbxmemeduattain.Name = "cbxmemeduattain";
-            this.cbxmemeduattain.Size = new System.Drawing.Size(199, 21);
-            this.cbxmemeduattain.TabIndex = 231;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label50.Location = new System.Drawing.Point(597, 389);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(103, 36);
-            this.label50.TabIndex = 230;
-            this.label50.Text = "Educational\r\nAttainment";
-            // 
-            // cbxmemstatus
-            // 
-            this.cbxmemstatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxmemstatus.CausesValidation = false;
-            this.cbxmemstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxmemstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxmemstatus.FormattingEnabled = true;
-            this.cbxmemstatus.Items.AddRange(new object[] {
-            "Single",
-            "Married",
-            "Widowed",
-            "Legally Separated",
-            "Divorced/Annulled"});
-            this.cbxmemstatus.Location = new System.Drawing.Point(710, 275);
-            this.cbxmemstatus.Name = "cbxmemstatus";
-            this.cbxmemstatus.Size = new System.Drawing.Size(199, 21);
-            this.cbxmemstatus.TabIndex = 229;
-            // 
-            // txtmemocc
-            // 
-            this.txtmemocc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemocc.Location = new System.Drawing.Point(710, 353);
-            this.txtmemocc.Name = "txtmemocc";
-            this.txtmemocc.Size = new System.Drawing.Size(199, 20);
-            this.txtmemocc.TabIndex = 228;
-            // 
-            // txtmemrelationship
-            // 
-            this.txtmemrelationship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemrelationship.Location = new System.Drawing.Point(710, 204);
-            this.txtmemrelationship.Name = "txtmemrelationship";
-            this.txtmemrelationship.Size = new System.Drawing.Size(199, 20);
-            this.txtmemrelationship.TabIndex = 225;
-            // 
-            // txtmemfirstname
-            // 
-            this.txtmemfirstname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtmemfirstname.Location = new System.Drawing.Point(710, 165);
-            this.txtmemfirstname.Name = "txtmemfirstname";
-            this.txtmemfirstname.Size = new System.Drawing.Size(199, 20);
-            this.txtmemfirstname.TabIndex = 223;
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label100.Location = new System.Drawing.Point(597, 352);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(101, 18);
-            this.label100.TabIndex = 227;
-            this.label100.Text = "Occupation";
-            // 
-            // label107
-            // 
-            this.label107.AutoSize = true;
-            this.label107.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label107.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label107.Location = new System.Drawing.Point(597, 274);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(97, 18);
-            this.label107.TabIndex = 226;
-            this.label107.Text = "Civil Status";
-            // 
-            // label108
-            // 
-            this.label108.AutoSize = true;
-            this.label108.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label108.Location = new System.Drawing.Point(597, 203);
-            this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(107, 18);
-            this.label108.TabIndex = 224;
-            this.label108.Text = "Relationship";
-            // 
-            // label110
-            // 
-            this.label110.AutoSize = true;
-            this.label110.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label110.Location = new System.Drawing.Point(597, 169);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(94, 18);
-            this.label110.TabIndex = 222;
-            this.label110.Text = "First Name";
-            // 
-            // dtpmembirth
-            // 
-            this.dtpmembirth.Location = new System.Drawing.Point(710, 237);
-            this.dtpmembirth.MaxDate = new System.DateTime(9997, 12, 2, 0, 0, 0, 0);
-            this.dtpmembirth.Name = "dtpmembirth";
-            this.dtpmembirth.Size = new System.Drawing.Size(199, 20);
-            this.dtpmembirth.TabIndex = 221;
-            // 
-            // label113
-            // 
-            this.label113.AutoSize = true;
-            this.label113.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label113.Location = new System.Drawing.Point(597, 317);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(109, 18);
-            this.label113.TabIndex = 220;
-            this.label113.Text = "Dependency";
-            // 
-            // cbxmemdependency
-            // 
-            this.cbxmemdependency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxmemdependency.CausesValidation = false;
-            this.cbxmemdependency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxmemdependency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxmemdependency.FormattingEnabled = true;
-            this.cbxmemdependency.Items.AddRange(new object[] {
-            "Dependent",
-            "Independent"});
-            this.cbxmemdependency.Location = new System.Drawing.Point(710, 317);
-            this.cbxmemdependency.Name = "cbxmemdependency";
-            this.cbxmemdependency.Size = new System.Drawing.Size(199, 21);
-            this.cbxmemdependency.TabIndex = 219;
-            // 
-            // label114
-            // 
-            this.label114.AutoSize = true;
-            this.label114.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.label114.Location = new System.Drawing.Point(597, 239);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(83, 18);
-            this.label114.TabIndex = 217;
-            this.label114.Text = "Birthdate";
-            // 
-            // cbDType
-            // 
-            this.cbDType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbDType.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.cbDType.FormattingEnabled = true;
-            this.cbDType.Items.AddRange(new object[] {
-            "Individual",
-            "Organization"});
-            this.cbDType.Location = new System.Drawing.Point(371, 248);
-            this.cbDType.Name = "cbDType";
-            this.cbDType.Size = new System.Drawing.Size(193, 25);
-            this.cbDType.TabIndex = 215;
-            // 
-            // datePledge
-            // 
-            this.datePledge.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datePledge.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.datePledge.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.datePledge.CustomFormat = "MMMM dd, yyyy";
-            this.datePledge.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.datePledge.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePledge.Location = new System.Drawing.Point(362, 204);
-            this.datePledge.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            this.datePledge.Name = "datePledge";
-            this.datePledge.Size = new System.Drawing.Size(215, 29);
-            this.datePledge.TabIndex = 214;
-            this.datePledge.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            // 
-            // ASD
-            // 
-            this.ASD.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ASD.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.ASD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.ASD.Location = new System.Drawing.Point(349, 54);
-            this.ASD.MaxLength = 250;
-            this.ASD.Name = "ASD";
-            this.ASD.Size = new System.Drawing.Size(506, 22);
-            this.ASD.TabIndex = 0;
-            this.ASD.Text = "Name of donor.";
-            // 
-            // panelDName
-            // 
-            this.panelDName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelDName.Location = new System.Drawing.Point(349, 64);
-            this.panelDName.Name = "panelDName";
-            this.panelDName.Size = new System.Drawing.Size(506, 33);
-            this.panelDName.TabIndex = 198;
-            this.panelDName.TabStop = false;
-            // 
-            // countDName
-            // 
-            this.countDName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countDName.Location = new System.Drawing.Point(280, 74);
-            this.countDName.Name = "countDName";
-            this.countDName.Size = new System.Drawing.Size(53, 17);
-            this.countDName.TabIndex = 196;
-            this.countDName.Text = "0/250";
-            this.countDName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countDName.Visible = false;
-            // 
-            // lblDName
-            // 
-            this.lblDName.AccessibleDescription = "";
-            this.lblDName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblDName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblDName.Location = new System.Drawing.Point(178, 59);
-            this.lblDName.Name = "lblDName";
-            this.lblDName.Size = new System.Drawing.Size(155, 15);
-            this.lblDName.TabIndex = 195;
-            this.lblDName.Text = "FIRST NAME";
-            this.lblDName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label29
             // 
@@ -384,17 +146,17 @@
             this.label29.BackColor = System.Drawing.Color.Transparent;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
-            this.label29.Location = new System.Drawing.Point(73, 120);
+            this.label29.Location = new System.Drawing.Point(75, 201);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(84, 26);
             this.label29.TabIndex = 193;
-            this.label29.Text = "DONOR\r\nINFORMATION";
+            this.label29.Text = "CHILD\r\nINFORMATION";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox15
             // 
             this.pictureBox15.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox15.Location = new System.Drawing.Point(29, 15);
+            this.pictureBox15.Location = new System.Drawing.Point(29, 20);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(868, 33);
             this.pictureBox15.TabIndex = 137;
@@ -409,51 +171,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(934, 59);
             this.panel1.TabIndex = 152;
-            // 
-            // txtmemlastname
-            // 
-            this.txtmemlastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtmemlastname.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtmemlastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtmemlastname.Location = new System.Drawing.Point(349, 105);
-            this.txtmemlastname.MaxLength = 250;
-            this.txtmemlastname.Name = "txtmemlastname";
-            this.txtmemlastname.Size = new System.Drawing.Size(506, 22);
-            this.txtmemlastname.TabIndex = 234;
-            this.txtmemlastname.Text = "Name of donor.";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox1.Location = new System.Drawing.Point(349, 115);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(506, 33);
-            this.pictureBox1.TabIndex = 237;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.label1.Location = new System.Drawing.Point(280, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
-            this.label1.TabIndex = 236;
-            this.label1.Text = "0/250";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AccessibleDescription = "";
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label2.Location = new System.Drawing.Point(178, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 15);
-            this.label2.TabIndex = 235;
-            this.label2.Text = "LAST NAME";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // noFocusRec1
             // 
@@ -483,50 +200,427 @@
             this.btnaddeditcase.Text = "NEXT";
             this.btnaddeditcase.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // cbIP
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox1.Location = new System.Drawing.Point(230, 167);
-            this.textBox1.MaxLength = 250;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(506, 22);
-            this.textBox1.TabIndex = 238;
-            this.textBox1.Text = "Name of donor.";
+            this.cbIP.AutoSize = true;
+            this.cbIP.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.cbIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.cbIP.Location = new System.Drawing.Point(232, 366);
+            this.cbIP.Name = "cbIP";
+            this.cbIP.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbIP.Size = new System.Drawing.Size(101, 19);
+            this.cbIP.TabIndex = 246;
+            this.cbIP.Text = "INDIGENOUS";
+            this.cbIP.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // txtIP
             // 
-            this.pictureBox2.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox2.Location = new System.Drawing.Point(230, 177);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(506, 33);
-            this.pictureBox2.TabIndex = 241;
-            this.pictureBox2.TabStop = false;
+            this.txtIP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIP.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtIP.Location = new System.Drawing.Point(352, 362);
+            this.txtIP.MaxLength = 250;
+            this.txtIP.Name = "txtIP";
+            this.txtIP.Size = new System.Drawing.Size(500, 22);
+            this.txtIP.TabIndex = 247;
+            this.txtIP.Text = "Specify IP.";
+            this.txtIP.Visible = false;
             // 
-            // label3
+            // panelIP
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.label3.Location = new System.Drawing.Point(161, 187);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 17);
-            this.label3.TabIndex = 240;
-            this.label3.Text = "0/250";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Visible = false;
+            this.panelIP.Image = ((System.Drawing.Image)(resources.GetObject("panelIP.Image")));
+            this.panelIP.Location = new System.Drawing.Point(349, 368);
+            this.panelIP.Name = "panelIP";
+            this.panelIP.Size = new System.Drawing.Size(506, 33);
+            this.panelIP.TabIndex = 270;
+            this.panelIP.TabStop = false;
+            this.panelIP.Visible = false;
             // 
-            // label4
+            // txtReligion
             // 
-            this.label4.AccessibleDescription = "";
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label4.Location = new System.Drawing.Point(59, 172);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 15);
-            this.label4.TabIndex = 239;
-            this.label4.Text = "RELATIONSHIP";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtReligion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReligion.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtReligion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtReligion.Location = new System.Drawing.Point(352, 318);
+            this.txtReligion.MaxLength = 250;
+            this.txtReligion.Name = "txtReligion";
+            this.txtReligion.Size = new System.Drawing.Size(500, 22);
+            this.txtReligion.TabIndex = 245;
+            this.txtReligion.Text = "Enter religion.";
+            // 
+            // panelReligion
+            // 
+            this.panelReligion.Image = ((System.Drawing.Image)(resources.GetObject("panelReligion.Image")));
+            this.panelReligion.Location = new System.Drawing.Point(349, 327);
+            this.panelReligion.Name = "panelReligion";
+            this.panelReligion.Size = new System.Drawing.Size(506, 33);
+            this.panelReligion.TabIndex = 269;
+            this.panelReligion.TabStop = false;
+            this.panelReligion.Click += new System.EventHandler(this.panelReligion_Click);
+            // 
+            // txtBirthplace
+            // 
+            this.txtBirthplace.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBirthplace.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtBirthplace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtBirthplace.Location = new System.Drawing.Point(352, 171);
+            this.txtBirthplace.MaxLength = 100;
+            this.txtBirthplace.Name = "txtBirthplace";
+            this.txtBirthplace.Size = new System.Drawing.Size(500, 22);
+            this.txtBirthplace.TabIndex = 242;
+            this.txtBirthplace.Text = "Enter place of birth.";
+            // 
+            // panelBirthPlace
+            // 
+            this.panelBirthPlace.Image = ((System.Drawing.Image)(resources.GetObject("panelBirthPlace.Image")));
+            this.panelBirthPlace.Location = new System.Drawing.Point(349, 180);
+            this.panelBirthPlace.Name = "panelBirthPlace";
+            this.panelBirthPlace.Size = new System.Drawing.Size(506, 33);
+            this.panelBirthPlace.TabIndex = 268;
+            this.panelBirthPlace.TabStop = false;
+            // 
+            // lblBirthPlace
+            // 
+            this.lblBirthPlace.AccessibleDescription = "";
+            this.lblBirthPlace.AutoSize = true;
+            this.lblBirthPlace.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBirthPlace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblBirthPlace.Location = new System.Drawing.Point(235, 175);
+            this.lblBirthPlace.Name = "lblBirthPlace";
+            this.lblBirthPlace.Size = new System.Drawing.Size(98, 15);
+            this.lblBirthPlace.TabIndex = 267;
+            this.lblBirthPlace.Text = "PLACE OF BIRTH";
+            // 
+            // countBirthPlace
+            // 
+            this.countBirthPlace.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countBirthPlace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countBirthPlace.Location = new System.Drawing.Point(280, 190);
+            this.countBirthPlace.Name = "countBirthPlace";
+            this.countBirthPlace.Size = new System.Drawing.Size(53, 17);
+            this.countBirthPlace.TabIndex = 266;
+            this.countBirthPlace.Text = "0/100";
+            this.countBirthPlace.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countBirthPlace.Visible = false;
+            // 
+            // cbCivilStatus
+            // 
+            this.cbCivilStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCivilStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCivilStatus.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbCivilStatus.FormattingEnabled = true;
+            this.cbCivilStatus.Items.AddRange(new object[] {
+            "Single",
+            "In a relationship",
+            "Married",
+            "Separated/Divorced",
+            "Widowed"});
+            this.cbCivilStatus.Location = new System.Drawing.Point(701, 125);
+            this.cbCivilStatus.Name = "cbCivilStatus";
+            this.cbCivilStatus.Size = new System.Drawing.Size(154, 25);
+            this.cbCivilStatus.TabIndex = 241;
+            // 
+            // lblCivilStatus
+            // 
+            this.lblCivilStatus.AccessibleDescription = "";
+            this.lblCivilStatus.AutoSize = true;
+            this.lblCivilStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCivilStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblCivilStatus.Location = new System.Drawing.Point(599, 130);
+            this.lblCivilStatus.Name = "lblCivilStatus";
+            this.lblCivilStatus.Size = new System.Drawing.Size(82, 15);
+            this.lblCivilStatus.TabIndex = 265;
+            this.lblCivilStatus.Text = "CIVIL STATUS";
+            // 
+            // txtAlias
+            // 
+            this.txtAlias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAlias.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAlias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtAlias.Location = new System.Drawing.Point(349, 126);
+            this.txtAlias.MaxLength = 250;
+            this.txtAlias.Name = "txtAlias";
+            this.txtAlias.Size = new System.Drawing.Size(228, 22);
+            this.txtAlias.TabIndex = 240;
+            this.txtAlias.Text = "Enter alias.";
+            // 
+            // panelAlias
+            // 
+            this.panelAlias.Image = ((System.Drawing.Image)(resources.GetObject("panelAlias.Image")));
+            this.panelAlias.Location = new System.Drawing.Point(349, 134);
+            this.panelAlias.Name = "panelAlias";
+            this.panelAlias.Size = new System.Drawing.Size(228, 33);
+            this.panelAlias.TabIndex = 264;
+            this.panelAlias.TabStop = false;
+            // 
+            // lblAlias
+            // 
+            this.lblAlias.AccessibleDescription = "";
+            this.lblAlias.AutoSize = true;
+            this.lblAlias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblAlias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblAlias.Location = new System.Drawing.Point(252, 130);
+            this.lblAlias.Name = "lblAlias";
+            this.lblAlias.Size = new System.Drawing.Size(81, 15);
+            this.lblAlias.TabIndex = 263;
+            this.lblAlias.Text = "ALIAS (if any)";
+            // 
+            // countAlias
+            // 
+            this.countAlias.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countAlias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countAlias.Location = new System.Drawing.Point(280, 145);
+            this.countAlias.Name = "countAlias";
+            this.countAlias.Size = new System.Drawing.Size(53, 17);
+            this.countAlias.TabIndex = 262;
+            this.countAlias.Text = "0/100";
+            this.countAlias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countAlias.Visible = false;
+            // 
+            // txtlname
+            // 
+            this.txtlname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtlname.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtlname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtlname.Location = new System.Drawing.Point(352, 83);
+            this.txtlname.MaxLength = 250;
+            this.txtlname.Name = "txtlname";
+            this.txtlname.Size = new System.Drawing.Size(500, 22);
+            this.txtlname.TabIndex = 239;
+            this.txtlname.Text = "Enter last name.";
+            // 
+            // panelLName
+            // 
+            this.panelLName.Image = ((System.Drawing.Image)(resources.GetObject("panelLName.Image")));
+            this.panelLName.Location = new System.Drawing.Point(349, 89);
+            this.panelLName.Name = "panelLName";
+            this.panelLName.Size = new System.Drawing.Size(506, 33);
+            this.panelLName.TabIndex = 261;
+            this.panelLName.TabStop = false;
+            // 
+            // txtfname
+            // 
+            this.txtfname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtfname.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtfname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtfname.Location = new System.Drawing.Point(352, 41);
+            this.txtfname.MaxLength = 250;
+            this.txtfname.Name = "txtfname";
+            this.txtfname.Size = new System.Drawing.Size(500, 22);
+            this.txtfname.TabIndex = 238;
+            this.txtfname.Text = "Enter first name.";
+            // 
+            // panelFName
+            // 
+            this.panelFName.Image = ((System.Drawing.Image)(resources.GetObject("panelFName.Image")));
+            this.panelFName.Location = new System.Drawing.Point(349, 49);
+            this.panelFName.Name = "panelFName";
+            this.panelFName.Size = new System.Drawing.Size(506, 33);
+            this.panelFName.TabIndex = 260;
+            this.panelFName.TabStop = false;
+            // 
+            // countReligion
+            // 
+            this.countReligion.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countReligion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countReligion.Location = new System.Drawing.Point(280, 337);
+            this.countReligion.Name = "countReligion";
+            this.countReligion.Size = new System.Drawing.Size(53, 17);
+            this.countReligion.TabIndex = 259;
+            this.countReligion.Text = "0/100";
+            this.countReligion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countReligion.Visible = false;
+            // 
+            // lblAd
+            // 
+            this.lblAd.AccessibleDescription = "";
+            this.lblAd.AutoSize = true;
+            this.lblAd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblAd.Location = new System.Drawing.Point(272, 257);
+            this.lblAd.Name = "lblAd";
+            this.lblAd.Size = new System.Drawing.Size(61, 15);
+            this.lblAd.TabIndex = 258;
+            this.lblAd.Text = "ADDRESS";
+            // 
+            // dtjoin
+            // 
+            this.dtjoin.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtjoin.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dtjoin.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dtjoin.CustomFormat = "MMMM dd, yyyy";
+            this.dtjoin.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dtjoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtjoin.Location = new System.Drawing.Point(627, 413);
+            this.dtjoin.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dtjoin.Name = "dtjoin";
+            this.dtjoin.Size = new System.Drawing.Size(228, 29);
+            this.dtjoin.TabIndex = 249;
+            this.dtjoin.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // lblDateJoin
+            // 
+            this.lblDateJoin.AccessibleDescription = "";
+            this.lblDateJoin.AutoSize = true;
+            this.lblDateJoin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblDateJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblDateJoin.Location = new System.Drawing.Point(540, 420);
+            this.lblDateJoin.Name = "lblDateJoin";
+            this.lblDateJoin.Size = new System.Drawing.Size(81, 15);
+            this.lblDateJoin.TabIndex = 257;
+            this.lblDateJoin.Text = "DATE JOINED";
+            // 
+            // lblBDate
+            // 
+            this.lblBDate.AccessibleDescription = "";
+            this.lblBDate.AutoSize = true;
+            this.lblBDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblBDate.Location = new System.Drawing.Point(261, 222);
+            this.lblBDate.Name = "lblBDate";
+            this.lblBDate.Size = new System.Drawing.Size(72, 15);
+            this.lblBDate.TabIndex = 256;
+            this.lblBDate.Text = "BIRTHDATE";
+            // 
+            // cbxprogram
+            // 
+            this.cbxprogram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxprogram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxprogram.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbxprogram.FormattingEnabled = true;
+            this.cbxprogram.Items.AddRange(new object[] {
+            "Drop-In",
+            "Residential"});
+            this.cbxprogram.Location = new System.Drawing.Point(349, 415);
+            this.cbxprogram.Name = "cbxprogram";
+            this.cbxprogram.Size = new System.Drawing.Size(168, 25);
+            this.cbxprogram.TabIndex = 248;
+            // 
+            // lblReligion
+            // 
+            this.lblReligion.AccessibleDescription = "";
+            this.lblReligion.AutoSize = true;
+            this.lblReligion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblReligion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblReligion.Location = new System.Drawing.Point(271, 322);
+            this.lblReligion.Name = "lblReligion";
+            this.lblReligion.Size = new System.Drawing.Size(62, 15);
+            this.lblReligion.TabIndex = 255;
+            this.lblReligion.Text = "RELIGION";
+            // 
+            // lblProgram
+            // 
+            this.lblProgram.AccessibleDescription = "";
+            this.lblProgram.AutoSize = true;
+            this.lblProgram.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblProgram.Location = new System.Drawing.Point(266, 420);
+            this.lblProgram.Name = "lblProgram";
+            this.lblProgram.Size = new System.Drawing.Size(67, 15);
+            this.lblProgram.TabIndex = 254;
+            this.lblProgram.Text = "PROGRAM";
+            // 
+            // lblLName
+            // 
+            this.lblLName.AccessibleDescription = "";
+            this.lblLName.AutoSize = true;
+            this.lblLName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblLName.Location = new System.Drawing.Point(261, 87);
+            this.lblLName.Name = "lblLName";
+            this.lblLName.Size = new System.Drawing.Size(72, 15);
+            this.lblLName.TabIndex = 253;
+            this.lblLName.Text = "LAST NAME";
+            // 
+            // dtbirth
+            // 
+            this.dtbirth.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtbirth.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dtbirth.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dtbirth.CustomFormat = "MMMM dd, yyyy";
+            this.dtbirth.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dtbirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtbirth.Location = new System.Drawing.Point(349, 215);
+            this.dtbirth.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dtbirth.Name = "dtbirth";
+            this.dtbirth.Size = new System.Drawing.Size(228, 29);
+            this.dtbirth.TabIndex = 243;
+            this.dtbirth.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            // 
+            // lblFName
+            // 
+            this.lblFName.AccessibleDescription = "";
+            this.lblFName.AutoSize = true;
+            this.lblFName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblFName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.lblFName.Location = new System.Drawing.Point(257, 45);
+            this.lblFName.Name = "lblFName";
+            this.lblFName.Size = new System.Drawing.Size(76, 15);
+            this.lblFName.TabIndex = 252;
+            this.lblFName.Text = "FIRST NAME";
+            // 
+            // countLName
+            // 
+            this.countLName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countLName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countLName.Location = new System.Drawing.Point(280, 102);
+            this.countLName.Name = "countLName";
+            this.countLName.Size = new System.Drawing.Size(53, 17);
+            this.countLName.TabIndex = 251;
+            this.countLName.Text = "0/100";
+            this.countLName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countLName.Visible = false;
+            // 
+            // countFName
+            // 
+            this.countFName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countFName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countFName.Location = new System.Drawing.Point(280, 60);
+            this.countFName.Name = "countFName";
+            this.countFName.Size = new System.Drawing.Size(53, 17);
+            this.countFName.TabIndex = 250;
+            this.countFName.Text = "0/100";
+            this.countFName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countFName.Visible = false;
+            // 
+            // txtcaseaddress
+            // 
+            this.txtcaseaddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtcaseaddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtcaseaddress.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtcaseaddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtcaseaddress.Location = new System.Drawing.Point(349, 257);
+            this.txtcaseaddress.Margin = new System.Windows.Forms.Padding(10);
+            this.txtcaseaddress.MaxLength = 250;
+            this.txtcaseaddress.Name = "txtcaseaddress";
+            this.txtcaseaddress.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtcaseaddress.Size = new System.Drawing.Size(506, 55);
+            this.txtcaseaddress.TabIndex = 271;
+            this.txtcaseaddress.Text = "Enter address.";
+            // 
+            // countIP
+            // 
+            this.countIP.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countIP.Location = new System.Drawing.Point(280, 384);
+            this.countIP.Name = "countIP";
+            this.countIP.Size = new System.Drawing.Size(53, 17);
+            this.countIP.TabIndex = 272;
+            this.countIP.Text = "0/100";
+            this.countIP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countIP.Visible = false;
+            // 
+            // countAd
+            // 
+            this.countAd.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countAd.Location = new System.Drawing.Point(280, 272);
+            this.countAd.Name = "countAd";
+            this.countAd.Size = new System.Drawing.Size(53, 17);
+            this.countAd.TabIndex = 273;
+            this.countAd.Text = "0/250";
+            this.countAd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countAd.Visible = false;
             // 
             // plain
             // 
@@ -540,11 +634,14 @@
             this.tabControl.ResumeLayout(false);
             this.fifteen.ResumeLayout(false);
             this.fifteen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelDName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelIP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelReligion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelBirthPlace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAlias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelLName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelFName)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -557,36 +654,41 @@
         private NoFocusRec noFocusRec1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label countDName;
-        private System.Windows.Forms.TextBox ASD;
-        private System.Windows.Forms.Label lblDName;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox panelDName;
-        private System.Windows.Forms.DateTimePicker datePledge;
-        private System.Windows.Forms.ComboBox cbDType;
-        private System.Windows.Forms.TextBox txtmemincome;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.ComboBox cbxmemeduattain;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.ComboBox cbxmemstatus;
-        private System.Windows.Forms.TextBox txtmemocc;
-        private System.Windows.Forms.TextBox txtmemrelationship;
-        private System.Windows.Forms.TextBox txtmemfirstname;
-        private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.Label label107;
-        private System.Windows.Forms.Label label108;
-        private System.Windows.Forms.Label label110;
-        private System.Windows.Forms.DateTimePicker dtpmembirth;
-        private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.ComboBox cbxmemdependency;
-        private System.Windows.Forms.Label label114;
-        private System.Windows.Forms.TextBox txtmemlastname;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtfname;
+        private System.Windows.Forms.PictureBox panelFName;
+        private System.Windows.Forms.CheckBox cbIP;
+        private System.Windows.Forms.TextBox txtIP;
+        private System.Windows.Forms.PictureBox panelIP;
+        private System.Windows.Forms.TextBox txtReligion;
+        private System.Windows.Forms.PictureBox panelReligion;
+        private System.Windows.Forms.TextBox txtBirthplace;
+        private System.Windows.Forms.PictureBox panelBirthPlace;
+        private System.Windows.Forms.Label lblBirthPlace;
+        private System.Windows.Forms.Label countBirthPlace;
+        private System.Windows.Forms.ComboBox cbCivilStatus;
+        private System.Windows.Forms.Label lblCivilStatus;
+        private System.Windows.Forms.TextBox txtAlias;
+        private System.Windows.Forms.PictureBox panelAlias;
+        private System.Windows.Forms.Label lblAlias;
+        private System.Windows.Forms.Label countAlias;
+        private System.Windows.Forms.TextBox txtlname;
+        private System.Windows.Forms.PictureBox panelLName;
+        private System.Windows.Forms.Label countReligion;
+        private System.Windows.Forms.Label lblAd;
+        private System.Windows.Forms.DateTimePicker dtjoin;
+        private System.Windows.Forms.Label lblDateJoin;
+        private System.Windows.Forms.Label lblBDate;
+        private System.Windows.Forms.ComboBox cbxprogram;
+        private System.Windows.Forms.Label lblReligion;
+        private System.Windows.Forms.Label lblProgram;
+        private System.Windows.Forms.Label lblLName;
+        private System.Windows.Forms.DateTimePicker dtbirth;
+        private System.Windows.Forms.Label lblFName;
+        private System.Windows.Forms.Label countLName;
+        private System.Windows.Forms.Label countFName;
+        private System.Windows.Forms.RichTextBox txtcaseaddress;
+        private System.Windows.Forms.Label countIP;
+        private System.Windows.Forms.Label countAd;
     }
 }

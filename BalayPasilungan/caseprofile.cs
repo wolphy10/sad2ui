@@ -58,20 +58,7 @@ namespace BalayPasilungan
 
             infoTS.BackgroundImage = null; familyTS.BackgroundImage = null; eduTS.BackgroundImage = null; healthTS.BackgroundImage = null; consulTS.BackgroundImage = null; othersTS.BackgroundImage = null;
 
-        }
-
-        public void resetMainColors()   // Reset taskbar and main buttons to black
-        {
-            taskbar.BackColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            tabCase.SelectedTab = tabNewChild;
-            btnCases.BackColor = Color.White;            
-            btnCases.BackgroundImage = global::BalayPasilungan.Properties.Resources.cases_green;            
-        }
-
-        public void resetMainBTN()      // Reset Main Buttons backcolor to green
-        {
-            btnCases.BackColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");            
-        }
+        }        
 
         public void resetNewChildTS()   // Reset New Child ToolStrip to Gray
         {
@@ -163,7 +150,7 @@ namespace BalayPasilungan
         }
         #endregion
 
-        #region Main            
+        #region Main Buttons        
         private void btnClose_Click(object sender, EventArgs e)
         {
             confirm conf = new confirm();
@@ -182,13 +169,46 @@ namespace BalayPasilungan
             }
             dim.Close();
         }
+        
+        private void taskbar_Click(object sender, EventArgs e)
+        {
+            btnMain.ForeColor = btnCases.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
+            logo_main.BackgroundImage = Properties.Resources.main_fade;
+            logo_cases.BackgroundImage = Properties.Resources.case_fade;            
+            ((Button)sender).ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+            if (((Button)sender).Name == "btnCases")
+            {
+                logo_cases.BackgroundImage = Properties.Resources._case;
+                tabCase.SelectedTab = tabCases;
+            }
+            else
+            {
+                logo_main.BackgroundImage = Properties.Resources.main;
+            }
+        }
+        
+        private void logo_click(object sender, EventArgs e)
+        {
+            btnMain.ForeColor = btnCases.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
+            logo_main.BackgroundImage = Properties.Resources.main_fade;
+            logo_cases.BackgroundImage = Properties.Resources.case_fade;            
+            if (((PictureBox)sender).Name == "logo_cases") 
+            {
+                btnCases.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                logo_cases.BackgroundImage = Properties.Resources._case;
+                tabCase.SelectedTab = tabCases;
+            }
+            else
+            {
+                btnMain.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                logo_main.BackgroundImage = Properties.Resources.main;
+            }
+        }
         #endregion
 
         #region Case Profile Load
         private void caseprofile_Load(object sender, EventArgs e)
         {
-            resetMainBTN();
-
             lbladdeditprofile.Text = "NEW CASE PROFILE";
             btnaddeditcase.Text = "ADD NEW PROFILE";
 
@@ -2294,14 +2314,6 @@ namespace BalayPasilungan
         }  
         #endregion
 
-        #region Main Buttons
-        private void btnCases_Click(object sender, EventArgs e)
-        {
-            resetMainBTN();
-            tabCase.SelectedTab = tabCases;    
-        }
-        #endregion
-
         #region New Child Profile Form
         private class renderer : ToolStripProfessionalRenderer
         {
@@ -2330,7 +2342,6 @@ namespace BalayPasilungan
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            resetMainColors();
             cbxprogram.SelectedIndex = cbCivilStatus.SelectedIndex = 0;
             lbladdeditprofile.Text = "NEW CASE PROFILE";
             tabCase.SelectedTab = tabNewChild;
@@ -2687,12 +2698,7 @@ namespace BalayPasilungan
             }
         }
         #endregion
-
-        private void btnMain_Click(object sender, EventArgs e)
-        {
-            tabCase.SelectedTab = tabInfo;
-        }
-
+        
         #region add/edit buttons
 
         private void btnaddeditcase_Click(object sender, EventArgs e)
@@ -3247,6 +3253,7 @@ namespace BalayPasilungan
             if (tabChild.SelectedTab != sixteen) btnEditProfile.Visible = false;
             else btnEditProfile.Visible = true;
         }
+
         private void btnrestorecaseprof_Click(object sender, EventArgs e)
         {
             DataGridViewCheckBoxColumn lulz = new DataGridViewCheckBoxColumn();
