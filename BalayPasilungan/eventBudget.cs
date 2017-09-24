@@ -17,6 +17,7 @@ namespace BalayPasilungan
         public MySqlCommand comm;
         public MySqlDataAdapter adp;
         public DataTable dt;
+        public eventorg reftoeventorg { get; set; }
         public bool confirmed;
         public bool empty;
         public int current_item, current_budgetID;
@@ -280,7 +281,8 @@ namespace BalayPasilungan
                         + lblBRCategory.Text + "', budgetTotal = " + sum + ", dateRequested = '" + DateTime.Today.ToString("yyyy-MM-dd") + "', eventName = '" + lblEventName.Text + "' WHERE budgetID = " + current_budgetID, conn);
                     comm.ExecuteNonQuery();
 
-                    this.Close();
+                    //this.Close();
+                    this.DialogResult = DialogResult.OK;
                 }
             }
             catch (Exception ex)
@@ -390,5 +392,16 @@ namespace BalayPasilungan
             }            
         }
         #endregion
+
+        private void eventBudget_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("ok lng ba kung walang multiple selection sa category? wala bang instances na may mag sabay? or kung magsabay yung sa catergories kay others nlng ??");
+            lblEventName.Text = reftoeventorg.evNameBudget;
+        }
+
+        private void eventBudget_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reftoeventorg.Show();
+        }
     }
 }
