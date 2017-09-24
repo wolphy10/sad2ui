@@ -458,59 +458,6 @@ namespace BalayPasilungan
             }
         }
 
-        public void insertinvolve()
-        {
-            string lastname, firstname;
-            try
-            {
-                foreach (DataGridViewRow row in dtginv.Rows)
-                {
-                    lastname = row.Cells["lastname"].Value.ToString();
-                    firstname = row.Cells["firstname"].Value.ToString();
-                    if (Convert.ToBoolean(row.Cells["check"].Value))
-                    {
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO involvement(incidid, caseid, lastname, firstname) VALUES(" + incidid + ", '" + id + "', '" + lastname + "', '" + firstname + "')", conn);
-                        comm.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ee)
-            {
-                errorMessage(ee.Message);
-            }
-        }
-
-        public void editinvolve()
-        {
-            string lastname, firstname;
-            try
-            {
-                foreach (DataGridViewRow row in dtginv.Rows)
-                {
-                    lastname = row.Cells["lastname"].Value.ToString();
-                    firstname = row.Cells["firstname"].Value.ToString();
-                    if (Convert.ToBoolean(row.Cells["check"].Value))
-                    {
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO involvement(incidid, caseid, lastname, firstname) SELECT * FROM (SELECT " + incidid + ", '" + id + "', '" + lastname + "', '" + firstname + "') AS temp WHERE" +
-                                            " NOT EXISTS (SELECT incidid, lastname, firstname FROM involvement WHERE incidid = " + incidid + " AND lastname = '" + lastname + "' AND firstname = '" + firstname + "')", conn);
-                        comm.ExecuteNonQuery();
-                        //MessageBox.Show("ADD");
-                    }
-
-                    else
-                    {
-                        MySqlCommand comm = new MySqlCommand("DELETE FROM involvement WHERE lastname = '" + lastname + "' AND firstname = '" + firstname + "' AND incidid = " + incidid, conn);
-                        comm.ExecuteNonQuery();
-                        //MessageBox.Show("DELETE");
-                    }
-                }
-            }
-            catch (Exception ee)
-            {
-                errorMessage(ee.Message);
-            }
-        }
-
         public void refresh()
         {
             try
@@ -1100,68 +1047,7 @@ namespace BalayPasilungan
             }
         }
 
-        public void reloadinvcases()
-        {
-            try
-            {
-                conn.Open();
-                MySqlDataAdapter adp = new MySqlDataAdapter("SELECT caseid, lastname, firstname, program FROM casestudyprofile WHERE caseid != " + id, conn);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-                if (dt.Rows.Count == 0)
-                {
-                    dt.Rows.Add(-1, "No entries.", null, null);
-                    empty = true;
-                }
-
-                dtginv.DataSource = dt;
-
-                // Case Profile UI Modifications
-                dtginv.Columns[1].HeaderText = "LASTNAME";
-                dtginv.Columns[2].HeaderText = "FIRSTNAME";
-                dtginv.Columns[3].HeaderText = "PROGRAM";
-
-                // For ID purposes (hidden from user)            
-                dtginv.Columns["caseid"].Visible = false;
-
-                // 935 WIDTH
-                dtginv.Columns[1].Width = 380;
-                dtginv.Columns[2].Width = 380;
-                dtginv.Columns[3].Width = 175;
-
-                if (dt.Rows.Count > 0 && !empty)
-                {
-                    dtginv.Columns[1].HeaderCell.Style.Padding = new Padding(10, 0, 0, 0);
-                    dtginv.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
-
-                    DataGridViewCheckBoxColumn dc = new DataGridViewCheckBoxColumn();
-
-                    dc.Name = "check";
-                    dc.Visible = true;
-                    dc.TrueValue = true;
-                    dc.FalseValue = false;
-                    dc.ReadOnly = false;
-
-                    if (dtginv.Columns["check"] == null)
-                    {
-                        dtginv.Columns.Add(dc);
-
-                        dc.TrueValue = true;
-                        dc.FalseValue = false;
-                    }
-                }
-                else empty = false;
-
-                conn.Close();
-            }
-            catch (Exception ee)
-            {
-                errorMessage(ee.Message);
-                conn.Close();
-            }
-        }
-
+       
         public void reloadeditclass(int classid)
         {
             try
@@ -1534,15 +1420,21 @@ namespace BalayPasilungan
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT famtype FROM family WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT familyid, famposition, famtype FROM family WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
                 adp.Fill(dt);
 
-                if (dt.Rows.Count > 0)
-                {                    
-                    lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();                    
-                    //MessageBox.Show(famid.ToString());                    
+                if (dt.Rows.Count == 0)
+                {
+                    dt.Rows.Add(-1, "No entries.", null);
+                    empty = true;
                 }
+
+                dtgmembers.DataSource = dt;
+
+                // UI Modifications
+                dtgmembers.Columns[1].HeaderText = "FAMILY POSITION";
+                dtgmembers.Columns[2].HeaderText = "FAMILY TYPE";
                 conn.Close();
             }
             catch (Exception ee)
@@ -1552,10 +1444,37 @@ namespace BalayPasilungan
             }
         }
 
+        public void reloadfamtype(int x)
+        {
+            try
+            {
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand("SELECT famtype FROM family WHERE caseid = " + id, conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();
+                }
+
+                conn.Close();
+
+                reloadmem(id);
+            }
+
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.ToString());
+                conn.Close();
+            }
+        }
+
         public void reloadmem(int id)
         {
             try
             {
+             
                 MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, civilstatus, age, birthdate, relationship, occupation, eduattain, monthlyincome, remarks FROM member WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
                 adp.Fill(dt);                
@@ -1566,27 +1485,27 @@ namespace BalayPasilungan
                     empty = true;
                 }
                 
-                dtfamOverview.DataSource = dt;
+                dtgmembers.DataSource = dt;
 
                 // UI Modifications
-                dtfamOverview.Columns[1].HeaderText = "FIRST NAME";
-                dtfamOverview.Columns[2].HeaderText = "LAST NAME";
-                dtfamOverview.Columns[3].HeaderText = "CIVIL STATUS";
-                dtfamOverview.Columns[4].HeaderText = "AGE";
-                dtfamOverview.Columns[5].HeaderText = "BIRTHDATE";
-                dtfamOverview.Columns[6].HeaderText = "RELATIONSHIP";                
-                dtfamOverview.Columns[7].HeaderText = "OCCUPATION";
-                dtfamOverview.Columns[8].HeaderText = "EDUCATIONAL ATTAINMENT";
-                dtfamOverview.Columns[9].HeaderText = "MONTHLY INCOME";
-                dtfamOverview.Columns[10].HeaderText = "REMARKS";
+                dtgmembers.Columns[1].HeaderText = "FIRST NAME";
+                dtgmembers.Columns[2].HeaderText = "LAST NAME";
+                dtgmembers.Columns[3].HeaderText = "CIVIL STATUS";
+                dtgmembers.Columns[4].HeaderText = "AGE";
+                dtgmembers.Columns[5].HeaderText = "BIRTHDATE";
+                dtgmembers.Columns[6].HeaderText = "RELATIONSHIP";                
+                dtgmembers.Columns[7].HeaderText = "OCCUPATION";
+                dtgmembers.Columns[8].HeaderText = "EDUCATIONAL ATTAINMENT";
+                dtgmembers.Columns[9].HeaderText = "MONTHLY INCOME";
+                dtgmembers.Columns[10].HeaderText = "REMARKS";
 
                 // WIDTH
-                dtfamOverview.Columns[1].Width = dtfamOverview.Columns[2].Width = dtfamOverview.Columns[6].Width = dtfamOverview.Columns[8].Width = 150;
-                dtfamOverview.Columns[3].Width = 100;
-                dtfamOverview.Columns[10].Width = 300;
+                dtgmembers.Columns[1].Width = dtgmembers.Columns[2].Width = dtgmembers.Columns[6].Width = dtgmembers.Columns[8].Width = 150;
+                dtgmembers.Columns[3].Width = 100;
+                dtgmembers.Columns[10].Width = 300;
 
                 // For ID purposes (hidden from user)            
-                dtfamOverview.Columns[0].Visible = false;                
+                dtgmembers.Columns[0].Visible = false;                
 
                 if (dt.Rows.Count > 0 && !empty)
                 {                    
@@ -1599,7 +1518,7 @@ namespace BalayPasilungan
                     dc.Name = "CHECK";
                     dc.Visible = true;
 
-                    if (dtfamOverview.Columns["CHECK"] == null && archivemode == 0) dtfamOverview.Columns.Add(dc);                    
+                    if (dtgmembers.Columns["CHECK"] == null && archivemode == 0) dtgmembers.Columns.Add(dc);                    
                 }           
             }
             catch (Exception ee)
@@ -1618,7 +1537,7 @@ namespace BalayPasilungan
             {
                 try
                 {
-                    id = int.Parse(dtgcs.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    id = int.Parse(dtgcs.Rows[e.RowIndex].Cells["caseid"].Value.ToString());
 
                     tabChild.SelectedTab = sixteen;
                     tabCase.SelectedTab = tabInfo;
@@ -1626,6 +1545,7 @@ namespace BalayPasilungan
                     btnArchive.Visible = true;
                     btncancelarchive.Visible = false;
                     archivemode = 0;
+
                     reload(id);
 
 
@@ -1633,13 +1553,30 @@ namespace BalayPasilungan
                 }
                 catch (Exception ee)
                 {
-                    errorMessage(ee.ToString());
+                    MessageBox.Show(ee.ToString());
                 }
             }
             
         }
 
-        
+        private void dtgfamily_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                id = int.Parse(dtgfamily.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                tabChild.SelectedTab = fourth;
+
+                reloadfamtype(id);
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.ToString());
+            }
+        }
+
+
+
         private void dtghealth_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -1802,7 +1739,7 @@ namespace BalayPasilungan
                 lbladdeditprofile.Text = "Edit Family Members Info";
                 btnaddmember.Text = "ADD CHANGES";
 
-                memberid = int.Parse(dtfamOverview.Rows[e.RowIndex].Cells["memberid"].Value.ToString());
+                memberid = int.Parse(dtgmembers.Rows[e.RowIndex].Cells["memberid"].Value.ToString());
 
                 reloadeditmember(memberid);
             }
@@ -1991,7 +1928,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
@@ -2065,7 +2002,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         } 
@@ -2126,7 +2063,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
 
@@ -2134,10 +2071,11 @@ namespace BalayPasilungan
 
         public void existsfam(int id)
         {
+            
             try
             {
                 //MessageBox.Show(id.ToString());
-                MySqlCommand comm = new MySqlCommand("SELECT famtype FROM family WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT familyid, famtype FROM family WHERE caseid = " + id + " AND famcurrent = " + 1, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -2148,22 +2086,17 @@ namespace BalayPasilungan
                     
                         lblfamtypedis.Text = dt.Rows[0]["famtype"].ToString();
                         btnfamtype.Text = "CHANGE FAMILY TYPE";
+
+                        famid = int.Parse(dt.Rows[0]["familyid"].ToString());
+
+                    existsmem(famid, 1);
                 }
 
                 else
                 {
                     lblfamtypedis.Text = "";
 
-                    btnfamtype.Text = "ADD FAMILY TYPE";
                 }
-
-                comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE caseid = " + id, conn);
-                adp = new MySqlDataAdapter(comm);
-                dt = new DataTable();
-
-                adp.Fill(dt);
-
-                lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
                 
             }
             catch (Exception ee)
@@ -2171,6 +2104,17 @@ namespace BalayPasilungan
                 errorMessage(ee.Message);
                 conn.Close();
             }
+        }
+
+        public void existsmem(int x, int y)
+        {
+            MySqlCommand comm = new MySqlCommand("SELECT COUNT(memberid) FROM member JOIN family ON member.familyid = family.familyid WHERE member.familyd = " + x + " AND family.famcurrent = " + y, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+
+            adp.Fill(dt);
+
+            lblmemcountdis.Text = dt.Rows[0]["COUNT(memberid)"].ToString();
         }
 
         public void existshealth(int id)
@@ -2355,7 +2299,7 @@ namespace BalayPasilungan
 
             if (btnaddincidrecord.Text == "ADD")
             {                
-                reloadinvcases();
+               
                 lbladdeditprofile.Text = "New Incident Record";
             }
             else lbladdeditprofile.Text = "Update Incident Record";            
@@ -2365,7 +2309,7 @@ namespace BalayPasilungan
         private void btnNewConfirm_Click(object sender, EventArgs e)
         {
             resetNewChildTS();
-            tabaddchild.SelectedTab = tabNewInvolve;
+            
         }
 
         #endregion
@@ -2588,6 +2532,8 @@ namespace BalayPasilungan
             }
         }
 
+ 
+
         public void getincidid(int id)
         {
             try
@@ -2756,13 +2702,13 @@ namespace BalayPasilungan
 
         private void btndeletefam_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dtfamOverview.Rows)
+            foreach (DataGridViewRow row in dtgmembers.Rows)
             {
                 DataGridViewCheckBoxCell chk = row.Cells[8] as DataGridViewCheckBoxCell;
 
                 if (Convert.ToBoolean(chk.Value) == true)
                 {
-                    dtfamOverview.Rows.Remove(row);
+                    dtgmembers.Rows.Remove(row);
                 }
             }
         }
@@ -2799,6 +2745,12 @@ namespace BalayPasilungan
 
             reset();
         }
+
+        private void btnbackfromfamrec_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = sixteen;
+        }
+
 
         private void btnbackfromarchive_Click(object sender, EventArgs e)
         {
@@ -2958,13 +2910,15 @@ namespace BalayPasilungan
             if (archivemode == 0)
             {
                 reloadfam(id);
-                reloadmem(id);
+                //reloadmem(id);
             }
             else
             {
                 reloadfam(archiveid);
-                reloadmem(archiveid);
-            }            
+                //reloadmem(archiveid);
+            }
+
+            tabChild.SelectedTab = five;
         }
 
         private void btnincidview_Click(object sender, EventArgs e)
@@ -3052,7 +3006,7 @@ namespace BalayPasilungan
             tabaddchild.SelectedTab = tabNewIncid;
             btnaddincidrecord.Text = "ADD CHANGES";
             lbladdeditprofile.Text = "UPDATE INCIDENT RECORD";            
-            reloadinvcases();
+           
 
             reloadeditincid(id);
         }
@@ -3068,18 +3022,7 @@ namespace BalayPasilungan
            
         }        
 
-        private void btnaddinvolve_Click(object sender, EventArgs e)
-        {
-            tabaddchild.SelectedTab = tabNewInvolve;
-            reloadinvcases();
-            lbladdeditprofile.Text = "People Involved";            
-        }
-
-        private void tabaddinfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void cbIP_CheckedChanged(object sender, EventArgs e)
         {
             if (cbIP.Checked) panelIP.Visible = txtIP.Visible = true;
@@ -3250,16 +3193,7 @@ namespace BalayPasilungan
             base.OnPaint(e);
         }
 
-        private void healthType_DrawItem(object sender, DrawItemEventArgs e)
-        {
-
-        }
-
-        private void tabInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void all_cond_Click(object sender, EventArgs e)
         {
             btnAllergy.BackColor = btnCondition.BackColor = btnDescription.BackColor = btnActions.BackColor = Color.Transparent;
@@ -3272,7 +3206,7 @@ namespace BalayPasilungan
             else if (((Button)sender).Name == "btnActions") panelDesc.Visible = false;
         }
 
-        private void rtwitnesses_TextChanged(object sender, EventArgs e)
+        private void btnaddfam_Click(object sender, EventArgs e)
         {
 
         }
@@ -3393,12 +3327,12 @@ namespace BalayPasilungan
             else if (((TextBox)sender).Name == "txtheight")
             {
                 lblHeight.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelHeight.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;                
+                     
             }
             else if (((TextBox)sender).Name == "txtweight")
             {
                 lblWeight.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                panelWeight.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                
             }
             else if (((TextBox)sender).Name == "txtAlias")
             {
@@ -3525,12 +3459,12 @@ namespace BalayPasilungan
             else if (((TextBox)sender).Name == "txtheight")
             {
                 lblHeight.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelHeight.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                
             }
             else if (((TextBox)sender).Name == "txtweight")
             {
                 lblWeight.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelWeight.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                
             }
             else if (((TextBox)sender).Name == "txtmemfirstname")
             {
