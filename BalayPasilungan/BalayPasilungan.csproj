@@ -170,6 +170,12 @@
     <Compile Include="others.Designer.cs">
       <DependentUpon>others.cs</DependentUpon>
     </Compile>
+    <Compile Include="OthersAttend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OthersAttend.Designer.cs">
+      <DependentUpon>OthersAttend.cs</DependentUpon>
+    </Compile>
     <Compile Include="plain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,12 @@
     </Compile>
     <Compile Include="success.Designer.cs">
       <DependentUpon>success.cs</DependentUpon>
+    </Compile>
+    <Compile Include="summaryDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="summaryDates.Designer.cs">
+      <DependentUpon>summaryDates.cs</DependentUpon>
     </Compile>
     <Compile Include="waiting.cs">
       <SubType>Form</SubType>
@@ -249,6 +261,9 @@
     <EmbeddedResource Include="others.resx">
       <DependentUpon>others.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OthersAttend.resx">
+      <DependentUpon>OthersAttend.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="plain.resx">
       <DependentUpon>plain.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="success.resx">
       <DependentUpon>success.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="summaryDates.resx">
+      <DependentUpon>summaryDates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="waiting.resx">
       <DependentUpon>waiting.cs</DependentUpon>
@@ -429,6 +447,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\case.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addsomething.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
