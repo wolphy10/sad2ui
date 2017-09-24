@@ -184,7 +184,7 @@ namespace BalayPasilungan
 
         private void famtype_Load(object sender, EventArgs e)
         {
-            if (text == "ADD FAMILY TYPE")
+            if (text == "ADD FAMILY")
             {
 
                 btnaddedclass.Text = "ADD";
