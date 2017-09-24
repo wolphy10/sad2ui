@@ -3334,12 +3334,19 @@ namespace BalayPasilungan
 
         private void all_cond_Click(object sender, EventArgs e)
         {
-            btnAllergy.BackColor = btnCondition.BackColor = Color.Transparent;
-            btnAllergy.ForeColor = btnCondition.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
+            btnAllergy.BackColor = btnCondition.BackColor = btnDescription.BackColor = btnActions.BackColor = Color.Transparent;
+            btnAllergy.ForeColor = btnCondition.ForeColor = btnDescription.ForeColor = btnActions.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
             ((Button)sender).ForeColor = Color.Black;
             ((Button)sender).BackColor = Color.White;
             if (((Button)sender).Name == "btnAllergy") panelAll.Visible = true;
             else if (((Button)sender).Name == "btnCondition") panelAll.Visible = false;
+            else if (((Button)sender).Name == "btnDescription") panelDesc.Visible = true;
+            else if (((Button)sender).Name == "btnActions") panelDesc.Visible = false;
+        }
+
+        private void rtwitnesses_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void btnbackfromhealth_Click(object sender, EventArgs e)
@@ -3361,8 +3368,6 @@ namespace BalayPasilungan
         {
             tabCase.SelectedTab = tabNewChild;
             tabaddchild.SelectedTab = tabNewIncid;
-
-            
         }
 
         private void btnaddedclass_Click(object sender, EventArgs e)
