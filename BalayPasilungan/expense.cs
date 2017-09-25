@@ -33,7 +33,7 @@ namespace BalayPasilungan
         public bool backMoneyDonation = false;  // True - Go back to all monetary donation
         public bool brEdit = false;             // True - Budget request for edit colors
         public static int expMonth;
-
+        public main reftomain { get; set; }
         // For dates
         public bool searchDateBool, searchMonthDay, searchMonth, searchMonthYr, searchYr;
 
@@ -2640,6 +2640,11 @@ namespace BalayPasilungan
         {
             if (((RichTextBox)sender).Name == "txtDonorAd") countAd.Text = ((RichTextBox)sender).TextLength + "/250";
             else if (((RichTextBox)sender).Name == "txtDonorAdEdit") countAdEdit.Text = ((RichTextBox)sender).TextLength + "/250";
+        }
+
+        private void expense_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reftomain.Show();
         }
 
         private void richNew_Leave(object sender, EventArgs e)

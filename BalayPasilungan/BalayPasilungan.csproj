@@ -454,6 +454,33 @@
   <ItemGroup>
     <None Include="Resources\addsomething.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accicon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cases_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAdd2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accPic.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

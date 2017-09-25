@@ -17,7 +17,7 @@ namespace BalayPasilungan
         public MySqlConnection conn;
         public string[] aMonths = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
         public bool remindState = false, budgetState = false, allDayState = false, timeRngState = false;
-
+        public main reftomain { get; set; }
         public eventorg()
         {
             InitializeComponent();
@@ -214,7 +214,11 @@ namespace BalayPasilungan
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            confirmMessage("Are you sure you wan to exit?");
+            if (confirmed)
+            {
+                this.Close();
+            }
         }
         #endregion
 
@@ -2180,6 +2184,7 @@ namespace BalayPasilungan
                         }
                     }
                     tabSecond.SelectedTab = tabViewAttend;
+                    for (int k = 0; k < datadate.Length; k++) datadate[k] = null;
                 }
                 else
                 {
@@ -2327,6 +2332,10 @@ namespace BalayPasilungan
         {
             lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#acacac");
             txtRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#acacac");
+        }
+        private void eventorg_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reftomain.Show();
         }
     }
 }

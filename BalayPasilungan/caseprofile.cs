@@ -26,6 +26,7 @@ namespace BalayPasilungan
         public DataTable tblfam = new DataTable();
         public MySqlDataAdapter adpmem = new MySqlDataAdapter();
         public bool empty, confirmed, dot;
+        public main reftomain { get; set; } 
 
         public caseprofile()
         {
@@ -3209,6 +3210,11 @@ namespace BalayPasilungan
         private void btnaddfam_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void caseprofile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reftomain.Show();
         }
 
         private void btnbackfromhealth_Click(object sender, EventArgs e)

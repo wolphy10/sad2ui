@@ -97,7 +97,7 @@ namespace BalayPasilungan
 
                     conn.Open();
 
-                    MySqlCommand comm = new MySqlCommand("SELECT * FROM tbl_accounts WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn);
+                    MySqlCommand comm = new MySqlCommand("SELECT * FROM accounts WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn);
                     MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
@@ -107,7 +107,10 @@ namespace BalayPasilungan
                     }
                     else if (dt.Rows.Count == 1)
                     {
-                        type = dt.Rows[0]["account_type"].ToString();
+                        type = dt.Rows[0]["type"].ToString();
+                        if (type == "0") type = "Admin";
+                        else if (type == "1") type = "Social Worker";
+                        else type = "others";
                         //MessageBox.Show(dt.Rows[0]["fullname"].ToString());
                         main main = new main();
 
