@@ -24,8 +24,8 @@ namespace BalayPasilungan
             tabSecond.SelectedTab = tabCalendar;
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
             //Load += btnEvent_Click; onload automatically click the btnevent which instantiating it always on tabevent onload
-            menuStrip.Renderer = new renderer();
-            menuStrip1.Renderer = new renderer();
+            //menuStrip.Renderer = new renderer();
+            //menuStrip1.Renderer = new renderer();
             menuStripEvent.Renderer = new renderer();
             ERProgress.Renderer = new renderer2();
         }
@@ -96,8 +96,8 @@ namespace BalayPasilungan
 
         private void resetTS()
         {
-            eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
-            attendanceTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
+            //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
+            //attendanceTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#393939");
         }
 
         private void resetLabelsPanels()                // Set label and panel colors to default (gray)
@@ -192,12 +192,12 @@ namespace BalayPasilungan
 
         private void btnEvent_Click(object sender, EventArgs e)
         {
-            menuStrip.Height = 0;
+            //menuStrip.Height = 0;
             timer1.Enabled = true;
 
             tabSecond.SelectedTab = tabCalendar;
             resetTS();
-            eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+            //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
 
             resetButtons();
             btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_white;
@@ -225,8 +225,8 @@ namespace BalayPasilungan
         #region Timers
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (menuStrip.Height >= 35) timer1.Enabled = false;
-            else menuStrip.Height += 3;            
+            //if (menuStrip.Height >= 35) timer1.Enabled = false;
+            //else menuStrip.Height += 3;            
         }
         private void remindTimer_Tick(object sender, EventArgs e)
         {
@@ -239,14 +239,14 @@ namespace BalayPasilungan
         private void attendanceTS_Click(object sender, EventArgs e)
         {
             resetTS();
-            attendanceTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+            //attendanceTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
             tabSecond.SelectedTab = tabAttend;
         }
 
         private void eventTS_Click(object sender, EventArgs e)
         {
             resetTS();
-            eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+            //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
         }
 
         private class renderer : ToolStripProfessionalRenderer
@@ -278,7 +278,7 @@ namespace BalayPasilungan
         {
             tabSecond.SelectedTab = tabEvent;
             resetTS();
-            eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+            //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
         }
 
         private void attendanceTS2_Click(object sender, EventArgs e)
@@ -377,6 +377,7 @@ namespace BalayPasilungan
         }
         public bool checkConflict(string dfrom, string dto)//event conflict check if the doesn't conflict with other
         {
+            MessageBox.Show("if venue is the same also restrict but if different allow adding of event");
             bool check = true;
             try
             {
@@ -1946,14 +1947,14 @@ namespace BalayPasilungan
         {
             Graphics g = e.Graphics;
             Pen p = new Pen(Color.Blue, 4);
-            g.DrawRectangle(p, this.tabEventDetails.Bounds);
+            //g.DrawRectangle(p, this.tabEventDetails.Bounds);
         }
 
         private void tabERForm_DrawItem(object sender, DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
             Pen p = new Pen(Color.Blue, 4);
-            g.DrawRectangle(p, this.tabEventDetails.Bounds);
+            //g.DrawRectangle(p, this.tabEventDetails.Bounds);
         }
 
         private void btnViewBudget_Click(object sender, EventArgs e)

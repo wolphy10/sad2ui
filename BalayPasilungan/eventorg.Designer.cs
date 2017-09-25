@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eventorg));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.taskbar = new System.Windows.Forms.Panel();
             this.btnMain = new System.Windows.Forms.Button();
             this.btnRequest = new System.Windows.Forms.Button();
@@ -169,18 +169,6 @@
             this.panelOptions = new System.Windows.Forms.Panel();
             this.panelAttendanceBtn = new System.Windows.Forms.Panel();
             this.lblOptions1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.eventTS2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.attendanceTS2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabEventDetails = new System.Windows.Forms.TabControl();
-            this.tabOneDay = new System.Windows.Forms.TabPage();
-            this.lbDes = new System.Windows.Forms.Label();
-            this.lbMon = new System.Windows.Forms.Label();
-            this.lvTime = new System.Windows.Forms.Label();
-            this.lbDay = new System.Windows.Forms.Label();
-            this.lbVen = new System.Windows.Forms.Label();
-            this.panelColor = new System.Windows.Forms.Panel();
-            this.lbEvn = new System.Windows.Forms.Label();
             this.tabAttendance = new System.Windows.Forms.TabControl();
             this.tabOtherAttend = new System.Windows.Forms.TabPage();
             this.viewOthersAttend = new System.Windows.Forms.ListView();
@@ -257,13 +245,18 @@
             this.btnViewBudget = new System.Windows.Forms.Button();
             this.panelEventHead = new System.Windows.Forms.Panel();
             this.lblEventHead = new System.Windows.Forms.Label();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.eventTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.attendanceTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabViewAttend = new System.Windows.Forms.TabPage();
             this.attendBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.listAttendedView = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbDes = new System.Windows.Forms.Label();
+            this.lbMon = new System.Windows.Forms.Label();
+            this.lvTime = new System.Windows.Forms.Label();
+            this.lbDay = new System.Windows.Forms.Label();
+            this.lbVen = new System.Windows.Forms.Label();
+            this.panelColor = new System.Windows.Forms.Panel();
+            this.lbEvn = new System.Windows.Forms.Label();
             this.taskbar.SuspendLayout();
             this.upPanel.SuspendLayout();
             this.tabSecond.SuspendLayout();
@@ -291,9 +284,6 @@
             this.menuStripEvent.SuspendLayout();
             this.tabAttend.SuspendLayout();
             this.panelOptions.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.tabEventDetails.SuspendLayout();
-            this.tabOneDay.SuspendLayout();
             this.tabAttendance.SuspendLayout();
             this.tabOtherAttend.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -316,8 +306,8 @@
             this.tabEvent.SuspendLayout();
             this.panelEventDet.SuspendLayout();
             this.panelEventHead.SuspendLayout();
-            this.menuStrip.SuspendLayout();
             this.tabViewAttend.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // taskbar
@@ -341,7 +331,7 @@
             this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMain.ForeColor = System.Drawing.Color.White;
-            this.btnMain.Location = new System.Drawing.Point(0, 3);
+            this.btnMain.Location = new System.Drawing.Point(0, 0);
             this.btnMain.Name = "btnMain";
             this.btnMain.Size = new System.Drawing.Size(88, 90);
             this.btnMain.TabIndex = 2;
@@ -356,7 +346,7 @@
             this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRequest.ForeColor = System.Drawing.Color.White;
-            this.btnRequest.Location = new System.Drawing.Point(0, 183);
+            this.btnRequest.Location = new System.Drawing.Point(0, 186);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(88, 90);
             this.btnRequest.TabIndex = 4;
@@ -371,7 +361,7 @@
             this.btnEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvent.ForeColor = System.Drawing.Color.White;
-            this.btnEvent.Location = new System.Drawing.Point(0, 86);
+            this.btnEvent.Location = new System.Drawing.Point(0, 90);
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(88, 90);
             this.btnEvent.TabIndex = 3;
@@ -397,6 +387,7 @@
             this.upPanel.Controls.Add(this.btnClose);
             this.upPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.upPanel.Location = new System.Drawing.Point(0, 0);
+            this.upPanel.Margin = new System.Windows.Forms.Padding(0);
             this.upPanel.Name = "upPanel";
             this.upPanel.Size = new System.Drawing.Size(1124, 24);
             this.upPanel.TabIndex = 1;
@@ -2054,12 +2045,11 @@
             // 
             // tabAttend
             // 
+            this.tabAttend.Controls.Add(this.panel1);
             this.tabAttend.Controls.Add(this.btnPresent);
             this.tabAttend.Controls.Add(this.btnAbsent);
             this.tabAttend.Controls.Add(this.btnRemove);
             this.tabAttend.Controls.Add(this.panelOptions);
-            this.tabAttend.Controls.Add(this.menuStrip1);
-            this.tabAttend.Controls.Add(this.tabEventDetails);
             this.tabAttend.Controls.Add(this.tabAttendance);
             this.tabAttend.Controls.Add(this.tabList);
             this.tabAttend.Location = new System.Drawing.Point(4, 25);
@@ -2141,140 +2131,6 @@
             this.lblOptions1.Size = new System.Drawing.Size(86, 30);
             this.lblOptions1.TabIndex = 0;
             this.lblOptions1.Text = "Options";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eventTS2,
-            this.attendanceTS2});
-            this.menuStrip1.Location = new System.Drawing.Point(-4, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1041, 35);
-            this.menuStrip1.TabIndex = 3;
-            // 
-            // eventTS2
-            // 
-            this.eventTS2.AutoSize = false;
-            this.eventTS2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.eventTS2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.eventTS2.ForeColor = System.Drawing.Color.White;
-            this.eventTS2.Name = "eventTS2";
-            this.eventTS2.Size = new System.Drawing.Size(200, 31);
-            this.eventTS2.Text = "Event";
-            this.eventTS2.Click += new System.EventHandler(this.eventTS2_Click);
-            // 
-            // attendanceTS2
-            // 
-            this.attendanceTS2.AutoSize = false;
-            this.attendanceTS2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.attendanceTS2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.attendanceTS2.ForeColor = System.Drawing.Color.White;
-            this.attendanceTS2.Name = "attendanceTS2";
-            this.attendanceTS2.Size = new System.Drawing.Size(200, 31);
-            this.attendanceTS2.Text = "Attendance";
-            // 
-            // tabEventDetails
-            // 
-            this.tabEventDetails.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabEventDetails.Controls.Add(this.tabOneDay);
-            this.tabEventDetails.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabEventDetails.Location = new System.Drawing.Point(-3, 0);
-            this.tabEventDetails.Name = "tabEventDetails";
-            this.tabEventDetails.SelectedIndex = 0;
-            this.tabEventDetails.Size = new System.Drawing.Size(1040, 186);
-            this.tabEventDetails.TabIndex = 7;
-            this.tabEventDetails.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabEventDetails_DrawItem);
-            // 
-            // tabOneDay
-            // 
-            this.tabOneDay.BackColor = System.Drawing.Color.White;
-            this.tabOneDay.Controls.Add(this.lbDes);
-            this.tabOneDay.Controls.Add(this.lbMon);
-            this.tabOneDay.Controls.Add(this.lvTime);
-            this.tabOneDay.Controls.Add(this.lbDay);
-            this.tabOneDay.Controls.Add(this.lbVen);
-            this.tabOneDay.Controls.Add(this.panelColor);
-            this.tabOneDay.Controls.Add(this.lbEvn);
-            this.tabOneDay.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabOneDay.Location = new System.Drawing.Point(4, 25);
-            this.tabOneDay.Name = "tabOneDay";
-            this.tabOneDay.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOneDay.Size = new System.Drawing.Size(1032, 157);
-            this.tabOneDay.TabIndex = 0;
-            this.tabOneDay.Text = "tabPage1";
-            // 
-            // lbDes
-            // 
-            this.lbDes.AutoSize = true;
-            this.lbDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDes.Location = new System.Drawing.Point(154, 94);
-            this.lbDes.Name = "lbDes";
-            this.lbDes.Size = new System.Drawing.Size(89, 21);
-            this.lbDes.TabIndex = 6;
-            this.lbDes.Text = "Description";
-            // 
-            // lbMon
-            // 
-            this.lbMon.AutoSize = true;
-            this.lbMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMon.Location = new System.Drawing.Point(39, 38);
-            this.lbMon.Name = "lbMon";
-            this.lbMon.Size = new System.Drawing.Size(91, 21);
-            this.lbMon.TabIndex = 0;
-            this.lbMon.Text = "November";
-            // 
-            // lvTime
-            // 
-            this.lvTime.AutoSize = true;
-            this.lvTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvTime.Location = new System.Drawing.Point(341, 68);
-            this.lvTime.Name = "lvTime";
-            this.lvTime.Size = new System.Drawing.Size(86, 21);
-            this.lvTime.TabIndex = 5;
-            this.lvTime.Text = "Event Time";
-            // 
-            // lbDay
-            // 
-            this.lbDay.AutoSize = true;
-            this.lbDay.Font = new System.Drawing.Font("Segoe UI", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDay.Location = new System.Drawing.Point(27, 38);
-            this.lbDay.Name = "lbDay";
-            this.lbDay.Size = new System.Drawing.Size(119, 92);
-            this.lbDay.TabIndex = 1;
-            this.lbDay.Text = "25";
-            // 
-            // lbVen
-            // 
-            this.lbVen.AutoSize = true;
-            this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVen.Location = new System.Drawing.Point(154, 68);
-            this.lbVen.Name = "lbVen";
-            this.lbVen.Size = new System.Drawing.Size(95, 21);
-            this.lbVen.TabIndex = 4;
-            this.lbVen.Text = "Event Venue";
-            // 
-            // panelColor
-            // 
-            this.panelColor.BackColor = System.Drawing.Color.Black;
-            this.panelColor.Location = new System.Drawing.Point(0, 0);
-            this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(10, 155);
-            this.panelColor.TabIndex = 2;
-            // 
-            // lbEvn
-            // 
-            this.lbEvn.AutoSize = true;
-            this.lbEvn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEvn.Location = new System.Drawing.Point(152, 37);
-            this.lbEvn.Name = "lbEvn";
-            this.lbEvn.Size = new System.Drawing.Size(126, 30);
-            this.lbEvn.TabIndex = 3;
-            this.lbEvn.Text = "Event Name";
             // 
             // tabAttendance
             // 
@@ -2706,24 +2562,24 @@
             this.CalendarView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CalendarView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.CalendarView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 16F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 16F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.CalendarView.ColumnHeadersHeight = 35;
             this.CalendarView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 14F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 14F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle11;
             this.CalendarView.EnableHeadersVisualStyles = false;
             this.CalendarView.Location = new System.Drawing.Point(8, 129);
             this.CalendarView.MultiSelect = false;
@@ -2732,9 +2588,9 @@
             this.CalendarView.RowHeadersVisible = false;
             this.CalendarView.RowHeadersWidth = 100;
             this.CalendarView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.CalendarView.RowTemplate.Height = 95;
             this.CalendarView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CalendarView.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -3078,7 +2934,7 @@
             this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReject.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReject.ForeColor = System.Drawing.Color.White;
-            this.btnReject.Location = new System.Drawing.Point(229, 3);
+            this.btnReject.Location = new System.Drawing.Point(247, 3);
             this.btnReject.Margin = new System.Windows.Forms.Padding(2);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(139, 36);
@@ -3094,7 +2950,7 @@
             this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApprove.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApprove.ForeColor = System.Drawing.Color.White;
-            this.btnApprove.Location = new System.Drawing.Point(92, 3);
+            this.btnApprove.Location = new System.Drawing.Point(110, 3);
             this.btnApprove.Margin = new System.Windows.Forms.Padding(2);
             this.btnApprove.Name = "btnApprove";
             this.btnApprove.Size = new System.Drawing.Size(134, 36);
@@ -3108,7 +2964,7 @@
             this.lblOptions2.AutoSize = true;
             this.lblOptions2.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOptions2.ForeColor = System.Drawing.Color.White;
-            this.lblOptions2.Location = new System.Drawing.Point(6, 6);
+            this.lblOptions2.Location = new System.Drawing.Point(13, 6);
             this.lblOptions2.Name = "lblOptions2";
             this.lblOptions2.Size = new System.Drawing.Size(86, 30);
             this.lblOptions2.TabIndex = 0;
@@ -3120,8 +2976,8 @@
             this.tabEvent.Controls.Add(this.eventsListView);
             this.tabEvent.Controls.Add(this.panelEventDet);
             this.tabEvent.Controls.Add(this.panelEventHead);
-            this.tabEvent.Controls.Add(this.menuStrip);
             this.tabEvent.Location = new System.Drawing.Point(4, 25);
+            this.tabEvent.Margin = new System.Windows.Forms.Padding(0);
             this.tabEvent.Name = "tabEvent";
             this.tabEvent.Padding = new System.Windows.Forms.Padding(3);
             this.tabEvent.Size = new System.Drawing.Size(1046, 688);
@@ -3140,9 +2996,9 @@
             this.eventsListView.ForeColor = System.Drawing.Color.Black;
             this.eventsListView.FullRowSelect = true;
             this.eventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.eventsListView.Location = new System.Drawing.Point(120, 115);
+            this.eventsListView.Location = new System.Drawing.Point(127, 90);
             this.eventsListView.Name = "eventsListView";
-            this.eventsListView.Size = new System.Drawing.Size(764, 462);
+            this.eventsListView.Size = new System.Drawing.Size(764, 506);
             this.eventsListView.TabIndex = 3;
             this.eventsListView.UseCompatibleStateImageBehavior = false;
             this.eventsListView.View = System.Windows.Forms.View.Details;
@@ -3178,7 +3034,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(9, 11);
+            this.label7.Location = new System.Drawing.Point(22, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 30);
             this.label7.TabIndex = 4;
@@ -3192,7 +3048,7 @@
             this.btnVAttend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVAttend.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVAttend.ForeColor = System.Drawing.Color.White;
-            this.btnVAttend.Location = new System.Drawing.Point(406, 8);
+            this.btnVAttend.Location = new System.Drawing.Point(437, 5);
             this.btnVAttend.Name = "btnVAttend";
             this.btnVAttend.Size = new System.Drawing.Size(170, 41);
             this.btnVAttend.TabIndex = 3;
@@ -3208,7 +3064,7 @@
             this.btnEvCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEvCancel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvCancel.ForeColor = System.Drawing.Color.White;
-            this.btnEvCancel.Location = new System.Drawing.Point(96, 8);
+            this.btnEvCancel.Location = new System.Drawing.Point(126, 5);
             this.btnEvCancel.Name = "btnEvCancel";
             this.btnEvCancel.Size = new System.Drawing.Size(133, 41);
             this.btnEvCancel.TabIndex = 2;
@@ -3224,7 +3080,7 @@
             this.btnAddAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAttendance.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAttendance.ForeColor = System.Drawing.Color.White;
-            this.btnAddAttendance.Location = new System.Drawing.Point(230, 8);
+            this.btnAddAttendance.Location = new System.Drawing.Point(261, 5);
             this.btnAddAttendance.Name = "btnAddAttendance";
             this.btnAddAttendance.Size = new System.Drawing.Size(174, 41);
             this.btnAddAttendance.TabIndex = 1;
@@ -3240,7 +3096,7 @@
             this.btnViewBudget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewBudget.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewBudget.ForeColor = System.Drawing.Color.White;
-            this.btnViewBudget.Location = new System.Drawing.Point(578, 8);
+            this.btnViewBudget.Location = new System.Drawing.Point(609, 5);
             this.btnViewBudget.Name = "btnViewBudget";
             this.btnViewBudget.Size = new System.Drawing.Size(137, 41);
             this.btnViewBudget.TabIndex = 0;
@@ -3252,7 +3108,8 @@
             // 
             this.panelEventHead.BackColor = System.Drawing.Color.White;
             this.panelEventHead.Controls.Add(this.lblEventHead);
-            this.panelEventHead.Location = new System.Drawing.Point(0, 35);
+            this.panelEventHead.Location = new System.Drawing.Point(0, 3);
+            this.panelEventHead.Margin = new System.Windows.Forms.Padding(0);
             this.panelEventHead.Name = "panelEventHead";
             this.panelEventHead.Size = new System.Drawing.Size(1037, 50);
             this.panelEventHead.TabIndex = 0;
@@ -3262,47 +3119,11 @@
             this.lblEventHead.AutoSize = true;
             this.lblEventHead.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.lblEventHead.Location = new System.Drawing.Point(16, -3);
+            this.lblEventHead.Location = new System.Drawing.Point(16, 2);
             this.lblEventHead.Name = "lblEventHead";
             this.lblEventHead.Size = new System.Drawing.Size(179, 47);
             this.lblEventHead.TabIndex = 2;
             this.lblEventHead.Text = "Events on";
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.AutoSize = false;
-            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eventTS,
-            this.attendanceTS});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip.Size = new System.Drawing.Size(1037, 35);
-            this.menuStrip.TabIndex = 2;
-            // 
-            // eventTS
-            // 
-            this.eventTS.AutoSize = false;
-            this.eventTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.eventTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.eventTS.ForeColor = System.Drawing.Color.White;
-            this.eventTS.Name = "eventTS";
-            this.eventTS.Size = new System.Drawing.Size(200, 31);
-            this.eventTS.Text = "Event";
-            // 
-            // attendanceTS
-            // 
-            this.attendanceTS.AutoSize = false;
-            this.attendanceTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.attendanceTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.attendanceTS.ForeColor = System.Drawing.Color.White;
-            this.attendanceTS.Name = "attendanceTS";
-            this.attendanceTS.Size = new System.Drawing.Size(200, 31);
-            this.attendanceTS.Text = "Attendance";
-            this.attendanceTS.Click += new System.EventHandler(this.attendanceTS_Click);
             // 
             // tabViewAttend
             // 
@@ -3360,6 +3181,89 @@
             this.listAttendedView.UseCompatibleStateImageBehavior = false;
             this.listAttendedView.View = System.Windows.Forms.View.Details;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lbDes);
+            this.panel1.Controls.Add(this.lbMon);
+            this.panel1.Controls.Add(this.lvTime);
+            this.panel1.Controls.Add(this.lbDay);
+            this.panel1.Controls.Add(this.lbVen);
+            this.panel1.Controls.Add(this.panelColor);
+            this.panel1.Controls.Add(this.lbEvn);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1036, 180);
+            this.panel1.TabIndex = 6;
+            // 
+            // lbDes
+            // 
+            this.lbDes.AutoSize = true;
+            this.lbDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDes.Location = new System.Drawing.Point(158, 102);
+            this.lbDes.Name = "lbDes";
+            this.lbDes.Size = new System.Drawing.Size(89, 21);
+            this.lbDes.TabIndex = 13;
+            this.lbDes.Text = "Description";
+            // 
+            // lbMon
+            // 
+            this.lbMon.AutoSize = true;
+            this.lbMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMon.Location = new System.Drawing.Point(43, 46);
+            this.lbMon.Name = "lbMon";
+            this.lbMon.Size = new System.Drawing.Size(91, 21);
+            this.lbMon.TabIndex = 7;
+            this.lbMon.Text = "November";
+            // 
+            // lvTime
+            // 
+            this.lvTime.AutoSize = true;
+            this.lvTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvTime.Location = new System.Drawing.Point(345, 76);
+            this.lvTime.Name = "lvTime";
+            this.lvTime.Size = new System.Drawing.Size(86, 21);
+            this.lvTime.TabIndex = 12;
+            this.lvTime.Text = "Event Time";
+            // 
+            // lbDay
+            // 
+            this.lbDay.AutoSize = true;
+            this.lbDay.Font = new System.Drawing.Font("Segoe UI", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDay.Location = new System.Drawing.Point(31, 46);
+            this.lbDay.Name = "lbDay";
+            this.lbDay.Size = new System.Drawing.Size(119, 92);
+            this.lbDay.TabIndex = 8;
+            this.lbDay.Text = "25";
+            // 
+            // lbVen
+            // 
+            this.lbVen.AutoSize = true;
+            this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVen.Location = new System.Drawing.Point(158, 76);
+            this.lbVen.Name = "lbVen";
+            this.lbVen.Size = new System.Drawing.Size(95, 21);
+            this.lbVen.TabIndex = 11;
+            this.lbVen.Text = "Event Venue";
+            // 
+            // panelColor
+            // 
+            this.panelColor.BackColor = System.Drawing.Color.Black;
+            this.panelColor.Location = new System.Drawing.Point(4, 10);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(10, 155);
+            this.panelColor.TabIndex = 9;
+            // 
+            // lbEvn
+            // 
+            this.lbEvn.AutoSize = true;
+            this.lbEvn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEvn.Location = new System.Drawing.Point(156, 45);
+            this.lbEvn.Name = "lbEvn";
+            this.lbEvn.Size = new System.Drawing.Size(126, 30);
+            this.lbEvn.TabIndex = 10;
+            this.lbEvn.Text = "Event Name";
+            // 
             // eventorg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3372,7 +3276,6 @@
             this.Controls.Add(this.upPanel);
             this.Controls.Add(this.tabSecond);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MainMenuStrip = this.menuStrip;
             this.Name = "eventorg";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -3424,11 +3327,6 @@
             this.tabAttend.ResumeLayout(false);
             this.panelOptions.ResumeLayout(false);
             this.panelOptions.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.tabEventDetails.ResumeLayout(false);
-            this.tabOneDay.ResumeLayout(false);
-            this.tabOneDay.PerformLayout();
             this.tabAttendance.ResumeLayout(false);
             this.tabOtherAttend.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -3460,10 +3358,10 @@
             this.panelEventDet.PerformLayout();
             this.panelEventHead.ResumeLayout(false);
             this.panelEventHead.PerformLayout();
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             this.tabViewAttend.ResumeLayout(false);
             this.tabViewAttend.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3604,9 +3502,6 @@
         private System.Windows.Forms.Button btnAbsent;
         private System.Windows.Forms.Button btnPresent;
         private System.Windows.Forms.Label lblOptions1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem eventTS2;
-        private System.Windows.Forms.ToolStripMenuItem attendanceTS2;
         private System.Windows.Forms.TabControl tabAttendance;
         private System.Windows.Forms.TabPage tabOtherAttend;
         private System.Windows.Forms.Panel panel2;
@@ -3676,19 +3571,7 @@
         private System.Windows.Forms.Button btnViewBudget;
         private System.Windows.Forms.Panel panelEventHead;
         private System.Windows.Forms.Label lblEventHead;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem eventTS;
-        private System.Windows.Forms.ToolStripMenuItem attendanceTS;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.TabControl tabEventDetails;
-        private System.Windows.Forms.TabPage tabOneDay;
-        private System.Windows.Forms.Label lbDes;
-        private System.Windows.Forms.Label lbMon;
-        private System.Windows.Forms.Label lvTime;
-        private System.Windows.Forms.Label lbDay;
-        private System.Windows.Forms.Label lbVen;
-        private System.Windows.Forms.Panel panelColor;
-        private System.Windows.Forms.Label lbEvn;
         private System.Windows.Forms.TabPage tabViewAttend;
         private System.Windows.Forms.Button btnVAttend;
         private System.Windows.Forms.ListView listAttendedView;
@@ -3702,6 +3585,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button attendBack;
         private System.Windows.Forms.Button monthSummary;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbDes;
+        private System.Windows.Forms.Label lbMon;
+        private System.Windows.Forms.Label lvTime;
+        private System.Windows.Forms.Label lbDay;
+        private System.Windows.Forms.Label lbVen;
+        private System.Windows.Forms.Panel panelColor;
+        private System.Windows.Forms.Label lbEvn;
     }
 }
 

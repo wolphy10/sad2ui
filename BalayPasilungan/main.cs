@@ -128,6 +128,11 @@ namespace BalayPasilungan
             this.Hide();
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
             
