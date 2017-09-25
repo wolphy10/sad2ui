@@ -158,6 +158,9 @@
     <Compile Include="moneyDonate.Designer.cs">
       <DependentUpon>moneyDonate.cs</DependentUpon>
     </Compile>
+    <Compile Include="noBorderTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NoFocusRec.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -166,6 +169,12 @@
     </Compile>
     <Compile Include="others.Designer.cs">
       <DependentUpon>others.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OthersAttend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OthersAttend.Designer.cs">
+      <DependentUpon>OthersAttend.cs</DependentUpon>
     </Compile>
     <Compile Include="plain.cs">
       <SubType>Form</SubType>
@@ -191,6 +200,12 @@
     </Compile>
     <Compile Include="success.Designer.cs">
       <DependentUpon>success.cs</DependentUpon>
+    </Compile>
+    <Compile Include="summaryDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="summaryDates.Designer.cs">
+      <DependentUpon>summaryDates.cs</DependentUpon>
     </Compile>
     <Compile Include="waiting.cs">
       <SubType>Form</SubType>
@@ -246,6 +261,9 @@
     <EmbeddedResource Include="others.resx">
       <DependentUpon>others.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OthersAttend.resx">
+      <DependentUpon>OthersAttend.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="plain.resx">
       <DependentUpon>plain.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="success.resx">
       <DependentUpon>success.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="summaryDates.resx">
+      <DependentUpon>summaryDates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="waiting.resx">
       <DependentUpon>waiting.cs</DependentUpon>
@@ -278,148 +299,34 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eye.png" />
+    <None Include="Resources\accicon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eyeclose.png" />
+    <None Include="Resources\accPic.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\wait_header.jpg" />
+    <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\error_header.jpg" />
+    <None Include="Resources\add-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\success_header.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\main_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\main_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\events_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\events_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cancel.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\line.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\line_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\off.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\on.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnChildList.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnOtherList.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnRemove.png" />
+    <None Include="Resources\addsomething.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnAbsent.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnPresent.png" />
+    <None Include="Resources\btnAdd.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\events_white2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\request_white2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\main_white2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\divider.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tsLine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tsLineHover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cases_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cases_green.png" />
+    <None Include="Resources\btnAdd2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnAdmin.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnSW.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnStaff.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cases_black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\line_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\login logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_thin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_notfocus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\donation_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\donation_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\finance_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\finance_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\divider_horizon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\line_grey.png" />
+    <None Include="Resources\btnChildList.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnDelete.png" />
@@ -428,25 +335,157 @@
     <None Include="Resources\btnEdit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnAdd.png" />
+    <None Include="Resources\btnOtherList.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\on2.png" />
+    <None Include="Resources\btnPresent.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\line_yellow.png" />
+    <None Include="Resources\btnRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnStaff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cases_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\divider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\divider_horizon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation_fade.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\editrmm.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\error_header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\events_white2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeclose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo paper.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\add.png" />
+    <None Include="Resources\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notification.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\on2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request_white2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success_header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsLineHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wait_header.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -121,17 +121,8 @@
   <data name="btnChildList" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnChildList.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="main_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\main_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cases_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cases_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="events_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\events_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="donation_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\donation_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,9 +133,6 @@
   <data name="request_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\request_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_notfocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_notfocus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="success_header" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success_header.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,14 +142,8 @@
   <data name="btnDelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnDelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="main_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\main_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnStaff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnStaff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cases_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cases_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,9 +157,6 @@
   <data name="btnPresent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnPresent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cases_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cases_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnAdmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,9 +168,6 @@
   </data>
   <data name="report_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="donation_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\donation_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="line_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\line_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,12 +193,6 @@
   <data name="report_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_thin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_thin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -243,12 +213,6 @@
   </data>
   <data name="off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="finance_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\finance_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="finance_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\finance_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -276,5 +240,116 @@
   </data>
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="donation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\donation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="donation_fade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\donation_fade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="finance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\finance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="finance_fade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\finance_fade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_fade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_fade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_fade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_fade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_case" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="addsomething" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addsomething.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="accicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\accicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="accPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\accPic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnAdd2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnAdd2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cases_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cases_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="compress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="events_white2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\events_white2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="expand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="finance_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\finance_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notification.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="request_white2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\request_white2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_case1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
