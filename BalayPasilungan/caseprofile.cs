@@ -270,7 +270,7 @@ namespace BalayPasilungan
         public void addmember()
         {
             string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
-                   status = cbxmemstatus.Text, occupation = txtmemocc.Text, remarks = rtremarks.Text, eduattain = cbxmemeduattain.Text;
+                   status = cbxmemstatus.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text, eduattain = cbxmemeduattain.Text;
 
             double income;
 
@@ -281,7 +281,7 @@ namespace BalayPasilungan
             if (birthdate.DayOfYear > DateTime.Now.DayOfYear)
                 age--;
 
-            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(remarks)
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency)
                 || string.IsNullOrEmpty(eduattain) || string.IsNullOrEmpty(txtmemincome.Text))
             {
 
@@ -297,8 +297,8 @@ namespace BalayPasilungan
                     try
                     {
                         conn.Open();
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO member(caseid, firstname, lastname, civilstatus, birthdate, relationship, remarks, occupation, age, eduattain, monthlyincome) " +
-                            "VALUES(" + id + ", '" + firstname + "', '" + lastname + "', '" + status + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + remarks + "'" +
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO member(caseid, firstname, lastname, civilstatus, birthdate, relationship, dependency, occupation, age, eduattain, monthlyincome) " +
+                            "VALUES(" + id + ", '" + firstname + "', '" + lastname + "', '" + status + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + dependency + "'" +
                             ", '" + occupation + "' , '" + age + "', '" + eduattain + "', '" + income + "')", conn);
                         
                         comm.ExecuteNonQuery();
@@ -321,11 +321,6 @@ namespace BalayPasilungan
                         conn.Close();
                     }
                 }
-
-                else
-                {
-                    errorMessage("Income input is not numeric!");
-                }
                    
                     
             }
@@ -334,7 +329,7 @@ namespace BalayPasilungan
         public void editmember()
         {
             string lastname = txtmemlastname.Text, firstname = txtmemfirstname.Text, relationship = txtmemrelationship.Text,
-                   status = cbxmemstatus.Text, occupation = txtmemocc.Text, remarks = rtremarks.Text, eduattain = cbxmemeduattain.Text;
+                   status = cbxmemstatus.Text, occupation = txtmemocc.Text, dependency = cbxmemdependency.Text, eduattain = cbxmemeduattain.Text;
 
             double income;
 
@@ -345,7 +340,7 @@ namespace BalayPasilungan
             if (birthdate.DayOfYear > DateTime.Now.DayOfYear)
                 age--;
 
-            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(remarks)
+            if (string.IsNullOrEmpty(lastname) || string.IsNullOrEmpty(firstname) || string.IsNullOrEmpty(relationship) || string.IsNullOrEmpty(status) || string.IsNullOrEmpty(occupation) || string.IsNullOrEmpty(dependency)
                 || string.IsNullOrEmpty(eduattain) || string.IsNullOrEmpty(txtmemincome.Text))
             {
                 errorMessage("Please fill out empty fields.");
@@ -360,7 +355,7 @@ namespace BalayPasilungan
                     {
                         conn.Open();
                         MySqlCommand comm = new MySqlCommand("UPDATE member SET firstname = '" + firstname + "', lastname = '" + lastname + "', civilstatus = '" + status + "', birthdate = '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', " +
-                                            "relationship = '" + relationship + "', remarks = '" + remarks + "', occupation = '" + occupation + "', eduattain = '" + eduattain + "', monthlyincome = '" + income + "'" +
+                                            "relationship = '" + relationship + "', dependency = '" + dependency + "', occupation = '" + occupation + "', eduattain = '" + eduattain + "', monthlyincome = '" + income + "'" +
                                             ", age = '" + age + "'WHERE memberid = " + memberid, conn);
 
                         comm.ExecuteNonQuery();
@@ -384,12 +379,7 @@ namespace BalayPasilungan
                     }
 
                 }
-
-                else
-                {
-                    errorMessage("Income input is not numeric!");
-                }
-
+                    
             }
         }
 
@@ -1182,7 +1172,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT firstname, lastname, civilstatus, birthdate, relationship, remarks, occupation, eduattain, monthlyincome FROM member WHERE memberid = " + memberid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT firstname, lastname, civilstatus, birthdate, relationship, dependency, occupation, eduattain, monthlyincome FROM member WHERE memberid = " + memberid, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1197,7 +1187,7 @@ namespace BalayPasilungan
                     txtmemocc.Text = dt.Rows[0]["occupation"].ToString();
                     txtmemrelationship.Text = dt.Rows[0]["relationship"].ToString();
 
-                    rtremarks.Text = dt.Rows[0]["remarks"].ToString();
+                    cbxmemdependency.Text = dt.Rows[0]["dependency"].ToString();
                     cbxmemstatus.Text = dt.Rows[0]["civilstatus"].ToString();
 
                     cbxmemeduattain.Text = dt.Rows[0]["eduattain"].ToString();
@@ -1443,7 +1433,6 @@ namespace BalayPasilungan
         {
             try
             {
-                
                 conn.Open();
 
                 MySqlCommand comm = new MySqlCommand("SELECT cid, interviewdate, interviewer FROM consultation WHERE caseid = " + id + " ORDER BY interviewdate", conn);
@@ -1459,7 +1448,7 @@ namespace BalayPasilungan
                 else
                 {
                     dtgcon.DataSource = dt;
-                    dtgcon.Columns["cid"].Visible = false;
+                    dtgcon.Columns[0].Visible = false;
                 }
                 
                 conn.Close();
@@ -1587,7 +1576,38 @@ namespace BalayPasilungan
             }
         }
 
-        
+        public void reloadedited(int id)
+        {
+            try
+            {
+                conn.Open();
+
+                MySqlCommand comm = new MySqlCommand("SELECT cid, interviewdate, interviewer FROM consultation WHERE caseid = " + id + " ORDER BY interviewdate", conn);
+                MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+
+                adp.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    errorMessage("There are no current consultation records for this case study.");
+                }
+                else
+                {
+                    dtgcon.DataSource = dt;
+                }
+
+
+                dtgcon.Columns[0].Visible = false;
+
+                conn.Close();
+            }
+            catch (Exception ee)
+            {
+                errorMessage(ee.Message);
+                conn.Close();
+            }
+        }
 
         public void reloadincid(int id)
         {
@@ -1717,7 +1737,7 @@ namespace BalayPasilungan
             try
             {
                 MessageBox.Show(id.ToString());
-                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, civilstatus, age, birthdate, relationship, remarks, occupation, eduattain, monthlyincome FROM member WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT memberid, firstname, lastname, civilstatus, age, birthdate, relationship, dependency, occupation, eduattain, monthlyincome FROM member WHERE caseid = " + id, conn);
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
@@ -1729,8 +1749,6 @@ namespace BalayPasilungan
                         dtfamOverview.DataSource = dt;
 
                         dtfamOverview.Columns["memberid"].Visible = false;
-
-                        dtfamOverview.Columns["age"].HeaderText = "Age (years old)";
 
                         comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE caseid = " + id, conn);
                         adp = new MySqlDataAdapter(comm);
@@ -1748,7 +1766,7 @@ namespace BalayPasilungan
                         dc.Name = "check";
                         dc.Visible = true;
 
-                        if (dtfamOverview.Columns["check"] == null && archivemode == 0)
+                        if (dtfamOverview.Columns["check"] == null)
                         {
                             dtfamOverview.Columns.Add(dc);
                         
@@ -1841,7 +1859,7 @@ namespace BalayPasilungan
             {
                 conn.Open();
 
-                int cid = int.Parse(dtgcon.Rows[e.RowIndex].Cells["cid"].Value.ToString());
+                int cid = int.Parse(dtgcon.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 MySqlCommand comm = new MySqlCommand("SELECT condes, interviewdate, interviewer FROM consultation WHERE cid = " + cid, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -1896,7 +1914,7 @@ namespace BalayPasilungan
                     repinciddesc.Text = dt.Rows[0]["description"].ToString();
                     repincidaction.Text = dt.Rows[0]["action"].ToString();
 
-                    lbldateincid.Text = Convert.ToDateTime(dt.Rows[0]["incdate"]).ToString("MMMM, dd, yyyy");
+                    lbldateincid.Text = dt.Rows[0]["incdate"].ToString();
 
 
                 }
@@ -2019,7 +2037,7 @@ namespace BalayPasilungan
         {
             try
             {
-                archiveid = int.Parse(dtgarchive.Rows[e.RowIndex].Cells["caseid"].Value.ToString());
+                archiveid = int.Parse(dtgarchive.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 tabChild.SelectedTab = sixteen;
                 tabCase.SelectedTab = tabInfo;
@@ -2028,7 +2046,7 @@ namespace BalayPasilungan
 
                 reload(archiveid);
                 
-                //existshealth(archiveid);
+                existshealth(archiveid);
 
                 hidedem();
 
@@ -2109,9 +2127,7 @@ namespace BalayPasilungan
             txtmemocc.Clear();
             txtmemrelationship.Clear();
 
-            cbxmemstatus.SelectedIndex = -1;
-
-            rtremarks.Clear();
+            cbxmemstatus.SelectedIndex = cbxmemdependency.SelectedIndex = -1;
 
             dtpmembirth.Value = DateTime.Now.Date;
         }
@@ -2148,7 +2164,7 @@ namespace BalayPasilungan
 
                 adp.Fill(dt);
 
-                //MessageBox.Show(dt.Rows[0]["school"].ToString());
+                MessageBox.Show(dt.Rows[0]["school"].ToString());
 
                 MessageBox.Show(dt.Rows.Count.ToString());
 
@@ -2156,8 +2172,8 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 1)
                     {
-                        lbledschool.Text = dt.Rows[0]["school"].ToString();
-                        lbledlvl.Text = dt.Rows[0]["level"].ToString();
+                        school = dt.Rows[0]["school"].ToString();
+                        level = dt.Rows[0]["level"].ToString();
                        
                     }
 
@@ -3142,11 +3158,11 @@ namespace BalayPasilungan
 
         private void btncancelviewrec_Click(object sender, EventArgs e)
         {
-            tabChild.SelectedTab = ninth;
+            tabChild.SelectedTab = twelfth;
 
             richboxrecords.Clear();
 
-            //reloadcon(id);
+            
         }
 
         private void btncanfamtype_Click(object sender, EventArgs e)
@@ -3200,37 +3216,17 @@ namespace BalayPasilungan
         {
             tabChild.SelectedTab = fifteen;
 
-            if (archivemode == 0)
-            {
-                reloadedithealth(id);
+            reloadedithealth(id);
 
-                reloadhealth(id);
-            }
-
-            else
-            {
-                reloadedithealth(archiveid);
-
-                reloadhealth(archiveid);
-            }
-
-           
+            reloadhealth(id);
         }
 
         private void btned_Click(object sender, EventArgs e)
         {
            
                 tabChild.SelectedTab = eighth;
-            if (archivemode == 0)
-            {
+            
                 reloaded(id);
-            }
-
-            else
-            {
-                reloaded(archiveid);
-            }
-               
             
         }
 
@@ -3238,51 +3234,24 @@ namespace BalayPasilungan
         {
             tabChild.SelectedTab = ninth;
 
-            if (archivemode == 0)
-            {
-                reloadcon(id);
-            }
-
-            else
-            {
-                reloadcon(archiveid);
-            }
-
             
+
+            reloadcon(id);
         }
 
         private void btnfover_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = fourth;
            
-            if (archivemode == 0)
-            {
-                reloadfam(id);
-                reloadmem(id);
-            }
-
-            else
-            {
-                reloadfam(archiveid);
-                reloadmem(archiveid);
-            }
-            
+            reloadfam(id);
+            reloadmem(id);
         }
 
         private void btnincidview_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = twelfth;       
 
-            if (archivemode == 0)
-            {
-                reloadincid(id);
-            }
-
-            else
-            {
-                reloadincid(archiveid);
-            }
-            
+            reloadincid(id);
         }
 
         private void btnEditProfile_Click(object sender, EventArgs e)
@@ -3357,6 +3326,11 @@ namespace BalayPasilungan
 
             btnaddarchive.Visible = true;
             btncancelarchive.Visible = true;
+        }
+
+        private void dtginv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         private void btneditincid_Click(object sender, EventArgs e)
@@ -3479,11 +3453,7 @@ namespace BalayPasilungan
             }
         }
 
-        private void btnbackfromhealth_Click(object sender, EventArgs e)
-        {
-            tabChild.SelectedTab = sixteen;
-        }
-
+       
         private void btnAddMem_Click(object sender, EventArgs e)
         {
             tabCase.SelectedTab = tabNewChild;
@@ -3524,9 +3494,6 @@ namespace BalayPasilungan
             btngotohealthreports.Visible = false;
             btnedithealth.Visible = false;
             btnaddcheckuprec.Visible = false;
-            addhrecord.Visible = false;
-            btngotohealth.Visible = false;
-            btnEditProfile.Visible = false;
 
             btncancelcon.Text = "BACK";
             btnbackfromcheck.Text = "BACK";
@@ -3543,9 +3510,6 @@ namespace BalayPasilungan
             btngotohealthreports.Visible = true;
             btnedithealth.Visible = true;
             btnaddcheckuprec.Visible = true;
-            addhrecord.Visible = true;
-            btngotohealth.Visible = true;
-            btnEditProfile.Visible = true;
 
             btncancelcon.Text = "CANCEL";
             btnbackfromcheck.Text = "CANCEL";
