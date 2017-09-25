@@ -75,7 +75,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.lblfamilytype = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
+            this.lblfamstatus = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnfamtype = new BalayPasilungan.NoFocusRec();
@@ -705,8 +705,8 @@
             this.tabInfo.Controls.Add(this.lblcaseprogram);
             this.tabInfo.Controls.Add(this.lblcasestatus);
             this.tabInfo.Controls.Add(this.lblcaseage);
-            this.tabInfo.Controls.Add(this.tabChild);
             this.tabInfo.Controls.Add(this.profileMenu);
+            this.tabInfo.Controls.Add(this.tabChild);
             this.tabInfo.Location = new System.Drawing.Point(4, 25);
             this.tabInfo.Name = "tabInfo";
             this.tabInfo.Padding = new System.Windows.Forms.Padding(3);
@@ -892,7 +892,7 @@
             this.fourth.Controls.Add(this.label20);
             this.fourth.Controls.Add(this.lblfamilytype);
             this.fourth.Controls.Add(this.label10);
-            this.fourth.Controls.Add(this.label78);
+            this.fourth.Controls.Add(this.lblfamstatus);
             this.fourth.Controls.Add(this.label77);
             this.fourth.Controls.Add(this.pictureBox2);
             this.fourth.Controls.Add(this.btnfamtype);
@@ -1052,16 +1052,16 @@
             this.label10.TabIndex = 94;
             this.label10.Text = "STATUS";
             // 
-            // label78
+            // lblfamstatus
             // 
-            this.label78.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.label78.Location = new System.Drawing.Point(115, 77);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(195, 21);
-            this.label78.TabIndex = 95;
-            this.label78.Text = "February 01, 2009";
-            this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblfamstatus.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblfamstatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblfamstatus.Location = new System.Drawing.Point(115, 77);
+            this.lblfamstatus.Name = "lblfamstatus";
+            this.lblfamstatus.Size = new System.Drawing.Size(195, 21);
+            this.lblfamstatus.TabIndex = 95;
+            this.lblfamstatus.Text = "February 01, 2009";
+            this.lblfamstatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label77
             // 
@@ -1098,7 +1098,7 @@
             this.btnfamtype.Name = "btnfamtype";
             this.btnfamtype.Size = new System.Drawing.Size(166, 29);
             this.btnfamtype.TabIndex = 101;
-            this.btnfamtype.Text = "EDIT FAMILY TYPE";
+            this.btnfamtype.Text = "EDIT FAMILY INFO";
             this.btnfamtype.UseVisualStyleBackColor = false;
             this.btnfamtype.Click += new System.EventHandler(this.btnfamtype_Click);
             // 
@@ -7443,7 +7443,7 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label lblfamstatus;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblfamilytype;
