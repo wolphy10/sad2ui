@@ -83,7 +83,7 @@ namespace BalayPasilungan
         {
             timernum = 0; BorF = 0;
             timer1.Start();
-            rightPartMain.Size = new Size(1219, rightPartMain.Height);
+            rightPartMain.Size = new Size(1169, rightPartMain.Height);
             btnPanelExpense.Size = new Size(basePanelExpense.Size.Width, basePanelExpense.Size.Height);
             btnPanelEvent.Size = new Size(basePanelEvent.Size.Width, basePanelEvent.Size.Height);
             btnPanelCase.Size = new Size(basePanelCase.Size.Width, basePanelCase.Size.Height);
@@ -190,7 +190,7 @@ namespace BalayPasilungan
                         notifPanel.Left += 9;
                         if (notifPanel.Left >= 0) {
                             timer1.Stop();
-                            rightPartMain.Size = new Size(1026, rightPartMain.Height);
+                            rightPartMain.Size = new Size(976, rightPartMain.Height);
                             btnPanelExpense.Size = new Size(basePanelExpense.Size.Width, basePanelExpense.Size.Height);
                             btnPanelEvent.Size = new Size(basePanelEvent.Size.Width, basePanelEvent.Size.Height);
                             btnPanelCase.Size = new Size(basePanelCase.Size.Width, basePanelCase.Size.Height);
