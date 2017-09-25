@@ -193,15 +193,16 @@ namespace BalayPasilungan
             logo_finance.BackgroundImage = Properties.Resources.finance_fade;
             logo_donation.BackgroundImage = Properties.Resources.donation_fade;
             logo_main.BackgroundImage = Properties.Resources.main_fade;
-            if(((Button)sender).Name != "btnExBack" || ((Button)sender).Name != "btnDonorInfoBack") ((Button)sender).ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+            if(((Button)sender).Name != "btnExBack" || ((Button)sender).Name != "btnDonorInfoBack" || ((Button)sender).Name != "btnDonorsActive") ((Button)sender).ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
             if (((Button)sender).Name == "btnFinance" || ((Button)sender).Name == "btnExBack")
             {
                 logo_finance.BackgroundImage = Properties.Resources.finance;
                 get(2); get(3); get(4); get(5);
                 tabSelection.SelectedTab = tabFinance;
             }
-            else if(((Button)sender).Name == "btnDonation" || ((Button)sender).Name == "btnDonorInfoBack")
+            else if(((Button)sender).Name == "btnDonation" || ((Button)sender).Name == "btnDonorInfoBack" || ((Button)sender).Name == "btnDonorsActive")            
             {
+                btnDonation.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
                 if (!backMoneyDonation)
                 {
                     btnDonateAllBack.Visible = false;
@@ -461,7 +462,7 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, null, "No entries.", null, null);
+                        dt.Rows.Add(-1, "No entries.", null, null, null, null);
                         empty = true; btnExpOp.Enabled = multiExp.Enabled = false;
                     }
                     else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;                                           
@@ -473,7 +474,7 @@ namespace BalayPasilungan
                     hasBudget.DefaultValue = "";
                     dt.Columns.Add(hasBudget);                                        
 
-                    // BR LIST In Kind UI Modifications
+                    // EXP LIST In Kind UI Modifications
                     expList.Columns[1].HeaderText = "EXPENSE DATE";
                     expList.Columns[2].HeaderText = "CATEGORY";
                     expList.Columns[3].HeaderText = "AMOUNT";
@@ -676,8 +677,7 @@ namespace BalayPasilungan
                 if (isNumeric && !searchDateBool)
                 {
                     n = decimal.Parse(search);                                          // Convert search keyword to double
-                    string doubs = n.ToString("F2", CultureInfo.InvariantCulture);      // Convert to string with 2 decimal places
-
+                    string doubs = n.ToString("F2", CultureInfo.InvariantCulture);      // Convert to string with 2 decimal places                    
                     if (id != -10)
                     {
                         query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
@@ -728,8 +728,8 @@ namespace BalayPasilungan
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID FROM monetary WHERE ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%'";
                 }
                 MySqlCommand comm = new MySqlCommand(query, conn);
-                if(id != -20) loadTable(comm, 1);
-                else loadTable(comm, 6);
+                if (id != -20) loadTable(comm, 1);
+                else loadTable(comm, 6);                
             }
             catch (Exception ex)
             {
@@ -1277,7 +1277,7 @@ namespace BalayPasilungan
             {
                 tabDonorDetails.SelectedIndex = 2;
                 ((Button)sender).ForeColor = Color.White;
-                ((Button)sender).BackColor = System.Drawing.Color.FromArgb(197, 202, 179);
+                ((Button)sender).BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
             }           
         }
 
