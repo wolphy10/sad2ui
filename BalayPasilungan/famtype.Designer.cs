@@ -60,11 +60,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label16.Location = new System.Drawing.Point(90, 241);
+            this.label16.Location = new System.Drawing.Point(81, 238);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 13);
+            this.label16.Size = new System.Drawing.Size(71, 19);
             this.label16.TabIndex = 81;
             this.label16.Text = "Year Level";
             // 
@@ -141,11 +141,11 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label21.Location = new System.Drawing.Point(78, 67);
+            this.label21.Location = new System.Drawing.Point(66, 64);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(68, 13);
+            this.label21.Size = new System.Drawing.Size(91, 19);
             this.label21.TabIndex = 283;
             this.label21.Text = "FAMILY TYPE";
             // 
@@ -179,11 +179,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label2.Location = new System.Drawing.Point(51, 123);
+            this.label2.Location = new System.Drawing.Point(34, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(123, 19);
             this.label2.TabIndex = 284;
             this.label2.Text = "FAMILY POSITION";
             // 
@@ -207,7 +207,7 @@
             this.btnaddedclass.Name = "btnaddedclass";
             this.btnaddedclass.Size = new System.Drawing.Size(490, 40);
             this.btnaddedclass.TabIndex = 286;
-            this.btnaddedclass.Text = "ADD DONATION";
+            this.btnaddedclass.Text = "ADD";
             this.btnaddedclass.UseVisualStyleBackColor = false;
             this.btnaddedclass.Click += new System.EventHandler(this.btnaddedclass_Click);
             // 
@@ -229,6 +229,7 @@
             this.Controls.Add(this.label16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "famtype";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.famtype_Load);
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numfam)).EndInit();
