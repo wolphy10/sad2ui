@@ -23,8 +23,6 @@ namespace BalayPasilungan
 
         public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode, archiveid, archivemode;
         public string filename, yearlvl, section, adviser;
-        public DataTable tblfam = new DataTable();
-        public MySqlDataAdapter adpmem = new MySqlDataAdapter();
         public bool empty, confirmed, dot;
 
         public caseprofile()
@@ -112,11 +110,11 @@ namespace BalayPasilungan
             ed.Show();
         }
 
-        public void famtypecall(int id, string text)
+        public void famtypecall(int x, string text)
         {
             famtype fam = new famtype();
             fam.reftofam = this;
-            fam.caseid = id;
+            fam.caseid = x;
             fam.text = text;
             fam.Show();
         }
@@ -1433,6 +1431,7 @@ namespace BalayPasilungan
                 dtgmembers.DataSource = dt;
 
                 // UI Modifications
+                dtgmembers.Columns["familyid"].Visible = false;
                 dtgmembers.Columns[1].HeaderText = "FAMILY POSITION";
                 dtgmembers.Columns[2].HeaderText = "FAMILY TYPE";
                 conn.Close();
@@ -1574,11 +1573,11 @@ namespace BalayPasilungan
         {
             try
             {
-                id = int.Parse(dtgfamily.Rows[e.RowIndex].Cells[0].Value.ToString());
+                famid = int.Parse(dtgfamily.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 tabChild.SelectedTab = fourth;
 
-                reloadfamtype(id);
+                reloadfamtype(famid);
             }
             catch (Exception ee)
             {
@@ -3024,7 +3023,7 @@ namespace BalayPasilungan
 
         private void btnfamtype_Click(object sender, EventArgs e)
         {
-           famtypecall(id, btnfamtype.Text);            
+           famtypecall(famid, btnfamtype.Text);            
         }
    
         private void btninvok_Click(object sender, EventArgs e)

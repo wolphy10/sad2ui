@@ -99,14 +99,29 @@ namespace BalayPasilungan
         public void addtype()
         {
             string type = cbxtype.Text;
+            int pos = int.Parse(numfam.Value.ToString()), z;
 
-            if (string.IsNullOrEmpty(type))
+            if (string.IsNullOrEmpty(type)
             {
                 errorMessage("Please fill out empty fields.");
             }
 
+             else if (pos == 0)
+            {
+                errorMessage("Family position can't be 0!");
+            }
+
             else
             {
+                if (checkfamcur.Checked)
+                {
+                    z = 1;
+                }
+
+                else
+                {
+                    z = 0;
+                }
 
                 try
                 {
@@ -114,7 +129,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(famtype, caseid) VALUES('" + type + "', '" + caseid + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO family(famtype, caseid, famposition, famcurrent) VALUES('" + type + "', '" + caseid + "', '" + pos + "', '" + z + "')", conn);
 
                     comm.ExecuteNonQuery();
 
@@ -123,8 +138,8 @@ namespace BalayPasilungan
 
                     conn.Close();
 
-                    reftofam.existsfam(reftofam.id);
-                    reftofam.reloadfam(reftofam.id);
+                   
+                    reftofam.reloadfam(caseid);
 
                     this.Close();
 
@@ -142,14 +157,30 @@ namespace BalayPasilungan
         public void edittype()
         {
             string type = cbxtype.Text;
+            int pos = int.Parse(numfam.Value.ToString()), z;
 
             if (string.IsNullOrEmpty(type))
             {
                 errorMessage("Please fill out empty fields.");
             }
 
+            else if (pos == 0)
+            {
+                errorMessage("Family position can't be 0!");
+            }
+
             else
             {
+
+                if (checkfamcur.Checked)
+                {
+                    z = 1;
+                }
+
+                else
+                {
+                    z = 0;
+                }
 
                 try
                 {
@@ -157,7 +188,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "' WHERE caseid = " + caseid, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "', famposition = '" + pos + "', famcurrent = '" + z + "' WHERE familyid = " + caseid, conn);
 
                     comm.ExecuteNonQuery();
 
