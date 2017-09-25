@@ -303,8 +303,8 @@ namespace BalayPasilungan
                     try
                     {
                         conn.Open();
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO member(caseid, firstname, lastname, civilstatus, birthdate, relationship, remarks, occupation, age, eduattain, monthlyincome) " +
-                            "VALUES(" + id + ", '" + firstname + "', '" + lastname + "', '" + status + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + remarks + "'" +
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO member(familyid, firstname, lastname, civilstatus, birthdate, relationship, remarks, occupation, age, eduattain, monthlyincome) " +
+                            "VALUES(" + famid + ", '" + firstname + "', '" + lastname + "', '" + status + "', '" + dtpmembirth.Value.Date.ToString("yyyy-MM-dd") + "', '" + relationship + "', '" + remarks + "'" +
                             ", '" + occupation + "' , '" + age + "', '" + eduattain + "', '" + income + "')", conn);
                         
                         comm.ExecuteNonQuery();
@@ -320,7 +320,8 @@ namespace BalayPasilungan
                     }
                     catch (Exception ee)
                     {
-                        errorMessage(ee.Message);                        
+                        errorMessage(ee.Message);
+                        conn.Close();                    
                     }
                 }
                 else errorMessage("Income input is not numeric!");                    
@@ -384,6 +385,7 @@ namespace BalayPasilungan
                 else
                 {
                     errorMessage("Income input is not numeric!");
+                    conn.Close();
                 }
 
             }
@@ -1418,7 +1420,7 @@ namespace BalayPasilungan
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT familyid, famposition, famtype FROM family WHERE caseid = " + id, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT familyid, famtype, famposition, CASE famcurrent WHEN 0 THEN 'Former' ELSE 'Current' END AS 'FAMILY STATUS' FROM family WHERE caseid = " + id, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
                 adp.Fill(dt);
 
@@ -1428,17 +1430,22 @@ namespace BalayPasilungan
                     empty = true;
                 }
 
-                dtgmembers.DataSource = dt;
+                 
+
+                dtgfamily.DataSource = dt;
 
                 // UI Modifications
-                dtgmembers.Columns["familyid"].Visible = false;
-                dtgmembers.Columns[1].HeaderText = "FAMILY POSITION";
-                dtgmembers.Columns[2].HeaderText = "FAMILY TYPE";
+                dtgfamily.Columns["familyid"].Visible = false;
+                dtgfamily.Columns[1].HeaderText = "FAMILY TYPE";
+                dtgfamily.Columns[2].HeaderText = "FAMILY POSITION";
+
+                
                 conn.Close();
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
+                conn.Close();
                 //MessageBox.Show(ee.ToString() + "reloadfam");                
             }
         }
@@ -1448,15 +1455,16 @@ namespace BalayPasilungan
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT famtype, famcurrent, FROM family WHERE familyid = " + x, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT famtype, CASE famcurrent WHEN 0 THEN 'Former' ELSE 'Current' END AS 'status' FROM family WHERE familyid = " + x, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
                 adp.Fill(dt);
 
                 if (dt.Rows.Count > 0)
                 {
                     lblfamilytype.Text = dt.Rows[0]["famtype"].ToString();
+                    lblfamstatus.Text = dt.Rows[0]["status"].ToString();
 
-                    if (int.Parse(dt.Rows[0]["famtype"].ToString()) == 1)
+                    /*if (int.Parse(dt.Rows[0]["famtype"].ToString()) == 1)
                     {
                         lblfamstatus.Text = "CURRENT FAMILY";
                     }
@@ -1464,7 +1472,7 @@ namespace BalayPasilungan
                     else
                     {
                         lblfamstatus.Text = "FORMER FAMILY";
-                    }
+                    }*/
 
                 }
 
@@ -2111,14 +2119,14 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
 
         public void existsmem(int x)
         {
-            MySqlCommand comm = new MySqlCommand("SELECT COUNT(memberid) FROM member JOIN family ON member.familyid = family.familyid WHERE member.familyd = " + x, conn);
+            MySqlCommand comm = new MySqlCommand("SELECT COUNT(memberid) FROM member JOIN family ON member.familyid = family.familyid WHERE member.familyid = " + x, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             DataTable dt = new DataTable();
 
@@ -2154,7 +2162,7 @@ namespace BalayPasilungan
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }

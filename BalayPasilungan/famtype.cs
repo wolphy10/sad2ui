@@ -101,7 +101,7 @@ namespace BalayPasilungan
             string type = cbxtype.Text;
             int pos = int.Parse(numfam.Value.ToString()), z;
 
-            if (string.IsNullOrEmpty(type)
+            if (string.IsNullOrEmpty(type))
             {
                 errorMessage("Please fill out empty fields.");
             }
@@ -138,7 +138,7 @@ namespace BalayPasilungan
 
                     conn.Close();
 
-                   
+                    reftofam.existsfam(caseid);
                     reftofam.reloadfam(caseid);
 
                     this.Close();
@@ -197,8 +197,7 @@ namespace BalayPasilungan
 
                     conn.Close();
 
-                    reftofam.existsfam(reftofam.id);
-                    reftofam.reloadfam(reftofam.id);
+                    reftofam.reloadfamtype(caseid);
 
                     this.Close();
 
