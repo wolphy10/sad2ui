@@ -183,6 +183,7 @@
             // 
             // cbxedyear
             // 
+            this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedyear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.cbxedyear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
             this.cbxedyear.FormattingEnabled = true;

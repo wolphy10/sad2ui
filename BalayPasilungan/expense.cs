@@ -383,7 +383,7 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, "No entries.", null, null, null, null);
+                        dt.Rows.Add(-1, "No entries.", null, null, null, null, null);
                         empty = true; btnEditBR.Enabled = btnDelBR.Enabled = false;
                     }
                     else empty = false; btnDelBR.Enabled = btnEditBR.Enabled = true;
@@ -391,19 +391,21 @@ namespace BalayPasilungan
                     BRDetails.DataSource = dt;
 
                     // Donation In Kind UI Modifications
-                    BRDetails.Columns[1].HeaderText = "PARTICULAR";
-                    BRDetails.Columns[2].HeaderText = "QUANTITY";
-                    BRDetails.Columns[3].HeaderText = "UNIT PRICE";
-                    BRDetails.Columns[4].HeaderText = "AMOUNT";
+                    BRDetails.Columns["particular"].HeaderText = "PARTICULAR";
+                    BRDetails.Columns["quantity"].HeaderText = "QUANTITY";
+                    BRDetails.Columns["unitPrice"].HeaderText = "UNIT PRICE";
+                    BRDetails.Columns["amount"].HeaderText = "AMOUNT";
+                    BRDetails.Columns["category"].HeaderText = "CATEGORY";
 
                     // For ID purposes (hidden from user)            
-                    BRDetails.Columns[0].Visible = BRDetails.Columns[5].Visible = false;
+                    BRDetails.Columns["itemID"].Visible = BRDetails.Columns["budgetID"].Visible = false;
 
-                    // 633 TOTAL WIDTH
-                    BRDetails.Columns[1].Width = 320;
-                    BRDetails.Columns[2].Width = 73;
-                    BRDetails.Columns[3].Width = BRDetails.Columns[4].Width = 120;
-                    BRDetails.Columns[1].HeaderCell.Style.Padding = BRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                    // 743 TOTAL WIDTH
+                    BRDetails.Columns["particular"].Width = 320;
+                    BRDetails.Columns["quantity"].Width = 73;
+                    BRDetails.Columns["unitPrice"].Width = BRDetails.Columns["amount"].Width = 110;
+                    BRDetails.Columns["category"].Width = 130;
+                    BRDetails.Columns["particular"].HeaderCell.Style.Padding = BRDetails.Columns["particular"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
                 }
                 else if (type == 4)          // List of budget requests
                 {
@@ -869,8 +871,8 @@ namespace BalayPasilungan
                     dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (dt.Rows.Count != 0) lblTotalDonation.Text = dt.Rows[0]["total"].ToString();
-                    else lblTotalDonation.Text = "0.00";
+                    if (dt.Rows.Count != 0) lblTotalDonation.Text = string.Format("{0:#,##0.00}", double.Parse(dt.Rows[0]["total"].ToString()));
+                    else lblTotalDonation.Text = "0.00";                   
 
                     adp = new MySqlDataAdapter("SELECT SUM(amount) as total FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
                     dt = new DataTable();
@@ -920,7 +922,7 @@ namespace BalayPasilungan
         #region Donors
         private void btnAddDonor_Click(object sender, EventArgs e)
         {
-            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = false;
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = false;
             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = false;
             resetNewDonor(); editDonor = false;
             tabSelection.SelectedTab = tabNewDonor;
@@ -1021,7 +1023,7 @@ namespace BalayPasilungan
         {
             try
             {
-                btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = true;
+                btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = true;
                 logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand("");
@@ -1064,7 +1066,7 @@ namespace BalayPasilungan
         private void btnDonorCancel_Click(object sender, EventArgs e)
         {
             tabSelection.SelectedTab = tabDonors;
-            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = true;
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = true;
             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
         }
 
@@ -1086,7 +1088,7 @@ namespace BalayPasilungan
         #region Donor Edit
         private void btnEditDonor_Click(object sender, EventArgs e)
         {
-            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = false;
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = false;
             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = false;
 
             tabSelection.SelectedTab = tabNewDonor;
@@ -1120,7 +1122,7 @@ namespace BalayPasilungan
 
         private void btnDonorEditCancel_Click(object sender, EventArgs e)
         {
-            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = btnClose.Enabled = true;
+            btnMain.Enabled = btnDonation.Enabled = btnFinance.Enabled = true;
             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
             tabSelection.SelectedTab = tabDonorInfo;
             tabDonorDetails.SelectedTab = tabMoney;
@@ -1681,7 +1683,7 @@ namespace BalayPasilungan
         #region New Budget Request
         private void btnNewBR_Click(object sender, EventArgs e)
         {
-            btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = false;
+            btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = false;
             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = false;
             resetBudgetRequest(); brEdit = false;
 
@@ -1697,12 +1699,21 @@ namespace BalayPasilungan
         }
 
         private void btnAddBR_Click(object sender, EventArgs e)
-        {
+        {           
             moneyDonate mD = overlay();
             mD.budgetID = current_budgetID;
-            mD.tabSelection.SelectedIndex = 7;
-            mD.ShowDialog();
-
+            if (lblBRCategory.Text == "Multiple")
+            {                
+                mD.tabSelection.SelectedIndex = 14;
+                mD.cbBRC_Cat.SelectedIndex = 0;
+                mD.ShowDialog();
+            }
+            else
+            {
+                mD.category = lblBRCategory.Text;             
+                mD.tabSelection.SelectedIndex = 7;
+                mD.ShowDialog();
+            }
             MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
             loadTable(comm, 3);
         }
@@ -1761,7 +1772,7 @@ namespace BalayPasilungan
                             comm.ExecuteNonQuery();
 
                             conn.Close();
-                            btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = true;
+                            btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = true;
                             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
                             get(2); get(4);
                             tabSelection.SelectedTab = tabFinance;
@@ -1785,11 +1796,20 @@ namespace BalayPasilungan
         private void btnBRNext_Click(object sender, EventArgs e)
         {
             if (lblBRCategory.Text != "" && txtBRRequest.Text != "Name." && txtPurpose.Text != "Name of purpose.")
-            {                
+            {
+                if (panelCat.Visible)
+                {                    
+                    MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+                    loadTable(comm, 5);
+                }
+                else                // MULTIPLE
+                {
+                    
+                }
                 tabBR.SelectedIndex = 1;
-                lblBRPurpose.Text = txtPurpose.Text;
-                if(rbOthers.Checked) lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
                 lblBRdateRequested.Text = dateBR.Value.ToString("MMMM dd, yyyy");
+                lblBRPurpose.Text = txtPurpose.Text;
+                lblBRBy.Text = txtBRRequest.Text;
 
                 brparTS.Font = new System.Drawing.Font("Segoe UI", 20.25F);
                 brTS.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
@@ -1797,13 +1817,10 @@ namespace BalayPasilungan
 
                 if (!brEdit) brparTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
                 else brparTS.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-                
-                String dateRequested = dateBR.Value.Year.ToString() + "-" + dateBR.Value.Month.ToString() + "-" + dateBR.Value.Day.ToString();
 
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
-                loadTable(comm, 5);
+                String dateRequested = dateBR.Value.Year.ToString() + "-" + dateBR.Value.Month.ToString() + "-" + dateBR.Value.Day.ToString();
             }
-            else errorMessage("Please fill up all fields or choose a category.");
+            else errorMessage("Please fill up all fields or choose a category.");                       
         }
 
         private void btnBRCancel_Click(object sender, EventArgs e)
@@ -1853,9 +1870,26 @@ namespace BalayPasilungan
                         tabPBR.SelectedIndex = 1;
                     }
                 }
-                btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = true;
+                btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = true;
                 logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
             }                                  
+        }
+
+        private void catType_Click(object sender, EventArgs e)
+        {
+            btnCatSingle.BackColor = btnCatMultiple.BackColor = Color.White;
+            ((Button)sender).BackColor = System.Drawing.Color.FromArgb(146, 211, 202);
+            if (((Button)sender).Name == "btnCatSingle")
+            {
+                lblCategory.Text = "";
+                panelCat.Visible = lblCategory.Visible = true;
+                if (rbOthers.Checked) lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
+            }
+            else
+            {
+                lblBRCategory.Text = "Multiple";
+                panelCat.Visible = lblCategory.Visible = false;
+            }
         }
 
         private void category_CheckedChanged(object sender, EventArgs e)
@@ -1972,7 +2006,7 @@ namespace BalayPasilungan
                 }
                 else if (choice == DialogResult.No)         // EDIT BUDGET REQUEST
                 {
-                    btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = btnClose.Enabled = false;
+                    btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = false;
                     logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = false;
                     tabSelection.SelectedTab = tabBudgetRequest;
                     tabBR.SelectedIndex = 0;
@@ -2522,13 +2556,13 @@ namespace BalayPasilungan
                 if (!brEdit)
                 {
                     lblPurpose.ForeColor = countPurpose.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                    panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                    panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                     countPurpose.Visible = true;
                 }
                 else
                 {
                     lblPurpose.ForeColor = countPurpose.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-                    panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
+                    panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
                     countPurpose.Visible = true;
                 }
             }
@@ -2537,13 +2571,13 @@ namespace BalayPasilungan
                 if (!brEdit)
                 {
                     lblBRRequest.ForeColor = countPurpose.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
-                    panelBRRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                    panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                     countBRRequest.Visible = true;
                 }
                 else
                 {
                     lblBRRequest.ForeColor = countPurpose.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
-                    panelBRRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
+                    panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
                     countBRRequest.Visible = true;
                 }
             }
@@ -2599,13 +2633,13 @@ namespace BalayPasilungan
             else if (((TextBox)sender).Name == "txtPurpose")
             {
                 lblPurpose.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
                 countPurpose.Visible = false;
             }
             else if (((TextBox)sender).Name == "txtBRRequest")
             {
                 lblBRRequest.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
-                panelBRRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
                 countBRRequest.Visible = false;
             }
         }
@@ -2645,6 +2679,11 @@ namespace BalayPasilungan
         private void expense_FormClosing(object sender, FormClosingEventArgs e)
         {
             reftomain.Show();
+        }
+
+        private void lblTotalDonation_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void richNew_Leave(object sender, EventArgs e)

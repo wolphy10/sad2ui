@@ -20,11 +20,11 @@ namespace BalayPasilungan
     {
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
+        public Form reftomain { get; set; }
 
         public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode, archiveid, archivemode;
         public string filename, yearlvl, section, adviser;
         public bool empty, confirmed, dot;
-        public main reftomain { get; set; } 
 
         public caseprofile()
         {
@@ -1241,47 +1241,53 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, "No entries.", null);
                     empty = true;
+
+                    dtgeducation.DataSource = dt;
                 }
-                else empty = false;
+                else
+                {
+                    empty = false;
 
-                dtgeducation.DataSource = dt;
+                    dtgeducation.DataSource = dt;
 
-                // For ID purposes (hidden from user)            
-                dtgeducation.Columns[0].Visible = false;
+                    // For ID purposes (hidden from user)            
+                    
 
-                dtgeducation.Columns[1].HeaderText = "SCHOOL";
-                dtgeducation.Columns[2].HeaderText = "LEVEL";
+                    dtgeducation.Columns["school"].HeaderText = "SCHOOL";
+                    dtgeducation.Columns["level"].HeaderText = "LEVEL";
 
-                // 486 WIDTH
-                dtgeducation.Columns[1].Width = 200;
-                dtgeducation.Columns[2].Width = 100;
-                dtgeducation.Columns[1].HeaderCell.Style.Padding = dtgeducation.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+                    // 486 WIDTH
+                    dtgeducation.Columns["school"].Width = 200;
+                    dtgeducation.Columns["level"].Width = 100;
+                    dtgeducation.Columns["school"].HeaderCell.Style.Padding = dtgeducation.Columns["school"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
-                DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
-                //EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                EditColumn.Image = Properties.Resources.editrmm;
-                EditColumn.Name = "EDIT";
-                EditColumn.Width = 93;
-                EditColumn.DataPropertyName = "EDIT";
-                
-                DataGridViewImageColumn AddColumn = new DataGridViewImageColumn();
-                //AddColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                AddColumn.Image = Properties.Resources.add;
-                AddColumn.Name = "ADD";
-                AddColumn.Width = 93;
-                AddColumn.DataPropertyName = "ADD";
+                    DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
+                    //EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    EditColumn.Image = Properties.Resources.editrmm;
+                    EditColumn.Name = "EDIT";
+                    EditColumn.Width = 93;
+                    EditColumn.DataPropertyName = "EDIT";
 
-                if (dtgeducation.Columns["EDIT"] == null && archivemode == 0)
-                {                    
-                    dtgeducation.Columns.Add(EditColumn);
-                    dtgeducation.Columns["EDIT"].ReadOnly = false;
+                    DataGridViewImageColumn AddColumn = new DataGridViewImageColumn();
+                    //AddColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    AddColumn.Image = Properties.Resources.add;
+                    AddColumn.Name = "ADD";
+                    AddColumn.Width = 93;
+                    AddColumn.DataPropertyName = "ADD";
+
+                    if (dtgeducation.Columns["EDIT"] == null && archivemode == 0)
+                    {
+                        dtgeducation.Columns.Add(EditColumn);
+                        dtgeducation.Columns["EDIT"].ReadOnly = false;
+                    }
+                    if (dtgeducation.Columns["ADD"] == null && archivemode == 0)
+                    {
+                        dtgeducation.Columns.Add(AddColumn);
+                        dtgeducation.Columns["ADD"].ReadOnly = false;
+                    }
                 }
-                if (dtgeducation.Columns["ADD"] == null && archivemode == 0)
-                {                    
-                    dtgeducation.Columns.Add(AddColumn);
-                    dtgeducation.Columns["ADD"].ReadOnly = false;
-                }
-                
+                dtgeducation.Columns["eid"].Visible = false;
+
                 conn.Close();
             }
             catch (Exception ee)
@@ -1311,16 +1317,16 @@ namespace BalayPasilungan
                 dtgedclass.DataSource = dt;
 
                 // For ID purposes (hidden from user)            
-                dtgedclass.Columns[0].Visible = false;
+                dtgedclass.Columns["classeid"].Visible = false;
 
-                dtgedclass.Columns[1].HeaderText = "SECTION";
-                dtgedclass.Columns[2].HeaderText = "ADVISER";
-                dtgedclass.Columns[3].HeaderText = "YEAR LEVEL";
+                dtgedclass.Columns["section"].HeaderText = "SECTION";
+                dtgedclass.Columns["adviser"].HeaderText = "ADVISER";
+                dtgedclass.Columns["yearlevel"].HeaderText = "YEAR LEVEL";
 
                 // 555 WIDTH
-                dtgedclass.Columns[1].Width = dtgedclass.Columns[2].Width = 227;
-                dtgedclass.Columns[3].Width = 50;
-                dtgedclass.Columns[1].HeaderCell.Style.Padding = dtgedclass.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+                dtgedclass.Columns["section"].Width = dtgedclass.Columns[2].Width = 227;
+                dtgedclass.Columns["adviser"].Width = 50;
+                dtgedclass.Columns["yearlevel"].HeaderCell.Style.Padding = dtgedclass.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
                 DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
                 //EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -1504,7 +1510,11 @@ namespace BalayPasilungan
                     dt.Rows.Add(-1, "No entries.", null, null, null, null, null, null, null, null, null);
                     empty = true;
 
+
+
                     dtgmembers.DataSource = dt;
+
+                    dtgmembers.Columns["memberid"].Visible = false;
                 }
 
                 else
@@ -3250,9 +3260,9 @@ namespace BalayPasilungan
             famtypecall(id, btnaddfam.Text);
         }
 
-        private void caseprofile_FormClosing(object sender, FormClosingEventArgs e)
+        private void bttnbackfromcheckrec_Click(object sender, EventArgs e)
         {
-            reftomain.Show();
+            tabChild.SelectedTab = fifteen;
         }
 
         private void btnbackfromhealth_Click(object sender, EventArgs e)

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(moneyDonate));
             this.tabSelection = new System.Windows.Forms.TabControl();
-            this.tabChoice = new System.Windows.Forms.TabPage();
+            this.tabChoice0 = new System.Windows.Forms.TabPage();
             this.btnClose = new BalayPasilungan.NoFocusRec();
             this.pbCheck = new System.Windows.Forms.PictureBox();
             this.btnCheck = new BalayPasilungan.NoFocusRec();
@@ -95,7 +95,7 @@
             this.lblCashAmount2 = new System.Windows.Forms.Label();
             this.txtCashAmount2 = new System.Windows.Forms.TextBox();
             this.lblDot3 = new System.Windows.Forms.Label();
-            this.tabCheckEdit = new System.Windows.Forms.TabPage();
+            this.tabCheckEdit4 = new System.Windows.Forms.TabPage();
             this.btnEditCheck = new BalayPasilungan.NoFocusRec();
             this.txtBank2 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -166,7 +166,8 @@
             this.txtBRPart = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.tabExp = new System.Windows.Forms.TabPage();
+            this.tabExp8 = new System.Windows.Forms.TabPage();
+            this.cbExpCat = new System.Windows.Forms.ComboBox();
             this.lblEnter = new System.Windows.Forms.Label();
             this.thisMonth = new System.Windows.Forms.CheckBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
@@ -189,6 +190,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabExpOp = new System.Windows.Forms.TabPage();
+            this.year = new System.Windows.Forms.ComboBox();
+            this.dateFrom = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -211,7 +214,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.noFocusRec9 = new BalayPasilungan.NoFocusRec();
             this.btnBackDisapprove = new BalayPasilungan.NoFocusRec();
-            this.tabBREdit = new System.Windows.Forms.TabPage();
+            this.tabBREdit11 = new System.Windows.Forms.TabPage();
             this.label29 = new System.Windows.Forms.Label();
             this.txtBRTotal2 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -267,11 +270,27 @@
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.txtAllBank = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.cbExpCat = new System.Windows.Forms.ComboBox();
-            this.dateFrom = new System.Windows.Forms.ComboBox();
-            this.year = new System.Windows.Forms.ComboBox();
+            this.tabBRDC14 = new System.Windows.Forms.TabPage();
+            this.cbBRC_Cat = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.txtBRC_UP = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.txtBRC_total = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label46 = new System.Windows.Forms.Label();
+            this.noFocusRec14 = new BalayPasilungan.NoFocusRec();
+            this.btnBRCancel3 = new BalayPasilungan.NoFocusRec();
+            this.btnAddBR2 = new BalayPasilungan.NoFocusRec();
+            this.txtBRC_Quantity = new System.Windows.Forms.NumericUpDown();
+            this.txtBRC_Part = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.tabSelection.SuspendLayout();
-            this.tabChoice.SuspendLayout();
+            this.tabChoice0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCash)).BeginInit();
             this.tabCash.SuspendLayout();
@@ -287,7 +306,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.tabCheckEdit.SuspendLayout();
+            this.tabCheckEdit4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -310,7 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            this.tabExp.SuspendLayout();
+            this.tabExp8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
@@ -321,7 +340,7 @@
             this.panel9.SuspendLayout();
             this.tabBRDisapprove.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.tabBREdit.SuspendLayout();
+            this.tabBREdit11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
@@ -335,24 +354,31 @@
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
+            this.tabBRDC14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRC_Quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
             // 
-            this.tabSelection.Controls.Add(this.tabChoice);
+            this.tabSelection.Controls.Add(this.tabChoice0);
             this.tabSelection.Controls.Add(this.tabCash);
             this.tabSelection.Controls.Add(this.tabCheck);
             this.tabSelection.Controls.Add(this.tabCashEdit);
-            this.tabSelection.Controls.Add(this.tabCheckEdit);
+            this.tabSelection.Controls.Add(this.tabCheckEdit4);
             this.tabSelection.Controls.Add(this.tabIK);
             this.tabSelection.Controls.Add(this.tabIKEdit);
             this.tabSelection.Controls.Add(this.tabBRDetails);
-            this.tabSelection.Controls.Add(this.tabExp);
+            this.tabSelection.Controls.Add(this.tabExp8);
             this.tabSelection.Controls.Add(this.tabExpOp);
             this.tabSelection.Controls.Add(this.tabBRDisapprove);
-            this.tabSelection.Controls.Add(this.tabBREdit);
+            this.tabSelection.Controls.Add(this.tabBREdit11);
             this.tabSelection.Controls.Add(this.tabCheckInfo);
             this.tabSelection.Controls.Add(this.tabAllCash);
+            this.tabSelection.Controls.Add(this.tabBRDC14);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -360,22 +386,22 @@
             this.tabSelection.Size = new System.Drawing.Size(520, 402);
             this.tabSelection.TabIndex = 39;
             // 
-            // tabChoice
+            // tabChoice0
             // 
-            this.tabChoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.tabChoice.Controls.Add(this.btnClose);
-            this.tabChoice.Controls.Add(this.pbCheck);
-            this.tabChoice.Controls.Add(this.btnCheck);
-            this.tabChoice.Controls.Add(this.pbCash);
-            this.tabChoice.Controls.Add(this.btnCash);
-            this.tabChoice.Controls.Add(this.lblForm);
-            this.tabChoice.Location = new System.Drawing.Point(4, 22);
-            this.tabChoice.Name = "tabChoice";
-            this.tabChoice.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChoice.Size = new System.Drawing.Size(512, 376);
-            this.tabChoice.TabIndex = 0;
-            this.tabChoice.Text = "tabPage1";
-            this.tabChoice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            this.tabChoice0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.tabChoice0.Controls.Add(this.btnClose);
+            this.tabChoice0.Controls.Add(this.pbCheck);
+            this.tabChoice0.Controls.Add(this.btnCheck);
+            this.tabChoice0.Controls.Add(this.pbCash);
+            this.tabChoice0.Controls.Add(this.btnCash);
+            this.tabChoice0.Controls.Add(this.lblForm);
+            this.tabChoice0.Location = new System.Drawing.Point(4, 22);
+            this.tabChoice0.Name = "tabChoice0";
+            this.tabChoice0.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChoice0.Size = new System.Drawing.Size(512, 376);
+            this.tabChoice0.TabIndex = 0;
+            this.tabChoice0.Text = "tabPage1";
+            this.tabChoice0.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // btnClose
             // 
@@ -1243,36 +1269,36 @@
             this.lblDot3.TabIndex = 30;
             this.lblDot3.Text = ".";
             // 
-            // tabCheckEdit
+            // tabCheckEdit4
             // 
-            this.tabCheckEdit.Controls.Add(this.btnEditCheck);
-            this.tabCheckEdit.Controls.Add(this.txtBank2);
-            this.tabCheckEdit.Controls.Add(this.pictureBox2);
-            this.tabCheckEdit.Controls.Add(this.panel3);
-            this.tabCheckEdit.Controls.Add(this.dateCheck2);
-            this.tabCheckEdit.Controls.Add(this.lbldateCheck2);
-            this.tabCheckEdit.Controls.Add(this.lblBank2);
-            this.tabCheckEdit.Controls.Add(this.txtCheckNo2);
-            this.tabCheckEdit.Controls.Add(this.lblCheckNo2);
-            this.tabCheckEdit.Controls.Add(this.txtCheckOR2);
-            this.tabCheckEdit.Controls.Add(this.lblCheckOR2);
-            this.tabCheckEdit.Controls.Add(this.dateOfCheck2);
-            this.tabCheckEdit.Controls.Add(this.lbldateOfCheck2);
-            this.tabCheckEdit.Controls.Add(this.lblPeso4);
-            this.tabCheckEdit.Controls.Add(this.txtCheckCent2);
-            this.tabCheckEdit.Controls.Add(this.lblCheckAmount2);
-            this.tabCheckEdit.Controls.Add(this.txtCheckAmount2);
-            this.tabCheckEdit.Controls.Add(this.lblDot4);
-            this.tabCheckEdit.Controls.Add(this.pictureBox9);
-            this.tabCheckEdit.Controls.Add(this.pictureBox10);
-            this.tabCheckEdit.Location = new System.Drawing.Point(4, 22);
-            this.tabCheckEdit.Name = "tabCheckEdit";
-            this.tabCheckEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCheckEdit.Size = new System.Drawing.Size(512, 376);
-            this.tabCheckEdit.TabIndex = 4;
-            this.tabCheckEdit.Text = "tabPage2";
-            this.tabCheckEdit.UseVisualStyleBackColor = true;
-            this.tabCheckEdit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            this.tabCheckEdit4.Controls.Add(this.btnEditCheck);
+            this.tabCheckEdit4.Controls.Add(this.txtBank2);
+            this.tabCheckEdit4.Controls.Add(this.pictureBox2);
+            this.tabCheckEdit4.Controls.Add(this.panel3);
+            this.tabCheckEdit4.Controls.Add(this.dateCheck2);
+            this.tabCheckEdit4.Controls.Add(this.lbldateCheck2);
+            this.tabCheckEdit4.Controls.Add(this.lblBank2);
+            this.tabCheckEdit4.Controls.Add(this.txtCheckNo2);
+            this.tabCheckEdit4.Controls.Add(this.lblCheckNo2);
+            this.tabCheckEdit4.Controls.Add(this.txtCheckOR2);
+            this.tabCheckEdit4.Controls.Add(this.lblCheckOR2);
+            this.tabCheckEdit4.Controls.Add(this.dateOfCheck2);
+            this.tabCheckEdit4.Controls.Add(this.lbldateOfCheck2);
+            this.tabCheckEdit4.Controls.Add(this.lblPeso4);
+            this.tabCheckEdit4.Controls.Add(this.txtCheckCent2);
+            this.tabCheckEdit4.Controls.Add(this.lblCheckAmount2);
+            this.tabCheckEdit4.Controls.Add(this.txtCheckAmount2);
+            this.tabCheckEdit4.Controls.Add(this.lblDot4);
+            this.tabCheckEdit4.Controls.Add(this.pictureBox9);
+            this.tabCheckEdit4.Controls.Add(this.pictureBox10);
+            this.tabCheckEdit4.Location = new System.Drawing.Point(4, 22);
+            this.tabCheckEdit4.Name = "tabCheckEdit4";
+            this.tabCheckEdit4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCheckEdit4.Size = new System.Drawing.Size(512, 376);
+            this.tabCheckEdit4.TabIndex = 4;
+            this.tabCheckEdit4.Text = "tabPage2";
+            this.tabCheckEdit4.UseVisualStyleBackColor = true;
+            this.tabCheckEdit4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
             // btnEditCheck
             // 
@@ -2218,36 +2244,72 @@
             this.pictureBox18.TabIndex = 34;
             this.pictureBox18.TabStop = false;
             // 
-            // tabExp
+            // tabExp8
             // 
-            this.tabExp.BackColor = System.Drawing.Color.White;
-            this.tabExp.Controls.Add(this.cbExpCat);
-            this.tabExp.Controls.Add(this.lblEnter);
-            this.tabExp.Controls.Add(this.thisMonth);
-            this.tabExp.Controls.Add(this.pictureBox20);
-            this.tabExp.Controls.Add(this.label6);
-            this.tabExp.Controls.Add(this.txtExpCent);
-            this.tabExp.Controls.Add(this.txtExpCurrent);
-            this.tabExp.Controls.Add(this.label19);
-            this.tabExp.Controls.Add(this.txtExpAmt);
-            this.tabExp.Controls.Add(this.lblDotExp);
-            this.tabExp.Controls.Add(this.txtExpTotal);
-            this.tabExp.Controls.Add(this.dateExp);
-            this.tabExp.Controls.Add(this.label13);
-            this.tabExp.Controls.Add(this.lblAddExp);
-            this.tabExp.Controls.Add(this.label15);
-            this.tabExp.Controls.Add(this.panel7);
-            this.tabExp.Controls.Add(this.btnAddExp);
-            this.tabExp.Controls.Add(this.label17);
-            this.tabExp.Controls.Add(this.pictureBox21);
-            this.tabExp.Location = new System.Drawing.Point(4, 22);
-            this.tabExp.Name = "tabExp";
-            this.tabExp.Padding = new System.Windows.Forms.Padding(3);
-            this.tabExp.Size = new System.Drawing.Size(512, 376);
-            this.tabExp.TabIndex = 8;
-            this.tabExp.Text = "tabPage1";
-            this.tabExp.Click += new System.EventHandler(this.tabExp_Click);
-            this.tabExp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            this.tabExp8.BackColor = System.Drawing.Color.White;
+            this.tabExp8.Controls.Add(this.cbExpCat);
+            this.tabExp8.Controls.Add(this.lblEnter);
+            this.tabExp8.Controls.Add(this.thisMonth);
+            this.tabExp8.Controls.Add(this.pictureBox20);
+            this.tabExp8.Controls.Add(this.label6);
+            this.tabExp8.Controls.Add(this.txtExpCent);
+            this.tabExp8.Controls.Add(this.txtExpCurrent);
+            this.tabExp8.Controls.Add(this.label19);
+            this.tabExp8.Controls.Add(this.txtExpAmt);
+            this.tabExp8.Controls.Add(this.lblDotExp);
+            this.tabExp8.Controls.Add(this.txtExpTotal);
+            this.tabExp8.Controls.Add(this.dateExp);
+            this.tabExp8.Controls.Add(this.label13);
+            this.tabExp8.Controls.Add(this.lblAddExp);
+            this.tabExp8.Controls.Add(this.label15);
+            this.tabExp8.Controls.Add(this.panel7);
+            this.tabExp8.Controls.Add(this.btnAddExp);
+            this.tabExp8.Controls.Add(this.label17);
+            this.tabExp8.Controls.Add(this.pictureBox21);
+            this.tabExp8.Location = new System.Drawing.Point(4, 22);
+            this.tabExp8.Name = "tabExp8";
+            this.tabExp8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabExp8.Size = new System.Drawing.Size(512, 376);
+            this.tabExp8.TabIndex = 8;
+            this.tabExp8.Text = "tabPage1";
+            this.tabExp8.Click += new System.EventHandler(this.tabExp_Click);
+            this.tabExp8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            // 
+            // cbExpCat
+            // 
+            this.cbExpCat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbExpCat.ForeColor = System.Drawing.Color.Black;
+            this.cbExpCat.FormattingEnabled = true;
+            this.cbExpCat.Items.AddRange(new object[] {
+            "Clothing",
+            "Communication, Lights, and Water",
+            "Depreciation Expenses",
+            "Education",
+            "Food",
+            "Guidance and Counselling",
+            "Honorarium",
+            "Household Expenses",
+            "Insurance Expense",
+            "Medical and Dental Supplies",
+            "Meeting and Conferences",
+            "Office Supplies",
+            "Printing and Advertising",
+            "Professional Fees",
+            "Recreation",
+            "Repair and Maintenance",
+            "Salary",
+            "Skills and Development",
+            "Spiritual Value Formation",
+            "SSS, PHIC, and HMDF",
+            "Taxes and Licenses",
+            "Transportation"});
+            this.cbExpCat.Location = new System.Drawing.Point(164, 53);
+            this.cbExpCat.Name = "cbExpCat";
+            this.cbExpCat.Size = new System.Drawing.Size(316, 25);
+            this.cbExpCat.TabIndex = 190;
+            this.cbExpCat.SelectedIndexChanged += new System.EventHandler(this.cbExpCat_SelectedIndexChanged);
+            this.cbExpCat.DropDownClosed += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.cbExpCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
             // 
             // lblEnter
             // 
@@ -2531,6 +2593,7 @@
             this.tabExpOp.Controls.Add(this.pictureBox22);
             this.tabExpOp.Controls.Add(this.pictureBox23);
             this.tabExpOp.Controls.Add(this.panel9);
+            this.tabExpOp.ForeColor = System.Drawing.Color.Black;
             this.tabExpOp.Location = new System.Drawing.Point(4, 22);
             this.tabExpOp.Name = "tabExpOp";
             this.tabExpOp.Padding = new System.Windows.Forms.Padding(3);
@@ -2539,6 +2602,54 @@
             this.tabExpOp.Text = "tabPage1";
             this.tabExpOp.UseVisualStyleBackColor = true;
             this.tabExpOp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
+            // 
+            // year
+            // 
+            this.year.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.year.ForeColor = System.Drawing.Color.Black;
+            this.year.FormattingEnabled = true;
+            this.year.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.year.Location = new System.Drawing.Point(382, 270);
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(96, 25);
+            this.year.TabIndex = 73;
+            this.year.DropDownStyleChanged += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.year.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
+            // 
+            // dateFrom
+            // 
+            this.dateFrom.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.dateFrom.ForeColor = System.Drawing.Color.Black;
+            this.dateFrom.FormattingEnabled = true;
+            this.dateFrom.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.dateFrom.Location = new System.Drawing.Point(165, 270);
+            this.dateFrom.Name = "dateFrom";
+            this.dateFrom.Size = new System.Drawing.Size(199, 25);
+            this.dateFrom.TabIndex = 3;
             // 
             // label21
             // 
@@ -2835,28 +2946,28 @@
             this.btnBackDisapprove.UseVisualStyleBackColor = false;
             this.btnBackDisapprove.Click += new System.EventHandler(this.btn_Close);
             // 
-            // tabBREdit
+            // tabBREdit11
             // 
-            this.tabBREdit.Controls.Add(this.label29);
-            this.tabBREdit.Controls.Add(this.txtBRTotal2);
-            this.tabBREdit.Controls.Add(this.label25);
-            this.tabBREdit.Controls.Add(this.txtBRUP2);
-            this.tabBREdit.Controls.Add(this.label26);
-            this.tabBREdit.Controls.Add(this.pictureBox24);
-            this.tabBREdit.Controls.Add(this.label27);
-            this.tabBREdit.Controls.Add(this.panel11);
-            this.tabBREdit.Controls.Add(this.pictureBox25);
-            this.tabBREdit.Controls.Add(this.btnBREdit);
-            this.tabBREdit.Controls.Add(this.txtBRQuantity2);
-            this.tabBREdit.Controls.Add(this.txtBRPart2);
-            this.tabBREdit.Controls.Add(this.pictureBox26);
-            this.tabBREdit.Location = new System.Drawing.Point(4, 22);
-            this.tabBREdit.Name = "tabBREdit";
-            this.tabBREdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBREdit.Size = new System.Drawing.Size(512, 376);
-            this.tabBREdit.TabIndex = 11;
-            this.tabBREdit.Text = "tabPage1";
-            this.tabBREdit.UseVisualStyleBackColor = true;
+            this.tabBREdit11.Controls.Add(this.label29);
+            this.tabBREdit11.Controls.Add(this.txtBRTotal2);
+            this.tabBREdit11.Controls.Add(this.label25);
+            this.tabBREdit11.Controls.Add(this.txtBRUP2);
+            this.tabBREdit11.Controls.Add(this.label26);
+            this.tabBREdit11.Controls.Add(this.pictureBox24);
+            this.tabBREdit11.Controls.Add(this.label27);
+            this.tabBREdit11.Controls.Add(this.panel11);
+            this.tabBREdit11.Controls.Add(this.pictureBox25);
+            this.tabBREdit11.Controls.Add(this.btnBREdit);
+            this.tabBREdit11.Controls.Add(this.txtBRQuantity2);
+            this.tabBREdit11.Controls.Add(this.txtBRPart2);
+            this.tabBREdit11.Controls.Add(this.pictureBox26);
+            this.tabBREdit11.Location = new System.Drawing.Point(4, 22);
+            this.tabBREdit11.Name = "tabBREdit11";
+            this.tabBREdit11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBREdit11.Size = new System.Drawing.Size(512, 376);
+            this.tabBREdit11.TabIndex = 11;
+            this.tabBREdit11.Text = "tabPage1";
+            this.tabBREdit11.UseVisualStyleBackColor = true;
             // 
             // label29
             // 
@@ -3591,12 +3702,37 @@
             this.richTextBox2.TabIndex = 103;
             this.richTextBox2.Text = "";
             // 
-            // cbExpCat
+            // tabBRDC14
             // 
-            this.cbExpCat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.cbExpCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.cbExpCat.FormattingEnabled = true;
-            this.cbExpCat.Items.AddRange(new object[] {
+            this.tabBRDC14.Controls.Add(this.cbBRC_Cat);
+            this.tabBRDC14.Controls.Add(this.label48);
+            this.tabBRDC14.Controls.Add(this.txtBRC_UP);
+            this.tabBRDC14.Controls.Add(this.label44);
+            this.tabBRDC14.Controls.Add(this.pictureBox32);
+            this.tabBRDC14.Controls.Add(this.txtBRC_total);
+            this.tabBRDC14.Controls.Add(this.label43);
+            this.tabBRDC14.Controls.Add(this.pictureBox31);
+            this.tabBRDC14.Controls.Add(this.label45);
+            this.tabBRDC14.Controls.Add(this.panel14);
+            this.tabBRDC14.Controls.Add(this.btnAddBR2);
+            this.tabBRDC14.Controls.Add(this.txtBRC_Quantity);
+            this.tabBRDC14.Controls.Add(this.txtBRC_Part);
+            this.tabBRDC14.Controls.Add(this.label47);
+            this.tabBRDC14.Controls.Add(this.pictureBox33);
+            this.tabBRDC14.Location = new System.Drawing.Point(4, 22);
+            this.tabBRDC14.Name = "tabBRDC14";
+            this.tabBRDC14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBRDC14.Size = new System.Drawing.Size(512, 376);
+            this.tabBRDC14.TabIndex = 14;
+            this.tabBRDC14.Text = "tabPage1";
+            this.tabBRDC14.UseVisualStyleBackColor = true;
+            // 
+            // cbBRC_Cat
+            // 
+            this.cbBRC_Cat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbBRC_Cat.ForeColor = System.Drawing.Color.Black;
+            this.cbBRC_Cat.FormattingEnabled = true;
+            this.cbBRC_Cat.Items.AddRange(new object[] {
             "Clothing",
             "Communication, Lights, and Water",
             "Depreciation Expenses",
@@ -3619,61 +3755,232 @@
             "SSS, PHIC, and HMDF",
             "Taxes and Licenses",
             "Transportation"});
-            this.cbExpCat.Location = new System.Drawing.Point(164, 53);
-            this.cbExpCat.Name = "cbExpCat";
-            this.cbExpCat.Size = new System.Drawing.Size(316, 25);
-            this.cbExpCat.TabIndex = 190;
-            this.cbExpCat.SelectedIndexChanged += new System.EventHandler(this.cbExpCat_SelectedIndexChanged);
-            this.cbExpCat.DropDownClosed += new System.EventHandler(this.cbFilter_DropDownClosed);
-            this.cbExpCat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
+            this.cbBRC_Cat.Location = new System.Drawing.Point(165, 86);
+            this.cbBRC_Cat.Name = "cbBRC_Cat";
+            this.cbBRC_Cat.Size = new System.Drawing.Size(316, 25);
+            this.cbBRC_Cat.TabIndex = 192;
             // 
-            // dateFrom
+            // label48
             // 
-            this.dateFrom.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.dateFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.dateFrom.FormattingEnabled = true;
-            this.dateFrom.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.dateFrom.Location = new System.Drawing.Point(165, 270);
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(199, 25);
-            this.dateFrom.TabIndex = 3;
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label48.Location = new System.Drawing.Point(24, 94);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(61, 13);
+            this.label48.TabIndex = 191;
+            this.label48.Text = "CATEGORY";
             // 
-            // year
+            // txtBRC_UP
             // 
-            this.year.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.year.FormattingEnabled = true;
-            this.year.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.year.Location = new System.Drawing.Point(382, 270);
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(96, 25);
-            this.year.TabIndex = 73;
-            this.year.DropDownStyleChanged += new System.EventHandler(this.cbFilter_DropDownClosed);
-            this.year.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
+            this.txtBRC_UP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRC_UP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRC_UP.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRC_UP.ForeColor = System.Drawing.Color.Black;
+            this.txtBRC_UP.Location = new System.Drawing.Point(165, 226);
+            this.txtBRC_UP.MaxLength = 50;
+            this.txtBRC_UP.Name = "txtBRC_UP";
+            this.txtBRC_UP.Size = new System.Drawing.Size(316, 25);
+            this.txtBRC_UP.TabIndex = 2;
+            this.txtBRC_UP.Text = "0";
+            this.txtBRC_UP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRC_UP.TextChanged += new System.EventHandler(this.txtBRUP_TextChanged);
+            this.txtBRC_UP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBRUP_KeyDown);
+            this.txtBRC_UP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtBRC_UP.Leave += new System.EventHandler(this.txtBRUP_Leave);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label44.Location = new System.Drawing.Point(24, 229);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(63, 13);
+            this.label44.TabIndex = 42;
+            this.label44.Text = "UNIT PRICE";
+            // 
+            // pictureBox32
+            // 
+            this.pictureBox32.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox32.Image")));
+            this.pictureBox32.Location = new System.Drawing.Point(11, 194);
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox32.TabIndex = 36;
+            this.pictureBox32.TabStop = false;
+            // 
+            // txtBRC_total
+            // 
+            this.txtBRC_total.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtBRC_total.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
+            this.txtBRC_total.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.txtBRC_total.Location = new System.Drawing.Point(157, 273);
+            this.txtBRC_total.Name = "txtBRC_total";
+            this.txtBRC_total.Size = new System.Drawing.Size(332, 58);
+            this.txtBRC_total.TabIndex = 10;
+            this.txtBRC_total.Text = "0,000,000,000.00";
+            this.txtBRC_total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label43.Location = new System.Drawing.Point(24, 293);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(38, 13);
+            this.label43.TabIndex = 45;
+            this.label43.Text = "TOTAL";
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
+            this.pictureBox31.Location = new System.Drawing.Point(11, 248);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox31.TabIndex = 43;
+            this.pictureBox31.TabStop = false;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label45.Location = new System.Drawing.Point(24, 161);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(56, 13);
+            this.label45.TabIndex = 35;
+            this.label45.Text = "QUANTITY";
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel14.Controls.Add(this.label46);
+            this.panel14.Controls.Add(this.noFocusRec14);
+            this.panel14.Controls.Add(this.btnBRCancel3);
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(512, 33);
+            this.panel14.TabIndex = 40;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label46.Location = new System.Drawing.Point(306, 8);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(200, 19);
+            this.label46.TabIndex = 19;
+            this.label46.Text = "Add Budget Request Particular";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec14
+            // 
+            this.noFocusRec14.FlatAppearance.BorderSize = 0;
+            this.noFocusRec14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec14.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec14.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec14.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec14.Name = "noFocusRec14";
+            this.noFocusRec14.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec14.TabIndex = 11;
+            this.noFocusRec14.Text = "X";
+            this.noFocusRec14.UseVisualStyleBackColor = true;
+            // 
+            // btnBRCancel3
+            // 
+            this.btnBRCancel3.BackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBRCancel3.FlatAppearance.BorderSize = 0;
+            this.btnBRCancel3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBRCancel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRCancel3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRCancel3.ForeColor = System.Drawing.Color.White;
+            this.btnBRCancel3.Location = new System.Drawing.Point(6, 8);
+            this.btnBRCancel3.Name = "btnBRCancel3";
+            this.btnBRCancel3.Size = new System.Drawing.Size(76, 22);
+            this.btnBRCancel3.TabIndex = 5;
+            this.btnBRCancel3.Text = "GO BACK";
+            this.btnBRCancel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBRCancel3.UseVisualStyleBackColor = false;
+            this.btnBRCancel3.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnAddBR2
+            // 
+            this.btnAddBR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddBR2.FlatAppearance.BorderSize = 0;
+            this.btnAddBR2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBR2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddBR2.ForeColor = System.Drawing.Color.White;
+            this.btnAddBR2.Location = new System.Drawing.Point(0, 336);
+            this.btnAddBR2.Name = "btnAddBR2";
+            this.btnAddBR2.Size = new System.Drawing.Size(512, 40);
+            this.btnAddBR2.TabIndex = 3;
+            this.btnAddBR2.Text = "ADD PARTICULAR";
+            this.btnAddBR2.UseVisualStyleBackColor = false;
+            this.btnAddBR2.Click += new System.EventHandler(this.btnAddBR_Click);
+            // 
+            // txtBRC_Quantity
+            // 
+            this.txtBRC_Quantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRC_Quantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRC_Quantity.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtBRC_Quantity.ForeColor = System.Drawing.Color.Black;
+            this.txtBRC_Quantity.Location = new System.Drawing.Point(165, 156);
+            this.txtBRC_Quantity.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBRC_Quantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtBRC_Quantity.Name = "txtBRC_Quantity";
+            this.txtBRC_Quantity.Size = new System.Drawing.Size(316, 28);
+            this.txtBRC_Quantity.TabIndex = 1;
+            this.txtBRC_Quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRC_Quantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtBRC_Part
+            // 
+            this.txtBRC_Part.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRC_Part.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRC_Part.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRC_Part.ForeColor = System.Drawing.Color.Black;
+            this.txtBRC_Part.Location = new System.Drawing.Point(165, 51);
+            this.txtBRC_Part.MaxLength = 50;
+            this.txtBRC_Part.Name = "txtBRC_Part";
+            this.txtBRC_Part.Size = new System.Drawing.Size(316, 25);
+            this.txtBRC_Part.TabIndex = 0;
+            this.txtBRC_Part.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label47.Location = new System.Drawing.Point(24, 57);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(69, 13);
+            this.label47.TabIndex = 33;
+            this.label47.Text = "PARTICULAR";
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox33.Image")));
+            this.pictureBox33.Location = new System.Drawing.Point(11, 122);
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox33.TabIndex = 34;
+            this.pictureBox33.TabStop = false;
             // 
             // moneyDonate
             // 
@@ -3689,8 +3996,8 @@
             this.Text = " ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.moneyDonate_FormClosing);
             this.tabSelection.ResumeLayout(false);
-            this.tabChoice.ResumeLayout(false);
-            this.tabChoice.PerformLayout();
+            this.tabChoice0.ResumeLayout(false);
+            this.tabChoice0.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCash)).EndInit();
             this.tabCash.ResumeLayout(false);
@@ -3712,8 +4019,8 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.tabCheckEdit.ResumeLayout(false);
-            this.tabCheckEdit.PerformLayout();
+            this.tabCheckEdit4.ResumeLayout(false);
+            this.tabCheckEdit4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -3743,8 +4050,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBRQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            this.tabExp.ResumeLayout(false);
-            this.tabExp.PerformLayout();
+            this.tabExp8.ResumeLayout(false);
+            this.tabExp8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -3761,8 +4068,8 @@
             this.tabBRDisapprove.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.tabBREdit.ResumeLayout(false);
-            this.tabBREdit.PerformLayout();
+            this.tabBREdit11.ResumeLayout(false);
+            this.tabBREdit11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -3781,6 +4088,14 @@
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            this.tabBRDC14.ResumeLayout(false);
+            this.tabBRDC14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRC_Quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3885,11 +4200,11 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.NumericUpDown txtQuantity;
         public System.Windows.Forms.TabPage tabIK;
-        public System.Windows.Forms.TabPage tabChoice;
+        public System.Windows.Forms.TabPage tabChoice0;
         public System.Windows.Forms.TabPage tabCash;
         public System.Windows.Forms.TabPage tabCheck;
         public System.Windows.Forms.TabPage tabCashEdit;
-        public System.Windows.Forms.TabPage tabCheckEdit;
+        public System.Windows.Forms.TabPage tabCheckEdit4;
         private System.Windows.Forms.Label lblQuantity2;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Panel panel5;
@@ -3917,7 +4232,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.TabPage tabBRDetails;
-        private System.Windows.Forms.TabPage tabExp;
+        private System.Windows.Forms.TabPage tabExp8;
         private System.Windows.Forms.Label txtExpTotal;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblAddExp;
@@ -3957,7 +4272,7 @@
         private NoFocusRec btnBackDisapprove;
         private NoFocusRec btnDelBR;
         private NoFocusRec btnEditBR;
-        private System.Windows.Forms.TabPage tabBREdit;
+        private System.Windows.Forms.TabPage tabBREdit11;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.PictureBox pictureBox24;
@@ -4027,5 +4342,24 @@
         public System.Windows.Forms.ComboBox cbExpCat;
         public System.Windows.Forms.ComboBox dateFrom;
         public System.Windows.Forms.ComboBox year;
+        private System.Windows.Forms.TabPage tabBRDC14;
+        public System.Windows.Forms.Label txtBRC_total;
+        private System.Windows.Forms.Label label43;
+        public System.Windows.Forms.TextBox txtBRC_UP;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.PictureBox pictureBox31;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label46;
+        private NoFocusRec noFocusRec14;
+        private NoFocusRec btnBRCancel3;
+        private System.Windows.Forms.PictureBox pictureBox32;
+        private NoFocusRec btnAddBR2;
+        public System.Windows.Forms.NumericUpDown txtBRC_Quantity;
+        public System.Windows.Forms.TextBox txtBRC_Part;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.PictureBox pictureBox33;
+        public System.Windows.Forms.ComboBox cbBRC_Cat;
+        private System.Windows.Forms.Label label48;
     }
 }
