@@ -383,7 +383,7 @@ namespace BalayPasilungan
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, "No entries.", null, null, null, null);
+                        dt.Rows.Add(-1, "No entries.", null, null, null, null, null);
                         empty = true; btnEditBR.Enabled = btnDelBR.Enabled = false;
                     }
                     else empty = false; btnDelBR.Enabled = btnEditBR.Enabled = true;
@@ -391,19 +391,21 @@ namespace BalayPasilungan
                     BRDetails.DataSource = dt;
 
                     // Donation In Kind UI Modifications
-                    BRDetails.Columns[1].HeaderText = "PARTICULAR";
-                    BRDetails.Columns[2].HeaderText = "QUANTITY";
-                    BRDetails.Columns[3].HeaderText = "UNIT PRICE";
-                    BRDetails.Columns[4].HeaderText = "AMOUNT";
+                    BRDetails.Columns["particular"].HeaderText = "PARTICULAR";
+                    BRDetails.Columns["quantity"].HeaderText = "QUANTITY";
+                    BRDetails.Columns["unitPrice"].HeaderText = "UNIT PRICE";
+                    BRDetails.Columns["amount"].HeaderText = "AMOUNT";
+                    BRDetails.Columns["category"].HeaderText = "CATEGORY";
 
                     // For ID purposes (hidden from user)            
-                    BRDetails.Columns[0].Visible = BRDetails.Columns[5].Visible = false;
+                    BRDetails.Columns["itemID"].Visible = BRDetails.Columns["budgetID"].Visible = false;
 
-                    // 633 TOTAL WIDTH
-                    BRDetails.Columns[1].Width = 320;
-                    BRDetails.Columns[2].Width = 73;
-                    BRDetails.Columns[3].Width = BRDetails.Columns[4].Width = 120;
-                    BRDetails.Columns[1].HeaderCell.Style.Padding = BRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                    // 743 TOTAL WIDTH
+                    BRDetails.Columns["particular"].Width = 320;
+                    BRDetails.Columns["quantity"].Width = 73;
+                    BRDetails.Columns["unitPrice"].Width = BRDetails.Columns["amount"].Width = 110;
+                    BRDetails.Columns["category"].Width = 130;
+                    BRDetails.Columns["particular"].HeaderCell.Style.Padding = BRDetails.Columns["particular"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
                 }
                 else if (type == 4)          // List of budget requests
                 {
@@ -869,8 +871,8 @@ namespace BalayPasilungan
                     dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (dt.Rows.Count != 0) lblTotalDonation.Text = dt.Rows[0]["total"].ToString();
-                    else lblTotalDonation.Text = "0.00";
+                    if (dt.Rows.Count != 0) lblTotalDonation.Text = string.Format("{0:#,##0.00}", double.Parse(dt.Rows[0]["total"].ToString()));
+                    else lblTotalDonation.Text = "0.00";                   
 
                     adp = new MySqlDataAdapter("SELECT SUM(amount) as total FROM expense WHERE MONTH(dateExpense) = " + int.Parse(DateTime.Today.Month.ToString()), conn);
                     dt = new DataTable();
@@ -1697,12 +1699,21 @@ namespace BalayPasilungan
         }
 
         private void btnAddBR_Click(object sender, EventArgs e)
-        {
+        {           
             moneyDonate mD = overlay();
             mD.budgetID = current_budgetID;
-            mD.tabSelection.SelectedIndex = 7;
-            mD.ShowDialog();
-
+            if (lblBRCategory.Text == "Multiple")
+            {                
+                mD.tabSelection.SelectedIndex = 14;
+                mD.cbBRC_Cat.SelectedIndex = 0;
+                mD.ShowDialog();
+            }
+            else
+            {
+                mD.category = lblBRCategory.Text;             
+                mD.tabSelection.SelectedIndex = 7;
+                mD.ShowDialog();
+            }
             MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
             loadTable(comm, 3);
         }
@@ -2668,6 +2679,11 @@ namespace BalayPasilungan
         private void expense_FormClosing(object sender, FormClosingEventArgs e)
         {
             reftomain.Show();
+        }
+
+        private void lblTotalDonation_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void richNew_Leave(object sender, EventArgs e)

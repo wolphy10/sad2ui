@@ -173,7 +173,6 @@
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.lblTotalDonation = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblLastDonate = new System.Windows.Forms.Label();
             this.header1 = new System.Windows.Forms.Label();
@@ -241,6 +240,9 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabBRDetails = new System.Windows.Forms.TabPage();
+            this.lblBRBy1 = new System.Windows.Forms.Label();
+            this.lblBRBy = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblBRdateRequested = new System.Windows.Forms.Label();
             this.lblCategory1 = new System.Windows.Forms.Label();
@@ -379,9 +381,6 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.hdivider = new System.Windows.Forms.PictureBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblBRBy1 = new System.Windows.Forms.Label();
-            this.lblBRBy = new System.Windows.Forms.Label();
             this.btnMain = new BalayPasilungan.NoFocusRec();
             this.btnFinance = new BalayPasilungan.NoFocusRec();
             this.btnDonation = new BalayPasilungan.NoFocusRec();
@@ -436,6 +435,7 @@
             this.btnAddExp = new BalayPasilungan.NoFocusRec();
             this.btnExpLoad = new BalayPasilungan.NoFocusRec();
             this.btnResetCategory = new BalayPasilungan.NoFocusRec();
+            this.lblTotalDonation = new System.Windows.Forms.Label();
             this.taskbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_donation)).BeginInit();
@@ -507,6 +507,7 @@
             this.panelCat.SuspendLayout();
             this.panel16.SuspendLayout();
             this.tabBRDetails.SuspendLayout();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             this.tabBREdit.SuspendLayout();
@@ -555,7 +556,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hdivider)).BeginInit();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // upPanel
@@ -905,13 +905,13 @@
             // tabDonorsArchive
             // 
             this.tabDonorsArchive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.tabDonorsArchive.Controls.Add(this.btnActiveAgain);
+            this.tabDonorsArchive.Controls.Add(this.btnDonorsActive);
             this.tabDonorsArchive.Controls.Add(this.pictureBox34);
             this.tabDonorsArchive.Controls.Add(this.archiveDonors);
             this.tabDonorsArchive.Controls.Add(this.multiArchiveD);
             this.tabDonorsArchive.Controls.Add(this.pictureBox22);
             this.tabDonorsArchive.Controls.Add(this.pictureBox21);
-            this.tabDonorsArchive.Controls.Add(this.btnActiveAgain);
-            this.tabDonorsArchive.Controls.Add(this.btnDonorsActive);
             this.tabDonorsArchive.Location = new System.Drawing.Point(4, 25);
             this.tabDonorsArchive.Name = "tabDonorsArchive";
             this.tabDonorsArchive.Padding = new System.Windows.Forms.Padding(3);
@@ -2230,10 +2230,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.lblTotalDonation);
             this.panel4.Controls.Add(this.pictureBox17);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.panel8);
-            this.panel4.Controls.Add(this.lblTotalDonation);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.lblLastDonate);
             this.panel4.Controls.Add(this.header1);
@@ -2274,17 +2274,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(425, 142);
             this.panel8.TabIndex = 98;
-            // 
-            // lblTotalDonation
-            // 
-            this.lblTotalDonation.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.lblTotalDonation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblTotalDonation.Location = new System.Drawing.Point(224, 85);
-            this.lblTotalDonation.Name = "lblTotalDonation";
-            this.lblTotalDonation.Size = new System.Drawing.Size(195, 21);
-            this.lblTotalDonation.TabIndex = 25;
-            this.lblTotalDonation.Text = "0.00";
-            this.lblTotalDonation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
@@ -2684,7 +2673,7 @@
             this.txtBRRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBRRequest.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtBRRequest.Location = new System.Drawing.Point(359, 174);
+            this.txtBRRequest.Location = new System.Drawing.Point(359, 177);
             this.txtBRRequest.MaxLength = 100;
             this.txtBRRequest.Name = "txtBRRequest";
             this.txtBRRequest.Size = new System.Drawing.Size(498, 22);
@@ -3124,6 +3113,36 @@
             this.tabBRDetails.Size = new System.Drawing.Size(936, 593);
             this.tabBRDetails.TabIndex = 1;
             this.tabBRDetails.Text = "tabPage1";
+            // 
+            // lblBRBy1
+            // 
+            this.lblBRBy1.AutoSize = true;
+            this.lblBRBy1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBRBy1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblBRBy1.Location = new System.Drawing.Point(92, 484);
+            this.lblBRBy1.Name = "lblBRBy1";
+            this.lblBRBy1.Size = new System.Drawing.Size(92, 15);
+            this.lblBRBy1.TabIndex = 335;
+            this.lblBRBy1.Text = "REQUESTED BY";
+            // 
+            // lblBRBy
+            // 
+            this.lblBRBy.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblBRBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblBRBy.Location = new System.Drawing.Point(202, 479);
+            this.lblBRBy.Name = "lblBRBy";
+            this.lblBRBy.Size = new System.Drawing.Size(632, 21);
+            this.lblBRBy.TabIndex = 334;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.panel12.Controls.Add(this.btnBRBack);
+            this.panel12.Controls.Add(this.btnBRConfirm);
+            this.panel12.Location = new System.Drawing.Point(-1, 534);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(936, 59);
+            this.panel12.TabIndex = 333;
             // 
             // label1
             // 
@@ -5217,36 +5236,6 @@
             this.hdivider.TabIndex = 100;
             this.hdivider.TabStop = false;
             // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.panel12.Controls.Add(this.btnBRBack);
-            this.panel12.Controls.Add(this.btnBRConfirm);
-            this.panel12.Location = new System.Drawing.Point(-1, 534);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(936, 59);
-            this.panel12.TabIndex = 333;
-            // 
-            // lblBRBy1
-            // 
-            this.lblBRBy1.AutoSize = true;
-            this.lblBRBy1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblBRBy1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblBRBy1.Location = new System.Drawing.Point(92, 484);
-            this.lblBRBy1.Name = "lblBRBy1";
-            this.lblBRBy1.Size = new System.Drawing.Size(92, 15);
-            this.lblBRBy1.TabIndex = 335;
-            this.lblBRBy1.Text = "REQUESTED BY";
-            // 
-            // lblBRBy
-            // 
-            this.lblBRBy.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.lblBRBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblBRBy.Location = new System.Drawing.Point(202, 479);
-            this.lblBRBy.Name = "lblBRBy";
-            this.lblBRBy.Size = new System.Drawing.Size(632, 21);
-            this.lblBRBy.TabIndex = 334;
-            // 
             // btnMain
             // 
             this.btnMain.BackColor = System.Drawing.Color.White;
@@ -5327,8 +5316,8 @@
             // 
             this.btnArchive.BackColor = System.Drawing.Color.Transparent;
             this.btnArchive.FlatAppearance.BorderSize = 0;
-            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -5344,8 +5333,8 @@
             // 
             this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
             this.btnAddDonor.FlatAppearance.BorderSize = 0;
-            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnAddDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -5361,8 +5350,8 @@
             // 
             this.btnActiveAgain.BackColor = System.Drawing.Color.Transparent;
             this.btnActiveAgain.FlatAppearance.BorderSize = 0;
-            this.btnActiveAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnActiveAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnActiveAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnActiveAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.btnActiveAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActiveAgain.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnActiveAgain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
@@ -5378,8 +5367,8 @@
             // 
             this.btnDonorsActive.BackColor = System.Drawing.Color.Transparent;
             this.btnDonorsActive.FlatAppearance.BorderSize = 0;
-            this.btnDonorsActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDonorsActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDonorsActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnDonorsActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.btnDonorsActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDonorsActive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnDonorsActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -6151,6 +6140,17 @@
             this.btnResetCategory.UseVisualStyleBackColor = false;
             this.btnResetCategory.Click += new System.EventHandler(this.btnResetCategory_Click);
             // 
+            // lblTotalDonation
+            // 
+            this.lblTotalDonation.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.lblTotalDonation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblTotalDonation.Location = new System.Drawing.Point(224, 86);
+            this.lblTotalDonation.Name = "lblTotalDonation";
+            this.lblTotalDonation.Size = new System.Drawing.Size(195, 21);
+            this.lblTotalDonation.TabIndex = 99;
+            this.lblTotalDonation.Text = "0.00";
+            this.lblTotalDonation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // expense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6253,6 +6253,7 @@
             this.panel16.ResumeLayout(false);
             this.tabBRDetails.ResumeLayout(false);
             this.tabBRDetails.PerformLayout();
+            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.tabBREdit.ResumeLayout(false);
@@ -6317,7 +6318,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hdivider)).EndInit();
-            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6414,7 +6414,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblTotalDonation;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblLastDonate;
@@ -6711,5 +6710,6 @@
         private NoFocusRec btnBRConfirm;
         private System.Windows.Forms.Label lblBRBy1;
         private System.Windows.Forms.Label lblBRBy;
+        private System.Windows.Forms.Label lblTotalDonation;
     }
 }

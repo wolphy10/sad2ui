@@ -23,6 +23,7 @@ namespace BalayPasilungan
         public bool hasExpense;
         public bool dot = true;                    // True - if user entered '.'
         public int existingExpenseID;
+        public string category;
 
         public moneyDonate()
         {
@@ -213,7 +214,7 @@ namespace BalayPasilungan
         #region Back Buttons
         private void btnCashBack_Click(object sender, EventArgs e)
         {
-            tabSelection.SelectedTab = tabChoice;
+            tabSelection.SelectedTab = tabChoice0;
             txtBank.Clear(); txtCashAmount.Text = "0,000,000,000"; txtCashAmount2.Text = "0,000,000,000";
             txtOR.Clear(); txtCheckOR.Clear(); txtCheckNo.Clear();
         }
@@ -411,26 +412,53 @@ namespace BalayPasilungan
         #region Budget Request
         private void btnAddBR_Click(object sender, EventArgs e)
         {
-            if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00" || txtBRPart.Text != "")
+            if (tabSelection.SelectedIndex == 7)
             {
-                try
+                if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00" || txtBRPart.Text != "")
                 {
-                    conn.Open();
-                    // ADD BUDGET REQUEST ITEM
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount, budgetID)"
-                        + " VALUES ('" + txtBRPart.Text + "', " + int.Parse(txtBRQuantity.Value.ToString()) + ", "
-                        + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ", " + budgetID + ");", conn);
-                    comm.ExecuteNonQuery();
-                    conn.Close();
-                    this.Close();
+
+                    try
+                    {
+                        conn.Open();
+                        // ADD BUDGET REQUEST ITEM
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount, budgetID, category)"
+                            + " VALUES ('" + txtBRPart.Text + "', " + int.Parse(txtBRQuantity.Value.ToString()) + ", "
+                            + decimal.Parse(txtBRUP.Text) + ", " + decimal.Parse(txtBRTotal.Text) + ", " + budgetID + ", '" + category + "');", conn);
+                        comm.ExecuteNonQuery();
+                        conn.Close();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        errorMessage(ex.Message);
+                    }
                 }
-                catch (Exception ex)
+                else if (decimal.Parse(txtBRTotal.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
+                else if (txtBRPart.Text != "") errorMessage("Please enter the name of particular.");
+            } 
+            else 
+            {
+                if (decimal.Parse(txtBRC_total.Text).ToString() != "0.00" || txtBRC_Part.Text != "")
                 {
-                    errorMessage(ex.Message);
+                    try
+                    {
+                        conn.Open();
+                        // ADD BUDGET REQUEST ITEM WITH CATEGORY
+                        MySqlCommand comm = new MySqlCommand("INSERT INTO item (particular, quantity, unitPrice, amount, budgetID, category)"
+                            + " VALUES ('" + txtBRC_Part.Text + "', " + int.Parse(txtBRC_Quantity.Value.ToString()) + ", "
+                            + decimal.Parse(txtBRC_UP.Text) + ", " + decimal.Parse(txtBRC_total.Text) + ", " + budgetID + ", '" + cbBRC_Cat.SelectedItem.ToString() + "');", conn);
+                        comm.ExecuteNonQuery();
+                        conn.Close();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        errorMessage(ex.Message);
+                    }
                 }
-            }
-            else if (decimal.Parse(txtBRTotal.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
-            else if (txtBRPart.Text != "") errorMessage("Please enter the name of particular.");
+                else if (decimal.Parse(txtBRC_total.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
+                else if (txtBRC_Part.Text != "") errorMessage("Please enter the name of particular.");                
+            }                            
         }
 
         private void btnBREdit_Click(object sender, EventArgs e)
@@ -459,6 +487,7 @@ namespace BalayPasilungan
         {
             if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
             else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+            else if (((TextBox)sender).Name == "txtBRC_UP") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");
         }
 
         private void txtBRUP_KeyDown(object sender, KeyEventArgs e)
@@ -467,6 +496,7 @@ namespace BalayPasilungan
             {
                 if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRC_UP") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");                
             }
         }
 
@@ -476,6 +506,7 @@ namespace BalayPasilungan
             {
                 if (((TextBox)sender).Name == "txtBRUP" && txtBRUP.Text != "") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRUP2" && txtBRUP2.Text != "") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRC_UP" && txtBRC_UP.Text != "") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");
             }
         }
         #endregion
@@ -563,7 +594,7 @@ namespace BalayPasilungan
 
         private void tabExp_Click(object sender, EventArgs e)
         {
-            tabExp.Focus();
+            tabExp8.Focus();
             decimal amount = decimal.Parse(txtExpAmt.Text + "." + txtExpCent.Text);
             if (txtExpAmt.Text != "0,000,000,000" || amount != 0)
             {
