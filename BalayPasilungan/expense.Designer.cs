@@ -2239,7 +2239,7 @@
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label16.Location = new System.Drawing.Point(24, 89);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(191, 15);
+            this.label16.Size = new System.Drawing.Size(187, 15);
             this.label16.TabIndex = 89;
             this.label16.Text = "TOTAL DONATIONS THIS MONTH";
             // 
@@ -2270,7 +2270,7 @@
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label14.Location = new System.Drawing.Point(24, 54);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 15);
+            this.label14.Size = new System.Drawing.Size(98, 15);
             this.label14.TabIndex = 20;
             this.label14.Text = "LAST DONATION";
             // 
@@ -2402,7 +2402,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label7.Location = new System.Drawing.Point(24, 57);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 15);
+            this.label7.Size = new System.Drawing.Size(88, 15);
             this.label7.TabIndex = 20;
             this.label7.Text = "LAST UPDATED";
             // 
@@ -4100,7 +4100,7 @@
             this.lblBRHeader.ForeColor = System.Drawing.Color.White;
             this.lblBRHeader.Location = new System.Drawing.Point(3, 63);
             this.lblBRHeader.Name = "lblBRHeader";
-            this.lblBRHeader.Size = new System.Drawing.Size(539, 61);
+            this.lblBRHeader.Size = new System.Drawing.Size(536, 61);
             this.lblBRHeader.TabIndex = 3;
             this.lblBRHeader.Text = "Pending Budget Requests";
             // 
@@ -6037,6 +6037,7 @@
             this.Name = "expense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "expense";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.expense_FormClosing);
             this.upPanel.ResumeLayout(false);
             this.taskbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();

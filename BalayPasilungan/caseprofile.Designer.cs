@@ -7163,6 +7163,7 @@
             this.Name = "caseprofile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "caseprofile";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.caseprofile_FormClosing);
             this.Load += new System.EventHandler(this.caseprofile_Load);
             this.upPanel.ResumeLayout(false);
             this.tabCase.ResumeLayout(false);

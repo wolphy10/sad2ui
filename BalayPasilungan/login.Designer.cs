@@ -43,8 +43,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.newUser = new System.Windows.Forms.TabPage();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.lblIAm = new System.Windows.Forms.Label();
             this.btnStaff = new System.Windows.Forms.Button();
             this.btnSW = new System.Windows.Forms.Button();
@@ -70,7 +70,7 @@
             this.btnMember.Location = new System.Drawing.Point(0, 155);
             this.btnMember.Name = "btnMember";
             this.btnMember.Size = new System.Drawing.Size(166, 46);
-            this.btnMember.TabIndex = 0;
+            this.btnMember.TabIndex = 7;
             this.btnMember.Text = "member";
             this.btnMember.UseVisualStyleBackColor = true;
             this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
@@ -88,7 +88,7 @@
             this.btnNew.Location = new System.Drawing.Point(166, 155);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(166, 46);
-            this.btnNew.TabIndex = 1;
+            this.btnNew.TabIndex = 8;
             this.btnNew.Text = "new member";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -164,12 +164,11 @@
             this.txtUser.BackColor = System.Drawing.Color.White;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtUser.ForeColor = System.Drawing.Color.Black;
             this.txtUser.Location = new System.Drawing.Point(6, 4);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(265, 22);
-            this.txtUser.TabIndex = 1;
-            this.txtUser.Text = "asdasd";
+            this.txtUser.TabIndex = 0;
             // 
             // btnPeek
             // 
@@ -245,8 +244,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '·';
             this.txtPass.Size = new System.Drawing.Size(265, 22);
-            this.txtPass.TabIndex = 3;
-            this.txtPass.Text = "asdasd";
+            this.txtPass.TabIndex = 1;
             // 
             // newUser
             // 
@@ -265,21 +263,6 @@
             this.newUser.Text = "tabPage2";
             this.newUser.UseVisualStyleBackColor = true;
             // 
-            // btnRegister
-            // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
-            this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.btnRegister.Location = new System.Drawing.Point(0, 191);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(332, 45);
-            this.btnRegister.TabIndex = 7;
-            this.btnRegister.Text = "PLEASE SELECT FIRST";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
             // btnHelp
             // 
             this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -295,6 +278,21 @@
             this.btnHelp.TabIndex = 6;
             this.btnHelp.Text = "Need help?";
             this.btnHelp.UseVisualStyleBackColor = true;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnRegister.Location = new System.Drawing.Point(0, 191);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(332, 45);
+            this.btnRegister.TabIndex = 7;
+            this.btnRegister.Text = "PLEASE SELECT FIRST";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // lblIAm
             // 
@@ -333,7 +331,7 @@
             this.btnSW.Location = new System.Drawing.Point(119, 66);
             this.btnSW.Name = "btnSW";
             this.btnSW.Size = new System.Drawing.Size(92, 103);
-            this.btnSW.TabIndex = 1;
+            this.btnSW.TabIndex = 6;
             this.btnSW.UseVisualStyleBackColor = true;
             this.btnSW.Click += new System.EventHandler(this.btnSW_Click);
             // 
@@ -348,7 +346,7 @@
             this.btnAdmin.Location = new System.Drawing.Point(12, 66);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(92, 103);
-            this.btnAdmin.TabIndex = 0;
+            this.btnAdmin.TabIndex = 5;
             this.btnAdmin.UseVisualStyleBackColor = true;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
@@ -392,10 +390,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(332, 432);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.btnMember);
             this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
