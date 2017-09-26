@@ -64,6 +64,13 @@
             this.lblcaseprogram = new System.Windows.Forms.Label();
             this.lblcasestatus = new System.Windows.Forms.Label();
             this.lblcaseage = new System.Windows.Forms.Label();
+            this.profileMenu = new System.Windows.Forms.MenuStrip();
+            this.infoTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.familyTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.eduTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.healthTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.consulTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.othersTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabChild = new System.Windows.Forms.TabControl();
             this.fourth = new System.Windows.Forms.TabPage();
             this.btnAddMem = new BalayPasilungan.NoFocusRec();
@@ -314,13 +321,6 @@
             this.label103 = new System.Windows.Forms.Label();
             this.dtgfamily = new System.Windows.Forms.DataGridView();
             this.pictureBox39 = new System.Windows.Forms.PictureBox();
-            this.profileMenu = new System.Windows.Forms.MenuStrip();
-            this.infoTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.familyTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.eduTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.healthTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.consulTS = new System.Windows.Forms.ToolStripMenuItem();
-            this.othersTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCases = new System.Windows.Forms.TabPage();
             this.btnaddarchive = new BalayPasilungan.NoFocusRec();
             this.btncancelarchive = new BalayPasilungan.NoFocusRec();
@@ -527,6 +527,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
+            this.profileMenu.SuspendLayout();
             this.tabChild.SuspendLayout();
             this.fourth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgmembers)).BeginInit();
@@ -600,7 +601,6 @@
             this.five.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgfamily)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
-            this.profileMenu.SuspendLayout();
             this.tabCases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgcs)).BeginInit();
             this.panel22.SuspendLayout();
@@ -856,6 +856,90 @@
             this.lblcaseage.TabIndex = 15;
             this.lblcaseage.Text = "8 years old";
             // 
+            // profileMenu
+            // 
+            this.profileMenu.AutoSize = false;
+            this.profileMenu.BackColor = System.Drawing.Color.White;
+            this.profileMenu.Dock = System.Windows.Forms.DockStyle.None;
+            this.profileMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoTS,
+            this.familyTS,
+            this.eduTS,
+            this.healthTS,
+            this.consulTS,
+            this.othersTS});
+            this.profileMenu.Location = new System.Drawing.Point(0, 134);
+            this.profileMenu.Name = "profileMenu";
+            this.profileMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.profileMenu.Size = new System.Drawing.Size(935, 33);
+            this.profileMenu.TabIndex = 3;
+            // 
+            // infoTS
+            // 
+            this.infoTS.AutoSize = false;
+            this.infoTS.BackColor = System.Drawing.Color.White;
+            this.infoTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.infoTS.ForeColor = System.Drawing.Color.Black;
+            this.infoTS.Name = "infoTS";
+            this.infoTS.Size = new System.Drawing.Size(150, 32);
+            this.infoTS.Text = "Info";
+            this.infoTS.Click += new System.EventHandler(this.infoTS_Click);
+            // 
+            // familyTS
+            // 
+            this.familyTS.AutoSize = false;
+            this.familyTS.BackColor = System.Drawing.Color.White;
+            this.familyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.familyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.familyTS.Name = "familyTS";
+            this.familyTS.Size = new System.Drawing.Size(94, 32);
+            this.familyTS.Text = "Family";
+            this.familyTS.Click += new System.EventHandler(this.btnfover_Click);
+            // 
+            // eduTS
+            // 
+            this.eduTS.AutoSize = false;
+            this.eduTS.BackColor = System.Drawing.Color.White;
+            this.eduTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.eduTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.eduTS.Name = "eduTS";
+            this.eduTS.Size = new System.Drawing.Size(150, 32);
+            this.eduTS.Text = "Education";
+            this.eduTS.Click += new System.EventHandler(this.btned_Click);
+            // 
+            // healthTS
+            // 
+            this.healthTS.AutoSize = false;
+            this.healthTS.BackColor = System.Drawing.Color.White;
+            this.healthTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.healthTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.healthTS.Name = "healthTS";
+            this.healthTS.Size = new System.Drawing.Size(150, 32);
+            this.healthTS.Text = "Health";
+            this.healthTS.Click += new System.EventHandler(this.btnhealth_Click);
+            // 
+            // consulTS
+            // 
+            this.consulTS.AutoSize = false;
+            this.consulTS.BackColor = System.Drawing.Color.White;
+            this.consulTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.consulTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.consulTS.Name = "consulTS";
+            this.consulTS.Size = new System.Drawing.Size(150, 32);
+            this.consulTS.Text = "Consultation";
+            this.consulTS.Click += new System.EventHandler(this.btncon_Click);
+            // 
+            // othersTS
+            // 
+            this.othersTS.AutoSize = false;
+            this.othersTS.BackColor = System.Drawing.Color.White;
+            this.othersTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.othersTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.othersTS.Name = "othersTS";
+            this.othersTS.Size = new System.Drawing.Size(160, 32);
+            this.othersTS.Text = "Incidents and Others";
+            this.othersTS.Click += new System.EventHandler(this.btnincidview_Click);
+            // 
             // tabChild
             // 
             this.tabChild.Controls.Add(this.fourth);
@@ -1026,7 +1110,7 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label20.Location = new System.Drawing.Point(353, 80);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(76, 15);
+            this.label20.Size = new System.Drawing.Size(78, 15);
             this.label20.TabIndex = 97;
             this.label20.Text = "FAMILY TYPE";
             // 
@@ -1048,7 +1132,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label10.Location = new System.Drawing.Point(35, 80);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 15);
+            this.label10.Size = new System.Drawing.Size(49, 15);
             this.label10.TabIndex = 94;
             this.label10.Text = "STATUS";
             // 
@@ -1673,7 +1757,7 @@
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label43.Location = new System.Drawing.Point(35, 113);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(65, 15);
+            this.label43.Size = new System.Drawing.Size(66, 15);
             this.label43.TabIndex = 145;
             this.label43.Text = "LOCATION";
             // 
@@ -1695,7 +1779,7 @@
             this.label88.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label88.Location = new System.Drawing.Point(35, 80);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(109, 15);
+            this.label88.Size = new System.Drawing.Size(110, 15);
             this.label88.TabIndex = 140;
             this.label88.Text = "DATE OF INCIDENT";
             // 
@@ -2231,7 +2315,7 @@
             this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label65.Location = new System.Drawing.Point(23, 53);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(116, 15);
+            this.label65.Size = new System.Drawing.Size(117, 15);
             this.label65.TabIndex = 20;
             this.label65.Text = "LAST INVOLVEMENT";
             // 
@@ -2311,7 +2395,7 @@
             this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label59.Location = new System.Drawing.Point(24, 62);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(76, 15);
+            this.label59.Size = new System.Drawing.Size(78, 15);
             this.label59.TabIndex = 20;
             this.label59.Text = "FAMILY TYPE";
             // 
@@ -2500,7 +2584,7 @@
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label49.Location = new System.Drawing.Point(21, 51);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(103, 15);
+            this.label49.Size = new System.Drawing.Size(104, 15);
             this.label49.TabIndex = 20;
             this.label49.Text = "LAST CONSULTED";
             // 
@@ -2610,7 +2694,7 @@
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label44.Location = new System.Drawing.Point(21, 126);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(148, 15);
+            this.label44.Size = new System.Drawing.Size(150, 15);
             this.label44.TabIndex = 22;
             this.label44.Text = "CURRENTLY ENROLLED AT";
             // 
@@ -2698,7 +2782,7 @@
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label51.Location = new System.Drawing.Point(24, 51);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(67, 15);
+            this.label51.Size = new System.Drawing.Size(69, 15);
             this.label51.TabIndex = 20;
             this.label51.Text = "BIRTHDATE";
             // 
@@ -2720,7 +2804,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label2.Location = new System.Drawing.Point(24, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 15);
+            this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 89;
             this.label2.Text = "DATE JOINED";
             // 
@@ -2845,7 +2929,7 @@
             this.label98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label98.Location = new System.Drawing.Point(35, 80);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(35, 15);
+            this.label98.Size = new System.Drawing.Size(36, 15);
             this.label98.TabIndex = 141;
             this.label98.Text = "DATE";
             // 
@@ -3218,6 +3302,7 @@
             this.bttnbackfromcheckrec.TabIndex = 149;
             this.bttnbackfromcheckrec.Text = "GO BACK";
             this.bttnbackfromcheckrec.UseVisualStyleBackColor = false;
+            this.bttnbackfromcheckrec.Click += new System.EventHandler(this.bttnbackfromcheckrec_Click);
             // 
             // rvcheckdetails
             // 
@@ -3237,7 +3322,7 @@
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label67.Location = new System.Drawing.Point(444, 80);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(21, 15);
+            this.label67.Size = new System.Drawing.Size(22, 15);
             this.label67.TabIndex = 147;
             this.label67.Text = "AT";
             // 
@@ -3259,7 +3344,7 @@
             this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label80.Location = new System.Drawing.Point(35, 80);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(109, 15);
+            this.label80.Size = new System.Drawing.Size(110, 15);
             this.label80.TabIndex = 145;
             this.label80.Text = "DATE OF CHECKUP";
             // 
@@ -4333,90 +4418,6 @@
             this.pictureBox39.TabIndex = 141;
             this.pictureBox39.TabStop = false;
             // 
-            // profileMenu
-            // 
-            this.profileMenu.AutoSize = false;
-            this.profileMenu.BackColor = System.Drawing.Color.White;
-            this.profileMenu.Dock = System.Windows.Forms.DockStyle.None;
-            this.profileMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.infoTS,
-            this.familyTS,
-            this.eduTS,
-            this.healthTS,
-            this.consulTS,
-            this.othersTS});
-            this.profileMenu.Location = new System.Drawing.Point(0, 134);
-            this.profileMenu.Name = "profileMenu";
-            this.profileMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.profileMenu.Size = new System.Drawing.Size(935, 33);
-            this.profileMenu.TabIndex = 3;
-            // 
-            // infoTS
-            // 
-            this.infoTS.AutoSize = false;
-            this.infoTS.BackColor = System.Drawing.Color.White;
-            this.infoTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.infoTS.ForeColor = System.Drawing.Color.Black;
-            this.infoTS.Name = "infoTS";
-            this.infoTS.Size = new System.Drawing.Size(150, 32);
-            this.infoTS.Text = "Info";
-            this.infoTS.Click += new System.EventHandler(this.infoTS_Click);
-            // 
-            // familyTS
-            // 
-            this.familyTS.AutoSize = false;
-            this.familyTS.BackColor = System.Drawing.Color.White;
-            this.familyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.familyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.familyTS.Name = "familyTS";
-            this.familyTS.Size = new System.Drawing.Size(94, 32);
-            this.familyTS.Text = "Family";
-            this.familyTS.Click += new System.EventHandler(this.btnfover_Click);
-            // 
-            // eduTS
-            // 
-            this.eduTS.AutoSize = false;
-            this.eduTS.BackColor = System.Drawing.Color.White;
-            this.eduTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.eduTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.eduTS.Name = "eduTS";
-            this.eduTS.Size = new System.Drawing.Size(150, 32);
-            this.eduTS.Text = "Education";
-            this.eduTS.Click += new System.EventHandler(this.btned_Click);
-            // 
-            // healthTS
-            // 
-            this.healthTS.AutoSize = false;
-            this.healthTS.BackColor = System.Drawing.Color.White;
-            this.healthTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.healthTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.healthTS.Name = "healthTS";
-            this.healthTS.Size = new System.Drawing.Size(150, 32);
-            this.healthTS.Text = "Health";
-            this.healthTS.Click += new System.EventHandler(this.btnhealth_Click);
-            // 
-            // consulTS
-            // 
-            this.consulTS.AutoSize = false;
-            this.consulTS.BackColor = System.Drawing.Color.White;
-            this.consulTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.consulTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.consulTS.Name = "consulTS";
-            this.consulTS.Size = new System.Drawing.Size(150, 32);
-            this.consulTS.Text = "Consultation";
-            this.consulTS.Click += new System.EventHandler(this.btncon_Click);
-            // 
-            // othersTS
-            // 
-            this.othersTS.AutoSize = false;
-            this.othersTS.BackColor = System.Drawing.Color.White;
-            this.othersTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.othersTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.othersTS.Name = "othersTS";
-            this.othersTS.Size = new System.Drawing.Size(160, 32);
-            this.othersTS.Text = "Incidents and Others";
-            this.othersTS.Click += new System.EventHandler(this.btnincidview_Click);
-            // 
             // tabCases
             // 
             this.tabCases.BackColor = System.Drawing.Color.White;
@@ -4633,7 +4634,7 @@
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(73)))), ((int)(((byte)(60)))));
             this.label34.Location = new System.Drawing.Point(814, 41);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(36, 13);
+            this.label34.Size = new System.Drawing.Size(38, 13);
             this.label34.TabIndex = 4;
             this.label34.Text = "TOTAL";
             // 
@@ -6984,7 +6985,7 @@
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(73)))), ((int)(((byte)(60)))));
             this.label18.Location = new System.Drawing.Point(814, 41);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 13);
+            this.label18.Size = new System.Drawing.Size(38, 13);
             this.label18.TabIndex = 4;
             this.label18.Text = "TOTAL";
             // 
@@ -7155,9 +7156,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(1024, 700);
+            this.Controls.Add(this.upPanel);
             this.Controls.Add(this.taskbar);
             this.Controls.Add(this.tabCase);
-            this.Controls.Add(this.upPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "caseprofile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -7170,6 +7171,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
+            this.profileMenu.ResumeLayout(false);
+            this.profileMenu.PerformLayout();
             this.tabChild.ResumeLayout(false);
             this.fourth.ResumeLayout(false);
             this.fourth.PerformLayout();
@@ -7266,8 +7269,6 @@
             this.five.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgfamily)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
-            this.profileMenu.ResumeLayout(false);
-            this.profileMenu.PerformLayout();
             this.tabCases.ResumeLayout(false);
             this.tabCases.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgcs)).EndInit();

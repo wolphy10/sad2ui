@@ -183,6 +183,7 @@
             // 
             // cbxedyear
             // 
+            this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxedyear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.cbxedyear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
             this.cbxedyear.FormattingEnabled = true;
@@ -233,10 +234,10 @@
 
         #endregion
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label lbladdeditprofile;
+        public System.Windows.Forms.Label lbladdeditprofile;
         private NoFocusRec noFocusRec13;
         private NoFocusRec btncanceledclass;
-        private NoFocusRec btnaddedclass;
+        public NoFocusRec btnaddedclass;
         private System.Windows.Forms.Label label29;
         public System.Windows.Forms.TextBox txtedsection;
         private System.Windows.Forms.PictureBox pictureBox26;

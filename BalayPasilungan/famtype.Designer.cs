@@ -123,6 +123,7 @@
             // 
             // cbxtype
             // 
+            this.cbxtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxtype.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.cbxtype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
             this.cbxtype.FormattingEnabled = true;
