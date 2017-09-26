@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.rightPartMain = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,24 +44,20 @@
             this.basePanelExpense = new System.Windows.Forms.Panel();
             this.btnPanelExpense = new System.Windows.Forms.Panel();
             this.btnexp = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelListOngoing = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.notifPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelListOngoing = new System.Windows.Forms.TableLayoutPanel();
-            this.panelListUpcoming = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.rightPartMain.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -72,12 +69,11 @@
             this.btnPanelEvent.SuspendLayout();
             this.basePanelExpense.SuspendLayout();
             this.btnPanelExpense.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panelListOngoing.SuspendLayout();
             this.panel2.SuspendLayout();
             this.notifPanel.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panelListOngoing.SuspendLayout();
-            this.panelListUpcoming.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -89,6 +85,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1250, 37);
             this.panel3.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::BalayPasilungan.Properties.Resources.expand;
+            this.btnClose.Location = new System.Drawing.Point(1222, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(28, 37);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // rightPartMain
             // 
@@ -102,7 +114,7 @@
             this.rightPartMain.Name = "rightPartMain";
             this.rightPartMain.RowCount = 1;
             this.rightPartMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.rightPartMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.rightPartMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 663F));
             this.rightPartMain.Size = new System.Drawing.Size(976, 663);
             this.rightPartMain.TabIndex = 2;
             // 
@@ -269,6 +281,63 @@
             this.btnexp.UseVisualStyleBackColor = false;
             this.btnexp.Click += new System.EventHandler(this.btnexp_Click);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panelListOngoing, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 351);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(976, 312);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panelListOngoing
+            // 
+            this.panelListOngoing.ColumnCount = 1;
+            this.panelListOngoing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.panelListOngoing.Controls.Add(this.label3, 0, 0);
+            this.panelListOngoing.Controls.Add(this.listView1, 0, 1);
+            this.panelListOngoing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelListOngoing.Location = new System.Drawing.Point(488, 0);
+            this.panelListOngoing.Margin = new System.Windows.Forms.Padding(0);
+            this.panelListOngoing.Name = "panelListOngoing";
+            this.panelListOngoing.RowCount = 2;
+            this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.91729F));
+            this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.08271F));
+            this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.panelListOngoing.Size = new System.Drawing.Size(488, 312);
+            this.panelListOngoing.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.LightGreen;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(389, 52);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Ongoing Events of the Month";
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.listView1.Location = new System.Drawing.Point(0, 52);
+            this.listView1.Margin = new System.Windows.Forms.Padding(0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(488, 260);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // timer1
             // 
             this.timer1.Interval = 1;
@@ -284,6 +353,37 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(81, 663);
             this.panel2.TabIndex = 3;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.hamburger;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(0, 609);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(81, 54);
+            this.button6.TabIndex = 4;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.accPic;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 64);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer2
             // 
@@ -329,105 +429,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Notification";
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panelListOngoing, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelListUpcoming, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 351);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(976, 312);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // panelListOngoing
-            // 
-            this.panelListOngoing.ColumnCount = 1;
-            this.panelListOngoing.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelListOngoing.Controls.Add(this.label3, 0, 0);
-            this.panelListOngoing.Controls.Add(this.listView1, 0, 1);
-            this.panelListOngoing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelListOngoing.Location = new System.Drawing.Point(0, 0);
-            this.panelListOngoing.Margin = new System.Windows.Forms.Padding(0);
-            this.panelListOngoing.Name = "panelListOngoing";
-            this.panelListOngoing.RowCount = 2;
-            this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.91729F));
-            this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.08271F));
-            this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelListOngoing.Size = new System.Drawing.Size(488, 312);
-            this.panelListOngoing.TabIndex = 0;
-            // 
-            // panelListUpcoming
-            // 
-            this.panelListUpcoming.ColumnCount = 1;
-            this.panelListUpcoming.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelListUpcoming.Controls.Add(this.label4, 0, 0);
-            this.panelListUpcoming.Controls.Add(this.listView2, 0, 1);
-            this.panelListUpcoming.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelListUpcoming.Location = new System.Drawing.Point(488, 0);
-            this.panelListUpcoming.Margin = new System.Windows.Forms.Padding(0);
-            this.panelListUpcoming.Name = "panelListUpcoming";
-            this.panelListUpcoming.RowCount = 2;
-            this.panelListUpcoming.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.91729F));
-            this.panelListUpcoming.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.08271F));
-            this.panelListUpcoming.Size = new System.Drawing.Size(488, 312);
-            this.panelListUpcoming.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightGreen;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(389, 52);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Ongoing Events of the Month";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semilight", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkKhaki;
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(413, 52);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Upcoming Events of The Month";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.White;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView1.Location = new System.Drawing.Point(0, 52);
-            this.listView1.Margin = new System.Windows.Forms.Padding(0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(488, 260);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView2
-            // 
-            this.listView2.BackColor = System.Drawing.Color.White;
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView2.Location = new System.Drawing.Point(0, 52);
-            this.listView2.Margin = new System.Windows.Forms.Padding(0);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(488, 260);
-            this.listView2.TabIndex = 3;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
@@ -457,53 +458,6 @@
             this.button7.TabIndex = 4;
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.hamburger;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(0, 609);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 54);
-            this.button6.TabIndex = 4;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.accPic;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 64);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::BalayPasilungan.Properties.Resources.expand;
-            this.btnClose.Location = new System.Drawing.Point(1222, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(28, 37);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,15 +485,13 @@
             this.btnPanelEvent.ResumeLayout(false);
             this.basePanelExpense.ResumeLayout(false);
             this.btnPanelExpense.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelListOngoing.ResumeLayout(false);
+            this.panelListOngoing.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.notifPanel.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panelListOngoing.ResumeLayout(false);
-            this.panelListOngoing.PerformLayout();
-            this.panelListUpcoming.ResumeLayout(false);
-            this.panelListUpcoming.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -572,10 +524,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel panelListOngoing;
-        private System.Windows.Forms.TableLayoutPanel panelListUpcoming;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
     }
 }

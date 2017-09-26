@@ -100,8 +100,8 @@ namespace BalayPasilungan
 
             ed.reftocase = this;
 
-            //ed.lbladdeditprofile.Text = "Edit Class";
-            //ed.btnaddedclass.Text = "ADD CHANGES";
+            ed.lbladdeditprofile.Text = "Edit Class";
+            ed.btnaddedclass.Text = "ADD CHANGES";
 
             ed.classeid = classeid;
             ed.level = yearlvl;
