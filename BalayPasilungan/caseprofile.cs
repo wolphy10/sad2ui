@@ -20,6 +20,7 @@ namespace BalayPasilungan
     {
         //public Form2 ref_to_main { get; set; }
         public MySqlConnection conn;
+        public Form reftomain { get; set; }
 
         public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode, archiveid, archivemode;
         public string filename, yearlvl, section, adviser;
