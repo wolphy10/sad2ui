@@ -1100,11 +1100,13 @@ namespace BalayPasilungan
                     rviewall.Text = dt.Rows[0]["allergies"].ToString();
                     rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
                     btnedithealth.Enabled = true;
+                    addhrecord.Enabled = false;
                 }
                 else
                 {
                     errorMessage("There are currently no existing health records for this case study.");
                     btnedithealth.Enabled = false;
+                    addhrecord.Enabled = true;
                 }
                 conn.Close();
             }
