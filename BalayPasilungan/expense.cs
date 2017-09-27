@@ -1521,7 +1521,7 @@ namespace BalayPasilungan
                 if (donationMoney.Rows[row].Cells[1].Value.ToString() == "Check")      // Check Donation Info
                 {
                     moneyDonate mD = overlay();
-                    mD.tabSelection.SelectedIndex = 12;                                 
+                    mD.tabSelection.SelectedIndex = 11;                                 
                     mD.txtBankInfo.Text = donationMoney.Rows[row].Cells[5].Value.ToString();                    
                     mD.txtCheckInfo.Text = donationMoney.Rows[row].Cells[3].Value.ToString();
                     mD.txtCheckNo2.Text = donationMoney.Rows[row].Cells[4].Value.ToString();                    
@@ -1538,7 +1538,7 @@ namespace BalayPasilungan
             if (allMD.Rows[row].Cells[1].Value.ToString() != "No entries.")
             {
                 moneyDonate mD = overlay();
-                mD.tabSelection.SelectedIndex = 13;
+                mD.tabSelection.SelectedIndex = 12;
                 
                 comm = new MySqlCommand("SELECT * FROM donor WHERE donorID in (SELECT donation.donorID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donationID = " + int.Parse(allMD.Rows[row].Cells[8].Value.ToString()) + ")", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
@@ -1704,7 +1704,7 @@ namespace BalayPasilungan
             mD.budgetID = current_budgetID;
             if (lblBRCategory.Text == "Multiple")
             {                
-                mD.tabSelection.SelectedIndex = 14;
+                mD.tabSelection.SelectedIndex = 13;
                 mD.cbBRC_Cat.SelectedIndex = 0;
                 mD.ShowDialog();
             }
@@ -1722,7 +1722,7 @@ namespace BalayPasilungan
         {
             int row = BRDetails.CurrentCell.RowIndex;
             moneyDonate mD = overlay();
-            mD.tabSelection.SelectedIndex = 11;
+            mD.tabSelection.SelectedIndex = 10;
             mD.txtBRPart2.Text = BRDetails.Rows[row].Cells[1].Value.ToString();
             mD.txtBRQuantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[2].Value.ToString());
             mD.txtBRUP2.Text = BRDetails.Rows[row].Cells[3].Value.ToString();
@@ -1986,7 +1986,7 @@ namespace BalayPasilungan
             {
                 moneyDonate mD = overlay();
                 mD.Size = new System.Drawing.Size(510, 235);
-                mD.tabSelection.SelectedIndex = 10;
+                mD.tabSelection.SelectedIndex = 9;
                 DialogResult choice = mD.ShowDialog();
                 if (choice == DialogResult.Yes)            // DELETE BUDGET REQUEST
                 {
@@ -2121,21 +2121,7 @@ namespace BalayPasilungan
             if (cbAll.Checked) cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
             else comm = new MySqlCommand("SELECT * FROM expense WHERE category = " + final + " ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6);
-        }
-
-        private void btnAddExp_Click(object sender, EventArgs e)
-        {
-            panelExpOp.Visible = false;
-            moneyDonate mD = overlay();
-            mD.tabSelection.SelectedIndex = 8; mD.cbExpCat.SelectedIndex = 0;
-            mD.hasExpense = true;
-
-            if (mD.ShowDialog() == DialogResult.OK) successMessage("Expense record has been added successfully!");
-
-            empty = false;
-            MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
-            loadTable(comm, 6);
-        }
+        }        
 
         private void btnResetCategory_Click(object sender, EventArgs e)
         {
@@ -2234,7 +2220,7 @@ namespace BalayPasilungan
         {
             moneyDonate mD = overlay();
             mD.refToExpense = this;
-            mD.tabSelection.SelectedIndex = 9;
+            mD.tabSelection.SelectedIndex = 8;
 
             DialogResult result = mD.ShowDialog();
 

@@ -33,8 +33,7 @@ namespace BalayPasilungan
             // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = dateCash.MaxDate;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Now; dateOfCheck.MaxDate = DateTime.Now.AddMonths(3); dateOfCheck.Value = DateTime.Now;
-            dateIK.MaxDate = DateTime.Now; dateIK.Value = dateCash.MaxDate;
-            dateExp.MaxDate = DateTime.Now; dateExp.Value = dateCash.MaxDate;
+            dateIK.MaxDate = DateTime.Now; dateIK.Value = dateCash.MaxDate;           
         }
 
         private void moneyDonate_FormClosing(object sender, FormClosingEventArgs e)
@@ -65,8 +64,7 @@ namespace BalayPasilungan
         public void toGreen()
         {
             txtCashAmount.ForeColor = txtCashCent.ForeColor = lblCashAmount.ForeColor = lblDot1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            txtCheckAmount.ForeColor = txtCheckCent.ForeColor = lblCheckAmount.ForeColor = lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            txtExpAmt.ForeColor = txtExpCent.ForeColor = lblAddExp.ForeColor = lblDotExp.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+            txtCheckAmount.ForeColor = txtCheckCent.ForeColor = lblCheckAmount.ForeColor = lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");            
         }
 
         public void toDefault()
@@ -76,10 +74,7 @@ namespace BalayPasilungan
             lblCashAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
 
             txtCheckAmount.ForeColor = txtCheckCent.ForeColor = lblDot2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
-            lblCheckAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
-
-            txtExpAmt.ForeColor = txtExpCent.ForeColor = lblDotExp.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
-            lblAddExp.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+            lblCheckAmount.ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);          
 
             // EDIT
             txtCashAmount2.ForeColor = txtCashCent2.ForeColor = lblDot3.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dfdfdf");
@@ -509,120 +504,13 @@ namespace BalayPasilungan
                 else if (((TextBox)sender).Name == "txtBRC_UP" && txtBRC_UP.Text != "") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");
             }
         }
-        #endregion
-
-        #region Expense   
-        private void cbExpCat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Open();
-                MySqlDataAdapter adp = new MySqlDataAdapter("", conn);
-                if (thisMonth.Checked) adp = new MySqlDataAdapter("SELECT COUNT(expenseID), SUM(amount), expenseID FROM expense WHERE MONTH(dateExpense) = '" + DateTime.Now.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
-                else adp = new MySqlDataAdapter("SELECT COUNT(expenseID), SUM(amount), expenseID FROM expense WHERE MONTH(dateExpense) = '" + dateExp.Value.Month + "' AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
-                DataTable dt = new DataTable(); adp.Fill(dt);
-
-                if (decimal.Parse(dt.Rows[0]["count(expenseID)"].ToString()) == 0) txtExpCurrent.Text = "0.00";
-                else
-                {
-                    txtExpCurrent.Text = dt.Rows[0]["SUM(amount)"].ToString();
-                    existingExpenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
-                }
-
-                if (cbExpCat.SelectedItem.ToString() == "") btnAddExp.Enabled = false;
-                else btnAddExp.Enabled = true;
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                errorMessage(ex.Message);
-            }
-        }
-
-        private void dateExp_Leave(object sender, EventArgs e)
-        {
-            MySqlDataAdapter adp = new MySqlDataAdapter("SELECT expenseID, amount FROM expense WHERE MONTH(dateExpense) = " + int.Parse(dateExp.Value.Month.ToString()) + " AND category = '" + cbExpCat.SelectedItem.ToString() + "'", conn);
-            DataTable dt = new DataTable(); adp.Fill(dt);
-            if (dt.Rows.Count == 0) txtExpCurrent.Text = "0.00";
-            else
-            {
-                txtExpCurrent.Text = dt.Rows[0]["amount"].ToString();
-                existingExpenseID = int.Parse(dt.Rows[0]["expenseID"].ToString());
-            }
-        }
-
-        private void txtExpAmt_Leave(object sender, EventArgs e)
-        {
-            decimal amount = decimal.Parse(txtExpAmt.Text + "." + txtExpCent.Text);
-            if (txtExpAmt.Text != "0,000,000,000" || amount != 0)
-            {
-                txtExpTotal.Text = (amount + decimal.Parse(txtExpCurrent.Text)).ToString();
-                txtExpTotal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            }
-        }
-
-        private void btnAddExp_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("", conn);
-                if (thisMonth.Checked)
-                {
-                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
-                        + " VALUES ('" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
-                }
-                else
-                {
-                    comm = new MySqlCommand("INSERT INTO expense (dateExpense, category, amount)"
-                        + " VALUES ('" + dateExp.Value.ToString("yyyy-MM-dd") + "', '" + cbExpCat.SelectedItem.ToString() + "', " + decimal.Parse(txtExpTotal.Text) + ");", conn);
-                }
-                comm.ExecuteNonQuery();
-                conn.Close(); this.Close();
-            }
-            catch (Exception ex)
-            {
-                errorMessage(ex.Message);
-            }
-        }
-
-        private void thisMonth_CheckedChanged(object sender, EventArgs e)
-        {
-            if (thisMonth.Checked) dateExp.Enabled = false;
-            else dateExp.Enabled = true;
-        }
-
-        private void tabExp_Click(object sender, EventArgs e)
-        {
-            tabExp8.Focus();
-            decimal amount = decimal.Parse(txtExpAmt.Text + "." + txtExpCent.Text);
-            if (txtExpAmt.Text != "0,000,000,000" || amount != 0)
-            {
-                txtExpTotal.Text = (amount + decimal.Parse(txtExpCurrent.Text)).ToString();
-                txtExpTotal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            }
-        }
-
-        private void total_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                decimal amount = decimal.Parse(txtExpAmt.Text + "." + txtExpCent.Text);
-                if (((TextBox)sender).Text == "0,000,000,000" || ((TextBox)sender).Text == "00" || amount != 0)
-                {
-                    txtExpTotal.Text = (amount + decimal.Parse(txtExpCurrent.Text)).ToString();
-                    txtExpTotal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-                }
-            }
-        }
-        #endregion
+        #endregion     
 
         #region Textboxes
         private void txt_Enter(object sender, EventArgs e)
         {
             if (((TextBox)sender).Text == "0,000,000,000") ((TextBox)sender).Text = "";
-            if (((TextBox)sender).Name != "txtExpAmt") toGreen();
-            lblEnter.Visible = true;
+            if (((TextBox)sender).Name != "txtExpAmt") toGreen();            
         }
 
         private void txtEdit_Enter(object sender, EventArgs e)
