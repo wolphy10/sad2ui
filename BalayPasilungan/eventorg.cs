@@ -377,16 +377,15 @@ namespace BalayPasilungan
         }
         public bool checkConflict(string dfrom, string dto)//event conflict check if the doesn't conflict with other
         {
-            MessageBox.Show("if venue is the same also restrict but if different allow adding of event");
+            //MessageBox.Show("if venue is the same also restrict but if different allow adding of event");
             bool check = true;
             try
             {
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE (status = 'Approved' OR status = 'Pending') AND (('"+ dfrom +"' >= str_to_date(CONCAT(evDateFrom,' ', evTimeFrom), '%Y-%m-%d %h:%i %p')) AND ('"+ dto + "' <= str_to_date(CONCAT(evDateTo,' ', evTimeTo), '%Y-%m-%d %h:%i %p')) OR ('" + dfrom + "' <= str_to_date(CONCAT(evDateTo,' ', evTimeTo), '%Y-%m-%d %h:%i %p')) AND ('" + dto + "' >= str_to_date(CONCAT(evDateFrom,' ', evTimeFrom), '%Y-%m-%d %h:%i %p')))", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evVenue = '"+ txtVenue.Text + "' AND (status = 'Approved' OR status = 'Pending') AND (('"+ dfrom +"' >= str_to_date(CONCAT(evDateFrom,' ', evTimeFrom), '%Y-%m-%d %h:%i %p')) AND ('"+ dto + "' <= str_to_date(CONCAT(evDateTo,' ', evTimeTo), '%Y-%m-%d %h:%i %p')) OR ('" + dfrom + "' <= str_to_date(CONCAT(evDateTo,' ', evTimeTo), '%Y-%m-%d %h:%i %p')) AND ('" + dto + "' >= str_to_date(CONCAT(evDateFrom,' ', evTimeFrom), '%Y-%m-%d %h:%i %p')))", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-                conn.Close();
                 if (dt.Rows.Count >= 1) check = true;
                 else check = false;
                 conn.Close();
@@ -2266,7 +2265,23 @@ namespace BalayPasilungan
                 viewCaseAttendance(1);
             }
         }
+        public void checkIfDoubleAttend()//check child if already attended and prompt user if so
+        {
+            int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
+            string dnow = btnYNow.Text + "-" + monthnum.ToString("00") + "-" + cellday.ToString("00");
+            DateTime daten = DateTime.ParseExact(dnow, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            string tnow = DateTime.Now.ToString("h:mm tt");
+            DateTime timen = DateTime.Parse(tnow);
+            try
+            {
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM attendance WHERE ", conn);
 
+            }catch(Exception ee)
+            {
+                errorMessage("" + ee);
+                conn.Close();
+            }
+        }
         public void updateCAttend(int anum)
         {
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;
