@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -23,17 +24,19 @@ namespace BalayPasilungan
         public bool hasExpense;
         public bool dot = true;                    // True - if user entered '.'
         public int existingExpenseID;
-        public string category;
+        public string category;        
 
         public moneyDonate()
         {
             InitializeComponent();
             this.Size = new System.Drawing.Size(510, 376);
-            conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");            
+            conn = new MySqlConnection("server=localhost;user id=root;database=prototype_sad;password=root;persistsecurityinfo=False");
+                        
             // Add
             dateCash.MaxDate = DateTime.Now; dateCash.Value = dateCash.MaxDate;
             dateCheck.MaxDate = DateTime.Now; dateCheck.Value = DateTime.Now; dateOfCheck.MaxDate = DateTime.Now.AddMonths(3); dateOfCheck.Value = DateTime.Now;
-            dateIK.MaxDate = DateTime.Now; dateIK.Value = dateCash.MaxDate;           
+            dateIK.MaxDate = DateTime.Now; dateIK.Value = dateCash.MaxDate;
+            dateFrom2.MaxDate = DateTime.Now; dateFrom2.Value = dateFrom2.MaxDate; dateTo2.MaxDate = DateTime.Now; dateTo2.Value = dateFrom2.MaxDate;   
         }
 
         private void moneyDonate_FormClosing(object sender, FormClosingEventArgs e)
@@ -569,6 +572,32 @@ namespace BalayPasilungan
                 year.SelectedIndex = count - 1;
             }
         }
+
+        private void DonationMode_CheckedChanged(object sender, EventArgs e)
+        {
+            btnReport2.Enabled = true; dateFrom2.Enabled = dateTo2.Enabled = false;
+
+            if (donateThisWeek.Checked) btnReport2.DialogResult = DialogResult.OK;
+            else if (donateWeek.Checked)
+            {
+                dateFrom2.Enabled = true;
+                btnReport2.DialogResult = DialogResult.Yes;
+            }
+            else if (donateWeeks.Checked)
+            {
+                dateFrom2.Enabled = dateTo2.Enabled = true;
+                btnReport2.DialogResult = DialogResult.Retry;
+            }
+        }
         #endregion
+        
+        private void dateWeek_ValueChanged(object sender, EventArgs e)
+        {
+            DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(((DateTimePicker)sender).Value);
+            if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday) ((DateTimePicker)sender).Value = ((DateTimePicker)sender).Value.AddDays(3);                       
+            int day2 = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(((DateTimePicker)sender).Value, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            if (((DateTimePicker)sender).Name == "dateFrom2") week1.Text = day2.ToString();
+            else if (((DateTimePicker)sender).Name == "dateTo2") week2.Text = day2.ToString();
+        }
     }
 }

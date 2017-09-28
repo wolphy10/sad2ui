@@ -266,6 +266,26 @@
             this.txtBRC_Part = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
+            this.tabDonationRep = new System.Windows.Forms.TabPage();
+            this.dateTo2 = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.week2 = new System.Windows.Forms.TextBox();
+            this.dateFrom2 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.noFocusRec7 = new BalayPasilungan.NoFocusRec();
+            this.btnDonateRepBack = new BalayPasilungan.NoFocusRec();
+            this.btnReport2 = new BalayPasilungan.NoFocusRec();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.donateWeeks = new System.Windows.Forms.RadioButton();
+            this.donateWeek = new System.Windows.Forms.RadioButton();
+            this.donateThisWeek = new System.Windows.Forms.RadioButton();
+            this.week1 = new System.Windows.Forms.TextBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -333,6 +353,11 @@
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBRC_Quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
+            this.tabDonationRep.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -351,6 +376,7 @@
             this.tabSelection.Controls.Add(this.tabCheckInfo);
             this.tabSelection.Controls.Add(this.tabAllCash);
             this.tabSelection.Controls.Add(this.tabBRDC13);
+            this.tabSelection.Controls.Add(this.tabDonationRep);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -2285,6 +2311,8 @@
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(199, 25);
             this.dateFrom.TabIndex = 3;
+            this.dateFrom.DropDownStyleChanged += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.dateFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
             // 
             // label21
             // 
@@ -3617,6 +3645,285 @@
             this.pictureBox33.TabIndex = 34;
             this.pictureBox33.TabStop = false;
             // 
+            // tabDonationRep
+            // 
+            this.tabDonationRep.Controls.Add(this.dateTo2);
+            this.tabDonationRep.Controls.Add(this.label17);
+            this.tabDonationRep.Controls.Add(this.week2);
+            this.tabDonationRep.Controls.Add(this.dateFrom2);
+            this.tabDonationRep.Controls.Add(this.label6);
+            this.tabDonationRep.Controls.Add(this.label13);
+            this.tabDonationRep.Controls.Add(this.label15);
+            this.tabDonationRep.Controls.Add(this.panel7);
+            this.tabDonationRep.Controls.Add(this.btnReport2);
+            this.tabDonationRep.Controls.Add(this.pictureBox20);
+            this.tabDonationRep.Controls.Add(this.pictureBox21);
+            this.tabDonationRep.Controls.Add(this.panel15);
+            this.tabDonationRep.Controls.Add(this.week1);
+            this.tabDonationRep.ForeColor = System.Drawing.Color.Black;
+            this.tabDonationRep.Location = new System.Drawing.Point(4, 22);
+            this.tabDonationRep.Name = "tabDonationRep";
+            this.tabDonationRep.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDonationRep.Size = new System.Drawing.Size(512, 376);
+            this.tabDonationRep.TabIndex = 15;
+            this.tabDonationRep.Text = "tabPage1";
+            this.tabDonationRep.UseVisualStyleBackColor = true;
+            // 
+            // dateTo2
+            // 
+            this.dateTo2.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTo2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateTo2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateTo2.CustomFormat = "MMMM dd, yyyy";
+            this.dateTo2.Enabled = false;
+            this.dateTo2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateTo2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTo2.Location = new System.Drawing.Point(165, 274);
+            this.dateTo2.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateTo2.Name = "dateTo2";
+            this.dateTo2.Size = new System.Drawing.Size(202, 29);
+            this.dateTo2.TabIndex = 77;
+            this.dateTo2.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateTo2.ValueChanged += new System.EventHandler(this.dateWeek_ValueChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label17.Location = new System.Drawing.Point(19, 282);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 13);
+            this.label17.TabIndex = 76;
+            this.label17.Text = "TO WEEK OF";
+            // 
+            // week2
+            // 
+            this.week2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.week2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.week2.Font = new System.Drawing.Font("Segoe UI Semilight", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.week2.ForeColor = System.Drawing.Color.Black;
+            this.week2.Location = new System.Drawing.Point(373, 280);
+            this.week2.MaxLength = 50;
+            this.week2.Name = "week2";
+            this.week2.Size = new System.Drawing.Size(105, 15);
+            this.week2.TabIndex = 78;
+            this.week2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.week2.Visible = false;
+            // 
+            // dateFrom2
+            // 
+            this.dateFrom2.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFrom2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateFrom2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.dateFrom2.CustomFormat = "MMMM dd, yyyy";
+            this.dateFrom2.Enabled = false;
+            this.dateFrom2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.dateFrom2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFrom2.Location = new System.Drawing.Point(165, 224);
+            this.dateFrom2.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateFrom2.Name = "dateFrom2";
+            this.dateFrom2.Size = new System.Drawing.Size(202, 29);
+            this.dateFrom2.TabIndex = 74;
+            this.dateFrom2.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
+            this.dateFrom2.ValueChanged += new System.EventHandler(this.dateWeek_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label6.Location = new System.Drawing.Point(19, 232);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 13);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "FROM WEEK OF";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label13.Location = new System.Drawing.Point(18, 59);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 19);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "SELECT MODE";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label15.Location = new System.Drawing.Point(19, 121);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(111, 13);
+            this.label15.TabIndex = 64;
+            this.label15.Text = "DATE OF DONATION";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Controls.Add(this.noFocusRec7);
+            this.panel7.Controls.Add(this.btnDonateRepBack);
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(512, 33);
+            this.panel7.TabIndex = 63;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label16.Location = new System.Drawing.Point(333, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(173, 19);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Generate Donation Report";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec7
+            // 
+            this.noFocusRec7.FlatAppearance.BorderSize = 0;
+            this.noFocusRec7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec7.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec7.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec7.Name = "noFocusRec7";
+            this.noFocusRec7.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec7.TabIndex = 11;
+            this.noFocusRec7.Text = "X";
+            this.noFocusRec7.UseVisualStyleBackColor = true;
+            // 
+            // btnDonateRepBack
+            // 
+            this.btnDonateRepBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnDonateRepBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDonateRepBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDonateRepBack.FlatAppearance.BorderSize = 0;
+            this.btnDonateRepBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDonateRepBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDonateRepBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonateRepBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonateRepBack.ForeColor = System.Drawing.Color.White;
+            this.btnDonateRepBack.Location = new System.Drawing.Point(6, 8);
+            this.btnDonateRepBack.Name = "btnDonateRepBack";
+            this.btnDonateRepBack.Size = new System.Drawing.Size(76, 22);
+            this.btnDonateRepBack.TabIndex = 6;
+            this.btnDonateRepBack.Text = "GO BACK";
+            this.btnDonateRepBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDonateRepBack.UseVisualStyleBackColor = false;
+            this.btnDonateRepBack.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnReport2
+            // 
+            this.btnReport2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnReport2.Enabled = false;
+            this.btnReport2.FlatAppearance.BorderSize = 0;
+            this.btnReport2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnReport2.ForeColor = System.Drawing.Color.White;
+            this.btnReport2.Location = new System.Drawing.Point(0, 336);
+            this.btnReport2.Name = "btnReport2";
+            this.btnReport2.Size = new System.Drawing.Size(512, 40);
+            this.btnReport2.TabIndex = 5;
+            this.btnReport2.Text = "GENERATE REPORT";
+            this.btnReport2.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
+            this.pictureBox20.Location = new System.Drawing.Point(12, 72);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox20.TabIndex = 62;
+            this.pictureBox20.TabStop = false;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Location = new System.Drawing.Point(12, 190);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(486, 27);
+            this.pictureBox21.TabIndex = 69;
+            this.pictureBox21.TabStop = false;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.donateWeeks);
+            this.panel15.Controls.Add(this.donateWeek);
+            this.panel15.Controls.Add(this.donateThisWeek);
+            this.panel15.Location = new System.Drawing.Point(165, 114);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(313, 75);
+            this.panel15.TabIndex = 72;
+            // 
+            // donateWeeks
+            // 
+            this.donateWeeks.AutoSize = true;
+            this.donateWeeks.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.donateWeeks.FlatAppearance.BorderSize = 0;
+            this.donateWeeks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donateWeeks.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.donateWeeks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.donateWeeks.Location = new System.Drawing.Point(3, 53);
+            this.donateWeeks.Name = "donateWeeks";
+            this.donateWeeks.Size = new System.Drawing.Size(88, 19);
+            this.donateWeeks.TabIndex = 2;
+            this.donateWeeks.TabStop = true;
+            this.donateWeeks.Text = "Select weeks";
+            this.donateWeeks.UseVisualStyleBackColor = true;
+            // 
+            // donateWeek
+            // 
+            this.donateWeek.AutoSize = true;
+            this.donateWeek.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.donateWeek.FlatAppearance.BorderSize = 0;
+            this.donateWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donateWeek.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.donateWeek.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.donateWeek.Location = new System.Drawing.Point(3, 29);
+            this.donateWeek.Name = "donateWeek";
+            this.donateWeek.Size = new System.Drawing.Size(83, 19);
+            this.donateWeek.TabIndex = 1;
+            this.donateWeek.TabStop = true;
+            this.donateWeek.Text = "Select week";
+            this.donateWeek.UseVisualStyleBackColor = true;
+            this.donateWeek.CheckedChanged += new System.EventHandler(this.DonationMode_CheckedChanged);
+            // 
+            // donateThisWeek
+            // 
+            this.donateThisWeek.AutoSize = true;
+            this.donateThisWeek.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.donateThisWeek.FlatAppearance.BorderSize = 0;
+            this.donateThisWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donateThisWeek.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.donateThisWeek.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.donateThisWeek.Location = new System.Drawing.Point(3, 4);
+            this.donateThisWeek.Name = "donateThisWeek";
+            this.donateThisWeek.Size = new System.Drawing.Size(100, 19);
+            this.donateThisWeek.TabIndex = 0;
+            this.donateThisWeek.TabStop = true;
+            this.donateThisWeek.Text = "This week only";
+            this.donateThisWeek.UseVisualStyleBackColor = true;
+            this.donateThisWeek.CheckedChanged += new System.EventHandler(this.DonationMode_CheckedChanged);
+            // 
+            // week1
+            // 
+            this.week1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.week1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.week1.Font = new System.Drawing.Font("Segoe UI Semilight", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.week1.ForeColor = System.Drawing.Color.Black;
+            this.week1.Location = new System.Drawing.Point(373, 230);
+            this.week1.MaxLength = 50;
+            this.week1.Name = "week1";
+            this.week1.Size = new System.Drawing.Size(105, 15);
+            this.week1.TabIndex = 75;
+            this.week1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.week1.Visible = false;
+            // 
             // moneyDonate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3725,6 +4032,14 @@
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBRC_Quantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
+            this.tabDonationRep.ResumeLayout(false);
+            this.tabDonationRep.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3967,5 +4282,25 @@
         private System.Windows.Forms.PictureBox pictureBox33;
         public System.Windows.Forms.ComboBox cbBRC_Cat;
         private System.Windows.Forms.Label label48;
+        public System.Windows.Forms.TabPage tabDonationRep;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label16;
+        private NoFocusRec noFocusRec7;
+        private NoFocusRec btnDonateRepBack;
+        private NoFocusRec btnReport2;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.Panel panel15;
+        public System.Windows.Forms.RadioButton donateWeek;
+        public System.Windows.Forms.RadioButton donateThisWeek;
+        public System.Windows.Forms.DateTimePicker dateFrom2;
+        public System.Windows.Forms.TextBox week1;
+        public System.Windows.Forms.DateTimePicker dateTo2;
+        private System.Windows.Forms.Label label17;
+        public System.Windows.Forms.TextBox week2;
+        public System.Windows.Forms.RadioButton donateWeeks;
     }
 }

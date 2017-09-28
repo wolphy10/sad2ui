@@ -2505,6 +2505,236 @@ namespace BalayPasilungan
                 }
             }            
         }
+        
+        private void btnDonationReport_Click(object sender, EventArgs e)
+        {
+            moneyDonate mD = overlay();
+            mD.refToExpense = this;
+            mD.tabSelection.SelectedIndex = 14;
+
+            DialogResult result = mD.ShowDialog();
+
+            if (result == DialogResult.OK || result == DialogResult.Yes || result == DialogResult.Retry)
+            {
+                Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                try
+                {
+                    conn.Open();
+                    worksheet = workbook.ActiveSheet;
+                    worksheet.Name = "Donations";                    
+
+                    waiting wait = new waiting();
+                    dim dim = new dim();
+                    dim.Location = this.Location; dim.Size = this.Size; dim.refToPrev = this;
+
+                    // Week
+                    DateTime today = DateTime.Today;
+                    DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(today);
+                    if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday) today = today.AddDays(3);
+                    int week = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(today, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+                    int week2 = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(today, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+                    
+                    int year = DateTime.Today.Year; string monthname = DateTime.Now.ToString("MMMM");
+                    MySqlDataAdapter adp = new MySqlDataAdapter(); MySqlDataAdapter adp2 = new MySqlDataAdapter(); MySqlDataAdapter datebase = new MySqlDataAdapter();
+                    /*
+                     * OK - this week
+                     * YES - one week select
+                     * RETRY - selected week
+                     * 
+                     * */
+                    if (result == DialogResult.OK || result == DialogResult.Yes)
+                    {
+                        if (result == DialogResult.Yes)
+                        {
+                            week = int.Parse(mD.week1.Text);                                                
+                            year = int.Parse(mD.dateFrom2.Value.ToString("yyyy"));
+                            monthname = mD.dateFrom2.Value.ToString("MMMM");
+                        }
+                        week2 = int.Parse(mD.week1.Text);
+                        adp = new MySqlDataAdapter("SELECT monetaryID, dateDonated, ORno, amount, donationID FROM monetary WHERE WEEK(dateDonated) = " + week + " AND YEAR(dateDonated) = " + year + " ORDER BY dateDonated ASC", conn);
+                        adp2 = new MySqlDataAdapter("SELECT inKindID, dateDonated, particular, quantity, donationID FROM inkind WHERE WEEK(dateDonated) = " + week + " AND YEAR(dateDonated) = " + year + " ORDER BY dateDonated ASC", conn);
+                        worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 3]].Merge();
+                        worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 3]].Cells.WrapText = true;                        
+                        worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 3]].Font.Bold = true;
+                        worksheet.Cells[1, 1] = "DONATIONS SUMMARY REPORT";
+                        worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 5]].Merge();
+                        worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 5]].Cells.WrapText = true;
+                        worksheet.Cells[2, 1] = "From " + monthname + ", Week " + week + " of " + year;                        
+                    }
+                    else
+                    {
+                        week = int.Parse(mD.week1.Text);
+                        week2 = int.Parse(mD.week2.Text);
+                        year = int.Parse(mD.dateFrom2.Value.ToString("yyyy"));
+
+                        adp = new MySqlDataAdapter("SELECT monetaryID, dateDonated, ORno, amount, donationID FROM monetary WHERE WEEK(dateDonated) >= " + week + " AND WEEK(dateDonated) <= " + week2 + " AND YEAR(dateDonated) = " + year + " ORDER BY dateDonated ASC", conn);
+                        adp2 = new MySqlDataAdapter("SELECT inKindID, dateDonated, particular, quantity, donationID FROM inkind WHERE WEEK(dateDonated) >= " + week + " AND WEEK(dateDonated) <= " + week2 + " AND YEAR(dateDonated) = " + year + " ORDER BY dateDonated ASC", conn);                        
+                        worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 3]].Merge();
+                        worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 3]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 3]].Font.Bold = true;
+                        worksheet.Cells[1, 1] = "DONATIONS SUMMARY REPORT";
+                        worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 5]].Merge();
+                        worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, 5]].Cells.WrapText = true;
+                        worksheet.Cells[2, 1] = "From " + monthname + ", Week " + week + " to Week " + week2 + " of " + year;                        
+                    }
+
+                    DataTable dt1 = new DataTable(); DataTable dt2 = new DataTable();
+                    adp.Fill(dt1);      // MONEY
+                    adp2.Fill(dt2);     // INKIND
+
+                    int counter = 0; DataTable dt_datebase = new DataTable();
+                    if (dt1.Rows.Count > dt2.Rows.Count)
+                    {
+                        counter = dt1.Rows.Count;
+                        datebase = new MySqlDataAdapter("SELECT monetary.dateDonated FROM monetary LEFT JOIN inkind ON monetary.dateDonated = inkind.dateDonated WHERE WEEK(monetary.dateDonated) >= " + week + " AND WEEK(monetary.dateDonated) <= " + week2 + " AND YEAR(monetary.dateDonated) = " + year + " ORDER BY dateDonated ASC", conn);
+                        datebase.Fill(dt_datebase);
+                    }
+                    else
+                    {
+                        counter = dt2.Rows.Count;
+                        datebase = new MySqlDataAdapter("SELECT inkind.dateDonated FROM inkind LEFT JOIN monetary ON inkind.dateDonated = monetary.dateDonated WHERE WEEK(inkind.dateDonated) >= " + week + " AND WEEK(inkind.dateDonated) <= " + week2 + " AND YEAR(inkind.dateDonated) = " + year + " ORDER BY dateDonated ASC", conn);
+                        datebase.Fill(dt_datebase);
+                    }
+
+                    if (counter > 0)
+                    {
+                        wait.lblMsg.Text = "Exporting to Excel..."; dim.Show(this); wait.Show();
+                        
+                        // HEADERS
+                        worksheet.Range[worksheet.Cells[4, 1], worksheet.Cells[4, 4]].Merge();
+                        worksheet.Range[worksheet.Cells[4, 1], worksheet.Cells[4, 4]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[4, 1], worksheet.Cells[4, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Range[worksheet.Cells[4, 1], worksheet.Cells[4, 4]].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                        worksheet.Range[worksheet.Cells[4, 1], worksheet.Cells[4, 4]].Borders.Weight = 2d;
+                        worksheet.Cells[4, 1] = "DATE";
+                        
+                        worksheet.Range[worksheet.Cells[4, 5], worksheet.Cells[4, 5 + 1]].Merge();
+                        worksheet.Range[worksheet.Cells[4, 5], worksheet.Cells[4, 5 + 1]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[4, 5], worksheet.Cells[4, 5 + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Range[worksheet.Cells[4, 5], worksheet.Cells[4, 5 + 1]].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                        worksheet.Range[worksheet.Cells[4, 5], worksheet.Cells[4, 5 + 1]].Borders.Weight = 2d;
+                        worksheet.Cells[4, 5] = "MONETARY";
+
+                        worksheet.Range[worksheet.Cells[4, 7], worksheet.Cells[4, 10]].Merge();
+                        worksheet.Range[worksheet.Cells[4, 7], worksheet.Cells[4, 10]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[4, 7], worksheet.Cells[4, 10]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Range[worksheet.Cells[4, 7], worksheet.Cells[4, 10]].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                        worksheet.Range[worksheet.Cells[4, 7], worksheet.Cells[4, 10]].Borders.Weight = 2d;
+                        worksheet.Cells[4, 7] = "IN-KIND";
+                        // END OF HEADERS
+
+                        int last = 0;
+                        for (int count = 0, mon = 5; count < counter; mon++, count++)
+                        {
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].Merge();
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].Cells.WrapText = true;
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            
+                            worksheet.Cells[mon, 1] = dt_datebase.Rows[count]["dateDonated"].ToString();
+                            worksheet.Range[worksheet.Cells[mon, 1], worksheet.Cells[mon, 4]].NumberFormat = "mmmm dd, yyyy";
+
+                            
+                            MySqlDataAdapter monadp1 = new MySqlDataAdapter("SELECT dateDonated, paymentType, amount FROM monetary WHERE paymentType = 'CASH' AND dateDonated = '" + DateTime.Parse(dt_datebase.Rows[count]["dateDonated"].ToString()).ToString("yyyy-MM-dd") + "' AND monetaryID = " + dt1.Rows[count]["monetaryID"].ToString(), conn);                                
+                            DataTable money = new DataTable(); monadp1.Fill(money);
+                            MySqlDataAdapter ikadp1 = new MySqlDataAdapter("SELECT dateDonated, particular, quantity FROM inkind WHERE dateDonated = '" + DateTime.Parse(dt_datebase.Rows[count]["dateDonated"].ToString()).ToString("yyyy-MM-dd") + "' AND inKindID = " + dt2.Rows[count]["inKindID"].ToString(), conn);
+                            DataTable ik = new DataTable(); ikadp1.Fill(ik);
+
+                            // MONETARY
+                            worksheet.Range[worksheet.Cells[mon, 5], worksheet.Cells[mon, 6]].Merge();
+                            worksheet.Range[worksheet.Cells[mon, 5], worksheet.Cells[mon, 6]].Cells.WrapText = true;
+                            worksheet.Range[worksheet.Cells[mon, 5], worksheet.Cells[mon, 6]].HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
+                                                              
+                            if(money.Rows.Count > 0)
+                            {
+                                if (decimal.Parse(money.Rows[0]["amount"].ToString()) != 0)
+                                {
+                                    worksheet.Cells[mon, 5].NumberFormat = "#,##0.00";
+                                    worksheet.Cells[mon, 5] = decimal.Parse(money.Rows[0]["amount"].ToString()).ToString("0.##");
+                                }
+                            }
+                            else worksheet.Cells[mon, 5] = "-";
+
+                            // IN-KIND
+                            worksheet.Range[worksheet.Cells[mon, 7], worksheet.Cells[mon, 9]].Merge();
+                            worksheet.Range[worksheet.Cells[mon, 7], worksheet.Cells[mon, 9]].Cells.WrapText = true;
+                            worksheet.Range[worksheet.Cells[mon, 7], worksheet.Cells[mon, 9]].HorizontalAlignment = Excel.XlHAlign.xlHAlignRight;
+                                
+                            if (ik.Rows.Count > 0)
+                            {
+                                if (decimal.Parse(ik.Rows[0]["quantity"].ToString()) != 0)
+                                {
+                                    worksheet.Cells[mon, 7] = ik.Rows[0]["particular"].ToString();
+                                    worksheet.Cells[mon, 10] = decimal.Parse(ik.Rows[0]["quantity"].ToString());
+                                }
+                            }
+                            else worksheet.Cells[mon, 7] = "-";
+                            
+                            last = mon;
+                        }
+                        /*last += 1;
+                        worksheet.Range[worksheet.Cells[last, 1], worksheet.Cells[last, 4]].Merge();
+                        worksheet.Range[worksheet.Cells[last, 1], worksheet.Cells[last, 4]].Cells.WrapText = true;
+                        worksheet.Range[worksheet.Cells[last, 1], worksheet.Cells[last, 4]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Range[worksheet.Cells[last, 1], worksheet.Cells[last, 4]].Font.Bold = true;
+                        worksheet.Cells[last, 1] = "TOTAL";
+
+                        for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)        // TOTAL
+                        {
+                            //adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND MONTH(dateDonated) = " + month, conn);
+                            DataTable dt = new DataTable();
+                            adp.Fill(dt);
+
+                            worksheet.Range[worksheet.Cells[last, i], worksheet.Cells[last, i + 1]].Merge();
+                            worksheet.Range[worksheet.Cells[last, i], worksheet.Cells[last, i + 1]].Cells.WrapText = true;
+                            worksheet.Range[worksheet.Cells[last, i], worksheet.Cells[last, i + 1]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                            worksheet.Range[worksheet.Cells[last, i], worksheet.Cells[last, i + 1]].NumberFormat = "#,##0.00";
+                            worksheet.Range[worksheet.Cells[last, i], worksheet.Cells[last, i + 1]].Font.Bold = true;
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[last, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
+                                else worksheet.Cells[last, i] = "0";
+                            }
+                            else worksheet.Cells[last, i] = "0";
+                        }*/
+                        dim.Close();
+                    }
+
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveDialog.FilterIndex = 1;
+
+                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        workbook.SaveAs(saveDialog.FileName);
+                        successMessage("Export as excel has been successful.");
+                    }
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+                finally
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                    Marshal.FinalReleaseComObject(worksheet);
+
+                    workbook.Close(Type.Missing, Type.Missing, Type.Missing);
+                    Marshal.FinalReleaseComObject(workbook);
+
+                    excel.Quit();
+                    Marshal.FinalReleaseComObject(excel);
+                    workbook = null; excel = null;
+                }
+            }            
+        }
         #endregion
 
         #region Textboxes
@@ -2665,11 +2895,6 @@ namespace BalayPasilungan
         private void expense_FormClosing(object sender, FormClosingEventArgs e)
         {
             reftomain.Show();
-        }
-
-        private void lblTotalDonation_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void richNew_Leave(object sender, EventArgs e)
