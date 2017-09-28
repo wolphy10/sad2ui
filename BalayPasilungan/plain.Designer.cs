@@ -30,49 +30,37 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.fifteen = new System.Windows.Forms.TabPage();
+            this.lblBRHead1 = new System.Windows.Forms.Label();
+            this.txtRequestBy = new System.Windows.Forms.TextBox();
+            this.panelRequestBy = new System.Windows.Forms.PictureBox();
+            this.countEVenue = new System.Windows.Forms.Label();
+            this.lblEventName = new System.Windows.Forms.Label();
+            this.countEName = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnBRCancel = new BalayPasilungan.NoFocusRec();
             this.btnBRNext = new BalayPasilungan.NoFocusRec();
-            this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.txtEventName = new System.Windows.Forms.TextBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.panelPurpose = new System.Windows.Forms.PictureBox();
-            this.cbExpCat = new System.Windows.Forms.ComboBox();
-            this.lblBRRequest = new System.Windows.Forms.Label();
-            this.countBRRequest = new System.Windows.Forms.Label();
-            this.txtBRRequest = new System.Windows.Forms.TextBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.rbOthers = new System.Windows.Forms.RadioButton();
-            this.rbTranspo = new System.Windows.Forms.RadioButton();
-            this.rbSpiritual = new System.Windows.Forms.RadioButton();
-            this.rbSocial = new System.Windows.Forms.RadioButton();
-            this.rbSkills = new System.Windows.Forms.RadioButton();
-            this.rbSchool = new System.Windows.Forms.RadioButton();
-            this.rbOffice = new System.Windows.Forms.RadioButton();
-            this.rbMeds = new System.Windows.Forms.RadioButton();
-            this.rbHouse = new System.Windows.Forms.RadioButton();
-            this.rbFood = new System.Windows.Forms.RadioButton();
-            this.rbClothing = new System.Windows.Forms.RadioButton();
-            this.lblOthers = new System.Windows.Forms.Label();
-            this.lblCatType = new System.Windows.Forms.Label();
-            this.lblPurpose = new System.Windows.Forms.Label();
-            this.dateBR = new System.Windows.Forms.DateTimePicker();
-            this.lblDateRequest = new System.Windows.Forms.Label();
-            this.countPurpose = new System.Windows.Forms.Label();
-            this.btnCatSingle = new BalayPasilungan.NoFocusRec();
-            this.btnCatMultiple = new BalayPasilungan.NoFocusRec();
-            this.panelBRRequest = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblBRHead2 = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblBRHead1 = new System.Windows.Forms.Label();
+            this.panelEName = new System.Windows.Forms.PictureBox();
+            this.lblEVenue = new System.Windows.Forms.Label();
+            this.txtEventDes = new System.Windows.Forms.RichTextBox();
+            this.lblEDes = new System.Windows.Forms.Label();
+            this.countEDes = new System.Windows.Forms.Label();
+            this.txtEvType = new System.Windows.Forms.TextBox();
+            this.btnShowAdd = new System.Windows.Forms.Button();
+            this.cbEType = new System.Windows.Forms.ComboBox();
+            this.lblEType = new System.Windows.Forms.Label();
+            this.panelEvType = new System.Windows.Forms.PictureBox();
+            this.btnAddType = new BalayPasilungan.NoFocusRec();
+            this.lblRequestBy = new System.Windows.Forms.Label();
+            this.countRequestBy = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.fifteen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelRequestBy)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).BeginInit();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelBRRequest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEvType)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -87,34 +75,103 @@
             // fifteen
             // 
             this.fifteen.BackColor = System.Drawing.Color.White;
+            this.fifteen.Controls.Add(this.lblRequestBy);
+            this.fifteen.Controls.Add(this.countRequestBy);
+            this.fifteen.Controls.Add(this.btnAddType);
+            this.fifteen.Controls.Add(this.txtEvType);
+            this.fifteen.Controls.Add(this.panelEvType);
+            this.fifteen.Controls.Add(this.lblEType);
+            this.fifteen.Controls.Add(this.cbEType);
+            this.fifteen.Controls.Add(this.btnShowAdd);
+            this.fifteen.Controls.Add(this.lblEDes);
+            this.fifteen.Controls.Add(this.countEDes);
+            this.fifteen.Controls.Add(this.txtEventDes);
+            this.fifteen.Controls.Add(this.lblEVenue);
             this.fifteen.Controls.Add(this.lblBRHead1);
-            this.fifteen.Controls.Add(this.lblCategory);
-            this.fifteen.Controls.Add(this.lblBRHead2);
-            this.fifteen.Controls.Add(this.txtBRRequest);
-            this.fifteen.Controls.Add(this.panelBRRequest);
-            this.fifteen.Controls.Add(this.btnCatMultiple);
-            this.fifteen.Controls.Add(this.btnCatSingle);
-            this.fifteen.Controls.Add(this.cbExpCat);
-            this.fifteen.Controls.Add(this.lblBRRequest);
-            this.fifteen.Controls.Add(this.countBRRequest);
-            this.fifteen.Controls.Add(this.lblOthers);
-            this.fifteen.Controls.Add(this.lblCatType);
-            this.fifteen.Controls.Add(this.lblPurpose);
-            this.fifteen.Controls.Add(this.dateBR);
-            this.fifteen.Controls.Add(this.lblDateRequest);
-            this.fifteen.Controls.Add(this.countPurpose);
+            this.fifteen.Controls.Add(this.txtRequestBy);
+            this.fifteen.Controls.Add(this.panelRequestBy);
+            this.fifteen.Controls.Add(this.countEVenue);
+            this.fifteen.Controls.Add(this.lblEventName);
+            this.fifteen.Controls.Add(this.countEName);
             this.fifteen.Controls.Add(this.panel8);
-            this.fifteen.Controls.Add(this.txtPurpose);
+            this.fifteen.Controls.Add(this.txtEventName);
             this.fifteen.Controls.Add(this.pictureBox29);
-            this.fifteen.Controls.Add(this.panelPurpose);
-            this.fifteen.Controls.Add(this.panel12);
-            this.fifteen.Controls.Add(this.pictureBox2);
+            this.fifteen.Controls.Add(this.panelEName);
             this.fifteen.Location = new System.Drawing.Point(4, 22);
             this.fifteen.Name = "fifteen";
             this.fifteen.Padding = new System.Windows.Forms.Padding(3);
             this.fifteen.Size = new System.Drawing.Size(934, 525);
             this.fifteen.TabIndex = 15;
             this.fifteen.Text = "15";
+            // 
+            // lblBRHead1
+            // 
+            this.lblBRHead1.AutoSize = true;
+            this.lblBRHead1.BackColor = System.Drawing.Color.Transparent;
+            this.lblBRHead1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblBRHead1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
+            this.lblBRHead1.Location = new System.Drawing.Point(82, 248);
+            this.lblBRHead1.Name = "lblBRHead1";
+            this.lblBRHead1.Size = new System.Drawing.Size(49, 13);
+            this.lblBRHead1.TabIndex = 329;
+            this.lblBRHead1.Text = "DETAILS";
+            this.lblBRHead1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtRequestBy
+            // 
+            this.txtRequestBy.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRequestBy.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtRequestBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtRequestBy.Location = new System.Drawing.Point(362, 155);
+            this.txtRequestBy.MaxLength = 100;
+            this.txtRequestBy.Name = "txtRequestBy";
+            this.txtRequestBy.Size = new System.Drawing.Size(498, 22);
+            this.txtRequestBy.TabIndex = 0;
+            this.txtRequestBy.Text = "Who requested the event?";
+            // 
+            // panelRequestBy
+            // 
+            this.panelRequestBy.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelRequestBy.Location = new System.Drawing.Point(358, 166);
+            this.panelRequestBy.Name = "panelRequestBy";
+            this.panelRequestBy.Size = new System.Drawing.Size(506, 33);
+            this.panelRequestBy.TabIndex = 325;
+            this.panelRequestBy.TabStop = false;
+            // 
+            // countEVenue
+            // 
+            this.countEVenue.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countEVenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countEVenue.Location = new System.Drawing.Point(283, 177);
+            this.countEVenue.Name = "countEVenue";
+            this.countEVenue.Size = new System.Drawing.Size(53, 17);
+            this.countEVenue.TabIndex = 320;
+            this.countEVenue.Text = "0/100";
+            this.countEVenue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countEVenue.Visible = false;
+            // 
+            // lblEventName
+            // 
+            this.lblEventName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEventName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblEventName.Location = new System.Drawing.Point(181, 85);
+            this.lblEventName.Name = "lblEventName";
+            this.lblEventName.Size = new System.Drawing.Size(155, 15);
+            this.lblEventName.TabIndex = 315;
+            this.lblEventName.Text = "EVENT NAME";
+            this.lblEventName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // countEName
+            // 
+            this.countEName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countEName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countEName.Location = new System.Drawing.Point(283, 100);
+            this.countEName.Name = "countEName";
+            this.countEName.Size = new System.Drawing.Size(53, 17);
+            this.countEName.TabIndex = 312;
+            this.countEName.Text = "0/100";
+            this.countEName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countEName.Visible = false;
             // 
             // panel8
             // 
@@ -133,7 +190,7 @@
             this.btnBRCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBRCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnBRCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRCancel.Location = new System.Drawing.Point(650, 17);
+            this.btnBRCancel.Location = new System.Drawing.Point(640, 24);
             this.btnBRCancel.Name = "btnBRCancel";
             this.btnBRCancel.Size = new System.Drawing.Size(97, 26);
             this.btnBRCancel.TabIndex = 151;
@@ -147,24 +204,24 @@
             this.btnBRNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBRNext.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnBRNext.ForeColor = System.Drawing.Color.White;
-            this.btnBRNext.Location = new System.Drawing.Point(773, 17);
+            this.btnBRNext.Location = new System.Drawing.Point(763, 24);
             this.btnBRNext.Name = "btnBRNext";
             this.btnBRNext.Size = new System.Drawing.Size(97, 26);
             this.btnBRNext.TabIndex = 150;
             this.btnBRNext.Text = "NEXT";
             this.btnBRNext.UseVisualStyleBackColor = false;
             // 
-            // txtPurpose
+            // txtEventName
             // 
-            this.txtPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPurpose.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtPurpose.Location = new System.Drawing.Point(358, 58);
-            this.txtPurpose.MaxLength = 100;
-            this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(498, 22);
-            this.txtPurpose.TabIndex = 301;
-            this.txtPurpose.Text = "Name of purpose.";
+            this.txtEventName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEventName.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtEventName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtEventName.Location = new System.Drawing.Point(362, 80);
+            this.txtEventName.MaxLength = 100;
+            this.txtEventName.Name = "txtEventName";
+            this.txtEventName.Size = new System.Drawing.Size(498, 22);
+            this.txtEventName.TabIndex = 301;
+            this.txtEventName.Text = "What is the name of the event?";
             // 
             // pictureBox29
             // 
@@ -175,399 +232,162 @@
             this.pictureBox29.TabIndex = 299;
             this.pictureBox29.TabStop = false;
             // 
-            // panelPurpose
+            // panelEName
             // 
-            this.panelPurpose.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panelPurpose.Location = new System.Drawing.Point(354, 66);
-            this.panelPurpose.Name = "panelPurpose";
-            this.panelPurpose.Size = new System.Drawing.Size(506, 33);
-            this.panelPurpose.TabIndex = 306;
-            this.panelPurpose.TabStop = false;
+            this.panelEName.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelEName.Location = new System.Drawing.Point(358, 88);
+            this.panelEName.Name = "panelEName";
+            this.panelEName.Size = new System.Drawing.Size(506, 33);
+            this.panelEName.TabIndex = 306;
+            this.panelEName.TabStop = false;
             // 
-            // cbExpCat
+            // lblEVenue
             // 
-            this.cbExpCat.Enabled = false;
-            this.cbExpCat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.cbExpCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.cbExpCat.FormattingEnabled = true;
-            this.cbExpCat.Items.AddRange(new object[] {
-            "Communication, Lights, and Water",
-            "Depreciation Expenses",
-            "Guidance and Counselling",
-            "Honorarium",
-            "Household Expenses",
-            "Insurance Expense",
-            "Meeting and Conferences",
-            "Printing and Advertising",
-            "Professional Fees",
-            "Salary",
-            "SSS, PHIC, and HMDF",
-            "Taxes and Licenses"});
-            this.cbExpCat.Location = new System.Drawing.Point(354, 415);
-            this.cbExpCat.Name = "cbExpCat";
-            this.cbExpCat.Size = new System.Drawing.Size(273, 25);
-            this.cbExpCat.TabIndex = 322;
+            this.lblEVenue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEVenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblEVenue.Location = new System.Drawing.Point(181, 162);
+            this.lblEVenue.Name = "lblEVenue";
+            this.lblEVenue.Size = new System.Drawing.Size(155, 15);
+            this.lblEVenue.TabIndex = 330;
+            this.lblEVenue.Text = "REQUESTED BY";
+            this.lblEVenue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblBRRequest
+            // txtEventDes
             // 
-            this.lblBRRequest.AutoSize = true;
-            this.lblBRRequest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblBRRequest.Location = new System.Drawing.Point(240, 151);
-            this.lblBRRequest.Name = "lblBRRequest";
-            this.lblBRRequest.Size = new System.Drawing.Size(92, 15);
-            this.lblBRRequest.TabIndex = 321;
-            this.lblBRRequest.Text = "REQUESTED BY";
+            this.txtEventDes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtEventDes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEventDes.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtEventDes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtEventDes.Location = new System.Drawing.Point(358, 248);
+            this.txtEventDes.Margin = new System.Windows.Forms.Padding(10);
+            this.txtEventDes.MaxLength = 250;
+            this.txtEventDes.Name = "txtEventDes";
+            this.txtEventDes.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtEventDes.Size = new System.Drawing.Size(506, 55);
+            this.txtEventDes.TabIndex = 331;
+            this.txtEventDes.Text = "Describe the event.";
             // 
-            // countBRRequest
+            // lblEDes
             // 
-            this.countBRRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
-            this.countBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countBRRequest.Location = new System.Drawing.Point(279, 166);
-            this.countBRRequest.Name = "countBRRequest";
-            this.countBRRequest.Size = new System.Drawing.Size(53, 17);
-            this.countBRRequest.TabIndex = 320;
-            this.countBRRequest.Text = "0/100";
-            this.countBRRequest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countBRRequest.Visible = false;
+            this.lblEDes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEDes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblEDes.Location = new System.Drawing.Point(181, 248);
+            this.lblEDes.Name = "lblEDes";
+            this.lblEDes.Size = new System.Drawing.Size(155, 15);
+            this.lblEDes.TabIndex = 333;
+            this.lblEDes.Text = "EVENT DESCRIPTION";
+            this.lblEDes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtBRRequest
+            // countEDes
             // 
-            this.txtBRRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBRRequest.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtBRRequest.Location = new System.Drawing.Point(358, 144);
-            this.txtBRRequest.MaxLength = 100;
-            this.txtBRRequest.Name = "txtBRRequest";
-            this.txtBRRequest.Size = new System.Drawing.Size(498, 22);
-            this.txtBRRequest.TabIndex = 0;
-            this.txtBRRequest.Text = "Name.";
+            this.countEDes.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countEDes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countEDes.Location = new System.Drawing.Point(283, 263);
+            this.countEDes.Name = "countEDes";
+            this.countEDes.Size = new System.Drawing.Size(53, 17);
+            this.countEDes.TabIndex = 332;
+            this.countEDes.Text = "0/250";
+            this.countEDes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countEDes.Visible = false;
             // 
-            // panel12
+            // txtEvType
             // 
-            this.panel12.Controls.Add(this.rbOthers);
-            this.panel12.Controls.Add(this.rbTranspo);
-            this.panel12.Controls.Add(this.rbSpiritual);
-            this.panel12.Controls.Add(this.rbSocial);
-            this.panel12.Controls.Add(this.rbSkills);
-            this.panel12.Controls.Add(this.rbSchool);
-            this.panel12.Controls.Add(this.rbOffice);
-            this.panel12.Controls.Add(this.rbMeds);
-            this.panel12.Controls.Add(this.rbHouse);
-            this.panel12.Controls.Add(this.rbFood);
-            this.panel12.Controls.Add(this.rbClothing);
-            this.panel12.Enabled = false;
-            this.panel12.Location = new System.Drawing.Point(354, 276);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(503, 121);
-            this.panel12.TabIndex = 318;
+            this.txtEvType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEvType.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtEvType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtEvType.Location = new System.Drawing.Point(358, 358);
+            this.txtEvType.MaxLength = 100;
+            this.txtEvType.Name = "txtEvType";
+            this.txtEvType.Size = new System.Drawing.Size(498, 22);
+            this.txtEvType.TabIndex = 334;
+            this.txtEvType.Text = "Event Type...";
+            this.txtEvType.Visible = false;
             // 
-            // rbOthers
+            // btnShowAdd
             // 
-            this.rbOthers.AutoSize = true;
-            this.rbOthers.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbOthers.Location = new System.Drawing.Point(359, 61);
-            this.rbOthers.Name = "rbOthers";
-            this.rbOthers.Size = new System.Drawing.Size(68, 23);
-            this.rbOthers.TabIndex = 10;
-            this.rbOthers.TabStop = true;
-            this.rbOthers.Text = "Others";
-            this.rbOthers.UseVisualStyleBackColor = true;
-            this.rbOthers.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
+            this.btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.addsomething;
+            this.btnShowAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowAdd.FlatAppearance.BorderSize = 0;
+            this.btnShowAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAdd.Location = new System.Drawing.Point(562, 316);
+            this.btnShowAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShowAdd.Name = "btnShowAdd";
+            this.btnShowAdd.Size = new System.Drawing.Size(25, 25);
+            this.btnShowAdd.TabIndex = 337;
+            this.btnShowAdd.UseVisualStyleBackColor = true;
             // 
-            // rbTranspo
+            // cbEType
             // 
-            this.rbTranspo.AutoSize = true;
-            this.rbTranspo.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbTranspo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbTranspo.Location = new System.Drawing.Point(359, 32);
-            this.rbTranspo.Name = "rbTranspo";
-            this.rbTranspo.Size = new System.Drawing.Size(114, 23);
-            this.rbTranspo.TabIndex = 9;
-            this.rbTranspo.TabStop = true;
-            this.rbTranspo.Text = "Transportation";
-            this.rbTranspo.UseVisualStyleBackColor = true;
-            this.rbTranspo.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
+            this.cbEType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbEType.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbEType.FormattingEnabled = true;
+            this.cbEType.Items.AddRange(new object[] {
+            "Mass",
+            "Party"});
+            this.cbEType.Location = new System.Drawing.Point(354, 316);
+            this.cbEType.Name = "cbEType";
+            this.cbEType.Size = new System.Drawing.Size(193, 25);
+            this.cbEType.TabIndex = 339;
             // 
-            // rbSpiritual
+            // lblEType
             // 
-            this.rbSpiritual.AutoSize = true;
-            this.rbSpiritual.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbSpiritual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSpiritual.Location = new System.Drawing.Point(359, 3);
-            this.rbSpiritual.Name = "rbSpiritual";
-            this.rbSpiritual.Size = new System.Drawing.Size(141, 23);
-            this.rbSpiritual.TabIndex = 8;
-            this.rbSpiritual.TabStop = true;
-            this.rbSpiritual.Text = "Spiritual Formation";
-            this.rbSpiritual.UseVisualStyleBackColor = true;
-            this.rbSpiritual.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
+            this.lblEType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblEType.Location = new System.Drawing.Point(177, 321);
+            this.lblEType.Name = "lblEType";
+            this.lblEType.Size = new System.Drawing.Size(155, 15);
+            this.lblEType.TabIndex = 341;
+            this.lblEType.Text = "EVENT TYPE";
+            this.lblEType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // rbSocial
+            // panelEvType
             // 
-            this.rbSocial.AutoSize = true;
-            this.rbSocial.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSocial.Location = new System.Drawing.Point(178, 90);
-            this.rbSocial.Name = "rbSocial";
-            this.rbSocial.Size = new System.Drawing.Size(90, 23);
-            this.rbSocial.TabIndex = 7;
-            this.rbSocial.TabStop = true;
-            this.rbSocial.Text = "Recreation";
-            this.rbSocial.UseVisualStyleBackColor = true;
-            this.rbSocial.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
+            this.panelEvType.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelEvType.Location = new System.Drawing.Point(354, 369);
+            this.panelEvType.Name = "panelEvType";
+            this.panelEvType.Size = new System.Drawing.Size(506, 33);
+            this.panelEvType.TabIndex = 342;
+            this.panelEvType.TabStop = false;
             // 
-            // rbSkills
+            // btnAddType
             // 
-            this.rbSkills.AutoSize = true;
-            this.rbSkills.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbSkills.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSkills.Location = new System.Drawing.Point(178, 61);
-            this.rbSkills.Name = "rbSkills";
-            this.rbSkills.Size = new System.Drawing.Size(155, 23);
-            this.rbSkills.TabIndex = 6;
-            this.rbSkills.TabStop = true;
-            this.rbSkills.Text = "Skills && Development";
-            this.rbSkills.UseVisualStyleBackColor = true;
-            this.rbSkills.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
+            this.btnAddType.BackColor = System.Drawing.Color.White;
+            this.btnAddType.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnAddType.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddType.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnAddType.Location = new System.Drawing.Point(655, 408);
+            this.btnAddType.Name = "btnAddType";
+            this.btnAddType.Size = new System.Drawing.Size(205, 29);
+            this.btnAddType.TabIndex = 343;
+            this.btnAddType.Text = "ADD TYPE";
+            this.btnAddType.UseVisualStyleBackColor = false;
+            this.btnAddType.Visible = false;
             // 
-            // rbSchool
+            // lblRequestBy
             // 
-            this.rbSchool.AutoSize = true;
-            this.rbSchool.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbSchool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSchool.Location = new System.Drawing.Point(12, 32);
-            this.rbSchool.Name = "rbSchool";
-            this.rbSchool.Size = new System.Drawing.Size(86, 23);
-            this.rbSchool.TabIndex = 5;
-            this.rbSchool.TabStop = true;
-            this.rbSchool.Text = "Education";
-            this.rbSchool.UseVisualStyleBackColor = true;
-            this.rbSchool.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
+            this.lblRequestBy.AutoSize = true;
+            this.lblRequestBy.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblRequestBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblRequestBy.Location = new System.Drawing.Point(81, 225);
+            this.lblRequestBy.Name = "lblRequestBy";
+            this.lblRequestBy.Size = new System.Drawing.Size(111, 21);
+            this.lblRequestBy.TabIndex = 344;
+            this.lblRequestBy.Text = "Requested by";
             // 
-            // rbOffice
+            // countRequestBy
             // 
-            this.rbOffice.AutoSize = true;
-            this.rbOffice.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbOffice.Location = new System.Drawing.Point(178, 32);
-            this.rbOffice.Name = "rbOffice";
-            this.rbOffice.Size = new System.Drawing.Size(116, 23);
-            this.rbOffice.TabIndex = 4;
-            this.rbOffice.TabStop = true;
-            this.rbOffice.Text = "Office Supplies";
-            this.rbOffice.UseVisualStyleBackColor = true;
-            this.rbOffice.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
-            // 
-            // rbMeds
-            // 
-            this.rbMeds.AutoSize = true;
-            this.rbMeds.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbMeds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbMeds.Location = new System.Drawing.Point(178, 3);
-            this.rbMeds.Name = "rbMeds";
-            this.rbMeds.Size = new System.Drawing.Size(127, 23);
-            this.rbMeds.TabIndex = 3;
-            this.rbMeds.TabStop = true;
-            this.rbMeds.Text = "Medical Supplies";
-            this.rbMeds.UseVisualStyleBackColor = true;
-            this.rbMeds.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
-            // 
-            // rbHouse
-            // 
-            this.rbHouse.AutoSize = true;
-            this.rbHouse.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbHouse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbHouse.Location = new System.Drawing.Point(12, 90);
-            this.rbHouse.Name = "rbHouse";
-            this.rbHouse.Size = new System.Drawing.Size(160, 23);
-            this.rbHouse.TabIndex = 2;
-            this.rbHouse.TabStop = true;
-            this.rbHouse.Text = "Repair && Maintenance";
-            this.rbHouse.UseVisualStyleBackColor = true;
-            this.rbHouse.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
-            // 
-            // rbFood
-            // 
-            this.rbFood.AutoSize = true;
-            this.rbFood.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbFood.Location = new System.Drawing.Point(12, 61);
-            this.rbFood.Name = "rbFood";
-            this.rbFood.Size = new System.Drawing.Size(58, 23);
-            this.rbFood.TabIndex = 1;
-            this.rbFood.TabStop = true;
-            this.rbFood.Text = "Food";
-            this.rbFood.UseVisualStyleBackColor = true;
-            this.rbFood.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
-            // 
-            // rbClothing
-            // 
-            this.rbClothing.AutoSize = true;
-            this.rbClothing.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.rbClothing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbClothing.Location = new System.Drawing.Point(12, 3);
-            this.rbClothing.Name = "rbClothing";
-            this.rbClothing.Size = new System.Drawing.Size(78, 23);
-            this.rbClothing.TabIndex = 0;
-            this.rbClothing.TabStop = true;
-            this.rbClothing.Text = "Clothing";
-            this.rbClothing.UseVisualStyleBackColor = true;
-            this.rbClothing.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
-            // 
-            // lblOthers
-            // 
-            this.lblOthers.AutoSize = true;
-            this.lblOthers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblOthers.Location = new System.Drawing.Point(223, 420);
-            this.lblOthers.Name = "lblOthers";
-            this.lblOthers.Size = new System.Drawing.Size(109, 15);
-            this.lblOthers.TabIndex = 317;
-            this.lblOthers.Text = "OTHER CATEGORY";
-            this.lblOthers.Visible = false;
-            // 
-            // lblCatType
-            // 
-            this.lblCatType.AutoSize = true;
-            this.lblCatType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCatType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblCatType.Location = new System.Drawing.Point(298, 238);
-            this.lblCatType.Name = "lblCatType";
-            this.lblCatType.Size = new System.Drawing.Size(34, 15);
-            this.lblCatType.TabIndex = 316;
-            this.lblCatType.Text = "TYPE";
-            // 
-            // lblPurpose
-            // 
-            this.lblPurpose.AutoSize = true;
-            this.lblPurpose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblPurpose.Location = new System.Drawing.Point(272, 63);
-            this.lblPurpose.Name = "lblPurpose";
-            this.lblPurpose.Size = new System.Drawing.Size(60, 15);
-            this.lblPurpose.TabIndex = 315;
-            this.lblPurpose.Text = "PURPOSE";
-            // 
-            // dateBR
-            // 
-            this.dateBR.CalendarFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateBR.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.dateBR.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.dateBR.CustomFormat = "MMMM dd, yyyy";
-            this.dateBR.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.dateBR.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateBR.Location = new System.Drawing.Point(354, 105);
-            this.dateBR.MaxDate = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            this.dateBR.Name = "dateBR";
-            this.dateBR.Size = new System.Drawing.Size(276, 29);
-            this.dateBR.TabIndex = 314;
-            this.dateBR.Value = new System.DateTime(2017, 8, 20, 0, 0, 0, 0);
-            // 
-            // lblDateRequest
-            // 
-            this.lblDateRequest.AutoSize = true;
-            this.lblDateRequest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblDateRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblDateRequest.Location = new System.Drawing.Point(226, 112);
-            this.lblDateRequest.Name = "lblDateRequest";
-            this.lblDateRequest.Size = new System.Drawing.Size(106, 15);
-            this.lblDateRequest.TabIndex = 313;
-            this.lblDateRequest.Text = "DATE REQUESTED";
-            // 
-            // countPurpose
-            // 
-            this.countPurpose.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
-            this.countPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countPurpose.Location = new System.Drawing.Point(279, 78);
-            this.countPurpose.Name = "countPurpose";
-            this.countPurpose.Size = new System.Drawing.Size(53, 17);
-            this.countPurpose.TabIndex = 312;
-            this.countPurpose.Text = "0/100";
-            this.countPurpose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countPurpose.Visible = false;
-            // 
-            // btnCatSingle
-            // 
-            this.btnCatSingle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnCatSingle.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnCatSingle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCatSingle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnCatSingle.Location = new System.Drawing.Point(354, 230);
-            this.btnCatSingle.Name = "btnCatSingle";
-            this.btnCatSingle.Size = new System.Drawing.Size(228, 31);
-            this.btnCatSingle.TabIndex = 323;
-            this.btnCatSingle.Text = "SINGLE";
-            this.btnCatSingle.UseVisualStyleBackColor = true;
-            // 
-            // btnCatMultiple
-            // 
-            this.btnCatMultiple.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnCatMultiple.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnCatMultiple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCatMultiple.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnCatMultiple.Location = new System.Drawing.Point(604, 230);
-            this.btnCatMultiple.Name = "btnCatMultiple";
-            this.btnCatMultiple.Size = new System.Drawing.Size(228, 31);
-            this.btnCatMultiple.TabIndex = 324;
-            this.btnCatMultiple.Text = "MULTIPLE";
-            this.btnCatMultiple.UseVisualStyleBackColor = true;
-            // 
-            // panelBRRequest
-            // 
-            this.panelBRRequest.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panelBRRequest.Location = new System.Drawing.Point(354, 155);
-            this.panelBRRequest.Name = "panelBRRequest";
-            this.panelBRRequest.Size = new System.Drawing.Size(506, 33);
-            this.panelBRRequest.TabIndex = 325;
-            this.panelBRRequest.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox2.Location = new System.Drawing.Point(30, 194);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(868, 26);
-            this.pictureBox2.TabIndex = 326;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblBRHead2
-            // 
-            this.lblBRHead2.AutoSize = true;
-            this.lblBRHead2.BackColor = System.Drawing.Color.Transparent;
-            this.lblBRHead2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.lblBRHead2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
-            this.lblBRHead2.Location = new System.Drawing.Point(76, 318);
-            this.lblBRHead2.Name = "lblBRHead2";
-            this.lblBRHead2.Size = new System.Drawing.Size(63, 13);
-            this.lblBRHead2.TabIndex = 327;
-            this.lblBRHead2.Text = "CATEGORY";
-            this.lblBRHead2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblCategory.Location = new System.Drawing.Point(238, 279);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(94, 15);
-            this.lblCategory.TabIndex = 328;
-            this.lblCategory.Text = "ONE CATEGORY";
-            // 
-            // lblBRHead1
-            // 
-            this.lblBRHead1.AutoSize = true;
-            this.lblBRHead1.BackColor = System.Drawing.Color.Transparent;
-            this.lblBRHead1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.lblBRHead1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
-            this.lblBRHead1.Location = new System.Drawing.Point(83, 112);
-            this.lblBRHead1.Name = "lblBRHead1";
-            this.lblBRHead1.Size = new System.Drawing.Size(49, 13);
-            this.lblBRHead1.TabIndex = 329;
-            this.lblBRHead1.Text = "DETAILS";
-            this.lblBRHead1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.countRequestBy.AutoSize = true;
+            this.countRequestBy.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.countRequestBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.countRequestBy.Location = new System.Drawing.Point(813, 229);
+            this.countRequestBy.Name = "countRequestBy";
+            this.countRequestBy.Size = new System.Drawing.Size(39, 17);
+            this.countRequestBy.TabIndex = 346;
+            this.countRequestBy.Text = "0/100";
+            this.countRequestBy.Visible = false;
             // 
             // plain
             // 
@@ -582,13 +402,11 @@
             this.tabControl.ResumeLayout(false);
             this.fifteen.ResumeLayout(false);
             this.fifteen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelRequestBy)).EndInit();
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).EndInit();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelBRRequest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEvType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -600,37 +418,26 @@
         private System.Windows.Forms.Panel panel8;
         private NoFocusRec btnBRCancel;
         private NoFocusRec btnBRNext;
-        private System.Windows.Forms.TextBox txtPurpose;
+        private System.Windows.Forms.TextBox txtEventName;
         private System.Windows.Forms.PictureBox pictureBox29;
-        private System.Windows.Forms.PictureBox panelPurpose;
-        private System.Windows.Forms.ComboBox cbExpCat;
-        private System.Windows.Forms.Label lblBRRequest;
-        private System.Windows.Forms.Label countBRRequest;
-        private System.Windows.Forms.TextBox txtBRRequest;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.RadioButton rbOthers;
-        private System.Windows.Forms.RadioButton rbTranspo;
-        private System.Windows.Forms.RadioButton rbSpiritual;
-        private System.Windows.Forms.RadioButton rbSocial;
-        private System.Windows.Forms.RadioButton rbSkills;
-        private System.Windows.Forms.RadioButton rbSchool;
-        private System.Windows.Forms.RadioButton rbOffice;
-        private System.Windows.Forms.RadioButton rbMeds;
-        private System.Windows.Forms.RadioButton rbHouse;
-        private System.Windows.Forms.RadioButton rbFood;
-        private System.Windows.Forms.RadioButton rbClothing;
-        private System.Windows.Forms.Label lblOthers;
-        private System.Windows.Forms.Label lblCatType;
-        private System.Windows.Forms.Label lblPurpose;
-        private System.Windows.Forms.DateTimePicker dateBR;
-        private System.Windows.Forms.Label lblDateRequest;
-        private System.Windows.Forms.Label countPurpose;
-        private NoFocusRec btnCatSingle;
-        private NoFocusRec btnCatMultiple;
-        private System.Windows.Forms.PictureBox panelBRRequest;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblBRHead2;
-        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.PictureBox panelEName;
+        private System.Windows.Forms.Label countEVenue;
+        private System.Windows.Forms.TextBox txtRequestBy;
+        private System.Windows.Forms.Label lblEventName;
+        private System.Windows.Forms.Label countEName;
+        private System.Windows.Forms.PictureBox panelRequestBy;
         private System.Windows.Forms.Label lblBRHead1;
+        private System.Windows.Forms.Label lblEVenue;
+        private System.Windows.Forms.RichTextBox txtEventDes;
+        private System.Windows.Forms.Label lblEDes;
+        private System.Windows.Forms.Label countEDes;
+        private System.Windows.Forms.TextBox txtEvType;
+        private System.Windows.Forms.Button btnShowAdd;
+        private System.Windows.Forms.Label lblEType;
+        private System.Windows.Forms.ComboBox cbEType;
+        private System.Windows.Forms.PictureBox panelEvType;
+        private NoFocusRec btnAddType;
+        private System.Windows.Forms.Label lblRequestBy;
+        private System.Windows.Forms.Label countRequestBy;
     }
 }

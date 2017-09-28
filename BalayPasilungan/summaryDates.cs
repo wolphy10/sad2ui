@@ -37,7 +37,8 @@ namespace BalayPasilungan
             DateTime dateto = DateTime.ParseExact(datecurto, "yyyy-M-d", CultureInfo.InvariantCulture);
             DataRow dr;
             DataTable dt2 = new DataTable();
-            dt2.Columns.Add("Date");
+            dt2.Columns.Add("From");
+            dt2.Columns.Add("To");
             dt2.Columns.Add("Event Name");
             dt2.Columns.Add("Event Type");
             dt2.Columns.Add("Description");
@@ -57,7 +58,8 @@ namespace BalayPasilungan
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        dr["Date"] = dt.Rows[i]["evDateFrom"].ToString() + " " + dt.Rows[i]["evTimeFrom"].ToString() + " - " + dt.Rows[i]["evDateTo"].ToString() + " " + dt.Rows[i]["evTimeTo"].ToString();
+                        dr["From"] = DateTime.Parse(dt.Rows[i]["evDateFrom"].ToString()).ToString("MMMM dd, yyyy") + " " + DateTime.Parse(dt.Rows[i]["evTimeFrom"].ToString()).ToString("hh:mm tt");
+                        dr["To"] = DateTime.Parse(dt.Rows[i]["evDateTo"].ToString()).ToString("MMMM dd, yyyy") + " " + DateTime.Parse(dt.Rows[i]["evTimeTo"].ToString()).ToString("hh:mm tt");
                         dr["Event Name"] = dt.Rows[i]["evName"].ToString();
                         dr["Event Type"] = dt.Rows[i]["evType"].ToString();
                         dr["Description"] = dt.Rows[i]["evDesc"].ToString();
@@ -65,22 +67,20 @@ namespace BalayPasilungan
                         dr["Status"] = dt.Rows[i]["status"].ToString();
                         dr["Progress"] = dt.Rows[i]["evProgress"].ToString();
                         dr["Requested By"] = dt.Rows[i]["requestedBy"].ToString();
+                                               
                         dt2.Rows.Add(dr);
                         dr = dt2.NewRow();
                     }
                 }
                 summaryView.DataSource = dt2;
                 conn.Close();
-                foreach (DataGridViewColumn ya in summaryView.Columns)
+                /*foreach (DataGridViewColumn ya in summaryView.Columns)
                 {
                     ya.Width = 160;
-                }
-                DataGridViewColumn wo = summaryView.Columns[0];
-                wo.Width = 400;
-                foreach (DataGridViewRow ro in summaryView.Rows)
-                {
-                    ro.Height = 50;
-                }
+                }*/
+                summaryView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                summaryView.Columns[0].Width = 350;
+                summaryView.Columns[1].Width = 350;
             }
             catch (Exception ee)
             {

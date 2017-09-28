@@ -23,10 +23,8 @@ namespace BalayPasilungan
         {
             InitializeComponent();
             tabSecond.SelectedTab = tabCalendar;
-            conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
-            //Load += btnEvent_Click; onload automatically click the btnevent which instantiating it always on tabevent onload
-            //menuStrip.Renderer = new renderer();
-            //menuStrip1.Renderer = new renderer();
+            conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");            
+            menuStrip2.Renderer = new renderer();
             menuStripEvent.Renderer = new renderer();
             ERProgress.Renderer = new renderer2();
         }
@@ -121,22 +119,12 @@ namespace BalayPasilungan
                       
             lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
 
-            lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-
             lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");  
 
             panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
             panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
             panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-        }
-
-        private void resetCounters()
-        {
-            countEName.Visible = false;
-            countEVenue.Visible = false;
-            countEDes.Visible = false;
-            countRequestBy.Visible = false;
-        }
+        }        
 
         public void adjustCustom(int type, String now)
         {
@@ -181,6 +169,21 @@ namespace BalayPasilungan
                     btnYPrev.Text = (int.Parse(now) - 1).ToString();
                 }
             }
+        }
+
+        private void btnNewEventForm_Click(object sender, EventArgs e)          // Clear textboxes and reset form  
+        {
+            resetLabelsPanels();
+            txtEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
+            txtEventName.Text = "What is the name of the event?";
+            txtEventDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
+            txtEventDes.Text = "Describe the event.";
+            txtVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
+            txtVenue.Text = "Where will it be held?";
+
+            countEDes.Visible = false; countEName.Visible = false; countEVenue.Visible = false; countRequestBy.Visible = false;
+
+            // Find code to unclick button
         }
         #endregion
 
@@ -501,39 +504,10 @@ namespace BalayPasilungan
         #endregion
 
         #region Event Request Form Textboxs
-        #region Enter Textbox
-        private void txtEventName_Enter(object sender, EventArgs e)
-        {
-            resetLabelsPanels(); resetCounters();
-            txtEventName.ForeColor = Color.Black;            
-            if (txtEventName.Text.Equals("What is the name of the event?")) txtEventName.Text = "";
-            panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
-            lblEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            countEName.Visible = true;       
-        }
-
-        private void txtVenue_Enter(object sender, EventArgs e)
-        {
-            resetLabelsPanels(); resetCounters();
-            txtVenue.ForeColor = Color.Black;
-            if (txtVenue.Text.Equals("Where will it be held?")) txtVenue.Text = "";
-            panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
-            lblEVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            countEVenue.Visible = true;
-        }
-
-        private void txtEventDes_Enter(object sender, EventArgs e)
-        {
-            resetLabelsPanels(); resetCounters();
-            txtEventDes.ForeColor = Color.Black;
-            if (txtEventDes.Text.Equals("Describe the event.")) txtEventDes.Text = "";
-            lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            countEDes.Visible = true;
-        }
         
+        #region Enter Textbox        
         private void cbEType_Enter(object sender, EventArgs e)
         {
-            resetLabelsPanels();
             lblEType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
         }
 
@@ -541,74 +515,15 @@ namespace BalayPasilungan
         {
             resetLabelsPanels();
             lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-        }
-
-        private void txtRequestBy_Enter(object sender, EventArgs e)
-        {
-            txtRequestBy.ForeColor = Color.Black;
-            lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            if (txtRequestBy.Text.Equals("Who requested the event?")) txtRequestBy.Text = "";
-            resetLabelsPanels();
-            panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_green;
-            lblRequestBy.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            countRequestBy.Visible = true;
-        }
-
-        private void reminderDate_Enter(object sender, EventArgs e)
-        {
-            resetLabelsPanels();
-            lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-        }
+        }        
 
         private void others_Enter(object sender, EventArgs e)
         {
-            lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             lblNo.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
             //reminderPanel.Height = 0;
         }
         #endregion
-
-            #region Leave Methods
-            private void txtRequestBy_Leave(object sender, EventArgs e)
-            {
-                resetLabelsPanels(); resetCounters();
-            }
         
-            private void txtEventName_Leave(object sender, EventArgs e) //BOOK2
-            {
-                resetLabelsPanels(); resetCounters();
-                if (txtEventName.Text.Equals("")) txtEventName.Text = "What is the name of the event?";
-                else
-                {
-                    if (sameEvName(txtEventName.Text)) confirm_EName.Text = txtEventName.Text;
-                    else
-                    {
-                        errorMessage("The event name is already present");
-                        txtEventName.Text = "What is the name of the event?";
-                    }
-                }
-                txtEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            }
-
-            private void txtEventDes_Leave(object sender, EventArgs e)
-            {
-                resetLabelsPanels(); resetCounters();
-                txtEventDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-                if (txtEventDes.Text.Equals("")) txtEventDes.Text = "Describe the event.";
-            }
-
-            private void txtVenue_Leave(object sender, EventArgs e)
-            {
-                resetLabelsPanels(); resetCounters();
-                txtVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-                if (txtVenue.Text.Equals("")) txtVenue.Text = "Where will it be held?";
-            }
-
-            private void eventdetails_Click(object sender, EventArgs e)
-            {
-               resetLabelsPanels();          
-            }        
-        #endregion
 
         private void btnOther_MouseHover(object sender, EventArgs e)
         {
@@ -617,19 +532,71 @@ namespace BalayPasilungan
         
         #endregion
 
-        #region Event Request Form Counters        
-        private void txtEventName_TextChanged(object sender, EventArgs e)
-        {            
-            int count = txtEventName.Text.Length;            
-            countEName.Text = count + "/100";
-            confirm_EName.Text = txtEventName.Text;
+        #region Textbox
+        private void txtNew_Enter(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "What is the name of the event?" || ((TextBox)sender).Text == "Where will it be held?" || ((TextBox)sender).Text == "Who requested the event?" || ((TextBox)sender).Text == "What is the event type?") ((TextBox)sender).Text = "";
+            ((TextBox)sender).ForeColor = Color.Black;
+
+            if (((TextBox)sender).Name == "txtEventName")
+            {
+                lblEventName.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                panelEName.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countEName.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtVenue")
+            {
+                lblEVenue.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countEVenue.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtRequestBy") 
+            {
+                lblRequestBy.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
+                countRequestBy.Visible = true;
+            }
+            else if (((TextBox)sender).Name == "txtEvType") panelEvType.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;                        
         }
 
-        private void txtVenue_TextChanged(object sender, EventArgs e)
+        private void txtNewCount_TextChanged(object sender, EventArgs e)
         {
-            int count = txtVenue.Text.Length;
-            countEVenue.Text = count + "/100";
-            confirm_EVenue.Text = txtVenue.Text;
+            if (((TextBox)sender).Name == "txtEventName") countEName.Text = ((TextBox)sender).TextLength + "/100";
+            else if (((TextBox)sender).Name == "txtVenue") countEVenue.Text = ((TextBox)sender).TextLength + "/100";
+            else if (((TextBox)sender).Name == "txtRequestBy") countRequestBy.Text = ((TextBox)sender).TextLength + "/100";
+        }
+
+        private void txtNew_Leave(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+            {                
+                if (((TextBox)sender).Name == "txtVenue") ((TextBox)sender).Text = "Where will it be held?";
+                else if (((TextBox)sender).Name == "txtRequestBy") ((TextBox)sender).Text = "Who requested the event?";
+            }
+            ((TextBox)sender).ForeColor = System.Drawing.Color.FromArgb(135, 135, 135);
+
+            if (((TextBox)sender).Name == "txtEventName")
+            {
+                if (sameEvName(txtEventName.Text)) confirm_EName.Text = txtEventName.Text;
+                else
+                {
+                    errorMessage("The event name is already present.");
+                    txtEventName.Text = "What is the name of the event?";
+                }
+            }
+            else if (((TextBox)sender).Name == "txtVenue")
+            {
+                lblEVenue.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelEVenue.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                countEVenue.Visible = false;
+            }
+            else if (((TextBox)sender).Name == "txtRequestBy")
+            {
+                lblRequestBy.ForeColor = System.Drawing.Color.FromArgb(42, 42, 42);
+                panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+                countRequestBy.Visible = false;
+            }
+            else if (((TextBox)sender).Name == "txtEvType") panelRequestBy.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;               
         }
 
         private void txtEventDes_TextChanged(object sender, EventArgs e)
@@ -637,12 +604,6 @@ namespace BalayPasilungan
             int count = txtEventDes.Text.Length;
             countEDes.Text = count + "/100";
             confirm_EDes.Text = txtEventDes.Text;
-        }
-
-        private void txtRequestBy_TextChanged(object sender, EventArgs e)
-        {
-            int count = txtRequestBy.Text.Length;
-            countRequestBy.Text = count + "/100";            
         }
         #endregion
 
@@ -692,9 +653,7 @@ namespace BalayPasilungan
 
         #region Switches
         private void btnBudget_Click(object sender, EventArgs e)
-        {
-            lblQuestion.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
-            lblBudgetAsk.ForeColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
+        {            
             if (!budgetState)
             {                
                 lblNo2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
@@ -1034,22 +993,7 @@ namespace BalayPasilungan
             }
             else if (int.Parse(txtMinRemind.Text) < 10 && txtMinRemind.TextLength < 2) txtMinRemind.Text = "0" + txtMinRemind.Text;
         }
-        #endregion
-
-        private void btnNewEventForm_Click(object sender, EventArgs e)          // Clear textboxes and reset form  
-        {
-            resetLabelsPanels();
-            txtEventName.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            txtEventName.Text = "What is the name of the event?";
-            txtEventDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            txtEventDes.Text = "Describe the event.";
-            txtVenue.ForeColor = System.Drawing.ColorTranslator.FromHtml("#878787");
-            txtVenue.Text = "Where will it be held?";                   
-
-            countEDes.Visible = false; countEName.Visible = false; countEVenue.Visible = false; countRequestBy.Visible = false;
-
-            // Find code to unclick button
-        }
+        #endregion        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -1740,7 +1684,7 @@ namespace BalayPasilungan
                                         }
                                         else if (prog == "Finished")
                                         {
-                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = System.Drawing.Color.FromArgb(251, 132, 112);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = System.Drawing.Color.FromArgb(238, 141, 125);
                                             CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.ForeColor = Color.White;
                                         }
                                         else if (prog == "Upcoming")
