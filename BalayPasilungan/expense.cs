@@ -225,26 +225,7 @@ namespace BalayPasilungan
                 logo_main.BackgroundImage = Properties.Resources.main;
             }
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            confirm conf = new confirm();
-            dim dim = new dim();
-
-            dim.Location = this.Location;
-            dim.refToPrev = this;
-            dim.Show(this);
-            conf.lblConfirm.Text = "Are you sure you want to leave?";
-            conf.refToPrev = this;
-
-            if (conf.ShowDialog() == DialogResult.OK)
-            {
-                conf.Close();
-                this.Close();
-            }
-            dim.Close();
-        }
-
+        
         private void taskbar_Paint(object sender, PaintEventArgs e)
         {
             Pen p = new Pen(System.Drawing.Color.FromArgb(240, 240, 240), 1);

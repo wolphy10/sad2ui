@@ -380,15 +380,6 @@
     <None Include="Resources\error_header.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\events_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\events_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\events_white2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\expand.png" />
   </ItemGroup>
   <ItemGroup>
@@ -402,9 +393,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\finance_fade.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\finance_green.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\line.png" />
@@ -437,9 +425,6 @@
     <None Include="Resources\main_fade.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\main_white.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\notification.png" />
   </ItemGroup>
   <ItemGroup>
@@ -450,24 +435,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\on2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\report_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\request_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\request_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\request_white2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
@@ -494,9 +461,6 @@
     <None Include="Resources\cases_green.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\finance_green.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\notification.png" />
   </ItemGroup>
   <ItemGroup>
@@ -513,6 +477,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\accPic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\request_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event_fade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\event.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

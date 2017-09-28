@@ -18,6 +18,7 @@ namespace BalayPasilungan
         public string[] aMonths = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
         public bool remindState = false, budgetState = false, allDayState = false, timeRngState = false;
         public main reftomain { get; set; }
+
         public eventorg()
         {
             InitializeComponent();
@@ -29,15 +30,33 @@ namespace BalayPasilungan
             menuStripEvent.Renderer = new renderer();
             ERProgress.Renderer = new renderer2();
         }
+        
+        #region Movable Form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
 
-        #region error and confirm and success
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void moveable_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        #endregion
+
+        #region Error, Confirm, and Success
         public void errorMessage(string message)            // Error Message
         {
             error err = new error();
             dim dim = new dim();
 
-            dim.Location = this.Location;
-            dim.Size = this.Size;
+            dim.Location = this.Location; dim.Size = this.Size;
             err.lblError.Text = message;
             dim.refToPrev = this;
             dim.Show(this);
@@ -50,8 +69,8 @@ namespace BalayPasilungan
             success yey = new success();
             dim dim = new dim();
 
-            dim.Location = this.Location;
-            dim.Size = this.Size;
+            dim.Location = this.Location; dim.Size = this.Size;
+            yey.lblSuccess.Text = message;
             dim.refToPrev = this;
             dim.Show(this);
 
@@ -65,12 +84,11 @@ namespace BalayPasilungan
             confirm conf = new confirm();
             dim dim = new dim();
 
-            dim.Location = this.Location;
-            dim.Size = this.Size;
-            conf.lblConfirm.Text = message;
+            dim.Location = this.Location; dim.Size = this.Size;
             dim.refToPrev = this;
             dim.Show(this);
 
+            conf.lblConfirm.Text = message;
             if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
             else confirmed = false;
             dim.Close();
@@ -78,12 +96,6 @@ namespace BalayPasilungan
         #endregion
 
         #region Functions
-        private void resetButtons()
-        {
-            btnEvent.BackColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-            btnRequest.BackColor = System.Drawing.ColorTranslator.FromHtml("#0fa868");
-        }
-
         private void resetDayButtons()
         {
             btnAllDay.BackColor = Color.White;
@@ -173,52 +185,103 @@ namespace BalayPasilungan
         #endregion
 
         #region Main Buttons
-        private void btnRequest_Click(object sender, EventArgs e)
+        private void taskbar_Click(object sender, EventArgs e)
         {
-            tabSecond.SelectedTab = tabRequest;
-            resetButtons();
-            btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_white;
-            btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_green;
-            btnRequest.BackColor = Color.White;
-            dateFromInitial(DateTime.Now.Month, DateTime.Now.Year);
-            dateToInitial(DateTime.Now.Month, DateTime.Now.Year);
-            dateRemindInitial(DateTime.Now.Month, DateTime.Now.Year);
-            cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEDay.SelectedIndex = DateTime.Now.Day - 1;
-            cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
-            cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(DateTime.Now.Year.ToString()); cb_DRemind.SelectedIndex = DateTime.Now.Day - 1;
-            clrTabReqF();
-            eventType();
-        }
-
-        private void btnEvent_Click(object sender, EventArgs e)
-        {
-            //menuStrip.Height = 0;
-            timer1.Enabled = true;
-
-            tabSecond.SelectedTab = tabCalendar;
-            resetTS();
-            //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
-
-            resetButtons();
-            btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_white;
-            btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_green;
-            btnEvent.BackColor = Color.White;
-            allEvents();
-            calendarcolor();
-        }
-
-        private void btnMain_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            confirmMessage("Are you sure you wan to exit?");
-            if (confirmed)
+            btnMain.ForeColor = btnEvent.ForeColor = btnRequest.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
+            logo_main.BackgroundImage = Properties.Resources.main_fade;
+            logo_events.BackgroundImage = Properties.Resources.event_fade;
+            logo_request.BackgroundImage = Properties.Resources.request_fade;
+            ((Button)sender).ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+            if (((Button)sender).Name == "btnEvent")
             {
-                this.Close();
+                logo_events.BackgroundImage = Properties.Resources._event;
+                
+                //menuStrip.Height = 0;
+                timer1.Enabled = true;
+
+                tabSecond.SelectedTab = tabCalendar;
+                resetTS();
+                //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+                
+                allEvents();
+                calendarcolor();
             }
+            else if (((Button)sender).Name == "btnRequest")
+            {
+                logo_request.BackgroundImage = Properties.Resources.request;
+
+                tabSecond.SelectedTab = tabRequest;
+                dateFromInitial(DateTime.Now.Month, DateTime.Now.Year);
+                dateToInitial(DateTime.Now.Month, DateTime.Now.Year);
+                dateRemindInitial(DateTime.Now.Month, DateTime.Now.Year);
+                cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEDay.SelectedIndex = DateTime.Now.Day - 1;
+                cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
+                cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(DateTime.Now.Year.ToString()); cb_DRemind.SelectedIndex = DateTime.Now.Day - 1;
+                clrTabReqF();
+                eventType();
+            }
+            else
+            {
+                logo_main.BackgroundImage = Properties.Resources.main;
+
+                // BACK TO MAIN
+            }
+        }
+
+        private void logo_click(object sender, EventArgs e)
+        {
+            btnMain.ForeColor = btnEvent.ForeColor = btnRequest.ForeColor = System.Drawing.Color.FromArgb(200, 200, 200);
+            logo_main.BackgroundImage = Properties.Resources.main_fade;
+            logo_events.BackgroundImage = Properties.Resources.event_fade;
+            logo_request.BackgroundImage = Properties.Resources.request_fade;
+            if (((PictureBox)sender).Name == "logo_events") 
+            {
+                btnEvent.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                logo_events.BackgroundImage = Properties.Resources._event;
+
+                //menuStrip.Height = 0;
+                timer1.Enabled = true;
+
+                tabSecond.SelectedTab = tabCalendar;
+                resetTS();
+                //eventTS.BackColor = System.Drawing.ColorTranslator.FromHtml("#2d2d2d");
+                
+                allEvents();
+                calendarcolor();
+            }
+            else if (((PictureBox)sender).Name == "logo_request")
+            {
+                btnRequest.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                logo_request.BackgroundImage = Properties.Resources.request;
+
+                tabSecond.SelectedTab = tabRequest;
+                dateFromInitial(DateTime.Now.Month, DateTime.Now.Year);
+                dateToInitial(DateTime.Now.Month, DateTime.Now.Year);
+                dateRemindInitial(DateTime.Now.Month, DateTime.Now.Year);
+                cbEYear.SelectedIndex = cbEYear.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth.SelectedIndex = DateTime.Now.Month - 1; cbEDay.SelectedIndex = DateTime.Now.Day - 1;
+                cbEYear2.SelectedIndex = cbEYear2.FindStringExact(DateTime.Now.Year.ToString()); cbEMonth2.SelectedIndex = DateTime.Now.Month - 1; cbEDay2.SelectedIndex = DateTime.Now.Day - 1;
+                cb_MRemind.SelectedIndex = DateTime.Now.Month - 1; cb_YRemind.SelectedIndex = cb_YRemind.FindStringExact(DateTime.Now.Year.ToString()); cb_DRemind.SelectedIndex = DateTime.Now.Day - 1;
+                clrTabReqF();
+                eventType();
+            }
+            else
+            {
+                btnMain.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                logo_main.BackgroundImage = Properties.Resources.main;
+
+                // BACK TO MAIN
+            }
+        }
+
+        private void taskbar_Paint(object sender, PaintEventArgs e)
+        {
+            Pen p = new Pen(System.Drawing.Color.FromArgb(240, 240, 240), 1);
+            e.Graphics.DrawRectangle(p,
+              e.ClipRectangle.Left,
+              e.ClipRectangle.Top,
+              e.ClipRectangle.Width - 1,
+              e.ClipRectangle.Height - 1);
+            base.OnPaint(e);
         }
         #endregion
 
@@ -999,9 +1062,7 @@ namespace BalayPasilungan
         }
 
         private void eventorg_Load(object sender, EventArgs e)
-        {
-            btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_white;
-            btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_green;
+        {            
             btnEvent.BackColor = Color.White;
             //MessageBox.Show("gawa ng dialog box for event view na edit isip din kun asan ilagay ang cancel. ui design nanaman for tabevent i'm not satisfied");
             btnMPrev.Text = aMonths[DateTime.Now.Month - 2];
@@ -1674,15 +1735,18 @@ namespace BalayPasilungan
                                     {
                                         if (prog == "Ongoing")
                                         {
-                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.FromArgb(108, 255, 108);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = System.Drawing.Color.FromArgb(251, 211, 120);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.ForeColor = Color.White;
                                         }
                                         else if (prog == "Finished")
                                         {
-                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.FromArgb(255, 108, 108);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = System.Drawing.Color.FromArgb(251, 132, 112);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.ForeColor = Color.White;
                                         }
                                         else if (prog == "Upcoming")
                                         {
-                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = Color.FromArgb(255, 255, 100);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.BackColor = System.Drawing.Color.FromArgb(181, 224, 129);
+                                            CalendarView.Rows[cell.RowIndex].Cells[cell.ColumnIndex].Style.ForeColor = Color.Black;
                                         }
                                         else
                                         {
@@ -2282,6 +2346,7 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
+
         public void updateCAttend(int anum)
         {
             int monthnum = Array.IndexOf(aMonths, btnMNow.Text) + 1;

@@ -30,16 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eventorg));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.taskbar = new System.Windows.Forms.Panel();
-            this.btnMain = new System.Windows.Forms.Button();
-            this.btnRequest = new System.Windows.Forms.Button();
-            this.btnEvent = new System.Windows.Forms.Button();
+            this.logo_request = new System.Windows.Forms.PictureBox();
+            this.btnRequest = new BalayPasilungan.NoFocusRec();
+            this.logo_events = new System.Windows.Forms.PictureBox();
+            this.btnEvent = new BalayPasilungan.NoFocusRec();
+            this.logo_main = new System.Windows.Forms.PictureBox();
+            this.btnMain = new BalayPasilungan.NoFocusRec();
             this.layoutPMain = new System.Windows.Forms.TableLayoutPanel();
             this.upPanel = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.remindTimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -163,6 +165,12 @@
             this.addEventTS = new System.Windows.Forms.ToolStripMenuItem();
             this.pendingRequestTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabAttend = new System.Windows.Forms.TabPage();
+            this.btnPresent = new System.Windows.Forms.Button();
+            this.btnAbsent = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.panelOptions = new System.Windows.Forms.Panel();
+            this.panelAttendanceBtn = new System.Windows.Forms.Panel();
+            this.lblOptions1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbDes = new System.Windows.Forms.Label();
             this.lbMon = new System.Windows.Forms.Label();
@@ -171,12 +179,6 @@
             this.lbVen = new System.Windows.Forms.Label();
             this.panelColor = new System.Windows.Forms.Panel();
             this.lbEvn = new System.Windows.Forms.Label();
-            this.btnPresent = new System.Windows.Forms.Button();
-            this.btnAbsent = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.panelOptions = new System.Windows.Forms.Panel();
-            this.panelAttendanceBtn = new System.Windows.Forms.Panel();
-            this.lblOptions1 = new System.Windows.Forms.Label();
             this.tabAttendance = new System.Windows.Forms.TabControl();
             this.tabOtherAttend = new System.Windows.Forms.TabPage();
             this.viewOthersAttend = new System.Windows.Forms.ListView();
@@ -203,7 +205,6 @@
             this.btnChild = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tabCalendar = new System.Windows.Forms.TabPage();
-            this.monthSummary = new System.Windows.Forms.Button();
             this.btnYPrev = new System.Windows.Forms.Button();
             this.btnYNow = new System.Windows.Forms.Button();
             this.btnYNext = new System.Windows.Forms.Button();
@@ -221,7 +222,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnBackP = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -238,27 +238,33 @@
             this.lblPEDate = new System.Windows.Forms.Label();
             this.lblPEType = new System.Windows.Forms.Label();
             this.panelOptionsPend = new System.Windows.Forms.Panel();
-            this.btnReject = new System.Windows.Forms.Button();
-            this.btnApprove = new System.Windows.Forms.Button();
-            this.lblOptions2 = new System.Windows.Forms.Label();
             this.tabEvent = new System.Windows.Forms.TabPage();
             this.eventsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelEventDet = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnVAttend = new System.Windows.Forms.Button();
-            this.btnEvCancel = new System.Windows.Forms.Button();
-            this.btnAddAttendance = new System.Windows.Forms.Button();
-            this.btnViewBudget = new System.Windows.Forms.Button();
             this.panelEventHead = new System.Windows.Forms.Panel();
             this.lblEventHead = new System.Windows.Forms.Label();
             this.tabViewAttend = new System.Windows.Forms.TabPage();
-            this.attendBack = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.listAttendedView = new System.Windows.Forms.ListView();
+            this.monthSummary = new BalayPasilungan.NoFocusRec();
+            this.lblOptions2 = new System.Windows.Forms.Label();
+            this.btnApprove = new BalayPasilungan.NoFocusRec();
+            this.btnReject = new BalayPasilungan.NoFocusRec();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnEvCancel = new BalayPasilungan.NoFocusRec();
+            this.btnAddAttendance = new BalayPasilungan.NoFocusRec();
+            this.btnVAttend = new BalayPasilungan.NoFocusRec();
+            this.btnViewBudget = new BalayPasilungan.NoFocusRec();
+            this.attendBack = new BalayPasilungan.NoFocusRec();
+            this.btnBackP = new BalayPasilungan.NoFocusRec();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.taskbar.SuspendLayout();
-            this.upPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_request)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_events)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
             this.tabSecond.SuspendLayout();
             this.tabRequest.SuspendLayout();
             this.ERProgress.SuspendLayout();
@@ -283,8 +289,8 @@
             this.panelRequestBy.SuspendLayout();
             this.menuStripEvent.SuspendLayout();
             this.tabAttend.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelOptions.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabAttendance.SuspendLayout();
             this.tabOtherAttend.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -308,67 +314,122 @@
             this.panelEventDet.SuspendLayout();
             this.panelEventHead.SuspendLayout();
             this.tabViewAttend.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // taskbar
             // 
             this.taskbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.taskbar.Controls.Add(this.btnMain);
+            this.taskbar.Controls.Add(this.logo_request);
             this.taskbar.Controls.Add(this.btnRequest);
+            this.taskbar.Controls.Add(this.logo_events);
             this.taskbar.Controls.Add(this.btnEvent);
+            this.taskbar.Controls.Add(this.logo_main);
+            this.taskbar.Controls.Add(this.btnMain);
             this.taskbar.Controls.Add(this.layoutPMain);
             this.taskbar.Dock = System.Windows.Forms.DockStyle.Left;
             this.taskbar.Location = new System.Drawing.Point(0, 24);
             this.taskbar.Name = "taskbar";
-            this.taskbar.Size = new System.Drawing.Size(88, 677);
+            this.taskbar.Size = new System.Drawing.Size(90, 677);
             this.taskbar.TabIndex = 0;
             // 
-            // btnMain
+            // logo_request
             // 
-            this.btnMain.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_white;
-            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMain.FlatAppearance.BorderSize = 0;
-            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMain.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMain.ForeColor = System.Drawing.Color.White;
-            this.btnMain.Location = new System.Drawing.Point(0, 0);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(88, 90);
-            this.btnMain.TabIndex = 2;
-            this.btnMain.UseVisualStyleBackColor = true;
-            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            this.logo_request.BackColor = System.Drawing.Color.White;
+            this.logo_request.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
+            this.logo_request.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_request.Location = new System.Drawing.Point(19, 206);
+            this.logo_request.Name = "logo_request";
+            this.logo_request.Size = new System.Drawing.Size(50, 50);
+            this.logo_request.TabIndex = 12;
+            this.logo_request.TabStop = false;
+            this.logo_request.Click += new System.EventHandler(this.logo_click);
             // 
             // btnRequest
             // 
-            this.btnRequest.BackgroundImage = global::BalayPasilungan.Properties.Resources.request_white;
-            this.btnRequest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRequest.BackColor = System.Drawing.Color.White;
+            this.btnRequest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRequest.FlatAppearance.BorderSize = 0;
+            this.btnRequest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRequest.ForeColor = System.Drawing.Color.White;
-            this.btnRequest.Location = new System.Drawing.Point(0, 186);
+            this.btnRequest.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnRequest.Location = new System.Drawing.Point(4, 192);
             this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(88, 90);
-            this.btnRequest.TabIndex = 4;
-            this.btnRequest.UseVisualStyleBackColor = true;
-            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            this.btnRequest.Size = new System.Drawing.Size(80, 80);
+            this.btnRequest.TabIndex = 11;
+            this.btnRequest.Text = "REPORTS";
+            this.btnRequest.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRequest.UseVisualStyleBackColor = false;
+            this.btnRequest.Click += new System.EventHandler(this.taskbar_Click);
+            // 
+            // logo_events
+            // 
+            this.logo_events.BackColor = System.Drawing.Color.White;
+            this.logo_events.BackgroundImage = global::BalayPasilungan.Properties.Resources.event_fade;
+            this.logo_events.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_events.Location = new System.Drawing.Point(19, 114);
+            this.logo_events.Name = "logo_events";
+            this.logo_events.Size = new System.Drawing.Size(50, 50);
+            this.logo_events.TabIndex = 10;
+            this.logo_events.TabStop = false;
+            this.logo_events.Click += new System.EventHandler(this.logo_click);
             // 
             // btnEvent
             // 
-            this.btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.events_white;
-            this.btnEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEvent.BackColor = System.Drawing.Color.White;
+            this.btnEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEvent.FlatAppearance.BorderSize = 0;
+            this.btnEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEvent.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEvent.ForeColor = System.Drawing.Color.White;
-            this.btnEvent.Location = new System.Drawing.Point(0, 90);
+            this.btnEvent.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnEvent.Location = new System.Drawing.Point(4, 99);
             this.btnEvent.Name = "btnEvent";
-            this.btnEvent.Size = new System.Drawing.Size(88, 90);
-            this.btnEvent.TabIndex = 3;
-            this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
+            this.btnEvent.Size = new System.Drawing.Size(80, 80);
+            this.btnEvent.TabIndex = 9;
+            this.btnEvent.Text = "EVENTS";
+            this.btnEvent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEvent.UseVisualStyleBackColor = false;
+            this.btnEvent.Click += new System.EventHandler(this.taskbar_Click);
+            // 
+            // logo_main
+            // 
+            this.logo_main.BackColor = System.Drawing.Color.White;
+            this.logo_main.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
+            this.logo_main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_main.Location = new System.Drawing.Point(19, 21);
+            this.logo_main.Name = "logo_main";
+            this.logo_main.Size = new System.Drawing.Size(50, 50);
+            this.logo_main.TabIndex = 8;
+            this.logo_main.TabStop = false;
+            this.logo_main.Click += new System.EventHandler(this.logo_click);
+            // 
+            // btnMain
+            // 
+            this.btnMain.BackColor = System.Drawing.Color.White;
+            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMain.FlatAppearance.BorderSize = 0;
+            this.btnMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMain.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnMain.Location = new System.Drawing.Point(4, 6);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(80, 80);
+            this.btnMain.TabIndex = 7;
+            this.btnMain.Text = "MAIN";
+            this.btnMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMain.UseVisualStyleBackColor = false;
+            this.btnMain.Click += new System.EventHandler(this.taskbar_Click);
             // 
             // layoutPMain
             // 
+            this.layoutPMain.BackColor = System.Drawing.Color.White;
             this.layoutPMain.ColumnCount = 2;
             this.layoutPMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.8F));
             this.layoutPMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.2F));
@@ -380,31 +441,18 @@
             this.layoutPMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 682F));
             this.layoutPMain.Size = new System.Drawing.Size(1125, 682);
             this.layoutPMain.TabIndex = 2;
+            this.layoutPMain.Paint += new System.Windows.Forms.PaintEventHandler(this.taskbar_Paint);
+            this.layoutPMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // upPanel
             // 
             this.upPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.upPanel.Controls.Add(this.btnClose);
             this.upPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.upPanel.Location = new System.Drawing.Point(0, 0);
             this.upPanel.Margin = new System.Windows.Forms.Padding(0);
             this.upPanel.Name = "upPanel";
             this.upPanel.Size = new System.Drawing.Size(1124, 24);
             this.upPanel.TabIndex = 1;
-            // 
-            // btnClose
-            // 
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1096, -2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(25, 26);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // timer1
             // 
@@ -731,7 +779,7 @@
             this.lblNote.ForeColor = System.Drawing.Color.White;
             this.lblNote.Location = new System.Drawing.Point(88, 22);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(506, 25);
+            this.lblNote.Size = new System.Drawing.Size(508, 25);
             this.lblNote.TabIndex = 8;
             this.lblNote.Text = "To successfully request an event, please answer everything.";
             // 
@@ -1814,7 +1862,7 @@
             this.add_lbl3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.add_lbl3.Location = new System.Drawing.Point(3, 45);
             this.add_lbl3.Name = "add_lbl3";
-            this.add_lbl3.Size = new System.Drawing.Size(53, 21);
+            this.add_lbl3.Size = new System.Drawing.Size(54, 21);
             this.add_lbl3.TabIndex = 39;
             this.add_lbl3.Text = "Venue";
             // 
@@ -1924,7 +1972,7 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.label21.Location = new System.Drawing.Point(3, 178);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 21);
+            this.label21.Size = new System.Drawing.Size(85, 21);
             this.label21.TabIndex = 51;
             this.label21.Text = "Event Type";
             // 
@@ -2061,89 +2109,6 @@
             this.tabAttend.UseVisualStyleBackColor = true;
             this.tabAttend.Click += new System.EventHandler(this.tabAttend_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lbDes);
-            this.panel1.Controls.Add(this.lbMon);
-            this.panel1.Controls.Add(this.lvTime);
-            this.panel1.Controls.Add(this.lbDay);
-            this.panel1.Controls.Add(this.lbVen);
-            this.panel1.Controls.Add(this.panelColor);
-            this.panel1.Controls.Add(this.lbEvn);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1036, 161);
-            this.panel1.TabIndex = 6;
-            // 
-            // lbDes
-            // 
-            this.lbDes.AutoSize = true;
-            this.lbDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDes.Location = new System.Drawing.Point(158, 102);
-            this.lbDes.Name = "lbDes";
-            this.lbDes.Size = new System.Drawing.Size(89, 21);
-            this.lbDes.TabIndex = 13;
-            this.lbDes.Text = "Description";
-            // 
-            // lbMon
-            // 
-            this.lbMon.AutoSize = true;
-            this.lbMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMon.Location = new System.Drawing.Point(43, 46);
-            this.lbMon.Name = "lbMon";
-            this.lbMon.Size = new System.Drawing.Size(91, 21);
-            this.lbMon.TabIndex = 7;
-            this.lbMon.Text = "November";
-            // 
-            // lvTime
-            // 
-            this.lvTime.AutoSize = true;
-            this.lvTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvTime.Location = new System.Drawing.Point(345, 76);
-            this.lvTime.Name = "lvTime";
-            this.lvTime.Size = new System.Drawing.Size(86, 21);
-            this.lvTime.TabIndex = 12;
-            this.lvTime.Text = "Event Time";
-            // 
-            // lbDay
-            // 
-            this.lbDay.AutoSize = true;
-            this.lbDay.Font = new System.Drawing.Font("Segoe UI", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDay.Location = new System.Drawing.Point(31, 46);
-            this.lbDay.Name = "lbDay";
-            this.lbDay.Size = new System.Drawing.Size(119, 92);
-            this.lbDay.TabIndex = 8;
-            this.lbDay.Text = "25";
-            // 
-            // lbVen
-            // 
-            this.lbVen.AutoSize = true;
-            this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVen.Location = new System.Drawing.Point(158, 76);
-            this.lbVen.Name = "lbVen";
-            this.lbVen.Size = new System.Drawing.Size(95, 21);
-            this.lbVen.TabIndex = 11;
-            this.lbVen.Text = "Event Venue";
-            // 
-            // panelColor
-            // 
-            this.panelColor.BackColor = System.Drawing.Color.Black;
-            this.panelColor.Location = new System.Drawing.Point(4, 3);
-            this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(10, 155);
-            this.panelColor.TabIndex = 9;
-            // 
-            // lbEvn
-            // 
-            this.lbEvn.AutoSize = true;
-            this.lbEvn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEvn.Location = new System.Drawing.Point(156, 45);
-            this.lbEvn.Name = "lbEvn";
-            this.lbEvn.Size = new System.Drawing.Size(126, 30);
-            this.lbEvn.TabIndex = 10;
-            this.lbEvn.Text = "Event Name";
-            // 
             // btnPresent
             // 
             this.btnPresent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -2214,6 +2179,89 @@
             this.lblOptions1.Size = new System.Drawing.Size(86, 30);
             this.lblOptions1.TabIndex = 0;
             this.lblOptions1.Text = "Options";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lbDes);
+            this.panel1.Controls.Add(this.lbMon);
+            this.panel1.Controls.Add(this.lvTime);
+            this.panel1.Controls.Add(this.lbDay);
+            this.panel1.Controls.Add(this.lbVen);
+            this.panel1.Controls.Add(this.panelColor);
+            this.panel1.Controls.Add(this.lbEvn);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1036, 161);
+            this.panel1.TabIndex = 6;
+            // 
+            // lbDes
+            // 
+            this.lbDes.AutoSize = true;
+            this.lbDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDes.Location = new System.Drawing.Point(158, 102);
+            this.lbDes.Name = "lbDes";
+            this.lbDes.Size = new System.Drawing.Size(89, 21);
+            this.lbDes.TabIndex = 13;
+            this.lbDes.Text = "Description";
+            // 
+            // lbMon
+            // 
+            this.lbMon.AutoSize = true;
+            this.lbMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMon.Location = new System.Drawing.Point(43, 46);
+            this.lbMon.Name = "lbMon";
+            this.lbMon.Size = new System.Drawing.Size(91, 21);
+            this.lbMon.TabIndex = 7;
+            this.lbMon.Text = "November";
+            // 
+            // lvTime
+            // 
+            this.lvTime.AutoSize = true;
+            this.lvTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvTime.Location = new System.Drawing.Point(345, 76);
+            this.lvTime.Name = "lvTime";
+            this.lvTime.Size = new System.Drawing.Size(86, 21);
+            this.lvTime.TabIndex = 12;
+            this.lvTime.Text = "Event Time";
+            // 
+            // lbDay
+            // 
+            this.lbDay.AutoSize = true;
+            this.lbDay.Font = new System.Drawing.Font("Segoe UI", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDay.Location = new System.Drawing.Point(31, 46);
+            this.lbDay.Name = "lbDay";
+            this.lbDay.Size = new System.Drawing.Size(119, 92);
+            this.lbDay.TabIndex = 8;
+            this.lbDay.Text = "25";
+            // 
+            // lbVen
+            // 
+            this.lbVen.AutoSize = true;
+            this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVen.Location = new System.Drawing.Point(158, 76);
+            this.lbVen.Name = "lbVen";
+            this.lbVen.Size = new System.Drawing.Size(96, 21);
+            this.lbVen.TabIndex = 11;
+            this.lbVen.Text = "Event Venue";
+            // 
+            // panelColor
+            // 
+            this.panelColor.BackColor = System.Drawing.Color.Black;
+            this.panelColor.Location = new System.Drawing.Point(4, 3);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(10, 155);
+            this.panelColor.TabIndex = 9;
+            // 
+            // lbEvn
+            // 
+            this.lbEvn.AutoSize = true;
+            this.lbEvn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEvn.Location = new System.Drawing.Point(156, 45);
+            this.lbEvn.Name = "lbEvn";
+            this.lbEvn.Size = new System.Drawing.Size(126, 30);
+            this.lbEvn.TabIndex = 10;
+            this.lbEvn.Text = "Event Name";
             // 
             // tabAttendance
             // 
@@ -2527,28 +2575,13 @@
             this.tabCalendar.TabIndex = 4;
             this.tabCalendar.Text = "tabPage1";
             // 
-            // monthSummary
-            // 
-            this.monthSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.monthSummary.FlatAppearance.BorderSize = 0;
-            this.monthSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.monthSummary.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthSummary.ForeColor = System.Drawing.Color.White;
-            this.monthSummary.Location = new System.Drawing.Point(871, 10);
-            this.monthSummary.Name = "monthSummary";
-            this.monthSummary.Size = new System.Drawing.Size(155, 41);
-            this.monthSummary.TabIndex = 19;
-            this.monthSummary.Text = "View Summary";
-            this.monthSummary.UseVisualStyleBackColor = false;
-            this.monthSummary.Click += new System.EventHandler(this.monthSummary_Click);
-            // 
             // btnYPrev
             // 
             this.btnYPrev.BackColor = System.Drawing.Color.White;
             this.btnYPrev.FlatAppearance.BorderSize = 0;
             this.btnYPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYPrev.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnYPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(224)))), ((int)(((byte)(212)))));
+            this.btnYPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(211)))), ((int)(((byte)(176)))));
             this.btnYPrev.Location = new System.Drawing.Point(544, 10);
             this.btnYPrev.Name = "btnYPrev";
             this.btnYPrev.Size = new System.Drawing.Size(120, 30);
@@ -2578,7 +2611,7 @@
             this.btnYNext.FlatAppearance.BorderSize = 0;
             this.btnYNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnYNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(224)))), ((int)(((byte)(212)))));
+            this.btnYNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(211)))), ((int)(((byte)(176)))));
             this.btnYNext.Location = new System.Drawing.Point(544, 88);
             this.btnYNext.Name = "btnYNext";
             this.btnYNext.Size = new System.Drawing.Size(120, 30);
@@ -2609,7 +2642,7 @@
             this.btnMNext.FlatAppearance.BorderSize = 0;
             this.btnMNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnMNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(224)))), ((int)(((byte)(212)))));
+            this.btnMNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(211)))), ((int)(((byte)(176)))));
             this.btnMNext.Location = new System.Drawing.Point(372, 88);
             this.btnMNext.Name = "btnMNext";
             this.btnMNext.Size = new System.Drawing.Size(158, 30);
@@ -2624,7 +2657,7 @@
             this.btnMPrev.FlatAppearance.BorderSize = 0;
             this.btnMPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMPrev.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnMPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(224)))), ((int)(((byte)(212)))));
+            this.btnMPrev.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(211)))), ((int)(((byte)(176)))));
             this.btnMPrev.Location = new System.Drawing.Point(372, 10);
             this.btnMPrev.Name = "btnMPrev";
             this.btnMPrev.Size = new System.Drawing.Size(158, 30);
@@ -2645,24 +2678,24 @@
             this.CalendarView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CalendarView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.CalendarView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 16F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 16F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.CalendarView.ColumnHeadersHeight = 35;
             this.CalendarView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 14F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle11;
             this.CalendarView.EnableHeadersVisualStyles = false;
             this.CalendarView.Location = new System.Drawing.Point(8, 129);
             this.CalendarView.MultiSelect = false;
@@ -2671,9 +2704,9 @@
             this.CalendarView.RowHeadersVisible = false;
             this.CalendarView.RowHeadersWidth = 100;
             this.CalendarView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.CalendarView.RowTemplate.Height = 95;
             this.CalendarView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CalendarView.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -2747,6 +2780,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.listPending);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
@@ -2755,7 +2789,6 @@
             this.tabPage1.Size = new System.Drawing.Size(794, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // listPending
             // 
@@ -2763,7 +2796,7 @@
             this.listPending.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
-            this.listPending.Font = new System.Drawing.Font("Segoe UI", 19.8F);
+            this.listPending.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.listPending.FullRowSelect = true;
             this.listPending.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listPending.Location = new System.Drawing.Point(59, 36);
@@ -2797,21 +2830,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnBackP
-            // 
-            this.btnBackP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnBackP.FlatAppearance.BorderSize = 0;
-            this.btnBackP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackP.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBackP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnBackP.Location = new System.Drawing.Point(662, 11);
-            this.btnBackP.Name = "btnBackP";
-            this.btnBackP.Size = new System.Drawing.Size(124, 28);
-            this.btnBackP.TabIndex = 8;
-            this.btnBackP.Text = "GO BACK";
-            this.btnBackP.UseVisualStyleBackColor = false;
-            this.btnBackP.Click += new System.EventHandler(this.btnBackP_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -2848,24 +2866,24 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label23.Location = new System.Drawing.Point(3, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(52, 21);
+            this.label23.Size = new System.Drawing.Size(41, 15);
             this.label23.TabIndex = 38;
-            this.label23.Text = "Name";
+            this.label23.Text = "NAME";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label24.Location = new System.Drawing.Point(3, 63);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 21);
+            this.label24.Size = new System.Drawing.Size(45, 15);
             this.label24.TabIndex = 39;
-            this.label24.Text = "Venue";
+            this.label24.Text = "VENUE";
             // 
             // lblPEName
             // 
@@ -2903,24 +2921,24 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label32.Location = new System.Drawing.Point(3, 131);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(89, 21);
+            this.label32.Size = new System.Drawing.Size(84, 15);
             this.label32.TabIndex = 50;
-            this.label32.Text = "Description";
+            this.label32.Text = "DESCRIPTION";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label33.Location = new System.Drawing.Point(3, 457);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(59, 21);
+            this.label33.Size = new System.Drawing.Size(55, 15);
             this.label33.TabIndex = 43;
-            this.label33.Text = "Budget";
+            this.label33.Text = "BUDGET";
             // 
             // lblPEBudget
             // 
@@ -2947,35 +2965,35 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label36.Location = new System.Drawing.Point(3, 374);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(78, 21);
+            this.label36.Size = new System.Drawing.Size(68, 15);
             this.label36.TabIndex = 42;
-            this.label36.Text = "Reminder";
+            this.label36.Text = "REMINDER";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label37.Location = new System.Drawing.Point(3, 293);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(110, 21);
+            this.label37.Size = new System.Drawing.Size(96, 15);
             this.label37.TabIndex = 41;
-            this.label37.Text = "Date and Time";
+            this.label37.Text = "DATE AND TIME";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.label38.Location = new System.Drawing.Point(3, 222);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(84, 21);
+            this.label38.Size = new System.Drawing.Size(73, 15);
             this.label38.TabIndex = 51;
-            this.label38.Text = "Event Type";
+            this.label38.Text = "EVENT TYPE";
             // 
             // lblPEDate
             // 
@@ -3001,57 +3019,14 @@
             // 
             // panelOptionsPend
             // 
-            this.panelOptionsPend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.panelOptionsPend.Controls.Add(this.btnReject);
+            this.panelOptionsPend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panelOptionsPend.Controls.Add(this.btnApprove);
             this.panelOptionsPend.Controls.Add(this.lblOptions2);
+            this.panelOptionsPend.Controls.Add(this.btnReject);
             this.panelOptionsPend.Location = new System.Drawing.Point(0, 636);
             this.panelOptionsPend.Name = "panelOptionsPend";
             this.panelOptionsPend.Size = new System.Drawing.Size(1037, 44);
             this.panelOptionsPend.TabIndex = 6;
-            // 
-            // btnReject
-            // 
-            this.btnReject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnReject.FlatAppearance.BorderSize = 0;
-            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReject.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReject.ForeColor = System.Drawing.Color.White;
-            this.btnReject.Location = new System.Drawing.Point(247, 3);
-            this.btnReject.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReject.Name = "btnReject";
-            this.btnReject.Size = new System.Drawing.Size(139, 36);
-            this.btnReject.TabIndex = 2;
-            this.btnReject.Text = "Reject";
-            this.btnReject.UseVisualStyleBackColor = false;
-            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
-            // 
-            // btnApprove
-            // 
-            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnApprove.FlatAppearance.BorderSize = 0;
-            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApprove.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApprove.ForeColor = System.Drawing.Color.White;
-            this.btnApprove.Location = new System.Drawing.Point(110, 3);
-            this.btnApprove.Margin = new System.Windows.Forms.Padding(2);
-            this.btnApprove.Name = "btnApprove";
-            this.btnApprove.Size = new System.Drawing.Size(134, 36);
-            this.btnApprove.TabIndex = 1;
-            this.btnApprove.Text = "Approve";
-            this.btnApprove.UseVisualStyleBackColor = false;
-            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
-            // 
-            // lblOptions2
-            // 
-            this.lblOptions2.AutoSize = true;
-            this.lblOptions2.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOptions2.ForeColor = System.Drawing.Color.White;
-            this.lblOptions2.Location = new System.Drawing.Point(13, 6);
-            this.lblOptions2.Name = "lblOptions2";
-            this.lblOptions2.Size = new System.Drawing.Size(86, 30);
-            this.lblOptions2.TabIndex = 0;
-            this.lblOptions2.Text = "Options";
             // 
             // tabEvent
             // 
@@ -3075,7 +3050,7 @@
             this.eventsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.eventsListView.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+            this.eventsListView.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.eventsListView.ForeColor = System.Drawing.Color.Black;
             this.eventsListView.FullRowSelect = true;
             this.eventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -3101,110 +3076,37 @@
             // 
             // panelEventDet
             // 
-            this.panelEventDet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.panelEventDet.Controls.Add(this.label7);
-            this.panelEventDet.Controls.Add(this.btnVAttend);
-            this.panelEventDet.Controls.Add(this.btnEvCancel);
-            this.panelEventDet.Controls.Add(this.btnAddAttendance);
+            this.panelEventDet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panelEventDet.Controls.Add(this.pictureBox1);
+            this.panelEventDet.Controls.Add(this.pictureBox3);
             this.panelEventDet.Controls.Add(this.btnViewBudget);
+            this.panelEventDet.Controls.Add(this.btnVAttend);
+            this.panelEventDet.Controls.Add(this.btnAddAttendance);
+            this.panelEventDet.Controls.Add(this.btnEvCancel);
+            this.panelEventDet.Controls.Add(this.label8);
             this.panelEventDet.Location = new System.Drawing.Point(-3, 626);
             this.panelEventDet.Name = "panelEventDet";
             this.panelEventDet.Size = new System.Drawing.Size(1048, 62);
             this.panelEventDet.TabIndex = 4;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(22, 11);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 30);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Options";
-            // 
-            // btnVAttend
-            // 
-            this.btnVAttend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnVAttend.Enabled = false;
-            this.btnVAttend.FlatAppearance.BorderSize = 0;
-            this.btnVAttend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVAttend.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVAttend.ForeColor = System.Drawing.Color.White;
-            this.btnVAttend.Location = new System.Drawing.Point(437, 5);
-            this.btnVAttend.Name = "btnVAttend";
-            this.btnVAttend.Size = new System.Drawing.Size(170, 41);
-            this.btnVAttend.TabIndex = 3;
-            this.btnVAttend.Text = "View Attendance";
-            this.btnVAttend.UseVisualStyleBackColor = false;
-            this.btnVAttend.Click += new System.EventHandler(this.btnVAttend_Click);
-            // 
-            // btnEvCancel
-            // 
-            this.btnEvCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnEvCancel.Enabled = false;
-            this.btnEvCancel.FlatAppearance.BorderSize = 0;
-            this.btnEvCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEvCancel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEvCancel.ForeColor = System.Drawing.Color.White;
-            this.btnEvCancel.Location = new System.Drawing.Point(126, 5);
-            this.btnEvCancel.Name = "btnEvCancel";
-            this.btnEvCancel.Size = new System.Drawing.Size(133, 41);
-            this.btnEvCancel.TabIndex = 2;
-            this.btnEvCancel.Text = "Cancel Event";
-            this.btnEvCancel.UseVisualStyleBackColor = false;
-            this.btnEvCancel.Click += new System.EventHandler(this.btnEvCancel_Click);
-            // 
-            // btnAddAttendance
-            // 
-            this.btnAddAttendance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnAddAttendance.Enabled = false;
-            this.btnAddAttendance.FlatAppearance.BorderSize = 0;
-            this.btnAddAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAttendance.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAttendance.ForeColor = System.Drawing.Color.White;
-            this.btnAddAttendance.Location = new System.Drawing.Point(261, 5);
-            this.btnAddAttendance.Name = "btnAddAttendance";
-            this.btnAddAttendance.Size = new System.Drawing.Size(174, 41);
-            this.btnAddAttendance.TabIndex = 1;
-            this.btnAddAttendance.Text = "Add Attendance";
-            this.btnAddAttendance.UseVisualStyleBackColor = false;
-            this.btnAddAttendance.Click += new System.EventHandler(this.btnAddAttendance_Click);
-            // 
-            // btnViewBudget
-            // 
-            this.btnViewBudget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnViewBudget.Enabled = false;
-            this.btnViewBudget.FlatAppearance.BorderSize = 0;
-            this.btnViewBudget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewBudget.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewBudget.ForeColor = System.Drawing.Color.White;
-            this.btnViewBudget.Location = new System.Drawing.Point(609, 5);
-            this.btnViewBudget.Name = "btnViewBudget";
-            this.btnViewBudget.Size = new System.Drawing.Size(137, 41);
-            this.btnViewBudget.TabIndex = 0;
-            this.btnViewBudget.Text = "View Budget";
-            this.btnViewBudget.UseVisualStyleBackColor = false;
-            this.btnViewBudget.Click += new System.EventHandler(this.btnViewBudget_Click);
-            // 
             // panelEventHead
             // 
-            this.panelEventHead.BackColor = System.Drawing.Color.White;
+            this.panelEventHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
             this.panelEventHead.Controls.Add(this.lblEventHead);
-            this.panelEventHead.Location = new System.Drawing.Point(0, 3);
+            this.panelEventHead.Location = new System.Drawing.Point(-2, 1);
             this.panelEventHead.Margin = new System.Windows.Forms.Padding(0);
             this.panelEventHead.Name = "panelEventHead";
-            this.panelEventHead.Size = new System.Drawing.Size(1037, 50);
+            this.panelEventHead.Size = new System.Drawing.Size(1037, 68);
             this.panelEventHead.TabIndex = 0;
             // 
             // lblEventHead
             // 
             this.lblEventHead.AutoSize = true;
-            this.lblEventHead.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.lblEventHead.Location = new System.Drawing.Point(16, 2);
+            this.lblEventHead.Font = new System.Drawing.Font("Segoe UI", 29F);
+            this.lblEventHead.ForeColor = System.Drawing.Color.White;
+            this.lblEventHead.Location = new System.Drawing.Point(26, 16);
             this.lblEventHead.Name = "lblEventHead";
-            this.lblEventHead.Size = new System.Drawing.Size(179, 47);
+            this.lblEventHead.Size = new System.Drawing.Size(190, 52);
             this.lblEventHead.TabIndex = 2;
             this.lblEventHead.Text = "Events on";
             // 
@@ -3222,29 +3124,14 @@
             this.tabViewAttend.TabIndex = 5;
             this.tabViewAttend.Text = "tabViewAttend";
             // 
-            // attendBack
-            // 
-            this.attendBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.attendBack.FlatAppearance.BorderSize = 0;
-            this.attendBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.attendBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attendBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.attendBack.Location = new System.Drawing.Point(758, 17);
-            this.attendBack.Name = "attendBack";
-            this.attendBack.Size = new System.Drawing.Size(268, 40);
-            this.attendBack.TabIndex = 7;
-            this.attendBack.Text = "BACK";
-            this.attendBack.UseVisualStyleBackColor = false;
-            this.attendBack.Click += new System.EventHandler(this.attendBack_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 33.75F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.label6.Location = new System.Drawing.Point(22, 10);
+            this.label6.Location = new System.Drawing.Point(22, 6);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(378, 47);
+            this.label6.Size = new System.Drawing.Size(455, 61);
             this.label6.TabIndex = 5;
             this.label6.Text = "Attendance Summary";
             // 
@@ -3264,6 +3151,202 @@
             this.listAttendedView.UseCompatibleStateImageBehavior = false;
             this.listAttendedView.View = System.Windows.Forms.View.Details;
             // 
+            // monthSummary
+            // 
+            this.monthSummary.BackColor = System.Drawing.Color.White;
+            this.monthSummary.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.monthSummary.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.monthSummary.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.monthSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.monthSummary.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.monthSummary.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.monthSummary.Location = new System.Drawing.Point(819, 88);
+            this.monthSummary.Name = "monthSummary";
+            this.monthSummary.Size = new System.Drawing.Size(205, 29);
+            this.monthSummary.TabIndex = 111;
+            this.monthSummary.Text = "VIEW SUMMARY";
+            this.monthSummary.UseVisualStyleBackColor = false;
+            this.monthSummary.Click += new System.EventHandler(this.monthSummary_Click);
+            // 
+            // lblOptions2
+            // 
+            this.lblOptions2.AutoSize = true;
+            this.lblOptions2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblOptions2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
+            this.lblOptions2.Location = new System.Drawing.Point(491, 16);
+            this.lblOptions2.Name = "lblOptions2";
+            this.lblOptions2.Size = new System.Drawing.Size(54, 13);
+            this.lblOptions2.TabIndex = 3;
+            this.lblOptions2.Text = "OPTIONS";
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnApprove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnApprove.BackgroundImage")));
+            this.btnApprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnApprove.FlatAppearance.BorderSize = 0;
+            this.btnApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApprove.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnApprove.ForeColor = System.Drawing.Color.White;
+            this.btnApprove.Location = new System.Drawing.Point(669, 2);
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Size = new System.Drawing.Size(318, 40);
+            this.btnApprove.TabIndex = 4;
+            this.btnApprove.UseVisualStyleBackColor = false;
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
+            // 
+            // btnReject
+            // 
+            this.btnReject.BackColor = System.Drawing.Color.Transparent;
+            this.btnReject.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReject.BackgroundImage")));
+            this.btnReject.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReject.FlatAppearance.BorderSize = 0;
+            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReject.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnReject.ForeColor = System.Drawing.Color.White;
+            this.btnReject.Location = new System.Drawing.Point(50, 3);
+            this.btnReject.Name = "btnReject";
+            this.btnReject.Size = new System.Drawing.Size(318, 40);
+            this.btnReject.TabIndex = 5;
+            this.btnReject.UseVisualStyleBackColor = false;
+            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(35, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "OPTIONS";
+            // 
+            // btnEvCancel
+            // 
+            this.btnEvCancel.BackColor = System.Drawing.Color.White;
+            this.btnEvCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnEvCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEvCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEvCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEvCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEvCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
+            this.btnEvCancel.Location = new System.Drawing.Point(126, 10);
+            this.btnEvCancel.Name = "btnEvCancel";
+            this.btnEvCancel.Size = new System.Drawing.Size(205, 29);
+            this.btnEvCancel.TabIndex = 2;
+            this.btnEvCancel.Text = "CANCEL EVENT";
+            this.btnEvCancel.UseVisualStyleBackColor = false;
+            this.btnEvCancel.Click += new System.EventHandler(this.btnEvCancel_Click);
+            // 
+            // btnAddAttendance
+            // 
+            this.btnAddAttendance.BackColor = System.Drawing.Color.White;
+            this.btnAddAttendance.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnAddAttendance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddAttendance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAttendance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddAttendance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddAttendance.Location = new System.Drawing.Point(344, 10);
+            this.btnAddAttendance.Name = "btnAddAttendance";
+            this.btnAddAttendance.Size = new System.Drawing.Size(205, 29);
+            this.btnAddAttendance.TabIndex = 1;
+            this.btnAddAttendance.Text = "ADD ATTENDANCE";
+            this.btnAddAttendance.UseVisualStyleBackColor = false;
+            this.btnAddAttendance.Click += new System.EventHandler(this.btnAddAttendance_Click);
+            // 
+            // btnVAttend
+            // 
+            this.btnVAttend.BackColor = System.Drawing.Color.White;
+            this.btnVAttend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnVAttend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnVAttend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnVAttend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVAttend.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnVAttend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnVAttend.Location = new System.Drawing.Point(562, 10);
+            this.btnVAttend.Name = "btnVAttend";
+            this.btnVAttend.Size = new System.Drawing.Size(205, 29);
+            this.btnVAttend.TabIndex = 3;
+            this.btnVAttend.Text = "VIEW ATTENDANCE";
+            this.btnVAttend.UseVisualStyleBackColor = false;
+            this.btnVAttend.Click += new System.EventHandler(this.btnVAttend_Click);
+            // 
+            // btnViewBudget
+            // 
+            this.btnViewBudget.BackColor = System.Drawing.Color.White;
+            this.btnViewBudget.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnViewBudget.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewBudget.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewBudget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewBudget.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnViewBudget.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnViewBudget.Location = new System.Drawing.Point(780, 10);
+            this.btnViewBudget.Name = "btnViewBudget";
+            this.btnViewBudget.Size = new System.Drawing.Size(205, 29);
+            this.btnViewBudget.TabIndex = 0;
+            this.btnViewBudget.Text = "VIEW BUDGET";
+            this.btnViewBudget.UseVisualStyleBackColor = false;
+            this.btnViewBudget.Click += new System.EventHandler(this.btnViewBudget_Click);
+            // 
+            // attendBack
+            // 
+            this.attendBack.BackColor = System.Drawing.Color.White;
+            this.attendBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.attendBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.attendBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.attendBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attendBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.attendBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
+            this.attendBack.Location = new System.Drawing.Point(805, 28);
+            this.attendBack.Name = "attendBack";
+            this.attendBack.Size = new System.Drawing.Size(205, 29);
+            this.attendBack.TabIndex = 112;
+            this.attendBack.Text = "GO BACK";
+            this.attendBack.UseVisualStyleBackColor = false;
+            this.attendBack.Click += new System.EventHandler(this.attendBack_Click);
+            // 
+            // btnBackP
+            // 
+            this.btnBackP.BackColor = System.Drawing.Color.White;
+            this.btnBackP.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnBackP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnBackP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnBackP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackP.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBackP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
+            this.btnBackP.Location = new System.Drawing.Point(550, 14);
+            this.btnBackP.Name = "btnBackP";
+            this.btnBackP.Size = new System.Drawing.Size(205, 29);
+            this.btnBackP.TabIndex = 113;
+            this.btnBackP.Text = "GO BACK";
+            this.btnBackP.UseVisualStyleBackColor = false;
+            this.btnBackP.Click += new System.EventHandler(this.btnBackP_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(-5, -17);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(772, 23);
+            this.pictureBox3.TabIndex = 55;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(762, -17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(307, 23);
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
+            // 
             // eventorg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3282,7 +3365,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.eventorg_FormClosing);
             this.Load += new System.EventHandler(this.eventorg_Load);
             this.taskbar.ResumeLayout(false);
-            this.upPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo_request)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_events)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();
             this.tabSecond.ResumeLayout(false);
             this.tabRequest.ResumeLayout(false);
             this.ERProgress.ResumeLayout(false);
@@ -3325,10 +3410,10 @@
             this.menuStripEvent.ResumeLayout(false);
             this.menuStripEvent.PerformLayout();
             this.tabAttend.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelOptions.ResumeLayout(false);
             this.panelOptions.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabAttendance.ResumeLayout(false);
             this.tabOtherAttend.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -3362,6 +3447,8 @@
             this.panelEventHead.PerformLayout();
             this.tabViewAttend.ResumeLayout(false);
             this.tabViewAttend.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3370,10 +3457,6 @@
 
         private System.Windows.Forms.Panel taskbar;
         private System.Windows.Forms.Panel upPanel;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnMain;
-        private System.Windows.Forms.Button btnRequest;
-        private System.Windows.Forms.Button btnEvent;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox budgetCheck;
         private System.Windows.Forms.Timer remindTimer;
@@ -3541,7 +3624,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnBackP;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -3558,22 +3640,15 @@
         private System.Windows.Forms.Label lblPEDate;
         private System.Windows.Forms.Label lblPEType;
         private System.Windows.Forms.Panel panelOptionsPend;
-        private System.Windows.Forms.Button btnReject;
-        private System.Windows.Forms.Button btnApprove;
-        private System.Windows.Forms.Label lblOptions2;
         private System.Windows.Forms.TabPage tabEvent;
         private System.Windows.Forms.ListView eventsListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Panel panelEventDet;
-        private System.Windows.Forms.Button btnEvCancel;
-        private System.Windows.Forms.Button btnAddAttendance;
-        private System.Windows.Forms.Button btnViewBudget;
         private System.Windows.Forms.Panel panelEventHead;
         private System.Windows.Forms.Label lblEventHead;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.TabPage tabViewAttend;
-        private System.Windows.Forms.Button btnVAttend;
         private System.Windows.Forms.ListView listAttendedView;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAttendOthers;
@@ -3582,9 +3657,6 @@
         private System.Windows.Forms.Button btnAddType;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button attendBack;
-        private System.Windows.Forms.Button monthSummary;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbDes;
         private System.Windows.Forms.Label lbMon;
@@ -3593,6 +3665,25 @@
         private System.Windows.Forms.Label lbVen;
         private System.Windows.Forms.Panel panelColor;
         private System.Windows.Forms.Label lbEvn;
+        private System.Windows.Forms.PictureBox logo_main;
+        private NoFocusRec btnMain;
+        private System.Windows.Forms.PictureBox logo_events;
+        private NoFocusRec btnEvent;
+        private System.Windows.Forms.PictureBox logo_request;
+        private NoFocusRec btnRequest;
+        private NoFocusRec monthSummary;
+        private System.Windows.Forms.Label lblOptions2;
+        private NoFocusRec btnApprove;
+        private NoFocusRec btnReject;
+        private System.Windows.Forms.Label label8;
+        private NoFocusRec btnEvCancel;
+        private NoFocusRec btnVAttend;
+        private NoFocusRec btnAddAttendance;
+        private NoFocusRec btnViewBudget;
+        private NoFocusRec attendBack;
+        private NoFocusRec btnBackP;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 
