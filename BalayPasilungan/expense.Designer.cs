@@ -72,6 +72,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabDonorsAll = new System.Windows.Forms.TabPage();
+            this.btnDonationReport = new BalayPasilungan.NoFocusRec();
             this.cbFilterAll = new System.Windows.Forms.ComboBox();
             this.txtMDSearch = new System.Windows.Forms.TextBox();
             this.allMD = new System.Windows.Forms.DataGridView();
@@ -435,7 +436,6 @@
             this.btnExpOp = new BalayPasilungan.NoFocusRec();
             this.btnExpLoad = new BalayPasilungan.NoFocusRec();
             this.btnResetCategory = new BalayPasilungan.NoFocusRec();
-            this.btnDonationReport = new BalayPasilungan.NoFocusRec();
             this.taskbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_donation)).BeginInit();
@@ -920,6 +920,23 @@
             this.tabDonorsAll.Size = new System.Drawing.Size(935, 570);
             this.tabDonorsAll.TabIndex = 1;
             this.tabDonorsAll.Text = "tabPage1";
+            // 
+            // btnDonationReport
+            // 
+            this.btnDonationReport.BackColor = System.Drawing.Color.White;
+            this.btnDonationReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnDonationReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDonationReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDonationReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonationReport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonationReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonationReport.Location = new System.Drawing.Point(18, 6);
+            this.btnDonationReport.Name = "btnDonationReport";
+            this.btnDonationReport.Size = new System.Drawing.Size(205, 29);
+            this.btnDonationReport.TabIndex = 110;
+            this.btnDonationReport.Text = "GENERATE DONATION REPORT";
+            this.btnDonationReport.UseVisualStyleBackColor = false;
+            this.btnDonationReport.Click += new System.EventHandler(this.btnDonationReport_Click);
             // 
             // cbFilterAll
             // 
@@ -6133,23 +6150,6 @@
             this.btnResetCategory.Text = "CLEAR CATEGORY";
             this.btnResetCategory.UseVisualStyleBackColor = false;
             this.btnResetCategory.Click += new System.EventHandler(this.btnResetCategory_Click);
-            // 
-            // btnDonationReport
-            // 
-            this.btnDonationReport.BackColor = System.Drawing.Color.White;
-            this.btnDonationReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDonationReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDonationReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDonationReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonationReport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonationReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonationReport.Location = new System.Drawing.Point(18, 6);
-            this.btnDonationReport.Name = "btnDonationReport";
-            this.btnDonationReport.Size = new System.Drawing.Size(205, 29);
-            this.btnDonationReport.TabIndex = 110;
-            this.btnDonationReport.Text = "GENERATE DONATION REPORT";
-            this.btnDonationReport.UseVisualStyleBackColor = false;
-            this.btnDonationReport.Click += new System.EventHandler(this.btnDonationReport_Click);
             // 
             // expense
             // 
