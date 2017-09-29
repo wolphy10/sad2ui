@@ -188,7 +188,7 @@ namespace BalayPasilungan
                     conn.Open();
 
 
-                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "', famposition = '" + pos + "', famcurrent = '" + z + "' WHERE familyid = " + caseid, conn);
+                    MySqlCommand comm = new MySqlCommand("UPDATE family SET famtype = '" + type + "', famposition = '" + pos + "', famcurrent = '" + z + "' WHERE familyid = " + familyid, conn);
 
                     comm.ExecuteNonQuery();
 
@@ -197,7 +197,10 @@ namespace BalayPasilungan
 
                     conn.Close();
 
-                    reftofam.reloadfamtype(caseid);
+                    reftofam.reloadfamtype(familyid);
+
+                    reftofam.existsfam(caseid);
+                    reftofam.reloadfam(caseid);
 
                     this.Close();
 

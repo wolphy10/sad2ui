@@ -147,6 +147,16 @@ namespace BalayPasilungan
             fam.Show();
         }
 
+        public void famtypecall(int x, string text, int y)
+        {
+            famtype fam = new famtype();
+            fam.reftofam = this;
+            fam.familyid = x;
+            fam.text = text;
+            fam.caseid = y;
+            fam.Show();
+        }
+
         public void successMessage(string message)            // Success Message
         {
             success yey = new success();
@@ -460,6 +470,7 @@ namespace BalayPasilungan
                 catch (Exception ee)
                 {
                     errorMessage(ee.Message);
+                    conn.Close();
                 }
             }
         }
@@ -496,6 +507,7 @@ namespace BalayPasilungan
                 catch (Exception ee)
                 {
                     errorMessage(ee.Message);
+                    conn.Close();
                 }
             }
         }
@@ -908,6 +920,28 @@ namespace BalayPasilungan
             }
         }
 
+        public void reloadviewincid(int incid)
+        {
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand("SELECT type, incdate, venue, description, action, witnesses FROM incident WHERE incidid = " + incid, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
+
+            adp.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                inctype.Text = dt.Rows[0]["type"].ToString();
+                incidlocation.Text = dt.Rows[0]["venue"].ToString();
+                repinciddesc.Text = dt.Rows[0]["description"].ToString();
+                repincidaction.Text = dt.Rows[0]["action"].ToString();
+                lbldateincid.Text = Convert.ToDateTime(dt.Rows[0]["incdate"]).ToString("MMMM, dd, yyyy");
+                rtwitnesses.Text = dt.Rows[0]["witnesses"].ToString();
+
+            }
+            tabChild.SelectedTab = thirteen;
+            conn.Close();
+        }
+
         public void reloadeditincid(int id)
         {
             try
@@ -996,11 +1030,11 @@ namespace BalayPasilungan
                     successMessage("Incident record has been modified successfully!");
                     conn.Close();
 
-                    reloadincid(id);
+                    reloadviewincid(incidid);
                     existsincid(id);
 
                     tabCase.SelectedTab = tabInfo;
-                    tabChild.SelectedTab = twelfth;
+                    tabChild.SelectedTab = thirteen;
 
                     reset5();
                 }
@@ -1133,9 +1167,9 @@ namespace BalayPasilungan
 
                 if (dt.Rows.Count > 0)
                 {
-                    if (dt.Rows[0]["height"].ToString() != null) lblvheight.Text = dt.Rows[0]["height"].ToString();
-                    if (dt.Rows[0]["weight"].ToString() != null) lblvweight.Text = dt.Rows[0]["weight"].ToString();
-                    if (dt.Rows[0]["bloodtype"].ToString() != null) lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
+                    lblvheight.Text = dt.Rows[0]["height"].ToString();
+                    lblvweight.Text = dt.Rows[0]["weight"].ToString();
+                    lblvblood.Text = dt.Rows[0]["bloodtype"].ToString();
                     rviewall.Text = dt.Rows[0]["allergies"].ToString();
                     rviewcondition.Text = dt.Rows[0]["hecondition"].ToString();
                     btnedithealth.Enabled = true;
@@ -1152,6 +1186,7 @@ namespace BalayPasilungan
             catch (Exception ee)
             {
                 errorMessage(ee.Message);
+                conn.Close();
             }
 
 
@@ -1383,7 +1418,7 @@ namespace BalayPasilungan
 
         public void reloadincid(int id)
         {
-            string[] involve;
+            
             try
             {
                 conn.Open();
@@ -1408,15 +1443,8 @@ namespace BalayPasilungan
                 dtincid.Columns["incdate"].HeaderText = "DATE OF INCIDENT";
                 dtincid.Columns["type"].HeaderCell.Style.Padding = dtincid.Columns["type"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
-                if (dt.Rows.Count > 0)
-                {
-                    involve = dt.Rows[0]["witnesses"].ToString().Split('\n');
-                    foreach (string words in involve)
-                    {
-                        rtwitnesses.AppendText(words + "\n");
-                    }
-                    dtincid.Columns["incdate"].DefaultCellStyle.Format = "MMMM dd, yyyy";
-                }
+                dtincid.Columns["incdate"].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                
 
                 conn.Close();
             }
@@ -1440,20 +1468,24 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, null, "No entries.");
                     empty = true;
+                    dtghealth.DataSource = dt;
                 }
-                else empty = false;
+                else
+                {
+                    dtghealth.DataSource = dt;
 
-                dtghealth.DataSource = dt;
+                    // For ID purposes (hidden from user)            
+                    
 
-                // For ID purposes (hidden from user)            
+                    dtghealth.Columns["checkupdate"].HeaderText = "DATE OF CHECKUP";
+                    dtghealth.Columns["checkuplocation"].HeaderText = "CHECKUP LOCATION";
+                    dtghealth.Columns["checkupdate"].HeaderCell.Style.Padding = dtghealth.Columns["checkupdate"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+
+                    if (dt.Rows.Count > 0) dtghealth.Columns["checkupdate"].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                    empty = false;
+                }
+
                 dtghealth.Columns["checkid"].Visible = false;
-
-                dtghealth.Columns["checkupdate"].HeaderText = "DATE OF CHECKUP";
-                dtghealth.Columns["checkuplocation"].HeaderText = "CHECKUP LOCATION";
-                dtghealth.Columns["checkupdate"].HeaderCell.Style.Padding = dtghealth.Columns["checkupdate"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
-
-                if (dt.Rows.Count > 0) dtghealth.Columns["checkupdate"].DefaultCellStyle.Format = "MMMM dd, yyyy";
-
                 conn.Close();
 
                 //dtincid.Columns[1].Visible = false;
@@ -1463,6 +1495,7 @@ namespace BalayPasilungan
             catch (Exception ee)
             {
                 errorMessage(ee.Message);
+                conn.Close();
             }
         }
 
@@ -1668,7 +1701,7 @@ namespace BalayPasilungan
 
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT checkupdetails, checkupdate, checkuplocation FROM checkup WHERE checkid = " + checkid, conn);
+                MySqlCommand comm = new MySqlCommand("SELECT checkupdetails, checkupdate, checkuplocation, checkuptype, checkupconductor FROM checkup WHERE checkid = " + checkid, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
 
@@ -1680,6 +1713,8 @@ namespace BalayPasilungan
 
                     lblcheckdate.Text = Convert.ToDateTime(dt.Rows[0]["checkupdate"]).ToString("MMMM dd, yyyy");
                     lbllocationcheck.Text = dt.Rows[0]["checkuplocation"].ToString();
+
+
                 }
 
                 conn.Close();
@@ -1728,25 +1763,9 @@ namespace BalayPasilungan
             try
             {
                 tabChild.SelectedTab = thirteen;
-                int incid = int.Parse(dtincid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                int incid = int.Parse(dtincid.Rows[e.RowIndex].Cells["incidid"].Value.ToString());
 
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand("SELECT type, incdate, venue, description, action FROM incident WHERE incidid = " + incid, conn);
-                MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
-
-                adp.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    inctype.Text = dt.Rows[0]["type"].ToString();
-                    incidlocation.Text = dt.Rows[0]["venue"].ToString();
-                    repinciddesc.Text = dt.Rows[0]["description"].ToString();
-                    repincidaction.Text = dt.Rows[0]["action"].ToString();
-                    lbldateincid.Text = Convert.ToDateTime(dt.Rows[0]["incdate"]).ToString("MMMM, dd, yyyy");
-
-                }
-                tabChild.SelectedTab = thirteen;
-                conn.Close();
+                reloadviewincid(incid);
             }
             catch (Exception ee)
             {
@@ -1909,6 +1928,7 @@ namespace BalayPasilungan
             txtincidlocation.Clear();
             rtxtactiontaken.Clear();
             rtxtinciddesc.Clear();
+            rtinvolve.Clear();
 
             dateincid.Value = DateTime.Now.Date;
 
@@ -1918,8 +1938,12 @@ namespace BalayPasilungan
         public void reset6()
         {
             dtpcheck.Value = DateTime.Now.Date;
+
             txtlocationcheck.Clear();
+            txtconduct.Clear();
             rcheckdetails.Clear();
+
+            cbcheckuptype.SelectedIndex = -1;
         }
 
         public void reset7()
@@ -1939,11 +1963,6 @@ namespace BalayPasilungan
             rtremarks.Clear();
 
             dtpmembirth.Value = DateTime.Now.Date;
-        }
-
-        public void reset9()
-        {
-
         }
 
         public void resetall()
@@ -2676,23 +2695,29 @@ namespace BalayPasilungan
 
         private void btnaddhealth_Click(object sender, EventArgs e)
         {
-            if (btnaddhealth.Text == "Add") addhealth();            
+            if (btnaddhealth.Text == "ADD") addhealth();            
             else edithealth();
             //tabCase.SelectedTab = tabCases;
         }
 
         private void btnaddcheckuprec_Click(object sender, EventArgs e)
         {
-            string location = txtlocationcheck.Text, details = rcheckdetails.Text;
+            string location = txtlocationcheck.Text, details = rcheckdetails.Text, type = cbcheckuptype.Text, conduct = txtconduct.Text;
 
             gethid(id);
-            if (string.IsNullOrEmpty(location) || string.IsNullOrEmpty(details)) errorMessage("Please fill out empty fields.");
+            if (string.IsNullOrEmpty(location) || string.IsNullOrEmpty(details) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(conduct))
+            {
+
+                errorMessage("Please fill out empty fields.");
+
+            }
+
             else
             {
                 try
                 {
                     conn.Open();
-                    MySqlCommand comm = new MySqlCommand("INSERT INTO checkup(hid, checkupdetails, checkupdate, checkuplocation) VALUES('" + hid + "', '" + details + "', '" + dtpcheck.Value.Date.ToString("yyyyMMdd") + "', '" + location + "')", conn);
+                    MySqlCommand comm = new MySqlCommand("INSERT INTO checkup(hid, checkupdetails, checkupdate, checkuplocation, checkuptype, checkupconductor) VALUES('" + hid + "', '" + details + "', '" + dtpcheck.Value.Date.ToString("yyyyMMdd") + "', '" + location + "', '" + type + "', '" + conduct + "')", conn);
                     comm.ExecuteNonQuery();
                     successMessage("New checkup record has been added successfully!");
                     conn.Close();
@@ -2717,7 +2742,7 @@ namespace BalayPasilungan
 
         private void btnaddcon_Click(object sender, EventArgs e)
         {
-            if (btnaddcon.Text == "Add") addcon();
+            if (btnaddcon.Text == "ADD") addcon();
             else editcon();
         }
 
@@ -2805,7 +2830,10 @@ namespace BalayPasilungan
 
         private void btncancon_Click(object sender, EventArgs e)
         {
+            tabCase.SelectedTab = tabInfo;
             tabChild.SelectedTab = ninth;
+
+            reset4();
         }
 
         private void btncancelviewrec_Click(object sender, EventArgs e)
@@ -2836,7 +2864,7 @@ namespace BalayPasilungan
         {
             tabCase.SelectedTab = tabInfo;
 
-            if(btnaddincidrecord.Text == "Add") tabChild.SelectedTab = twelfth;
+            if(btnaddincidrecord.Text == "ADD") tabChild.SelectedTab = twelfth;
             else tabChild.SelectedTab = thirteen;
 
             reset5();
@@ -3009,7 +3037,7 @@ namespace BalayPasilungan
             tabCase.SelectedTab = tabNewChild;
 
             btnaddincidrecord.Text = "Update";
-            lbladdeditprofile.Text = "Update Incident Report";
+            lbladdeditprofile.Text = "Update Incident Record";
             dateincid.MaxDate = DateTime.Now;
 
             tsNewInfo.ForeColor = tsNewFamily.ForeColor = tsNewEdu.ForeColor = tsNewHealth.ForeColor = tsNewCon.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
@@ -3021,7 +3049,7 @@ namespace BalayPasilungan
 
         private void btnfamtype_Click(object sender, EventArgs e)
         {
-            famtypecall(famid, btnfamtype.Text);
+            famtypecall(famid, btnfamtype.Text, id);
         }
 
         private void btninvok_Click(object sender, EventArgs e)
@@ -3215,8 +3243,8 @@ namespace BalayPasilungan
         {
             tabCase.SelectedTab = tabNewChild;
 
-            lbladdeditprofile.Text = "Add Incident Report";
-            btnaddincidrecord.Text = "Add";
+            lbladdeditprofile.Text = "Add Incident Record";
+            btnaddincidrecord.Text = "ADD";
             dateincid.MaxDate = DateTime.Now; dateincid.Value = dateincid.MaxDate;
 
             tsNewInfo.ForeColor = tsNewFamily.ForeColor = tsNewEdu.ForeColor = tsNewHealth.ForeColor = tsNewCon.ForeColor = System.Drawing.Color.FromArgb(201, 201, 201);
@@ -3254,6 +3282,21 @@ namespace BalayPasilungan
             tabChild.SelectedTab = sixteen;
 
             dtgedclass.DataSource = null;
+        }
+
+        private void btnbackfromhealthrec_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = sixteen;
+        }
+
+        private void btnbackfromconrec_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = sixteen;
+        }
+
+        private void btnbackfromincidrec_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = sixteen;
         }
         #endregion
 
