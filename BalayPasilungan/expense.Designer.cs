@@ -318,7 +318,6 @@
             this.tabMoney = new System.Windows.Forms.TabPage();
             this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
             this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnDelMoneyD = new BalayPasilungan.NoFocusRec();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.multiSelect = new System.Windows.Forms.CheckBox();
             this.txtSearchMoney = new System.Windows.Forms.TextBox();
@@ -330,7 +329,6 @@
             this.tabIK = new System.Windows.Forms.TabPage();
             this.btnAddIK = new BalayPasilungan.NoFocusRec();
             this.btnEditIK = new BalayPasilungan.NoFocusRec();
-            this.btnDelIK = new BalayPasilungan.NoFocusRec();
             this.multiSelect2 = new System.Windows.Forms.CheckBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.donationIK = new System.Windows.Forms.DataGridView();
@@ -4215,7 +4213,6 @@
             // 
             this.tabMoney.Controls.Add(this.btnAddMoneyD);
             this.tabMoney.Controls.Add(this.btnEditMoneyD);
-            this.tabMoney.Controls.Add(this.btnDelMoneyD);
             this.tabMoney.Controls.Add(this.cbFilter);
             this.tabMoney.Controls.Add(this.multiSelect);
             this.tabMoney.Controls.Add(this.txtSearchMoney);
@@ -4243,7 +4240,7 @@
             this.btnAddMoneyD.Name = "btnAddMoneyD";
             this.btnAddMoneyD.Size = new System.Drawing.Size(130, 29);
             this.btnAddMoneyD.TabIndex = 104;
-            this.btnAddMoneyD.Text = "ADD ITEM";
+            this.btnAddMoneyD.Text = "ADD DONATION";
             this.btnAddMoneyD.UseVisualStyleBackColor = false;
             this.btnAddMoneyD.Click += new System.EventHandler(this.btnAddMoneyD_Click);
             // 
@@ -4256,30 +4253,13 @@
             this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditMoneyD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnEditMoneyD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.btnEditMoneyD.Location = new System.Drawing.Point(385, 418);
+            this.btnEditMoneyD.Location = new System.Drawing.Point(106, 418);
             this.btnEditMoneyD.Name = "btnEditMoneyD";
             this.btnEditMoneyD.Size = new System.Drawing.Size(130, 29);
             this.btnEditMoneyD.TabIndex = 103;
-            this.btnEditMoneyD.Text = "EDIT ITEM";
+            this.btnEditMoneyD.Text = "UPDATE DONATION";
             this.btnEditMoneyD.UseVisualStyleBackColor = false;
             this.btnEditMoneyD.Click += new System.EventHandler(this.btnEditMoneyD_Click);
-            // 
-            // btnDelMoneyD
-            // 
-            this.btnDelMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnDelMoneyD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDelMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelMoneyD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDelMoneyD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
-            this.btnDelMoneyD.Location = new System.Drawing.Point(102, 418);
-            this.btnDelMoneyD.Name = "btnDelMoneyD";
-            this.btnDelMoneyD.Size = new System.Drawing.Size(130, 29);
-            this.btnDelMoneyD.TabIndex = 101;
-            this.btnDelMoneyD.Text = "DELETE ITEM";
-            this.btnDelMoneyD.UseVisualStyleBackColor = false;
-            this.btnDelMoneyD.Click += new System.EventHandler(this.btnDelMoneyD_Click);
             // 
             // cbFilter
             // 
@@ -4335,6 +4315,7 @@
             this.donationMoney.AllowUserToDeleteRows = false;
             this.donationMoney.AllowUserToResizeColumns = false;
             this.donationMoney.AllowUserToResizeRows = false;
+            this.donationMoney.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.donationMoney.BackgroundColor = System.Drawing.Color.White;
             this.donationMoney.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donationMoney.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -4427,7 +4408,6 @@
             // 
             this.tabIK.Controls.Add(this.btnAddIK);
             this.tabIK.Controls.Add(this.btnEditIK);
-            this.tabIK.Controls.Add(this.btnDelIK);
             this.tabIK.Controls.Add(this.multiSelect2);
             this.tabIK.Controls.Add(this.textBox7);
             this.tabIK.Controls.Add(this.donationIK);
@@ -4454,7 +4434,7 @@
             this.btnAddIK.Name = "btnAddIK";
             this.btnAddIK.Size = new System.Drawing.Size(130, 29);
             this.btnAddIK.TabIndex = 107;
-            this.btnAddIK.Text = "ADD ITEM";
+            this.btnAddIK.Text = "ADD DONATION";
             this.btnAddIK.UseVisualStyleBackColor = false;
             this.btnAddIK.Click += new System.EventHandler(this.btnAddIK_Click);
             // 
@@ -4467,30 +4447,13 @@
             this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnEditIK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.btnEditIK.Location = new System.Drawing.Point(385, 418);
+            this.btnEditIK.Location = new System.Drawing.Point(106, 418);
             this.btnEditIK.Name = "btnEditIK";
             this.btnEditIK.Size = new System.Drawing.Size(130, 29);
             this.btnEditIK.TabIndex = 106;
-            this.btnEditIK.Text = "EDIT ITEM";
+            this.btnEditIK.Text = "UPDATE DONATION";
             this.btnEditIK.UseVisualStyleBackColor = false;
             this.btnEditIK.Click += new System.EventHandler(this.btnEditIK_Click);
-            // 
-            // btnDelIK
-            // 
-            this.btnDelIK.BackColor = System.Drawing.Color.White;
-            this.btnDelIK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDelIK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelIK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDelIK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
-            this.btnDelIK.Location = new System.Drawing.Point(102, 418);
-            this.btnDelIK.Name = "btnDelIK";
-            this.btnDelIK.Size = new System.Drawing.Size(130, 29);
-            this.btnDelIK.TabIndex = 105;
-            this.btnDelIK.Text = "DELETE ITEM";
-            this.btnDelIK.UseVisualStyleBackColor = false;
-            this.btnDelIK.Click += new System.EventHandler(this.btnDelIK_Click);
             // 
             // multiSelect2
             // 
@@ -4567,6 +4530,7 @@
             this.donationIK.ShowRowErrors = false;
             this.donationIK.Size = new System.Drawing.Size(930, 355);
             this.donationIK.TabIndex = 54;
+            this.donationIK.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.donationIK_CellContentClick);
             this.donationIK.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
             // 
             // panel11
@@ -5534,7 +5498,7 @@
             this.btnDelExp.BackColor = System.Drawing.Color.White;
             this.btnDelExp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnDelExp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelExp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDelExp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(60)))), ((int)(((byte)(77)))));
             this.btnDelExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelExp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnDelExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -5552,7 +5516,7 @@
             this.btnExport.BackColor = System.Drawing.Color.White;
             this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(60)))), ((int)(((byte)(77)))));
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -6662,10 +6626,8 @@
         private NoFocusRec btnDonorInfoBack;
         private NoFocusRec btnAddMoneyD;
         private NoFocusRec btnEditMoneyD;
-        private NoFocusRec btnDelMoneyD;
         private NoFocusRec btnAddIK;
         private NoFocusRec btnEditIK;
-        private NoFocusRec btnDelIK;
         private System.Windows.Forms.PictureBox pictureBox35;
         private System.Windows.Forms.TabPage tabBRInfo;
         private System.Windows.Forms.Label label3;

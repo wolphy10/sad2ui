@@ -96,6 +96,7 @@
             this.txtCashAmount2 = new System.Windows.Forms.TextBox();
             this.lblDot3 = new System.Windows.Forms.Label();
             this.tabCheckEdit4 = new System.Windows.Forms.TabPage();
+            this.btnEncash = new BalayPasilungan.NoFocusRec();
             this.btnEditCheck = new BalayPasilungan.NoFocusRec();
             this.txtBank2 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -286,6 +287,8 @@
             this.donateWeek = new System.Windows.Forms.RadioButton();
             this.donateThisWeek = new System.Windows.Forms.RadioButton();
             this.week1 = new System.Windows.Forms.TextBox();
+            this.txtAllEncash = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabSelection.SuspendLayout();
             this.tabChoice0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -1269,6 +1272,7 @@
             // 
             // tabCheckEdit4
             // 
+            this.tabCheckEdit4.Controls.Add(this.btnEncash);
             this.tabCheckEdit4.Controls.Add(this.btnEditCheck);
             this.tabCheckEdit4.Controls.Add(this.txtBank2);
             this.tabCheckEdit4.Controls.Add(this.pictureBox2);
@@ -1298,6 +1302,21 @@
             this.tabCheckEdit4.UseVisualStyleBackColor = true;
             this.tabCheckEdit4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moneyDonate_MouseDown);
             // 
+            // btnEncash
+            // 
+            this.btnEncash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnEncash.FlatAppearance.BorderSize = 0;
+            this.btnEncash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEncash.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEncash.ForeColor = System.Drawing.Color.White;
+            this.btnEncash.Location = new System.Drawing.Point(-1, 336);
+            this.btnEncash.Name = "btnEncash";
+            this.btnEncash.Size = new System.Drawing.Size(126, 40);
+            this.btnEncash.TabIndex = 72;
+            this.btnEncash.Text = "ENCASH";
+            this.btnEncash.UseVisualStyleBackColor = false;
+            this.btnEncash.Click += new System.EventHandler(this.btnEncash_Click);
+            // 
             // btnEditCheck
             // 
             this.btnEditCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
@@ -1305,9 +1324,9 @@
             this.btnEditCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditCheck.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnEditCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.btnEditCheck.Location = new System.Drawing.Point(0, 336);
+            this.btnEditCheck.Location = new System.Drawing.Point(125, 336);
             this.btnEditCheck.Name = "btnEditCheck";
-            this.btnEditCheck.Size = new System.Drawing.Size(512, 40);
+            this.btnEditCheck.Size = new System.Drawing.Size(387, 40);
             this.btnEditCheck.TabIndex = 7;
             this.btnEditCheck.Text = "EDIT DONATION";
             this.btnEditCheck.UseVisualStyleBackColor = false;
@@ -2846,6 +2865,8 @@
             // 
             // tabCheckInfo
             // 
+            this.tabCheckInfo.Controls.Add(this.txtAllEncash);
+            this.tabCheckInfo.Controls.Add(this.label19);
             this.tabCheckInfo.Controls.Add(this.txtDonateCheckInfo);
             this.tabCheckInfo.Controls.Add(this.txtDateCheckInfo);
             this.tabCheckInfo.Controls.Add(this.panel12);
@@ -2874,7 +2895,7 @@
             this.txtDonateCheckInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDonateCheckInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtDonateCheckInfo.ForeColor = System.Drawing.Color.Black;
-            this.txtDonateCheckInfo.Location = new System.Drawing.Point(183, 319);
+            this.txtDonateCheckInfo.Location = new System.Drawing.Point(183, 304);
             this.txtDonateCheckInfo.MaxLength = 10;
             this.txtDonateCheckInfo.Name = "txtDonateCheckInfo";
             this.txtDonateCheckInfo.ReadOnly = true;
@@ -2888,7 +2909,7 @@
             this.txtDateCheckInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDateCheckInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtDateCheckInfo.ForeColor = System.Drawing.Color.Black;
-            this.txtDateCheckInfo.Location = new System.Drawing.Point(183, 278);
+            this.txtDateCheckInfo.Location = new System.Drawing.Point(183, 270);
             this.txtDateCheckInfo.MaxLength = 10;
             this.txtDateCheckInfo.Name = "txtDateCheckInfo";
             this.txtDateCheckInfo.ReadOnly = true;
@@ -2954,7 +2975,7 @@
             // pictureBox27
             // 
             this.pictureBox27.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox27.Location = new System.Drawing.Point(11, 131);
+            this.pictureBox27.Location = new System.Drawing.Point(11, 123);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(487, 23);
             this.pictureBox27.TabIndex = 83;
@@ -2965,7 +2986,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label24.Location = new System.Drawing.Point(57, 323);
+            this.label24.Location = new System.Drawing.Point(57, 308);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(94, 15);
             this.label24.TabIndex = 82;
@@ -2976,7 +2997,7 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label30.Location = new System.Drawing.Point(113, 193);
+            this.label30.Location = new System.Drawing.Point(113, 185);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(38, 15);
             this.label30.TabIndex = 81;
@@ -2988,7 +3009,7 @@
             this.txtCheckInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCheckInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtCheckInfo.ForeColor = System.Drawing.Color.Black;
-            this.txtCheckInfo.Location = new System.Drawing.Point(183, 96);
+            this.txtCheckInfo.Location = new System.Drawing.Point(183, 88);
             this.txtCheckInfo.Mask = "000000000-00000000-0000";
             this.txtCheckInfo.Name = "txtCheckInfo";
             this.txtCheckInfo.PromptChar = ' ';
@@ -3002,7 +3023,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label31.Location = new System.Drawing.Point(82, 100);
+            this.label31.Location = new System.Drawing.Point(82, 92);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(69, 15);
             this.label31.TabIndex = 80;
@@ -3014,7 +3035,7 @@
             this.txtORInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtORInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtORInfo.ForeColor = System.Drawing.Color.Black;
-            this.txtORInfo.Location = new System.Drawing.Point(183, 57);
+            this.txtORInfo.Location = new System.Drawing.Point(183, 49);
             this.txtORInfo.MaxLength = 10;
             this.txtORInfo.Name = "txtORInfo";
             this.txtORInfo.ReadOnly = true;
@@ -3027,7 +3048,7 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label32.Location = new System.Drawing.Point(104, 61);
+            this.label32.Location = new System.Drawing.Point(104, 53);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(47, 15);
             this.label32.TabIndex = 78;
@@ -3038,7 +3059,7 @@
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label33.Location = new System.Drawing.Point(56, 283);
+            this.label33.Location = new System.Drawing.Point(56, 275);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(95, 15);
             this.label33.TabIndex = 77;
@@ -3047,7 +3068,7 @@
             // pictureBox29
             // 
             this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
-            this.pictureBox29.Location = new System.Drawing.Point(12, 239);
+            this.pictureBox29.Location = new System.Drawing.Point(12, 231);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Size = new System.Drawing.Size(486, 23);
             this.pictureBox29.TabIndex = 84;
@@ -3059,7 +3080,7 @@
             this.txtBankInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBankInfo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtBankInfo.ForeColor = System.Drawing.Color.Black;
-            this.txtBankInfo.Location = new System.Drawing.Point(188, 171);
+            this.txtBankInfo.Location = new System.Drawing.Point(188, 163);
             this.txtBankInfo.MaxLength = 500;
             this.txtBankInfo.Name = "txtBankInfo";
             this.txtBankInfo.ReadOnly = true;
@@ -3073,7 +3094,7 @@
             this.margin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.margin.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.margin.ForeColor = System.Drawing.Color.Black;
-            this.margin.Location = new System.Drawing.Point(183, 167);
+            this.margin.Location = new System.Drawing.Point(183, 159);
             this.margin.MaxLength = 500;
             this.margin.Name = "margin";
             this.margin.ReadOnly = true;
@@ -3119,7 +3140,7 @@
             this.btnViewDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewDonor.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnViewDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnViewDonor.Location = new System.Drawing.Point(428, 51);
+            this.btnViewDonor.Location = new System.Drawing.Point(428, 57);
             this.btnViewDonor.Name = "btnViewDonor";
             this.btnViewDonor.Size = new System.Drawing.Size(47, 22);
             this.btnViewDonor.TabIndex = 20;
@@ -3133,7 +3154,7 @@
             this.txtAllDName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAllDName.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtAllDName.ForeColor = System.Drawing.Color.Black;
-            this.txtAllDName.Location = new System.Drawing.Point(162, 50);
+            this.txtAllDName.Location = new System.Drawing.Point(162, 56);
             this.txtAllDName.MaxLength = 10;
             this.txtAllDName.Name = "txtAllDName";
             this.txtAllDName.ReadOnly = true;
@@ -3146,7 +3167,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label41.Location = new System.Drawing.Point(81, 54);
+            this.label41.Location = new System.Drawing.Point(81, 60);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(49, 15);
             this.label41.TabIndex = 105;
@@ -3158,7 +3179,7 @@
             this.txtAllDateDonate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAllDateDonate.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtAllDateDonate.ForeColor = System.Drawing.Color.Black;
-            this.txtAllDateDonate.Location = new System.Drawing.Point(162, 325);
+            this.txtAllDateDonate.Location = new System.Drawing.Point(162, 328);
             this.txtAllDateDonate.MaxLength = 10;
             this.txtAllDateDonate.Name = "txtAllDateDonate";
             this.txtAllDateDonate.ReadOnly = true;
@@ -3238,7 +3259,7 @@
             // pictureBox28
             // 
             this.pictureBox28.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox28.Location = new System.Drawing.Point(11, 152);
+            this.pictureBox28.Location = new System.Drawing.Point(11, 145);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(487, 23);
             this.pictureBox28.TabIndex = 97;
@@ -3249,7 +3270,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label36.Location = new System.Drawing.Point(36, 329);
+            this.label36.Location = new System.Drawing.Point(36, 332);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(94, 15);
             this.label36.TabIndex = 96;
@@ -3260,7 +3281,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label37.Location = new System.Drawing.Point(92, 214);
+            this.label37.Location = new System.Drawing.Point(92, 207);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(38, 15);
             this.label37.TabIndex = 95;
@@ -3272,7 +3293,7 @@
             this.txtAllCheckNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAllCheckNo.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtAllCheckNo.ForeColor = System.Drawing.Color.Black;
-            this.txtAllCheckNo.Location = new System.Drawing.Point(162, 126);
+            this.txtAllCheckNo.Location = new System.Drawing.Point(162, 124);
             this.txtAllCheckNo.Mask = "000000000-00000000-0000";
             this.txtAllCheckNo.Name = "txtAllCheckNo";
             this.txtAllCheckNo.PromptChar = ' ';
@@ -3286,7 +3307,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label38.Location = new System.Drawing.Point(61, 131);
+            this.label38.Location = new System.Drawing.Point(61, 128);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(69, 15);
             this.label38.TabIndex = 94;
@@ -3298,20 +3319,21 @@
             this.txtAllORNO.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAllORNO.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtAllORNO.ForeColor = System.Drawing.Color.Black;
-            this.txtAllORNO.Location = new System.Drawing.Point(162, 88);
+            this.txtAllORNO.Location = new System.Drawing.Point(162, 90);
             this.txtAllORNO.MaxLength = 10;
             this.txtAllORNO.Name = "txtAllORNO";
             this.txtAllORNO.ReadOnly = true;
             this.txtAllORNO.Size = new System.Drawing.Size(260, 22);
             this.txtAllORNO.TabIndex = 90;
             this.txtAllORNO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAllORNO.TextChanged += new System.EventHandler(this.txtAllORNO_TextChanged);
             // 
             // label39
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label39.Location = new System.Drawing.Point(83, 92);
+            this.label39.Location = new System.Drawing.Point(83, 94);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(47, 15);
             this.label39.TabIndex = 93;
@@ -3343,7 +3365,7 @@
             this.txtAllBank.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAllBank.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.txtAllBank.ForeColor = System.Drawing.Color.Black;
-            this.txtAllBank.Location = new System.Drawing.Point(167, 192);
+            this.txtAllBank.Location = new System.Drawing.Point(167, 185);
             this.txtAllBank.MaxLength = 500;
             this.txtAllBank.Name = "txtAllBank";
             this.txtAllBank.ReadOnly = true;
@@ -3357,7 +3379,7 @@
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
             this.richTextBox2.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox2.Location = new System.Drawing.Point(162, 188);
+            this.richTextBox2.Location = new System.Drawing.Point(162, 181);
             this.richTextBox2.MaxLength = 500;
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
@@ -3875,6 +3897,7 @@
             this.donateWeeks.TabStop = true;
             this.donateWeeks.Text = "Select weeks";
             this.donateWeeks.UseVisualStyleBackColor = true;
+            this.donateWeeks.CheckedChanged += new System.EventHandler(this.donateWeeks_CheckedChanged);
             // 
             // donateWeek
             // 
@@ -3923,6 +3946,31 @@
             this.week1.TabIndex = 75;
             this.week1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.week1.Visible = false;
+            // 
+            // txtAllEncash
+            // 
+            this.txtAllEncash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllEncash.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllEncash.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllEncash.ForeColor = System.Drawing.Color.Black;
+            this.txtAllEncash.Location = new System.Drawing.Point(183, 338);
+            this.txtAllEncash.MaxLength = 10;
+            this.txtAllEncash.Name = "txtAllEncash";
+            this.txtAllEncash.ReadOnly = true;
+            this.txtAllEncash.Size = new System.Drawing.Size(255, 22);
+            this.txtAllEncash.TabIndex = 109;
+            this.txtAllEncash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label19.Location = new System.Drawing.Point(84, 342);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(67, 15);
+            this.label19.TabIndex = 108;
+            this.label19.Text = "ENCASHED";
             // 
             // moneyDonate
             // 
@@ -4302,5 +4350,8 @@
         private System.Windows.Forms.Label label17;
         public System.Windows.Forms.TextBox week2;
         public System.Windows.Forms.RadioButton donateWeeks;
+        public NoFocusRec btnEncash;
+        public System.Windows.Forms.TextBox txtAllEncash;
+        private System.Windows.Forms.Label label19;
     }
 }

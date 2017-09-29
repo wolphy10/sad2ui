@@ -22,6 +22,7 @@ namespace BalayPasilungan
         public Form refToDim { get; set; }
         public Form refToExpense { get; set; }
         public bool hasExpense;
+        public bool confirmed;
         public bool dot = true;                    // True - if user entered '.'
         public int existingExpenseID;
         public string category;        
@@ -143,6 +144,21 @@ namespace BalayPasilungan
         private void cbFilter_DropDownClosed(object sender, EventArgs e)
         {
             this.BeginInvoke(new Action(() => { ((ComboBox)sender).Select(0, 0); }));
+        }
+
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            conf.lblConfirm.Text = message;
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
         }
         #endregion
 
@@ -364,6 +380,48 @@ namespace BalayPasilungan
         {
             if (txtCheckCent2.Text == "") txtCheckCent2.Text = "00";
             toDefault();
+        }        
+
+        private void btnEncash_Click(object sender, EventArgs e)
+        {
+            confirmMessage("You are about to encash a check. Are you sure you want to continue?");
+            if (confirmed)
+            {
+                try
+                {
+                    decimal amount = decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text);
+                    conn.Open();
+
+                    // ENCASH CHECK
+                    MySqlCommand comm = new MySqlCommand("UPDATE monetary SET encash = 0 WHERE donationID = " + donationID, conn);
+                    comm.ExecuteNonQuery();
+
+                    // NEW DONATION ID
+                    comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
+                    + " VALUES (1, " + donorID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
+                    comm.ExecuteNonQuery();
+
+                    // GET THAT DONATION ID
+                    comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);               
+                    int c_donationID = int.Parse(dt.Rows[0]["donationID"].ToString());
+
+                    // ADD CASH FROM CHECK
+                    comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORNo, amount, dateDonated, encash, donationID)"
+                        + " VALUES ('Cash', '" + txtCheckOR2.Text + "', " + amount + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "', 1, " + c_donationID + ")", conn);
+                    comm.ExecuteNonQuery();
+
+                    // LMAO
+
+                    successMessage("Check has been encashed successfully!");
+                    conn.Close();
+                    this.Close();
+                }
+                catch(Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+            }
         }
         #endregion
 
@@ -414,7 +472,6 @@ namespace BalayPasilungan
             {
                 if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00" || txtBRPart.Text != "")
                 {
-
                     try
                     {
                         conn.Open();
@@ -573,6 +630,16 @@ namespace BalayPasilungan
             }
         }
 
+        private void donateWeeks_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTo2.MinDate = dateFrom2.Value; dateTo2.MaxDate = DateTime.Now;
+        }
+
+        private void txtAllORNO_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void DonationMode_CheckedChanged(object sender, EventArgs e)
         {
             btnReport2.Enabled = true; dateFrom2.Enabled = dateTo2.Enabled = false;
@@ -593,11 +660,13 @@ namespace BalayPasilungan
         
         private void dateWeek_ValueChanged(object sender, EventArgs e)
         {
+            dateTo2.MaxDate = DateTime.Now; dateTo2.MinDate = dateFrom2.Value;
+
             DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(((DateTimePicker)sender).Value);
             if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday) ((DateTimePicker)sender).Value = ((DateTimePicker)sender).Value.AddDays(3);                       
             int day2 = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(((DateTimePicker)sender).Value, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
             if (((DateTimePicker)sender).Name == "dateFrom2") week1.Text = day2.ToString();
-            else if (((DateTimePicker)sender).Name == "dateTo2") week2.Text = day2.ToString();
+            else if (((DateTimePicker)sender).Name == "dateTo2") week2.Text = day2.ToString();            
         }
     }
 }
