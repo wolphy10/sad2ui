@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(edclass));
             this.panel13 = new System.Windows.Forms.Panel();
+            this.lblEdHead = new System.Windows.Forms.Label();
             this.lbladdeditprofile = new System.Windows.Forms.Label();
             this.noFocusRec13 = new BalayPasilungan.NoFocusRec();
             this.btncanceledclass = new BalayPasilungan.NoFocusRec();
@@ -40,8 +41,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtedadviser = new System.Windows.Forms.TextBox();
-            this.cbxedyear = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.cbxedyear = new System.Windows.Forms.ComboBox();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,6 +51,7 @@
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel13.Controls.Add(this.lblEdHead);
             this.panel13.Controls.Add(this.lbladdeditprofile);
             this.panel13.Controls.Add(this.noFocusRec13);
             this.panel13.Controls.Add(this.btncanceledclass);
@@ -57,6 +59,20 @@
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(490, 33);
             this.panel13.TabIndex = 124;
+            this.panel13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
+            // 
+            // lblEdHead
+            // 
+            this.lblEdHead.AutoSize = true;
+            this.lblEdHead.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.lblEdHead.Location = new System.Drawing.Point(410, 8);
+            this.lblEdHead.Name = "lblEdHead";
+            this.lblEdHead.Size = new System.Drawing.Size(70, 19);
+            this.lblEdHead.TabIndex = 301;
+            this.lblEdHead.Text = "Add Class";
+            this.lblEdHead.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEdHead.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // lbladdeditprofile
             // 
@@ -103,6 +119,7 @@
             // btnaddedclass
             // 
             this.btnaddedclass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnaddedclass.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnaddedclass.FlatAppearance.BorderSize = 0;
             this.btnaddedclass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnaddedclass.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -181,17 +198,6 @@
             this.txtedadviser.TabIndex = 295;
             this.txtedadviser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cbxedyear
-            // 
-            this.cbxedyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxedyear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
-            this.cbxedyear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.cbxedyear.FormattingEnabled = true;
-            this.cbxedyear.Location = new System.Drawing.Point(169, 218);
-            this.cbxedyear.Name = "cbxedyear";
-            this.cbxedyear.Size = new System.Drawing.Size(290, 25);
-            this.cbxedyear.TabIndex = 298;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -199,9 +205,23 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
             this.label21.Location = new System.Drawing.Point(30, 221);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(82, 19);
+            this.label21.Size = new System.Drawing.Size(46, 19);
             this.label21.TabIndex = 299;
-            this.label21.Text = "YEAR LEVEL";
+            this.label21.Text = "LEVEL";
+            // 
+            // cbxedyear
+            // 
+            this.cbxedyear.DropDownHeight = 120;
+            this.cbxedyear.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
+            this.cbxedyear.ForeColor = System.Drawing.Color.Black;
+            this.cbxedyear.FormattingEnabled = true;
+            this.cbxedyear.IntegralHeight = false;
+            this.cbxedyear.Location = new System.Drawing.Point(169, 216);
+            this.cbxedyear.Name = "cbxedyear";
+            this.cbxedyear.Size = new System.Drawing.Size(290, 28);
+            this.cbxedyear.TabIndex = 300;
+            this.cbxedyear.DropDownClosed += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.cbxedyear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
             // 
             // edclass
             // 
@@ -222,9 +242,12 @@
             this.Controls.Add(this.panel13);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "edclass";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.edclass_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -244,7 +267,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtedadviser;
-        public System.Windows.Forms.ComboBox cbxedyear;
         private System.Windows.Forms.Label label21;
+        public System.Windows.Forms.ComboBox cbxedyear;
+        public System.Windows.Forms.Label lblEdHead;
     }
 }

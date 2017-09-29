@@ -22,8 +22,10 @@ namespace BalayPasilungan
         public Form refToDim { get; set; }
         public Form refToExpense { get; set; }
         public bool hasExpense;
+        public bool confirmed;
         public bool dot = true;                    // True - if user entered '.'
         public int existingExpenseID;
+        public int itemID;
         public string category;        
 
         public moneyDonate()
@@ -121,13 +123,13 @@ namespace BalayPasilungan
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar)) e.Handled = true;
-            else if (char.IsDigit(e.KeyChar)) e.Handled = false;
-            else if (e.KeyChar == '.')
-            {                
+            if (e.KeyChar == '.')
+            {
                 if (((TextBox)sender).Text.Contains(".")) e.Handled = dot = true;
                 else dot = false;
-            }                        
+            }
+            else if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar)) e.Handled = false;
+            else if (char.IsLetter(e.KeyChar) || !char.IsDigit(e.KeyChar)) e.Handled = true;  
         }
 
         private void noDot_KeyPress(object sender, KeyPressEventArgs e)
@@ -143,6 +145,21 @@ namespace BalayPasilungan
         private void cbFilter_DropDownClosed(object sender, EventArgs e)
         {
             this.BeginInvoke(new Action(() => { ((ComboBox)sender).Select(0, 0); }));
+        }
+
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            conf.lblConfirm.Text = message;
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
         }
         #endregion
 
@@ -364,6 +381,48 @@ namespace BalayPasilungan
         {
             if (txtCheckCent2.Text == "") txtCheckCent2.Text = "00";
             toDefault();
+        }        
+
+        private void btnEncash_Click(object sender, EventArgs e)
+        {
+            confirmMessage("You are about to encash a check. Are you sure you want to continue?");
+            if (confirmed)
+            {
+                try
+                {
+                    decimal amount = decimal.Parse(txtCheckAmount2.Text + "." + txtCheckCent2.Text);
+                    conn.Open();
+
+                    // ENCASH CHECK
+                    MySqlCommand comm = new MySqlCommand("UPDATE monetary SET encash = 0 WHERE donationID = " + donationID, conn);
+                    comm.ExecuteNonQuery();
+
+                    // NEW DONATION ID
+                    comm = new MySqlCommand("INSERT INTO donation (donationType, donorID, dateAdded)"
+                    + " VALUES (1, " + donorID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "')", conn);
+                    comm.ExecuteNonQuery();
+
+                    // GET THAT DONATION ID
+                    comm = new MySqlCommand("SELECT donationID FROM donation ORDER BY donationID DESC LIMIT 1", conn);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);               
+                    int c_donationID = int.Parse(dt.Rows[0]["donationID"].ToString());
+
+                    // ADD CASH FROM CHECK
+                    comm = new MySqlCommand("INSERT INTO monetary (paymentType, ORNo, amount, dateDonated, encash, donationID)"
+                        + " VALUES ('Cash', '" + txtCheckOR2.Text + "', " + amount + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "', 1, " + c_donationID + ")", conn);
+                    comm.ExecuteNonQuery();
+
+                    // LMAO
+
+                    successMessage("Check has been encashed successfully!");
+                    conn.Close();
+                    this.Close();
+                }
+                catch(Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+            }
         }
         #endregion
 
@@ -412,9 +471,10 @@ namespace BalayPasilungan
         {
             if (tabSelection.SelectedIndex == 7)
             {
-                if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00" || txtBRPart.Text != "")
+                if (decimal.Parse(txtBRTotal.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
+                else if (txtBRPart.Text == "") errorMessage("Please enter the name of particular.");
+                else if (decimal.Parse(txtBRTotal.Text).ToString() != "0.00" || txtBRPart.Text != "")
                 {
-
                     try
                     {
                         conn.Open();
@@ -431,12 +491,12 @@ namespace BalayPasilungan
                         errorMessage(ex.Message);
                     }
                 }
-                else if (decimal.Parse(txtBRTotal.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
-                else if (txtBRPart.Text != "") errorMessage("Please enter the name of particular.");
             } 
             else 
             {
-                if (decimal.Parse(txtBRC_total.Text).ToString() != "0.00" || txtBRC_Part.Text != "")
+                if (decimal.Parse(txtBRC_total.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
+                else if (txtBRC_Part.Text == "") errorMessage("Please enter the name of particular.");
+                else if (decimal.Parse(txtBRC_total.Text).ToString() != "0.00" && txtBRC_Part.Text != "")
                 {
                     try
                     {
@@ -454,31 +514,30 @@ namespace BalayPasilungan
                         errorMessage(ex.Message);
                     }
                 }
-                else if (decimal.Parse(txtBRC_total.Text).ToString() == "0.00") errorMessage("Cannot have a total of 0.");
-                else if (txtBRC_Part.Text != "") errorMessage("Please enter the name of particular.");                
             }                            
         }
 
         private void btnBREdit_Click(object sender, EventArgs e)
         {
-            if (decimal.Parse(txtBRTotal2.Text).ToString() != "0.00")
+            if (decimal.Parse(txtBRTotal2.Text).ToString() != "0.00" && txtBRPart2.Text != "")
             {
                 try
                 {
                     conn.Open();
                     // EDIT BUDGET REQUEST ITEM
                     MySqlCommand comm = new MySqlCommand("UPDATE item SET particular = '" + txtBRPart2.Text
-                        + "', quantity = " + int.Parse(txtBRQuantity2.Value.ToString()) + ", unitPrice = " + decimal.Parse(txtBRUP.Text)
-                        + ", amount = " + decimal.Parse(txtBRTotal.Text) + " WHERE budgetID = " + budgetID, conn);
+                        + "', quantity = " + int.Parse(txtBRQuantity2.Value.ToString()) + ", unitPrice = " + decimal.Parse(txtBRUP2.Text)
+                        + ", amount = " + decimal.Parse(txtBRTotal2.Text) + " WHERE itemID = " + itemID, conn);
                     comm.ExecuteNonQuery();
-                    conn.Close(); this.Close();
+                    conn.Close();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     errorMessage(ex.Message);
                 }
             }
-            else errorMessage("You cannot have a total of 0.");
+            else errorMessage("You cannot have a total of 0 or particular is blank.");
         }
 
         private void txtBRUP_Leave(object sender, EventArgs e)
@@ -486,6 +545,7 @@ namespace BalayPasilungan
             if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
             else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
             else if (((TextBox)sender).Name == "txtBRC_UP") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");
+            else if (((TextBox)sender).Name == "txtBRC_UP2") txtBRC_total2.Text = (decimal.Parse(txtBRC_Quantity2.Value.ToString()) * decimal.Parse(txtBRC_UP2.Text)).ToString("n2");
         }
 
         private void txtBRUP_KeyDown(object sender, KeyEventArgs e)
@@ -494,7 +554,8 @@ namespace BalayPasilungan
             {
                 if (((TextBox)sender).Name == "txtBRUP") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRUP2") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
-                else if (((TextBox)sender).Name == "txtBRC_UP") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");                
+                else if (((TextBox)sender).Name == "txtBRC_UP") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRC_UP2") txtBRC_total2.Text = (decimal.Parse(txtBRC_Quantity2.Value.ToString()) * decimal.Parse(txtBRC_UP2.Text)).ToString("n2");
             }
         }
 
@@ -505,7 +566,13 @@ namespace BalayPasilungan
                 if (((TextBox)sender).Name == "txtBRUP" && txtBRUP.Text != "") txtBRTotal.Text = (decimal.Parse(txtBRQuantity.Value.ToString()) * decimal.Parse(txtBRUP.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRUP2" && txtBRUP2.Text != "") txtBRTotal2.Text = (decimal.Parse(txtBRQuantity2.Value.ToString()) * decimal.Parse(txtBRUP2.Text)).ToString("n2");
                 else if (((TextBox)sender).Name == "txtBRC_UP" && txtBRC_UP.Text != "") txtBRC_total.Text = (decimal.Parse(txtBRC_Quantity.Value.ToString()) * decimal.Parse(txtBRC_UP.Text)).ToString("n2");
+                else if (((TextBox)sender).Name == "txtBRC_UP2" && txtBRC_UP2.Text != "") txtBRC_total2.Text = (decimal.Parse(txtBRC_Quantity2.Value.ToString()) * decimal.Parse(txtBRC_UP2.Text)).ToString("n2");
             }
+        }
+
+        private void txtBRC_Quantity2_Leave(object sender, EventArgs e)
+        {
+            txtBRC_total2.Text = (decimal.Parse(txtBRC_Quantity2.Value.ToString()) * decimal.Parse(txtBRC_UP2.Text)).ToString("n2");
         }
         #endregion     
 
@@ -573,6 +640,44 @@ namespace BalayPasilungan
             }
         }
 
+        private void donateWeeks_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTo2.MinDate = dateFrom2.Value; dateTo2.MaxDate = DateTime.Now;
+        }
+
+        private void txtAllORNO_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBRC_UP2_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditBR2_Click(object sender, EventArgs e)
+        {
+            if (decimal.Parse(txtBRC_total2.Text).ToString() != "0.00" && txtBRC_Part2.Text != "")
+            {
+                try
+                {conn
+                    .Open();
+                    // EDIT BUDGET REQUEST ITEM
+                    MySqlCommand comm = new MySqlCommand("UPDATE item SET particular = '" + txtBRC_Part2.Text
+                        + "', quantity = " + int.Parse(txtBRC_Quantity2.Value.ToString()) + ", unitPrice = " + decimal.Parse(txtBRC_UP2.Text)
+                        + ", amount = " + decimal.Parse(txtBRC_total2.Text) + " WHERE itemID = " + itemID, conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    errorMessage(ex.Message);
+                }
+            }
+            else errorMessage("You cannot have a total of 0 particular is blank.");
+        }
+
         private void DonationMode_CheckedChanged(object sender, EventArgs e)
         {
             btnReport2.Enabled = true; dateFrom2.Enabled = dateTo2.Enabled = false;
@@ -593,11 +698,13 @@ namespace BalayPasilungan
         
         private void dateWeek_ValueChanged(object sender, EventArgs e)
         {
+            dateTo2.MaxDate = DateTime.Now; dateTo2.MinDate = dateFrom2.Value;
+
             DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(((DateTimePicker)sender).Value);
             if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday) ((DateTimePicker)sender).Value = ((DateTimePicker)sender).Value.AddDays(3);                       
             int day2 = CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(((DateTimePicker)sender).Value, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
             if (((DateTimePicker)sender).Name == "dateFrom2") week1.Text = day2.ToString();
-            else if (((DateTimePicker)sender).Name == "dateTo2") week2.Text = day2.ToString();
+            else if (((DateTimePicker)sender).Name == "dateTo2") week2.Text = day2.ToString();            
         }
     }
 }

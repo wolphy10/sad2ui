@@ -353,6 +353,26 @@ namespace BalayPasilungan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edu_add {
+            get {
+                object obj = ResourceManager.GetObject("edu_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edu_edit {
+            get {
+                object obj = ResourceManager.GetObject("edu_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap error_header {
             get {
                 object obj = ResourceManager.GetObject("error_header", resourceCulture);
