@@ -2859,7 +2859,7 @@ namespace BalayPasilungan
 
         private void btncancelviewrec_Click(object sender, EventArgs e)
         {
-            tabChild.SelectedTab = ninth;
+            tabChild.SelectedTab = thirteen;
             richboxrecords.Clear();
         }
 
@@ -3339,20 +3339,6 @@ namespace BalayPasilungan
         }
 
 #endregion
-
-        private void newprofilepic_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog dlg = new OpenFileDialog())
-            {
-                dlg.Title = "Open Image";
-                dlg.Filter = "All image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png| JPEG Files (*.jpg, *.jpeg, *.jpe)|*.jpg; *.jpeg; *.jpe|PNG files (*.png)|*.png|BMP files (*.bmp)|*.bmp";
-
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {                    
-                    //newprofilepic.Image = new Bitmap(dlg.FileName);
-                }
-            }
-        }        
 
         #region Textbox
         private void txtNew_Enter(object sender, EventArgs e)
