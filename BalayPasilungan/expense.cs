@@ -279,7 +279,7 @@ namespace BalayPasilungan
 
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
-                adp.Fill(dt);
+                adp.Fill(dt);                
 
                 if (type == 1)          // Monetary donation
                 {
@@ -443,14 +443,14 @@ namespace BalayPasilungan
                         dt.Rows.Add(-1, null, "No entries.", null, null);
                         empty = true; btnExpOp.Enabled = multiExp.Enabled = false;
                     }
-                    else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;                                           
+                    else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;
 
                     expList.DataSource = dt;
 
                     // ADD COLUMN TO CHECK BUDGET
                     DataColumn hasBudget = new System.Data.DataColumn("hasBudget", typeof(System.String));
-                    hasBudget.DefaultValue = "";                    
-                    dt.Columns.Add(hasBudget);                                        
+                    hasBudget.DefaultValue = "";
+                    dt.Columns.Add(hasBudget);
 
                     // EXP LIST In Kind UI Modifications
                     expList.Columns["dateExpense"].HeaderText = "EXPENSE DATE";
@@ -460,16 +460,16 @@ namespace BalayPasilungan
 
                     // For ID purposes (hidden from user)            
                     expList.Columns["expenseID"].Visible = expList.Columns["budgetID"].Visible = false;
-                    
+
                     expList.Columns["dateExpense"].HeaderCell.Style.Padding = expList.Columns["dateExpense"].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
 
                     if (dt.Rows.Count > 0 && !empty)
                     {
-                        for(int i = 0; i < dt.Rows.Count; i++)
+                        for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            if (dt.Rows[i]["budgetID"].ToString() != "") dt.Rows[i]["hasBudget"] = "Yes";   
+                            if (dt.Rows[i]["budgetID"].ToString() != "") dt.Rows[i]["hasBudget"] = "Yes";
                             else dt.Rows[i]["hasBudget"] = "No";
-                        }                        
+                        }
                         expList.Columns[1].DefaultCellStyle.Format = "MMMM dd, yyyy";
                         btnExpOp.Enabled = true;
                         if (dt.Rows.Count == 1) multiExp.Enabled = false;
@@ -646,17 +646,17 @@ namespace BalayPasilungan
             {
                 decimal n; string query = "", searchWords = "";
                 bool isNumeric = decimal.TryParse(search, out n);
-
+                
                 if (isNumeric && !searchDateBool)
                 {
                     n = decimal.Parse(search);                                          // Convert search keyword to double
                     string doubs = n.ToString("F2", CultureInfo.InvariantCulture);      // Convert to string with 2 decimal places                    
-                    if (id != -10)
+                    if (id == -10)
                     {
                         query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ")"
                         + " AND (amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%') ORDER BY dateDonated DESC";
                     }
-                    else if (id == -20) query = "SELECT * FROM expense WHERE amount LIKE " + decimal.Parse(doubs) + " OR category = '%" + search + "%' ORDER BY dateExpense DESC)";
+                    else if (id == -20) query = "SELECT expenseID, dateExpense, category, amount, budgetID FROM expense WHERE amount LIKE " + decimal.Parse(doubs) + " OR category = '%" + search + "%' ORDER BY dateExpense DESC";
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE amount LIKE " + decimal.Parse(doubs) + " OR ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%' ORDER BY dateDonated DESC";
                 }
                 else if (searchDateBool)
@@ -690,14 +690,14 @@ namespace BalayPasilungan
                             + "(dateCheck LIKE '" + fromDateValue + "' OR MONTH(dateCheck) = " + fromDateValue.ToString("MM") + " OR YEAR(dateCheck) = " + fromDateValue.ToString("yyyy") + ")";
                     }
 
-                    if (id != -10) query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ") AND " + searchWords + " ORDER BY dateDonated DESC";
-                    else if (id == -20) query = "SELECT * FROM expense WHERE " + searchWords + " ORDER BY dateExpense DESC";
+                    if (id == -10) query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ") AND " + searchWords + " ORDER BY dateDonated DESC";
+                    else if (id == -20) query = "SELECT expenseID, dateExpense, category, amount, budgetID FROM expense WHERE " + searchWords + " ORDER BY dateExpense DESC";
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE " + searchWords + " ORDER BY dateDonated DESC";
                 }
                 else
                 {
-                    if (id != -10) query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ") AND (ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%')";
-                    else if (id != -20) query = "SELECT * FROM expense WHERE catergory LIKE '%" + search + "%' ORDER BY dateExpense DESC";
+                    if (id == -10) query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + id + ") AND (ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%')";
+                    else if (id == -20) query = "SELECT expenseID, dateExpense, category, amount, budgetID FROM expense WHERE category LIKE '%" + search + "%' ORDER BY dateExpense DESC";
                     else query = "SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE ORno LIKE '%" + search + "%' OR checkNo LIKE '%" + search + "%' OR bankName LIKE '%" + search + "%'";
                 }
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -1794,17 +1794,12 @@ namespace BalayPasilungan
 
         private void btnBRNext_Click(object sender, EventArgs e)
         {
+            if(rbOthers.Checked) lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
             if (lblBRCategory.Text != "" && txtBRRequest.Text != "Name." && txtPurpose.Text != "Name of purpose.")
             {
-                if (panelCat.Visible)
-                {                    
-                    MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
-                    loadTable(comm, 5);
-                }
-                else                // MULTIPLE
-                {
-                    
-                }
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+                loadTable(comm, 5);
+
                 tabBR.SelectedIndex = 1;
                 lblBRdateRequested.Text = dateBR.Value.ToString("MMMM dd, yyyy");
                 lblBRPurpose.Text = txtPurpose.Text;
@@ -1846,6 +1841,7 @@ namespace BalayPasilungan
                     comm.ExecuteNonQuery();
 
                     conn.Close();
+                    get(2); get(3); get(4); get(5);
                 }
                 catch (Exception ex)
                 {
@@ -1880,9 +1876,10 @@ namespace BalayPasilungan
             ((Button)sender).BackColor = System.Drawing.Color.FromArgb(146, 211, 202);
             if (((Button)sender).Name == "btnCatSingle")
             {
-                lblCategory.Text = "";
+                lblBRCategory.Text = "";
                 panelCat.Visible = lblCategory.Visible = true;
                 if (rbOthers.Checked) lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
+                else rbClothing.Checked = true;
             }
             else
             {
@@ -1904,11 +1901,8 @@ namespace BalayPasilungan
             else if (rbSocial.Checked) lblBRCategory.Text = "Recreation";
             else if (rbSpiritual.Checked) lblBRCategory.Text = "Spiritual Value Formation";
             else if (rbTranspo.Checked) lblBRCategory.Text = "Transportation";
-            else if (((RadioButton)sender).Name == "rbOthers")
-            {
-                cbExpCat.SelectedIndex = 0;
-                if (rbOthers.Checked) lblOthers.Visible = cbExpCat.Visible = true;                
-            }
+            else if (((RadioButton)sender).Name == "rbOthers") cbExpCat.SelectedIndex = 0;                                        
+            if(rbOthers.Checked) lblOthers.Visible = cbExpCat.Visible = true;
         }
         #endregion
 
@@ -2059,11 +2053,6 @@ namespace BalayPasilungan
             tabPBR.SelectedIndex = 2;
         }
 
-        private void cbExpCat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lblBRCategory.Text = cbExpCat.SelectedItem.ToString();
-        }
-
         private void btnCancelABR_Click(object sender, EventArgs e)
         {
             confirmMessage("Are you sure you want to cancel this approved budget request?\n\nIt will be deleted permanently.");
@@ -2100,7 +2089,7 @@ namespace BalayPasilungan
             int i = 0; MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             string[] load = new string[50];
 
-            if (cbClothing.Checked) load[i++] = "Clothing"; if (cbCLW.Checked) load[i++] = "Communications, Lights, and Water"; if (cbDep.Checked) load[i++] = "Depreciation Expenses"; if (cbEdu.Checked) load[i++] = "Education";
+            if (rbMultiple.Checked) load[i++] = "Multiple"; if (cbClothing.Checked) load[i++] = "Clothing"; if (cbCLW.Checked) load[i++] = "Communications, Lights, and Water"; if (cbDep.Checked) load[i++] = "Depreciation Expenses"; if (cbEdu.Checked) load[i++] = "Education";
             if (cbFood.Checked) load[i++] = "Food"; if (cbGC.Checked) load[i++] = "Guidance and Counselling"; if (cbHonor.Checked) load[i++] = "Honorarium"; if (cbHouse.Checked) load[i++] = "Household Expenses"; if (cbInsurance.Checked) load[i++] = "Insurance Expense";
             if (cbMed.Checked) load[i++] = "Medical and Dental Supplies"; if (cbMeeting.Checked) load[i++] = "Meeting and Coferences"; if (cbOffice.Checked) load[i++] = "Office Supplies"; if (cbPrintAd.Checked) load[i++] = "Printing and Advertising";
             if (cbProf.Checked) load[i++] = "Professional Fees"; if (cbRec.Checked) load[i++] = "Recreation"; if (cbRepair.Checked) load[i++] = "Repair and Maintenance"; if (cbSal.Checked) load[i++] = "Salary"; if (cbSD.Checked) load[i++] = "Skills and Development";
@@ -2120,7 +2109,7 @@ namespace BalayPasilungan
                 }
             }
 
-            if (cbAll.Checked) cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
+            if (cbAll.Checked) rbMultiple.Checked = cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
             else comm = new MySqlCommand("SELECT * FROM expense WHERE category = " + final + " ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6);
         }        
@@ -2128,7 +2117,7 @@ namespace BalayPasilungan
         private void btnResetCategory_Click(object sender, EventArgs e)
         {
             panelExpOp.Visible = false;
-            cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
+            rbMultiple.Checked = cbClothing.Checked = cbCLW.Checked = cbDep.Checked = cbEdu.Checked = cbFood.Checked = cbGC.Checked = cbHonor.Checked = cbHouse.Checked = cbInsurance.Checked = cbMed.Checked = cbMeeting.Checked = cbOffice.Checked = cbPrintAd.Checked = cbProf.Checked = cbRec.Checked = cbRepair.Checked = cbSal.Checked = cbSD.Checked = cbSSS.Checked = cbSVF.Checked = cbTax.Checked = cbTranspo.Checked = false;
             cbAll.Checked = true;
             MySqlCommand comm = new MySqlCommand("SELECT * FROM expense ORDER BY dateExpense DESC", conn);
             loadTable(comm, 6);
@@ -2220,6 +2209,8 @@ namespace BalayPasilungan
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            bool monthonly = false, yronly = false;
+
             moneyDonate mD = overlay();
             mD.refToExpense = this;
             mD.tabSelection.SelectedIndex = 8;
@@ -2254,9 +2245,10 @@ namespace BalayPasilungan
                         {
                             month = (mD.dateFrom.SelectedIndex + 1);
                             monthname = mD.dateFrom.GetItemText(mD.dateFrom.SelectedItem);
-                            year = int.Parse(mD.year.SelectedItem.ToString());                            
+                            year = int.Parse(mD.year.SelectedItem.ToString());
+                            monthonly = true;                       
                         }
-                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID, category FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -2266,12 +2258,13 @@ namespace BalayPasilungan
                     else
                     {
                         year = int.Parse(mD.year.SelectedItem.ToString());
-                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID, category FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Font.Bold = true;
                         worksheet.Cells[1, 1] = "EXPENSES FOR " + year;
+                        yronly = true;
                     }
 
                     DataTable dt1 = new DataTable(); adp.Fill(dt1); int limit = dt1.Rows.Count;
@@ -2309,7 +2302,8 @@ namespace BalayPasilungan
 
                             for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
                             {
-                                adp = new MySqlDataAdapter("SELECT amount, category, budgetID FROM item WHERE category = '" + category[cat] + "' AND budgetID = " + int.Parse(dt1.Rows[count]["budgetID"].ToString()), conn);
+                                if(dt1.Rows[count]["category"].ToString() == "Multiple") adp = new MySqlDataAdapter("SELECT amount, category, budgetID FROM item WHERE category = '" + category[cat] + "' AND budgetID = " + int.Parse(dt1.Rows[count]["budgetID"].ToString()), conn);
+                                else adp = new MySqlDataAdapter("SELECT amount, category, budgetID FROM expense WHERE category = '" + category[cat] + "' AND budgetID = " + int.Parse(dt1.Rows[count]["budgetID"].ToString()), conn);
                                 DataTable dt = new DataTable();
                                 adp.Fill(dt);
                                 
@@ -2337,10 +2331,13 @@ namespace BalayPasilungan
                         worksheet.Range[worksheet.Cells[last, 1], worksheet.Cells[last, 4]].Font.Bold = true;
                         worksheet.Cells[last, 1] = "TOTAL";
 
+                        MessageBox.Show("month == " + monthonly.ToString() + "\nyear == " + yronly.ToString());
                         for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)        // TOTAL
                         {
                             //adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND MONTH(dateExpense) = " + month, conn);
-                            adp = new MySqlDataAdapter("SELECT item.amount, item.category, expense.dateExpense FROM item INNER JOIN expense ON item.budgetID = expense.budgetID WHERE item.category = '" + category[cat] + "' AND MONTH(expense.dateExpense) = " + month, conn); 
+                            
+                            if(monthonly) adp = new MySqlDataAdapter("SELECT SUM(item.amount) as amount, item.category, expense.dateExpense FROM item LEFT JOIN expense ON item.budgetID = expense.budgetID WHERE item.category = '" + category[cat] + "' AND MONTH(expense.dateExpense) = " + month + " AND YEAR(expense.dateExpense) = " + year, conn);                                
+                            else if(yronly) adp = new MySqlDataAdapter("SELECT SUM(item.amount) as amount, item.category, expense.dateExpense FROM item LEFT JOIN expense ON item.budgetID = expense.budgetID WHERE item.category = '" + category[cat] + "' AND YEAR(expense.dateExpense) = " + year, conn);
                             DataTable dt = new DataTable();
                             adp.Fill(dt);
 
@@ -2352,7 +2349,7 @@ namespace BalayPasilungan
 
                             if (dt.Rows.Count > 0)
                             {
-                                if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[last, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");                                
+                                if (decimal.Parse(dt.Rows[0]["amount"].ToString()) != 0) worksheet.Cells[last, i] = decimal.Parse(dt.Rows[0]["amount"].ToString()).ToString("0.##");
                                 else worksheet.Cells[last, i] = "0";
                             }
                             else worksheet.Cells[last, i] = "0";
@@ -2369,6 +2366,10 @@ namespace BalayPasilungan
                     {
                         workbook.SaveAs(saveDialog.FileName);
                         successMessage("Export as excel has been successful.");
+                    }
+                    else
+                    {
+                        
                     }
                     conn.Close();
                 }
@@ -2441,6 +2442,19 @@ namespace BalayPasilungan
                     phrase.Add(new Chunk(lblPBRdate.Text, underline));
                     phrase.Add(new Chunk("\nCATEGORY: ", normal));
                     phrase.Add(new Chunk(lblPBRCategory.Text, underline));
+
+                    if(lblPBRCategory.Text == "Multiple")
+                    {
+                        int last = 0;
+                        for(int i = 0; i < PBRDetails.Rows.Count - 1; i++)
+                        {
+                            if(i == 0) phrase.Add(new Chunk(" ( " + PBRDetails.Rows[i].Cells[5].Value.ToString() + ", ", underline));
+                            else phrase.Add(new Chunk(PBRDetails.Rows[i].Cells[5].Value.ToString() + ", ", underline));
+                            last = i;
+                        }
+                        phrase.Add(new Chunk(PBRDetails.Rows[last + 1].Cells[5].Value.ToString() + ")", underline));
+                    }
+
                     par = new Paragraph(); par.Add(phrase); doc.Add(par);
 
                     phrase = new Phrase(); phrase.Add(new Chunk("\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
@@ -2807,13 +2821,13 @@ namespace BalayPasilungan
             {
                 if (!brEdit)
                 {
-                    lblBRRequest.ForeColor = countPurpose.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+                    lblBRRequest.ForeColor = countBRRequest.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
                     panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_blue;
                     countBRRequest.Visible = true;
                 }
                 else
                 {
-                    lblBRRequest.ForeColor = countPurpose.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
+                    lblBRRequest.ForeColor = countBRRequest.ForeColor = System.Drawing.Color.FromArgb(219, 209, 92);
                     panel.BackgroundImage = global::BalayPasilungan.Properties.Resources.line_yellow;
                     countBRRequest.Visible = true;
                 }
