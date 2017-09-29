@@ -2256,7 +2256,7 @@ namespace BalayPasilungan
                             monthname = mD.dateFrom.GetItemText(mD.dateFrom.SelectedItem);
                             year = int.Parse(mD.year.SelectedItem.ToString());                            
                         }
-                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -2266,7 +2266,7 @@ namespace BalayPasilungan
                     else
                     {
                         year = int.Parse(mD.year.SelectedItem.ToString());
-                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -2309,7 +2309,7 @@ namespace BalayPasilungan
 
                             for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
                             {
-                                adp = new MySqlDataAdapter("SELECT category, amount, expenseID FROM expense WHERE category = '" + category[cat] + "' AND dateExpense = '" + DateTime.Parse(dt1.Rows[count]["dateExpense"].ToString()).ToString("yyyy-MM-dd") +"' AND expenseID = " + dt1.Rows[count]["expenseID"].ToString(), conn);
+                                adp = new MySqlDataAdapter("SELECT amount, category, budgetID FROM item WHERE category = '" + category[cat] + "' AND budgetID = " + int.Parse(dt1.Rows[count]["budgetID"].ToString()), conn);
                                 DataTable dt = new DataTable();
                                 adp.Fill(dt);
                                 
@@ -2338,8 +2338,9 @@ namespace BalayPasilungan
                         worksheet.Cells[last, 1] = "TOTAL";
 
                         for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)        // TOTAL
-                        {                                                            
-                            adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND MONTH(dateExpense) = " + month, conn);
+                        {
+                            //adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND MONTH(dateExpense) = " + month, conn);
+                            adp = new MySqlDataAdapter("SELECT item.amount, item.category, expense.dateExpense FROM item INNER JOIN expense ON item.budgetID = expense.budgetID WHERE item.category = '" + category[cat] + "' AND MONTH(expense.dateExpense) = " + month, conn); 
                             DataTable dt = new DataTable();
                             adp.Fill(dt);
 
