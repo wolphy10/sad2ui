@@ -84,31 +84,54 @@ namespace BalayPasilungan
 
         public void edclass(int classeid, string yearlvl)
         {
-            edclass ed = new edclass();
+            edclass ed = new edclass();           
+
+            dim dim = new dim();
+            dim.Location = this.Location; dim.Size = this.Size;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            ed.lbladdeditprofile.Text = "Add Class";
+            ed.lblEdHead.Text = "Add Class";
+            ed.btnaddedclass.Text = "ADD";
 
             ed.reftocase = this;
-
             ed.classeid = classeid;
             ed.level = yearlvl;
+            ed.ShowDialog();
+            dim.Close();
 
-            ed.Show();
+            conn.Close();            
+            reloaded(id);
+            reloadedclass(eid);
         }
 
         public void edclass(int classeid, string yearlvl, string section, string adviser)
         {
             edclass ed = new edclass();
 
-            ed.reftocase = this;
+            dim dim = new dim();
+            dim.Location = this.Location; dim.Size = this.Size;
+            dim.refToPrev = this;
+            dim.Show(this);
 
             ed.lbladdeditprofile.Text = "Edit Class";
-            ed.btnaddedclass.Text = "ADD CHANGES";
+            ed.lblEdHead.Text = "Edit Class";
+            ed.btnaddedclass.Text = "EDIT";
 
+            ed.reftocase = this;
             ed.classeid = classeid;
             ed.level = yearlvl;
             ed.txtedadviser.Text = adviser;
             ed.txtedsection.Text = section;
             ed.cbxedyear.Text = ed.level;
-            ed.Show();
+
+            ed.ShowDialog();
+            dim.Close();
+
+            conn.Close();
+            reloaded(id);            
+            reloadedclass(eid);
         }
 
         public void famtypecall(int x, string text)
@@ -686,6 +709,7 @@ namespace BalayPasilungan
                                         "picture = '" + filename + "', address = '" + address + "', age = " + age + "  WHERE caseid = " + id, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
+
                     successMessage("Profile details has been changed successfully!");
                     tabChild.SelectedTab = sixteen;
                     tabCase.SelectedTab = tabInfo;
@@ -1083,9 +1107,7 @@ namespace BalayPasilungan
                     section = dt.Rows[0]["section"].ToString();
                     adviser = dt.Rows[0]["adviser"].ToString();
                     yearlvl = dt.Rows[0]["yearlevel"].ToString();
-
                     edclass(classid, yearlvl, section, adviser);
-
                 }
                 conn.Close();
             }
@@ -1254,36 +1276,30 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, "No entries.", null);
                     empty = true;
-
-                    dtgeducation.DataSource = dt;
                 }
-                else
+                else empty = false;
+
+                dtgeducation.DataSource = dt;
+
+                // For ID purposes (hidden from user)            
+                dtgeducation.Columns["eid"].Visible = false;
+
+                dtgeducation.Columns["school"].HeaderText = "SCHOOL";
+                dtgeducation.Columns["level"].HeaderText = "LEVEL";
+                dtgeducation.Columns["school"].HeaderCell.Style.Padding = dtgeducation.Columns["school"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+
+                if (dt.Rows.Count > 0 && !empty)
                 {
-                    empty = false;
-
-                    dtgeducation.DataSource = dt;
-
-                    // For ID purposes (hidden from user)            
-
-
-                    dtgeducation.Columns["school"].HeaderText = "SCHOOL";
-                    dtgeducation.Columns["level"].HeaderText = "LEVEL";
-
-                    // 486 WIDTH
-                    dtgeducation.Columns["school"].Width = 200;
-                    dtgeducation.Columns["level"].Width = 100;
-                    dtgeducation.Columns["school"].HeaderCell.Style.Padding = dtgeducation.Columns["school"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
-
-                    DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
-                    //EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                    EditColumn.Image = Properties.Resources.editrmm;
+                    DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();                    
+                    //EditColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    EditColumn.Image = Properties.Resources.edu_edit;
                     EditColumn.Name = "EDIT";
                     EditColumn.Width = 93;
                     EditColumn.DataPropertyName = "EDIT";
 
                     DataGridViewImageColumn AddColumn = new DataGridViewImageColumn();
-                    //AddColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                    AddColumn.Image = Properties.Resources.add;
+                    //AddColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    AddColumn.Image = Properties.Resources.edu_add;
                     AddColumn.Name = "ADD";
                     AddColumn.Width = 93;
                     AddColumn.DataPropertyName = "ADD";
@@ -1297,16 +1313,13 @@ namespace BalayPasilungan
                     {
                         dtgeducation.Columns.Add(AddColumn);
                         dtgeducation.Columns["ADD"].ReadOnly = false;
-                    }
+                    }                    
                 }
-                dtgeducation.Columns["eid"].Visible = false;
-
                 conn.Close();
             }
             catch (Exception ee)
             {
                 errorMessage(ee.Message);
-                conn.Close();
             }
         }
 
@@ -1318,8 +1331,8 @@ namespace BalayPasilungan
 
                 MySqlCommand comm = new MySqlCommand("SELECT classeid, section, adviser, yearlevel FROM edclass WHERE eid = " + eid + " ORDER BY yearlevel", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
-
                 adp.Fill(dt);
+
                 if (dt.Rows.Count == 0)
                 {
                     dt.Rows.Add(-1, "No entries.", null, null);
@@ -1335,24 +1348,26 @@ namespace BalayPasilungan
                 dtgedclass.Columns["section"].HeaderText = "SECTION";
                 dtgedclass.Columns["adviser"].HeaderText = "ADVISER";
                 dtgedclass.Columns["yearlevel"].HeaderText = "YEAR LEVEL";
+                dtgedclass.Columns["section"].HeaderCell.Style.Padding = dtgedclass.Columns["section"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
-                // 555 WIDTH
-                dtgedclass.Columns["section"].Width = dtgedclass.Columns[2].Width = 227;
-                dtgedclass.Columns["adviser"].Width = 50;
-                dtgedclass.Columns["yearlevel"].HeaderCell.Style.Padding = dtgedclass.Columns[1].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
-
-                DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
-                //EditColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
-                EditColumn.Image = Properties.Resources.editrmm;
-                EditColumn.Name = "EDIT";
-                EditColumn.Width = 50;
-                EditColumn.DataPropertyName = "EDIT";
-
-                if (dtgedclass.Columns["EDIT"] == null && archivemode == 0)
+                if (dt.Rows.Count > 0 && !empty)
                 {
-                    dtgedclass.Columns.Add(EditColumn);
-                    dtgedclass.Columns["EDIT"].ReadOnly = false;
+                    DataGridViewImageColumn EditColumn = new DataGridViewImageColumn();
+                    //EditColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    EditColumn.Image = Properties.Resources.edu_edit;
+                    EditColumn.Name = "EDIT";
+                    EditColumn.Width = 50;
+                    EditColumn.DataPropertyName = "EDIT";
+
+                    if (dtgedclass.Columns["EDIT"] == null && archivemode == 0)
+                    {
+                        dtgedclass.Columns.Add(EditColumn);
+                        dtgedclass.Columns["EDIT"].ReadOnly = false;
+                    }
+
+                    btnEduRepro.Enabled = true;
                 }
+                else btnEduRepro.Enabled = false;
 
                 conn.Close();
             }
@@ -1516,7 +1531,7 @@ namespace BalayPasilungan
 
             catch (Exception ee)
             {
-                MessageBox.Show(ee.ToString());
+                errorMessage(ee.Message);
                 conn.Close();
             }
         }
@@ -1601,29 +1616,20 @@ namespace BalayPasilungan
         #region cellclicks
         private void dtgcs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn))
+            if (e.RowIndex != -1 && !empty)
             {
-                try
-                {
-                    id = int.Parse(dtgcs.Rows[e.RowIndex].Cells["caseid"].Value.ToString());
+                id = int.Parse(dtgcs.Rows[e.RowIndex].Cells["caseid"].Value.ToString());
 
-                    tabChild.SelectedTab = sixteen;
-                    tabCase.SelectedTab = tabInfo;
+                tabChild.SelectedTab = sixteen;
+                tabCase.SelectedTab = tabInfo;
 
-                    btnArchive.Visible = true;
-                    btncancelarchive.Visible = false;
-                    archivemode = 0;
+                btnArchive.Visible = true;
+                btncancelarchive.Visible = false;
+                archivemode = 0;
 
-                    reload(id);
-                    showdem();
-                }
-                catch (Exception ee)
-                {
-                    errorMessage(ee.Message);
-                }
+                reload(id);
+                showdem(); 
             }
-
         }
 
         private void dtgfamily_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1742,36 +1748,44 @@ namespace BalayPasilungan
 
         private void dtgeducation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
-            if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn)) reloadedclass(eid);
+            // BOOK
+            if (e.RowIndex != -1 && !empty)
+            {
+                var senderGrid = (DataGridView)sender;
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+                if (!(senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn)) reloadedclass(eid);
+                dtgedclass.ClearSelection();
+            }
         }
 
         private void dtgeducation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-            eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
+            if (e.RowIndex != -1 && !empty)
             {
-                if (senderGrid.Columns[e.ColumnIndex] == senderGrid.Columns["Edit"])
+                var senderGrid = (DataGridView)sender;
+                eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
                 {
-                    tabCase.SelectedTab = tabNewChild;
-                    tabaddchild.SelectedTab = tabNewEdu;
+                    if (senderGrid.Columns[e.ColumnIndex] == senderGrid.Columns["Edit"])
+                    {
+                        tabCase.SelectedTab = tabNewChild;
+                        tabaddchild.SelectedTab = tabNewEdu;
 
-                    lbladdeditprofile.Text = "Edit Education Info";
+                        lbladdeditprofile.Text = "Edit Education Info";
 
-                    btnadded.Text = "ADD CHANGES";
+                        btnadded.Text = "ADD CHANGES";
 
-                    //MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
-                    reloadediteducation(eid);
-                }
-                else
-                {
-                    classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+                        //MessageBox.Show(dtgeducation.Rows[e.RowIndex].Cells[0].Value.ToString());
+                        reloadediteducation(eid);
+                    }
+                    else
+                    {
+                        classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
 
-                    yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-                    edclass(classeid, yearlvl);
+                        edclass(classeid, yearlvl);
+                    }
                 }
             }
         }
@@ -2680,7 +2694,6 @@ namespace BalayPasilungan
             {
                 try
                 {
-
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("INSERT INTO checkup(hid, checkupdetails, checkupdate, checkuplocation) VALUES('" + hid + "', '" + details + "', '" + dtpcheck.Value.Date.ToString("yyyyMMdd") + "', '" + location + "')", conn);
                     comm.ExecuteNonQuery();
@@ -3076,7 +3089,20 @@ namespace BalayPasilungan
 
         private void btnEduRepro_Click(object sender, EventArgs e)
         {
-            tabChild.SelectedTab = eduReport1;
+            if (dtgedclass.SelectedRows.Count != 0)
+            {
+                tabChild.SelectedTab = eduReport1;
+                
+                erName.Text = lblcasename.Text;
+                
+                int row_school = dtgeducation.CurrentCell.RowIndex;
+                int row = dtgedclass.CurrentCell.RowIndex;
+                erSchool.Text = (dtgeducation.Rows[row_school].Cells[1].Value).ToString();
+                erSection.Text = (dtgedclass.Rows[row].Cells["section"].Value).ToString();
+                erAdviser.Text = (dtgedclass.Rows[row].Cells["adviser"].Value).ToString();
+                erLevel.Text = (dtgedclass.Rows[row].Cells["yearlevel"].Value).ToString();
+            }
+            else errorMessage("Please select a class first.");
         }
 
         private void btnEduR_Click(object sender, EventArgs e)
@@ -3086,36 +3112,130 @@ namespace BalayPasilungan
             else if (((Button)sender).Name == "btnER2") tabChild.SelectedTab = eduReport3;
             else if (((Button)sender).Name == "btnERsubmit")
             {
-                confirmMessage("Are you sure you want to submit this report?");
+                confirmMessage("Please close all PDF applications before exporting.");
                 if (confirmed)
                 {
-                    try
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+                    saveDialog.FilterIndex = 1;
+
+                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
-                        int term = 0, perf = 0;
-                        if (rb1G.Checked) term = 1;
-                        else if (rb2G.Checked) term = 2;
-                        else if (rb3G.Checked) term = 3;
-                        else if (rb4G.Checked) term = 4;
+                        Document doc = new Document(iTextSharp.text.PageSize.A4, 50, 50, 40, 40);
+                        PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(saveDialog.FileName, FileMode.Create));
+                        doc.Open();
 
-                        if (rbVG.Checked) perf = 5;
-                        else if (rbG.Checked) perf = 4;
-                        else if (rbS.Checked) perf = 3;
-                        else if (rbM.Checked) perf = 2;
-                        else if (rbU.Checked) perf = 1;
+                        // BOOK
+                        // 1 - bold | 2 - italize | 3 - bold & italize | 4 - underline | 5 - bold & underline 
+                        iTextSharp.text.Font title = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 15, 1, BaseColor.BLACK);
+                        iTextSharp.text.Font bold = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 14, 1, BaseColor.BLACK);                        
+                        iTextSharp.text.Font normal = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 14, BaseColor.BLACK);
 
-                        conn.Open();
-                        MySqlCommand comm = new MySqlCommand("INSERT INTO education (caseID, level, section, adviser, term, performance, comments, strength, improvement, activities, awards, behavior, recommendations, dateAdded)"
-                            + " VALUES(" + id + ",'" + erLevel.Text + "', '" + erSection.Text + "', '" + erAdviser.Text + "', " + term + ", " + perf + ", '" + erComments.Text + "', '"
-                            + erStrength.Text + "', '" + erImprove.Text + "', '" + erActs.Text + "', '" + erAwards.Text + "', '" + erBehavior.Text + "', '" + erRec.Text + "', '" + DateTime.Today.ToString("yyyy-MM-dd") + "')", conn);
-                        comm.ExecuteNonQuery();
-                        conn.Close();
+                        iTextSharp.text.Font des = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 13, BaseColor.BLACK);
+                        iTextSharp.text.Font biggest = FontFactory.GetFont(iTextSharp.text.FontFactory.COURIER_BOLD, 18, BaseColor.BLACK);
 
-                        successMessage("Educator's report has been added successfully!");
+                        System.Drawing.Image image = Properties.Resources.logo_paper;
+                        iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(image, System.Drawing.Imaging.ImageFormat.Png);
+                        pdfImage.ScalePercent(8F); pdfImage.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(pdfImage);
+
+                        int nextyr = int.Parse(DateTime.Now.Year.ToString()) + 1;
+                        Phrase phrase = new Phrase();
+                        phrase.Add(new Chunk("STUDENT PERFORMANCE EVALUATION\nS.Y. " + DateTime.Now.Year + " - " + nextyr, title));
+                        Paragraph par = new Paragraph(); par.Alignment = Element.ALIGN_CENTER; par.Add(phrase); doc.Add(par);                        
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\n\nName of Student: ", bold));
+                        phrase.Add(new Chunk(erName.Text).SetUnderline(1, -2));
+                        phrase.Add(new Chunk("\nSchool Enrolled: ", bold));
+                        phrase.Add(new Chunk(erSchool.Text).SetUnderline(1, -2));
+                        phrase.Add(new Chunk("\nGrade Level / Section: ", bold));
+                        phrase.Add(new Chunk(erLevel.Text + "  -  " + erSection.Text).SetUnderline(1, -2));
+
+                        phrase.Add(new Chunk("\n\nTerm: ", bold));
+                        if(rb1G.Checked) phrase.Add(new Chunk("First Grading").SetUnderline(1, -2));
+                        else if(rb2G.Checked) phrase.Add(new Chunk("Second Grading").SetUnderline(1, -2));
+                        else if (rb3G.Checked) phrase.Add(new Chunk("Third Grading").SetUnderline(1, -2));
+                        else if (rb4G.Checked) phrase.Add(new Chunk("Fourth Grading").SetUnderline(1, -2));
+
+                        par = new Paragraph(); par.SpacingAfter = 10; par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
+
+                        phrase.Add(new Chunk("\nOverall Performance\n", bold));
+
+                        PdfPTable pdfTable = new PdfPTable(3);
+                        float[] widths = new float[] { 3f, 2f, 4f};
+                        pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
+
+                        Phrase blank_phrase = new Phrase(); blank_phrase.Add(new Chunk(""));
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("VERY GOOD\n", biggest));
+                        phrase.Add(new Chunk(des_g.Text, des)); PdfPCell cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        if(rbVG.Checked)
+                        {
+                            phrase = new Phrase(); phrase.Add(new Chunk("X", biggest)); cell = new PdfPCell(phrase);
+                            cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        }
+                        else cell = new PdfPCell(blank_phrase);
+
+                        phrase = new Phrase(); phrase.Add(new Chunk("QUANTITY\n", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        phrase = new Phrase(); phrase.Add(new Chunk("\nUNIT PRICE\n", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+
+                        int count = 0;
+                        /*foreach (DataGridViewRow r in PBRDetails.Rows)
+                        {
+                            try
+                            {
+                                pdfTable.AddCell(r.Cells[1].Value.ToString());
+                                pdfTable.AddCell(r.Cells[2].Value.ToString());
+                                pdfTable.AddCell(r.Cells[3].Value.ToString());
+                                pdfTable.AddCell(r.Cells[4].Value.ToString());
+                                count++;
+                            }
+                            catch { }
+                        }
+                        for (int i = count; i < 24; i++)
+                        {
+                            pdfTable.AddCell(" ");
+                            pdfTable.AddCell(" ");
+                            pdfTable.AddCell(" ");
+                            pdfTable.AddCell(" ");
+                        }
+
+                        // TOTAL
+                        comm = new MySqlCommand("SELECT SUM(amount) as TOTAL FROM item WHERE budgetID = " + current_budgetID, conn);
+                        MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
+
+                        phrase = new Phrase(); phrase.Add(new Chunk("TOTAL", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        pdfTable.AddCell(" ");
+                        pdfTable.AddCell(" ");
+                        phrase = new Phrase(); phrase.Add(new Chunk(dt.Rows[0][0].ToString(), bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+
+                        doc.Add(pdfTable);
+
+                        PdfContentByte cb = wri.DirectContent;
+                        ColumnText ct = new ColumnText(cb); Phrase right = new Phrase();
+                        right.Add(new Chunk("Prepared by: ", normal));
+                        right.Add(new Chunk(lblPBRBy.Text).SetUnderline(1, -2));
+                        ct.SetSimpleColumn(right, 65, 25, 65 * 4, 25 * 4, 15, Element.ALIGN_LEFT); ct.Go();
+
+                        right = new Phrase(); right.Add(new Chunk("Approved by: Fr. Lionel R. Mechavez, SM", normal)); // BOOK LMAO change director
+                        ct.SetSimpleColumn(right, 300, 25, 560, 25 * 4, 15, Element.ALIGN_CENTER); ct.Go();
+                        right = new Phrase(); right.Add(new Chunk("Executive Director", normal));
+                        ct.SetSimpleColumn(right, 310, 20, 570, 20 * 4, 15, Element.ALIGN_CENTER); ct.Go();
+                        */
+                        doc.Close();
+                        successMessage("Educator's report exported successfully!");
                         tabChild.SelectedTab = eighth;
-                    }
-                    catch (Exception ex)
-                    {
-                        errorMessage(ex.Message);
                     }
                 }
             }
@@ -3226,6 +3346,11 @@ namespace BalayPasilungan
             famtypecall(id, btnaddfam.Text);
         }
 
+        private void btnERBack_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = eighth;
+        }
+
         private void bttnbackfromcheckrec_Click(object sender, EventArgs e)
         {
             tabChild.SelectedTab = fifteen;
@@ -3254,6 +3379,7 @@ namespace BalayPasilungan
 
             lbladdeditprofile.Text = "New Education Info";
             btnadded.Text = "ADD";
+            cbxtype.SelectedIndex = cbxedlvl.SelectedIndex = 1;            
         }
         #endregion
 
@@ -3685,8 +3811,8 @@ namespace BalayPasilungan
                     iTextSharp.text.Font normal = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 11, BaseColor.BLACK);
                     iTextSharp.text.Font normal_small = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 9, BaseColor.BLACK);
                     iTextSharp.text.Font bold_small = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 9, 1, BaseColor.BLACK);
-                    iTextSharp.text.Font underline = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 12, 4, BaseColor.BLACK);
 
+                    // BOOK 2
                     PdfContentByte cb = wri.DirectContent;
                     ColumnText ct = new ColumnText(cb); Phrase right = new Phrase();
                     right.Add(new Chunk("Foundation of Balay Pasilungan, Inc.", bold_small));
@@ -3698,28 +3824,28 @@ namespace BalayPasilungan
 
                     Phrase phrase = new Phrase();
                     phrase.Add(new Chunk("\nName: ", normal));
-                    phrase.Add(new Chunk(lblcasename.Text, underline));
+                    phrase.Add(new Chunk(lblcasename.Text).SetUnderline(1, -2));
                     
                     DateTime now = DateTime.Today, birthyear = dtbirth.Value;
                     int age = now.Year - birthyear.Year;
                     if (now < birthyear.AddYears(age)) age -= 1;
 
                     ct = new ColumnText(cb); right = new Phrase();
-                    right.Add(new Chunk("Age: ", normal)); right.Add(new Chunk("   " + age.ToString() + "   ", underline));
-                    right.Add(new Chunk(" Sex: ", normal)); right.Add(new Chunk("Male", underline));
+                    right.Add(new Chunk("Age: ", normal)); right.Add(new Chunk("   " + age.ToString() + "   ").SetUnderline(1, -2));
+                    right.Add(new Chunk(" Sex: ", normal)); right.Add(new Chunk("Male").SetUnderline(1, -2));
                     ct.SetSimpleColumn(right, 10, 678, 520, 180, 10, Element.ALIGN_RIGHT); ct.Go();
 
                     phrase.Add(new Chunk("\nAddress: ", normal));
-                    phrase.Add(new Chunk(lblcaseaddress.Text, underline));
+                    phrase.Add(new Chunk(lblcaseaddress.Text).SetUnderline(1, -2));
                     phrase.Add(new Chunk("\nDate/Place of Birth: ", normal));
-                    phrase.Add(new Chunk("         " + lbldate.Text + " / " + lbldate.Text + "                                  " , underline));
+                    phrase.Add(new Chunk("         " + lbldate.Text + " / " + lbldate.Text + "                                  " ).SetUnderline(1, -2));
                     phrase.Add(new Chunk("\nDate Admitted: ", normal));
-                    phrase.Add(new Chunk("         " + lbljoined.Text + "                                  ", underline));
-                    phrase.Add(new Chunk("\nDistinguising Marks: a. Tattoo / Scars ", normal)); phrase.Add(new Chunk("                                                                                 ", underline));
+                    phrase.Add(new Chunk("         " + lbljoined.Text + "                                  ").SetUnderline(1, -2));
+                    phrase.Add(new Chunk("\nDistinguising Marks: a. Tattoo / Scars ", normal)); phrase.Add(new Chunk("                                                                                 ").SetUnderline(1, -2));
                     phrase.Add(new Chunk("\n                                   b. Height: ", normal));
-                    phrase.Add(new Chunk("    " + lblH.Text + "    ", underline));
+                    phrase.Add(new Chunk("    " + lblH.Text + "    ").SetUnderline(1, -2));
                     phrase.Add(new Chunk("c. Weight: ", normal));
-                    phrase.Add(new Chunk("    " + lblW.Text + "    ", underline));                
+                    phrase.Add(new Chunk("    " + lblW.Text + "    ").SetUnderline(1, -2));                
                     phrase.Add(new Chunk("\nPut (/) on documents submitted:", normal));
                     phrase.Add(new Chunk("\n                       1.  SCSR                                      (   )         3.  School Records                                (   )", normal));
                     phrase.Add(new Chunk("\n                       2.  Medical Certificate                   (   )                  4.  Others                                          (   )", normal));                
@@ -3752,7 +3878,7 @@ namespace BalayPasilungan
                     ct.SetSimpleColumn(right, 300, 50, 560, 50 * 4, 15, Element.ALIGN_CENTER); ct.Go();
 
                     right = new Phrase(); right.Add(new Chunk("Noted By: ", normal));
-                    right.Add(new Chunk("\n\nDIRECTOR NAME", underline));
+                    right.Add(new Chunk("\n\nDIRECTOR NAME").SetUnderline(1, -2));
                     right.Add(new Chunk("\nExecutive Director", normal));
                     ct.SetSimpleColumn(right, 65, 35, 65 * 4, 35 * 4, 15, Element.ALIGN_LEFT); ct.Go();
 
