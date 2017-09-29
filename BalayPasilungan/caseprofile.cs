@@ -107,7 +107,7 @@ namespace BalayPasilungan
             reloadedclass(eid);
         }
 
-        public void edclass(int classeid, string yearlvl, string section, string adviser)
+        public void edclass(int classeid, string yearlvl, string section, string adviser, string level)
         {
             edclass ed = new edclass();
 
@@ -121,11 +121,14 @@ namespace BalayPasilungan
             ed.btnaddedclass.Text = "EDIT";
 
             ed.reftocase = this;
+
             ed.classeid = classeid;
-            ed.level = yearlvl;
-            ed.txtedadviser.Text = adviser;
-            ed.txtedsection.Text = section;
-            ed.cbxedyear.Text = ed.level;
+            ed.yearlevel = yearlvl;
+
+            ed.adviser2 = adviser;
+            ed.section2 = section;
+
+            ed.level = level;
 
             ed.ShowDialog();
             dim.Close();
@@ -236,6 +239,8 @@ namespace BalayPasilungan
                 btnMain.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
                 logo_main.BackgroundImage = Properties.Resources.main;
             }
+
+            resetall();
         }
         #endregion
 
@@ -260,30 +265,34 @@ namespace BalayPasilungan
                     btnArchive.Enabled = false;
                     dt.Rows.Add(-1, "No entries.", null, null);
                     empty = true;
+
+                    dtgcs.DataSource = dt;
                 }
                 else
                 {
                     multiChild.Checked = multiChild.Enabled = false;
                     btnArchive.Enabled = true;
+
+                    dtgcs.DataSource = dt;
+                    // Case Profile UI Modifications
+                    dtgcs.Columns[1].HeaderText = "LASTNAME";
+                    dtgcs.Columns[2].HeaderText = "FIRSTNAME";
+                    dtgcs.Columns[3].HeaderText = "PROGRAM";
+
+                    // For ID purposes (hidden from user)            
+                    dtgcs.Columns[0].Visible = false;
+
+                    // 935 WIDTH
+                    dtgcs.Columns[1].Width = 380;
+                    dtgcs.Columns[2].Width = 380;
+                    dtgcs.Columns[3].Width = 175;
+                    empty = false;
                 }
 
-
-                dtgcs.DataSource = dt;
-                // Case Profile UI Modifications
-                dtgcs.Columns[1].HeaderText = "LASTNAME";
-                dtgcs.Columns[2].HeaderText = "FIRSTNAME";
-                dtgcs.Columns[3].HeaderText = "PROGRAM";
-
-                // For ID purposes (hidden from user)            
-                dtgcs.Columns[0].Visible = false;
-
-                // 935 WIDTH
-                dtgcs.Columns[1].Width = 380;
-                dtgcs.Columns[2].Width = 380;
-                dtgcs.Columns[3].Width = 175;
+                dtgcs.Columns["caseid"].Visible = false;
 
 
-                if (dt.Rows.Count > 0 && !empty)
+                if (dt.Rows.Count > 0 && empty == false)
                 {
                     dtgcs.Columns[1].HeaderCell.Style.Padding = dtgcs.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                     getdrop(); getresidential(); getcount();
@@ -506,28 +515,34 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, "No entries.", null, null);
                     empty = true;
+
+                    btnArchive.Enabled = dtgcs.Enabled = false;
                 }
-                else empty = false;
+                else
+                {
+
+                    empty = false;
+
+                    dtgcs.Columns["lastname"].HeaderText = "DATE OF INTERVIEW";
+                    dtgcs.Columns["firstname"].HeaderText = "INTERVIEWER";
+                    dtgcs.Columns["program"].HeaderText = "INTERVIEWER";
+                    dtgcs.Columns["lastname"].HeaderCell.Style.Padding = dtgcs.Columns["lastname"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+
+                    if (dtgcs.Columns["Discharge"] != null)
+                    {
+                        dtgcs.Columns.Remove("Discharge");
+                    }
+
+                    btncancelarchive.Visible = btnaddarchive.Visible = false;
+                    btnArchive.Enabled = dtgcs.Enabled = true;
+                }
 
                 dtgcs.DataSource = dt;
 
                 // For ID purposes (hidden from user)  
                 dtgcs.Columns["caseid"].Visible = false;
 
-                dtgcs.Columns["lastname"].HeaderText = "DATE OF INTERVIEW";
-                dtgcs.Columns["firstname"].HeaderText = "INTERVIEWER";
-                dtgcs.Columns["program"].HeaderText = "INTERVIEWER";
-                dtgcs.Columns["lastname"].HeaderCell.Style.Padding = dtgcs.Columns["lastname"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);                
-                
-                if (dtgcs.Columns["Discharge"] != null)
-                {
-                    dtgcs.Columns.Remove("Discharge");
-                }
-
-                btncancelarchive.Visible = btnaddarchive.Visible = false;
-
-                if (dt.Rows.Count > 0) btnArchive.Enabled = dtgcs.Enabled = true;
-                else btnArchive.Enabled = dtgcs.Enabled = false;
+              
 
                 conn.Close();
             }
@@ -639,6 +654,8 @@ namespace BalayPasilungan
                     conn.Open();
 
                     MySqlCommand comm = new MySqlCommand();
+
+                    
                     if (cbIP.Checked)       // IP
                     {
                         comm = new MySqlCommand("INSERT INTO casestudyprofile (lastname, firstname, birthdate, alias, birthplace, civilstatus, program, dateJoined, picture, address, profilestatus, ip, age)"
@@ -648,8 +665,8 @@ namespace BalayPasilungan
                     else                    // Religion
                     {
                         comm = new MySqlCommand("INSERT INTO casestudyprofile (lastname, firstname, birthdate, alias, birthplace, civilstatus, program, dateJoined, picture, address, profilestatus, religion, age)"
-                        + " VALUES('" + txtlname.Text + "', '" + txtfname.Text + "', '" + dtbirth.Value.Date.ToString("yyyy-MM-dd") + "','" + txtAlias.Text + "','" + txtBirthplace.Text + "', '" + cbCivilStatus.SelectedItem
-                        + "', '" + cbxprogram.SelectedItem + "', '" + dtjoin.Value.ToString("yyyy-MM-dd") + "', '" + filename + "', '" + txtcaseaddress.Text + "', 1, '" + txtReligion.Text + "', " + age + ")", conn);
+                        + " VALUES('" + txtlname.Text + "', '" + txtfname.Text + "', '" + dtbirth.Value.Date.ToString("yyyy-MM-dd") + "','" + txtAlias.Text + "','" + txtBirthplace.Text + "', '" + cbCivilStatus.Text
+                        + "', '" + cbxprogram.Text + "', '" + dtjoin.Value.ToString("yyyy-MM-dd") + "', '" + filename + "', '" + txtcaseaddress.Text + "', 1, '" + txtReligion.Text + "', " + age + ")", conn);
                     }
 
                     comm.ExecuteNonQuery();
@@ -667,11 +684,16 @@ namespace BalayPasilungan
 
         public void editprofile()
         {
-            string lname = txtlname.Text, fname = txtfname.Text, program = cbxprogram.Text, address = txtcaseaddress.Text;
+            string lname = txtlname.Text, fname = txtfname.Text, program = cbxprogram.Text, address = txtcaseaddress.Text, status = cbCivilStatus.Text;
             int age;
             DateTime birthdate = dtbirth.Value;
 
-            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program)) errorMessage("PLease fill out empty fields.");
+            if (string.IsNullOrEmpty(address) || string.IsNullOrEmpty(fname) || string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(program))
+            {
+
+                errorMessage("PLease fill out empty fields.");
+
+            }
             else
             {
 
@@ -684,7 +706,7 @@ namespace BalayPasilungan
                 {
                     conn.Open();
                     MySqlCommand comm = new MySqlCommand("UPDATE casestudyprofile SET lastname = '" + lname + "', firstname = " +
-                                        "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", civilStatus = '" + "sample" + "', " +
+                                        "'" + fname + "', birthdate = " + dtbirth.Value.Date.ToString("yyyyMMdd") + ", civilStatus = '" + status + "', " +
                                         "program = '" + program + "', datejoined = " + dtjoin.Value.Date.ToString("yyyyMMdd") + ", " +
                                         "picture = '" + filename + "', address = '" + address + "', age = " + age + "  WHERE caseid = " + id, conn);
                     comm.ExecuteNonQuery();
@@ -1010,6 +1032,7 @@ namespace BalayPasilungan
                     cbxprogram.Text = dt.Rows[0]["program"].ToString();
                     txtAlias.Text = dt.Rows[0]["alias"].ToString();
                     cbCivilStatus.Text = dt.Rows[0]["civilstatus"].ToString();
+                    txtBirthplace.Text = dt.Rows[0]["birthplace"].ToString();
 
                     if (dt.Rows[0]["religion"].ToString() != null) txtReligion.Text = dt.Rows[0]["religion"].ToString();
                     else
@@ -1018,8 +1041,8 @@ namespace BalayPasilungan
                         txtIP.Text = dt.Rows[0]["ip"].ToString();
                     }
 
-                    dtbirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]).Date;
-                    dtjoin.Value = Convert.ToDateTime(dt.Rows[0]["datejoined"]).Date;
+                    dtbirth.Value = Convert.ToDateTime(dt.Rows[0]["birthdate"]);
+                    dtjoin.Value = Convert.ToDateTime(dt.Rows[0]["datejoined"]);
 
                     pbox1.ImageLocation = dt.Rows[0]["picture"].ToString();
 
@@ -1069,7 +1092,7 @@ namespace BalayPasilungan
             }
         }
 
-        public void reloadeditclass(int classid)
+        public void reloadeditclass(int classid, string level)
         {
             try
             {
@@ -1087,7 +1110,7 @@ namespace BalayPasilungan
                     section = dt.Rows[0]["section"].ToString();
                     adviser = dt.Rows[0]["adviser"].ToString();
                     yearlvl = dt.Rows[0]["yearlevel"].ToString();
-                    edclass(classid, yearlvl, section, adviser);
+                    edclass(classid, yearlvl, section, adviser, level);
                 }
                 conn.Close();
             }
@@ -1456,18 +1479,25 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, "No entries.", null, null);
                     empty = true;
+
+                    dtgfamily.DataSource = dt;
                 }
-                else empty = false;
+                else
+                {
+                    dtgfamily.DataSource = dt;
 
-                dtgfamily.DataSource = dt;
+                    // For ID purposes (hidden from user)            
+                    
 
-                // For ID purposes (hidden from user)            
+                    dtgfamily.Columns["famtype"].HeaderText = "FAMILY TYPE";
+                    dtgfamily.Columns["famposition"].HeaderText = "FAMILY POSITION";
+                    dtgfamily.Columns[3].HeaderText = "FAMILY STATUS";
+                    dtgfamily.Columns["famtype"].HeaderCell.Style.Padding = dtgfamily.Columns["famtype"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
+                    empty = false;
+
+                }
+
                 dtgfamily.Columns["familyid"].Visible = false;
-
-                dtgfamily.Columns["famtype"].HeaderText = "FAMILY TYPE";
-                dtgfamily.Columns["famposition"].HeaderText = "FAMILY POSITION";
-                dtgfamily.Columns[3].HeaderText = "FAMILY STATUS";
-                dtghealth.Columns["famtype"].HeaderCell.Style.Padding = dtghealth.Columns["famtype"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
                 conn.Close();
             }
@@ -1531,9 +1561,9 @@ namespace BalayPasilungan
                     dt.Rows.Add(-1, "No entries.", null, null, null, null, null, null, null, null, null);
                     empty = true;
 
+
                     dtgmembers.DataSource = dt;
 
-                    dtgmembers.Columns["memberid"].Visible = false;
                 }
 
                 else
@@ -1572,21 +1602,21 @@ namespace BalayPasilungan
 
                     }
 
-                    dtgmembers.Columns["memberid"].Visible = false;
-
-
+                    
                     comm = new MySqlCommand("SELECT COUNT(memberid) FROM member WHERE familyid = " + y, conn);
                     adp = new MySqlDataAdapter(comm); dt = new DataTable(); adp.Fill(dt);
 
                     lblnummembers.Text = dt.Rows[0]["count(memberid)"].ToString();
 
                 }
+               
+                dtgmembers.Columns["memberid"].Visible = false;
 
                 conn.Close();
             }
             catch (Exception ee)
             {
-                errorMessage(ee.Message);
+                MessageBox.Show(ee.ToString());
                 conn.Close();
             }
         }
@@ -1742,8 +1772,11 @@ namespace BalayPasilungan
         {
             if (e.RowIndex != -1 && !empty)
             {
+                yearlvl = dtgeducation.Rows[e.RowIndex].Cells["level"].Value.ToString();
                 var senderGrid = (DataGridView)sender;
+
                 eid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
+
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn && e.RowIndex >= 0)
                 {
                     if (senderGrid.Columns[e.ColumnIndex] == senderGrid.Columns["Edit"])
@@ -1761,9 +1794,7 @@ namespace BalayPasilungan
                     else
                     {
                         classeid = int.Parse(dtgeducation.Rows[e.RowIndex].Cells["eid"].Value.ToString());
-
-                        yearlvl = dtgeducation.Rows[e.RowIndex].Cells[2].Value.ToString();
-
+                        
                         edclass(classeid, yearlvl);
                     }
                 }
@@ -1779,12 +1810,15 @@ namespace BalayPasilungan
                 try
                 {
                     int edclassid = int.Parse(dtgedclass.Rows[e.RowIndex].Cells["classeid"].Value.ToString());
-                    reloadeditclass(edclassid);
+
+                    
+
+                    reloadeditclass(edclassid, yearlvl);
                 }
                 catch (Exception ee)
                 {
                     errorMessage(ee.Message);
-                    conn.Close();
+                    
                 }
             }
         }
@@ -1936,8 +1970,7 @@ namespace BalayPasilungan
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
                 adp.Fill(dt);
 
-                //MessageBox.Show(dt.Rows[0]["school"].ToString());
-                //MessageBox.Show(dt.Rows.Count.ToString());
+                
 
                 if (dt.Rows.Count > 0)
                 {
@@ -1954,13 +1987,13 @@ namespace BalayPasilungan
                             {
                                 if (Convert.ToDateTime(dt.Rows[i]["dateadded"]).Date > Convert.ToDateTime(dt.Rows[j]["dateadded"]).Date)
                                 {
-                                    MessageBox.Show("hala");
+                                    //MessageBox.Show("hala");
                                     school = dt.Rows[i]["school"].ToString();
                                     level = dt.Rows[i]["level"].ToString();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("hala2");
+                                    //MessageBox.Show("hala2");
                                     school = dt.Rows[j]["school"].ToString();
                                     level = dt.Rows[j]["level"].ToString();
                                 }
@@ -2727,8 +2760,8 @@ namespace BalayPasilungan
         #region back buttons
         private void btncancel_Click(object sender, EventArgs e)
         {
-            if (btnaddeditcase.Text == "Add") tabCase.SelectedTab = tabInfo;            
-            else tabCase.SelectedTab = tabCases;
+            if (btnaddeditcase.Text == "Add") tabCase.SelectedTab = tabCases;            
+            else tabCase.SelectedTab = tabInfo;
             reset();
         }
 
@@ -3204,6 +3237,23 @@ namespace BalayPasilungan
             tsNewEdu.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
 
             tabaddchild.SelectedTab = tabNewEdu;           
+        }
+
+        private void dtbirth_ValueChanged(object sender, EventArgs e)
+        {
+            dtjoin.MinDate = dtbirth.Value;
+        }
+
+        private void btnbackfromfamrec_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = sixteen;
+        }
+
+        private void btnbackfromedurec_Click(object sender, EventArgs e)
+        {
+            tabChild.SelectedTab = sixteen;
+
+            dtgedclass.DataSource = null;
         }
         #endregion
 

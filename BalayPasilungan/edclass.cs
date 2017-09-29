@@ -25,6 +25,9 @@ namespace BalayPasilungan
 
         public int classeid { get; set; }
         public string level { get; set; }
+        public string yearlevel { get; set; }
+        public string section2 { get; set; }
+        public string adviser2 { get; set; }
 
         #region Movable Form
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -173,6 +176,7 @@ namespace BalayPasilungan
                 catch (Exception ee)
                 {
                     errorMessage(ee.Message);
+                    conn.Close();
                 }
             }
         }
@@ -180,6 +184,8 @@ namespace BalayPasilungan
         private void edclass_Load(object sender, EventArgs e)
         {
             int counter;
+
+            //MessageBox.Show(level);
 
             if (level == "Preschool")
             {
