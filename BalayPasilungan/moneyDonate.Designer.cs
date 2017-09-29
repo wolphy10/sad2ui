@@ -210,6 +210,8 @@
             this.txtBRPart2 = new System.Windows.Forms.TextBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.tabCheckInfo = new System.Windows.Forms.TabPage();
+            this.txtAllEncash = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtDonateCheckInfo = new System.Windows.Forms.TextBox();
             this.txtDateCheckInfo = new System.Windows.Forms.TextBox();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -287,8 +289,25 @@
             this.donateWeek = new System.Windows.Forms.RadioButton();
             this.donateThisWeek = new System.Windows.Forms.RadioButton();
             this.week1 = new System.Windows.Forms.TextBox();
-            this.txtAllEncash = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.tabBRCEdit15 = new System.Windows.Forms.TabPage();
+            this.cbBRC_Cat2 = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtBRC_UP2 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.pictureBox34 = new System.Windows.Forms.PictureBox();
+            this.txtBRC_total2 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.pictureBox35 = new System.Windows.Forms.PictureBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.noFocusRec15 = new BalayPasilungan.NoFocusRec();
+            this.noFocusRec16 = new BalayPasilungan.NoFocusRec();
+            this.btnEditBR2 = new BalayPasilungan.NoFocusRec();
+            this.txtBRC_Quantity2 = new System.Windows.Forms.NumericUpDown();
+            this.txtBRC_Part2 = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.tabSelection.SuspendLayout();
             this.tabChoice0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheck)).BeginInit();
@@ -361,6 +380,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.panel15.SuspendLayout();
+            this.tabBRCEdit15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRC_Quantity2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             this.SuspendLayout();
             // 
             // tabSelection
@@ -380,6 +405,7 @@
             this.tabSelection.Controls.Add(this.tabAllCash);
             this.tabSelection.Controls.Add(this.tabBRDC13);
             this.tabSelection.Controls.Add(this.tabDonationRep);
+            this.tabSelection.Controls.Add(this.tabBRCEdit15);
             this.tabSelection.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabSelection.Location = new System.Drawing.Point(-4, -22);
             this.tabSelection.Name = "tabSelection";
@@ -2889,6 +2915,31 @@
             this.tabCheckInfo.Text = "tabCheckInfo";
             this.tabCheckInfo.UseVisualStyleBackColor = true;
             // 
+            // txtAllEncash
+            // 
+            this.txtAllEncash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtAllEncash.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAllEncash.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtAllEncash.ForeColor = System.Drawing.Color.Black;
+            this.txtAllEncash.Location = new System.Drawing.Point(183, 338);
+            this.txtAllEncash.MaxLength = 10;
+            this.txtAllEncash.Name = "txtAllEncash";
+            this.txtAllEncash.ReadOnly = true;
+            this.txtAllEncash.Size = new System.Drawing.Size(255, 22);
+            this.txtAllEncash.TabIndex = 109;
+            this.txtAllEncash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label19.Location = new System.Drawing.Point(84, 342);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(67, 15);
+            this.label19.TabIndex = 108;
+            this.label19.Text = "ENCASHED";
+            // 
             // txtDonateCheckInfo
             // 
             this.txtDonateCheckInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
@@ -3444,6 +3495,8 @@
             this.cbBRC_Cat.Name = "cbBRC_Cat";
             this.cbBRC_Cat.Size = new System.Drawing.Size(316, 25);
             this.cbBRC_Cat.TabIndex = 192;
+            this.cbBRC_Cat.DropDownClosed += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.cbBRC_Cat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
             // 
             // label48
             // 
@@ -3947,30 +4000,288 @@
             this.week1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.week1.Visible = false;
             // 
-            // txtAllEncash
+            // tabBRCEdit15
             // 
-            this.txtAllEncash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.txtAllEncash.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAllEncash.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
-            this.txtAllEncash.ForeColor = System.Drawing.Color.Black;
-            this.txtAllEncash.Location = new System.Drawing.Point(183, 338);
-            this.txtAllEncash.MaxLength = 10;
-            this.txtAllEncash.Name = "txtAllEncash";
-            this.txtAllEncash.ReadOnly = true;
-            this.txtAllEncash.Size = new System.Drawing.Size(255, 22);
-            this.txtAllEncash.TabIndex = 109;
-            this.txtAllEncash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tabBRCEdit15.Controls.Add(this.cbBRC_Cat2);
+            this.tabBRCEdit15.Controls.Add(this.label42);
+            this.tabBRCEdit15.Controls.Add(this.txtBRC_UP2);
+            this.tabBRCEdit15.Controls.Add(this.label49);
+            this.tabBRCEdit15.Controls.Add(this.pictureBox34);
+            this.tabBRCEdit15.Controls.Add(this.txtBRC_total2);
+            this.tabBRCEdit15.Controls.Add(this.label51);
+            this.tabBRCEdit15.Controls.Add(this.pictureBox35);
+            this.tabBRCEdit15.Controls.Add(this.label52);
+            this.tabBRCEdit15.Controls.Add(this.panel16);
+            this.tabBRCEdit15.Controls.Add(this.btnEditBR2);
+            this.tabBRCEdit15.Controls.Add(this.txtBRC_Quantity2);
+            this.tabBRCEdit15.Controls.Add(this.txtBRC_Part2);
+            this.tabBRCEdit15.Controls.Add(this.label54);
+            this.tabBRCEdit15.Controls.Add(this.pictureBox36);
+            this.tabBRCEdit15.Location = new System.Drawing.Point(4, 22);
+            this.tabBRCEdit15.Name = "tabBRCEdit15";
+            this.tabBRCEdit15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBRCEdit15.Size = new System.Drawing.Size(512, 376);
+            this.tabBRCEdit15.TabIndex = 16;
+            this.tabBRCEdit15.Text = "tabPage1";
+            this.tabBRCEdit15.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // cbBRC_Cat2
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.label19.Location = new System.Drawing.Point(84, 342);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 15);
-            this.label19.TabIndex = 108;
-            this.label19.Text = "ENCASHED";
+            this.cbBRC_Cat2.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbBRC_Cat2.ForeColor = System.Drawing.Color.Black;
+            this.cbBRC_Cat2.FormattingEnabled = true;
+            this.cbBRC_Cat2.Items.AddRange(new object[] {
+            "Clothing",
+            "Communication, Lights, and Water",
+            "Depreciation Expenses",
+            "Education",
+            "Food",
+            "Guidance and Counselling",
+            "Honorarium",
+            "Household Expenses",
+            "Insurance Expense",
+            "Medical and Dental Supplies",
+            "Meeting and Conferences",
+            "Office Supplies",
+            "Printing and Advertising",
+            "Professional Fees",
+            "Recreation",
+            "Repair and Maintenance",
+            "Salary",
+            "Skills and Development",
+            "Spiritual Value Formation",
+            "SSS, PHIC, and HMDF",
+            "Taxes and Licenses",
+            "Transportation"});
+            this.cbBRC_Cat2.Location = new System.Drawing.Point(165, 86);
+            this.cbBRC_Cat2.Name = "cbBRC_Cat2";
+            this.cbBRC_Cat2.Size = new System.Drawing.Size(316, 25);
+            this.cbBRC_Cat2.TabIndex = 192;
+            this.cbBRC_Cat2.DropDownClosed += new System.EventHandler(this.cbFilter_DropDownClosed);
+            this.cbBRC_Cat2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbFilter_KeyPress);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label42.Location = new System.Drawing.Point(24, 94);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(61, 13);
+            this.label42.TabIndex = 191;
+            this.label42.Text = "CATEGORY";
+            // 
+            // txtBRC_UP2
+            // 
+            this.txtBRC_UP2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRC_UP2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRC_UP2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRC_UP2.ForeColor = System.Drawing.Color.Black;
+            this.txtBRC_UP2.Location = new System.Drawing.Point(165, 226);
+            this.txtBRC_UP2.MaxLength = 50;
+            this.txtBRC_UP2.Name = "txtBRC_UP2";
+            this.txtBRC_UP2.Size = new System.Drawing.Size(316, 25);
+            this.txtBRC_UP2.TabIndex = 2;
+            this.txtBRC_UP2.Text = "0";
+            this.txtBRC_UP2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRC_UP2.TextChanged += new System.EventHandler(this.txtBRUP_TextChanged);
+            this.txtBRC_UP2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBRUP_KeyDown);
+            this.txtBRC_UP2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtBRC_UP2.Leave += new System.EventHandler(this.txtBRC_UP2_Leave);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label49.Location = new System.Drawing.Point(24, 229);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(63, 13);
+            this.label49.TabIndex = 42;
+            this.label49.Text = "UNIT PRICE";
+            // 
+            // pictureBox34
+            // 
+            this.pictureBox34.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox34.Image")));
+            this.pictureBox34.Location = new System.Drawing.Point(11, 194);
+            this.pictureBox34.Name = "pictureBox34";
+            this.pictureBox34.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox34.TabIndex = 36;
+            this.pictureBox34.TabStop = false;
+            // 
+            // txtBRC_total2
+            // 
+            this.txtBRC_total2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtBRC_total2.Font = new System.Drawing.Font("Segoe UI Semibold", 30F);
+            this.txtBRC_total2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(86)))), ((int)(((byte)(86)))));
+            this.txtBRC_total2.Location = new System.Drawing.Point(157, 273);
+            this.txtBRC_total2.Name = "txtBRC_total2";
+            this.txtBRC_total2.Size = new System.Drawing.Size(332, 58);
+            this.txtBRC_total2.TabIndex = 10;
+            this.txtBRC_total2.Text = "0,000,000,000.00";
+            this.txtBRC_total2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label51.Location = new System.Drawing.Point(24, 293);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(38, 13);
+            this.label51.TabIndex = 45;
+            this.label51.Text = "TOTAL";
+            // 
+            // pictureBox35
+            // 
+            this.pictureBox35.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox35.Image")));
+            this.pictureBox35.Location = new System.Drawing.Point(11, 248);
+            this.pictureBox35.Name = "pictureBox35";
+            this.pictureBox35.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox35.TabIndex = 43;
+            this.pictureBox35.TabStop = false;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label52.Location = new System.Drawing.Point(24, 161);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(56, 13);
+            this.label52.TabIndex = 35;
+            this.label52.Text = "QUANTITY";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel16.Controls.Add(this.label53);
+            this.panel16.Controls.Add(this.noFocusRec15);
+            this.panel16.Controls.Add(this.noFocusRec16);
+            this.panel16.Location = new System.Drawing.Point(0, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(512, 33);
+            this.panel16.TabIndex = 40;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label53.Location = new System.Drawing.Point(306, 8);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(199, 19);
+            this.label53.TabIndex = 19;
+            this.label53.Text = "Edit Budget Request Particular";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec15
+            // 
+            this.noFocusRec15.FlatAppearance.BorderSize = 0;
+            this.noFocusRec15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec15.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec15.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec15.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec15.Name = "noFocusRec15";
+            this.noFocusRec15.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec15.TabIndex = 11;
+            this.noFocusRec15.Text = "X";
+            this.noFocusRec15.UseVisualStyleBackColor = true;
+            // 
+            // noFocusRec16
+            // 
+            this.noFocusRec16.BackColor = System.Drawing.Color.Transparent;
+            this.noFocusRec16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.noFocusRec16.FlatAppearance.BorderSize = 0;
+            this.noFocusRec16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.noFocusRec16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.noFocusRec16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec16.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec16.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec16.Location = new System.Drawing.Point(6, 8);
+            this.noFocusRec16.Name = "noFocusRec16";
+            this.noFocusRec16.Size = new System.Drawing.Size(76, 22);
+            this.noFocusRec16.TabIndex = 5;
+            this.noFocusRec16.Text = "GO BACK";
+            this.noFocusRec16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.noFocusRec16.UseVisualStyleBackColor = false;
+            this.noFocusRec16.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnEditBR2
+            // 
+            this.btnEditBR2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnEditBR2.FlatAppearance.BorderSize = 0;
+            this.btnEditBR2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditBR2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditBR2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.btnEditBR2.Location = new System.Drawing.Point(0, 336);
+            this.btnEditBR2.Name = "btnEditBR2";
+            this.btnEditBR2.Size = new System.Drawing.Size(512, 40);
+            this.btnEditBR2.TabIndex = 3;
+            this.btnEditBR2.Text = "EDIT PARTICULAR";
+            this.btnEditBR2.UseVisualStyleBackColor = false;
+            this.btnEditBR2.Click += new System.EventHandler(this.btnEditBR2_Click);
+            // 
+            // txtBRC_Quantity2
+            // 
+            this.txtBRC_Quantity2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRC_Quantity2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRC_Quantity2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
+            this.txtBRC_Quantity2.ForeColor = System.Drawing.Color.Black;
+            this.txtBRC_Quantity2.Location = new System.Drawing.Point(165, 156);
+            this.txtBRC_Quantity2.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBRC_Quantity2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtBRC_Quantity2.Name = "txtBRC_Quantity2";
+            this.txtBRC_Quantity2.Size = new System.Drawing.Size(316, 28);
+            this.txtBRC_Quantity2.TabIndex = 1;
+            this.txtBRC_Quantity2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBRC_Quantity2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtBRC_Quantity2.Leave += new System.EventHandler(this.txtBRC_Quantity2_Leave);
+            // 
+            // txtBRC_Part2
+            // 
+            this.txtBRC_Part2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.txtBRC_Part2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRC_Part2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBRC_Part2.ForeColor = System.Drawing.Color.Black;
+            this.txtBRC_Part2.Location = new System.Drawing.Point(165, 51);
+            this.txtBRC_Part2.MaxLength = 50;
+            this.txtBRC_Part2.Name = "txtBRC_Part2";
+            this.txtBRC_Part2.Size = new System.Drawing.Size(316, 25);
+            this.txtBRC_Part2.TabIndex = 0;
+            this.txtBRC_Part2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.label54.Location = new System.Drawing.Point(24, 57);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(69, 13);
+            this.label54.TabIndex = 33;
+            this.label54.Text = "PARTICULAR";
+            // 
+            // pictureBox36
+            // 
+            this.pictureBox36.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox36.Image")));
+            this.pictureBox36.Location = new System.Drawing.Point(11, 122);
+            this.pictureBox36.Name = "pictureBox36";
+            this.pictureBox36.Size = new System.Drawing.Size(486, 23);
+            this.pictureBox36.TabIndex = 34;
+            this.pictureBox36.TabStop = false;
             // 
             // moneyDonate
             // 
@@ -4088,6 +4399,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.tabBRCEdit15.ResumeLayout(false);
+            this.tabBRCEdit15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBRC_Quantity2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4353,5 +4672,24 @@
         public NoFocusRec btnEncash;
         public System.Windows.Forms.TextBox txtAllEncash;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TabPage tabBRCEdit15;
+        public System.Windows.Forms.ComboBox cbBRC_Cat2;
+        private System.Windows.Forms.Label label42;
+        public System.Windows.Forms.TextBox txtBRC_UP2;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.PictureBox pictureBox34;
+        public System.Windows.Forms.Label txtBRC_total2;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.PictureBox pictureBox35;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label53;
+        private NoFocusRec noFocusRec15;
+        private NoFocusRec noFocusRec16;
+        private NoFocusRec btnEditBR2;
+        public System.Windows.Forms.NumericUpDown txtBRC_Quantity2;
+        public System.Windows.Forms.TextBox txtBRC_Part2;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.PictureBox pictureBox36;
     }
 }

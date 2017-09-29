@@ -381,12 +381,7 @@ namespace BalayPasilungan
 
                     // For ID purposes (hidden from user)            
                     BRDetails.Columns["itemID"].Visible = BRDetails.Columns["budgetID"].Visible = false;
-
-                    // 743 TOTAL WIDTH
-                    BRDetails.Columns["particular"].Width = 320;
-                    BRDetails.Columns["quantity"].Width = 73;
-                    BRDetails.Columns["unitPrice"].Width = BRDetails.Columns["amount"].Width = 110;
-                    BRDetails.Columns["category"].Width = 130;
+                    
                     BRDetails.Columns["particular"].HeaderCell.Style.Padding = BRDetails.Columns["particular"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
                 }
                 else if (type == 4)          // List of budget requests
@@ -429,24 +424,23 @@ namespace BalayPasilungan
                     PBRDetails.DataSource = dt;
 
                     // BR LIST In Kind UI Modifications
-                    PBRDetails.Columns[1].HeaderText = "PARTICULAR";
-                    PBRDetails.Columns[2].HeaderText = "QUANTITY";
-                    PBRDetails.Columns[3].HeaderText = "UNIT PRICE";
-                    PBRDetails.Columns[4].HeaderText = "AMOUNT";
+                    PBRDetails.Columns["particular"].HeaderText = "PARTICULAR";
+                    PBRDetails.Columns["quantity"].HeaderText = "QUANTITY";
+                    PBRDetails.Columns["unitPrice"].HeaderText = "UNIT PRICE";
+                    PBRDetails.Columns["amount"].HeaderText = "AMOUNT";
+                    PBRDetails.Columns["category"].HeaderText = "CATEGORY";
 
                     // For ID purposes (hidden from user)            
-                    PBRDetails.Columns[0].Visible = PBRDetails.Columns[5].Visible = false;
+                    PBRDetails.Columns["itemID"].Visible = PBRDetails.Columns["budgetID"].Visible = false;
 
                     // 935 TOTAL WIDTH
-                    PBRDetails.Columns[1].Width = 485;
-                    PBRDetails.Columns[2].Width = PBRDetails.Columns[3].Width = PBRDetails.Columns[4].Width = 150;
-                    PBRDetails.Columns[1].HeaderCell.Style.Padding = PBRDetails.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                    PBRDetails.Columns["particular"].HeaderCell.Style.Padding = PBRDetails.Columns["particular"].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
                 }
                 else if (type == 6)          // Expenses Table
                 {
                     if (dt.Rows.Count == 0)
                     {
-                        dt.Rows.Add(-1, "No entries.", null, null, null, null);
+                        dt.Rows.Add(-1, null, "No entries.", null, null);
                         empty = true; btnExpOp.Enabled = multiExp.Enabled = false;
                     }
                     else empty = false; btnExpOp.Enabled = multiExp.Enabled = true;                                           
@@ -455,24 +449,19 @@ namespace BalayPasilungan
 
                     // ADD COLUMN TO CHECK BUDGET
                     DataColumn hasBudget = new System.Data.DataColumn("hasBudget", typeof(System.String));
-                    hasBudget.DefaultValue = "";
+                    hasBudget.DefaultValue = "";                    
                     dt.Columns.Add(hasBudget);                                        
 
                     // EXP LIST In Kind UI Modifications
-                    expList.Columns[1].HeaderText = "EXPENSE DATE";
-                    expList.Columns[2].HeaderText = "CATEGORY";
-                    expList.Columns[3].HeaderText = "AMOUNT";
-                    expList.Columns[5].HeaderText = "FROM BUDGET";
+                    expList.Columns["dateExpense"].HeaderText = "EXPENSE DATE";
+                    expList.Columns["category"].HeaderText = "CATEGORY";
+                    expList.Columns["amount"].HeaderText = "AMOUNT";
+                    expList.Columns["hasBudget"].HeaderText = "FROM BUDGET";
 
                     // For ID purposes (hidden from user)            
-                    expList.Columns[0].Visible = expList.Columns[4].Visible = false;
-
-                    // 935 TOTAL WIDTH
-                    expList.Columns[1].Width = 220;
-                    expList.Columns[2].Width = 380;
-                    expList.Columns[3].Width = 240;
-                    expList.Columns[5].Width = 95;
-                    expList.Columns[1].HeaderCell.Style.Padding = expList.Columns[1].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                    expList.Columns["expenseID"].Visible = expList.Columns["budgetID"].Visible = false;
+                    
+                    expList.Columns["dateExpense"].HeaderCell.Style.Padding = expList.Columns["dateExpense"].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
 
                     if (dt.Rows.Count > 0 && !empty)
                     {
@@ -1672,6 +1661,7 @@ namespace BalayPasilungan
         #region New Budget Request
         private void btnNewBR_Click(object sender, EventArgs e)
         {
+            btnCatMultiple.Enabled = btnCatSingle.Enabled = true;
             btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = false;
             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = false;
             resetBudgetRequest(); brEdit = false;
@@ -1681,6 +1671,9 @@ namespace BalayPasilungan
             lblOthers.Visible = cbExpCat.Visible = false; cbExpCat.SelectedIndex = 0;
             rbClothing.Checked = rbFood.Checked = rbHouse.Checked = rbMeds.Checked = rbOffice.Checked = rbSchool.Checked = rbSkills.Checked = rbSocial.Checked = rbSpiritual.Checked = rbTranspo.Checked = rbOthers.Checked = false;
             dateBR.MaxDate = dateBR.Value = DateTime.Today;
+
+            brTS.ForeColor = btnBRNext.BackColor = btnBRConfirm.BackColor = btnBRCancel.ForeColor = btnBRBack.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+            btnBRNext.ForeColor = btnBRConfirm.ForeColor = Color.White;
 
             get(1);
             tabSelection.SelectedTab = tabBudgetRequest;
@@ -1710,13 +1703,29 @@ namespace BalayPasilungan
         private void btnEditBR_Click(object sender, EventArgs e)
         {
             int row = BRDetails.CurrentCell.RowIndex;
+
             moneyDonate mD = overlay();
-            mD.tabSelection.SelectedIndex = 10;
-            mD.txtBRPart2.Text = BRDetails.Rows[row].Cells[1].Value.ToString();
-            mD.txtBRQuantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[2].Value.ToString());
-            mD.txtBRUP2.Text = BRDetails.Rows[row].Cells[3].Value.ToString();
-            mD.txtBRTotal2.Text = BRDetails.Rows[row].Cells[4].Value.ToString();
+            mD.itemID = int.Parse(BRDetails.Rows[row].Cells[0].Value.ToString());
+            if (lblBRCategory.Text == "Multiple")
+            { 
+                mD.tabSelection.SelectedIndex = 15;
+                mD.txtBRC_Part2.Text = BRDetails.Rows[row].Cells[1].Value.ToString();
+                mD.cbBRC_Cat2.SelectedItem = BRDetails.Rows[row].Cells[5].Value.ToString();
+                mD.txtBRC_Quantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[2].Value.ToString());
+                mD.txtBRC_UP2.Text = BRDetails.Rows[row].Cells[3].Value.ToString();
+                mD.txtBRC_total2.Text = BRDetails.Rows[row].Cells[4].Value.ToString();
+            }
+            else
+            {
+                mD.tabSelection.SelectedIndex = 10;
+                mD.txtBRPart2.Text = BRDetails.Rows[row].Cells[1].Value.ToString();
+                mD.txtBRQuantity2.Value = Decimal.Parse(BRDetails.Rows[row].Cells[2].Value.ToString());
+                mD.txtBRUP2.Text = BRDetails.Rows[row].Cells[3].Value.ToString();
+                mD.txtBRTotal2.Text = BRDetails.Rows[row].Cells[4].Value.ToString();
+            }
             mD.ShowDialog();
+            MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
+            loadTable(comm, 3);
         }
 
         private void btnDelBR_Click(object sender, EventArgs e)
@@ -1763,6 +1772,7 @@ namespace BalayPasilungan
                             conn.Close();
                             btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = true;
                             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
+                            btnCatMultiple.Enabled = btnCatSingle.Enabled = true;
                             get(2); get(4);
                             tabSelection.SelectedTab = tabFinance;
                         }
@@ -1813,7 +1823,7 @@ namespace BalayPasilungan
         }
 
         private void btnBRCancel_Click(object sender, EventArgs e)
-        {
+        {            
             if (((Button)sender).Name == "btnBRCancel") confirmMessage("Are you sure you want to cancel this request?");
             else if (((Button)sender).Name == "btnBRBack")
             {
@@ -1970,6 +1980,7 @@ namespace BalayPasilungan
 
         private void btnBRDisapprove_Click(object sender, EventArgs e)
         {
+            btnCatMultiple.Enabled = btnCatSingle.Enabled = true;
             confirmMessage("Are you sure you want to disapprove this request?");
             if (confirmed)
             {
@@ -2007,7 +2018,8 @@ namespace BalayPasilungan
                     var formats = new[] { "MMMM dd, yyyy" };
                     if (DateTime.TryParseExact(txtSearchMoney.Text, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateValue)) dateBR.Value = fromDateValue;
                     else dateBR.Value = dateBR.MaxDate;
-                   
+
+                    btnCatMultiple.Enabled = btnCatSingle.Enabled = false;
                     if (lblPBRCategory.Text == "Clothing") rbClothing.Checked = true;
                     else if (lblPBRCategory.Text == "Food") rbFood.Checked = true;
                     else if (lblPBRCategory.Text == "Repair and Maintenance") rbHouse.Checked = true;
@@ -2018,20 +2030,21 @@ namespace BalayPasilungan
                     else if (lblPBRCategory.Text == "Recreation") rbSocial.Checked = true;
                     else if (lblPBRCategory.Text == "Spiritual Value Formation") rbSpiritual.Checked = true;
                     else if (lblPBRCategory.Text == "Transportation") rbTranspo.Checked = true;
+                    else if (lblPBRCategory.Text == "Multiple") catType_Click(sender, e);
                     else
                     {
                         rbOthers.Checked = true;
-                        for(int i = 0; i < cbExpCat.Items.Count; i++)
+                        for (int i = 0; i < cbExpCat.Items.Count; i++)
                         {
                             cbExpCat.SelectedIndex = i;
                             if (cbExpCat.SelectedItem.ToString() == lblPBRCategory.Text) break;
                         }
-                    }
+                    }                    
                     comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
                     loadTable(comm, 3);
 
                     brTS.ForeColor = btnBRNext.BackColor = btnBRConfirm.BackColor = System.Drawing.Color.FromArgb(219, 209, 92);
-                    btnBRNext.ForeColor = btnBRConfirm.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
+                    btnBRCancel.ForeColor = btnBRBack.ForeColor = btnBRNext.ForeColor = btnBRConfirm.ForeColor = System.Drawing.Color.FromArgb(45, 45, 45);
                     brEdit = true;
                 }
             }
@@ -2243,7 +2256,7 @@ namespace BalayPasilungan
                             monthname = mD.dateFrom.GetItemText(mD.dateFrom.SelectedItem);
                             year = int.Parse(mD.year.SelectedItem.ToString());                            
                         }
-                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID FROM expense WHERE MONTH(dateExpense) = " + month + " AND YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -2253,7 +2266,7 @@ namespace BalayPasilungan
                     else
                     {
                         year = int.Parse(mD.year.SelectedItem.ToString());
-                        adp = new MySqlDataAdapter("SELECT dateExpense, expenseID FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
+                        adp = new MySqlDataAdapter("SELECT dateExpense, budgetID FROM expense WHERE YEAR(dateExpense) = " + year + " ORDER BY dateExpense ASC", conn);
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Merge();
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].Cells.WrapText = true;
                         worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, 48]].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
@@ -2296,7 +2309,7 @@ namespace BalayPasilungan
 
                             for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)
                             {
-                                adp = new MySqlDataAdapter("SELECT category, amount, expenseID FROM expense WHERE category = '" + category[cat] + "' AND dateExpense = '" + DateTime.Parse(dt1.Rows[count]["dateExpense"].ToString()).ToString("yyyy-MM-dd") +"' AND expenseID = " + dt1.Rows[count]["expenseID"].ToString(), conn);
+                                adp = new MySqlDataAdapter("SELECT amount, category, budgetID FROM item WHERE category = '" + category[cat] + "' AND budgetID = " + int.Parse(dt1.Rows[count]["budgetID"].ToString()), conn);
                                 DataTable dt = new DataTable();
                                 adp.Fill(dt);
                                 
@@ -2325,8 +2338,9 @@ namespace BalayPasilungan
                         worksheet.Cells[last, 1] = "TOTAL";
 
                         for (int i = 5, cat = 0; cat < 22; i = i + 2, cat++)        // TOTAL
-                        {                                                            
-                            adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND MONTH(dateExpense) = " + month, conn);
+                        {
+                            //adp = new MySqlDataAdapter("SELECT category, amount FROM expense WHERE category = '" + category[cat] + "' AND MONTH(dateExpense) = " + month, conn);
+                            adp = new MySqlDataAdapter("SELECT item.amount, item.category, expense.dateExpense FROM item INNER JOIN expense ON item.budgetID = expense.budgetID WHERE item.category = '" + category[cat] + "' AND MONTH(expense.dateExpense) = " + month, conn); 
                             DataTable dt = new DataTable();
                             adp.Fill(dt);
 
