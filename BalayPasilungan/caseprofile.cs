@@ -13,6 +13,7 @@ using System.Globalization;
 
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.draw;    
 
 namespace BalayPasilungan
 {
@@ -3101,6 +3102,7 @@ namespace BalayPasilungan
                 erSection.Text = (dtgedclass.Rows[row].Cells["section"].Value).ToString();
                 erAdviser.Text = (dtgedclass.Rows[row].Cells["adviser"].Value).ToString();
                 erLevel.Text = (dtgedclass.Rows[row].Cells["yearlevel"].Value).ToString();
+                erDate.MaxDate = DateTime.Now; erDate.Value = erDate.MaxDate;
             }
             else errorMessage("Please select a class first.");
         }
@@ -3127,11 +3129,12 @@ namespace BalayPasilungan
 
                         // BOOK
                         // 1 - bold | 2 - italize | 3 - bold & italize | 4 - underline | 5 - bold & underline 
-                        iTextSharp.text.Font title = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 15, 1, BaseColor.BLACK);
-                        iTextSharp.text.Font bold = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 14, 1, BaseColor.BLACK);                        
-                        iTextSharp.text.Font normal = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 14, BaseColor.BLACK);
+                        iTextSharp.text.Font title = FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 17, 1, BaseColor.BLACK);
+                        iTextSharp.text.Font subtitle = FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 15, 1, BaseColor.BLACK);
+                        iTextSharp.text.Font bold = FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 14, 1, BaseColor.BLACK);                        
+                        iTextSharp.text.Font normal = FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 14, BaseColor.BLACK);
 
-                        iTextSharp.text.Font des = FontFactory.GetFont(iTextSharp.text.FontFactory.TIMES, 13, BaseColor.BLACK);
+                        iTextSharp.text.Font des = FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 12, BaseColor.BLACK);
                         iTextSharp.text.Font biggest = FontFactory.GetFont(iTextSharp.text.FontFactory.COURIER_BOLD, 18, BaseColor.BLACK);
 
                         System.Drawing.Image image = Properties.Resources.logo_paper;
@@ -3141,8 +3144,15 @@ namespace BalayPasilungan
 
                         int nextyr = int.Parse(DateTime.Now.Year.ToString()) + 1;
                         Phrase phrase = new Phrase();
-                        phrase.Add(new Chunk("STUDENT PERFORMANCE EVALUATION\nS.Y. " + DateTime.Now.Year + " - " + nextyr, title));
-                        Paragraph par = new Paragraph(); par.Alignment = Element.ALIGN_CENTER; par.Add(phrase); doc.Add(par);                        
+                        phrase.Add(new Chunk("\nSTUDENT PERFORMANCE EVALUATION\nS.Y. " + DateTime.Now.Year + " - " + nextyr, title));
+                        Paragraph par = new Paragraph(); par.Alignment = Element.ALIGN_CENTER; par.Add(phrase); doc.Add(par);
+                        
+                        LineSeparator line = new LineSeparator();
+                        par = new Paragraph(); par.Add(line); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\n\n\nStudent Information\n\n\n", subtitle));
+                        par = new Paragraph(); par.Add(phrase); doc.Add(par);
 
                         phrase = new Phrase();
                         phrase.Add(new Chunk("\n\nName of Student: ", bold));
@@ -3151,95 +3161,185 @@ namespace BalayPasilungan
                         phrase.Add(new Chunk(erSchool.Text).SetUnderline(1, -2));
                         phrase.Add(new Chunk("\nGrade Level / Section: ", bold));
                         phrase.Add(new Chunk(erLevel.Text + "  -  " + erSection.Text).SetUnderline(1, -2));
+                        phrase.Add(new Chunk("\nAdviser: ", bold));
+                        phrase.Add(new Chunk(erAdviser.Text).SetUnderline(1, -2));
+                        par = new Paragraph(); par.Add(phrase); doc.Add(par);
 
+                        phrase = new Phrase();
                         phrase.Add(new Chunk("\n\nTerm: ", bold));
                         if(rb1G.Checked) phrase.Add(new Chunk("First Grading").SetUnderline(1, -2));
                         else if(rb2G.Checked) phrase.Add(new Chunk("Second Grading").SetUnderline(1, -2));
                         else if (rb3G.Checked) phrase.Add(new Chunk("Third Grading").SetUnderline(1, -2));
                         else if (rb4G.Checked) phrase.Add(new Chunk("Fourth Grading").SetUnderline(1, -2));
-
                         par = new Paragraph(); par.Add(phrase); doc.Add(par);
 
-                        phrase = new Phrase(); phrase.Add(new Chunk("\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
-
-                        phrase.Add(new Chunk("Overall Performance\n", bold));
-                        par = new Paragraph(); par.SpacingAfter = 10; par.Add(phrase); doc.Add(par);
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\n\nOverall Performance\n", subtitle));
+                        par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
 
                         PdfPTable pdfTable = new PdfPTable(3);
                         float[] widths = new float[] { 2f, 1f, 1f};
                         pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
 
-                        Phrase blank_phrase = new Phrase(); blank_phrase.Add(new Chunk(""));
+                        Phrase blank_phrase = new Phrase(); blank_phrase.Add(new Chunk(" "));
 
                         phrase = new Phrase();
                         phrase.Add(new Chunk("VERY GOOD\n", biggest));
-                        phrase.Add(new Chunk(des_g.Text, des)); PdfPCell cell = new PdfPCell(phrase);
+                        phrase.Add(new Chunk(des_vg.Text, des)); PdfPCell cell = new PdfPCell(phrase);
                         cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
                         if(rbVG.Checked)
                         {
                             phrase = new Phrase(); phrase.Add(new Chunk("X", biggest)); cell = new PdfPCell(phrase);
-                            cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                            cell.HorizontalAlignment = 1;
                         }
                         else cell = new PdfPCell(blank_phrase);
 
-                        phrase = new Phrase(); phrase.Add(new Chunk("QUANTITY\n", bold)); cell = new PdfPCell(phrase);
-                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                        phrase = new Phrase(); phrase.Add(new Chunk("\nUNIT PRICE\n", bold)); cell = new PdfPCell(phrase);
-                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                        phrase = new Phrase(); phrase.Add(new Chunk("\nAMOUNT\n", bold)); cell = new PdfPCell(phrase);
-                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        pdfTable.AddCell(cell); phrase = new Phrase();
+                        phrase.Add(new Chunk("WRITTEN COMMENTS\n", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1;
 
-                        int count = 0;
-                        /*foreach (DataGridViewRow r in PBRDetails.Rows)
+                        pdfTable.AddCell(cell); phrase = new Phrase();
+                        phrase.Add(new Chunk("GOOD\n", biggest));
+                        phrase.Add(new Chunk(des_g.Text, des)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        if (rbG.Checked)
                         {
-                            try
-                            {
-                                pdfTable.AddCell(r.Cells[1].Value.ToString());
-                                pdfTable.AddCell(r.Cells[2].Value.ToString());
-                                pdfTable.AddCell(r.Cells[3].Value.ToString());
-                                pdfTable.AddCell(r.Cells[4].Value.ToString());
-                                count++;
-                            }
-                            catch { }
+                            phrase = new Phrase(); phrase.Add(new Chunk("X", biggest)); cell = new PdfPCell(phrase);
+                            cell.HorizontalAlignment = 1;
                         }
-                        for (int i = count; i < 24; i++)
+                        else cell = new PdfPCell(blank_phrase);                        
+                        pdfTable.AddCell(cell);
+
+                        pdfTable.AddCell(new PdfPCell(new Phrase(erComments.Text)) { Rowspan = 4 });   
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("SATISFACTORY\n", biggest));
+                        phrase.Add(new Chunk(des_s.Text, des)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        if (rbS.Checked)
                         {
-                            pdfTable.AddCell(" ");
-                            pdfTable.AddCell(" ");
-                            pdfTable.AddCell(" ");
-                            pdfTable.AddCell(" ");
+                            phrase = new Phrase(); phrase.Add(new Chunk("X", biggest)); cell = new PdfPCell(phrase);
+                            cell.HorizontalAlignment = 1;
                         }
+                        else cell = new PdfPCell(blank_phrase);
+                        pdfTable.AddCell(cell);
 
-                        // TOTAL
-                        comm = new MySqlCommand("SELECT SUM(amount) as TOTAL FROM item WHERE budgetID = " + current_budgetID, conn);
-                        MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable(); adp.Fill(dt);
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("MARGINAL\n", biggest));
+                        phrase.Add(new Chunk(des_m.Text, des)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        if (rbM.Checked)
+                        {
+                            phrase = new Phrase(); phrase.Add(new Chunk("X", biggest)); cell = new PdfPCell(phrase);
+                            cell.HorizontalAlignment = 1;
+                        }
+                        else cell = new PdfPCell(blank_phrase);
+                        pdfTable.AddCell(cell);
+                        phrase = new Phrase();
 
-                        phrase = new Phrase(); phrase.Add(new Chunk("TOTAL", bold)); cell = new PdfPCell(phrase);
+                        phrase.Add(new Chunk("UNSATISFACTORY\n", biggest));
+                        phrase.Add(new Chunk(des_u.Text, des)); cell = new PdfPCell(phrase);
                         cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
-                        pdfTable.AddCell(" ");
-                        pdfTable.AddCell(" ");
-                        phrase = new Phrase(); phrase.Add(new Chunk(dt.Rows[0][0].ToString(), bold)); cell = new PdfPCell(phrase);
-                        cell.HorizontalAlignment = 1; pdfTable.AddCell(cell);
+                        if (rbU.Checked)
+                        {
+                            phrase = new Phrase(); phrase.Add(new Chunk("X", biggest)); cell = new PdfPCell(phrase);
+                            cell.HorizontalAlignment = 1;
+                        }
+                        else cell = new PdfPCell(blank_phrase);
 
                         doc.Add(pdfTable);
 
-                        PdfContentByte cb = wri.DirectContent;
-                        ColumnText ct = new ColumnText(cb); Phrase right = new Phrase();
-                        right.Add(new Chunk("Prepared by: ", normal));
-                        right.Add(new Chunk(lblPBRBy.Text).SetUnderline(1, -2));
-                        ct.SetSimpleColumn(right, 65, 25, 65 * 4, 25 * 4, 15, Element.ALIGN_LEFT); ct.Go();
+                        phrase = new Phrase(); blank_phrase.Add(new Chunk("\n\n\n")); par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
 
-                        right = new Phrase(); right.Add(new Chunk("Approved by: Fr. Lionel R. Mechavez, SM", normal)); // BOOK LMAO change director
-                        ct.SetSimpleColumn(right, 300, 25, 560, 25 * 4, 15, Element.ALIGN_CENTER); ct.Go();
-                        right = new Phrase(); right.Add(new Chunk("Executive Director", normal));
-                        ct.SetSimpleColumn(right, 310, 20, 570, 20 * 4, 15, Element.ALIGN_CENTER); ct.Go();
-                        */
+                        // STRENGTH AND IMPROVEMENT
+                        PdfPTable pdfTable2 = new PdfPTable(2);
+                        widths = new float[] { 1f, 1f };
+                        pdfTable2.WidthPercentage = 100; pdfTable2.SetWidths(widths);
+
+                        pdfTable2.AddCell(cell); phrase = new Phrase();
+                        phrase.Add(new Chunk("AREAS OF STRENGTH", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable2.AddCell(cell);
+
+                        pdfTable2.AddCell(cell); phrase = new Phrase();
+                        phrase.Add(new Chunk("AREAS OF IMPROVEMENT", bold)); cell = new PdfPCell(phrase);
+                        cell.HorizontalAlignment = 1; pdfTable2.AddCell(cell);
+
+                        pdfTable2.AddCell(cell); phrase = new Phrase();
+                        phrase.Add(new Chunk(erStrength.Text, normal)); cell = new PdfPCell(phrase);
+                        pdfTable2.AddCell(cell);
+
+                        pdfTable2.AddCell(cell); phrase = new Phrase();
+                        phrase.Add(new Chunk(erImprove.Text, normal)); cell = new PdfPCell(phrase);
+                        pdfTable2.AddCell(cell);
+
                         doc.Add(pdfTable);
+
+                        // ACTIVITIES, PROGRAMS, AWARDS
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\nSchool Activties or Educator's Program Participated\n", subtitle));
+                        phrase.Add(new Chunk("(The boy's active participation in any school or educator's program.)\n\n", des));
+                        phrase.Add(new Chunk(erActs.Text).SetUnderline(1, -2));
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\nAwards Received\n\n", subtitle));                         
+                        phrase.Add(new Chunk(erActs.Text).SetUnderline(1, -2));
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\nSchool Activties or Educator's Program Participated\n", subtitle));
+                        phrase.Add(new Chunk("(The boy's active participation in any school or educator's program.)\n\n", des));
+                        phrase.Add(new Chunk(erActs.Text).SetUnderline(1, -2));
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\nBehavioral\n", subtitle));
+                        phrase.Add(new Chunk("(The boy's relationship towards his teacher and classmates and his behavior towards dealing with pressures at any circumstances. Any incident involving the boy may be also identified.)\n\n", des));
+                        phrase.Add(new Chunk(erBehavior.Text).SetUnderline(1, -2));
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\nRecommendations\n\n", subtitle));                        
+                        phrase.Add(new Chunk(erRec.Text).SetUnderline(1, -2));
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.SpacingAfter = 15; par.Add(phrase); doc.Add(par);
+
+                        // SIGNATURE
+                        par = new Paragraph(); par.Add(line); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\n\nReported By:\n", bold));
+                        phrase.Add(new Chunk(erBy.Text).SetUnderline(1, -2));
+                        phrase.Add(new Chunk("On " + erDate.Value.ToString("MMMM dd, yyyy"), normal));
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.SpacingAfter = 8; par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase();
+                        phrase.Add(new Chunk("\nApproved By:\n\n", bold));
+                        phrase.Add(new Chunk("Fr. Lionel Mechanvez, SM \nExecutive Director", normal));           // BOOK LMAO DIRECTOR NAME
+                        cell = new PdfPCell(phrase); par = new Paragraph(); par.Add(phrase); doc.Add(par);
+                        
                         doc.Close();
                         successMessage("Educator's report exported successfully!");
+                        resetER();
                         tabChild.SelectedTab = eighth;
                     }
                 }
+            }
+        }
+
+        private void resetER()
+        {
+            rb1G.Checked = rb2G.Checked = rb3G.Checked = rb4G.Checked = rbVG.Checked = rbG.Checked = rbS.Checked = rbM.Checked = rbU.Checked = false;
+            erComments.Text = erStrength.Text = erImprove.Text = erActs.Text = erAwards.Text = erBehavior.Text = erRec.Text = "";
+            erBy.Text = "Name."; erDate.MaxDate = DateTime.Now; erDate.Value = erDate.MaxDate;
+        }
+
+        private void btnERBack_Click(object sender, EventArgs e)
+        {
+            confirmMessage("Are you sure you want to cancel this report? Everything will be cleared.");
+            if (confirmed)
+            {
+                resetER();
+                tabChild.SelectedTab = eighth;
             }
         }
 
@@ -3348,10 +3448,7 @@ namespace BalayPasilungan
             famtypecall(id, btnaddfam.Text);
         }
 
-        private void btnERBack_Click(object sender, EventArgs e)
-        {
-            tabChild.SelectedTab = eighth;
-        }
+        
 
         private void bttnbackfromcheckrec_Click(object sender, EventArgs e)
         {
@@ -3734,7 +3831,6 @@ namespace BalayPasilungan
                 lblIntDetails.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
                 countIntDetails.Visible = true;
             }
-
         }
 
         private void richTxt_TextChanged(object sender, EventArgs e)
