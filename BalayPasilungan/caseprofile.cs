@@ -3158,14 +3158,15 @@ namespace BalayPasilungan
                         else if (rb3G.Checked) phrase.Add(new Chunk("Third Grading").SetUnderline(1, -2));
                         else if (rb4G.Checked) phrase.Add(new Chunk("Fourth Grading").SetUnderline(1, -2));
 
+                        par = new Paragraph(); par.Add(phrase); doc.Add(par);
+
+                        phrase = new Phrase(); phrase.Add(new Chunk("\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
+
+                        phrase.Add(new Chunk("Overall Performance\n", bold));
                         par = new Paragraph(); par.SpacingAfter = 10; par.Add(phrase); doc.Add(par);
 
-                        phrase = new Phrase(); phrase.Add(new Chunk("\n\n")); par = new Paragraph(); par.Add(phrase); doc.Add(par); // NEWLINE
-
-                        phrase.Add(new Chunk("\nOverall Performance\n", bold));
-
                         PdfPTable pdfTable = new PdfPTable(3);
-                        float[] widths = new float[] { 3f, 2f, 4f};
+                        float[] widths = new float[] { 2f, 1f, 1f};
                         pdfTable.WidthPercentage = 100; pdfTable.SetWidths(widths);
 
                         Phrase blank_phrase = new Phrase(); blank_phrase.Add(new Chunk(""));
@@ -3233,6 +3234,7 @@ namespace BalayPasilungan
                         right = new Phrase(); right.Add(new Chunk("Executive Director", normal));
                         ct.SetSimpleColumn(right, 310, 20, 570, 20 * 4, 15, Element.ALIGN_CENTER); ct.Go();
                         */
+                        doc.Add(pdfTable);
                         doc.Close();
                         successMessage("Educator's report exported successfully!");
                         tabChild.SelectedTab = eighth;
