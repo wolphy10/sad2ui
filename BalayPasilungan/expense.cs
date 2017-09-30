@@ -47,30 +47,7 @@ namespace BalayPasilungan
             // Renderers (to remove default blue hightlights or mouseovers)
             donorInfo.Renderer = new renderer2(); brInfo.Renderer = new renderer2();
 
-            MessageBox.Show(usertype.ToString());
-            if(usertype == 1 || usertype == 2)
-            {
-                panel4.Visible = shadow1.Visible = panel2.Visible = shadow3.Visible = false;
-                btnDonation.Enabled = false;
-                
-                logo_finance.BackgroundImage = Properties.Resources.finance;
-                btnFinance.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
-                tabSelection.SelectedTab = tabFinance;
-            }
-            else
-            {
-                btnDonation.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
-                btnDonateAllBack.Visible = false;
-                logo_donation.BackgroundImage = Properties.Resources.donation;
-                tabInnerDonors.SelectedIndex = 0;
-                tabSelection.SelectedTab = tabDonors;
-                lblListOfDonors.Text = "List of Donors";
-                panelListChild.BackColor = System.Drawing.Color.FromArgb(15, 168, 104);
-                loadDonorList();
-                current_donorID = 0;
-            }
             
-
             // Setting Dates
             datePledge.Value = dateBR.MaxDate = datePledge.MaxDate = datePledgeEdit.MaxDate = DateTime.Today;
         }
@@ -287,8 +264,8 @@ namespace BalayPasilungan
             }
             else
             {
-                btnMain.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
                 logo_main.BackgroundImage = Properties.Resources.main;
+                this.Close();
             }
         }
         #endregion
@@ -423,21 +400,19 @@ namespace BalayPasilungan
                     table.DataSource = dt;
 
                     // BR LIST In Kind UI Modifications
-                    table.Columns[2].HeaderText = "PURPOSE";
-                    table.Columns[5].HeaderText = "DATE REQUESTED";
-                    table.Columns[6].HeaderText = "REQUESTED BY";
+                    table.Columns["purpose"].HeaderText = "PURPOSE";
+                    table.Columns["dateRequested"].HeaderText = "DATE REQUESTED";
+                    table.Columns["requestedBy"].HeaderText = "REQUESTED BY";
 
                     // For ID purposes (hidden from user)            
-                    table.Columns[0].Visible = table.Columns[1].Visible = table.Columns[3].Visible = table.Columns[4].Visible = table.Columns[7].Visible = false;
+                    table.Columns["budgetID"].Visible = table.Columns["status"].Visible = table.Columns["category"].Visible = table.Columns["budgetTotal"].Visible = false;
 
                     // 935 TOTAL WIDTH
-                    table.Columns[2].Width = 505;
-                    table.Columns[5].Width = table.Columns[6].Width = 215;
-                    table.Columns[2].HeaderCell.Style.Padding = table.Columns[2].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
+                    table.Columns["purpose"].HeaderCell.Style.Padding = table.Columns["purpose"].DefaultCellStyle.Padding = new Padding(15, 0, 0, 0);
 
                     if (dt.Rows.Count > 0 && !empty)
                     {                        
-                        table.Columns[5].DefaultCellStyle.Format = "MMMM dd, yyyy";
+                        table.Columns["dateRequested"].DefaultCellStyle.Format = "MMMM dd, yyyy";
                         btnViewBR.Enabled = notifBR.Visible = btnApprovedBR.Enabled = multiABR.Enabled = true;
                     }
                     if (empty && table == BRList) btnViewBR.Enabled = notifBR.Visible = false;
@@ -3037,6 +3012,31 @@ namespace BalayPasilungan
         private void expense_FormClosing(object sender, FormClosingEventArgs e)
         {
             reftomain.Show();
+        }
+
+        private void expense_Load(object sender, EventArgs e)
+        {
+            if (usertype == 1 || usertype == 2)
+            {
+                panel4.Visible = shadow1.Visible = panel2.Visible = shadow3.Visible = false;
+                btnDonation.Enabled = false;
+
+                logo_finance.BackgroundImage = Properties.Resources.finance;
+                btnFinance.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                tabSelection.SelectedTab = tabFinance;
+            }
+            else
+            {
+                btnDonation.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                btnDonateAllBack.Visible = false;
+                logo_donation.BackgroundImage = Properties.Resources.donation;
+                tabInnerDonors.SelectedIndex = 0;
+                tabSelection.SelectedTab = tabDonors;
+                lblListOfDonors.Text = "List of Donors";
+                panelListChild.BackColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                loadDonorList();
+                current_donorID = 0;
+            }
         }
 
         private void donationIK_CellContentClick(object sender, DataGridViewCellEventArgs e)

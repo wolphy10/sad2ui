@@ -3284,6 +3284,11 @@ namespace BalayPasilungan
         {
             tabChild.SelectedTab = sixteen;
         }
+
+        private void caseprofile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reftomain.Show();
+        }
         #endregion
 
         #region hide functions

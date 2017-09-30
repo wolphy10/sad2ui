@@ -123,9 +123,9 @@ namespace BalayPasilungan
         }
 
         private void btnexp_Click(object sender, EventArgs e)
-        {            
+        {
             expense exp = new expense();
-            exp.usertype = usertype;
+            exp.usertype = this.usertype;
             exp.reftomain = this;
             exp.Show();
             this.Hide();

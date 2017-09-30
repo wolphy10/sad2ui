@@ -276,7 +276,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -321,20 +321,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.label1.Location = new System.Drawing.Point(0, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 28);
+            this.label1.Size = new System.Drawing.Size(127, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Notification";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.button2.BackgroundImage = global::BalayPasilungan.Properties.Resources.hamburger;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button2.BackgroundImage = global::BalayPasilungan.Properties.Resources.notif;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -362,8 +362,8 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.hamburger;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.notif;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button6.FlatAppearance.BorderSize = 0;
@@ -378,7 +378,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.balay_logo_final;
+            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.small_logo;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
