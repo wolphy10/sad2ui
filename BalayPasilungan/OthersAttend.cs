@@ -70,7 +70,6 @@ namespace BalayPasilungan
 
         private void OthersAttend_Load(object sender, EventArgs e)
         {
-            eventType(1);
         }
 
         private void countEName_Click(object sender, EventArgs e)
@@ -99,58 +98,26 @@ namespace BalayPasilungan
                 this.DialogResult = DialogResult.OK;
             }
         }
-
-        private void btnAddType_Click(object sender, EventArgs e)
-        {
-            if (txtAttendRole.Text == "Attendee Role...") errorMessage("Cannot add empty attendee. Please fill up necessary fields.");
-            else
-            {
-                eventType(2);
-                eventType(1);
-            }
-            btnShowAdd.Visible = true; btnNext.Enabled = true; txtAttendRole.Visible = false; btnAddType.Visible = false;
-        }
-
+        public bool showevtype = true;
         private void btnShowAdd_Click(object sender, EventArgs e)
         {
-            btnShowAdd.Visible = false; btnNext.Enabled = false; txtAttendRole.Visible = true; btnAddType.Visible = true;
-        }
-
-        #region functions
-        public void eventType(int typenum)
-        {
-            cbARole.Items.Clear();
-            try
+            if (showevtype)
             {
-                conn.Open();
-
-                MySqlCommand comm = new MySqlCommand();
-                if (typenum == 1) { 
-                    comm = new MySqlCommand("SELECT attendRole FROM attendedRoles", conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-                    if (dt.Rows.Count >= 1)
-                    {
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            cbARole.Items.Add(dt.Rows[i]["attendRole"].ToString());
-                        }
-                    }
-                }else if(typenum == 2)
-                {
-                    comm = new MySqlCommand("INSERT INTO attendedRoles(attendRole) VALUES('"+txtAttendRole.Text+"')", conn);
-                    comm.ExecuteNonQuery();
-                }
-                conn.Close();
+                cbARole.DropDownStyle = ComboBoxStyle.DropDown;
+                btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.checked_symbol;
+                btnNext.Enabled = false;
+                showevtype = false;
             }
-            catch (Exception ee)
+            else
             {
-                MessageBox.Show("Nah!" + ee);
-                conn.Close();
+                cbARole.Items.Add(cbARole.Text);
+                cbARole.DropDownStyle = ComboBoxStyle.DropDownList;
+                btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.addsomething;
+                btnNext.Enabled = true;
+                showevtype = true;
             }
         }
-        #endregion
+
 
         private void txtEventName_Enter(object sender, EventArgs e)
         {
@@ -174,15 +141,6 @@ namespace BalayPasilungan
         {
             int count = txtFAttendName.Text.Length;
             countEName.Text = count + "/100";
-        }
-        private void txtAttendRole_Enter(object sender, EventArgs e)
-        {
-            if (txtAttendRole.Text.Equals("Attendee Role...")) txtAttendRole.Text = "";
-        }
-
-        private void txtAttendRole_Leave(object sender, EventArgs e)
-        {
-            if (txtAttendRole.Text.Equals("")) txtAttendRole.Text = "Attendee Role...";
         }
 
         private void txtLAttendName_Enter(object sender, EventArgs e)

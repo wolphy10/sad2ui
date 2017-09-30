@@ -310,6 +310,8 @@ namespace BalayPasilungan
                                 + "', budgetTotal = " + sum + ", dateRequested = '" + DateTime.Today.ToString("yyyy-MM-dd") + "', requestedBy = '" + txtBRRequest.Text + "' WHERE budgetID = " + current_budgetID, conn);
                             comm.ExecuteNonQuery();
 
+                            reftoeventorg.bid = current_budgetID;
+                            reftoeventorg.btotal = sum;
                             conn.Close();
                             this.Close();
                         }
@@ -474,7 +476,7 @@ namespace BalayPasilungan
 
         private void eventBudget_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("ok lng ba kung walang multiple selection sa category? wala bang instances na may mag sabay? or kung magsabay yung sa catergories kay others nlng ??");
+            //MessageBox.Show("ok lng ba kung walang multiple selection sa category? wala bang instances na may mag sabay? or kung magsabay yung sa catergories kay others nlng ??");
             lblEventName.Text = reftoeventorg.evNameBudget;
         }
 

@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eventorg));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.taskbar = new System.Windows.Forms.Panel();
+            this.logo_request = new System.Windows.Forms.PictureBox();
+            this.logo_events = new System.Windows.Forms.PictureBox();
+            this.logo_main = new System.Windows.Forms.PictureBox();
             this.layoutPMain = new System.Windows.Forms.TableLayoutPanel();
             this.upPanel = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -50,16 +53,20 @@
             this.eventdetails = new System.Windows.Forms.TabPage();
             this.lblEType = new System.Windows.Forms.Label();
             this.cbEType = new System.Windows.Forms.ComboBox();
+            this.btnShowAdd = new System.Windows.Forms.Button();
             this.lblEDes = new System.Windows.Forms.Label();
             this.countEDes = new System.Windows.Forms.Label();
             this.txtEventDes = new System.Windows.Forms.RichTextBox();
             this.lblEVenue = new System.Windows.Forms.Label();
             this.lblBRHead1 = new System.Windows.Forms.Label();
             this.txtVenue = new System.Windows.Forms.TextBox();
+            this.panelEVenue = new System.Windows.Forms.PictureBox();
             this.countEVenue = new System.Windows.Forms.Label();
             this.lblEventName = new System.Windows.Forms.Label();
             this.countEName = new System.Windows.Forms.Label();
             this.txtEventName = new System.Windows.Forms.TextBox();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.panelEName = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnNew = new System.Windows.Forms.Button();
@@ -90,6 +97,16 @@
             this.btnMulDay = new System.Windows.Forms.Button();
             this.btnAllDay = new System.Windows.Forms.Button();
             this.lblETime = new System.Windows.Forms.Label();
+            this.btnRAllDay = new System.Windows.Forms.Button();
+            this.panelEMins2 = new System.Windows.Forms.Panel();
+            this.txtEMins2 = new System.Windows.Forms.TextBox();
+            this.panelEHours2 = new System.Windows.Forms.Panel();
+            this.txtEHours2 = new System.Windows.Forms.TextBox();
+            this.panelEMins = new System.Windows.Forms.Panel();
+            this.txtEMins = new System.Windows.Forms.TextBox();
+            this.panelEHours = new System.Windows.Forms.Panel();
+            this.txtEHours = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.others = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -106,9 +123,15 @@
             this.label22 = new System.Windows.Forms.Label();
             this.btnPMRemind = new System.Windows.Forms.Button();
             this.btnAMRemind = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtMinRemind = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtHrRemind = new System.Windows.Forms.TextBox();
             this.cb_YRemind = new System.Windows.Forms.ComboBox();
             this.cb_DRemind = new System.Windows.Forms.ComboBox();
             this.cb_MRemind = new System.Windows.Forms.ComboBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.confirmTab = new System.Windows.Forms.TabPage();
             this.lblRequestBy = new System.Windows.Forms.Label();
             this.txtRequestBy = new System.Windows.Forms.TextBox();
@@ -129,16 +152,30 @@
             this.label21 = new System.Windows.Forms.Label();
             this.confirm_EDateTime = new System.Windows.Forms.Label();
             this.confirm_EType = new System.Windows.Forms.Label();
+            this.panelRequestBy = new System.Windows.Forms.PictureBox();
             this.menuStripEvent = new System.Windows.Forms.MenuStrip();
             this.addEventTS = new System.Windows.Forms.ToolStripMenuItem();
             this.pendingRequestTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabAttend = new System.Windows.Forms.TabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnAbsent = new System.Windows.Forms.Button();
             this.lblOptions1 = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnPresent = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbDes = new System.Windows.Forms.Label();
+            this.lbMon = new System.Windows.Forms.Label();
+            this.lvTime = new System.Windows.Forms.Label();
+            this.lbDay = new System.Windows.Forms.Label();
+            this.lbVen = new System.Windows.Forms.Label();
+            this.panelColor = new System.Windows.Forms.Panel();
+            this.lbEvn = new System.Windows.Forms.Label();
             this.tabAttendance = new System.Windows.Forms.TabControl();
             this.tabOtherAttend = new System.Windows.Forms.TabPage();
             this.viewOthersAttend = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAttendOthers = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tabChildAttend = new System.Windows.Forms.TabPage();
             this.lvChildAttend = new System.Windows.Forms.ListView();
@@ -150,20 +187,14 @@
             this.childList = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelChildList = new System.Windows.Forms.Panel();
+            this.btnOther = new System.Windows.Forms.Button();
             this.lblChildList = new System.Windows.Forms.Label();
             this.tabOtherList = new System.Windows.Forms.TabPage();
             this.otherList = new System.Windows.Forms.ListView();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.head2 = new System.Windows.Forms.Panel();
+            this.btnChild = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbDes = new System.Windows.Forms.Label();
-            this.lbMon = new System.Windows.Forms.Label();
-            this.lvTime = new System.Windows.Forms.Label();
-            this.lbDay = new System.Windows.Forms.Label();
-            this.lbVen = new System.Windows.Forms.Label();
-            this.panelColor = new System.Windows.Forms.Panel();
-            this.lbEvn = new System.Windows.Forms.Label();
             this.tabCalendar = new System.Windows.Forms.TabPage();
             this.btnYPrev = new System.Windows.Forms.Button();
             this.btnYNow = new System.Windows.Forms.Button();
@@ -174,6 +205,8 @@
             this.CalendarView = new System.Windows.Forms.DataGridView();
             this.tabPending = new System.Windows.Forms.TabPage();
             this.panelOptionsPend = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lblOptions2 = new System.Windows.Forms.Label();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.addEventTS2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -205,47 +238,14 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelEventDet = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panelEventHead = new System.Windows.Forms.Panel();
             this.lblEventHead = new System.Windows.Forms.Label();
             this.tabViewAttend = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.listAttendedView = new System.Windows.Forms.ListView();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.logo_request = new System.Windows.Forms.PictureBox();
-            this.logo_events = new System.Windows.Forms.PictureBox();
-            this.logo_main = new System.Windows.Forms.PictureBox();
-            this.btnShowAdd = new System.Windows.Forms.Button();
-            this.panelEVenue = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.panelEName = new System.Windows.Forms.PictureBox();
-            this.btnRAllDay = new System.Windows.Forms.Button();
-            this.panelEMins2 = new System.Windows.Forms.Panel();
-            this.txtEMins2 = new System.Windows.Forms.TextBox();
-            this.panelEHours2 = new System.Windows.Forms.Panel();
-            this.txtEHours2 = new System.Windows.Forms.TextBox();
-            this.panelEMins = new System.Windows.Forms.Panel();
-            this.txtEMins = new System.Windows.Forms.TextBox();
-            this.panelEHours = new System.Windows.Forms.Panel();
-            this.txtEHours = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtMinRemind = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtHrRemind = new System.Windows.Forms.TextBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.panelRequestBy = new System.Windows.Forms.PictureBox();
-            this.btnAbsent = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnPresent = new System.Windows.Forms.Button();
-            this.btnAttendOthers = new System.Windows.Forms.Button();
-            this.btnOther = new System.Windows.Forms.Button();
-            this.btnChild = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnRequest = new BalayPasilungan.NoFocusRec();
             this.btnEvent = new BalayPasilungan.NoFocusRec();
             this.btnMain = new BalayPasilungan.NoFocusRec();
@@ -271,24 +271,42 @@
             this.btnEvCancel = new BalayPasilungan.NoFocusRec();
             this.attendBack = new BalayPasilungan.NoFocusRec();
             this.taskbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_request)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_events)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
             this.tabSecond.SuspendLayout();
             this.tabRequest.SuspendLayout();
             this.ERProgress.SuspendLayout();
             this.tabERForm.SuspendLayout();
             this.eventdetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEVenue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEName)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelRemind.SuspendLayout();
             this.timeanddate.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panelEMins2.SuspendLayout();
+            this.panelEHours2.SuspendLayout();
+            this.panelEMins.SuspendLayout();
+            this.panelEHours.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.others.SuspendLayout();
             this.panel7.SuspendLayout();
             this.reminderPanel.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.confirmTab.SuspendLayout();
             this.panel8.SuspendLayout();
             this.confirmEventDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelRequestBy)).BeginInit();
             this.menuStripEvent.SuspendLayout();
             this.tabAttend.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabAttendance.SuspendLayout();
             this.tabOtherAttend.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -299,11 +317,12 @@
             this.panelChildList.SuspendLayout();
             this.tabOtherList.SuspendLayout();
             this.head2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.tabCalendar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CalendarView)).BeginInit();
             this.tabPending.SuspendLayout();
             this.panelOptionsPend.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.tabEvPending.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -311,29 +330,10 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tabEvent.SuspendLayout();
             this.panelEventDet.SuspendLayout();
-            this.panelEventHead.SuspendLayout();
-            this.tabViewAttend.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_request)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_events)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelEVenue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelEName)).BeginInit();
-            this.panelEMins2.SuspendLayout();
-            this.panelEHours2.SuspendLayout();
-            this.panelEMins.SuspendLayout();
-            this.panelEHours.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelRequestBy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panelEventHead.SuspendLayout();
+            this.tabViewAttend.SuspendLayout();
             this.SuspendLayout();
             // 
             // taskbar
@@ -351,6 +351,42 @@
             this.taskbar.Name = "taskbar";
             this.taskbar.Size = new System.Drawing.Size(90, 677);
             this.taskbar.TabIndex = 0;
+            // 
+            // logo_request
+            // 
+            this.logo_request.BackColor = System.Drawing.Color.White;
+            this.logo_request.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
+            this.logo_request.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_request.Location = new System.Drawing.Point(19, 206);
+            this.logo_request.Name = "logo_request";
+            this.logo_request.Size = new System.Drawing.Size(50, 50);
+            this.logo_request.TabIndex = 12;
+            this.logo_request.TabStop = false;
+            this.logo_request.Click += new System.EventHandler(this.logo_click);
+            // 
+            // logo_events
+            // 
+            this.logo_events.BackColor = System.Drawing.Color.White;
+            this.logo_events.BackgroundImage = global::BalayPasilungan.Properties.Resources.event_fade;
+            this.logo_events.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_events.Location = new System.Drawing.Point(19, 114);
+            this.logo_events.Name = "logo_events";
+            this.logo_events.Size = new System.Drawing.Size(50, 50);
+            this.logo_events.TabIndex = 10;
+            this.logo_events.TabStop = false;
+            this.logo_events.Click += new System.EventHandler(this.logo_click);
+            // 
+            // logo_main
+            // 
+            this.logo_main.BackColor = System.Drawing.Color.White;
+            this.logo_main.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
+            this.logo_main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_main.Location = new System.Drawing.Point(19, 21);
+            this.logo_main.Name = "logo_main";
+            this.logo_main.Size = new System.Drawing.Size(50, 50);
+            this.logo_main.TabIndex = 8;
+            this.logo_main.TabStop = false;
+            this.logo_main.Click += new System.EventHandler(this.logo_click);
             // 
             // layoutPMain
             // 
@@ -553,6 +589,20 @@
             this.cbEType.Enter += new System.EventHandler(this.cbEType_Enter);
             this.cbEType.Leave += new System.EventHandler(this.cbEType_Leave);
             // 
+            // btnShowAdd
+            // 
+            this.btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.addsomething;
+            this.btnShowAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowAdd.FlatAppearance.BorderSize = 0;
+            this.btnShowAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAdd.Location = new System.Drawing.Point(614, 372);
+            this.btnShowAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShowAdd.Name = "btnShowAdd";
+            this.btnShowAdd.Size = new System.Drawing.Size(25, 25);
+            this.btnShowAdd.TabIndex = 358;
+            this.btnShowAdd.UseVisualStyleBackColor = true;
+            this.btnShowAdd.Click += new System.EventHandler(this.btnShowAdd_Click);
+            // 
             // lblEDes
             // 
             this.lblEDes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -633,6 +683,15 @@
             this.txtVenue.Enter += new System.EventHandler(this.txtNew_Enter);
             this.txtVenue.Leave += new System.EventHandler(this.txtNew_Leave);
             // 
+            // panelEVenue
+            // 
+            this.panelEVenue.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelEVenue.Location = new System.Drawing.Point(410, 222);
+            this.panelEVenue.Name = "panelEVenue";
+            this.panelEVenue.Size = new System.Drawing.Size(506, 33);
+            this.panelEVenue.TabIndex = 351;
+            this.panelEVenue.TabStop = false;
+            // 
             // countEVenue
             // 
             this.countEVenue.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
@@ -682,6 +741,24 @@
             this.txtEventName.TextChanged += new System.EventHandler(this.txtNewCount_TextChanged);
             this.txtEventName.Enter += new System.EventHandler(this.txtNew_Enter);
             this.txtEventName.Leave += new System.EventHandler(this.txtNew_Leave);
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox29.Location = new System.Drawing.Point(50, 88);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(952, 33);
+            this.pictureBox29.TabIndex = 345;
+            this.pictureBox29.TabStop = false;
+            // 
+            // panelEName
+            // 
+            this.panelEName.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelEName.Location = new System.Drawing.Point(410, 144);
+            this.panelEName.Name = "panelEName";
+            this.panelEName.Size = new System.Drawing.Size(506, 33);
+            this.panelEName.TabIndex = 347;
+            this.panelEName.TabStop = false;
             // 
             // panel15
             // 
@@ -1131,6 +1208,123 @@
             this.lblETime.TabIndex = 19;
             this.lblETime.Text = "TIME";
             // 
+            // btnRAllDay
+            // 
+            this.btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
+            this.btnRAllDay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRAllDay.FlatAppearance.BorderSize = 0;
+            this.btnRAllDay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRAllDay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRAllDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRAllDay.Location = new System.Drawing.Point(500, 201);
+            this.btnRAllDay.Name = "btnRAllDay";
+            this.btnRAllDay.Size = new System.Drawing.Size(59, 25);
+            this.btnRAllDay.TabIndex = 46;
+            this.btnRAllDay.UseVisualStyleBackColor = true;
+            this.btnRAllDay.Visible = false;
+            this.btnRAllDay.Click += new System.EventHandler(this.bntRAllDay_Click);
+            // 
+            // panelEMins2
+            // 
+            this.panelEMins2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEMins2.BackgroundImage")));
+            this.panelEMins2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelEMins2.Controls.Add(this.txtEMins2);
+            this.panelEMins2.Location = new System.Drawing.Point(842, 412);
+            this.panelEMins2.Name = "panelEMins2";
+            this.panelEMins2.Size = new System.Drawing.Size(62, 68);
+            this.panelEMins2.TabIndex = 43;
+            // 
+            // txtEMins2
+            // 
+            this.txtEMins2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEMins2.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEMins2.ForeColor = System.Drawing.Color.Black;
+            this.txtEMins2.Location = new System.Drawing.Point(17, 4);
+            this.txtEMins2.MaxLength = 2;
+            this.txtEMins2.Name = "txtEMins2";
+            this.txtEMins2.Size = new System.Drawing.Size(32, 36);
+            this.txtEMins2.TabIndex = 13;
+            this.txtEMins2.Text = "00";
+            this.txtEMins2.Leave += new System.EventHandler(this.txtEMins2_Leave);
+            // 
+            // panelEHours2
+            // 
+            this.panelEHours2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEHours2.BackgroundImage")));
+            this.panelEHours2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelEHours2.Controls.Add(this.txtEHours2);
+            this.panelEHours2.Location = new System.Drawing.Point(755, 412);
+            this.panelEHours2.Name = "panelEHours2";
+            this.panelEHours2.Size = new System.Drawing.Size(62, 68);
+            this.panelEHours2.TabIndex = 42;
+            // 
+            // txtEHours2
+            // 
+            this.txtEHours2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEHours2.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEHours2.ForeColor = System.Drawing.Color.Black;
+            this.txtEHours2.Location = new System.Drawing.Point(17, 4);
+            this.txtEHours2.MaxLength = 2;
+            this.txtEHours2.Name = "txtEHours2";
+            this.txtEHours2.Size = new System.Drawing.Size(46, 36);
+            this.txtEHours2.TabIndex = 12;
+            this.txtEHours2.Text = "00";
+            this.txtEHours2.Leave += new System.EventHandler(this.txtEHours2_Leave);
+            // 
+            // panelEMins
+            // 
+            this.panelEMins.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEMins.BackgroundImage")));
+            this.panelEMins.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelEMins.Controls.Add(this.txtEMins);
+            this.panelEMins.Location = new System.Drawing.Point(513, 412);
+            this.panelEMins.Name = "panelEMins";
+            this.panelEMins.Size = new System.Drawing.Size(62, 68);
+            this.panelEMins.TabIndex = 9;
+            // 
+            // txtEMins
+            // 
+            this.txtEMins.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEMins.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEMins.ForeColor = System.Drawing.Color.Black;
+            this.txtEMins.Location = new System.Drawing.Point(17, 4);
+            this.txtEMins.MaxLength = 2;
+            this.txtEMins.Name = "txtEMins";
+            this.txtEMins.Size = new System.Drawing.Size(32, 36);
+            this.txtEMins.TabIndex = 1;
+            this.txtEMins.Text = "00";
+            this.txtEMins.Leave += new System.EventHandler(this.txtEMins_Leave);
+            // 
+            // panelEHours
+            // 
+            this.panelEHours.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEHours.BackgroundImage")));
+            this.panelEHours.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelEHours.Controls.Add(this.txtEHours);
+            this.panelEHours.Location = new System.Drawing.Point(427, 412);
+            this.panelEHours.Name = "panelEHours";
+            this.panelEHours.Size = new System.Drawing.Size(62, 68);
+            this.panelEHours.TabIndex = 37;
+            // 
+            // txtEHours
+            // 
+            this.txtEHours.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEHours.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEHours.ForeColor = System.Drawing.Color.Black;
+            this.txtEHours.Location = new System.Drawing.Point(17, 4);
+            this.txtEHours.MaxLength = 2;
+            this.txtEHours.Name = "txtEHours";
+            this.txtEHours.Size = new System.Drawing.Size(46, 36);
+            this.txtEHours.TabIndex = 8;
+            this.txtEHours.Text = "00";
+            this.txtEHours.Leave += new System.EventHandler(this.txtEHours_Leave);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox5.Location = new System.Drawing.Point(50, 41);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(932, 33);
+            this.pictureBox5.TabIndex = 351;
+            this.pictureBox5.TabStop = false;
+            // 
             // others
             // 
             this.others.BackColor = System.Drawing.Color.White;
@@ -1191,6 +1385,7 @@
             this.label1.TabIndex = 359;
             this.label1.Text = "Do you want to be reminded?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Visible = false;
             // 
             // label9
             // 
@@ -1204,6 +1399,7 @@
             this.label9.TabIndex = 358;
             this.label9.Text = "REMINDER";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label9.Visible = false;
             // 
             // panel7
             // 
@@ -1244,6 +1440,7 @@
             this.lblNo.Size = new System.Drawing.Size(32, 21);
             this.lblNo.TabIndex = 35;
             this.lblNo.Text = "No";
+            this.lblNo.Visible = false;
             // 
             // lblYes
             // 
@@ -1254,6 +1451,7 @@
             this.lblYes.Size = new System.Drawing.Size(34, 21);
             this.lblYes.TabIndex = 34;
             this.lblYes.Text = "Yes";
+            this.lblYes.Visible = false;
             // 
             // reminderPanel
             // 
@@ -1340,6 +1538,52 @@
             this.btnAMRemind.UseVisualStyleBackColor = true;
             this.btnAMRemind.Click += new System.EventHandler(this.btnAMRemind_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel4.Controls.Add(this.txtMinRemind);
+            this.panel4.Location = new System.Drawing.Point(140, 137);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(62, 66);
+            this.panel4.TabIndex = 39;
+            // 
+            // txtMinRemind
+            // 
+            this.txtMinRemind.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMinRemind.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMinRemind.ForeColor = System.Drawing.Color.Black;
+            this.txtMinRemind.Location = new System.Drawing.Point(17, 4);
+            this.txtMinRemind.MaxLength = 2;
+            this.txtMinRemind.Name = "txtMinRemind";
+            this.txtMinRemind.Size = new System.Drawing.Size(32, 36);
+            this.txtMinRemind.TabIndex = 1;
+            this.txtMinRemind.Text = "00";
+            this.txtMinRemind.Leave += new System.EventHandler(this.txtMinRemind_Leave);
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel5.Controls.Add(this.txtHrRemind);
+            this.panel5.Location = new System.Drawing.Point(55, 137);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(62, 66);
+            this.panel5.TabIndex = 42;
+            // 
+            // txtHrRemind
+            // 
+            this.txtHrRemind.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtHrRemind.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHrRemind.ForeColor = System.Drawing.Color.Black;
+            this.txtHrRemind.Location = new System.Drawing.Point(17, 4);
+            this.txtHrRemind.MaxLength = 2;
+            this.txtHrRemind.Name = "txtHrRemind";
+            this.txtHrRemind.Size = new System.Drawing.Size(46, 36);
+            this.txtHrRemind.TabIndex = 8;
+            this.txtHrRemind.Text = "00";
+            this.txtHrRemind.Leave += new System.EventHandler(this.txtHrRemind_Leave);
+            // 
             // cb_YRemind
             // 
             this.cb_YRemind.BackColor = System.Drawing.Color.White;
@@ -1390,6 +1634,24 @@
             this.cb_MRemind.Size = new System.Drawing.Size(217, 29);
             this.cb_MRemind.TabIndex = 34;
             this.cb_MRemind.SelectionChangeCommitted += new System.EventHandler(this.cb_MRemind_SelectionChangeCommitted);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox7.Location = new System.Drawing.Point(49, 351);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(921, 33);
+            this.pictureBox7.TabIndex = 361;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox6.Location = new System.Drawing.Point(50, 41);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(921, 33);
+            this.pictureBox6.TabIndex = 357;
+            this.pictureBox6.TabStop = false;
             // 
             // confirmTab
             // 
@@ -1642,6 +1904,15 @@
             this.confirm_EType.TabIndex = 52;
             this.confirm_EType.Text = "Name";
             // 
+            // panelRequestBy
+            // 
+            this.panelRequestBy.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelRequestBy.Location = new System.Drawing.Point(324, 446);
+            this.panelRequestBy.Name = "panelRequestBy";
+            this.panelRequestBy.Size = new System.Drawing.Size(506, 33);
+            this.panelRequestBy.TabIndex = 360;
+            this.panelRequestBy.TabStop = false;
+            // 
             // menuStripEvent
             // 
             this.menuStripEvent.AutoSize = false;
@@ -1693,6 +1964,31 @@
             this.tabAttend.UseVisualStyleBackColor = true;
             this.tabAttend.Click += new System.EventHandler(this.tabAttend_Click);
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.btnAbsent);
+            this.panel9.Controls.Add(this.lblOptions1);
+            this.panel9.Controls.Add(this.btnRemove);
+            this.panel9.Controls.Add(this.btnPresent);
+            this.panel9.Location = new System.Drawing.Point(-4, 643);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1042, 39);
+            this.panel9.TabIndex = 7;
+            // 
+            // btnAbsent
+            // 
+            this.btnAbsent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnAbsent.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAbsent;
+            this.btnAbsent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAbsent.FlatAppearance.BorderSize = 0;
+            this.btnAbsent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbsent.Location = new System.Drawing.Point(524, 2);
+            this.btnAbsent.Name = "btnAbsent";
+            this.btnAbsent.Size = new System.Drawing.Size(168, 31);
+            this.btnAbsent.TabIndex = 1;
+            this.btnAbsent.UseVisualStyleBackColor = false;
+            this.btnAbsent.Click += new System.EventHandler(this.btnAbsent_Click);
+            // 
             // lblOptions1
             // 
             this.lblOptions1.AutoSize = true;
@@ -1703,6 +1999,118 @@
             this.lblOptions1.Size = new System.Drawing.Size(70, 21);
             this.lblOptions1.TabIndex = 0;
             this.lblOptions1.Text = "Options";
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnRemove.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnRemove;
+            this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Location = new System.Drawing.Point(186, 2);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(168, 31);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnPresent
+            // 
+            this.btnPresent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnPresent.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnPresent;
+            this.btnPresent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPresent.FlatAppearance.BorderSize = 0;
+            this.btnPresent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPresent.Location = new System.Drawing.Point(355, 2);
+            this.btnPresent.Name = "btnPresent";
+            this.btnPresent.Size = new System.Drawing.Size(168, 31);
+            this.btnPresent.TabIndex = 0;
+            this.btnPresent.UseVisualStyleBackColor = false;
+            this.btnPresent.Click += new System.EventHandler(this.btnPresent_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.noFocusRec1);
+            this.panel1.Controls.Add(this.lbDes);
+            this.panel1.Controls.Add(this.lbMon);
+            this.panel1.Controls.Add(this.lvTime);
+            this.panel1.Controls.Add(this.lbDay);
+            this.panel1.Controls.Add(this.lbVen);
+            this.panel1.Controls.Add(this.panelColor);
+            this.panel1.Controls.Add(this.lbEvn);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1036, 139);
+            this.panel1.TabIndex = 6;
+            // 
+            // lbDes
+            // 
+            this.lbDes.AutoSize = true;
+            this.lbDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDes.Location = new System.Drawing.Point(158, 84);
+            this.lbDes.Name = "lbDes";
+            this.lbDes.Size = new System.Drawing.Size(89, 21);
+            this.lbDes.TabIndex = 13;
+            this.lbDes.Text = "Description";
+            // 
+            // lbMon
+            // 
+            this.lbMon.AutoSize = true;
+            this.lbMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMon.Location = new System.Drawing.Point(43, 27);
+            this.lbMon.Name = "lbMon";
+            this.lbMon.Size = new System.Drawing.Size(91, 21);
+            this.lbMon.TabIndex = 7;
+            this.lbMon.Text = "November";
+            // 
+            // lvTime
+            // 
+            this.lvTime.AutoSize = true;
+            this.lvTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvTime.Location = new System.Drawing.Point(410, 32);
+            this.lvTime.Name = "lvTime";
+            this.lvTime.Size = new System.Drawing.Size(86, 21);
+            this.lvTime.TabIndex = 12;
+            this.lvTime.Text = "Event Time";
+            // 
+            // lbDay
+            // 
+            this.lbDay.AutoSize = true;
+            this.lbDay.Font = new System.Drawing.Font("Segoe UI", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDay.Location = new System.Drawing.Point(31, 27);
+            this.lbDay.Name = "lbDay";
+            this.lbDay.Size = new System.Drawing.Size(119, 92);
+            this.lbDay.TabIndex = 8;
+            this.lbDay.Text = "25";
+            // 
+            // lbVen
+            // 
+            this.lbVen.AutoSize = true;
+            this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbVen.Location = new System.Drawing.Point(158, 57);
+            this.lbVen.Name = "lbVen";
+            this.lbVen.Size = new System.Drawing.Size(95, 21);
+            this.lbVen.TabIndex = 11;
+            this.lbVen.Text = "Event Venue";
+            // 
+            // panelColor
+            // 
+            this.panelColor.BackColor = System.Drawing.Color.Black;
+            this.panelColor.Location = new System.Drawing.Point(4, 3);
+            this.panelColor.Name = "panelColor";
+            this.panelColor.Size = new System.Drawing.Size(12, 133);
+            this.panelColor.TabIndex = 9;
+            // 
+            // lbEvn
+            // 
+            this.lbEvn.AutoSize = true;
+            this.lbEvn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEvn.Location = new System.Drawing.Point(156, 25);
+            this.lbEvn.Name = "lbEvn";
+            this.lbEvn.Size = new System.Drawing.Size(126, 30);
+            this.lbEvn.TabIndex = 10;
+            this.lbEvn.Text = "Event Name";
             // 
             // tabAttendance
             // 
@@ -1759,6 +2167,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(680, 52);
             this.panel2.TabIndex = 15;
+            // 
+            // btnAttendOthers
+            // 
+            this.btnAttendOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
+            this.btnAttendOthers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAttendOthers.FlatAppearance.BorderSize = 0;
+            this.btnAttendOthers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAttendOthers.Location = new System.Drawing.Point(474, 9);
+            this.btnAttendOthers.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAttendOthers.Name = "btnAttendOthers";
+            this.btnAttendOthers.Size = new System.Drawing.Size(194, 37);
+            this.btnAttendOthers.TabIndex = 1;
+            this.btnAttendOthers.UseVisualStyleBackColor = true;
+            this.btnAttendOthers.Click += new System.EventHandler(this.btnAttendOthers_Click);
             // 
             // label5
             // 
@@ -1884,6 +2306,22 @@
             this.panelChildList.Size = new System.Drawing.Size(352, 52);
             this.panelChildList.TabIndex = 9;
             // 
+            // btnOther
+            // 
+            this.btnOther.BackColor = System.Drawing.Color.Transparent;
+            this.btnOther.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnChildList;
+            this.btnOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOther.FlatAppearance.BorderSize = 0;
+            this.btnOther.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOther.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOther.Location = new System.Drawing.Point(286, 15);
+            this.btnOther.Name = "btnOther";
+            this.btnOther.Size = new System.Drawing.Size(60, 25);
+            this.btnOther.TabIndex = 3;
+            this.btnOther.UseVisualStyleBackColor = false;
+            this.btnOther.Click += new System.EventHandler(this.btnOther_Click);
+            // 
             // lblChildList
             // 
             this.lblChildList.AutoSize = true;
@@ -1940,6 +2378,22 @@
             this.head2.Size = new System.Drawing.Size(352, 52);
             this.head2.TabIndex = 14;
             // 
+            // btnChild
+            // 
+            this.btnChild.BackColor = System.Drawing.Color.Transparent;
+            this.btnChild.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnOtherList;
+            this.btnChild.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnChild.FlatAppearance.BorderSize = 0;
+            this.btnChild.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnChild.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChild.Location = new System.Drawing.Point(286, 15);
+            this.btnChild.Name = "btnChild";
+            this.btnChild.Size = new System.Drawing.Size(60, 25);
+            this.btnChild.TabIndex = 4;
+            this.btnChild.UseVisualStyleBackColor = false;
+            this.btnChild.Click += new System.EventHandler(this.btnChild_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -1950,90 +2404,6 @@
             this.label4.Size = new System.Drawing.Size(135, 30);
             this.label4.TabIndex = 1;
             this.label4.Text = "Attended List";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.noFocusRec1);
-            this.panel1.Controls.Add(this.lbDes);
-            this.panel1.Controls.Add(this.lbMon);
-            this.panel1.Controls.Add(this.lvTime);
-            this.panel1.Controls.Add(this.lbDay);
-            this.panel1.Controls.Add(this.lbVen);
-            this.panel1.Controls.Add(this.panelColor);
-            this.panel1.Controls.Add(this.lbEvn);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1036, 139);
-            this.panel1.TabIndex = 6;
-            // 
-            // lbDes
-            // 
-            this.lbDes.AutoSize = true;
-            this.lbDes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDes.Location = new System.Drawing.Point(158, 84);
-            this.lbDes.Name = "lbDes";
-            this.lbDes.Size = new System.Drawing.Size(89, 21);
-            this.lbDes.TabIndex = 13;
-            this.lbDes.Text = "Description";
-            // 
-            // lbMon
-            // 
-            this.lbMon.AutoSize = true;
-            this.lbMon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMon.Location = new System.Drawing.Point(43, 27);
-            this.lbMon.Name = "lbMon";
-            this.lbMon.Size = new System.Drawing.Size(91, 21);
-            this.lbMon.TabIndex = 7;
-            this.lbMon.Text = "November";
-            // 
-            // lvTime
-            // 
-            this.lvTime.AutoSize = true;
-            this.lvTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvTime.Location = new System.Drawing.Point(410, 32);
-            this.lvTime.Name = "lvTime";
-            this.lvTime.Size = new System.Drawing.Size(86, 21);
-            this.lvTime.TabIndex = 12;
-            this.lvTime.Text = "Event Time";
-            // 
-            // lbDay
-            // 
-            this.lbDay.AutoSize = true;
-            this.lbDay.Font = new System.Drawing.Font("Segoe UI", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDay.Location = new System.Drawing.Point(31, 27);
-            this.lbDay.Name = "lbDay";
-            this.lbDay.Size = new System.Drawing.Size(119, 92);
-            this.lbDay.TabIndex = 8;
-            this.lbDay.Text = "25";
-            // 
-            // lbVen
-            // 
-            this.lbVen.AutoSize = true;
-            this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbVen.Location = new System.Drawing.Point(158, 57);
-            this.lbVen.Name = "lbVen";
-            this.lbVen.Size = new System.Drawing.Size(95, 21);
-            this.lbVen.TabIndex = 11;
-            this.lbVen.Text = "Event Venue";
-            // 
-            // panelColor
-            // 
-            this.panelColor.BackColor = System.Drawing.Color.Black;
-            this.panelColor.Location = new System.Drawing.Point(4, 3);
-            this.panelColor.Name = "panelColor";
-            this.panelColor.Size = new System.Drawing.Size(12, 133);
-            this.panelColor.TabIndex = 9;
-            // 
-            // lbEvn
-            // 
-            this.lbEvn.AutoSize = true;
-            this.lbEvn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEvn.Location = new System.Drawing.Point(156, 25);
-            this.lbEvn.Name = "lbEvn";
-            this.lbEvn.Size = new System.Drawing.Size(126, 30);
-            this.lbEvn.TabIndex = 10;
-            this.lbEvn.Text = "Event Name";
             // 
             // tabCalendar
             // 
@@ -2157,24 +2527,24 @@
             this.CalendarView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CalendarView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.CalendarView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CalendarView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.CalendarView.ColumnHeadersHeight = 35;
             this.CalendarView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 14F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CalendarView.DefaultCellStyle = dataGridViewCellStyle2;
             this.CalendarView.EnableHeadersVisualStyles = false;
             this.CalendarView.Location = new System.Drawing.Point(8, 129);
             this.CalendarView.MultiSelect = false;
@@ -2183,9 +2553,9 @@
             this.CalendarView.RowHeadersVisible = false;
             this.CalendarView.RowHeadersWidth = 100;
             this.CalendarView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.CalendarView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.CalendarView.RowTemplate.Height = 95;
             this.CalendarView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CalendarView.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -2222,6 +2592,28 @@
             this.panelOptionsPend.Name = "panelOptionsPend";
             this.panelOptionsPend.Size = new System.Drawing.Size(1037, 44);
             this.panelOptionsPend.TabIndex = 6;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(765, -17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(307, 23);
+            this.pictureBox2.TabIndex = 58;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(-2, -17);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(772, 23);
+            this.pictureBox4.TabIndex = 57;
+            this.pictureBox4.TabStop = false;
             // 
             // lblOptions2
             // 
@@ -2587,6 +2979,28 @@
             this.panelEventDet.Size = new System.Drawing.Size(1048, 62);
             this.panelEventDet.TabIndex = 4;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(762, -17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(307, 23);
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(-5, -17);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(772, 23);
+            this.pictureBox3.TabIndex = 55;
+            this.pictureBox3.TabStop = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -2660,416 +3074,6 @@
             this.listAttendedView.TabIndex = 4;
             this.listAttendedView.UseCompatibleStateImageBehavior = false;
             this.listAttendedView.View = System.Windows.Forms.View.Details;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.btnAbsent);
-            this.panel9.Controls.Add(this.lblOptions1);
-            this.panel9.Controls.Add(this.btnRemove);
-            this.panel9.Controls.Add(this.btnPresent);
-            this.panel9.Location = new System.Drawing.Point(-4, 643);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1042, 39);
-            this.panel9.TabIndex = 7;
-            // 
-            // logo_request
-            // 
-            this.logo_request.BackColor = System.Drawing.Color.White;
-            this.logo_request.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
-            this.logo_request.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo_request.Location = new System.Drawing.Point(19, 206);
-            this.logo_request.Name = "logo_request";
-            this.logo_request.Size = new System.Drawing.Size(50, 50);
-            this.logo_request.TabIndex = 12;
-            this.logo_request.TabStop = false;
-            this.logo_request.Click += new System.EventHandler(this.logo_click);
-            // 
-            // logo_events
-            // 
-            this.logo_events.BackColor = System.Drawing.Color.White;
-            this.logo_events.BackgroundImage = global::BalayPasilungan.Properties.Resources.event_fade;
-            this.logo_events.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo_events.Location = new System.Drawing.Point(19, 114);
-            this.logo_events.Name = "logo_events";
-            this.logo_events.Size = new System.Drawing.Size(50, 50);
-            this.logo_events.TabIndex = 10;
-            this.logo_events.TabStop = false;
-            this.logo_events.Click += new System.EventHandler(this.logo_click);
-            // 
-            // logo_main
-            // 
-            this.logo_main.BackColor = System.Drawing.Color.White;
-            this.logo_main.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
-            this.logo_main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo_main.Location = new System.Drawing.Point(19, 21);
-            this.logo_main.Name = "logo_main";
-            this.logo_main.Size = new System.Drawing.Size(50, 50);
-            this.logo_main.TabIndex = 8;
-            this.logo_main.TabStop = false;
-            this.logo_main.Click += new System.EventHandler(this.logo_click);
-            // 
-            // btnShowAdd
-            // 
-            this.btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.addsomething;
-            this.btnShowAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnShowAdd.FlatAppearance.BorderSize = 0;
-            this.btnShowAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowAdd.Location = new System.Drawing.Point(614, 372);
-            this.btnShowAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnShowAdd.Name = "btnShowAdd";
-            this.btnShowAdd.Size = new System.Drawing.Size(25, 25);
-            this.btnShowAdd.TabIndex = 358;
-            this.btnShowAdd.UseVisualStyleBackColor = true;
-            this.btnShowAdd.Click += new System.EventHandler(this.btnShowAdd_Click);
-            // 
-            // panelEVenue
-            // 
-            this.panelEVenue.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panelEVenue.Location = new System.Drawing.Point(410, 222);
-            this.panelEVenue.Name = "panelEVenue";
-            this.panelEVenue.Size = new System.Drawing.Size(506, 33);
-            this.panelEVenue.TabIndex = 351;
-            this.panelEVenue.TabStop = false;
-            // 
-            // pictureBox29
-            // 
-            this.pictureBox29.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox29.Location = new System.Drawing.Point(50, 88);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(952, 33);
-            this.pictureBox29.TabIndex = 345;
-            this.pictureBox29.TabStop = false;
-            // 
-            // panelEName
-            // 
-            this.panelEName.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panelEName.Location = new System.Drawing.Point(410, 144);
-            this.panelEName.Name = "panelEName";
-            this.panelEName.Size = new System.Drawing.Size(506, 33);
-            this.panelEName.TabIndex = 347;
-            this.panelEName.TabStop = false;
-            // 
-            // btnRAllDay
-            // 
-            this.btnRAllDay.BackgroundImage = global::BalayPasilungan.Properties.Resources.off;
-            this.btnRAllDay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRAllDay.FlatAppearance.BorderSize = 0;
-            this.btnRAllDay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRAllDay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnRAllDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRAllDay.Location = new System.Drawing.Point(500, 201);
-            this.btnRAllDay.Name = "btnRAllDay";
-            this.btnRAllDay.Size = new System.Drawing.Size(59, 25);
-            this.btnRAllDay.TabIndex = 46;
-            this.btnRAllDay.UseVisualStyleBackColor = true;
-            this.btnRAllDay.Visible = false;
-            this.btnRAllDay.Click += new System.EventHandler(this.bntRAllDay_Click);
-            // 
-            // panelEMins2
-            // 
-            this.panelEMins2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEMins2.BackgroundImage")));
-            this.panelEMins2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelEMins2.Controls.Add(this.txtEMins2);
-            this.panelEMins2.Location = new System.Drawing.Point(842, 412);
-            this.panelEMins2.Name = "panelEMins2";
-            this.panelEMins2.Size = new System.Drawing.Size(62, 68);
-            this.panelEMins2.TabIndex = 43;
-            // 
-            // txtEMins2
-            // 
-            this.txtEMins2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEMins2.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEMins2.ForeColor = System.Drawing.Color.Black;
-            this.txtEMins2.Location = new System.Drawing.Point(17, 4);
-            this.txtEMins2.MaxLength = 2;
-            this.txtEMins2.Name = "txtEMins2";
-            this.txtEMins2.Size = new System.Drawing.Size(32, 36);
-            this.txtEMins2.TabIndex = 13;
-            this.txtEMins2.Text = "00";
-            this.txtEMins2.Leave += new System.EventHandler(this.txtEMins2_Leave);
-            // 
-            // panelEHours2
-            // 
-            this.panelEHours2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEHours2.BackgroundImage")));
-            this.panelEHours2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelEHours2.Controls.Add(this.txtEHours2);
-            this.panelEHours2.Location = new System.Drawing.Point(755, 412);
-            this.panelEHours2.Name = "panelEHours2";
-            this.panelEHours2.Size = new System.Drawing.Size(62, 68);
-            this.panelEHours2.TabIndex = 42;
-            // 
-            // txtEHours2
-            // 
-            this.txtEHours2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEHours2.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEHours2.ForeColor = System.Drawing.Color.Black;
-            this.txtEHours2.Location = new System.Drawing.Point(17, 4);
-            this.txtEHours2.MaxLength = 2;
-            this.txtEHours2.Name = "txtEHours2";
-            this.txtEHours2.Size = new System.Drawing.Size(46, 36);
-            this.txtEHours2.TabIndex = 12;
-            this.txtEHours2.Text = "00";
-            this.txtEHours2.Leave += new System.EventHandler(this.txtEHours2_Leave);
-            // 
-            // panelEMins
-            // 
-            this.panelEMins.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEMins.BackgroundImage")));
-            this.panelEMins.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelEMins.Controls.Add(this.txtEMins);
-            this.panelEMins.Location = new System.Drawing.Point(513, 412);
-            this.panelEMins.Name = "panelEMins";
-            this.panelEMins.Size = new System.Drawing.Size(62, 68);
-            this.panelEMins.TabIndex = 9;
-            // 
-            // txtEMins
-            // 
-            this.txtEMins.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEMins.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEMins.ForeColor = System.Drawing.Color.Black;
-            this.txtEMins.Location = new System.Drawing.Point(17, 4);
-            this.txtEMins.MaxLength = 2;
-            this.txtEMins.Name = "txtEMins";
-            this.txtEMins.Size = new System.Drawing.Size(32, 36);
-            this.txtEMins.TabIndex = 1;
-            this.txtEMins.Text = "00";
-            this.txtEMins.Leave += new System.EventHandler(this.txtEMins_Leave);
-            // 
-            // panelEHours
-            // 
-            this.panelEHours.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelEHours.BackgroundImage")));
-            this.panelEHours.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelEHours.Controls.Add(this.txtEHours);
-            this.panelEHours.Location = new System.Drawing.Point(427, 412);
-            this.panelEHours.Name = "panelEHours";
-            this.panelEHours.Size = new System.Drawing.Size(62, 68);
-            this.panelEHours.TabIndex = 37;
-            // 
-            // txtEHours
-            // 
-            this.txtEHours.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEHours.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEHours.ForeColor = System.Drawing.Color.Black;
-            this.txtEHours.Location = new System.Drawing.Point(17, 4);
-            this.txtEHours.MaxLength = 2;
-            this.txtEHours.Name = "txtEHours";
-            this.txtEHours.Size = new System.Drawing.Size(46, 36);
-            this.txtEHours.TabIndex = 8;
-            this.txtEHours.Text = "00";
-            this.txtEHours.Leave += new System.EventHandler(this.txtEHours_Leave);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox5.Location = new System.Drawing.Point(50, 41);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(932, 33);
-            this.pictureBox5.TabIndex = 351;
-            this.pictureBox5.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel4.Controls.Add(this.txtMinRemind);
-            this.panel4.Location = new System.Drawing.Point(140, 137);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(62, 66);
-            this.panel4.TabIndex = 39;
-            // 
-            // txtMinRemind
-            // 
-            this.txtMinRemind.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMinRemind.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinRemind.ForeColor = System.Drawing.Color.Black;
-            this.txtMinRemind.Location = new System.Drawing.Point(17, 4);
-            this.txtMinRemind.MaxLength = 2;
-            this.txtMinRemind.Name = "txtMinRemind";
-            this.txtMinRemind.Size = new System.Drawing.Size(32, 36);
-            this.txtMinRemind.TabIndex = 1;
-            this.txtMinRemind.Text = "00";
-            this.txtMinRemind.Leave += new System.EventHandler(this.txtMinRemind_Leave);
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel5.Controls.Add(this.txtHrRemind);
-            this.panel5.Location = new System.Drawing.Point(55, 137);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(62, 66);
-            this.panel5.TabIndex = 42;
-            // 
-            // txtHrRemind
-            // 
-            this.txtHrRemind.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtHrRemind.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHrRemind.ForeColor = System.Drawing.Color.Black;
-            this.txtHrRemind.Location = new System.Drawing.Point(17, 4);
-            this.txtHrRemind.MaxLength = 2;
-            this.txtHrRemind.Name = "txtHrRemind";
-            this.txtHrRemind.Size = new System.Drawing.Size(46, 36);
-            this.txtHrRemind.TabIndex = 8;
-            this.txtHrRemind.Text = "00";
-            this.txtHrRemind.Leave += new System.EventHandler(this.txtHrRemind_Leave);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox7.Location = new System.Drawing.Point(49, 351);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(921, 33);
-            this.pictureBox7.TabIndex = 361;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox6.Location = new System.Drawing.Point(50, 41);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(921, 33);
-            this.pictureBox6.TabIndex = 357;
-            this.pictureBox6.TabStop = false;
-            // 
-            // panelRequestBy
-            // 
-            this.panelRequestBy.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panelRequestBy.Location = new System.Drawing.Point(324, 446);
-            this.panelRequestBy.Name = "panelRequestBy";
-            this.panelRequestBy.Size = new System.Drawing.Size(506, 33);
-            this.panelRequestBy.TabIndex = 360;
-            this.panelRequestBy.TabStop = false;
-            // 
-            // btnAbsent
-            // 
-            this.btnAbsent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnAbsent.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAbsent;
-            this.btnAbsent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAbsent.FlatAppearance.BorderSize = 0;
-            this.btnAbsent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbsent.Location = new System.Drawing.Point(524, 2);
-            this.btnAbsent.Name = "btnAbsent";
-            this.btnAbsent.Size = new System.Drawing.Size(168, 31);
-            this.btnAbsent.TabIndex = 1;
-            this.btnAbsent.UseVisualStyleBackColor = false;
-            this.btnAbsent.Click += new System.EventHandler(this.btnAbsent_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnRemove.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnRemove;
-            this.btnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Location = new System.Drawing.Point(186, 2);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(168, 31);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnPresent
-            // 
-            this.btnPresent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnPresent.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnPresent;
-            this.btnPresent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPresent.FlatAppearance.BorderSize = 0;
-            this.btnPresent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPresent.Location = new System.Drawing.Point(355, 2);
-            this.btnPresent.Name = "btnPresent";
-            this.btnPresent.Size = new System.Drawing.Size(168, 31);
-            this.btnPresent.TabIndex = 0;
-            this.btnPresent.UseVisualStyleBackColor = false;
-            this.btnPresent.Click += new System.EventHandler(this.btnPresent_Click);
-            // 
-            // btnAttendOthers
-            // 
-            this.btnAttendOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAttendOthers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAttendOthers.FlatAppearance.BorderSize = 0;
-            this.btnAttendOthers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAttendOthers.Location = new System.Drawing.Point(474, 9);
-            this.btnAttendOthers.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAttendOthers.Name = "btnAttendOthers";
-            this.btnAttendOthers.Size = new System.Drawing.Size(194, 37);
-            this.btnAttendOthers.TabIndex = 1;
-            this.btnAttendOthers.UseVisualStyleBackColor = true;
-            this.btnAttendOthers.Click += new System.EventHandler(this.btnAttendOthers_Click);
-            // 
-            // btnOther
-            // 
-            this.btnOther.BackColor = System.Drawing.Color.Transparent;
-            this.btnOther.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnChildList;
-            this.btnOther.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOther.FlatAppearance.BorderSize = 0;
-            this.btnOther.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnOther.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnOther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOther.Location = new System.Drawing.Point(286, 15);
-            this.btnOther.Name = "btnOther";
-            this.btnOther.Size = new System.Drawing.Size(60, 25);
-            this.btnOther.TabIndex = 3;
-            this.btnOther.UseVisualStyleBackColor = false;
-            this.btnOther.Click += new System.EventHandler(this.btnOther_Click);
-            // 
-            // btnChild
-            // 
-            this.btnChild.BackColor = System.Drawing.Color.Transparent;
-            this.btnChild.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnOtherList;
-            this.btnChild.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnChild.FlatAppearance.BorderSize = 0;
-            this.btnChild.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnChild.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnChild.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChild.Location = new System.Drawing.Point(286, 15);
-            this.btnChild.Name = "btnChild";
-            this.btnChild.Size = new System.Drawing.Size(60, 25);
-            this.btnChild.TabIndex = 4;
-            this.btnChild.UseVisualStyleBackColor = false;
-            this.btnChild.Click += new System.EventHandler(this.btnChild_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(765, -17);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(307, 23);
-            this.pictureBox2.TabIndex = 58;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(-2, -17);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(772, 23);
-            this.pictureBox4.TabIndex = 57;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(762, -17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(307, 23);
-            this.pictureBox1.TabIndex = 56;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(-5, -17);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(772, 23);
-            this.pictureBox3.TabIndex = 55;
-            this.pictureBox3.TabStop = false;
             // 
             // btnRequest
             // 
@@ -3260,6 +3264,7 @@
             this.btnRemind.Size = new System.Drawing.Size(59, 25);
             this.btnRemind.TabIndex = 360;
             this.btnRemind.UseVisualStyleBackColor = true;
+            this.btnRemind.Visible = false;
             this.btnRemind.Click += new System.EventHandler(this.btnRemind_Click);
             // 
             // btnBack3
@@ -3482,6 +3487,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.eventorg_FormClosing);
             this.Load += new System.EventHandler(this.eventorg_Load);
             this.taskbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo_request)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_events)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();
             this.tabSecond.ResumeLayout(false);
             this.tabRequest.ResumeLayout(false);
             this.ERProgress.ResumeLayout(false);
@@ -3489,6 +3497,9 @@
             this.tabERForm.ResumeLayout(false);
             this.eventdetails.ResumeLayout(false);
             this.eventdetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEVenue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEName)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panelRemind.ResumeLayout(false);
@@ -3496,19 +3507,39 @@
             this.timeanddate.ResumeLayout(false);
             this.timeanddate.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panelEMins2.ResumeLayout(false);
+            this.panelEMins2.PerformLayout();
+            this.panelEHours2.ResumeLayout(false);
+            this.panelEHours2.PerformLayout();
+            this.panelEMins.ResumeLayout(false);
+            this.panelEMins.PerformLayout();
+            this.panelEHours.ResumeLayout(false);
+            this.panelEHours.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.others.ResumeLayout(false);
             this.others.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.reminderPanel.ResumeLayout(false);
             this.reminderPanel.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.confirmTab.ResumeLayout(false);
             this.confirmTab.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.confirmEventDetails.ResumeLayout(false);
             this.confirmEventDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelRequestBy)).EndInit();
             this.menuStripEvent.ResumeLayout(false);
             this.menuStripEvent.PerformLayout();
             this.tabAttend.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabAttendance.ResumeLayout(false);
             this.tabOtherAttend.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -3523,13 +3554,13 @@
             this.tabOtherList.ResumeLayout(false);
             this.head2.ResumeLayout(false);
             this.head2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tabCalendar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CalendarView)).EndInit();
             this.tabPending.ResumeLayout(false);
             this.panelOptionsPend.ResumeLayout(false);
             this.panelOptionsPend.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.tabEvPending.ResumeLayout(false);
@@ -3540,38 +3571,12 @@
             this.tabEvent.ResumeLayout(false);
             this.panelEventDet.ResumeLayout(false);
             this.panelEventDet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelEventHead.ResumeLayout(false);
             this.panelEventHead.PerformLayout();
             this.tabViewAttend.ResumeLayout(false);
             this.tabViewAttend.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_request)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_events)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelEVenue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelEName)).EndInit();
-            this.panelEMins2.ResumeLayout(false);
-            this.panelEMins2.PerformLayout();
-            this.panelEHours2.ResumeLayout(false);
-            this.panelEHours2.PerformLayout();
-            this.panelEMins.ResumeLayout(false);
-            this.panelEMins.PerformLayout();
-            this.panelEHours.ResumeLayout(false);
-            this.panelEHours.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelRequestBy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

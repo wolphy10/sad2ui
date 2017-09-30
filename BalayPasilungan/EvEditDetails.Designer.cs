@@ -1548,8 +1548,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(816, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.tcEdit);
             this.Controls.Add(this.upPanel);
+            this.Controls.Add(this.tcEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EvEditDetails";
