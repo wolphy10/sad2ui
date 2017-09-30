@@ -123,13 +123,14 @@ namespace BalayPasilungan
                         if (type == "0") type = "Admin";
                         else if (type == "1") type = "Social Worker";
                         else type = "others";
-                        //MessageBox.Show(dt.Rows[0]["fullname"].ToString());
+
+                        txtUser.Text = txtPass.Text = "";
+
                         main main = new main();
-
-                        //main.refToLogin = this;
-
+                        main.name = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString();
+                        main.refToLogin = this;
                         main.usertype = int.Parse(dt.Rows[0]["type"].ToString());
-                        main.Show();
+                        main.Show();                        
                         this.Hide();
                     }
                     conn.Close();

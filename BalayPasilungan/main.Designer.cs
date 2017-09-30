@@ -58,6 +58,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.lblForm = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
             this.panel3.SuspendLayout();
             this.rightPartMain.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -79,6 +82,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel3.Controls.Add(this.lblName);
+            this.panel3.Controls.Add(this.lblForm);
+            this.panel3.Controls.Add(this.btnAddDonor);
             this.panel3.Controls.Add(this.btnClose);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -376,7 +382,10 @@
             this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.small_logo;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Enabled = false;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
@@ -452,7 +461,10 @@
             this.button7.BackgroundImage = global::BalayPasilungan.Properties.Resources.login_logo;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Enabled = false;
             this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(0, 0);
             this.button7.Margin = new System.Windows.Forms.Padding(0);
@@ -460,6 +472,45 @@
             this.button7.Size = new System.Drawing.Size(274, 84);
             this.button7.TabIndex = 4;
             this.button7.UseVisualStyleBackColor = true;
+            // 
+            // lblForm
+            // 
+            this.lblForm.AutoSize = true;
+            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblForm.Location = new System.Drawing.Point(12, 11);
+            this.lblForm.Name = "lblForm";
+            this.lblForm.Size = new System.Drawing.Size(102, 15);
+            this.lblForm.TabIndex = 20;
+            this.lblForm.Text = "Balay Pasilungan |";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(111, 9);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(49, 19);
+            this.lblName.TabIndex = 21;
+            this.lblName.Text = "Hello,";
+            // 
+            // btnAddDonor
+            // 
+            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddDonor.FlatAppearance.BorderSize = 0;
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddDonor.ForeColor = System.Drawing.Color.White;
+            this.btnAddDonor.Location = new System.Drawing.Point(1090, 4);
+            this.btnAddDonor.Name = "btnAddDonor";
+            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
+            this.btnAddDonor.TabIndex = 2;
+            this.btnAddDonor.Text = "LOGOUT";
+            this.btnAddDonor.UseVisualStyleBackColor = false;
+            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
             // 
             // main
             // 
@@ -476,8 +527,10 @@
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.main_KeyDown);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.rightPartMain.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -528,5 +581,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button7;
+        private NoFocusRec btnAddDonor;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblForm;
     }
 }

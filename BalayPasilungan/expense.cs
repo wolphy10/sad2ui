@@ -46,7 +46,6 @@ namespace BalayPasilungan
 
             // Renderers (to remove default blue hightlights or mouseovers)
             donorInfo.Renderer = new renderer2(); brInfo.Renderer = new renderer2();
-
             
             // Setting Dates
             datePledge.Value = dateBR.MaxDate = datePledge.MaxDate = datePledgeEdit.MaxDate = DateTime.Today;

@@ -13,10 +13,28 @@ namespace BalayPasilungan
     public partial class main : Form
     {
         public int usertype;
+        public string name;
+        public bool confirmed;
+        public Form refToLogin { get; set; }
 
         public main()
         {
             InitializeComponent();
+        }
+
+        public void confirmMessage(string message)            // Success Message
+        {
+            confirm conf = new confirm();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            conf.lblConfirm.Text = message;
+            if (conf.ShowDialog() == DialogResult.OK) confirmed = true;
+            else confirmed = false;
+            dim.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -134,6 +152,21 @@ namespace BalayPasilungan
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddDonor_Click(object sender, EventArgs e)
+        {
+            confirmMessage("Are you sure you want to logout?");
+            if (confirmed)
+            {                
+                refToLogin.Show();
+                this.Close();
+            }
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+            lblName.Text = "Hello, " + name;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
