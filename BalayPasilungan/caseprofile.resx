@@ -120,8 +120,8 @@
   <metadata name="newChildMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>783, 27</value>
   </metadata>
-  <metadata name="profileMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="newChildMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>783, 27</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="panelIP.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -214,6 +214,32 @@
         AACsZAQAAICVjAAAALCSEQAAAFYyAgAAwEpGAAAAWMkIAAAAG+98JS64U4STJwcAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="profileMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="divider2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
+        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
+        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
+        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
+        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="divider.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
+        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
+        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
+        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
+        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="profileMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA6YAAAAkCAYAAACaEielAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
@@ -534,29 +560,6 @@
         AACsZAQAAICVjAAAALCSEQAAAFYyAgAAwEpGAAAAWMkIAAAAG+98JS64U4STJwcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="divider2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
-        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
-        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
-        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
-        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="divider.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACQAAADICAYAAACAhkNhAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAADdSURBVHhe7c6xCcAwEARB9V+j
-        enm7AMEg7HCD4eEv2TUzn+2933Pebh2ftwqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClI
-        CpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKk
-        IClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgKkoKkIClICpKCpCApSAqSgqQgKUgK
-        koKkIClICpKCpCApSAqSgqQg+S9o1gOYboW9EfkmawAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="profileMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA6YAAAAkCAYAAACaEielAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1

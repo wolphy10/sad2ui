@@ -535,9 +535,9 @@ namespace BalayPasilungan
 
                     empty = false;
 
-                    dtgcs.Columns["lastname"].HeaderText = "DATE OF INTERVIEW";
-                    dtgcs.Columns["firstname"].HeaderText = "INTERVIEWER";
-                    dtgcs.Columns["program"].HeaderText = "INTERVIEWER";
+                    dtgcs.Columns["lastname"].HeaderText = "LASTNAME";
+                    dtgcs.Columns["firstname"].HeaderText = "FIRSTNAME";
+                    dtgcs.Columns["program"].HeaderText = "PROGRAM";
                     dtgcs.Columns["lastname"].HeaderCell.Style.Padding = dtgcs.Columns["lastname"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
                     if (dtgcs.Columns["Discharge"] != null)
