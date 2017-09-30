@@ -6819,7 +6819,6 @@
             this.dtgcs.Location = new System.Drawing.Point(0, 186);
             this.dtgcs.MultiSelect = false;
             this.dtgcs.Name = "dtgcs";
-            this.dtgcs.ReadOnly = true;
             this.dtgcs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtgcs.RowHeadersVisible = false;
             this.dtgcs.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
