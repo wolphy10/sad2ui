@@ -119,6 +119,7 @@
             this.member.Size = new System.Drawing.Size(336, 237);
             this.member.TabIndex = 0;
             this.member.Text = "tabPage1";
+            this.member.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // btnForgot
             // 
@@ -349,6 +350,7 @@
             this.button3.Size = new System.Drawing.Size(237, 126);
             this.button3.TabIndex = 10;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // btnClose
             // 
@@ -383,6 +385,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.login_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             this.tabControl.ResumeLayout(false);
             this.member.ResumeLayout(false);
             this.member.PerformLayout();

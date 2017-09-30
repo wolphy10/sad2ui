@@ -91,6 +91,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1250, 37);
             this.panel3.TabIndex = 1;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // btnClose
             // 
@@ -302,6 +303,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(976, 312);
             this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // panelListOngoing
             // 
@@ -319,6 +321,7 @@
             this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.panelListOngoing.Size = new System.Drawing.Size(488, 312);
             this.panelListOngoing.TabIndex = 0;
+            this.panelListOngoing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // label3
             // 
@@ -415,6 +418,7 @@
             this.notifPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
             this.notifPanel.Size = new System.Drawing.Size(274, 663);
             this.notifPanel.TabIndex = 5;
+            this.notifPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // panel5
             // 
