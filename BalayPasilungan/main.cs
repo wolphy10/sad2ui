@@ -156,6 +156,7 @@ namespace BalayPasilungan
         private void btnEvent_Click(object sender, EventArgs e)
         {
             eventorg org = new eventorg();
+            org.usertype = this.usertype;
             org.reftomain = this;
             org.Show();
             this.Hide();

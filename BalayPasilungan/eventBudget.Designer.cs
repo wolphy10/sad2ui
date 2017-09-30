@@ -28,16 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(eventBudget));
             this.brInfo = new System.Windows.Forms.MenuStrip();
             this.brTS = new System.Windows.Forms.ToolStripMenuItem();
             this.brparTS = new System.Windows.Forms.ToolStripMenuItem();
             this.tabBR = new System.Windows.Forms.TabControl();
             this.tabBRInfo = new System.Windows.Forms.TabPage();
-            this.lblEventName = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabBRDetails = new System.Windows.Forms.TabPage();
+            this.upPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
+            this.txtBRRequest = new System.Windows.Forms.TextBox();
+            this.lblBRHead1 = new System.Windows.Forms.Label();
+            this.lblBRHead2 = new System.Windows.Forms.Label();
+            this.panel = new System.Windows.Forms.PictureBox();
+            this.btnCatMultiple = new BalayPasilungan.NoFocusRec();
+            this.btnCatSingle = new BalayPasilungan.NoFocusRec();
+            this.lblOthers = new System.Windows.Forms.Label();
+            this.lblPurpose = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.countPurpose = new System.Windows.Forms.Label();
+            this.pictureBox37 = new System.Windows.Forms.PictureBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.cbExpCat = new System.Windows.Forms.ComboBox();
+            this.lblBRRequest = new System.Windows.Forms.Label();
+            this.countBRRequest = new System.Windows.Forms.Label();
+            this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.panelPurpose = new System.Windows.Forms.PictureBox();
+            this.panelCat = new System.Windows.Forms.Panel();
             this.rbOthers = new System.Windows.Forms.RadioButton();
             this.rbTranspo = new System.Windows.Forms.RadioButton();
             this.rbSpiritual = new System.Windows.Forms.RadioButton();
@@ -49,43 +71,42 @@
             this.rbHouse = new System.Windows.Forms.RadioButton();
             this.rbFood = new System.Windows.Forms.RadioButton();
             this.rbClothing = new System.Windows.Forms.RadioButton();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.btnBRCancel = new BalayPasilungan.NoFocusRec();
             this.btnBRNext = new BalayPasilungan.NoFocusRec();
-            this.lblOthers = new System.Windows.Forms.Label();
-            this.panelOthers = new System.Windows.Forms.Panel();
-            this.txtBROthers = new System.Windows.Forms.TextBox();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblPurpose = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.countPurpose = new System.Windows.Forms.Label();
-            this.panelPurpose = new System.Windows.Forms.Panel();
-            this.txtPurpose = new System.Windows.Forms.TextBox();
-            this.tabBRDetails = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblBREvent = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblEventName = new System.Windows.Forms.TextBox();
+            this.lblBRBy1 = new System.Windows.Forms.Label();
+            this.lblBRBy = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.btnBRBack = new BalayPasilungan.NoFocusRec();
             this.btnBRConfirm = new BalayPasilungan.NoFocusRec();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblBRdateRequested = new System.Windows.Forms.Label();
             this.lblCategory1 = new System.Windows.Forms.Label();
             this.lblBRCategory = new System.Windows.Forms.Label();
             this.lblPurpose1 = new System.Windows.Forms.Label();
             this.lblBRDetails = new System.Windows.Forms.Label();
-            this.BRDetails = new System.Windows.Forms.DataGridView();
             this.lblBRPurpose = new System.Windows.Forms.Label();
+            this.BRDetails = new System.Windows.Forms.DataGridView();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
             this.btnAddBR = new BalayPasilungan.NoFocusRec();
             this.btnEditBR = new BalayPasilungan.NoFocusRec();
             this.btnDelBR = new BalayPasilungan.NoFocusRec();
-            this.upPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
             this.brInfo.SuspendLayout();
             this.tabBR.SuspendLayout();
             this.tabBRInfo.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panelOthers.SuspendLayout();
-            this.panelPurpose.SuspendLayout();
             this.tabBRDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).BeginInit();
             this.upPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).BeginInit();
+            this.panelCat.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             this.SuspendLayout();
             // 
             // brInfo
@@ -97,11 +118,10 @@
             this.brInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.brTS,
             this.brparTS});
-            this.brInfo.Location = new System.Drawing.Point(0, 41);
+            this.brInfo.Location = new System.Drawing.Point(0, 33);
             this.brInfo.Name = "brInfo";
-            this.brInfo.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.brInfo.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.brInfo.Size = new System.Drawing.Size(1275, 62);
+            this.brInfo.Size = new System.Drawing.Size(938, 50);
             this.brInfo.TabIndex = 12;
             // 
             // brTS
@@ -132,87 +152,365 @@
             this.tabBR.Controls.Add(this.tabBRInfo);
             this.tabBR.Controls.Add(this.tabBRDetails);
             this.tabBR.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabBR.Location = new System.Drawing.Point(65, 49);
-            this.tabBR.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBR.Location = new System.Drawing.Point(-4, 40);
             this.tabBR.Name = "tabBR";
             this.tabBR.SelectedIndex = 0;
-            this.tabBR.Size = new System.Drawing.Size(1140, 794);
+            this.tabBR.Size = new System.Drawing.Size(962, 645);
             this.tabBR.TabIndex = 13;
             // 
             // tabBRInfo
             // 
             this.tabBRInfo.BackColor = System.Drawing.Color.White;
-            this.tabBRInfo.Controls.Add(this.lblEventName);
             this.tabBRInfo.Controls.Add(this.label4);
-            this.tabBRInfo.Controls.Add(this.panel12);
-            this.tabBRInfo.Controls.Add(this.btnBRCancel);
-            this.tabBRInfo.Controls.Add(this.btnBRNext);
+            this.tabBRInfo.Controls.Add(this.lblEventName);
+            this.tabBRInfo.Controls.Add(this.txtBRRequest);
+            this.tabBRInfo.Controls.Add(this.lblBRHead1);
+            this.tabBRInfo.Controls.Add(this.lblBRHead2);
+            this.tabBRInfo.Controls.Add(this.panel);
+            this.tabBRInfo.Controls.Add(this.btnCatMultiple);
+            this.tabBRInfo.Controls.Add(this.btnCatSingle);
             this.tabBRInfo.Controls.Add(this.lblOthers);
-            this.tabBRInfo.Controls.Add(this.panelOthers);
-            this.tabBRInfo.Controls.Add(this.lblCategory);
             this.tabBRInfo.Controls.Add(this.lblPurpose);
-            this.tabBRInfo.Controls.Add(this.label3);
+            this.tabBRInfo.Controls.Add(this.lblType);
             this.tabBRInfo.Controls.Add(this.countPurpose);
+            this.tabBRInfo.Controls.Add(this.lblCategory);
+            this.tabBRInfo.Controls.Add(this.cbExpCat);
+            this.tabBRInfo.Controls.Add(this.lblBRRequest);
+            this.tabBRInfo.Controls.Add(this.countBRRequest);
+            this.tabBRInfo.Controls.Add(this.txtPurpose);
+            this.tabBRInfo.Controls.Add(this.pictureBox38);
             this.tabBRInfo.Controls.Add(this.panelPurpose);
-            this.tabBRInfo.Location = new System.Drawing.Point(4, 28);
-            this.tabBRInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBRInfo.Controls.Add(this.panelCat);
+            this.tabBRInfo.Controls.Add(this.panel16);
+            this.tabBRInfo.Controls.Add(this.label3);
+            this.tabBRInfo.Controls.Add(this.pictureBox37);
+            this.tabBRInfo.Location = new System.Drawing.Point(4, 25);
             this.tabBRInfo.Name = "tabBRInfo";
-            this.tabBRInfo.Padding = new System.Windows.Forms.Padding(4);
-            this.tabBRInfo.Size = new System.Drawing.Size(1132, 762);
+            this.tabBRInfo.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabBRInfo.Size = new System.Drawing.Size(954, 616);
             this.tabBRInfo.TabIndex = 0;
             this.tabBRInfo.Text = "tabPage1";
             // 
-            // lblEventName
+            // label3
             // 
-            this.lblEventName.Font = new System.Drawing.Font("Segoe UI Semilight", 14F);
-            this.lblEventName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.lblEventName.Location = new System.Drawing.Point(289, 89);
-            this.lblEventName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEventName.Name = "lblEventName";
-            this.lblEventName.Size = new System.Drawing.Size(543, 64);
-            this.lblEventName.TabIndex = 90;
-            this.lblEventName.Text = "Event name";
+            this.label3.AccessibleDescription = "";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label3.Location = new System.Drawing.Point(175, -242);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 15);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "DONOR NAME";
             // 
-            // label4
+            // tabBRDetails
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label4.Location = new System.Drawing.Point(280, 70);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 20);
-            this.label4.TabIndex = 89;
-            this.label4.Text = "EVENT";
+            this.tabBRDetails.BackColor = System.Drawing.Color.White;
+            this.tabBRDetails.Controls.Add(this.lblBRBy1);
+            this.tabBRDetails.Controls.Add(this.lblBRBy);
+            this.tabBRDetails.Controls.Add(this.label1);
+            this.tabBRDetails.Controls.Add(this.lblBRdateRequested);
+            this.tabBRDetails.Controls.Add(this.lblCategory1);
+            this.tabBRDetails.Controls.Add(this.lblBRCategory);
+            this.tabBRDetails.Controls.Add(this.lblPurpose1);
+            this.tabBRDetails.Controls.Add(this.lblBRDetails);
+            this.tabBRDetails.Controls.Add(this.lblBRPurpose);
+            this.tabBRDetails.Controls.Add(this.BRDetails);
+            this.tabBRDetails.Controls.Add(this.pictureBox32);
+            this.tabBRDetails.Controls.Add(this.btnAddBR);
+            this.tabBRDetails.Controls.Add(this.btnEditBR);
+            this.tabBRDetails.Controls.Add(this.btnDelBR);
+            this.tabBRDetails.Controls.Add(this.panel12);
+            this.tabBRDetails.Location = new System.Drawing.Point(4, 25);
+            this.tabBRDetails.Name = "tabBRDetails";
+            this.tabBRDetails.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabBRDetails.Size = new System.Drawing.Size(954, 616);
+            this.tabBRDetails.TabIndex = 1;
+            this.tabBRDetails.Text = "tabPage1";
             // 
-            // panel12
+            // upPanel
             // 
-            this.panel12.Controls.Add(this.rbOthers);
-            this.panel12.Controls.Add(this.rbTranspo);
-            this.panel12.Controls.Add(this.rbSpiritual);
-            this.panel12.Controls.Add(this.rbSocial);
-            this.panel12.Controls.Add(this.rbSkills);
-            this.panel12.Controls.Add(this.rbSchool);
-            this.panel12.Controls.Add(this.rbOffice);
-            this.panel12.Controls.Add(this.rbMeds);
-            this.panel12.Controls.Add(this.rbHouse);
-            this.panel12.Controls.Add(this.rbFood);
-            this.panel12.Controls.Add(this.rbClothing);
-            this.panel12.Location = new System.Drawing.Point(284, 319);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(539, 222);
-            this.panel12.TabIndex = 88;
+            this.upPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.upPanel.Controls.Add(this.label2);
+            this.upPanel.Controls.Add(this.noFocusRec1);
+            this.upPanel.Location = new System.Drawing.Point(0, 0);
+            this.upPanel.Name = "upPanel";
+            this.upPanel.Size = new System.Drawing.Size(956, 33);
+            this.upPanel.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.label2.Location = new System.Drawing.Point(803, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 19);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Add Event Budget";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // noFocusRec1
+            // 
+            this.noFocusRec1.FlatAppearance.BorderSize = 0;
+            this.noFocusRec1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec1.ForeColor = System.Drawing.Color.White;
+            this.noFocusRec1.Location = new System.Drawing.Point(998, -2);
+            this.noFocusRec1.Name = "noFocusRec1";
+            this.noFocusRec1.Size = new System.Drawing.Size(23, 23);
+            this.noFocusRec1.TabIndex = 11;
+            this.noFocusRec1.Text = "X";
+            this.noFocusRec1.UseVisualStyleBackColor = true;
+            // 
+            // txtBRRequest
+            // 
+            this.txtBRRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBRRequest.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtBRRequest.Location = new System.Drawing.Point(360, 190);
+            this.txtBRRequest.MaxLength = 100;
+            this.txtBRRequest.Name = "txtBRRequest";
+            this.txtBRRequest.Size = new System.Drawing.Size(498, 22);
+            this.txtBRRequest.TabIndex = 354;
+            this.txtBRRequest.Text = "Name.";
+            // 
+            // lblBRHead1
+            // 
+            this.lblBRHead1.AutoSize = true;
+            this.lblBRHead1.BackColor = System.Drawing.Color.Transparent;
+            this.lblBRHead1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblBRHead1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
+            this.lblBRHead1.Location = new System.Drawing.Point(85, 159);
+            this.lblBRHead1.Name = "lblBRHead1";
+            this.lblBRHead1.Size = new System.Drawing.Size(49, 13);
+            this.lblBRHead1.TabIndex = 373;
+            this.lblBRHead1.Text = "DETAILS";
+            this.lblBRHead1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBRHead2
+            // 
+            this.lblBRHead2.AutoSize = true;
+            this.lblBRHead2.BackColor = System.Drawing.Color.Transparent;
+            this.lblBRHead2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.lblBRHead2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(158)))));
+            this.lblBRHead2.Location = new System.Drawing.Point(85, 390);
+            this.lblBRHead2.Name = "lblBRHead2";
+            this.lblBRHead2.Size = new System.Drawing.Size(63, 26);
+            this.lblBRHead2.TabIndex = 371;
+            this.lblBRHead2.Text = "CATEGORY\r\nDETAILS\r\n";
+            this.lblBRHead2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel
+            // 
+            this.panel.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panel.Location = new System.Drawing.Point(356, 198);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(506, 33);
+            this.panel.TabIndex = 369;
+            this.panel.TabStop = false;
+            // 
+            // btnCatMultiple
+            // 
+            this.btnCatMultiple.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCatMultiple.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnCatMultiple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCatMultiple.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnCatMultiple.Location = new System.Drawing.Point(606, 289);
+            this.btnCatMultiple.Name = "btnCatMultiple";
+            this.btnCatMultiple.Size = new System.Drawing.Size(228, 31);
+            this.btnCatMultiple.TabIndex = 356;
+            this.btnCatMultiple.Text = "MULTIPLE";
+            this.btnCatMultiple.UseVisualStyleBackColor = true;
+            this.btnCatMultiple.Click += new System.EventHandler(this.catType_Click);
+            // 
+            // btnCatSingle
+            // 
+            this.btnCatSingle.BackColor = System.Drawing.Color.White;
+            this.btnCatSingle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCatSingle.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnCatSingle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCatSingle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnCatSingle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCatSingle.Location = new System.Drawing.Point(360, 289);
+            this.btnCatSingle.Name = "btnCatSingle";
+            this.btnCatSingle.Size = new System.Drawing.Size(228, 31);
+            this.btnCatSingle.TabIndex = 355;
+            this.btnCatSingle.Text = "SINGLE";
+            this.btnCatSingle.UseVisualStyleBackColor = false;
+            this.btnCatSingle.Click += new System.EventHandler(this.catType_Click);
+            // 
+            // lblOthers
+            // 
+            this.lblOthers.AutoSize = true;
+            this.lblOthers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblOthers.Location = new System.Drawing.Point(225, 492);
+            this.lblOthers.Name = "lblOthers";
+            this.lblOthers.Size = new System.Drawing.Size(109, 15);
+            this.lblOthers.TabIndex = 366;
+            this.lblOthers.Text = "OTHER CATEGORY";
+            this.lblOthers.Visible = false;
+            // 
+            // lblPurpose
+            // 
+            this.lblPurpose.AutoSize = true;
+            this.lblPurpose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblPurpose.Location = new System.Drawing.Point(274, 135);
+            this.lblPurpose.Name = "lblPurpose";
+            this.lblPurpose.Size = new System.Drawing.Size(60, 15);
+            this.lblPurpose.TabIndex = 364;
+            this.lblPurpose.Text = "PURPOSE";
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblType.Location = new System.Drawing.Point(300, 297);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(34, 15);
+            this.lblType.TabIndex = 365;
+            this.lblType.Text = "TYPE";
+            // 
+            // countPurpose
+            // 
+            this.countPurpose.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countPurpose.Location = new System.Drawing.Point(281, 150);
+            this.countPurpose.Name = "countPurpose";
+            this.countPurpose.Size = new System.Drawing.Size(53, 17);
+            this.countPurpose.TabIndex = 362;
+            this.countPurpose.Text = "0/100";
+            this.countPurpose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countPurpose.Visible = false;
+            // 
+            // pictureBox37
+            // 
+            this.pictureBox37.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox37.Location = new System.Drawing.Point(32, 244);
+            this.pictureBox37.Name = "pictureBox37";
+            this.pictureBox37.Size = new System.Drawing.Size(868, 26);
+            this.pictureBox37.TabIndex = 370;
+            this.pictureBox37.TabStop = false;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblCategory.Location = new System.Drawing.Point(267, 346);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(67, 15);
+            this.lblCategory.TabIndex = 372;
+            this.lblCategory.Text = "CATEGORY";
+            this.lblCategory.Visible = false;
+            // 
+            // cbExpCat
+            // 
+            this.cbExpCat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
+            this.cbExpCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.cbExpCat.FormattingEnabled = true;
+            this.cbExpCat.Items.AddRange(new object[] {
+            "Communication, Lights, and Water",
+            "Depreciation Expenses",
+            "Guidance and Counselling",
+            "Honorarium",
+            "Household Expenses",
+            "Insurance Expense",
+            "Meeting and Conferences",
+            "Printing and Advertising",
+            "Professional Fees",
+            "Salary",
+            "SSS, PHIC, and HMDF",
+            "Taxes and Licenses"});
+            this.cbExpCat.Location = new System.Drawing.Point(360, 487);
+            this.cbExpCat.Name = "cbExpCat";
+            this.cbExpCat.Size = new System.Drawing.Size(273, 25);
+            this.cbExpCat.TabIndex = 358;
+            this.cbExpCat.Visible = false;
+            // 
+            // lblBRRequest
+            // 
+            this.lblBRRequest.AutoSize = true;
+            this.lblBRRequest.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblBRRequest.Location = new System.Drawing.Point(242, 194);
+            this.lblBRRequest.Name = "lblBRRequest";
+            this.lblBRRequest.Size = new System.Drawing.Size(92, 15);
+            this.lblBRRequest.TabIndex = 368;
+            this.lblBRRequest.Text = "REQUESTED BY";
+            // 
+            // countBRRequest
+            // 
+            this.countBRRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+            this.countBRRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.countBRRequest.Location = new System.Drawing.Point(281, 209);
+            this.countBRRequest.Name = "countBRRequest";
+            this.countBRRequest.Size = new System.Drawing.Size(53, 17);
+            this.countBRRequest.TabIndex = 367;
+            this.countBRRequest.Text = "0/100";
+            this.countBRRequest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.countBRRequest.Visible = false;
+            // 
+            // txtPurpose
+            // 
+            this.txtPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPurpose.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.txtPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtPurpose.Location = new System.Drawing.Point(360, 130);
+            this.txtPurpose.MaxLength = 100;
+            this.txtPurpose.Name = "txtPurpose";
+            this.txtPurpose.Size = new System.Drawing.Size(498, 22);
+            this.txtPurpose.TabIndex = 352;
+            this.txtPurpose.Text = "Name of purpose.";
+            // 
+            // pictureBox38
+            // 
+            this.pictureBox38.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox38.Location = new System.Drawing.Point(32, 55);
+            this.pictureBox38.Name = "pictureBox38";
+            this.pictureBox38.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox38.TabIndex = 359;
+            this.pictureBox38.TabStop = false;
+            // 
+            // panelPurpose
+            // 
+            this.panelPurpose.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelPurpose.Location = new System.Drawing.Point(356, 138);
+            this.panelPurpose.Name = "panelPurpose";
+            this.panelPurpose.Size = new System.Drawing.Size(506, 29);
+            this.panelPurpose.TabIndex = 361;
+            this.panelPurpose.TabStop = false;
+            // 
+            // panelCat
+            // 
+            this.panelCat.Controls.Add(this.rbOthers);
+            this.panelCat.Controls.Add(this.rbTranspo);
+            this.panelCat.Controls.Add(this.rbSpiritual);
+            this.panelCat.Controls.Add(this.rbSocial);
+            this.panelCat.Controls.Add(this.rbSkills);
+            this.panelCat.Controls.Add(this.rbSchool);
+            this.panelCat.Controls.Add(this.rbOffice);
+            this.panelCat.Controls.Add(this.rbMeds);
+            this.panelCat.Controls.Add(this.rbHouse);
+            this.panelCat.Controls.Add(this.rbFood);
+            this.panelCat.Controls.Add(this.rbClothing);
+            this.panelCat.Location = new System.Drawing.Point(360, 343);
+            this.panelCat.Name = "panelCat";
+            this.panelCat.Size = new System.Drawing.Size(503, 121);
+            this.panelCat.TabIndex = 357;
+            this.panelCat.Visible = false;
             // 
             // rbOthers
             // 
             this.rbOthers.AutoSize = true;
             this.rbOthers.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbOthers.Location = new System.Drawing.Point(303, 154);
-            this.rbOthers.Margin = new System.Windows.Forms.Padding(4);
+            this.rbOthers.Location = new System.Drawing.Point(359, 61);
             this.rbOthers.Name = "rbOthers";
-            this.rbOthers.Size = new System.Drawing.Size(80, 27);
+            this.rbOthers.Size = new System.Drawing.Size(68, 23);
             this.rbOthers.TabIndex = 10;
             this.rbOthers.TabStop = true;
             this.rbOthers.Text = "Others";
@@ -224,10 +522,9 @@
             this.rbTranspo.AutoSize = true;
             this.rbTranspo.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbTranspo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbTranspo.Location = new System.Drawing.Point(303, 116);
-            this.rbTranspo.Margin = new System.Windows.Forms.Padding(4);
+            this.rbTranspo.Location = new System.Drawing.Point(359, 32);
             this.rbTranspo.Name = "rbTranspo";
-            this.rbTranspo.Size = new System.Drawing.Size(138, 27);
+            this.rbTranspo.Size = new System.Drawing.Size(114, 23);
             this.rbTranspo.TabIndex = 9;
             this.rbTranspo.TabStop = true;
             this.rbTranspo.Text = "Transportation";
@@ -239,10 +536,9 @@
             this.rbSpiritual.AutoSize = true;
             this.rbSpiritual.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbSpiritual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSpiritual.Location = new System.Drawing.Point(303, 80);
-            this.rbSpiritual.Margin = new System.Windows.Forms.Padding(4);
+            this.rbSpiritual.Location = new System.Drawing.Point(359, 3);
             this.rbSpiritual.Name = "rbSpiritual";
-            this.rbSpiritual.Size = new System.Drawing.Size(171, 27);
+            this.rbSpiritual.Size = new System.Drawing.Size(141, 23);
             this.rbSpiritual.TabIndex = 8;
             this.rbSpiritual.TabStop = true;
             this.rbSpiritual.Text = "Spiritual Formation";
@@ -254,10 +550,9 @@
             this.rbSocial.AutoSize = true;
             this.rbSocial.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbSocial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSocial.Location = new System.Drawing.Point(303, 42);
-            this.rbSocial.Margin = new System.Windows.Forms.Padding(4);
+            this.rbSocial.Location = new System.Drawing.Point(178, 90);
             this.rbSocial.Name = "rbSocial";
-            this.rbSocial.Size = new System.Drawing.Size(110, 27);
+            this.rbSocial.Size = new System.Drawing.Size(90, 23);
             this.rbSocial.TabIndex = 7;
             this.rbSocial.TabStop = true;
             this.rbSocial.Text = "Recreation";
@@ -269,10 +564,9 @@
             this.rbSkills.AutoSize = true;
             this.rbSkills.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbSkills.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSkills.Location = new System.Drawing.Point(303, 4);
-            this.rbSkills.Margin = new System.Windows.Forms.Padding(4);
+            this.rbSkills.Location = new System.Drawing.Point(178, 61);
             this.rbSkills.Name = "rbSkills";
-            this.rbSkills.Size = new System.Drawing.Size(188, 27);
+            this.rbSkills.Size = new System.Drawing.Size(155, 23);
             this.rbSkills.TabIndex = 6;
             this.rbSkills.TabStop = true;
             this.rbSkills.Text = "Skills && Development";
@@ -284,11 +578,10 @@
             this.rbSchool.AutoSize = true;
             this.rbSchool.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbSchool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbSchool.Location = new System.Drawing.Point(16, 42);
-            this.rbSchool.Margin = new System.Windows.Forms.Padding(4);
+            this.rbSchool.Location = new System.Drawing.Point(12, 32);
             this.rbSchool.Name = "rbSchool";
-            this.rbSchool.Size = new System.Drawing.Size(104, 27);
-            this.rbSchool.TabIndex = 5;
+            this.rbSchool.Size = new System.Drawing.Size(86, 23);
+            this.rbSchool.TabIndex = 1;
             this.rbSchool.TabStop = true;
             this.rbSchool.Text = "Education";
             this.rbSchool.UseVisualStyleBackColor = true;
@@ -299,11 +592,10 @@
             this.rbOffice.AutoSize = true;
             this.rbOffice.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbOffice.Location = new System.Drawing.Point(16, 192);
-            this.rbOffice.Margin = new System.Windows.Forms.Padding(4);
+            this.rbOffice.Location = new System.Drawing.Point(178, 32);
             this.rbOffice.Name = "rbOffice";
-            this.rbOffice.Size = new System.Drawing.Size(142, 27);
-            this.rbOffice.TabIndex = 4;
+            this.rbOffice.Size = new System.Drawing.Size(116, 23);
+            this.rbOffice.TabIndex = 6;
             this.rbOffice.TabStop = true;
             this.rbOffice.Text = "Office Supplies";
             this.rbOffice.UseVisualStyleBackColor = true;
@@ -314,11 +606,10 @@
             this.rbMeds.AutoSize = true;
             this.rbMeds.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbMeds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbMeds.Location = new System.Drawing.Point(16, 156);
-            this.rbMeds.Margin = new System.Windows.Forms.Padding(4);
+            this.rbMeds.Location = new System.Drawing.Point(178, 3);
             this.rbMeds.Name = "rbMeds";
-            this.rbMeds.Size = new System.Drawing.Size(157, 27);
-            this.rbMeds.TabIndex = 3;
+            this.rbMeds.Size = new System.Drawing.Size(127, 23);
+            this.rbMeds.TabIndex = 5;
             this.rbMeds.TabStop = true;
             this.rbMeds.Text = "Medical Supplies";
             this.rbMeds.UseVisualStyleBackColor = true;
@@ -329,11 +620,10 @@
             this.rbHouse.AutoSize = true;
             this.rbHouse.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbHouse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbHouse.Location = new System.Drawing.Point(16, 118);
-            this.rbHouse.Margin = new System.Windows.Forms.Padding(4);
+            this.rbHouse.Location = new System.Drawing.Point(12, 90);
             this.rbHouse.Name = "rbHouse";
-            this.rbHouse.Size = new System.Drawing.Size(196, 27);
-            this.rbHouse.TabIndex = 2;
+            this.rbHouse.Size = new System.Drawing.Size(160, 23);
+            this.rbHouse.TabIndex = 3;
             this.rbHouse.TabStop = true;
             this.rbHouse.Text = "Repair && Maintenance";
             this.rbHouse.UseVisualStyleBackColor = true;
@@ -344,11 +634,10 @@
             this.rbFood.AutoSize = true;
             this.rbFood.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbFood.Location = new System.Drawing.Point(16, 80);
-            this.rbFood.Margin = new System.Windows.Forms.Padding(4);
+            this.rbFood.Location = new System.Drawing.Point(12, 61);
             this.rbFood.Name = "rbFood";
-            this.rbFood.Size = new System.Drawing.Size(69, 27);
-            this.rbFood.TabIndex = 1;
+            this.rbFood.Size = new System.Drawing.Size(58, 23);
+            this.rbFood.TabIndex = 2;
             this.rbFood.TabStop = true;
             this.rbFood.Text = "Food";
             this.rbFood.UseVisualStyleBackColor = true;
@@ -359,31 +648,36 @@
             this.rbClothing.AutoSize = true;
             this.rbClothing.Font = new System.Drawing.Font("Segoe UI Semilight", 10F);
             this.rbClothing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.rbClothing.Location = new System.Drawing.Point(16, 4);
-            this.rbClothing.Margin = new System.Windows.Forms.Padding(4);
+            this.rbClothing.Location = new System.Drawing.Point(12, 3);
             this.rbClothing.Name = "rbClothing";
-            this.rbClothing.Size = new System.Drawing.Size(93, 27);
+            this.rbClothing.Size = new System.Drawing.Size(78, 23);
             this.rbClothing.TabIndex = 0;
             this.rbClothing.TabStop = true;
             this.rbClothing.Text = "Clothing";
             this.rbClothing.UseVisualStyleBackColor = true;
             this.rbClothing.CheckedChanged += new System.EventHandler(this.category_CheckedChanged);
             // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.panel16.Controls.Add(this.btnBRCancel);
+            this.panel16.Controls.Add(this.btnBRNext);
+            this.panel16.Location = new System.Drawing.Point(0, 557);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(936, 59);
+            this.panel16.TabIndex = 360;
+            // 
             // btnBRCancel
             // 
-            this.btnBRCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.btnBRCancel.BackColor = System.Drawing.Color.White;
             this.btnBRCancel.FlatAppearance.BorderSize = 0;
-            this.btnBRCancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnBRCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnBRCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
             this.btnBRCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBRCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnBRCancel.Location = new System.Drawing.Point(-5, 705);
-            this.btnBRCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBRCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRCancel.Location = new System.Drawing.Point(650, 17);
             this.btnBRCancel.Name = "btnBRCancel";
-            this.btnBRCancel.Size = new System.Drawing.Size(565, 49);
-            this.btnBRCancel.TabIndex = 87;
+            this.btnBRCancel.Size = new System.Drawing.Size(97, 26);
+            this.btnBRCancel.TabIndex = 9;
             this.btnBRCancel.Text = "CANCEL";
             this.btnBRCancel.UseVisualStyleBackColor = false;
             this.btnBRCancel.Click += new System.EventHandler(this.btn_Close);
@@ -392,253 +686,150 @@
             // 
             this.btnBRNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
             this.btnBRNext.FlatAppearance.BorderSize = 0;
-            this.btnBRNext.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnBRNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
             this.btnBRNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBRNext.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnBRNext.ForeColor = System.Drawing.Color.White;
-            this.btnBRNext.Location = new System.Drawing.Point(548, 705);
-            this.btnBRNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBRNext.Location = new System.Drawing.Point(773, 18);
             this.btnBRNext.Name = "btnBRNext";
-            this.btnBRNext.Size = new System.Drawing.Size(581, 49);
-            this.btnBRNext.TabIndex = 86;
-            this.btnBRNext.Text = "NEXT STEP";
+            this.btnBRNext.Size = new System.Drawing.Size(97, 26);
+            this.btnBRNext.TabIndex = 8;
+            this.btnBRNext.Text = "NEXT";
             this.btnBRNext.UseVisualStyleBackColor = false;
             this.btnBRNext.Click += new System.EventHandler(this.btn_Click);
             // 
-            // lblOthers
+            // label4
             // 
-            this.lblOthers.AutoSize = true;
-            this.lblOthers.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblOthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblOthers.Location = new System.Drawing.Point(280, 587);
-            this.lblOthers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOthers.Name = "lblOthers";
-            this.lblOthers.Size = new System.Drawing.Size(138, 20);
-            this.lblOthers.TabIndex = 69;
-            this.lblOthers.Text = "OTHER CATEGORY";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.label4.Location = new System.Drawing.Point(254, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 15);
+            this.label4.TabIndex = 375;
+            this.label4.Text = "EVENT NAME";
             // 
-            // panelOthers
+            // lblEventName
             // 
-            this.panelOthers.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelOthers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelOthers.Controls.Add(this.txtBROthers);
-            this.panelOthers.Enabled = false;
-            this.panelOthers.Location = new System.Drawing.Point(284, 609);
-            this.panelOthers.Margin = new System.Windows.Forms.Padding(4);
-            this.panelOthers.Name = "panelOthers";
-            this.panelOthers.Size = new System.Drawing.Size(560, 59);
-            this.panelOthers.TabIndex = 47;
+            this.lblEventName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblEventName.Font = new System.Drawing.Font("Segoe UI Semilight", 12F);
+            this.lblEventName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.lblEventName.Location = new System.Drawing.Point(360, 90);
+            this.lblEventName.MaxLength = 100;
+            this.lblEventName.Name = "lblEventName";
+            this.lblEventName.Size = new System.Drawing.Size(498, 22);
+            this.lblEventName.TabIndex = 374;
+            this.lblEventName.Text = "Name of purpose.";
             // 
-            // txtBROthers
+            // lblBRBy1
             // 
-            this.txtBROthers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBROthers.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBROthers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtBROthers.Location = new System.Drawing.Point(9, 1);
-            this.txtBROthers.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBROthers.MaxLength = 100;
-            this.txtBROthers.Name = "txtBROthers";
-            this.txtBROthers.Size = new System.Drawing.Size(539, 32);
-            this.txtBROthers.TabIndex = 0;
-            this.txtBROthers.Enter += new System.EventHandler(this.txtNew_Enter);
-            this.txtBROthers.Leave += new System.EventHandler(this.txtNew_Leave);
+            this.lblBRBy1.AutoSize = true;
+            this.lblBRBy1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblBRBy1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.lblBRBy1.Location = new System.Drawing.Point(93, 507);
+            this.lblBRBy1.Name = "lblBRBy1";
+            this.lblBRBy1.Size = new System.Drawing.Size(92, 15);
+            this.lblBRBy1.TabIndex = 350;
+            this.lblBRBy1.Text = "REQUESTED BY";
             // 
-            // lblCategory
+            // lblBRBy
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblCategory.Location = new System.Drawing.Point(280, 297);
-            this.lblCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(86, 20);
-            this.lblCategory.TabIndex = 68;
-            this.lblCategory.Text = "CATEGORY";
+            this.lblBRBy.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblBRBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblBRBy.Location = new System.Drawing.Point(203, 502);
+            this.lblBRBy.Name = "lblBRBy";
+            this.lblBRBy.Size = new System.Drawing.Size(632, 21);
+            this.lblBRBy.TabIndex = 349;
             // 
-            // lblPurpose
+            // panel12
             // 
-            this.lblPurpose.AutoSize = true;
-            this.lblPurpose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblPurpose.Location = new System.Drawing.Point(280, 177);
-            this.lblPurpose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPurpose.Name = "lblPurpose";
-            this.lblPurpose.Size = new System.Drawing.Size(75, 20);
-            this.lblPurpose.TabIndex = 67;
-            this.lblPurpose.Text = "PURPOSE";
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.panel12.Controls.Add(this.btnBRBack);
+            this.panel12.Controls.Add(this.btnBRConfirm);
+            this.panel12.Location = new System.Drawing.Point(0, 557);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(936, 59);
+            this.panel12.TabIndex = 348;
             // 
-            // label3
+            // btnBRBack
             // 
-            this.label3.AccessibleDescription = "";
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label3.Location = new System.Drawing.Point(233, -298);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 20);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "DONOR NAME";
+            this.btnBRBack.BackColor = System.Drawing.Color.White;
+            this.btnBRBack.FlatAppearance.BorderSize = 0;
+            this.btnBRBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRBack.Location = new System.Drawing.Point(650, 17);
+            this.btnBRBack.Name = "btnBRBack";
+            this.btnBRBack.Size = new System.Drawing.Size(97, 26);
+            this.btnBRBack.TabIndex = 4;
+            this.btnBRBack.Text = "BACK";
+            this.btnBRBack.UseVisualStyleBackColor = false;
+            this.btnBRBack.Click += new System.EventHandler(this.btnBRCancel_Click);
             // 
-            // countPurpose
+            // btnBRConfirm
             // 
-            this.countPurpose.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.countPurpose.Location = new System.Drawing.Point(773, 174);
-            this.countPurpose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.countPurpose.Name = "countPurpose";
-            this.countPurpose.Size = new System.Drawing.Size(71, 21);
-            this.countPurpose.TabIndex = 48;
-            this.countPurpose.Text = "0/100";
-            this.countPurpose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.countPurpose.Visible = false;
-            // 
-            // panelPurpose
-            // 
-            this.panelPurpose.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelPurpose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelPurpose.Controls.Add(this.txtPurpose);
-            this.panelPurpose.Location = new System.Drawing.Point(284, 198);
-            this.panelPurpose.Margin = new System.Windows.Forms.Padding(4);
-            this.panelPurpose.Name = "panelPurpose";
-            this.panelPurpose.Size = new System.Drawing.Size(560, 59);
-            this.panelPurpose.TabIndex = 46;
-            // 
-            // txtPurpose
-            // 
-            this.txtPurpose.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPurpose.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtPurpose.Location = new System.Drawing.Point(9, 1);
-            this.txtPurpose.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPurpose.MaxLength = 100;
-            this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(539, 32);
-            this.txtPurpose.TabIndex = 0;
-            this.txtPurpose.Text = "Name of purpose.";
-            this.txtPurpose.TextChanged += new System.EventHandler(this.txtNewCount_TextChanged);
-            this.txtPurpose.Enter += new System.EventHandler(this.txtNew_Enter);
-            this.txtPurpose.Leave += new System.EventHandler(this.txtNew_Leave);
-            // 
-            // tabBRDetails
-            // 
-            this.tabBRDetails.BackColor = System.Drawing.Color.White;
-            this.tabBRDetails.Controls.Add(this.label1);
-            this.tabBRDetails.Controls.Add(this.lblBREvent);
-            this.tabBRDetails.Controls.Add(this.btnBRBack);
-            this.tabBRDetails.Controls.Add(this.btnBRConfirm);
-            this.tabBRDetails.Controls.Add(this.lblCategory1);
-            this.tabBRDetails.Controls.Add(this.lblBRCategory);
-            this.tabBRDetails.Controls.Add(this.lblPurpose1);
-            this.tabBRDetails.Controls.Add(this.lblBRDetails);
-            this.tabBRDetails.Controls.Add(this.BRDetails);
-            this.tabBRDetails.Controls.Add(this.lblBRPurpose);
-            this.tabBRDetails.Controls.Add(this.btnAddBR);
-            this.tabBRDetails.Controls.Add(this.btnEditBR);
-            this.tabBRDetails.Controls.Add(this.btnDelBR);
-            this.tabBRDetails.Location = new System.Drawing.Point(4, 28);
-            this.tabBRDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.tabBRDetails.Name = "tabBRDetails";
-            this.tabBRDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.tabBRDetails.Size = new System.Drawing.Size(1132, 762);
-            this.tabBRDetails.TabIndex = 1;
-            this.tabBRDetails.Text = "tabPage1";
+            this.btnBRConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRConfirm.FlatAppearance.BorderSize = 0;
+            this.btnBRConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnBRConfirm.Location = new System.Drawing.Point(773, 17);
+            this.btnBRConfirm.Name = "btnBRConfirm";
+            this.btnBRConfirm.Size = new System.Drawing.Size(97, 26);
+            this.btnBRConfirm.TabIndex = 3;
+            this.btnBRConfirm.Text = "CONFIRM";
+            this.btnBRConfirm.UseVisualStyleBackColor = false;
+            this.btnBRConfirm.Click += new System.EventHandler(this.btnBRConfirm_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.label1.Location = new System.Drawing.Point(155, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(526, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
-            this.label1.TabIndex = 87;
-            this.label1.Text = "EVENT";
+            this.label1.Size = new System.Drawing.Size(106, 15);
+            this.label1.TabIndex = 346;
+            this.label1.Text = "DATE REQUESTED";
             // 
-            // lblBREvent
+            // lblBRdateRequested
             // 
-            this.lblBREvent.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.lblBREvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblBREvent.Location = new System.Drawing.Point(152, 79);
-            this.lblBREvent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBREvent.Name = "lblBREvent";
-            this.lblBREvent.Size = new System.Drawing.Size(824, 62);
-            this.lblBREvent.TabIndex = 86;
-            this.lblBREvent.Text = "Juan Miguel dela Cruz";
-            // 
-            // btnBRBack
-            // 
-            this.btnBRBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnBRBack.FlatAppearance.BorderSize = 0;
-            this.btnBRBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnBRBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.btnBRBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.btnBRBack.Location = new System.Drawing.Point(-5, 705);
-            this.btnBRBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBRBack.Name = "btnBRBack";
-            this.btnBRBack.Size = new System.Drawing.Size(565, 49);
-            this.btnBRBack.TabIndex = 85;
-            this.btnBRBack.Text = "GO BACK";
-            this.btnBRBack.UseVisualStyleBackColor = false;
-            this.btnBRBack.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // btnBRConfirm
-            // 
-            this.btnBRConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRConfirm.FlatAppearance.BorderSize = 0;
-            this.btnBRConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnBRConfirm.Location = new System.Drawing.Point(548, 705);
-            this.btnBRConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBRConfirm.Name = "btnBRConfirm";
-            this.btnBRConfirm.Size = new System.Drawing.Size(581, 49);
-            this.btnBRConfirm.TabIndex = 84;
-            this.btnBRConfirm.Text = "REQUEST BUDGET";
-            this.btnBRConfirm.UseVisualStyleBackColor = false;
-            this.btnBRConfirm.Click += new System.EventHandler(this.btnBRConfirm_Click);
+            this.lblBRdateRequested.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblBRdateRequested.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblBRdateRequested.Location = new System.Drawing.Point(525, 135);
+            this.lblBRdateRequested.Name = "lblBRdateRequested";
+            this.lblBRdateRequested.Size = new System.Drawing.Size(255, 25);
+            this.lblBRdateRequested.TabIndex = 345;
+            this.lblBRdateRequested.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCategory1
             // 
             this.lblCategory1.AutoSize = true;
             this.lblCategory1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblCategory1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblCategory1.Location = new System.Drawing.Point(155, 267);
-            this.lblCategory1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategory1.Location = new System.Drawing.Point(92, 120);
             this.lblCategory1.Name = "lblCategory1";
-            this.lblCategory1.Size = new System.Drawing.Size(86, 20);
-            this.lblCategory1.TabIndex = 81;
+            this.lblCategory1.Size = new System.Drawing.Size(67, 15);
+            this.lblCategory1.TabIndex = 344;
             this.lblCategory1.Text = "CATEGORY";
             // 
             // lblBRCategory
             // 
-            this.lblBRCategory.AutoSize = true;
             this.lblBRCategory.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblBRCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblBRCategory.Location = new System.Drawing.Point(152, 286);
-            this.lblBRCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBRCategory.Location = new System.Drawing.Point(92, 135);
             this.lblBRCategory.Name = "lblBRCategory";
-            this.lblBRCategory.Size = new System.Drawing.Size(196, 28);
-            this.lblBRCategory.TabIndex = 80;
-            this.lblBRCategory.Text = "Juan Miguel dela Cruz";
+            this.lblBRCategory.Size = new System.Drawing.Size(402, 21);
+            this.lblBRCategory.TabIndex = 343;
             // 
             // lblPurpose1
             // 
             this.lblPurpose1.AutoSize = true;
             this.lblPurpose1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblPurpose1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblPurpose1.Location = new System.Drawing.Point(156, 151);
-            this.lblPurpose1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPurpose1.Location = new System.Drawing.Point(92, 55);
             this.lblPurpose1.Name = "lblPurpose1";
-            this.lblPurpose1.Size = new System.Drawing.Size(75, 20);
-            this.lblPurpose1.TabIndex = 79;
+            this.lblPurpose1.Size = new System.Drawing.Size(60, 15);
+            this.lblPurpose1.TabIndex = 342;
             this.lblPurpose1.Text = "PURPOSE";
             // 
             // lblBRDetails
@@ -646,12 +837,20 @@
             this.lblBRDetails.AutoSize = true;
             this.lblBRDetails.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblBRDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.lblBRDetails.Location = new System.Drawing.Point(155, 354);
-            this.lblBRDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBRDetails.Location = new System.Drawing.Point(92, 188);
             this.lblBRDetails.Name = "lblBRDetails";
-            this.lblBRDetails.Size = new System.Drawing.Size(68, 20);
-            this.lblBRDetails.TabIndex = 78;
+            this.lblBRDetails.Size = new System.Drawing.Size(53, 15);
+            this.lblBRDetails.TabIndex = 341;
             this.lblBRDetails.Text = "DETAILS";
+            // 
+            // lblBRPurpose
+            // 
+            this.lblBRPurpose.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblBRPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblBRPurpose.Location = new System.Drawing.Point(92, 70);
+            this.lblBRPurpose.Name = "lblBRPurpose";
+            this.lblBRPurpose.Size = new System.Drawing.Size(743, 25);
+            this.lblBRPurpose.TabIndex = 339;
             // 
             // BRDetails
             // 
@@ -659,32 +858,32 @@
             this.BRDetails.AllowUserToDeleteRows = false;
             this.BRDetails.AllowUserToResizeColumns = false;
             this.BRDetails.AllowUserToResizeRows = false;
+            this.BRDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.BRDetails.BackgroundColor = System.Drawing.Color.White;
             this.BRDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BRDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BRDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BRDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BRDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.BRDetails.ColumnHeadersHeight = 50;
             this.BRDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BRDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BRDetails.DefaultCellStyle = dataGridViewCellStyle10;
             this.BRDetails.EnableHeadersVisualStyles = false;
             this.BRDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.BRDetails.Location = new System.Drawing.Point(157, 430);
-            this.BRDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.BRDetails.Location = new System.Drawing.Point(92, 206);
             this.BRDetails.MultiSelect = false;
             this.BRDetails.Name = "BRDetails";
             this.BRDetails.ReadOnly = true;
@@ -699,123 +898,79 @@
             this.BRDetails.ShowCellToolTips = false;
             this.BRDetails.ShowEditingIcon = false;
             this.BRDetails.ShowRowErrors = false;
-            this.BRDetails.Size = new System.Drawing.Size(844, 233);
-            this.BRDetails.TabIndex = 74;
-            this.BRDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BRDetails_CellClick);
+            this.BRDetails.Size = new System.Drawing.Size(743, 213);
+            this.BRDetails.TabIndex = 340;
             // 
-            // lblBRPurpose
+            // pictureBox32
             // 
-            this.lblBRPurpose.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.lblBRPurpose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblBRPurpose.Location = new System.Drawing.Point(153, 170);
-            this.lblBRPurpose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBRPurpose.Name = "lblBRPurpose";
-            this.lblBRPurpose.Size = new System.Drawing.Size(824, 62);
-            this.lblBRPurpose.TabIndex = 44;
-            this.lblBRPurpose.Text = "Juan Miguel dela Cruz";
+            this.pictureBox32.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox32.Image")));
+            this.pictureBox32.Location = new System.Drawing.Point(92, 417);
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.Size = new System.Drawing.Size(743, 33);
+            this.pictureBox32.TabIndex = 347;
+            this.pictureBox32.TabStop = false;
             // 
             // btnAddBR
             // 
             this.btnAddBR.BackColor = System.Drawing.Color.White;
-            this.btnAddBR.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnAdd;
-            this.btnAddBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddBR.FlatAppearance.BorderSize = 0;
-            this.btnAddBR.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnAddBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnAddBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.btnAddBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBR.Location = new System.Drawing.Point(785, 377);
-            this.btnAddBR.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddBR.Location = new System.Drawing.Point(705, 454);
             this.btnAddBR.Name = "btnAddBR";
-            this.btnAddBR.Size = new System.Drawing.Size(283, 49);
-            this.btnAddBR.TabIndex = 75;
+            this.btnAddBR.Size = new System.Drawing.Size(130, 29);
+            this.btnAddBR.TabIndex = 336;
+            this.btnAddBR.Text = "ADD ITEM";
             this.btnAddBR.UseVisualStyleBackColor = false;
             this.btnAddBR.Click += new System.EventHandler(this.btnAddBR_Click);
             // 
             // btnEditBR
             // 
             this.btnEditBR.BackColor = System.Drawing.Color.White;
-            this.btnEditBR.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnEdit;
-            this.btnEditBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEditBR.FlatAppearance.BorderSize = 0;
-            this.btnEditBR.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnEditBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEditBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEditBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnEditBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.btnEditBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditBR.Location = new System.Drawing.Point(445, 377);
-            this.btnEditBR.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.btnEditBR.Location = new System.Drawing.Point(398, 454);
             this.btnEditBR.Name = "btnEditBR";
-            this.btnEditBR.Size = new System.Drawing.Size(283, 49);
-            this.btnEditBR.TabIndex = 76;
+            this.btnEditBR.Size = new System.Drawing.Size(130, 29);
+            this.btnEditBR.TabIndex = 337;
+            this.btnEditBR.Text = "EDIT ITEM";
             this.btnEditBR.UseVisualStyleBackColor = false;
+            this.btnEditBR.Click += new System.EventHandler(this.btnEditBR_Click);
             // 
             // btnDelBR
             // 
             this.btnDelBR.BackColor = System.Drawing.Color.White;
-            this.btnDelBR.BackgroundImage = global::BalayPasilungan.Properties.Resources.btnDelete;
-            this.btnDelBR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelBR.FlatAppearance.BorderSize = 0;
-            this.btnDelBR.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnDelBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDelBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDelBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnDelBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDelBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.btnDelBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelBR.Location = new System.Drawing.Point(73, 377);
-            this.btnDelBR.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDelBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
+            this.btnDelBR.Location = new System.Drawing.Point(92, 454);
             this.btnDelBR.Name = "btnDelBR";
-            this.btnDelBR.Size = new System.Drawing.Size(283, 49);
-            this.btnDelBR.TabIndex = 77;
+            this.btnDelBR.Size = new System.Drawing.Size(130, 29);
+            this.btnDelBR.TabIndex = 338;
+            this.btnDelBR.Text = "DELETE ITEM";
             this.btnDelBR.UseVisualStyleBackColor = false;
             this.btnDelBR.Click += new System.EventHandler(this.btnDelBR_Click);
             // 
-            // upPanel
-            // 
-            this.upPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.upPanel.Controls.Add(this.label2);
-            this.upPanel.Controls.Add(this.noFocusRec1);
-            this.upPanel.Location = new System.Drawing.Point(0, 0);
-            this.upPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.upPanel.Name = "upPanel";
-            this.upPanel.Size = new System.Drawing.Size(1275, 41);
-            this.upPanel.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.label2.Location = new System.Drawing.Point(1097, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 23);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Add Event Budget";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // noFocusRec1
-            // 
-            this.noFocusRec1.FlatAppearance.BorderSize = 0;
-            this.noFocusRec1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noFocusRec1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.noFocusRec1.ForeColor = System.Drawing.Color.White;
-            this.noFocusRec1.Location = new System.Drawing.Point(1331, -2);
-            this.noFocusRec1.Margin = new System.Windows.Forms.Padding(4);
-            this.noFocusRec1.Name = "noFocusRec1";
-            this.noFocusRec1.Size = new System.Drawing.Size(31, 28);
-            this.noFocusRec1.TabIndex = 11;
-            this.noFocusRec1.Text = "X";
-            this.noFocusRec1.UseVisualStyleBackColor = true;
-            // 
             // eventBudget
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(1273, 834);
+            this.ClientSize = new System.Drawing.Size(935, 680);
             this.Controls.Add(this.brInfo);
             this.Controls.Add(this.upPanel);
             this.Controls.Add(this.tabBR);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "eventBudget";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eventBudget";
@@ -826,17 +981,20 @@
             this.tabBR.ResumeLayout(false);
             this.tabBRInfo.ResumeLayout(false);
             this.tabBRInfo.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panelOthers.ResumeLayout(false);
-            this.panelOthers.PerformLayout();
-            this.panelPurpose.ResumeLayout(false);
-            this.panelPurpose.PerformLayout();
             this.tabBRDetails.ResumeLayout(false);
             this.tabBRDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).EndInit();
             this.upPanel.ResumeLayout(false);
             this.upPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).EndInit();
+            this.panelCat.ResumeLayout(false);
+            this.panelCat.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -848,7 +1006,30 @@
         private System.Windows.Forms.ToolStripMenuItem brparTS;
         private System.Windows.Forms.TabControl tabBR;
         private System.Windows.Forms.TabPage tabBRInfo;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage tabBRDetails;
+        private System.Windows.Forms.Panel upPanel;
+        private System.Windows.Forms.Label label2;
+        private NoFocusRec noFocusRec1;
+        private System.Windows.Forms.TextBox txtBRRequest;
+        private System.Windows.Forms.Label lblBRHead1;
+        private System.Windows.Forms.Label lblBRHead2;
+        private System.Windows.Forms.PictureBox panel;
+        private NoFocusRec btnCatMultiple;
+        private NoFocusRec btnCatSingle;
+        private System.Windows.Forms.Label lblOthers;
+        private System.Windows.Forms.Label lblPurpose;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.Label countPurpose;
+        private System.Windows.Forms.PictureBox pictureBox37;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.ComboBox cbExpCat;
+        private System.Windows.Forms.Label lblBRRequest;
+        private System.Windows.Forms.Label countBRRequest;
+        private System.Windows.Forms.TextBox txtPurpose;
+        private System.Windows.Forms.PictureBox pictureBox38;
+        private System.Windows.Forms.PictureBox panelPurpose;
+        private System.Windows.Forms.Panel panelCat;
         private System.Windows.Forms.RadioButton rbOthers;
         private System.Windows.Forms.RadioButton rbTranspo;
         private System.Windows.Forms.RadioButton rbSpiritual;
@@ -860,35 +1041,27 @@
         private System.Windows.Forms.RadioButton rbHouse;
         private System.Windows.Forms.RadioButton rbFood;
         private System.Windows.Forms.RadioButton rbClothing;
+        private System.Windows.Forms.Panel panel16;
         private NoFocusRec btnBRCancel;
         private NoFocusRec btnBRNext;
-        private System.Windows.Forms.Label lblOthers;
-        private System.Windows.Forms.Panel panelOthers;
-        private System.Windows.Forms.TextBox txtBROthers;
-        private System.Windows.Forms.Label lblCategory;
-        private System.Windows.Forms.Label lblPurpose;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label countPurpose;
-        private System.Windows.Forms.Panel panelPurpose;
-        private System.Windows.Forms.TextBox txtPurpose;
-        private System.Windows.Forms.TabPage tabBRDetails;
-        private NoFocusRec btnBRBack;
-        private NoFocusRec btnBRConfirm;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox lblEventName;
+        private System.Windows.Forms.Label lblBRBy1;
+        private System.Windows.Forms.Label lblBRBy;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBRdateRequested;
         private System.Windows.Forms.Label lblCategory1;
         private System.Windows.Forms.Label lblBRCategory;
         private System.Windows.Forms.Label lblPurpose1;
         private System.Windows.Forms.Label lblBRDetails;
-        private System.Windows.Forms.DataGridView BRDetails;
         private System.Windows.Forms.Label lblBRPurpose;
+        private System.Windows.Forms.DataGridView BRDetails;
+        private System.Windows.Forms.PictureBox pictureBox32;
         private NoFocusRec btnAddBR;
         private NoFocusRec btnEditBR;
         private NoFocusRec btnDelBR;
-        private System.Windows.Forms.Panel upPanel;
-        private System.Windows.Forms.Label label2;
-        private NoFocusRec noFocusRec1;
-        private System.Windows.Forms.Label lblEventName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblBREvent;
+        private System.Windows.Forms.Panel panel12;
+        private NoFocusRec btnBRBack;
+        private NoFocusRec btnBRConfirm;
     }
 }

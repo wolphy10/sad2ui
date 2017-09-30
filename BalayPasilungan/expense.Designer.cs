@@ -28,44 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expense));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.upPanel = new System.Windows.Forms.Panel();
+            this.lblForm = new System.Windows.Forms.Label();
             this.taskbar = new System.Windows.Forms.Panel();
+            this.logo_main = new System.Windows.Forms.PictureBox();
+            this.logo_donation = new System.Windows.Forms.PictureBox();
+            this.logo_finance = new System.Windows.Forms.PictureBox();
+            this.btnMain = new BalayPasilungan.NoFocusRec();
+            this.btnFinance = new BalayPasilungan.NoFocusRec();
+            this.btnDonation = new BalayPasilungan.NoFocusRec();
             this.panelListChild = new System.Windows.Forms.Panel();
+            this.btnDonateAllBack = new BalayPasilungan.NoFocusRec();
             this.lblListOfDonors = new System.Windows.Forms.Label();
             this.tabSelection = new System.Windows.Forms.TabControl();
             this.tabDonors = new System.Windows.Forms.TabPage();
             this.tabInnerDonors = new System.Windows.Forms.TabControl();
             this.tabDonors1 = new System.Windows.Forms.TabPage();
+            this.pictureBox35 = new System.Windows.Forms.PictureBox();
+            this.btnArchive = new BalayPasilungan.NoFocusRec();
+            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
             this.multiDonor = new System.Windows.Forms.CheckBox();
             this.donorsGV = new System.Windows.Forms.DataGridView();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabDonorsAll = new System.Windows.Forms.TabPage();
+            this.btnDonationReport = new BalayPasilungan.NoFocusRec();
             this.cbFilterAll = new System.Windows.Forms.ComboBox();
             this.txtMDSearch = new System.Windows.Forms.TextBox();
             this.allMD = new System.Windows.Forms.DataGridView();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.tabDonorsArchive = new System.Windows.Forms.TabPage();
+            this.btnActiveAgain = new BalayPasilungan.NoFocusRec();
+            this.btnDonorsActive = new BalayPasilungan.NoFocusRec();
             this.archiveDonors = new System.Windows.Forms.DataGridView();
             this.multiArchiveD = new System.Windows.Forms.CheckBox();
+            this.pictureBox34 = new System.Windows.Forms.PictureBox();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.tabNewDonor = new System.Windows.Forms.TabPage();
             this.donorInfo = new System.Windows.Forms.MenuStrip();
             this.donorTS = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +103,9 @@
             this.txtMobile3 = new System.Windows.Forms.TextBox();
             this.txtMobile2 = new System.Windows.Forms.TextBox();
             this.txtMobile1 = new System.Windows.Forms.TextBox();
+            this.panelMobile = new System.Windows.Forms.PictureBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
+            this.panelPhone = new System.Windows.Forms.PictureBox();
             this.lblMobile = new System.Windows.Forms.Label();
             this.countPhone = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -92,10 +114,16 @@
             this.cbPledge = new System.Windows.Forms.ComboBox();
             this.lblPledge = new System.Windows.Forms.Label();
             this.txtDName = new System.Windows.Forms.TextBox();
+            this.panelDName = new System.Windows.Forms.PictureBox();
             this.countDName = new System.Windows.Forms.Label();
             this.lblDName = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.btnDonorCancel = new BalayPasilungan.NoFocusRec();
+            this.btnDonorConfirm = new BalayPasilungan.NoFocusRec();
+            this.panelEmail = new System.Windows.Forms.PictureBox();
             this.countEmail = new System.Windows.Forms.Label();
             this.tabDonorConfirm = new System.Windows.Forms.TabPage();
             this.conf10 = new System.Windows.Forms.Label();
@@ -117,9 +145,16 @@
             this.conf1 = new System.Windows.Forms.Label();
             this.conf_donorName = new System.Windows.Forms.Label();
             this.conf_email = new System.Windows.Forms.Label();
+            this.pictureBox27 = new System.Windows.Forms.PictureBox();
+            this.pictureBox28 = new System.Windows.Forms.PictureBox();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.btnDonorBack2 = new BalayPasilungan.NoFocusRec();
+            this.btnDonorFinal = new BalayPasilungan.NoFocusRec();
             this.tabEditDonor = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnDonorEditCancel = new BalayPasilungan.NoFocusRec();
+            this.btnDonorEditConf = new BalayPasilungan.NoFocusRec();
             this.countAdEdit = new System.Windows.Forms.Label();
             this.txtDonorAdEdit = new System.Windows.Forms.RichTextBox();
             this.lblDonorAdEdit = new System.Windows.Forms.Label();
@@ -143,29 +178,48 @@
             this.lblDNameEdit = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.countEmailEdit = new System.Windows.Forms.Label();
+            this.panelMobileEdit = new System.Windows.Forms.PictureBox();
+            this.panelPhoneEdit = new System.Windows.Forms.PictureBox();
+            this.panelDNameEdit = new System.Windows.Forms.PictureBox();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.panelEmailEdit = new System.Windows.Forms.PictureBox();
             this.tabFinance = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTotalDonation = new System.Windows.Forms.Label();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnViewMD = new BalayPasilungan.NoFocusRec();
             this.label14 = new System.Windows.Forms.Label();
             this.lblLastDonate = new System.Windows.Forms.Label();
             this.header1 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.btnApprovedBR = new BalayPasilungan.NoFocusRec();
+            this.btnViewEx = new BalayPasilungan.NoFocusRec();
             this.lblTotalExp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLastExpense = new System.Windows.Forms.Label();
             this.header3 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.notifBR = new System.Windows.Forms.Label();
+            this.btnNewBR = new BalayPasilungan.NoFocusRec();
+            this.btnViewBR = new BalayPasilungan.NoFocusRec();
             this.label51 = new System.Windows.Forms.Label();
             this.lbllastDateBR = new System.Windows.Forms.Label();
             this.header2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.shadow1 = new System.Windows.Forms.Panel();
             this.shadow2 = new System.Windows.Forms.Panel();
             this.shadow3 = new System.Windows.Forms.Panel();
@@ -178,17 +232,23 @@
             this.txtBRRequest = new System.Windows.Forms.TextBox();
             this.lblBRHead1 = new System.Windows.Forms.Label();
             this.lblBRHead2 = new System.Windows.Forms.Label();
+            this.panel = new System.Windows.Forms.PictureBox();
+            this.btnCatMultiple = new BalayPasilungan.NoFocusRec();
+            this.btnCatSingle = new BalayPasilungan.NoFocusRec();
             this.lblOthers = new System.Windows.Forms.Label();
             this.lblPurpose = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.dateBR = new System.Windows.Forms.DateTimePicker();
             this.lblDateRequest = new System.Windows.Forms.Label();
             this.countPurpose = new System.Windows.Forms.Label();
+            this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.cbExpCat = new System.Windows.Forms.ComboBox();
             this.lblBRRequest = new System.Windows.Forms.Label();
             this.countBRRequest = new System.Windows.Forms.Label();
             this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.panelPurpose = new System.Windows.Forms.PictureBox();
             this.panelCat = new System.Windows.Forms.Panel();
             this.rbOthers = new System.Windows.Forms.RadioButton();
             this.rbTranspo = new System.Windows.Forms.RadioButton();
@@ -202,11 +262,15 @@
             this.rbFood = new System.Windows.Forms.RadioButton();
             this.rbClothing = new System.Windows.Forms.RadioButton();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.btnBRCancel = new BalayPasilungan.NoFocusRec();
+            this.btnBRNext = new BalayPasilungan.NoFocusRec();
             this.label3 = new System.Windows.Forms.Label();
             this.tabBRDetails = new System.Windows.Forms.TabPage();
             this.lblBRBy1 = new System.Windows.Forms.Label();
             this.lblBRBy = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btnBRBack = new BalayPasilungan.NoFocusRec();
+            this.btnBRConfirm = new BalayPasilungan.NoFocusRec();
             this.label1 = new System.Windows.Forms.Label();
             this.lblBRdateRequested = new System.Windows.Forms.Label();
             this.lblCategory1 = new System.Windows.Forms.Label();
@@ -215,6 +279,10 @@
             this.lblBRDetails = new System.Windows.Forms.Label();
             this.lblBRPurpose = new System.Windows.Forms.Label();
             this.BRDetails = new System.Windows.Forms.DataGridView();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.btnAddBR = new BalayPasilungan.NoFocusRec();
+            this.btnEditBR = new BalayPasilungan.NoFocusRec();
+            this.btnDelBR = new BalayPasilungan.NoFocusRec();
             this.tabBREdit = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -234,29 +302,48 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.countPurpose2 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelPurpose2 = new System.Windows.Forms.Panel();
+            this.txtPurpose2 = new System.Windows.Forms.TextBox();
+            this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
+            this.noFocusRec2 = new BalayPasilungan.NoFocusRec();
             this.tabDonorInfo = new System.Windows.Forms.TabPage();
+            this.moneyTS = new BalayPasilungan.NoFocusRec();
+            this.ikTS = new BalayPasilungan.NoFocusRec();
             this.donorOTS = new System.Windows.Forms.Button();
             this.headingColor = new System.Windows.Forms.Panel();
+            this.btnDonorInfoBack = new BalayPasilungan.NoFocusRec();
             this.lblDonorName = new System.Windows.Forms.Label();
             this.tabDonorDetails = new System.Windows.Forms.TabControl();
             this.tabMoney = new System.Windows.Forms.TabPage();
+            this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
+            this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.multiSelect = new System.Windows.Forms.CheckBox();
             this.txtSearchMoney = new System.Windows.Forms.TextBox();
             this.donationMoney = new System.Windows.Forms.DataGridView();
+            this.searchLine = new System.Windows.Forms.PictureBox();
             this.searchOption = new System.Windows.Forms.Panel();
             this.searchOthers = new System.Windows.Forms.RadioButton();
             this.searchDate = new System.Windows.Forms.RadioButton();
             this.tabIK = new System.Windows.Forms.TabPage();
+            this.btnAddIK = new BalayPasilungan.NoFocusRec();
+            this.btnEditIK = new BalayPasilungan.NoFocusRec();
             this.multiSelect2 = new System.Windows.Forms.CheckBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.donationIK = new System.Windows.Forms.DataGridView();
             this.panel11 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabDonorO = new System.Windows.Forms.TabPage();
+            this.btnArchiveProfile = new BalayPasilungan.NoFocusRec();
+            this.btnEditDonor = new BalayPasilungan.NoFocusRec();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
+            this.divider = new System.Windows.Forms.PictureBox();
+            this.divider2 = new System.Windows.Forms.PictureBox();
             this.txtDAddress = new System.Windows.Forms.TextBox();
             this.txtDType = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -272,11 +359,15 @@
             this.label33 = new System.Windows.Forms.Label();
             this.tabBRList = new System.Windows.Forms.TabPage();
             this.panelPBR = new System.Windows.Forms.Panel();
+            this.btnPBRBack = new BalayPasilungan.NoFocusRec();
             this.lblBRHeader = new System.Windows.Forms.Label();
             this.tabPBR = new System.Windows.Forms.TabControl();
             this.PBR = new System.Windows.Forms.TabPage();
             this.BRList = new System.Windows.Forms.DataGridView();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.PBRDecide = new System.Windows.Forms.TabPage();
+            this.exportPDF = new BalayPasilungan.NoFocusRec();
             this.lblOn = new System.Windows.Forms.Label();
             this.lblPBRdate = new System.Windows.Forms.TextBox();
             this.lblPBRTotal = new System.Windows.Forms.TextBox();
@@ -287,16 +378,25 @@
             this.label21 = new System.Windows.Forms.Label();
             this.lblPBRBy = new System.Windows.Forms.TextBox();
             this.panelOptions = new System.Windows.Forms.Panel();
+            this.btnBRApprove = new BalayPasilungan.NoFocusRec();
             this.lblOptions1 = new System.Windows.Forms.Label();
+            this.btnBRDisapprove = new BalayPasilungan.NoFocusRec();
             this.panel10 = new System.Windows.Forms.Panel();
             this.PBRDetails = new System.Windows.Forms.DataGridView();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.approvedBR = new System.Windows.Forms.TabPage();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.multiABR = new System.Windows.Forms.CheckBox();
             this.approvedBRList = new System.Windows.Forms.DataGridView();
+            this.btnCancelABR = new BalayPasilungan.NoFocusRec();
+            this.btnBtoE = new BalayPasilungan.NoFocusRec();
             this.tabEx = new System.Windows.Forms.TabPage();
             this.rbMultiple = new System.Windows.Forms.CheckBox();
             this.txtExpSearch = new System.Windows.Forms.TextBox();
             this.panelExpOp = new System.Windows.Forms.Panel();
+            this.btnDelExp = new BalayPasilungan.NoFocusRec();
+            this.btnExport = new BalayPasilungan.NoFocusRec();
             this.multiExp = new System.Windows.Forms.CheckBox();
             this.expList = new System.Windows.Forms.DataGridView();
             this.cbInsurance = new System.Windows.Forms.CheckBox();
@@ -324,58 +424,8 @@
             this.cbAll = new System.Windows.Forms.CheckBox();
             this.lblExpCat = new System.Windows.Forms.Label();
             this.panelExp = new System.Windows.Forms.Panel();
+            this.btnExBack = new BalayPasilungan.NoFocusRec();
             this.label4 = new System.Windows.Forms.Label();
-            this.logo_main = new System.Windows.Forms.PictureBox();
-            this.logo_donation = new System.Windows.Forms.PictureBox();
-            this.logo_finance = new System.Windows.Forms.PictureBox();
-            this.pictureBox35 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pictureBox34 = new System.Windows.Forms.PictureBox();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.panelMobile = new System.Windows.Forms.PictureBox();
-            this.panelPhone = new System.Windows.Forms.PictureBox();
-            this.panelDName = new System.Windows.Forms.PictureBox();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.panelEmail = new System.Windows.Forms.PictureBox();
-            this.pictureBox27 = new System.Windows.Forms.PictureBox();
-            this.pictureBox28 = new System.Windows.Forms.PictureBox();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
-            this.panelMobileEdit = new System.Windows.Forms.PictureBox();
-            this.panelPhoneEdit = new System.Windows.Forms.PictureBox();
-            this.panelDNameEdit = new System.Windows.Forms.PictureBox();
-            this.pictureBox30 = new System.Windows.Forms.PictureBox();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.panelEmailEdit = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox23 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel = new System.Windows.Forms.PictureBox();
-            this.pictureBox37 = new System.Windows.Forms.PictureBox();
-            this.pictureBox38 = new System.Windows.Forms.PictureBox();
-            this.panelPurpose = new System.Windows.Forms.PictureBox();
-            this.pictureBox32 = new System.Windows.Forms.PictureBox();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panelPurpose2 = new System.Windows.Forms.Panel();
-            this.txtPurpose2 = new System.Windows.Forms.TextBox();
-            this.searchLine = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.divider = new System.Windows.Forms.PictureBox();
-            this.divider2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
@@ -383,173 +433,123 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.hdivider = new System.Windows.Forms.PictureBox();
-            this.btnMain = new BalayPasilungan.NoFocusRec();
-            this.btnFinance = new BalayPasilungan.NoFocusRec();
-            this.btnDonation = new BalayPasilungan.NoFocusRec();
-            this.btnDonateAllBack = new BalayPasilungan.NoFocusRec();
-            this.btnArchive = new BalayPasilungan.NoFocusRec();
-            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
-            this.btnDonationReport = new BalayPasilungan.NoFocusRec();
-            this.btnActiveAgain = new BalayPasilungan.NoFocusRec();
-            this.btnDonorsActive = new BalayPasilungan.NoFocusRec();
-            this.btnDonorCancel = new BalayPasilungan.NoFocusRec();
-            this.btnDonorConfirm = new BalayPasilungan.NoFocusRec();
-            this.btnDonorBack2 = new BalayPasilungan.NoFocusRec();
-            this.btnDonorFinal = new BalayPasilungan.NoFocusRec();
-            this.btnDonorEditCancel = new BalayPasilungan.NoFocusRec();
-            this.btnDonorEditConf = new BalayPasilungan.NoFocusRec();
-            this.btnViewMD = new BalayPasilungan.NoFocusRec();
-            this.btnApprovedBR = new BalayPasilungan.NoFocusRec();
-            this.btnViewEx = new BalayPasilungan.NoFocusRec();
-            this.btnNewBR = new BalayPasilungan.NoFocusRec();
-            this.btnViewBR = new BalayPasilungan.NoFocusRec();
-            this.btnCatMultiple = new BalayPasilungan.NoFocusRec();
-            this.btnCatSingle = new BalayPasilungan.NoFocusRec();
-            this.btnBRCancel = new BalayPasilungan.NoFocusRec();
-            this.btnBRNext = new BalayPasilungan.NoFocusRec();
-            this.btnBRBack = new BalayPasilungan.NoFocusRec();
-            this.btnBRConfirm = new BalayPasilungan.NoFocusRec();
-            this.btnAddBR = new BalayPasilungan.NoFocusRec();
-            this.btnEditBR = new BalayPasilungan.NoFocusRec();
-            this.btnDelBR = new BalayPasilungan.NoFocusRec();
-            this.noFocusRec1 = new BalayPasilungan.NoFocusRec();
-            this.noFocusRec2 = new BalayPasilungan.NoFocusRec();
-            this.moneyTS = new BalayPasilungan.NoFocusRec();
-            this.ikTS = new BalayPasilungan.NoFocusRec();
-            this.btnDonorInfoBack = new BalayPasilungan.NoFocusRec();
-            this.btnAddMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnEditMoneyD = new BalayPasilungan.NoFocusRec();
-            this.btnAddIK = new BalayPasilungan.NoFocusRec();
-            this.btnEditIK = new BalayPasilungan.NoFocusRec();
-            this.btnArchiveProfile = new BalayPasilungan.NoFocusRec();
-            this.btnEditDonor = new BalayPasilungan.NoFocusRec();
-            this.btnPBRBack = new BalayPasilungan.NoFocusRec();
-            this.exportPDF = new BalayPasilungan.NoFocusRec();
-            this.btnBRApprove = new BalayPasilungan.NoFocusRec();
-            this.btnBRDisapprove = new BalayPasilungan.NoFocusRec();
-            this.btnCancelABR = new BalayPasilungan.NoFocusRec();
-            this.btnBtoE = new BalayPasilungan.NoFocusRec();
-            this.btnDelExp = new BalayPasilungan.NoFocusRec();
-            this.btnExport = new BalayPasilungan.NoFocusRec();
-            this.btnExBack = new BalayPasilungan.NoFocusRec();
             this.btnExpOp = new BalayPasilungan.NoFocusRec();
             this.btnExpLoad = new BalayPasilungan.NoFocusRec();
             this.btnResetCategory = new BalayPasilungan.NoFocusRec();
-            this.lblForm = new System.Windows.Forms.Label();
             this.upPanel.SuspendLayout();
             this.taskbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_donation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_finance)).BeginInit();
             this.panelListChild.SuspendLayout();
             this.tabSelection.SuspendLayout();
             this.tabDonors.SuspendLayout();
             this.tabInnerDonors.SuspendLayout();
             this.tabDonors1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donorsGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabDonorsAll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allMD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             this.tabDonorsArchive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archiveDonors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.tabNewDonor.SuspendLayout();
             this.donorInfo.SuspendLayout();
             this.tabNewDonorInput.SuspendLayout();
             this.tabNewInfo.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.tabDonorConfirm.SuspendLayout();
-            this.tabEditDonor.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.tabFinance.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.tabBudgetRequest.SuspendLayout();
-            this.brInfo.SuspendLayout();
-            this.tabBR.SuspendLayout();
-            this.tabBRInfo.SuspendLayout();
-            this.panelCat.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.tabBRDetails.SuspendLayout();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).BeginInit();
-            this.tabBREdit.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.tabDonorInfo.SuspendLayout();
-            this.headingColor.SuspendLayout();
-            this.tabDonorDetails.SuspendLayout();
-            this.tabMoney.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.donationMoney)).BeginInit();
-            this.searchOption.SuspendLayout();
-            this.tabIK.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.donationIK)).BeginInit();
-            this.panel11.SuspendLayout();
-            this.tabDonorO.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.tabBRList.SuspendLayout();
-            this.panelPBR.SuspendLayout();
-            this.tabPBR.SuspendLayout();
-            this.PBR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BRList)).BeginInit();
-            this.PBRDecide.SuspendLayout();
-            this.panelOptions.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PBRDetails)).BeginInit();
-            this.approvedBR.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.approvedBRList)).BeginInit();
-            this.tabEx.SuspendLayout();
-            this.panelExpOp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.expList)).BeginInit();
-            this.panelExp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_donation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_finance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelMobile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelEmail)).BeginInit();
+            this.tabDonorConfirm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            this.tabEditDonor.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelMobileEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPhoneEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelDNameEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelEmailEdit)).BeginInit();
+            this.tabFinance.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.tabBudgetRequest.SuspendLayout();
+            this.brInfo.SuspendLayout();
+            this.tabBR.SuspendLayout();
+            this.tabBRInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).BeginInit();
+            this.panelCat.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.tabBRDetails.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
+            this.tabBREdit.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panelPurpose2.SuspendLayout();
+            this.tabDonorInfo.SuspendLayout();
+            this.headingColor.SuspendLayout();
+            this.tabDonorDetails.SuspendLayout();
+            this.tabMoney.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.donationMoney)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLine)).BeginInit();
+            this.searchOption.SuspendLayout();
+            this.tabIK.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.donationIK)).BeginInit();
+            this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabDonorO.SuspendLayout();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.divider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.divider2)).BeginInit();
+            this.tabBRList.SuspendLayout();
+            this.panelPBR.SuspendLayout();
+            this.tabPBR.SuspendLayout();
+            this.PBR.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BRList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.PBRDecide.SuspendLayout();
+            this.panelOptions.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBRDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.approvedBR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.approvedBRList)).BeginInit();
+            this.tabEx.SuspendLayout();
+            this.panelExpOp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.expList)).BeginInit();
+            this.panelExp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -569,6 +569,17 @@
             this.upPanel.TabIndex = 3;
             this.upPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
+            // lblForm
+            // 
+            this.lblForm.AutoSize = true;
+            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblForm.Location = new System.Drawing.Point(8, 6);
+            this.lblForm.Name = "lblForm";
+            this.lblForm.Size = new System.Drawing.Size(301, 13);
+            this.lblForm.TabIndex = 19;
+            this.lblForm.Text = "Balay Pasilungan | Donation, Budget, and Expense System";
+            // 
             // taskbar
             // 
             this.taskbar.BackColor = System.Drawing.Color.White;
@@ -585,6 +596,99 @@
             this.taskbar.Paint += new System.Windows.Forms.PaintEventHandler(this.taskbar_Paint);
             this.taskbar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
+            // logo_main
+            // 
+            this.logo_main.BackColor = System.Drawing.Color.White;
+            this.logo_main.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
+            this.logo_main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_main.Location = new System.Drawing.Point(20, 46);
+            this.logo_main.Name = "logo_main";
+            this.logo_main.Size = new System.Drawing.Size(50, 50);
+            this.logo_main.TabIndex = 6;
+            this.logo_main.TabStop = false;
+            this.logo_main.Click += new System.EventHandler(this.logo_click);
+            // 
+            // logo_donation
+            // 
+            this.logo_donation.BackColor = System.Drawing.Color.White;
+            this.logo_donation.BackgroundImage = global::BalayPasilungan.Properties.Resources.donation_fade;
+            this.logo_donation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_donation.Location = new System.Drawing.Point(20, 139);
+            this.logo_donation.Name = "logo_donation";
+            this.logo_donation.Size = new System.Drawing.Size(50, 50);
+            this.logo_donation.TabIndex = 5;
+            this.logo_donation.TabStop = false;
+            this.logo_donation.Click += new System.EventHandler(this.logo_click);
+            // 
+            // logo_finance
+            // 
+            this.logo_finance.BackColor = System.Drawing.Color.White;
+            this.logo_finance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_fade;
+            this.logo_finance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo_finance.Location = new System.Drawing.Point(18, 231);
+            this.logo_finance.Name = "logo_finance";
+            this.logo_finance.Size = new System.Drawing.Size(52, 50);
+            this.logo_finance.TabIndex = 4;
+            this.logo_finance.TabStop = false;
+            this.logo_finance.Click += new System.EventHandler(this.logo_click);
+            // 
+            // btnMain
+            // 
+            this.btnMain.BackColor = System.Drawing.Color.White;
+            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMain.FlatAppearance.BorderSize = 0;
+            this.btnMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMain.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnMain.Location = new System.Drawing.Point(5, 31);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(80, 80);
+            this.btnMain.TabIndex = 3;
+            this.btnMain.Text = "MAIN";
+            this.btnMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMain.UseVisualStyleBackColor = false;
+            this.btnMain.Click += new System.EventHandler(this.taskbar_Click);
+            // 
+            // btnFinance
+            // 
+            this.btnFinance.BackColor = System.Drawing.Color.White;
+            this.btnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFinance.FlatAppearance.BorderSize = 0;
+            this.btnFinance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFinance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnFinance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnFinance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnFinance.Location = new System.Drawing.Point(5, 217);
+            this.btnFinance.Name = "btnFinance";
+            this.btnFinance.Size = new System.Drawing.Size(80, 80);
+            this.btnFinance.TabIndex = 2;
+            this.btnFinance.Text = "FINANCE";
+            this.btnFinance.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFinance.UseVisualStyleBackColor = false;
+            this.btnFinance.Click += new System.EventHandler(this.taskbar_Click);
+            // 
+            // btnDonation
+            // 
+            this.btnDonation.BackColor = System.Drawing.Color.White;
+            this.btnDonation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDonation.FlatAppearance.BorderSize = 0;
+            this.btnDonation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnDonation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnDonation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonation.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.btnDonation.Location = new System.Drawing.Point(5, 124);
+            this.btnDonation.Name = "btnDonation";
+            this.btnDonation.Size = new System.Drawing.Size(80, 80);
+            this.btnDonation.TabIndex = 1;
+            this.btnDonation.Text = "DONATION";
+            this.btnDonation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDonation.UseVisualStyleBackColor = false;
+            this.btnDonation.Click += new System.EventHandler(this.taskbar_Click);
+            // 
             // panelListChild
             // 
             this.panelListChild.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
@@ -594,6 +698,25 @@
             this.panelListChild.Name = "panelListChild";
             this.panelListChild.Size = new System.Drawing.Size(937, 105);
             this.panelListChild.TabIndex = 9;
+            // 
+            // btnDonateAllBack
+            // 
+            this.btnDonateAllBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnDonateAllBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDonateAllBack.FlatAppearance.BorderSize = 0;
+            this.btnDonateAllBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDonateAllBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDonateAllBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonateAllBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonateAllBack.ForeColor = System.Drawing.Color.White;
+            this.btnDonateAllBack.Location = new System.Drawing.Point(6, 6);
+            this.btnDonateAllBack.Name = "btnDonateAllBack";
+            this.btnDonateAllBack.Size = new System.Drawing.Size(76, 22);
+            this.btnDonateAllBack.TabIndex = 5;
+            this.btnDonateAllBack.Text = "GO BACK";
+            this.btnDonateAllBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDonateAllBack.UseVisualStyleBackColor = false;
+            this.btnDonateAllBack.Click += new System.EventHandler(this.btnPBRBack_Click);
             // 
             // lblListOfDonors
             // 
@@ -666,6 +789,51 @@
             this.tabDonors1.TabIndex = 0;
             this.tabDonors1.Text = "tabPage1";
             // 
+            // pictureBox35
+            // 
+            this.pictureBox35.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox35.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox35.Image")));
+            this.pictureBox35.Location = new System.Drawing.Point(747, 8);
+            this.pictureBox35.Name = "pictureBox35";
+            this.pictureBox35.Size = new System.Drawing.Size(16, 23);
+            this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox35.TabIndex = 105;
+            this.pictureBox35.TabStop = false;
+            // 
+            // btnArchive
+            // 
+            this.btnArchive.BackColor = System.Drawing.Color.Transparent;
+            this.btnArchive.FlatAppearance.BorderSize = 0;
+            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnArchive.Location = new System.Drawing.Point(774, 5);
+            this.btnArchive.Name = "btnArchive";
+            this.btnArchive.Size = new System.Drawing.Size(136, 29);
+            this.btnArchive.TabIndex = 56;
+            this.btnArchive.Text = "INACTIVE DONORS";
+            this.btnArchive.UseVisualStyleBackColor = false;
+            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
+            // 
+            // btnAddDonor
+            // 
+            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddDonor.FlatAppearance.BorderSize = 0;
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnAddDonor.Location = new System.Drawing.Point(618, 5);
+            this.btnAddDonor.Name = "btnAddDonor";
+            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
+            this.btnAddDonor.TabIndex = 1;
+            this.btnAddDonor.Text = "ADD DONOR";
+            this.btnAddDonor.UseVisualStyleBackColor = false;
+            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
+            // 
             // multiDonor
             // 
             this.multiDonor.AutoSize = true;
@@ -691,24 +859,24 @@
             this.donorsGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donorsGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.donorsGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donorsGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donorsGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.donorsGV.ColumnHeadersHeight = 50;
             this.donorsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donorsGV.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donorsGV.DefaultCellStyle = dataGridViewCellStyle22;
             this.donorsGV.EnableHeadersVisualStyles = false;
             this.donorsGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.donorsGV.Location = new System.Drawing.Point(0, 35);
@@ -731,6 +899,26 @@
             this.donorsGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.donorsGV_CellDoubleClick);
             this.donorsGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(184, 17);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(753, 23);
+            this.pictureBox3.TabIndex = 54;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(356, 23);
+            this.pictureBox2.TabIndex = 55;
+            this.pictureBox2.TabStop = false;
+            // 
             // tabDonorsAll
             // 
             this.tabDonorsAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -745,6 +933,23 @@
             this.tabDonorsAll.Size = new System.Drawing.Size(935, 570);
             this.tabDonorsAll.TabIndex = 1;
             this.tabDonorsAll.Text = "tabPage1";
+            // 
+            // btnDonationReport
+            // 
+            this.btnDonationReport.BackColor = System.Drawing.Color.White;
+            this.btnDonationReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnDonationReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDonationReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDonationReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonationReport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonationReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonationReport.Location = new System.Drawing.Point(18, 6);
+            this.btnDonationReport.Name = "btnDonationReport";
+            this.btnDonationReport.Size = new System.Drawing.Size(205, 29);
+            this.btnDonationReport.TabIndex = 110;
+            this.btnDonationReport.Text = "GENERATE DONATION REPORT";
+            this.btnDonationReport.UseVisualStyleBackColor = false;
+            this.btnDonationReport.Click += new System.EventHandler(this.btnDonationReport_Click);
             // 
             // cbFilterAll
             // 
@@ -790,24 +995,24 @@
             this.allMD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.allMD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.allMD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.allMD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.allMD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.allMD.ColumnHeadersHeight = 50;
             this.allMD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.allMD.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.allMD.DefaultCellStyle = dataGridViewCellStyle24;
             this.allMD.EnableHeadersVisualStyles = false;
             this.allMD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.allMD.Location = new System.Drawing.Point(0, 40);
@@ -830,6 +1035,15 @@
             this.allMD.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.allMD_CellDoubleClick);
             this.allMD.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
             // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
+            this.pictureBox20.Location = new System.Drawing.Point(677, 11);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(239, 23);
+            this.pictureBox20.TabIndex = 107;
+            this.pictureBox20.TabStop = false;
+            // 
             // tabDonorsArchive
             // 
             this.tabDonorsArchive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -847,6 +1061,40 @@
             this.tabDonorsArchive.TabIndex = 2;
             this.tabDonorsArchive.Text = "tabPage1";
             // 
+            // btnActiveAgain
+            // 
+            this.btnActiveAgain.BackColor = System.Drawing.Color.Transparent;
+            this.btnActiveAgain.FlatAppearance.BorderSize = 0;
+            this.btnActiveAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnActiveAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnActiveAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActiveAgain.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnActiveAgain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnActiveAgain.Location = new System.Drawing.Point(599, 5);
+            this.btnActiveAgain.Name = "btnActiveAgain";
+            this.btnActiveAgain.Size = new System.Drawing.Size(136, 29);
+            this.btnActiveAgain.TabIndex = 60;
+            this.btnActiveAgain.Text = "CHANGE TO ACTIVE";
+            this.btnActiveAgain.UseVisualStyleBackColor = false;
+            this.btnActiveAgain.Click += new System.EventHandler(this.btnActiveAgain_Click);
+            // 
+            // btnDonorsActive
+            // 
+            this.btnDonorsActive.BackColor = System.Drawing.Color.Transparent;
+            this.btnDonorsActive.FlatAppearance.BorderSize = 0;
+            this.btnDonorsActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnDonorsActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnDonorsActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorsActive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorsActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonorsActive.Location = new System.Drawing.Point(774, 5);
+            this.btnDonorsActive.Name = "btnDonorsActive";
+            this.btnDonorsActive.Size = new System.Drawing.Size(136, 29);
+            this.btnDonorsActive.TabIndex = 57;
+            this.btnDonorsActive.Text = "ACTIVE DONORS";
+            this.btnDonorsActive.UseVisualStyleBackColor = false;
+            this.btnDonorsActive.Click += new System.EventHandler(this.taskbar_Click);
+            // 
             // archiveDonors
             // 
             this.archiveDonors.AllowUserToAddRows = false;
@@ -857,24 +1105,24 @@
             this.archiveDonors.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.archiveDonors.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.archiveDonors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.archiveDonors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.archiveDonors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.archiveDonors.ColumnHeadersHeight = 50;
             this.archiveDonors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.archiveDonors.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.archiveDonors.DefaultCellStyle = dataGridViewCellStyle26;
             this.archiveDonors.EnableHeadersVisualStyles = false;
             this.archiveDonors.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.archiveDonors.Location = new System.Drawing.Point(0, 35);
@@ -910,6 +1158,37 @@
             this.multiArchiveD.Text = "Select multiple";
             this.multiArchiveD.UseVisualStyleBackColor = true;
             this.multiArchiveD.CheckedChanged += new System.EventHandler(this.multiArchiveD_CheckedChanged);
+            // 
+            // pictureBox34
+            // 
+            this.pictureBox34.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox34.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox34.Image")));
+            this.pictureBox34.Location = new System.Drawing.Point(747, 8);
+            this.pictureBox34.Name = "pictureBox34";
+            this.pictureBox34.Size = new System.Drawing.Size(16, 23);
+            this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox34.TabIndex = 104;
+            this.pictureBox34.TabStop = false;
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
+            this.pictureBox22.Location = new System.Drawing.Point(0, 17);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(356, 23);
+            this.pictureBox22.TabIndex = 59;
+            this.pictureBox22.TabStop = false;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Location = new System.Drawing.Point(184, 17);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(753, 23);
+            this.pictureBox21.TabIndex = 58;
+            this.pictureBox21.TabStop = false;
             // 
             // tabNewDonor
             // 
@@ -1173,6 +1452,15 @@
             this.txtMobile1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numOnly_KeyPress);
             this.txtMobile1.Leave += new System.EventHandler(this.txtNew_Leave);
             // 
+            // panelMobile
+            // 
+            this.panelMobile.Image = ((System.Drawing.Image)(resources.GetObject("panelMobile.Image")));
+            this.panelMobile.Location = new System.Drawing.Point(349, 228);
+            this.panelMobile.Name = "panelMobile";
+            this.panelMobile.Size = new System.Drawing.Size(193, 33);
+            this.panelMobile.TabIndex = 240;
+            this.panelMobile.TabStop = false;
+            // 
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1189,6 +1477,15 @@
             this.txtPhone.Enter += new System.EventHandler(this.txtNew_Enter);
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numOnly_KeyPress);
             this.txtPhone.Leave += new System.EventHandler(this.txtNew_Leave);
+            // 
+            // panelPhone
+            // 
+            this.panelPhone.Image = ((System.Drawing.Image)(resources.GetObject("panelPhone.Image")));
+            this.panelPhone.Location = new System.Drawing.Point(349, 171);
+            this.panelPhone.Name = "panelPhone";
+            this.panelPhone.Size = new System.Drawing.Size(193, 33);
+            this.panelPhone.TabIndex = 239;
+            this.panelPhone.TabStop = false;
             // 
             // lblMobile
             // 
@@ -1296,6 +1593,15 @@
             this.txtDName.Enter += new System.EventHandler(this.txtNew_Enter);
             this.txtDName.Leave += new System.EventHandler(this.txtNew_Leave);
             // 
+            // panelDName
+            // 
+            this.panelDName.Image = ((System.Drawing.Image)(resources.GetObject("panelDName.Image")));
+            this.panelDName.Location = new System.Drawing.Point(349, 76);
+            this.panelDName.Name = "panelDName";
+            this.panelDName.Size = new System.Drawing.Size(506, 33);
+            this.panelDName.TabIndex = 231;
+            this.panelDName.TabStop = false;
+            // 
             // countDName
             // 
             this.countDName.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1333,6 +1639,24 @@
             this.label29.Text = "DONOR\r\nINFORMATION";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox25
+            // 
+            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
+            this.pictureBox25.Location = new System.Drawing.Point(29, 389);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox25.TabIndex = 225;
+            this.pictureBox25.TabStop = false;
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
+            this.pictureBox26.Location = new System.Drawing.Point(29, 28);
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox26.TabIndex = 224;
+            this.pictureBox26.TabStop = false;
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -1342,6 +1666,45 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(934, 59);
             this.panel15.TabIndex = 226;
+            // 
+            // btnDonorCancel
+            // 
+            this.btnDonorCancel.BackColor = System.Drawing.Color.White;
+            this.btnDonorCancel.FlatAppearance.BorderSize = 0;
+            this.btnDonorCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonorCancel.Location = new System.Drawing.Point(650, 17);
+            this.btnDonorCancel.Name = "btnDonorCancel";
+            this.btnDonorCancel.Size = new System.Drawing.Size(97, 26);
+            this.btnDonorCancel.TabIndex = 11;
+            this.btnDonorCancel.Text = "CANCEL";
+            this.btnDonorCancel.UseVisualStyleBackColor = false;
+            this.btnDonorCancel.Click += new System.EventHandler(this.btnDonorCancel_Click);
+            // 
+            // btnDonorConfirm
+            // 
+            this.btnDonorConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonorConfirm.FlatAppearance.BorderSize = 0;
+            this.btnDonorConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnDonorConfirm.Location = new System.Drawing.Point(773, 17);
+            this.btnDonorConfirm.Name = "btnDonorConfirm";
+            this.btnDonorConfirm.Size = new System.Drawing.Size(97, 26);
+            this.btnDonorConfirm.TabIndex = 10;
+            this.btnDonorConfirm.Text = "NEXT";
+            this.btnDonorConfirm.UseVisualStyleBackColor = false;
+            this.btnDonorConfirm.Click += new System.EventHandler(this.btnDonorConfirm_Click);
+            // 
+            // panelEmail
+            // 
+            this.panelEmail.Image = ((System.Drawing.Image)(resources.GetObject("panelEmail.Image")));
+            this.panelEmail.Location = new System.Drawing.Point(348, 282);
+            this.panelEmail.Name = "panelEmail";
+            this.panelEmail.Size = new System.Drawing.Size(506, 33);
+            this.panelEmail.TabIndex = 245;
+            this.panelEmail.TabStop = false;
             // 
             // countEmail
             // 
@@ -1598,6 +1961,63 @@
             this.conf_email.Text = "jsmith@example.com";
             this.conf_email.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox27
+            // 
+            this.pictureBox27.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox27.Image")));
+            this.pictureBox27.Location = new System.Drawing.Point(522, 218);
+            this.pictureBox27.Name = "pictureBox27";
+            this.pictureBox27.Size = new System.Drawing.Size(344, 33);
+            this.pictureBox27.TabIndex = 268;
+            this.pictureBox27.TabStop = false;
+            // 
+            // pictureBox28
+            // 
+            this.pictureBox28.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox28.Image")));
+            this.pictureBox28.Location = new System.Drawing.Point(73, 42);
+            this.pictureBox28.Name = "pictureBox28";
+            this.pictureBox28.Size = new System.Drawing.Size(793, 33);
+            this.pictureBox28.TabIndex = 265;
+            this.pictureBox28.TabStop = false;
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
+            this.pictureBox29.Location = new System.Drawing.Point(73, 218);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(344, 33);
+            this.pictureBox29.TabIndex = 266;
+            this.pictureBox29.TabStop = false;
+            // 
+            // btnDonorBack2
+            // 
+            this.btnDonorBack2.BackColor = System.Drawing.Color.White;
+            this.btnDonorBack2.FlatAppearance.BorderSize = 0;
+            this.btnDonorBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonorBack2.Location = new System.Drawing.Point(197, 528);
+            this.btnDonorBack2.Name = "btnDonorBack2";
+            this.btnDonorBack2.Size = new System.Drawing.Size(97, 26);
+            this.btnDonorBack2.TabIndex = 249;
+            this.btnDonorBack2.Text = "GO BACK";
+            this.btnDonorBack2.UseVisualStyleBackColor = false;
+            this.btnDonorBack2.Click += new System.EventHandler(this.btnDonorBack2_Click);
+            // 
+            // btnDonorFinal
+            // 
+            this.btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDonorFinal.FlatAppearance.BorderSize = 0;
+            this.btnDonorFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorFinal.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorFinal.ForeColor = System.Drawing.Color.White;
+            this.btnDonorFinal.Location = new System.Drawing.Point(646, 528);
+            this.btnDonorFinal.Name = "btnDonorFinal";
+            this.btnDonorFinal.Size = new System.Drawing.Size(97, 26);
+            this.btnDonorFinal.TabIndex = 248;
+            this.btnDonorFinal.Text = "CONFIRM";
+            this.btnDonorFinal.UseVisualStyleBackColor = false;
+            this.btnDonorFinal.Click += new System.EventHandler(this.btnDonorFinal_Click);
+            // 
             // tabEditDonor
             // 
             this.tabEditDonor.BackColor = System.Drawing.Color.White;
@@ -1661,6 +2081,36 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(934, 59);
             this.panel6.TabIndex = 308;
+            // 
+            // btnDonorEditCancel
+            // 
+            this.btnDonorEditCancel.BackColor = System.Drawing.Color.White;
+            this.btnDonorEditCancel.FlatAppearance.BorderSize = 0;
+            this.btnDonorEditCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorEditCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorEditCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnDonorEditCancel.Location = new System.Drawing.Point(650, 17);
+            this.btnDonorEditCancel.Name = "btnDonorEditCancel";
+            this.btnDonorEditCancel.Size = new System.Drawing.Size(97, 26);
+            this.btnDonorEditCancel.TabIndex = 11;
+            this.btnDonorEditCancel.Text = "CANCEL";
+            this.btnDonorEditCancel.UseVisualStyleBackColor = false;
+            this.btnDonorEditCancel.Click += new System.EventHandler(this.btnDonorEditCancel_Click);
+            // 
+            // btnDonorEditConf
+            // 
+            this.btnDonorEditConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.btnDonorEditConf.FlatAppearance.BorderSize = 0;
+            this.btnDonorEditConf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorEditConf.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorEditConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnDonorEditConf.Location = new System.Drawing.Point(773, 17);
+            this.btnDonorEditConf.Name = "btnDonorEditConf";
+            this.btnDonorEditConf.Size = new System.Drawing.Size(97, 26);
+            this.btnDonorEditConf.TabIndex = 10;
+            this.btnDonorEditConf.Text = "NEXT";
+            this.btnDonorEditConf.UseVisualStyleBackColor = false;
+            this.btnDonorEditConf.Click += new System.EventHandler(this.btnDonorEditConf_Click);
             // 
             // countAdEdit
             // 
@@ -1972,6 +2422,60 @@
             this.countEmailEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countEmailEdit.Visible = false;
             // 
+            // panelMobileEdit
+            // 
+            this.panelMobileEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelMobileEdit.Image")));
+            this.panelMobileEdit.Location = new System.Drawing.Point(348, 224);
+            this.panelMobileEdit.Name = "panelMobileEdit";
+            this.panelMobileEdit.Size = new System.Drawing.Size(193, 33);
+            this.panelMobileEdit.TabIndex = 301;
+            this.panelMobileEdit.TabStop = false;
+            // 
+            // panelPhoneEdit
+            // 
+            this.panelPhoneEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelPhoneEdit.Image")));
+            this.panelPhoneEdit.Location = new System.Drawing.Point(349, 164);
+            this.panelPhoneEdit.Name = "panelPhoneEdit";
+            this.panelPhoneEdit.Size = new System.Drawing.Size(193, 33);
+            this.panelPhoneEdit.TabIndex = 300;
+            this.panelPhoneEdit.TabStop = false;
+            // 
+            // panelDNameEdit
+            // 
+            this.panelDNameEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelDNameEdit.Image")));
+            this.panelDNameEdit.Location = new System.Drawing.Point(348, 83);
+            this.panelDNameEdit.Name = "panelDNameEdit";
+            this.panelDNameEdit.Size = new System.Drawing.Size(506, 33);
+            this.panelDNameEdit.TabIndex = 292;
+            this.panelDNameEdit.TabStop = false;
+            // 
+            // pictureBox30
+            // 
+            this.pictureBox30.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox30.Image")));
+            this.pictureBox30.Location = new System.Drawing.Point(29, 389);
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox30.TabIndex = 287;
+            this.pictureBox30.TabStop = false;
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
+            this.pictureBox31.Location = new System.Drawing.Point(29, 28);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox31.TabIndex = 286;
+            this.pictureBox31.TabStop = false;
+            // 
+            // panelEmailEdit
+            // 
+            this.panelEmailEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelEmailEdit.Image")));
+            this.panelEmailEdit.Location = new System.Drawing.Point(348, 278);
+            this.panelEmailEdit.Name = "panelEmailEdit";
+            this.panelEmailEdit.Size = new System.Drawing.Size(506, 33);
+            this.panelEmailEdit.TabIndex = 305;
+            this.panelEmailEdit.TabStop = false;
+            // 
             // tabFinance
             // 
             this.tabFinance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
@@ -2017,6 +2521,17 @@
             this.lblTotalDonation.Text = "0.00";
             this.lblTotalDonation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Location = new System.Drawing.Point(443, 21);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(16, 100);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox17.TabIndex = 96;
+            this.pictureBox17.TabStop = false;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -2036,6 +2551,23 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(425, 142);
             this.panel8.TabIndex = 98;
+            // 
+            // btnViewMD
+            // 
+            this.btnViewMD.BackColor = System.Drawing.Color.White;
+            this.btnViewMD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnViewMD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewMD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewMD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnViewMD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnViewMD.Location = new System.Drawing.Point(122, 57);
+            this.btnViewMD.Name = "btnViewMD";
+            this.btnViewMD.Size = new System.Drawing.Size(205, 29);
+            this.btnViewMD.TabIndex = 96;
+            this.btnViewMD.Text = "VIEW DONATIONS";
+            this.btnViewMD.UseVisualStyleBackColor = false;
+            this.btnViewMD.Click += new System.EventHandler(this.btnViewMD_Click);
             // 
             // label14
             // 
@@ -2070,6 +2602,24 @@
             this.header1.TabIndex = 87;
             this.header1.Text = "Monetary Donations";
             this.header1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(24, 60);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(395, 33);
+            this.pictureBox8.TabIndex = 88;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(24, 99);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(395, 33);
+            this.pictureBox9.TabIndex = 90;
+            this.pictureBox9.TabStop = false;
             // 
             // panel3
             // 
@@ -2129,6 +2679,52 @@
             this.panel9.Size = new System.Drawing.Size(425, 142);
             this.panel9.TabIndex = 99;
             // 
+            // pictureBox24
+            // 
+            this.pictureBox24.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
+            this.pictureBox24.Location = new System.Drawing.Point(0, 21);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(16, 100);
+            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox24.TabIndex = 101;
+            this.pictureBox24.TabStop = false;
+            // 
+            // btnApprovedBR
+            // 
+            this.btnApprovedBR.BackColor = System.Drawing.Color.Transparent;
+            this.btnApprovedBR.Enabled = false;
+            this.btnApprovedBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnApprovedBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnApprovedBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnApprovedBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApprovedBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnApprovedBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnApprovedBR.Location = new System.Drawing.Point(122, 28);
+            this.btnApprovedBR.Name = "btnApprovedBR";
+            this.btnApprovedBR.Size = new System.Drawing.Size(205, 29);
+            this.btnApprovedBR.TabIndex = 100;
+            this.btnApprovedBR.Text = "APPROVED BUDGET REQUESTS";
+            this.btnApprovedBR.UseVisualStyleBackColor = false;
+            this.btnApprovedBR.Click += new System.EventHandler(this.btnApprovedBR_Click);
+            // 
+            // btnViewEx
+            // 
+            this.btnViewEx.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnViewEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewEx.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnViewEx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnViewEx.Location = new System.Drawing.Point(122, 83);
+            this.btnViewEx.Name = "btnViewEx";
+            this.btnViewEx.Size = new System.Drawing.Size(205, 29);
+            this.btnViewEx.TabIndex = 96;
+            this.btnViewEx.Text = "VIEW EXPENDITURES";
+            this.btnViewEx.UseVisualStyleBackColor = false;
+            this.btnViewEx.Click += new System.EventHandler(this.btnViewEx_Click);
+            // 
             // lblTotalExp
             // 
             this.lblTotalExp.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -2174,6 +2770,24 @@
             this.header3.Text = "Expense";
             this.header3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(24, 63);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(395, 33);
+            this.pictureBox6.TabIndex = 88;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(24, 102);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(395, 33);
+            this.pictureBox7.TabIndex = 90;
+            this.pictureBox7.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -2198,6 +2812,17 @@
             this.panel5.Size = new System.Drawing.Size(425, 142);
             this.panel5.TabIndex = 94;
             // 
+            // pictureBox23
+            // 
+            this.pictureBox23.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
+            this.pictureBox23.Location = new System.Drawing.Point(0, 21);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(16, 100);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox23.TabIndex = 100;
+            this.pictureBox23.TabStop = false;
+            // 
             // notifBR
             // 
             this.notifBR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
@@ -2210,6 +2835,41 @@
             this.notifBR.Text = "99";
             this.notifBR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.notifBR.Visible = false;
+            // 
+            // btnNewBR
+            // 
+            this.btnNewBR.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnNewBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnNewBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnNewBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnNewBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnNewBR.Location = new System.Drawing.Point(122, 28);
+            this.btnNewBR.Name = "btnNewBR";
+            this.btnNewBR.Size = new System.Drawing.Size(205, 29);
+            this.btnNewBR.TabIndex = 96;
+            this.btnNewBR.Text = "ADD BUDGET REQUEST";
+            this.btnNewBR.UseVisualStyleBackColor = false;
+            this.btnNewBR.Click += new System.EventHandler(this.btnNewBR_Click);
+            // 
+            // btnViewBR
+            // 
+            this.btnViewBR.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewBR.Enabled = false;
+            this.btnViewBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnViewBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnViewBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnViewBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnViewBR.Location = new System.Drawing.Point(122, 83);
+            this.btnViewBR.Name = "btnViewBR";
+            this.btnViewBR.Size = new System.Drawing.Size(205, 29);
+            this.btnViewBR.TabIndex = 97;
+            this.btnViewBR.Text = "VIEW BUDGET REQUESTS";
+            this.btnViewBR.UseVisualStyleBackColor = false;
+            this.btnViewBR.Click += new System.EventHandler(this.btnViewBR_Click);
             // 
             // label51
             // 
@@ -2244,6 +2904,15 @@
             this.header2.TabIndex = 87;
             this.header2.Text = "Budget";
             this.header2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(24, 81);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(395, 33);
+            this.pictureBox4.TabIndex = 88;
+            this.pictureBox4.TabStop = false;
             // 
             // shadow1
             // 
@@ -2404,6 +3073,45 @@
             this.lblBRHead2.Text = "CATEGORY\r\nDETAILS\r\n";
             this.lblBRHead2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel
+            // 
+            this.panel.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panel.Location = new System.Drawing.Point(355, 185);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(506, 33);
+            this.panel.TabIndex = 347;
+            this.panel.TabStop = false;
+            // 
+            // btnCatMultiple
+            // 
+            this.btnCatMultiple.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCatMultiple.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnCatMultiple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCatMultiple.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnCatMultiple.Location = new System.Drawing.Point(605, 266);
+            this.btnCatMultiple.Name = "btnCatMultiple";
+            this.btnCatMultiple.Size = new System.Drawing.Size(228, 31);
+            this.btnCatMultiple.TabIndex = 5;
+            this.btnCatMultiple.Text = "MULTIPLE";
+            this.btnCatMultiple.UseVisualStyleBackColor = true;
+            this.btnCatMultiple.Click += new System.EventHandler(this.catType_Click);
+            // 
+            // btnCatSingle
+            // 
+            this.btnCatSingle.BackColor = System.Drawing.Color.White;
+            this.btnCatSingle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnCatSingle.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnCatSingle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCatSingle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.btnCatSingle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCatSingle.Location = new System.Drawing.Point(359, 266);
+            this.btnCatSingle.Name = "btnCatSingle";
+            this.btnCatSingle.Size = new System.Drawing.Size(228, 31);
+            this.btnCatSingle.TabIndex = 4;
+            this.btnCatSingle.Text = "SINGLE";
+            this.btnCatSingle.UseVisualStyleBackColor = false;
+            this.btnCatSingle.Click += new System.EventHandler(this.catType_Click);
+            // 
             // lblOthers
             // 
             this.lblOthers.AutoSize = true;
@@ -2475,6 +3183,15 @@
             this.countPurpose.Text = "0/100";
             this.countPurpose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countPurpose.Visible = false;
+            // 
+            // pictureBox37
+            // 
+            this.pictureBox37.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox37.Location = new System.Drawing.Point(31, 221);
+            this.pictureBox37.Name = "pictureBox37";
+            this.pictureBox37.Size = new System.Drawing.Size(868, 26);
+            this.pictureBox37.TabIndex = 348;
+            this.pictureBox37.TabStop = false;
             // 
             // lblCategory
             // 
@@ -2551,6 +3268,24 @@
             this.txtPurpose.TextChanged += new System.EventHandler(this.txtNewCount_TextChanged);
             this.txtPurpose.Enter += new System.EventHandler(this.txtNew_Enter);
             this.txtPurpose.Leave += new System.EventHandler(this.txtNew_Leave);
+            // 
+            // pictureBox38
+            // 
+            this.pictureBox38.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.pictureBox38.Location = new System.Drawing.Point(31, 36);
+            this.pictureBox38.Name = "pictureBox38";
+            this.pictureBox38.Size = new System.Drawing.Size(868, 33);
+            this.pictureBox38.TabIndex = 331;
+            this.pictureBox38.TabStop = false;
+            // 
+            // panelPurpose
+            // 
+            this.panelPurpose.Image = global::BalayPasilungan.Properties.Resources.line;
+            this.panelPurpose.Location = new System.Drawing.Point(355, 81);
+            this.panelPurpose.Name = "panelPurpose";
+            this.panelPurpose.Size = new System.Drawing.Size(506, 29);
+            this.panelPurpose.TabIndex = 334;
+            this.panelPurpose.TabStop = false;
             // 
             // panelCat
             // 
@@ -2735,6 +3470,36 @@
             this.panel16.Size = new System.Drawing.Size(936, 59);
             this.panel16.TabIndex = 332;
             // 
+            // btnBRCancel
+            // 
+            this.btnBRCancel.BackColor = System.Drawing.Color.White;
+            this.btnBRCancel.FlatAppearance.BorderSize = 0;
+            this.btnBRCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRCancel.Location = new System.Drawing.Point(650, 17);
+            this.btnBRCancel.Name = "btnBRCancel";
+            this.btnBRCancel.Size = new System.Drawing.Size(97, 26);
+            this.btnBRCancel.TabIndex = 9;
+            this.btnBRCancel.Text = "CANCEL";
+            this.btnBRCancel.UseVisualStyleBackColor = false;
+            this.btnBRCancel.Click += new System.EventHandler(this.btnBRCancel_Click);
+            // 
+            // btnBRNext
+            // 
+            this.btnBRNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRNext.FlatAppearance.BorderSize = 0;
+            this.btnBRNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRNext.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRNext.ForeColor = System.Drawing.Color.White;
+            this.btnBRNext.Location = new System.Drawing.Point(773, 18);
+            this.btnBRNext.Name = "btnBRNext";
+            this.btnBRNext.Size = new System.Drawing.Size(97, 26);
+            this.btnBRNext.TabIndex = 8;
+            this.btnBRNext.Text = "NEXT";
+            this.btnBRNext.UseVisualStyleBackColor = false;
+            this.btnBRNext.Click += new System.EventHandler(this.btnBRNext_Click);
+            // 
             // label3
             // 
             this.label3.AccessibleDescription = "";
@@ -2801,6 +3566,36 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(936, 59);
             this.panel12.TabIndex = 333;
+            // 
+            // btnBRBack
+            // 
+            this.btnBRBack.BackColor = System.Drawing.Color.White;
+            this.btnBRBack.FlatAppearance.BorderSize = 0;
+            this.btnBRBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRBack.Location = new System.Drawing.Point(650, 17);
+            this.btnBRBack.Name = "btnBRBack";
+            this.btnBRBack.Size = new System.Drawing.Size(97, 26);
+            this.btnBRBack.TabIndex = 4;
+            this.btnBRBack.Text = "BACK";
+            this.btnBRBack.UseVisualStyleBackColor = false;
+            this.btnBRBack.Click += new System.EventHandler(this.btnBRCancel_Click);
+            // 
+            // btnBRConfirm
+            // 
+            this.btnBRConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBRConfirm.FlatAppearance.BorderSize = 0;
+            this.btnBRConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnBRConfirm.Location = new System.Drawing.Point(773, 17);
+            this.btnBRConfirm.Name = "btnBRConfirm";
+            this.btnBRConfirm.Size = new System.Drawing.Size(97, 26);
+            this.btnBRConfirm.TabIndex = 3;
+            this.btnBRConfirm.Text = "CONFIRM";
+            this.btnBRConfirm.UseVisualStyleBackColor = false;
+            this.btnBRConfirm.Click += new System.EventHandler(this.btnBRConfirm_Click);
             // 
             // label1
             // 
@@ -2885,24 +3680,24 @@
             this.BRDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BRDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BRDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BRDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BRDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.BRDetails.ColumnHeadersHeight = 50;
             this.BRDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BRDetails.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BRDetails.DefaultCellStyle = dataGridViewCellStyle28;
             this.BRDetails.EnableHeadersVisualStyles = false;
             this.BRDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.BRDetails.Location = new System.Drawing.Point(91, 183);
@@ -2924,6 +3719,66 @@
             this.BRDetails.TabIndex = 74;
             this.BRDetails.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BRDetails_CellClick);
             this.BRDetails.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
+            // 
+            // pictureBox32
+            // 
+            this.pictureBox32.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox32.Image")));
+            this.pictureBox32.Location = new System.Drawing.Point(91, 394);
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.Size = new System.Drawing.Size(743, 33);
+            this.pictureBox32.TabIndex = 98;
+            this.pictureBox32.TabStop = false;
+            // 
+            // btnAddBR
+            // 
+            this.btnAddBR.BackColor = System.Drawing.Color.White;
+            this.btnAddBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnAddBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddBR.Location = new System.Drawing.Point(704, 431);
+            this.btnAddBR.Name = "btnAddBR";
+            this.btnAddBR.Size = new System.Drawing.Size(130, 29);
+            this.btnAddBR.TabIndex = 0;
+            this.btnAddBR.Text = "ADD ITEM";
+            this.btnAddBR.UseVisualStyleBackColor = false;
+            this.btnAddBR.Click += new System.EventHandler(this.btnAddBR_Click);
+            // 
+            // btnEditBR
+            // 
+            this.btnEditBR.BackColor = System.Drawing.Color.White;
+            this.btnEditBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnEditBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.btnEditBR.Location = new System.Drawing.Point(397, 431);
+            this.btnEditBR.Name = "btnEditBR";
+            this.btnEditBR.Size = new System.Drawing.Size(130, 29);
+            this.btnEditBR.TabIndex = 1;
+            this.btnEditBR.Text = "EDIT ITEM";
+            this.btnEditBR.UseVisualStyleBackColor = false;
+            this.btnEditBR.Click += new System.EventHandler(this.btnEditBR_Click);
+            // 
+            // btnDelBR
+            // 
+            this.btnDelBR.BackColor = System.Drawing.Color.White;
+            this.btnDelBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnDelBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDelBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDelBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDelBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
+            this.btnDelBR.Location = new System.Drawing.Point(91, 431);
+            this.btnDelBR.Name = "btnDelBR";
+            this.btnDelBR.Size = new System.Drawing.Size(130, 29);
+            this.btnDelBR.TabIndex = 2;
+            this.btnDelBR.Text = "DELETE ITEM";
+            this.btnDelBR.UseVisualStyleBackColor = false;
+            this.btnDelBR.Click += new System.EventHandler(this.btnDelBR_Click);
             // 
             // tabBREdit
             // 
@@ -3178,6 +4033,80 @@
             this.countPurpose2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.countPurpose2.Visible = false;
             // 
+            // panel14
+            // 
+            this.panel14.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel14.Controls.Add(this.textBox1);
+            this.panel14.Enabled = false;
+            this.panel14.Location = new System.Drawing.Point(217, 455);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(420, 48);
+            this.panel14.TabIndex = 90;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.textBox1.Location = new System.Drawing.Point(7, 1);
+            this.textBox1.MaxLength = 100;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(404, 25);
+            this.textBox1.TabIndex = 0;
+            // 
+            // panelPurpose2
+            // 
+            this.panelPurpose2.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
+            this.panelPurpose2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelPurpose2.Controls.Add(this.txtPurpose2);
+            this.panelPurpose2.Location = new System.Drawing.Point(217, 56);
+            this.panelPurpose2.Name = "panelPurpose2";
+            this.panelPurpose2.Size = new System.Drawing.Size(420, 48);
+            this.panelPurpose2.TabIndex = 89;
+            // 
+            // txtPurpose2
+            // 
+            this.txtPurpose2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPurpose2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPurpose2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+            this.txtPurpose2.Location = new System.Drawing.Point(7, 1);
+            this.txtPurpose2.MaxLength = 100;
+            this.txtPurpose2.Name = "txtPurpose2";
+            this.txtPurpose2.Size = new System.Drawing.Size(404, 25);
+            this.txtPurpose2.TabIndex = 0;
+            this.txtPurpose2.Text = "Name of purpose.";
+            // 
+            // noFocusRec1
+            // 
+            this.noFocusRec1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.noFocusRec1.FlatAppearance.BorderSize = 0;
+            this.noFocusRec1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.noFocusRec1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.noFocusRec1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.noFocusRec1.Location = new System.Drawing.Point(-1, 553);
+            this.noFocusRec1.Name = "noFocusRec1";
+            this.noFocusRec1.Size = new System.Drawing.Size(424, 40);
+            this.noFocusRec1.TabIndex = 98;
+            this.noFocusRec1.Text = "CANCEL";
+            this.noFocusRec1.UseVisualStyleBackColor = false;
+            // 
+            // noFocusRec2
+            // 
+            this.noFocusRec2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
+            this.noFocusRec2.FlatAppearance.BorderSize = 0;
+            this.noFocusRec2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noFocusRec2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.noFocusRec2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.noFocusRec2.Location = new System.Drawing.Point(422, 553);
+            this.noFocusRec2.Name = "noFocusRec2";
+            this.noFocusRec2.Size = new System.Drawing.Size(424, 40);
+            this.noFocusRec2.TabIndex = 97;
+            this.noFocusRec2.Text = "NEXT STEP";
+            this.noFocusRec2.UseVisualStyleBackColor = false;
+            // 
             // tabDonorInfo
             // 
             this.tabDonorInfo.BackColor = System.Drawing.Color.White;
@@ -3193,6 +4122,38 @@
             this.tabDonorInfo.Size = new System.Drawing.Size(955, 678);
             this.tabDonorInfo.TabIndex = 6;
             this.tabDonorInfo.Click += new System.EventHandler(this.tabDonorInfo_Click);
+            // 
+            // moneyTS
+            // 
+            this.moneyTS.BackColor = System.Drawing.Color.White;
+            this.moneyTS.FlatAppearance.BorderSize = 0;
+            this.moneyTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moneyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.moneyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.moneyTS.Location = new System.Drawing.Point(0, 170);
+            this.moneyTS.Name = "moneyTS";
+            this.moneyTS.Size = new System.Drawing.Size(284, 40);
+            this.moneyTS.TabIndex = 0;
+            this.moneyTS.Text = "Monetary Donations";
+            this.moneyTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.moneyTS.UseVisualStyleBackColor = false;
+            this.moneyTS.Click += new System.EventHandler(this.donorInfo_TS);
+            // 
+            // ikTS
+            // 
+            this.ikTS.BackColor = System.Drawing.Color.White;
+            this.ikTS.FlatAppearance.BorderSize = 0;
+            this.ikTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ikTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ikTS.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ikTS.Location = new System.Drawing.Point(284, 170);
+            this.ikTS.Name = "ikTS";
+            this.ikTS.Size = new System.Drawing.Size(308, 40);
+            this.ikTS.TabIndex = 1;
+            this.ikTS.Text = "In-kind Donations";
+            this.ikTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ikTS.UseVisualStyleBackColor = false;
+            this.ikTS.Click += new System.EventHandler(this.donorInfo_TS);
             // 
             // donorOTS
             // 
@@ -3220,6 +4181,25 @@
             this.headingColor.Name = "headingColor";
             this.headingColor.Size = new System.Drawing.Size(937, 64);
             this.headingColor.TabIndex = 6;
+            // 
+            // btnDonorInfoBack
+            // 
+            this.btnDonorInfoBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnDonorInfoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDonorInfoBack.FlatAppearance.BorderSize = 0;
+            this.btnDonorInfoBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDonorInfoBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDonorInfoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDonorInfoBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDonorInfoBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(209)))), ((int)(((byte)(201)))));
+            this.btnDonorInfoBack.Location = new System.Drawing.Point(9, 6);
+            this.btnDonorInfoBack.Name = "btnDonorInfoBack";
+            this.btnDonorInfoBack.Size = new System.Drawing.Size(76, 22);
+            this.btnDonorInfoBack.TabIndex = 6;
+            this.btnDonorInfoBack.Text = "GO BACK";
+            this.btnDonorInfoBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDonorInfoBack.UseVisualStyleBackColor = false;
+            this.btnDonorInfoBack.Click += new System.EventHandler(this.taskbar_Click);
             // 
             // lblDonorName
             // 
@@ -3262,6 +4242,40 @@
             this.tabMoney.TabIndex = 0;
             this.tabMoney.Text = "tabPage1";
             this.tabMoney.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMoneyD
+            // 
+            this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnAddMoneyD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnAddMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMoneyD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddMoneyD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddMoneyD.Location = new System.Drawing.Point(668, 418);
+            this.btnAddMoneyD.Name = "btnAddMoneyD";
+            this.btnAddMoneyD.Size = new System.Drawing.Size(130, 29);
+            this.btnAddMoneyD.TabIndex = 104;
+            this.btnAddMoneyD.Text = "ADD DONATION";
+            this.btnAddMoneyD.UseVisualStyleBackColor = false;
+            this.btnAddMoneyD.Click += new System.EventHandler(this.btnAddMoneyD_Click);
+            // 
+            // btnEditMoneyD
+            // 
+            this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
+            this.btnEditMoneyD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnEditMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditMoneyD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditMoneyD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.btnEditMoneyD.Location = new System.Drawing.Point(106, 418);
+            this.btnEditMoneyD.Name = "btnEditMoneyD";
+            this.btnEditMoneyD.Size = new System.Drawing.Size(130, 29);
+            this.btnEditMoneyD.TabIndex = 103;
+            this.btnEditMoneyD.Text = "UPDATE DONATION";
+            this.btnEditMoneyD.UseVisualStyleBackColor = false;
+            this.btnEditMoneyD.Click += new System.EventHandler(this.btnEditMoneyD_Click);
             // 
             // cbFilter
             // 
@@ -3322,24 +4336,24 @@
             this.donationMoney.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donationMoney.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.donationMoney.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationMoney.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationMoney.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.donationMoney.ColumnHeadersHeight = 50;
             this.donationMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationMoney.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationMoney.DefaultCellStyle = dataGridViewCellStyle30;
             this.donationMoney.EnableHeadersVisualStyles = false;
             this.donationMoney.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.donationMoney.Location = new System.Drawing.Point(2, 57);
@@ -3361,6 +4375,15 @@
             this.donationMoney.TabIndex = 11;
             this.donationMoney.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.donationMoney_CellDoubleClick);
             this.donationMoney.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
+            // 
+            // searchLine
+            // 
+            this.searchLine.Image = ((System.Drawing.Image)(resources.GetObject("searchLine.Image")));
+            this.searchLine.Location = new System.Drawing.Point(657, 28);
+            this.searchLine.Name = "searchLine";
+            this.searchLine.Size = new System.Drawing.Size(232, 23);
+            this.searchLine.TabIndex = 14;
+            this.searchLine.TabStop = false;
             // 
             // searchOption
             // 
@@ -3414,6 +4437,40 @@
             this.tabIK.Text = "tabPage2";
             this.tabIK.UseVisualStyleBackColor = true;
             // 
+            // btnAddIK
+            // 
+            this.btnAddIK.BackColor = System.Drawing.Color.White;
+            this.btnAddIK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnAddIK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddIK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnAddIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddIK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnAddIK.Location = new System.Drawing.Point(668, 418);
+            this.btnAddIK.Name = "btnAddIK";
+            this.btnAddIK.Size = new System.Drawing.Size(130, 29);
+            this.btnAddIK.TabIndex = 107;
+            this.btnAddIK.Text = "ADD DONATION";
+            this.btnAddIK.UseVisualStyleBackColor = false;
+            this.btnAddIK.Click += new System.EventHandler(this.btnAddIK_Click);
+            // 
+            // btnEditIK
+            // 
+            this.btnEditIK.BackColor = System.Drawing.Color.White;
+            this.btnEditIK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnEditIK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditIK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditIK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.btnEditIK.Location = new System.Drawing.Point(106, 418);
+            this.btnEditIK.Name = "btnEditIK";
+            this.btnEditIK.Size = new System.Drawing.Size(130, 29);
+            this.btnEditIK.TabIndex = 106;
+            this.btnEditIK.Text = "UPDATE DONATION";
+            this.btnEditIK.UseVisualStyleBackColor = false;
+            this.btnEditIK.Click += new System.EventHandler(this.btnEditIK_Click);
+            // 
             // multiSelect2
             // 
             this.multiSelect2.AutoSize = true;
@@ -3452,24 +4509,24 @@
             this.donationIK.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.donationIK.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.donationIK.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationIK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationIK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.donationIK.ColumnHeadersHeight = 50;
             this.donationIK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.donationIK.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.donationIK.DefaultCellStyle = dataGridViewCellStyle32;
             this.donationIK.EnableHeadersVisualStyles = false;
             this.donationIK.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.donationIK.Location = new System.Drawing.Point(2, 57);
@@ -3527,6 +4584,15 @@
             this.radioButton2.Text = "Date";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(657, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(232, 23);
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
+            // 
             // tabDonorO
             // 
             this.tabDonorO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -3538,6 +4604,40 @@
             this.tabDonorO.Size = new System.Drawing.Size(935, 473);
             this.tabDonorO.TabIndex = 2;
             this.tabDonorO.Text = "tabPage1";
+            // 
+            // btnArchiveProfile
+            // 
+            this.btnArchiveProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
+            this.btnArchiveProfile.FlatAppearance.BorderSize = 0;
+            this.btnArchiveProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnArchiveProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnArchiveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchiveProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnArchiveProfile.ForeColor = System.Drawing.Color.White;
+            this.btnArchiveProfile.Location = new System.Drawing.Point(283, 240);
+            this.btnArchiveProfile.Name = "btnArchiveProfile";
+            this.btnArchiveProfile.Size = new System.Drawing.Size(308, 35);
+            this.btnArchiveProfile.TabIndex = 1;
+            this.btnArchiveProfile.Text = "CHANGE TO INACTIVE";
+            this.btnArchiveProfile.UseVisualStyleBackColor = false;
+            this.btnArchiveProfile.Click += new System.EventHandler(this.btnRemoveDonor_Click);
+            // 
+            // btnEditDonor
+            // 
+            this.btnEditDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
+            this.btnEditDonor.FlatAppearance.BorderSize = 0;
+            this.btnEditDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnEditDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
+            this.btnEditDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnEditDonor.ForeColor = System.Drawing.Color.White;
+            this.btnEditDonor.Location = new System.Drawing.Point(283, 156);
+            this.btnEditDonor.Name = "btnEditDonor";
+            this.btnEditDonor.Size = new System.Drawing.Size(308, 35);
+            this.btnEditDonor.TabIndex = 0;
+            this.btnEditDonor.Text = "UPDATE DONOR PROFILE";
+            this.btnEditDonor.UseVisualStyleBackColor = false;
+            this.btnEditDonor.Click += new System.EventHandler(this.btnEditDonor_Click);
             // 
             // panel7
             // 
@@ -3575,6 +4675,28 @@
             this.label32.Size = new System.Drawing.Size(33, 13);
             this.label32.TabIndex = 42;
             this.label32.Text = "TYPE";
+            // 
+            // divider
+            // 
+            this.divider.BackColor = System.Drawing.Color.Transparent;
+            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
+            this.divider.Location = new System.Drawing.Point(278, 6);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(16, 65);
+            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider.TabIndex = 40;
+            this.divider.TabStop = false;
+            // 
+            // divider2
+            // 
+            this.divider2.BackColor = System.Drawing.Color.Transparent;
+            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
+            this.divider2.Location = new System.Drawing.Point(583, 9);
+            this.divider2.Name = "divider2";
+            this.divider2.Size = new System.Drawing.Size(16, 65);
+            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.divider2.TabIndex = 41;
+            this.divider2.TabStop = false;
             // 
             // txtDAddress
             // 
@@ -3774,6 +4896,25 @@
             this.panelPBR.Size = new System.Drawing.Size(937, 125);
             this.panelPBR.TabIndex = 10;
             // 
+            // btnPBRBack
+            // 
+            this.btnPBRBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnPBRBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPBRBack.FlatAppearance.BorderSize = 0;
+            this.btnPBRBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPBRBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPBRBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPBRBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnPBRBack.ForeColor = System.Drawing.Color.White;
+            this.btnPBRBack.Location = new System.Drawing.Point(6, 6);
+            this.btnPBRBack.Name = "btnPBRBack";
+            this.btnPBRBack.Size = new System.Drawing.Size(76, 22);
+            this.btnPBRBack.TabIndex = 4;
+            this.btnPBRBack.Text = "GO BACK";
+            this.btnPBRBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPBRBack.UseVisualStyleBackColor = false;
+            this.btnPBRBack.Click += new System.EventHandler(this.btnPBRBack_Click);
+            // 
             // lblBRHeader
             // 
             this.lblBRHeader.AutoSize = true;
@@ -3823,24 +4964,24 @@
             this.BRList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BRList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.BRList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BRList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BRList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.BRList.ColumnHeadersHeight = 50;
             this.BRList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BRList.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BRList.DefaultCellStyle = dataGridViewCellStyle34;
             this.BRList.EnableHeadersVisualStyles = false;
             this.BRList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.BRList.Location = new System.Drawing.Point(0, 35);
@@ -3862,6 +5003,26 @@
             this.BRList.TabIndex = 10;
             this.BRList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BRList_CellDoubleClick);
             this.BRList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(184, 17);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(753, 23);
+            this.pictureBox10.TabIndex = 54;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(0, 17);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(356, 23);
+            this.pictureBox11.TabIndex = 55;
+            this.pictureBox11.TabStop = false;
             // 
             // PBRDecide
             // 
@@ -3886,6 +5047,23 @@
             this.PBRDecide.Size = new System.Drawing.Size(935, 550);
             this.PBRDecide.TabIndex = 1;
             this.PBRDecide.Text = "tabPage2";
+            // 
+            // exportPDF
+            // 
+            this.exportPDF.BackColor = System.Drawing.Color.White;
+            this.exportPDF.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.exportPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.exportPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.exportPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportPDF.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.exportPDF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.exportPDF.Location = new System.Drawing.Point(679, 29);
+            this.exportPDF.Name = "exportPDF";
+            this.exportPDF.Size = new System.Drawing.Size(205, 29);
+            this.exportPDF.TabIndex = 97;
+            this.exportPDF.Text = "BUDGET REQUEST FORM";
+            this.exportPDF.UseVisualStyleBackColor = false;
+            this.exportPDF.Click += new System.EventHandler(this.exportPDF_Click);
             // 
             // lblOn
             // 
@@ -4009,6 +5187,22 @@
             this.panelOptions.Size = new System.Drawing.Size(937, 39);
             this.panelOptions.TabIndex = 77;
             // 
+            // btnBRApprove
+            // 
+            this.btnBRApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnBRApprove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBRApprove.BackgroundImage")));
+            this.btnBRApprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBRApprove.FlatAppearance.BorderSize = 0;
+            this.btnBRApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRApprove.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRApprove.ForeColor = System.Drawing.Color.White;
+            this.btnBRApprove.Location = new System.Drawing.Point(619, -1);
+            this.btnBRApprove.Name = "btnBRApprove";
+            this.btnBRApprove.Size = new System.Drawing.Size(318, 40);
+            this.btnBRApprove.TabIndex = 1;
+            this.btnBRApprove.UseVisualStyleBackColor = false;
+            this.btnBRApprove.Click += new System.EventHandler(this.btnBRApprove_Click);
+            // 
             // lblOptions1
             // 
             this.lblOptions1.AutoSize = true;
@@ -4019,6 +5213,22 @@
             this.lblOptions1.Size = new System.Drawing.Size(54, 13);
             this.lblOptions1.TabIndex = 0;
             this.lblOptions1.Text = "OPTIONS";
+            // 
+            // btnBRDisapprove
+            // 
+            this.btnBRDisapprove.BackColor = System.Drawing.Color.Transparent;
+            this.btnBRDisapprove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBRDisapprove.BackgroundImage")));
+            this.btnBRDisapprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBRDisapprove.FlatAppearance.BorderSize = 0;
+            this.btnBRDisapprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBRDisapprove.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBRDisapprove.ForeColor = System.Drawing.Color.White;
+            this.btnBRDisapprove.Location = new System.Drawing.Point(0, 0);
+            this.btnBRDisapprove.Name = "btnBRDisapprove";
+            this.btnBRDisapprove.Size = new System.Drawing.Size(318, 40);
+            this.btnBRDisapprove.TabIndex = 2;
+            this.btnBRDisapprove.UseVisualStyleBackColor = false;
+            this.btnBRDisapprove.Click += new System.EventHandler(this.btnBRDisapprove_Click);
             // 
             // panel10
             // 
@@ -4040,24 +5250,24 @@
             this.PBRDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PBRDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.PBRDetails.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PBRDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PBRDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.PBRDetails.ColumnHeadersHeight = 50;
             this.PBRDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle56.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PBRDetails.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PBRDetails.DefaultCellStyle = dataGridViewCellStyle36;
             this.PBRDetails.EnableHeadersVisualStyles = false;
             this.PBRDetails.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.PBRDetails.Location = new System.Drawing.Point(-1, -13);
@@ -4078,6 +5288,28 @@
             this.PBRDetails.Size = new System.Drawing.Size(935, 324);
             this.PBRDetails.TabIndex = 0;
             // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Location = new System.Drawing.Point(605, 60);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(15, 111);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox13.TabIndex = 92;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(278, 60);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(15, 111);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox12.TabIndex = 83;
+            this.pictureBox12.TabStop = false;
+            // 
             // approvedBR
             // 
             this.approvedBR.BackColor = System.Drawing.Color.White;
@@ -4092,6 +5324,17 @@
             this.approvedBR.Size = new System.Drawing.Size(935, 550);
             this.approvedBR.TabIndex = 2;
             this.approvedBR.Text = "tabPage3";
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox33.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox33.Image")));
+            this.pictureBox33.Location = new System.Drawing.Point(739, 8);
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.Size = new System.Drawing.Size(16, 23);
+            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox33.TabIndex = 103;
+            this.pictureBox33.TabStop = false;
             // 
             // multiABR
             // 
@@ -4120,24 +5363,24 @@
             this.approvedBRList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.approvedBRList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.approvedBRList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.approvedBRList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.approvedBRList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.approvedBRList.ColumnHeadersHeight = 50;
             this.approvedBRList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.approvedBRList.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.approvedBRList.DefaultCellStyle = dataGridViewCellStyle38;
             this.approvedBRList.EnableHeadersVisualStyles = false;
             this.approvedBRList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.approvedBRList.Location = new System.Drawing.Point(0, 35);
@@ -4159,6 +5402,40 @@
             this.approvedBRList.TabIndex = 0;
             this.approvedBRList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BRDetails_CellClick);
             this.approvedBRList.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.tableNoSelect_DataBindingComplete);
+            // 
+            // btnCancelABR
+            // 
+            this.btnCancelABR.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelABR.FlatAppearance.BorderSize = 0;
+            this.btnCancelABR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnCancelABR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnCancelABR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelABR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnCancelABR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
+            this.btnCancelABR.Location = new System.Drawing.Point(587, 5);
+            this.btnCancelABR.Name = "btnCancelABR";
+            this.btnCancelABR.Size = new System.Drawing.Size(138, 29);
+            this.btnCancelABR.TabIndex = 3;
+            this.btnCancelABR.Text = "CANCEL REQUEST";
+            this.btnCancelABR.UseVisualStyleBackColor = false;
+            this.btnCancelABR.Click += new System.EventHandler(this.btnCancelABR_Click);
+            // 
+            // btnBtoE
+            // 
+            this.btnBtoE.BackColor = System.Drawing.Color.Transparent;
+            this.btnBtoE.FlatAppearance.BorderSize = 0;
+            this.btnBtoE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnBtoE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnBtoE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBtoE.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnBtoE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnBtoE.Location = new System.Drawing.Point(770, 5);
+            this.btnBtoE.Name = "btnBtoE";
+            this.btnBtoE.Size = new System.Drawing.Size(138, 29);
+            this.btnBtoE.TabIndex = 1;
+            this.btnBtoE.Text = "CONVERT TO EXPENSE";
+            this.btnBtoE.UseVisualStyleBackColor = false;
+            this.btnBtoE.Click += new System.EventHandler(this.btnBtoE_Click);
             // 
             // tabEx
             // 
@@ -4251,6 +5528,42 @@
             this.panelExpOp.TabIndex = 0;
             this.panelExpOp.Visible = false;
             // 
+            // btnDelExp
+            // 
+            this.btnDelExp.BackColor = System.Drawing.Color.White;
+            this.btnDelExp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnDelExp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnDelExp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(60)))), ((int)(((byte)(77)))));
+            this.btnDelExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelExp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnDelExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnDelExp.Location = new System.Drawing.Point(1, 31);
+            this.btnDelExp.Name = "btnDelExp";
+            this.btnDelExp.Size = new System.Drawing.Size(183, 29);
+            this.btnDelExp.TabIndex = 4;
+            this.btnDelExp.TabStop = false;
+            this.btnDelExp.Text = "ARCHIVE EXPENSE RECORDS";
+            this.btnDelExp.UseVisualStyleBackColor = false;
+            this.btnDelExp.Click += new System.EventHandler(this.btnDelExp_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.White;
+            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(60)))), ((int)(((byte)(77)))));
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            this.btnExport.Location = new System.Drawing.Point(1, 2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(183, 29);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.TabStop = false;
+            this.btnExport.Text = "GENERATE EXPENSE REPORT";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // multiExp
             // 
             this.multiExp.AutoSize = true;
@@ -4277,24 +5590,24 @@
             this.expList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.expList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.expList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.expList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.expList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.expList.ColumnHeadersHeight = 50;
             this.expList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle60.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
-            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
-            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.expList.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(162)))), ((int)(((byte)(162)))));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(230)))), ((int)(((byte)(225)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.expList.DefaultCellStyle = dataGridViewCellStyle40;
             this.expList.EnableHeadersVisualStyles = false;
             this.expList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.expList.Location = new System.Drawing.Point(0, 268);
@@ -4683,6 +5996,25 @@
             this.panelExp.Size = new System.Drawing.Size(937, 105);
             this.panelExp.TabIndex = 10;
             // 
+            // btnExBack
+            // 
+            this.btnExBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnExBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExBack.FlatAppearance.BorderSize = 0;
+            this.btnExBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnExBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnExBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnExBack.ForeColor = System.Drawing.Color.White;
+            this.btnExBack.Location = new System.Drawing.Point(13, 6);
+            this.btnExBack.Name = "btnExBack";
+            this.btnExBack.Size = new System.Drawing.Size(76, 22);
+            this.btnExBack.TabIndex = 97;
+            this.btnExBack.Text = "GO BACK";
+            this.btnExBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExBack.UseVisualStyleBackColor = false;
+            this.btnExBack.Click += new System.EventHandler(this.taskbar_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -4694,508 +6026,6 @@
             this.label4.Size = new System.Drawing.Size(291, 62);
             this.label4.TabIndex = 3;
             this.label4.Text = "Expenditures";
-            // 
-            // logo_main
-            // 
-            this.logo_main.BackColor = System.Drawing.Color.White;
-            this.logo_main.BackgroundImage = global::BalayPasilungan.Properties.Resources.main_fade;
-            this.logo_main.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo_main.Location = new System.Drawing.Point(20, 46);
-            this.logo_main.Name = "logo_main";
-            this.logo_main.Size = new System.Drawing.Size(50, 50);
-            this.logo_main.TabIndex = 6;
-            this.logo_main.TabStop = false;
-            this.logo_main.Click += new System.EventHandler(this.logo_click);
-            // 
-            // logo_donation
-            // 
-            this.logo_donation.BackColor = System.Drawing.Color.White;
-            this.logo_donation.BackgroundImage = global::BalayPasilungan.Properties.Resources.donation_fade;
-            this.logo_donation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo_donation.Location = new System.Drawing.Point(20, 139);
-            this.logo_donation.Name = "logo_donation";
-            this.logo_donation.Size = new System.Drawing.Size(50, 50);
-            this.logo_donation.TabIndex = 5;
-            this.logo_donation.TabStop = false;
-            this.logo_donation.Click += new System.EventHandler(this.logo_click);
-            // 
-            // logo_finance
-            // 
-            this.logo_finance.BackColor = System.Drawing.Color.White;
-            this.logo_finance.BackgroundImage = global::BalayPasilungan.Properties.Resources.finance_fade;
-            this.logo_finance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo_finance.Location = new System.Drawing.Point(18, 231);
-            this.logo_finance.Name = "logo_finance";
-            this.logo_finance.Size = new System.Drawing.Size(52, 50);
-            this.logo_finance.TabIndex = 4;
-            this.logo_finance.TabStop = false;
-            this.logo_finance.Click += new System.EventHandler(this.logo_click);
-            // 
-            // pictureBox35
-            // 
-            this.pictureBox35.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox35.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox35.Image")));
-            this.pictureBox35.Location = new System.Drawing.Point(747, 8);
-            this.pictureBox35.Name = "pictureBox35";
-            this.pictureBox35.Size = new System.Drawing.Size(16, 23);
-            this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox35.TabIndex = 105;
-            this.pictureBox35.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(184, 17);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(753, 23);
-            this.pictureBox3.TabIndex = 54;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 17);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(356, 23);
-            this.pictureBox2.TabIndex = 55;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(677, 11);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(239, 23);
-            this.pictureBox20.TabIndex = 107;
-            this.pictureBox20.TabStop = false;
-            // 
-            // pictureBox34
-            // 
-            this.pictureBox34.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox34.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox34.Image")));
-            this.pictureBox34.Location = new System.Drawing.Point(747, 8);
-            this.pictureBox34.Name = "pictureBox34";
-            this.pictureBox34.Size = new System.Drawing.Size(16, 23);
-            this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox34.TabIndex = 104;
-            this.pictureBox34.TabStop = false;
-            // 
-            // pictureBox22
-            // 
-            this.pictureBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
-            this.pictureBox22.Location = new System.Drawing.Point(0, 17);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(356, 23);
-            this.pictureBox22.TabIndex = 59;
-            this.pictureBox22.TabStop = false;
-            // 
-            // pictureBox21
-            // 
-            this.pictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
-            this.pictureBox21.Location = new System.Drawing.Point(184, 17);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(753, 23);
-            this.pictureBox21.TabIndex = 58;
-            this.pictureBox21.TabStop = false;
-            // 
-            // panelMobile
-            // 
-            this.panelMobile.Image = ((System.Drawing.Image)(resources.GetObject("panelMobile.Image")));
-            this.panelMobile.Location = new System.Drawing.Point(349, 228);
-            this.panelMobile.Name = "panelMobile";
-            this.panelMobile.Size = new System.Drawing.Size(193, 33);
-            this.panelMobile.TabIndex = 240;
-            this.panelMobile.TabStop = false;
-            // 
-            // panelPhone
-            // 
-            this.panelPhone.Image = ((System.Drawing.Image)(resources.GetObject("panelPhone.Image")));
-            this.panelPhone.Location = new System.Drawing.Point(349, 171);
-            this.panelPhone.Name = "panelPhone";
-            this.panelPhone.Size = new System.Drawing.Size(193, 33);
-            this.panelPhone.TabIndex = 239;
-            this.panelPhone.TabStop = false;
-            // 
-            // panelDName
-            // 
-            this.panelDName.Image = ((System.Drawing.Image)(resources.GetObject("panelDName.Image")));
-            this.panelDName.Location = new System.Drawing.Point(349, 76);
-            this.panelDName.Name = "panelDName";
-            this.panelDName.Size = new System.Drawing.Size(506, 33);
-            this.panelDName.TabIndex = 231;
-            this.panelDName.TabStop = false;
-            // 
-            // pictureBox25
-            // 
-            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
-            this.pictureBox25.Location = new System.Drawing.Point(29, 389);
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox25.TabIndex = 225;
-            this.pictureBox25.TabStop = false;
-            // 
-            // pictureBox26
-            // 
-            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
-            this.pictureBox26.Location = new System.Drawing.Point(29, 28);
-            this.pictureBox26.Name = "pictureBox26";
-            this.pictureBox26.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox26.TabIndex = 224;
-            this.pictureBox26.TabStop = false;
-            // 
-            // panelEmail
-            // 
-            this.panelEmail.Image = ((System.Drawing.Image)(resources.GetObject("panelEmail.Image")));
-            this.panelEmail.Location = new System.Drawing.Point(348, 282);
-            this.panelEmail.Name = "panelEmail";
-            this.panelEmail.Size = new System.Drawing.Size(506, 33);
-            this.panelEmail.TabIndex = 245;
-            this.panelEmail.TabStop = false;
-            // 
-            // pictureBox27
-            // 
-            this.pictureBox27.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox27.Image")));
-            this.pictureBox27.Location = new System.Drawing.Point(522, 218);
-            this.pictureBox27.Name = "pictureBox27";
-            this.pictureBox27.Size = new System.Drawing.Size(344, 33);
-            this.pictureBox27.TabIndex = 268;
-            this.pictureBox27.TabStop = false;
-            // 
-            // pictureBox28
-            // 
-            this.pictureBox28.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox28.Image")));
-            this.pictureBox28.Location = new System.Drawing.Point(73, 42);
-            this.pictureBox28.Name = "pictureBox28";
-            this.pictureBox28.Size = new System.Drawing.Size(793, 33);
-            this.pictureBox28.TabIndex = 265;
-            this.pictureBox28.TabStop = false;
-            // 
-            // pictureBox29
-            // 
-            this.pictureBox29.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox29.Image")));
-            this.pictureBox29.Location = new System.Drawing.Point(73, 218);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(344, 33);
-            this.pictureBox29.TabIndex = 266;
-            this.pictureBox29.TabStop = false;
-            // 
-            // panelMobileEdit
-            // 
-            this.panelMobileEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelMobileEdit.Image")));
-            this.panelMobileEdit.Location = new System.Drawing.Point(348, 224);
-            this.panelMobileEdit.Name = "panelMobileEdit";
-            this.panelMobileEdit.Size = new System.Drawing.Size(193, 33);
-            this.panelMobileEdit.TabIndex = 301;
-            this.panelMobileEdit.TabStop = false;
-            // 
-            // panelPhoneEdit
-            // 
-            this.panelPhoneEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelPhoneEdit.Image")));
-            this.panelPhoneEdit.Location = new System.Drawing.Point(349, 164);
-            this.panelPhoneEdit.Name = "panelPhoneEdit";
-            this.panelPhoneEdit.Size = new System.Drawing.Size(193, 33);
-            this.panelPhoneEdit.TabIndex = 300;
-            this.panelPhoneEdit.TabStop = false;
-            // 
-            // panelDNameEdit
-            // 
-            this.panelDNameEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelDNameEdit.Image")));
-            this.panelDNameEdit.Location = new System.Drawing.Point(348, 83);
-            this.panelDNameEdit.Name = "panelDNameEdit";
-            this.panelDNameEdit.Size = new System.Drawing.Size(506, 33);
-            this.panelDNameEdit.TabIndex = 292;
-            this.panelDNameEdit.TabStop = false;
-            // 
-            // pictureBox30
-            // 
-            this.pictureBox30.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox30.Image")));
-            this.pictureBox30.Location = new System.Drawing.Point(29, 389);
-            this.pictureBox30.Name = "pictureBox30";
-            this.pictureBox30.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox30.TabIndex = 287;
-            this.pictureBox30.TabStop = false;
-            // 
-            // pictureBox31
-            // 
-            this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
-            this.pictureBox31.Location = new System.Drawing.Point(29, 28);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox31.TabIndex = 286;
-            this.pictureBox31.TabStop = false;
-            // 
-            // panelEmailEdit
-            // 
-            this.panelEmailEdit.Image = ((System.Drawing.Image)(resources.GetObject("panelEmailEdit.Image")));
-            this.panelEmailEdit.Location = new System.Drawing.Point(348, 278);
-            this.panelEmailEdit.Name = "panelEmailEdit";
-            this.panelEmailEdit.Size = new System.Drawing.Size(506, 33);
-            this.panelEmailEdit.TabIndex = 305;
-            this.panelEmailEdit.TabStop = false;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
-            this.pictureBox17.Location = new System.Drawing.Point(443, 21);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(16, 100);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox17.TabIndex = 96;
-            this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(24, 60);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(395, 33);
-            this.pictureBox8.TabIndex = 88;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(24, 99);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(395, 33);
-            this.pictureBox9.TabIndex = 90;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox24
-            // 
-            this.pictureBox24.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox24.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox24.Image")));
-            this.pictureBox24.Location = new System.Drawing.Point(0, 21);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(16, 100);
-            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox24.TabIndex = 101;
-            this.pictureBox24.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(24, 63);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(395, 33);
-            this.pictureBox6.TabIndex = 88;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(24, 102);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(395, 33);
-            this.pictureBox7.TabIndex = 90;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox23
-            // 
-            this.pictureBox23.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
-            this.pictureBox23.Location = new System.Drawing.Point(0, 21);
-            this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.Size = new System.Drawing.Size(16, 100);
-            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox23.TabIndex = 100;
-            this.pictureBox23.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(24, 81);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(395, 33);
-            this.pictureBox4.TabIndex = 88;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panel
-            // 
-            this.panel.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panel.Location = new System.Drawing.Point(355, 185);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(506, 33);
-            this.panel.TabIndex = 347;
-            this.panel.TabStop = false;
-            // 
-            // pictureBox37
-            // 
-            this.pictureBox37.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox37.Location = new System.Drawing.Point(31, 221);
-            this.pictureBox37.Name = "pictureBox37";
-            this.pictureBox37.Size = new System.Drawing.Size(868, 26);
-            this.pictureBox37.TabIndex = 348;
-            this.pictureBox37.TabStop = false;
-            // 
-            // pictureBox38
-            // 
-            this.pictureBox38.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.pictureBox38.Location = new System.Drawing.Point(31, 36);
-            this.pictureBox38.Name = "pictureBox38";
-            this.pictureBox38.Size = new System.Drawing.Size(868, 33);
-            this.pictureBox38.TabIndex = 331;
-            this.pictureBox38.TabStop = false;
-            // 
-            // panelPurpose
-            // 
-            this.panelPurpose.Image = global::BalayPasilungan.Properties.Resources.line;
-            this.panelPurpose.Location = new System.Drawing.Point(355, 81);
-            this.panelPurpose.Name = "panelPurpose";
-            this.panelPurpose.Size = new System.Drawing.Size(506, 29);
-            this.panelPurpose.TabIndex = 334;
-            this.panelPurpose.TabStop = false;
-            // 
-            // pictureBox32
-            // 
-            this.pictureBox32.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox32.Image")));
-            this.pictureBox32.Location = new System.Drawing.Point(91, 394);
-            this.pictureBox32.Name = "pictureBox32";
-            this.pictureBox32.Size = new System.Drawing.Size(743, 33);
-            this.pictureBox32.TabIndex = 98;
-            this.pictureBox32.TabStop = false;
-            // 
-            // panel14
-            // 
-            this.panel14.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel14.Controls.Add(this.textBox1);
-            this.panel14.Enabled = false;
-            this.panel14.Location = new System.Drawing.Point(217, 455);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(420, 48);
-            this.panel14.TabIndex = 90;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.textBox1.Location = new System.Drawing.Point(7, 1);
-            this.textBox1.MaxLength = 100;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(404, 25);
-            this.textBox1.TabIndex = 0;
-            // 
-            // panelPurpose2
-            // 
-            this.panelPurpose2.BackgroundImage = global::BalayPasilungan.Properties.Resources.line;
-            this.panelPurpose2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelPurpose2.Controls.Add(this.txtPurpose2);
-            this.panelPurpose2.Location = new System.Drawing.Point(217, 56);
-            this.panelPurpose2.Name = "panelPurpose2";
-            this.panelPurpose2.Size = new System.Drawing.Size(420, 48);
-            this.panelPurpose2.TabIndex = 89;
-            // 
-            // txtPurpose2
-            // 
-            this.txtPurpose2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPurpose2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPurpose2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
-            this.txtPurpose2.Location = new System.Drawing.Point(7, 1);
-            this.txtPurpose2.MaxLength = 100;
-            this.txtPurpose2.Name = "txtPurpose2";
-            this.txtPurpose2.Size = new System.Drawing.Size(404, 25);
-            this.txtPurpose2.TabIndex = 0;
-            this.txtPurpose2.Text = "Name of purpose.";
-            // 
-            // searchLine
-            // 
-            this.searchLine.Image = ((System.Drawing.Image)(resources.GetObject("searchLine.Image")));
-            this.searchLine.Location = new System.Drawing.Point(657, 28);
-            this.searchLine.Name = "searchLine";
-            this.searchLine.Size = new System.Drawing.Size(232, 23);
-            this.searchLine.TabIndex = 14;
-            this.searchLine.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(657, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 23);
-            this.pictureBox1.TabIndex = 56;
-            this.pictureBox1.TabStop = false;
-            // 
-            // divider
-            // 
-            this.divider.BackColor = System.Drawing.Color.Transparent;
-            this.divider.Image = ((System.Drawing.Image)(resources.GetObject("divider.Image")));
-            this.divider.Location = new System.Drawing.Point(278, 6);
-            this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(16, 65);
-            this.divider.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider.TabIndex = 40;
-            this.divider.TabStop = false;
-            // 
-            // divider2
-            // 
-            this.divider2.BackColor = System.Drawing.Color.Transparent;
-            this.divider2.Image = ((System.Drawing.Image)(resources.GetObject("divider2.Image")));
-            this.divider2.Location = new System.Drawing.Point(583, 9);
-            this.divider2.Name = "divider2";
-            this.divider2.Size = new System.Drawing.Size(16, 65);
-            this.divider2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.divider2.TabIndex = 41;
-            this.divider2.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(184, 17);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(753, 23);
-            this.pictureBox10.TabIndex = 54;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(0, 17);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(356, 23);
-            this.pictureBox11.TabIndex = 55;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(605, 60);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(15, 111);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox13.TabIndex = 92;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(278, 60);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(15, 111);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox12.TabIndex = 83;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox33
-            // 
-            this.pictureBox33.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox33.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox33.Image")));
-            this.pictureBox33.Location = new System.Drawing.Point(739, 8);
-            this.pictureBox33.Name = "pictureBox33";
-            this.pictureBox33.Size = new System.Drawing.Size(16, 23);
-            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox33.TabIndex = 103;
-            this.pictureBox33.TabStop = false;
             // 
             // pictureBox19
             // 
@@ -5270,825 +6100,6 @@
             this.hdivider.TabIndex = 100;
             this.hdivider.TabStop = false;
             // 
-            // btnMain
-            // 
-            this.btnMain.BackColor = System.Drawing.Color.White;
-            this.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMain.FlatAppearance.BorderSize = 0;
-            this.btnMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMain.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnMain.Location = new System.Drawing.Point(5, 31);
-            this.btnMain.Name = "btnMain";
-            this.btnMain.Size = new System.Drawing.Size(80, 80);
-            this.btnMain.TabIndex = 3;
-            this.btnMain.Text = "MAIN";
-            this.btnMain.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMain.UseVisualStyleBackColor = false;
-            this.btnMain.Click += new System.EventHandler(this.taskbar_Click);
-            // 
-            // btnFinance
-            // 
-            this.btnFinance.BackColor = System.Drawing.Color.White;
-            this.btnFinance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFinance.FlatAppearance.BorderSize = 0;
-            this.btnFinance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnFinance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnFinance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinance.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnFinance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnFinance.Location = new System.Drawing.Point(5, 217);
-            this.btnFinance.Name = "btnFinance";
-            this.btnFinance.Size = new System.Drawing.Size(80, 80);
-            this.btnFinance.TabIndex = 2;
-            this.btnFinance.Text = "FINANCE";
-            this.btnFinance.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFinance.UseVisualStyleBackColor = false;
-            this.btnFinance.Click += new System.EventHandler(this.taskbar_Click);
-            // 
-            // btnDonation
-            // 
-            this.btnDonation.BackColor = System.Drawing.Color.White;
-            this.btnDonation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDonation.FlatAppearance.BorderSize = 0;
-            this.btnDonation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnDonation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnDonation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonation.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.btnDonation.Location = new System.Drawing.Point(5, 124);
-            this.btnDonation.Name = "btnDonation";
-            this.btnDonation.Size = new System.Drawing.Size(80, 80);
-            this.btnDonation.TabIndex = 1;
-            this.btnDonation.Text = "DONATION";
-            this.btnDonation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDonation.UseVisualStyleBackColor = false;
-            this.btnDonation.Click += new System.EventHandler(this.taskbar_Click);
-            // 
-            // btnDonateAllBack
-            // 
-            this.btnDonateAllBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnDonateAllBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDonateAllBack.FlatAppearance.BorderSize = 0;
-            this.btnDonateAllBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDonateAllBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDonateAllBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonateAllBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonateAllBack.ForeColor = System.Drawing.Color.White;
-            this.btnDonateAllBack.Location = new System.Drawing.Point(6, 6);
-            this.btnDonateAllBack.Name = "btnDonateAllBack";
-            this.btnDonateAllBack.Size = new System.Drawing.Size(76, 22);
-            this.btnDonateAllBack.TabIndex = 5;
-            this.btnDonateAllBack.Text = "GO BACK";
-            this.btnDonateAllBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDonateAllBack.UseVisualStyleBackColor = false;
-            this.btnDonateAllBack.Click += new System.EventHandler(this.btnPBRBack_Click);
-            // 
-            // btnArchive
-            // 
-            this.btnArchive.BackColor = System.Drawing.Color.Transparent;
-            this.btnArchive.FlatAppearance.BorderSize = 0;
-            this.btnArchive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnArchive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnArchive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnArchive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnArchive.Location = new System.Drawing.Point(774, 5);
-            this.btnArchive.Name = "btnArchive";
-            this.btnArchive.Size = new System.Drawing.Size(136, 29);
-            this.btnArchive.TabIndex = 56;
-            this.btnArchive.Text = "INACTIVE DONORS";
-            this.btnArchive.UseVisualStyleBackColor = false;
-            this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
-            // 
-            // btnAddDonor
-            // 
-            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddDonor.FlatAppearance.BorderSize = 0;
-            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddDonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnAddDonor.Location = new System.Drawing.Point(618, 5);
-            this.btnAddDonor.Name = "btnAddDonor";
-            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
-            this.btnAddDonor.TabIndex = 1;
-            this.btnAddDonor.Text = "ADD DONOR";
-            this.btnAddDonor.UseVisualStyleBackColor = false;
-            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
-            // 
-            // btnDonationReport
-            // 
-            this.btnDonationReport.BackColor = System.Drawing.Color.White;
-            this.btnDonationReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDonationReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDonationReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDonationReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonationReport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonationReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonationReport.Location = new System.Drawing.Point(18, 6);
-            this.btnDonationReport.Name = "btnDonationReport";
-            this.btnDonationReport.Size = new System.Drawing.Size(205, 29);
-            this.btnDonationReport.TabIndex = 110;
-            this.btnDonationReport.Text = "GENERATE DONATION REPORT";
-            this.btnDonationReport.UseVisualStyleBackColor = false;
-            this.btnDonationReport.Click += new System.EventHandler(this.btnDonationReport_Click);
-            // 
-            // btnActiveAgain
-            // 
-            this.btnActiveAgain.BackColor = System.Drawing.Color.Transparent;
-            this.btnActiveAgain.FlatAppearance.BorderSize = 0;
-            this.btnActiveAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnActiveAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnActiveAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActiveAgain.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnActiveAgain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnActiveAgain.Location = new System.Drawing.Point(599, 5);
-            this.btnActiveAgain.Name = "btnActiveAgain";
-            this.btnActiveAgain.Size = new System.Drawing.Size(136, 29);
-            this.btnActiveAgain.TabIndex = 60;
-            this.btnActiveAgain.Text = "CHANGE TO ACTIVE";
-            this.btnActiveAgain.UseVisualStyleBackColor = false;
-            this.btnActiveAgain.Click += new System.EventHandler(this.btnActiveAgain_Click);
-            // 
-            // btnDonorsActive
-            // 
-            this.btnDonorsActive.BackColor = System.Drawing.Color.Transparent;
-            this.btnDonorsActive.FlatAppearance.BorderSize = 0;
-            this.btnDonorsActive.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnDonorsActive.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnDonorsActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorsActive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorsActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonorsActive.Location = new System.Drawing.Point(774, 5);
-            this.btnDonorsActive.Name = "btnDonorsActive";
-            this.btnDonorsActive.Size = new System.Drawing.Size(136, 29);
-            this.btnDonorsActive.TabIndex = 57;
-            this.btnDonorsActive.Text = "ACTIVE DONORS";
-            this.btnDonorsActive.UseVisualStyleBackColor = false;
-            this.btnDonorsActive.Click += new System.EventHandler(this.taskbar_Click);
-            // 
-            // btnDonorCancel
-            // 
-            this.btnDonorCancel.BackColor = System.Drawing.Color.White;
-            this.btnDonorCancel.FlatAppearance.BorderSize = 0;
-            this.btnDonorCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonorCancel.Location = new System.Drawing.Point(650, 17);
-            this.btnDonorCancel.Name = "btnDonorCancel";
-            this.btnDonorCancel.Size = new System.Drawing.Size(97, 26);
-            this.btnDonorCancel.TabIndex = 11;
-            this.btnDonorCancel.Text = "CANCEL";
-            this.btnDonorCancel.UseVisualStyleBackColor = false;
-            this.btnDonorCancel.Click += new System.EventHandler(this.btnDonorCancel_Click);
-            // 
-            // btnDonorConfirm
-            // 
-            this.btnDonorConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonorConfirm.FlatAppearance.BorderSize = 0;
-            this.btnDonorConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnDonorConfirm.Location = new System.Drawing.Point(773, 17);
-            this.btnDonorConfirm.Name = "btnDonorConfirm";
-            this.btnDonorConfirm.Size = new System.Drawing.Size(97, 26);
-            this.btnDonorConfirm.TabIndex = 10;
-            this.btnDonorConfirm.Text = "NEXT";
-            this.btnDonorConfirm.UseVisualStyleBackColor = false;
-            this.btnDonorConfirm.Click += new System.EventHandler(this.btnDonorConfirm_Click);
-            // 
-            // btnDonorBack2
-            // 
-            this.btnDonorBack2.BackColor = System.Drawing.Color.White;
-            this.btnDonorBack2.FlatAppearance.BorderSize = 0;
-            this.btnDonorBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorBack2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorBack2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonorBack2.Location = new System.Drawing.Point(197, 528);
-            this.btnDonorBack2.Name = "btnDonorBack2";
-            this.btnDonorBack2.Size = new System.Drawing.Size(97, 26);
-            this.btnDonorBack2.TabIndex = 249;
-            this.btnDonorBack2.Text = "GO BACK";
-            this.btnDonorBack2.UseVisualStyleBackColor = false;
-            this.btnDonorBack2.Click += new System.EventHandler(this.btnDonorBack2_Click);
-            // 
-            // btnDonorFinal
-            // 
-            this.btnDonorFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDonorFinal.FlatAppearance.BorderSize = 0;
-            this.btnDonorFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorFinal.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorFinal.ForeColor = System.Drawing.Color.White;
-            this.btnDonorFinal.Location = new System.Drawing.Point(646, 528);
-            this.btnDonorFinal.Name = "btnDonorFinal";
-            this.btnDonorFinal.Size = new System.Drawing.Size(97, 26);
-            this.btnDonorFinal.TabIndex = 248;
-            this.btnDonorFinal.Text = "CONFIRM";
-            this.btnDonorFinal.UseVisualStyleBackColor = false;
-            this.btnDonorFinal.Click += new System.EventHandler(this.btnDonorFinal_Click);
-            // 
-            // btnDonorEditCancel
-            // 
-            this.btnDonorEditCancel.BackColor = System.Drawing.Color.White;
-            this.btnDonorEditCancel.FlatAppearance.BorderSize = 0;
-            this.btnDonorEditCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorEditCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorEditCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnDonorEditCancel.Location = new System.Drawing.Point(650, 17);
-            this.btnDonorEditCancel.Name = "btnDonorEditCancel";
-            this.btnDonorEditCancel.Size = new System.Drawing.Size(97, 26);
-            this.btnDonorEditCancel.TabIndex = 11;
-            this.btnDonorEditCancel.Text = "CANCEL";
-            this.btnDonorEditCancel.UseVisualStyleBackColor = false;
-            this.btnDonorEditCancel.Click += new System.EventHandler(this.btnDonorEditCancel_Click);
-            // 
-            // btnDonorEditConf
-            // 
-            this.btnDonorEditConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
-            this.btnDonorEditConf.FlatAppearance.BorderSize = 0;
-            this.btnDonorEditConf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorEditConf.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorEditConf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnDonorEditConf.Location = new System.Drawing.Point(773, 17);
-            this.btnDonorEditConf.Name = "btnDonorEditConf";
-            this.btnDonorEditConf.Size = new System.Drawing.Size(97, 26);
-            this.btnDonorEditConf.TabIndex = 10;
-            this.btnDonorEditConf.Text = "NEXT";
-            this.btnDonorEditConf.UseVisualStyleBackColor = false;
-            this.btnDonorEditConf.Click += new System.EventHandler(this.btnDonorEditConf_Click);
-            // 
-            // btnViewMD
-            // 
-            this.btnViewMD.BackColor = System.Drawing.Color.White;
-            this.btnViewMD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnViewMD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnViewMD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnViewMD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewMD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnViewMD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnViewMD.Location = new System.Drawing.Point(122, 57);
-            this.btnViewMD.Name = "btnViewMD";
-            this.btnViewMD.Size = new System.Drawing.Size(205, 29);
-            this.btnViewMD.TabIndex = 96;
-            this.btnViewMD.Text = "VIEW DONATIONS";
-            this.btnViewMD.UseVisualStyleBackColor = false;
-            this.btnViewMD.Click += new System.EventHandler(this.btnViewMD_Click);
-            // 
-            // btnApprovedBR
-            // 
-            this.btnApprovedBR.BackColor = System.Drawing.Color.Transparent;
-            this.btnApprovedBR.Enabled = false;
-            this.btnApprovedBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnApprovedBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnApprovedBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnApprovedBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApprovedBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnApprovedBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnApprovedBR.Location = new System.Drawing.Point(122, 28);
-            this.btnApprovedBR.Name = "btnApprovedBR";
-            this.btnApprovedBR.Size = new System.Drawing.Size(205, 29);
-            this.btnApprovedBR.TabIndex = 100;
-            this.btnApprovedBR.Text = "APPROVED BUDGET REQUESTS";
-            this.btnApprovedBR.UseVisualStyleBackColor = false;
-            this.btnApprovedBR.Click += new System.EventHandler(this.btnApprovedBR_Click);
-            // 
-            // btnViewEx
-            // 
-            this.btnViewEx.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnViewEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnViewEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnViewEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewEx.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnViewEx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnViewEx.Location = new System.Drawing.Point(122, 83);
-            this.btnViewEx.Name = "btnViewEx";
-            this.btnViewEx.Size = new System.Drawing.Size(205, 29);
-            this.btnViewEx.TabIndex = 96;
-            this.btnViewEx.Text = "VIEW EXPENDITURES";
-            this.btnViewEx.UseVisualStyleBackColor = false;
-            this.btnViewEx.Click += new System.EventHandler(this.btnViewEx_Click);
-            // 
-            // btnNewBR
-            // 
-            this.btnNewBR.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnNewBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnNewBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnNewBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnNewBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnNewBR.Location = new System.Drawing.Point(122, 28);
-            this.btnNewBR.Name = "btnNewBR";
-            this.btnNewBR.Size = new System.Drawing.Size(205, 29);
-            this.btnNewBR.TabIndex = 96;
-            this.btnNewBR.Text = "ADD BUDGET REQUEST";
-            this.btnNewBR.UseVisualStyleBackColor = false;
-            this.btnNewBR.Click += new System.EventHandler(this.btnNewBR_Click);
-            // 
-            // btnViewBR
-            // 
-            this.btnViewBR.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewBR.Enabled = false;
-            this.btnViewBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnViewBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnViewBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnViewBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnViewBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnViewBR.Location = new System.Drawing.Point(122, 83);
-            this.btnViewBR.Name = "btnViewBR";
-            this.btnViewBR.Size = new System.Drawing.Size(205, 29);
-            this.btnViewBR.TabIndex = 97;
-            this.btnViewBR.Text = "VIEW BUDGET REQUESTS";
-            this.btnViewBR.UseVisualStyleBackColor = false;
-            this.btnViewBR.Click += new System.EventHandler(this.btnViewBR_Click);
-            // 
-            // btnCatMultiple
-            // 
-            this.btnCatMultiple.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnCatMultiple.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnCatMultiple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCatMultiple.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnCatMultiple.Location = new System.Drawing.Point(605, 266);
-            this.btnCatMultiple.Name = "btnCatMultiple";
-            this.btnCatMultiple.Size = new System.Drawing.Size(228, 31);
-            this.btnCatMultiple.TabIndex = 5;
-            this.btnCatMultiple.Text = "MULTIPLE";
-            this.btnCatMultiple.UseVisualStyleBackColor = true;
-            this.btnCatMultiple.Click += new System.EventHandler(this.catType_Click);
-            // 
-            // btnCatSingle
-            // 
-            this.btnCatSingle.BackColor = System.Drawing.Color.White;
-            this.btnCatSingle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnCatSingle.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnCatSingle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCatSingle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.btnCatSingle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCatSingle.Location = new System.Drawing.Point(359, 266);
-            this.btnCatSingle.Name = "btnCatSingle";
-            this.btnCatSingle.Size = new System.Drawing.Size(228, 31);
-            this.btnCatSingle.TabIndex = 4;
-            this.btnCatSingle.Text = "SINGLE";
-            this.btnCatSingle.UseVisualStyleBackColor = false;
-            this.btnCatSingle.Click += new System.EventHandler(this.catType_Click);
-            // 
-            // btnBRCancel
-            // 
-            this.btnBRCancel.BackColor = System.Drawing.Color.White;
-            this.btnBRCancel.FlatAppearance.BorderSize = 0;
-            this.btnBRCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRCancel.Location = new System.Drawing.Point(650, 17);
-            this.btnBRCancel.Name = "btnBRCancel";
-            this.btnBRCancel.Size = new System.Drawing.Size(97, 26);
-            this.btnBRCancel.TabIndex = 9;
-            this.btnBRCancel.Text = "CANCEL";
-            this.btnBRCancel.UseVisualStyleBackColor = false;
-            this.btnBRCancel.Click += new System.EventHandler(this.btnBRCancel_Click);
-            // 
-            // btnBRNext
-            // 
-            this.btnBRNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRNext.FlatAppearance.BorderSize = 0;
-            this.btnBRNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRNext.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRNext.ForeColor = System.Drawing.Color.White;
-            this.btnBRNext.Location = new System.Drawing.Point(773, 18);
-            this.btnBRNext.Name = "btnBRNext";
-            this.btnBRNext.Size = new System.Drawing.Size(97, 26);
-            this.btnBRNext.TabIndex = 8;
-            this.btnBRNext.Text = "NEXT";
-            this.btnBRNext.UseVisualStyleBackColor = false;
-            this.btnBRNext.Click += new System.EventHandler(this.btnBRNext_Click);
-            // 
-            // btnBRBack
-            // 
-            this.btnBRBack.BackColor = System.Drawing.Color.White;
-            this.btnBRBack.FlatAppearance.BorderSize = 0;
-            this.btnBRBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRBack.Location = new System.Drawing.Point(650, 17);
-            this.btnBRBack.Name = "btnBRBack";
-            this.btnBRBack.Size = new System.Drawing.Size(97, 26);
-            this.btnBRBack.TabIndex = 4;
-            this.btnBRBack.Text = "BACK";
-            this.btnBRBack.UseVisualStyleBackColor = false;
-            this.btnBRBack.Click += new System.EventHandler(this.btnBRCancel_Click);
-            // 
-            // btnBRConfirm
-            // 
-            this.btnBRConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBRConfirm.FlatAppearance.BorderSize = 0;
-            this.btnBRConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRConfirm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnBRConfirm.Location = new System.Drawing.Point(773, 17);
-            this.btnBRConfirm.Name = "btnBRConfirm";
-            this.btnBRConfirm.Size = new System.Drawing.Size(97, 26);
-            this.btnBRConfirm.TabIndex = 3;
-            this.btnBRConfirm.Text = "CONFIRM";
-            this.btnBRConfirm.UseVisualStyleBackColor = false;
-            this.btnBRConfirm.Click += new System.EventHandler(this.btnBRConfirm_Click);
-            // 
-            // btnAddBR
-            // 
-            this.btnAddBR.BackColor = System.Drawing.Color.White;
-            this.btnAddBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnAddBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnAddBR.Location = new System.Drawing.Point(704, 431);
-            this.btnAddBR.Name = "btnAddBR";
-            this.btnAddBR.Size = new System.Drawing.Size(130, 29);
-            this.btnAddBR.TabIndex = 0;
-            this.btnAddBR.Text = "ADD ITEM";
-            this.btnAddBR.UseVisualStyleBackColor = false;
-            this.btnAddBR.Click += new System.EventHandler(this.btnAddBR_Click);
-            // 
-            // btnEditBR
-            // 
-            this.btnEditBR.BackColor = System.Drawing.Color.White;
-            this.btnEditBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnEditBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.btnEditBR.Location = new System.Drawing.Point(397, 431);
-            this.btnEditBR.Name = "btnEditBR";
-            this.btnEditBR.Size = new System.Drawing.Size(130, 29);
-            this.btnEditBR.TabIndex = 1;
-            this.btnEditBR.Text = "EDIT ITEM";
-            this.btnEditBR.UseVisualStyleBackColor = false;
-            this.btnEditBR.Click += new System.EventHandler(this.btnEditBR_Click);
-            // 
-            // btnDelBR
-            // 
-            this.btnDelBR.BackColor = System.Drawing.Color.White;
-            this.btnDelBR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDelBR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelBR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelBR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelBR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDelBR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(62)))), ((int)(((byte)(61)))));
-            this.btnDelBR.Location = new System.Drawing.Point(91, 431);
-            this.btnDelBR.Name = "btnDelBR";
-            this.btnDelBR.Size = new System.Drawing.Size(130, 29);
-            this.btnDelBR.TabIndex = 2;
-            this.btnDelBR.Text = "DELETE ITEM";
-            this.btnDelBR.UseVisualStyleBackColor = false;
-            this.btnDelBR.Click += new System.EventHandler(this.btnDelBR_Click);
-            // 
-            // noFocusRec1
-            // 
-            this.noFocusRec1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.noFocusRec1.FlatAppearance.BorderSize = 0;
-            this.noFocusRec1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.noFocusRec1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.noFocusRec1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noFocusRec1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.noFocusRec1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.noFocusRec1.Location = new System.Drawing.Point(-1, 553);
-            this.noFocusRec1.Name = "noFocusRec1";
-            this.noFocusRec1.Size = new System.Drawing.Size(424, 40);
-            this.noFocusRec1.TabIndex = 98;
-            this.noFocusRec1.Text = "CANCEL";
-            this.noFocusRec1.UseVisualStyleBackColor = false;
-            // 
-            // noFocusRec2
-            // 
-            this.noFocusRec2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(209)))), ((int)(((byte)(92)))));
-            this.noFocusRec2.FlatAppearance.BorderSize = 0;
-            this.noFocusRec2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noFocusRec2.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.noFocusRec2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.noFocusRec2.Location = new System.Drawing.Point(422, 553);
-            this.noFocusRec2.Name = "noFocusRec2";
-            this.noFocusRec2.Size = new System.Drawing.Size(424, 40);
-            this.noFocusRec2.TabIndex = 97;
-            this.noFocusRec2.Text = "NEXT STEP";
-            this.noFocusRec2.UseVisualStyleBackColor = false;
-            // 
-            // moneyTS
-            // 
-            this.moneyTS.BackColor = System.Drawing.Color.White;
-            this.moneyTS.FlatAppearance.BorderSize = 0;
-            this.moneyTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moneyTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.moneyTS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.moneyTS.Location = new System.Drawing.Point(0, 170);
-            this.moneyTS.Name = "moneyTS";
-            this.moneyTS.Size = new System.Drawing.Size(284, 40);
-            this.moneyTS.TabIndex = 0;
-            this.moneyTS.Text = "Monetary Donations";
-            this.moneyTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.moneyTS.UseVisualStyleBackColor = false;
-            this.moneyTS.Click += new System.EventHandler(this.donorInfo_TS);
-            // 
-            // ikTS
-            // 
-            this.ikTS.BackColor = System.Drawing.Color.White;
-            this.ikTS.FlatAppearance.BorderSize = 0;
-            this.ikTS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ikTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ikTS.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ikTS.Location = new System.Drawing.Point(284, 170);
-            this.ikTS.Name = "ikTS";
-            this.ikTS.Size = new System.Drawing.Size(308, 40);
-            this.ikTS.TabIndex = 1;
-            this.ikTS.Text = "In-kind Donations";
-            this.ikTS.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ikTS.UseVisualStyleBackColor = false;
-            this.ikTS.Click += new System.EventHandler(this.donorInfo_TS);
-            // 
-            // btnDonorInfoBack
-            // 
-            this.btnDonorInfoBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnDonorInfoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDonorInfoBack.FlatAppearance.BorderSize = 0;
-            this.btnDonorInfoBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDonorInfoBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDonorInfoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDonorInfoBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDonorInfoBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(209)))), ((int)(((byte)(201)))));
-            this.btnDonorInfoBack.Location = new System.Drawing.Point(9, 6);
-            this.btnDonorInfoBack.Name = "btnDonorInfoBack";
-            this.btnDonorInfoBack.Size = new System.Drawing.Size(76, 22);
-            this.btnDonorInfoBack.TabIndex = 6;
-            this.btnDonorInfoBack.Text = "GO BACK";
-            this.btnDonorInfoBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDonorInfoBack.UseVisualStyleBackColor = false;
-            this.btnDonorInfoBack.Click += new System.EventHandler(this.taskbar_Click);
-            // 
-            // btnAddMoneyD
-            // 
-            this.btnAddMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnAddMoneyD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnAddMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMoneyD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddMoneyD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnAddMoneyD.Location = new System.Drawing.Point(668, 418);
-            this.btnAddMoneyD.Name = "btnAddMoneyD";
-            this.btnAddMoneyD.Size = new System.Drawing.Size(130, 29);
-            this.btnAddMoneyD.TabIndex = 104;
-            this.btnAddMoneyD.Text = "ADD DONATION";
-            this.btnAddMoneyD.UseVisualStyleBackColor = false;
-            this.btnAddMoneyD.Click += new System.EventHandler(this.btnAddMoneyD_Click);
-            // 
-            // btnEditMoneyD
-            // 
-            this.btnEditMoneyD.BackColor = System.Drawing.Color.White;
-            this.btnEditMoneyD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnEditMoneyD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditMoneyD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditMoneyD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditMoneyD.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditMoneyD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.btnEditMoneyD.Location = new System.Drawing.Point(106, 418);
-            this.btnEditMoneyD.Name = "btnEditMoneyD";
-            this.btnEditMoneyD.Size = new System.Drawing.Size(130, 29);
-            this.btnEditMoneyD.TabIndex = 103;
-            this.btnEditMoneyD.Text = "UPDATE DONATION";
-            this.btnEditMoneyD.UseVisualStyleBackColor = false;
-            this.btnEditMoneyD.Click += new System.EventHandler(this.btnEditMoneyD_Click);
-            // 
-            // btnAddIK
-            // 
-            this.btnAddIK.BackColor = System.Drawing.Color.White;
-            this.btnAddIK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnAddIK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddIK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnAddIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddIK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnAddIK.Location = new System.Drawing.Point(668, 418);
-            this.btnAddIK.Name = "btnAddIK";
-            this.btnAddIK.Size = new System.Drawing.Size(130, 29);
-            this.btnAddIK.TabIndex = 107;
-            this.btnAddIK.Text = "ADD DONATION";
-            this.btnAddIK.UseVisualStyleBackColor = false;
-            this.btnAddIK.Click += new System.EventHandler(this.btnAddIK_Click);
-            // 
-            // btnEditIK
-            // 
-            this.btnEditIK.BackColor = System.Drawing.Color.White;
-            this.btnEditIK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnEditIK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditIK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnEditIK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditIK.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditIK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.btnEditIK.Location = new System.Drawing.Point(106, 418);
-            this.btnEditIK.Name = "btnEditIK";
-            this.btnEditIK.Size = new System.Drawing.Size(130, 29);
-            this.btnEditIK.TabIndex = 106;
-            this.btnEditIK.Text = "UPDATE DONATION";
-            this.btnEditIK.UseVisualStyleBackColor = false;
-            this.btnEditIK.Click += new System.EventHandler(this.btnEditIK_Click);
-            // 
-            // btnArchiveProfile
-            // 
-            this.btnArchiveProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
-            this.btnArchiveProfile.FlatAppearance.BorderSize = 0;
-            this.btnArchiveProfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnArchiveProfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnArchiveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArchiveProfile.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnArchiveProfile.ForeColor = System.Drawing.Color.White;
-            this.btnArchiveProfile.Location = new System.Drawing.Point(283, 240);
-            this.btnArchiveProfile.Name = "btnArchiveProfile";
-            this.btnArchiveProfile.Size = new System.Drawing.Size(308, 35);
-            this.btnArchiveProfile.TabIndex = 1;
-            this.btnArchiveProfile.Text = "CHANGE TO INACTIVE";
-            this.btnArchiveProfile.UseVisualStyleBackColor = false;
-            this.btnArchiveProfile.Click += new System.EventHandler(this.btnRemoveDonor_Click);
-            // 
-            // btnEditDonor
-            // 
-            this.btnEditDonor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(95)))), ((int)(((byte)(87)))));
-            this.btnEditDonor.FlatAppearance.BorderSize = 0;
-            this.btnEditDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnEditDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(58)))));
-            this.btnEditDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnEditDonor.ForeColor = System.Drawing.Color.White;
-            this.btnEditDonor.Location = new System.Drawing.Point(283, 156);
-            this.btnEditDonor.Name = "btnEditDonor";
-            this.btnEditDonor.Size = new System.Drawing.Size(308, 35);
-            this.btnEditDonor.TabIndex = 0;
-            this.btnEditDonor.Text = "UPDATE DONOR PROFILE";
-            this.btnEditDonor.UseVisualStyleBackColor = false;
-            this.btnEditDonor.Click += new System.EventHandler(this.btnEditDonor_Click);
-            // 
-            // btnPBRBack
-            // 
-            this.btnPBRBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnPBRBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPBRBack.FlatAppearance.BorderSize = 0;
-            this.btnPBRBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnPBRBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnPBRBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPBRBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnPBRBack.ForeColor = System.Drawing.Color.White;
-            this.btnPBRBack.Location = new System.Drawing.Point(6, 6);
-            this.btnPBRBack.Name = "btnPBRBack";
-            this.btnPBRBack.Size = new System.Drawing.Size(76, 22);
-            this.btnPBRBack.TabIndex = 4;
-            this.btnPBRBack.Text = "GO BACK";
-            this.btnPBRBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPBRBack.UseVisualStyleBackColor = false;
-            this.btnPBRBack.Click += new System.EventHandler(this.btnPBRBack_Click);
-            // 
-            // exportPDF
-            // 
-            this.exportPDF.BackColor = System.Drawing.Color.White;
-            this.exportPDF.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.exportPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.exportPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.exportPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportPDF.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.exportPDF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.exportPDF.Location = new System.Drawing.Point(679, 29);
-            this.exportPDF.Name = "exportPDF";
-            this.exportPDF.Size = new System.Drawing.Size(205, 29);
-            this.exportPDF.TabIndex = 97;
-            this.exportPDF.Text = "BUDGET REQUEST FORM";
-            this.exportPDF.UseVisualStyleBackColor = false;
-            this.exportPDF.Click += new System.EventHandler(this.exportPDF_Click);
-            // 
-            // btnBRApprove
-            // 
-            this.btnBRApprove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnBRApprove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBRApprove.BackgroundImage")));
-            this.btnBRApprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBRApprove.FlatAppearance.BorderSize = 0;
-            this.btnBRApprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRApprove.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRApprove.ForeColor = System.Drawing.Color.White;
-            this.btnBRApprove.Location = new System.Drawing.Point(619, -1);
-            this.btnBRApprove.Name = "btnBRApprove";
-            this.btnBRApprove.Size = new System.Drawing.Size(318, 40);
-            this.btnBRApprove.TabIndex = 1;
-            this.btnBRApprove.UseVisualStyleBackColor = false;
-            this.btnBRApprove.Click += new System.EventHandler(this.btnBRApprove_Click);
-            // 
-            // btnBRDisapprove
-            // 
-            this.btnBRDisapprove.BackColor = System.Drawing.Color.Transparent;
-            this.btnBRDisapprove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBRDisapprove.BackgroundImage")));
-            this.btnBRDisapprove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBRDisapprove.FlatAppearance.BorderSize = 0;
-            this.btnBRDisapprove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBRDisapprove.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBRDisapprove.ForeColor = System.Drawing.Color.White;
-            this.btnBRDisapprove.Location = new System.Drawing.Point(0, 0);
-            this.btnBRDisapprove.Name = "btnBRDisapprove";
-            this.btnBRDisapprove.Size = new System.Drawing.Size(318, 40);
-            this.btnBRDisapprove.TabIndex = 2;
-            this.btnBRDisapprove.UseVisualStyleBackColor = false;
-            this.btnBRDisapprove.Click += new System.EventHandler(this.btnBRDisapprove_Click);
-            // 
-            // btnCancelABR
-            // 
-            this.btnCancelABR.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelABR.FlatAppearance.BorderSize = 0;
-            this.btnCancelABR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnCancelABR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnCancelABR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelABR.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnCancelABR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(77)))), ((int)(((byte)(56)))));
-            this.btnCancelABR.Location = new System.Drawing.Point(587, 5);
-            this.btnCancelABR.Name = "btnCancelABR";
-            this.btnCancelABR.Size = new System.Drawing.Size(138, 29);
-            this.btnCancelABR.TabIndex = 3;
-            this.btnCancelABR.Text = "CANCEL REQUEST";
-            this.btnCancelABR.UseVisualStyleBackColor = false;
-            this.btnCancelABR.Click += new System.EventHandler(this.btnCancelABR_Click);
-            // 
-            // btnBtoE
-            // 
-            this.btnBtoE.BackColor = System.Drawing.Color.Transparent;
-            this.btnBtoE.FlatAppearance.BorderSize = 0;
-            this.btnBtoE.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnBtoE.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnBtoE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBtoE.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnBtoE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnBtoE.Location = new System.Drawing.Point(770, 5);
-            this.btnBtoE.Name = "btnBtoE";
-            this.btnBtoE.Size = new System.Drawing.Size(138, 29);
-            this.btnBtoE.TabIndex = 1;
-            this.btnBtoE.Text = "CONVERT TO EXPENSE";
-            this.btnBtoE.UseVisualStyleBackColor = false;
-            this.btnBtoE.Click += new System.EventHandler(this.btnBtoE_Click);
-            // 
-            // btnDelExp
-            // 
-            this.btnDelExp.BackColor = System.Drawing.Color.White;
-            this.btnDelExp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnDelExp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnDelExp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(60)))), ((int)(((byte)(77)))));
-            this.btnDelExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelExp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnDelExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnDelExp.Location = new System.Drawing.Point(1, 31);
-            this.btnDelExp.Name = "btnDelExp";
-            this.btnDelExp.Size = new System.Drawing.Size(183, 29);
-            this.btnDelExp.TabIndex = 4;
-            this.btnDelExp.TabStop = false;
-            this.btnDelExp.Text = "ARCHIVE EXPENSE RECORDS";
-            this.btnDelExp.UseVisualStyleBackColor = false;
-            this.btnDelExp.Click += new System.EventHandler(this.btnDelExp_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.BackColor = System.Drawing.Color.White;
-            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.btnExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.btnExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(60)))), ((int)(((byte)(77)))));
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(153)))), ((int)(((byte)(141)))));
-            this.btnExport.Location = new System.Drawing.Point(1, 2);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(183, 29);
-            this.btnExport.TabIndex = 3;
-            this.btnExport.TabStop = false;
-            this.btnExport.Text = "GENERATE EXPENSE REPORT";
-            this.btnExport.UseVisualStyleBackColor = false;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnExBack
-            // 
-            this.btnExBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnExBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExBack.FlatAppearance.BorderSize = 0;
-            this.btnExBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnExBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnExBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExBack.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnExBack.ForeColor = System.Drawing.Color.White;
-            this.btnExBack.Location = new System.Drawing.Point(13, 6);
-            this.btnExBack.Name = "btnExBack";
-            this.btnExBack.Size = new System.Drawing.Size(76, 22);
-            this.btnExBack.TabIndex = 97;
-            this.btnExBack.Text = "GO BACK";
-            this.btnExBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExBack.UseVisualStyleBackColor = false;
-            this.btnExBack.Click += new System.EventHandler(this.taskbar_Click);
-            // 
             // btnExpOp
             // 
             this.btnExpOp.BackColor = System.Drawing.Color.White;
@@ -6140,17 +6151,6 @@
             this.btnResetCategory.UseVisualStyleBackColor = false;
             this.btnResetCategory.Click += new System.EventHandler(this.btnResetCategory_Click);
             // 
-            // lblForm
-            // 
-            this.lblForm.AutoSize = true;
-            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblForm.Location = new System.Drawing.Point(8, 6);
-            this.lblForm.Name = "lblForm";
-            this.lblForm.Size = new System.Drawing.Size(301, 13);
-            this.lblForm.TabIndex = 19;
-            this.lblForm.Text = "Balay Pasilungan | Donation, Budget, and Expense System";
-            // 
             // expense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6170,6 +6170,9 @@
             this.upPanel.ResumeLayout(false);
             this.upPanel.PerformLayout();
             this.taskbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_donation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_finance)).EndInit();
             this.panelListChild.ResumeLayout(false);
             this.panelListChild.PerformLayout();
             this.tabSelection.ResumeLayout(false);
@@ -6177,43 +6180,77 @@
             this.tabInnerDonors.ResumeLayout(false);
             this.tabDonors1.ResumeLayout(false);
             this.tabDonors1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donorsGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabDonorsAll.ResumeLayout(false);
             this.tabDonorsAll.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allMD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             this.tabDonorsArchive.ResumeLayout(false);
             this.tabDonorsArchive.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archiveDonors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.tabNewDonor.ResumeLayout(false);
             this.donorInfo.ResumeLayout(false);
             this.donorInfo.PerformLayout();
             this.tabNewDonorInput.ResumeLayout(false);
             this.tabNewInfo.ResumeLayout(false);
             this.tabNewInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMobile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             this.panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelEmail)).EndInit();
             this.tabDonorConfirm.ResumeLayout(false);
             this.tabDonorConfirm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             this.tabEditDonor.ResumeLayout(false);
             this.tabEditDonor.PerformLayout();
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelMobileEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelPhoneEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDNameEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelEmailEdit)).EndInit();
             this.tabFinance.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tabBudgetRequest.ResumeLayout(false);
             this.brInfo.ResumeLayout(false);
             this.brInfo.PerformLayout();
             this.tabBR.ResumeLayout(false);
             this.tabBRInfo.ResumeLayout(false);
             this.tabBRInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).EndInit();
             this.panelCat.ResumeLayout(false);
             this.panelCat.PerformLayout();
             this.panel16.ResumeLayout(false);
@@ -6221,10 +6258,15 @@
             this.tabBRDetails.PerformLayout();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BRDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.tabBREdit.ResumeLayout(false);
             this.tabBREdit.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panelPurpose2.ResumeLayout(false);
+            this.panelPurpose2.PerformLayout();
             this.tabDonorInfo.ResumeLayout(false);
             this.headingColor.ResumeLayout(false);
             this.headingColor.PerformLayout();
@@ -6232,6 +6274,7 @@
             this.tabMoney.ResumeLayout(false);
             this.tabMoney.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donationMoney)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).EndInit();
             this.searchOption.ResumeLayout(false);
             this.searchOption.PerformLayout();
             this.tabIK.ResumeLayout(false);
@@ -6239,23 +6282,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.donationIK)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabDonorO.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
             this.tabBRList.ResumeLayout(false);
             this.panelPBR.ResumeLayout(false);
             this.panelPBR.PerformLayout();
             this.tabPBR.ResumeLayout(false);
             this.PBR.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BRList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.PBRDecide.ResumeLayout(false);
             this.PBRDecide.PerformLayout();
             this.panelOptions.ResumeLayout(false);
             this.panelOptions.PerformLayout();
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBRDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.approvedBR.ResumeLayout(false);
             this.approvedBR.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.approvedBRList)).EndInit();
             this.tabEx.ResumeLayout(false);
             this.tabEx.PerformLayout();
@@ -6263,57 +6314,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.expList)).EndInit();
             this.panelExp.ResumeLayout(false);
             this.panelExp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_donation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logo_finance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMobile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPhone)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelDName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelEmail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMobileEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPhoneEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelDNameEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelEmailEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelPurpose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.panelPurpose2.ResumeLayout(false);
-            this.panelPurpose2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.divider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();

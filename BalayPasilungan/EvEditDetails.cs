@@ -44,25 +44,11 @@ namespace BalayPasilungan
                     cb_YRemind.Items.Add(i);
                 }
             }
-            if (cbEMonth.Items.Count == 0)//month from
-            {
-                for (int i = 0; i < 12; i++)
-                {
-                    cbEMonth.Items.Add(aMonths[i]);
-                }
-            }
             if (cbEYear.Items.Count == 0)//year from
             {
                 for (int i = DateTime.Now.Year; i <= 2099; i++)
                 {
                     cbEYear.Items.Add(i);
-                }
-            }
-            if (cbEMonth2.Items.Count == 0)//month to
-            {
-                for (int i = 0; i < 12; i++)
-                {
-                    cbEMonth2.Items.Add(aMonths[i]);
                 }
             }
             if (cbEYear2.Items.Count == 0)//year to
@@ -139,7 +125,7 @@ namespace BalayPasilungan
             lblEType.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
             lblEDes.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
 
-            lblEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
+            lblPEDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
 
             lblRDate.ForeColor = System.Drawing.ColorTranslator.FromHtml("#2a2a2a");
 
@@ -158,9 +144,9 @@ namespace BalayPasilungan
             //countRequestBy.Visible = false;
         }
         //list view and sql functions
-        public string[] desc = { "Event Name" , "Event Venue" , "Event Description" , "Event Type", "Event Date And Time", "Event Reminder" , "Event Budget" }, value = new string[7];
         public void evViewDetails(string evnEdit)
         {
+            string bID;
             try
             {
                 conn.Open();
@@ -172,50 +158,51 @@ namespace BalayPasilungan
                 if (dt.Rows.Count == 1)
                 {
                     evidEdit = int.Parse(dt.Rows[0]["eventID"].ToString());
-                    editName = dt.Rows[0]["evName"].ToString();
-                    editVenue = dt.Rows[0]["evVenue"].ToString();
-                    editDes = dt.Rows[0]["evDesc"].ToString();
-                    editType = dt.Rows[0]["evType"].ToString();
-                    editDate = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" +
+                    lblEventName.Text = dt.Rows[0]["evName"].ToString();
+                    lblPEVenue.Text = dt.Rows[0]["evVenue"].ToString();
+                    lblPEDes.Text = dt.Rows[0]["evDesc"].ToString();
+                    lblPEType.Text = dt.Rows[0]["evType"].ToString();
+                    lblPEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" +
                                     "To: " + dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
-                    if (dt.Rows[0]["reminderDate"].ToString() == "") editRemind = "NONE";
-                    else editRemind = dt.Rows[0]["reminderDate"].ToString() + " " + dt.Rows[0]["reminderTime"].ToString();
-                    if (dt.Rows[0]["budget"].ToString() == "") editBudget = "NONE";
-                    else editBudget = dt.Rows[0]["budget"].ToString();
-                    value[0] = editName; value[1] = editVenue; value[2] = editDes; value[3] = editType; value[4] = editDate; value[5] = editRemind; value[6] = editBudget;
-                    viewDataEdit();
-                    txtEventName.Text = editName; txtVenue.Text = editVenue; txtEventDes.Text = editDes; cbEType.Text = editType;
-                    //cbEMonth.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(5, 2)) - 1;
-                    //cbEYear.SelectedIndex = cbEYear.FindStringExact(dt.Rows[0]["evDateFrom"].ToString().Substring(0, 4));
-                    //cbEDay.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(8, 2)) - 1;
-                    //cbEYear2.SelectedIndex = cbEYear2.FindStringExact(dt.Rows[0]["evDateTo"].ToString().Substring(0, 4)); cbEMonth2.SelectedIndex = int.Parse(dt.Rows[0]["evDateTo"].ToString().Substring(5, 2)); cbEDay2.SelectedIndex = int.Parse(dt.Rows[0]["evDateTo"].ToString().Substring(8, 2));
+                    if (dt.Rows[0]["reminderDate"].ToString() == "") lblPERemind.Text = "NONE";
+                    else
+                    {
+                        lblPERemind.Text = dt.Rows[0]["reminderDate"].ToString() + " " + dt.Rows[0]["reminderTime"].ToString();
+                        cb_MRemind.SelectedIndex = cbEMonth.SelectedIndex = int.Parse(dt.Rows[0]["reminderDate"].ToString().Substring(0, 2)); cb_YRemind.SelectedIndex = cbEYear.FindStringExact(dt.Rows[0]["reminderDate"].ToString().Substring(6, 4)); cb_DRemind.SelectedIndex = int.Parse(dt.Rows[0]["reminderDate"].ToString().Substring(3, 2));
+                        txtHrRemind.Text = dt.Rows[0]["reminderTime"].ToString().Substring(0, 2); txtMinRemind.Text = dt.Rows[0]["reminderTime"].ToString().Substring(3, 2);
+                        if (dt.Rows[0]["reminderTime"].ToString().Substring(6, 2) == "AM") btnAMRemind.PerformClick();
+                        else if (dt.Rows[0]["reminderTime"].ToString().Substring(6, 2) == "PM") btnPMRemind.PerformClick();
+                    }
+                    bID = dt.Rows[0]["Budget"].ToString();
+                    if (bID != "")
+                    {
+                        MySqlCommand comm2 = new MySqlCommand("SELECT * FROM budget WHERE budgetID ='" + bID + "'", conn);
+                        MySqlDataAdapter adp2 = new MySqlDataAdapter(comm2); DataTable dt2 = new DataTable(); adp2.Fill(dt2);
+                        if (dt2.Rows.Count >= 1) lblPEBudget.Text = "Total Budget" + " " + dt.Rows[0]["budgetTotal"].ToString();
+                    }
+                    else lblPEBudget.Text = "NONE";
+                    txtEventName.Text = dt.Rows[0]["evName"].ToString();
+                    txtVenue.Text = dt.Rows[0]["evVenue"].ToString();
+                    txtEventDes.Text = dt.Rows[0]["evDesc"].ToString();
+                    cbEType.Text = dt.Rows[0]["evType"].ToString();
+                    int something = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(5, 2)) - 1;
+                    cbEMonth.SelectedIndex = 1;
+                    cbEYear.SelectedIndex = cbEYear.FindStringExact(dt.Rows[0]["evDateFrom"].ToString().Substring(0, 4));
+                    cbEDay.SelectedIndex = int.Parse(dt.Rows[0]["evDateFrom"].ToString().Substring(8, 2)) - 1;
+                    cbEYear2.SelectedIndex = cbEYear2.FindStringExact(dt.Rows[0]["evDateTo"].ToString().Substring(0, 4)); cbEMonth2.SelectedIndex = int.Parse(dt.Rows[0]["evDateTo"].ToString().Substring(5, 2)); cbEDay2.SelectedIndex = int.Parse(dt.Rows[0]["evDateTo"].ToString().Substring(8, 2));
                     txtEHours.Text = dt.Rows[0]["evTimeFrom"].ToString().Substring(0, 2); txtEMins.Text = dt.Rows[0]["evTimeFrom"].ToString().Substring(3, 2);
                     txtEHours2.Text = dt.Rows[0]["evTimeTo"].ToString().Substring(0, 2); txtEMins2.Text = dt.Rows[0]["evTimeTo"].ToString().Substring(3, 2);
                     if (dt.Rows[0]["evTimeFrom"].ToString().Substring(6, 2) == "AM") btnAM.PerformClick();
                     else if (dt.Rows[0]["evTimeFrom"].ToString().Substring(6, 2) == "PM") btnPM.PerformClick();
                     if (dt.Rows[0]["evTimeTo"].ToString().Substring(6, 2) == "AM") btnAM2.PerformClick();
                     else if (dt.Rows[0]["evTimeTo"].ToString().Substring(6, 2) == "PM") btnPM2.PerformClick();
-                    //cb_MRemind.SelectedIndex = cbEMonth.SelectedIndex = int.Parse(dt.Rows[0]["reminderDate"].ToString().Substring(0, 2)); cb_YRemind.SelectedIndex = cbEYear.FindStringExact(dt.Rows[0]["reminderDate"].ToString().Substring(6, 4)); cb_DRemind.SelectedIndex = int.Parse(dt.Rows[0]["reminderDate"].ToString().Substring(3, 2));
-                    //txtHrRemind.Text = dt.Rows[0]["reminderTime"].ToString().Substring(0, 2); txtMinRemind.Text = dt.Rows[0]["reminderTime"].ToString().Substring(3, 2);
-                    if (dt.Rows[0]["reminderTime"].ToString().Substring(6, 2) == "AM") btnAMRemind.PerformClick();
-                    else if (dt.Rows[0]["reminderTime"].ToString().Substring(6, 2) == "PM") btnPMRemind.PerformClick();
+                   
                 }
             }
             catch (Exception ee)
             {
                 MessageBox.Show("evedit Details error" + ee);
                 conn.Close();
-            }
-        }
-        public void viewDataEdit()
-        {
-            //MessageBox.Show(editName);
-            editListView.Items.Clear();
-            for (int i = 0; i < 7; i++)
-            {
-                ListViewItem itm = new ListViewItem(desc[i]);
-                itm.SubItems.Add(value[i]);
-                editListView.Items.Add(itm);
             }
         }
 
@@ -296,43 +283,6 @@ namespace BalayPasilungan
                 MessageBox.Show("" + ee);
                 conn.Close();
             }
-        }
-        private void editListView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (editListView.SelectedItems[0].SubItems[0].Text == "Event Name")
-            {
-                txtEventName.Enabled = true;
-                txtVenue.Enabled = false;
-                txtEventDes.Enabled = false;
-                cbEType.Enabled = false;
-                tcEdit.SelectedTab = txtEdit;
-            }
-            else if (editListView.SelectedItems[0].SubItems[0].Text == "Event Venue")
-            {
-                txtEventName.Enabled = false;
-                txtVenue.Enabled = true;
-                txtEventDes.Enabled = false;
-                cbEType.Enabled = false;
-                tcEdit.SelectedTab = txtEdit;
-            }
-            else if (editListView.SelectedItems[0].SubItems[0].Text == "Event Description")
-            {
-                txtEventName.Enabled = false;
-                txtVenue.Enabled = false;
-                txtEventDes.Enabled = true;
-                cbEType.Enabled = false;
-                tcEdit.SelectedTab = txtEdit;
-            }
-            else if (editListView.SelectedItems[0].SubItems[0].Text == "Event Type")
-            {
-                txtEventName.Enabled = false;
-                txtVenue.Enabled = false;
-                txtEventDes.Enabled = false;
-                cbEType.Enabled = true;
-                tcEdit.SelectedTab = txtEdit;
-            }
-            else if (editListView.SelectedItems[0].SubItems[0].Text == "Event Date And Time") tcEdit.SelectedTab = dateEdit;
-            else tcEdit.SelectedTab = rebudgEdit;
         }
         #endregion 
 
@@ -742,6 +692,11 @@ namespace BalayPasilungan
             btnPMRemind.ForeColor = System.Drawing.ColorTranslator.FromHtml("#dcdcdc");
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tcEdit.SelectedIndex = 1;
+        }
+
         private void btnPMRemind_Click(object sender, EventArgs e)
         {
             ampmR = "PM";
@@ -753,27 +708,22 @@ namespace BalayPasilungan
         #region back buttons
         private void btnBack_Click(object sender, EventArgs e)
         {
-            editName = txtEventName.Text; value[0] = txtEventName.Text;
-            editVenue = txtVenue.Text; value[1] = txtVenue.Text;
-            editDes = txtEventDes.Text; value[2] = txtEventDes.Text;
-            editType = cbEType.Text; value[3] = cbEType.Text;
-            viewDataEdit();
+            lblEventName.Text = txtEventName.Text;
+            lblPEVenue.Text = txtVenue.Text; 
+            lblPEDes.Text = txtEventDes.Text; 
+            lblPEType.Text = cbEType.Text; 
             tcEdit.SelectedIndex = 0;
         }
         private void btnBack2_Click(object sender, EventArgs e)
         {
-            editDate = cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom +
+            lblPEDate.Text = cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom +
                         cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            value[4] = editDate;
-            viewDataEdit();
             tcEdit.SelectedIndex = 1;
             
         }
         private void btnBack3_Click(object sender, EventArgs e)
         {
-            editRemind = cb_YRemind.Text + "-" + cb_MRemind.Text + "-" + cb_DRemind.Text + " " + txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
-            value[5] = editRemind;
-            viewDataEdit();
+            lblPERemind.Text = cb_YRemind.Text + "-" + cb_MRemind.Text + "-" + cb_DRemind.Text + " " + txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
             tcEdit.SelectedIndex = 2;
         }
         #endregion 
@@ -922,16 +872,13 @@ namespace BalayPasilungan
 
         private void button2_Click(object sender, EventArgs e)
         {
-            editName = txtEventName.Text; value[0] = txtEventName.Text;
-            editVenue = txtVenue.Text; value[1] = txtVenue.Text;
-            editDes = txtEventDes.Text; value[2] = txtEventDes.Text;
-            editType = cbEType.Text; value[3] = cbEType.Text;
-            editDate = cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom +
+            lblEventName.Text = txtEventName.Text;
+            lblPEVenue.Text = txtVenue.Text;
+            lblPEDes.Text = txtEventDes.Text;
+            lblPEType.Text = cbEType.Text;
+            lblPEDate.Text = cbEYear.Text + "-" + cbEMonth.Text + "-" + cbEDay.Text + " " + txtEHours.Text + ":" + txtEMins.Text + " " + ampmFrom +
                         cbEYear2.Text + "-" + cbEMonth2.Text + "-" + cbEDay2.Text + " " + txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
-            value[4] = editDate;
-            editRemind = cb_YRemind.Text + "-" + cb_MRemind.Text + "-" + cb_DRemind.Text + " " + txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
-            value[5] = editRemind;
-            viewDataEdit();
+            lblPERemind.Text = cb_YRemind.Text + "-" + cb_MRemind.Text + "-" + cb_DRemind.Text + " " + txtHrRemind.Text + ":" + txtMinRemind.Text + " " + ampmR;
             tcEdit.SelectedIndex = 0;
         }
         #endregion
