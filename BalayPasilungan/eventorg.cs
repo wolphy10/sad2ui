@@ -1540,7 +1540,7 @@ namespace BalayPasilungan
             if (showevtype)
             {
                 cbEType.DropDownStyle = ComboBoxStyle.DropDown;
-                btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.checked_symbol;
+                //btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.checked_symbol; // POOP
                 btnNext.Enabled = false;
                 showevtype = false;
             }

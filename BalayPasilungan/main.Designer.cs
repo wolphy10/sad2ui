@@ -58,6 +58,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.lblForm = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
             this.panel3.SuspendLayout();
             this.rightPartMain.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -79,12 +82,16 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel3.Controls.Add(this.lblName);
+            this.panel3.Controls.Add(this.lblForm);
+            this.panel3.Controls.Add(this.btnAddDonor);
             this.panel3.Controls.Add(this.btnClose);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1250, 37);
             this.panel3.TabIndex = 1;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // btnClose
             // 
@@ -187,8 +194,9 @@
             // 
             // btnCase
             // 
-            this.btnCase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
-            this.btnCase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCase.BackColor = System.Drawing.Color.White;
+            this.btnCase.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_main2;
+            this.btnCase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCase.FlatAppearance.BorderSize = 0;
             this.btnCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -199,7 +207,6 @@
             this.btnCase.Name = "btnCase";
             this.btnCase.Size = new System.Drawing.Size(325, 351);
             this.btnCase.TabIndex = 0;
-            this.btnCase.Text = "Case Profile";
             this.btnCase.UseVisualStyleBackColor = false;
             this.btnCase.Click += new System.EventHandler(this.btnCase_Click);
             // 
@@ -226,7 +233,8 @@
             // 
             // btnEvent
             // 
-            this.btnEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnEvent.BackColor = System.Drawing.Color.White;
+            this.btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_event2;
             this.btnEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEvent.FlatAppearance.BorderSize = 0;
@@ -238,7 +246,6 @@
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(325, 351);
             this.btnEvent.TabIndex = 0;
-            this.btnEvent.Text = "Event Organizer";
             this.btnEvent.UseVisualStyleBackColor = false;
             this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
             // 
@@ -265,7 +272,8 @@
             // 
             // btnexp
             // 
-            this.btnexp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(168)))), ((int)(((byte)(104)))));
+            this.btnexp.BackColor = System.Drawing.Color.White;
+            this.btnexp.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_dbe2;
             this.btnexp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnexp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnexp.FlatAppearance.BorderSize = 0;
@@ -277,13 +285,12 @@
             this.btnexp.Name = "btnexp";
             this.btnexp.Size = new System.Drawing.Size(326, 351);
             this.btnexp.TabIndex = 0;
-            this.btnexp.Text = "Expenses";
             this.btnexp.UseVisualStyleBackColor = false;
             this.btnexp.Click += new System.EventHandler(this.btnexp_Click);
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -296,6 +303,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(976, 312);
             this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // panelListOngoing
             // 
@@ -313,22 +321,24 @@
             this.panelListOngoing.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.panelListOngoing.Size = new System.Drawing.Size(488, 312);
             this.panelListOngoing.TabIndex = 0;
+            this.panelListOngoing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightGreen;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(389, 52);
             this.label3.TabIndex = 0;
             this.label3.Text = "Ongoing Events of the Month";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // listView1
             // 
             this.listView1.BackColor = System.Drawing.Color.White;
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listView1.Location = new System.Drawing.Point(0, 52);
@@ -345,7 +355,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -356,8 +366,8 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.hamburger;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.notif;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button6.FlatAppearance.BorderSize = 0;
@@ -372,10 +382,13 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.accPic;
+            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.small_logo;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Enabled = false;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
@@ -391,7 +404,7 @@
             // 
             // notifPanel
             // 
-            this.notifPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.notifPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.notifPanel.ColumnCount = 1;
             this.notifPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.67114F));
             this.notifPanel.Controls.Add(this.panel5, 0, 1);
@@ -405,6 +418,7 @@
             this.notifPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 535F));
             this.notifPanel.Size = new System.Drawing.Size(274, 663);
             this.notifPanel.TabIndex = 5;
+            this.notifPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
             // 
             // panel5
             // 
@@ -421,19 +435,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, -2);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.label1.Location = new System.Drawing.Point(0, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 45);
+            this.label1.Size = new System.Drawing.Size(127, 28);
             this.label1.TabIndex = 2;
             this.label1.Text = "Notification";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = global::BalayPasilungan.Properties.Resources.hamburger;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button2.BackgroundImage = global::BalayPasilungan.Properties.Resources.notif;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -447,9 +462,13 @@
             // 
             // button7
             // 
-            this.button7.BackgroundImage = global::BalayPasilungan.Properties.Resources.accPic;
+            this.button7.BackgroundImage = global::BalayPasilungan.Properties.Resources.login_logo;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Enabled = false;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(0, 0);
             this.button7.Margin = new System.Windows.Forms.Padding(0);
@@ -457,6 +476,45 @@
             this.button7.Size = new System.Drawing.Size(274, 84);
             this.button7.TabIndex = 4;
             this.button7.UseVisualStyleBackColor = true;
+            // 
+            // lblForm
+            // 
+            this.lblForm.AutoSize = true;
+            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblForm.Location = new System.Drawing.Point(12, 11);
+            this.lblForm.Name = "lblForm";
+            this.lblForm.Size = new System.Drawing.Size(102, 15);
+            this.lblForm.TabIndex = 20;
+            this.lblForm.Text = "Balay Pasilungan |";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(111, 9);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(49, 19);
+            this.lblName.TabIndex = 21;
+            this.lblName.Text = "Hello,";
+            // 
+            // btnAddDonor
+            // 
+            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddDonor.FlatAppearance.BorderSize = 0;
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddDonor.ForeColor = System.Drawing.Color.White;
+            this.btnAddDonor.Location = new System.Drawing.Point(1090, 4);
+            this.btnAddDonor.Name = "btnAddDonor";
+            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
+            this.btnAddDonor.TabIndex = 2;
+            this.btnAddDonor.Text = "LOGOUT";
+            this.btnAddDonor.UseVisualStyleBackColor = false;
+            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
             // 
             // main
             // 
@@ -473,8 +531,10 @@
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.main_KeyDown);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.rightPartMain.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -487,7 +547,6 @@
             this.btnPanelExpense.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelListOngoing.ResumeLayout(false);
-            this.panelListOngoing.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.notifPanel.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -521,10 +580,13 @@
         private System.Windows.Forms.TableLayoutPanel notifPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel panelListOngoing;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button7;
+        private NoFocusRec btnAddDonor;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblForm;
     }
 }

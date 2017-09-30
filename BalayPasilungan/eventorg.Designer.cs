@@ -255,6 +255,7 @@
             this.eventsListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelEventDet = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -269,11 +270,12 @@
             this.attendBack = new BalayPasilungan.NoFocusRec();
             this.label6 = new System.Windows.Forms.Label();
             this.listAttendedView = new System.Windows.Forms.ListView();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblForm = new System.Windows.Forms.Label();
             this.taskbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_request)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_events)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_main)).BeginInit();
+            this.upPanel.SuspendLayout();
             this.tabSecond.SuspendLayout();
             this.tabRequest.SuspendLayout();
             this.ERProgress.SuspendLayout();
@@ -465,6 +467,7 @@
             // upPanel
             // 
             this.upPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.upPanel.Controls.Add(this.lblForm);
             this.upPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.upPanel.Location = new System.Drawing.Point(0, 0);
             this.upPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -898,7 +901,7 @@
             this.lblNote.ForeColor = System.Drawing.Color.White;
             this.lblNote.Location = new System.Drawing.Point(175, 22);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(506, 25);
+            this.lblNote.Size = new System.Drawing.Size(508, 25);
             this.lblNote.TabIndex = 8;
             this.lblNote.Text = "To successfully request an event, please answer everything.";
             // 
@@ -1994,7 +1997,7 @@
             this.add_lbl3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.add_lbl3.Location = new System.Drawing.Point(3, 45);
             this.add_lbl3.Name = "add_lbl3";
-            this.add_lbl3.Size = new System.Drawing.Size(53, 21);
+            this.add_lbl3.Size = new System.Drawing.Size(54, 21);
             this.add_lbl3.TabIndex = 39;
             this.add_lbl3.Text = "Venue";
             // 
@@ -2104,7 +2107,7 @@
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.label21.Location = new System.Drawing.Point(3, 178);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 21);
+            this.label21.Size = new System.Drawing.Size(85, 21);
             this.label21.TabIndex = 51;
             this.label21.Text = "Event Type";
             // 
@@ -2609,7 +2612,7 @@
             this.lbVen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVen.Location = new System.Drawing.Point(158, 76);
             this.lbVen.Name = "lbVen";
-            this.lbVen.Size = new System.Drawing.Size(95, 21);
+            this.lbVen.Size = new System.Drawing.Size(96, 21);
             this.lbVen.TabIndex = 11;
             this.lbVen.Text = "Event Venue";
             // 
@@ -3252,6 +3255,10 @@
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 356;
             // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Width = 0;
+            // 
             // panelEventDet
             // 
             this.panelEventDet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -3452,9 +3459,16 @@
             this.listAttendedView.UseCompatibleStateImageBehavior = false;
             this.listAttendedView.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader9
+            // lblForm
             // 
-            this.columnHeader9.Width = 0;
+            this.lblForm.AutoSize = true;
+            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblForm.Location = new System.Drawing.Point(8, 6);
+            this.lblForm.Name = "lblForm";
+            this.lblForm.Size = new System.Drawing.Size(181, 13);
+            this.lblForm.TabIndex = 21;
+            this.lblForm.Text = "Balay Pasilungan | Event Organizer";
             // 
             // eventorg
             // 
@@ -3477,6 +3491,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo_request)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_events)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo_main)).EndInit();
+            this.upPanel.ResumeLayout(false);
+            this.upPanel.PerformLayout();
             this.tabSecond.ResumeLayout(false);
             this.tabRequest.ResumeLayout(false);
             this.ERProgress.ResumeLayout(false);
@@ -3808,6 +3824,7 @@
         private System.Windows.Forms.PictureBox panelRequestBy;
         private System.Windows.Forms.Label countRequestBy;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Label lblForm;
     }
 }
 
