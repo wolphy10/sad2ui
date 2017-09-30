@@ -43,6 +43,19 @@ namespace BalayPasilungan
             btnRegister.ForeColor = Color.White;
             btnAdmin.BackColor = Color.White; btnSW.BackColor = Color.White; btnStaff.BackColor = Color.White;
         }
+
+        public void errorMessage(string message)            // Error Message
+        {
+            error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            err.lblError.Text = message;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
+        }
         #endregion
 
         #region Buttons
@@ -88,13 +101,12 @@ namespace BalayPasilungan
         {
             if (txtUser.Text == "" || txtPass.Text == "" && txtUser.Text == "  username" || txtPass.Text == "  password")
             {
-                MessageBox.Show("Please enter necessary fields!");
+                errorMessage("Please enter necessary fields!");
             }
             else
             {
                 try
                 {
-
                     conn.Open();
 
                     MySqlCommand comm = new MySqlCommand("SELECT * FROM accounts WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn);
@@ -103,7 +115,7 @@ namespace BalayPasilungan
                     adp.Fill(dt);
                     if (dt.Rows.Count == 0)
                     {
-                        MessageBox.Show("This user does not exist");
+                        errorMessage("This user does not exist.");
                     }
                     else if (dt.Rows.Count == 1)
                     {
@@ -115,6 +127,8 @@ namespace BalayPasilungan
                         main main = new main();
 
                         //main.refToLogin = this;
+
+                        main.usertype = int.Parse(dt.Rows[0]["type"].ToString());
                         main.Show();
                         this.Hide();
                     }
@@ -122,7 +136,7 @@ namespace BalayPasilungan
                 }
                 catch (Exception ee)
                 {
-                    MessageBox.Show("Nah!" + ee);
+                    errorMessage(ee.Message);
                     conn.Close();
                 }
             }

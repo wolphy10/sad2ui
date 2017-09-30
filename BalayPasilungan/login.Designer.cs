@@ -43,7 +43,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.newUser = new System.Windows.Forms.TabPage();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lblIAm = new System.Windows.Forms.Label();
             this.btnStaff = new System.Windows.Forms.Button();
@@ -70,7 +69,7 @@
             this.btnMember.Location = new System.Drawing.Point(0, 155);
             this.btnMember.Name = "btnMember";
             this.btnMember.Size = new System.Drawing.Size(166, 46);
-            this.btnMember.TabIndex = 7;
+            this.btnMember.TabIndex = 5;
             this.btnMember.Text = "member";
             this.btnMember.UseVisualStyleBackColor = true;
             this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
@@ -88,7 +87,7 @@
             this.btnNew.Location = new System.Drawing.Point(166, 155);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(166, 46);
-            this.btnNew.TabIndex = 8;
+            this.btnNew.TabIndex = 6;
             this.btnNew.Text = "new member";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -145,7 +144,7 @@
             this.btnLogin.Location = new System.Drawing.Point(0, 191);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(332, 45);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -157,7 +156,7 @@
             this.panel2.Location = new System.Drawing.Point(28, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(276, 30);
-            this.panel2.TabIndex = 15;
+            this.panel2.TabIndex = 0;
             // 
             // txtUser
             // 
@@ -182,7 +181,7 @@
             this.btnPeek.Location = new System.Drawing.Point(274, 113);
             this.btnPeek.Name = "btnPeek";
             this.btnPeek.Size = new System.Drawing.Size(25, 25);
-            this.btnPeek.TabIndex = 10;
+            this.btnPeek.TabIndex = 2;
             this.btnPeek.TabStop = false;
             this.btnPeek.UseVisualStyleBackColor = false;
             this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
@@ -232,7 +231,7 @@
             this.panel1.Location = new System.Drawing.Point(28, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(276, 30);
-            this.panel1.TabIndex = 14;
+            this.panel1.TabIndex = 1;
             // 
             // txtPass
             // 
@@ -248,7 +247,6 @@
             // 
             // newUser
             // 
-            this.newUser.Controls.Add(this.btnHelp);
             this.newUser.Controls.Add(this.btnRegister);
             this.newUser.Controls.Add(this.lblIAm);
             this.newUser.Controls.Add(this.btnStaff);
@@ -262,22 +260,6 @@
             this.newUser.TabIndex = 1;
             this.newUser.Text = "tabPage2";
             this.newUser.UseVisualStyleBackColor = true;
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnHelp.FlatAppearance.BorderSize = 0;
-            this.btnHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
-            this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHelp.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.btnHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnHelp.Location = new System.Drawing.Point(206, 19);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(114, 41);
-            this.btnHelp.TabIndex = 6;
-            this.btnHelp.Text = "Need help?";
-            this.btnHelp.UseVisualStyleBackColor = true;
             // 
             // btnRegister
             // 
@@ -435,7 +417,6 @@
         private System.Windows.Forms.Button btnSW;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Label lblIAm;
-        private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnRegister;
         private NoFocusRec btnClose;
         public System.Windows.Forms.TabControl tabControl;

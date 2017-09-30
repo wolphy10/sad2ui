@@ -199,21 +199,7 @@ namespace BalayPasilungan
         #region Main Buttons        
         private void btnClose_Click(object sender, EventArgs e)
         {
-            confirm conf = new confirm();
-            dim dim = new dim();
-
-            dim.Location = this.Location; dim.Size = this.Size;
-            dim.refToPrev = this;
-            dim.Show(this);
-            conf.lblConfirm.Text = "Are you sure you want to leave?";
-            conf.refToPrev = this;
-
-            if (conf.ShowDialog() == DialogResult.OK)
-            {
-                conf.Close();
-                this.Close();
-            }
-            dim.Close();
+            this.Close();
         }
 
         private void taskbar_Click(object sender, EventArgs e)

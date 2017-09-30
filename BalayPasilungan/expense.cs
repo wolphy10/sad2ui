@@ -24,6 +24,7 @@ namespace BalayPasilungan
     {
         public MySqlConnection conn;
         public MySqlCommand comm;
+        public int usertype;
         public int current_donorID, current_budgetID, current_item;
         public DateTime fromDateValue;
         public bool editDonor;                  // True - Donor for edit
@@ -45,6 +46,30 @@ namespace BalayPasilungan
 
             // Renderers (to remove default blue hightlights or mouseovers)
             donorInfo.Renderer = new renderer2(); brInfo.Renderer = new renderer2();
+
+            MessageBox.Show(usertype.ToString());
+            if(usertype == 1 || usertype == 2)
+            {
+                panel4.Visible = shadow1.Visible = panel2.Visible = shadow3.Visible = false;
+                btnDonation.Enabled = false;
+                
+                logo_finance.BackgroundImage = Properties.Resources.finance;
+                btnFinance.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                tabSelection.SelectedTab = tabFinance;
+            }
+            else
+            {
+                btnDonation.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                btnDonateAllBack.Visible = false;
+                logo_donation.BackgroundImage = Properties.Resources.donation;
+                tabInnerDonors.SelectedIndex = 0;
+                tabSelection.SelectedTab = tabDonors;
+                lblListOfDonors.Text = "List of Donors";
+                panelListChild.BackColor = System.Drawing.Color.FromArgb(15, 168, 104);
+                loadDonorList();
+                current_donorID = 0;
+            }
+            
 
             // Setting Dates
             datePledge.Value = dateBR.MaxDate = datePledge.MaxDate = datePledgeEdit.MaxDate = DateTime.Today;
@@ -220,6 +245,7 @@ namespace BalayPasilungan
             else
             {
                 logo_main.BackgroundImage = Properties.Resources.main;
+                this.Close();
             }
         }
         
@@ -1273,6 +1299,9 @@ namespace BalayPasilungan
                 txtDAddress.Text = donorsGV.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
 
                 allMoneyDonation = false;
+                resetDonorShowTS(); moneyTS.BackColor = Color.White;
+                moneyTS.ForeColor = System.Drawing.Color.FromArgb(62, 153, 141);
+
                 comm = new MySqlCommand("SELECT monetaryID, paymentType, amount, ORno, checkNo, bankName, dateCheck, dateDonated, donationID, encash FROM monetary WHERE donationID in (SELECT donation.donationID FROM donation INNER JOIN donor ON donation.donorID = donor.donorID WHERE donor.donorID = " + current_donorID + ")", conn);
                 loadTable(comm, 1);
             }
