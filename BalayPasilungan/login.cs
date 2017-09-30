@@ -24,6 +24,25 @@ namespace BalayPasilungan
             conn = new MySqlConnection("Server=localhost;Database=prototype_sad;Uid=root;Pwd=root;");
         }
 
+        #region Movable Form
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void moveable_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        #endregion
+
         #region  Functions
         private void login_KeyDown(object sender, KeyEventArgs e)
         {
@@ -42,6 +61,19 @@ namespace BalayPasilungan
             btnRegister.Enabled = true; typeDone = true;
             btnRegister.ForeColor = Color.White;
             btnAdmin.BackColor = Color.White; btnSW.BackColor = Color.White; btnStaff.BackColor = Color.White;
+        }
+
+        public void errorMessage(string message)            // Error Message
+        {
+            error err = new error();
+            dim dim = new dim();
+
+            dim.Location = this.Location; dim.Size = this.Size;
+            err.lblError.Text = message;
+            dim.refToPrev = this;
+            dim.Show(this);
+
+            if (err.ShowDialog() == DialogResult.OK) dim.Close();
         }
         #endregion
 
@@ -88,22 +120,21 @@ namespace BalayPasilungan
         {
             if (txtUser.Text == "" || txtPass.Text == "" && txtUser.Text == "  username" || txtPass.Text == "  password")
             {
-                MessageBox.Show("Please enter necessary fields!");
+                errorMessage("Please enter necessary fields!");
             }
             else
             {
                 try
                 {
-
                     conn.Open();
 
                     MySqlCommand comm = new MySqlCommand("SELECT * FROM accounts WHERE username = '" + txtUser.Text + "' AND password = '" + txtPass.Text + "'", conn);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-                    DataTable dt = new DataTable();
+                    MySqlDataAdapter adp = new MySqlDataAdapter(comm); DataTable dt = new DataTable();
+
                     adp.Fill(dt);
                     if (dt.Rows.Count == 0)
                     {
-                        MessageBox.Show("This user does not exist");
+                        errorMessage("Incorrect username or password.");
                     }
                     else if (dt.Rows.Count == 1)
                     {
@@ -111,18 +142,21 @@ namespace BalayPasilungan
                         if (type == "0") type = "Admin";
                         else if (type == "1") type = "Social Worker";
                         else type = "others";
-                        //MessageBox.Show(dt.Rows[0]["fullname"].ToString());
-                        main main = new main();
 
-                        //main.refToLogin = this;
-                        main.Show();
+                        txtUser.Text = txtPass.Text = "";
+
+                        main main = new main();
+                        main.name = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString();
+                        main.refToLogin = this;
+                        main.usertype = int.Parse(dt.Rows[0]["type"].ToString());
+                        main.Show();                        
                         this.Hide();
                     }
                     conn.Close();
                 }
                 catch (Exception ee)
                 {
-                    MessageBox.Show("Nah!" + ee);
+                    errorMessage(ee.Message);
                     conn.Close();
                 }
             }

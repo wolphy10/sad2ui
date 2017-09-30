@@ -531,6 +531,8 @@
             this.btnMain = new BalayPasilungan.NoFocusRec();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.lblForm = new System.Windows.Forms.Label();
+            this.upPanel.SuspendLayout();
             this.tabCase.SuspendLayout();
             this.tabNewChild.SuspendLayout();
             this.panelNewChild.SuspendLayout();
@@ -667,6 +669,7 @@
             // upPanel
             // 
             this.upPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.upPanel.Controls.Add(this.lblForm);
             this.upPanel.Location = new System.Drawing.Point(0, 0);
             this.upPanel.Name = "upPanel";
             this.upPanel.Size = new System.Drawing.Size(1026, 25);
@@ -3294,7 +3297,7 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label20.Location = new System.Drawing.Point(353, 80);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(76, 15);
+            this.label20.Size = new System.Drawing.Size(78, 15);
             this.label20.TabIndex = 97;
             this.label20.Text = "FAMILY TYPE";
             // 
@@ -3316,7 +3319,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label10.Location = new System.Drawing.Point(35, 80);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 15);
+            this.label10.Size = new System.Drawing.Size(49, 15);
             this.label10.TabIndex = 94;
             this.label10.Text = "STATUS";
             // 
@@ -3911,7 +3914,7 @@
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label43.Location = new System.Drawing.Point(35, 113);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(65, 15);
+            this.label43.Size = new System.Drawing.Size(66, 15);
             this.label43.TabIndex = 145;
             this.label43.Text = "LOCATION";
             // 
@@ -3933,7 +3936,7 @@
             this.label88.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label88.Location = new System.Drawing.Point(35, 80);
             this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(109, 15);
+            this.label88.Size = new System.Drawing.Size(110, 15);
             this.label88.TabIndex = 140;
             this.label88.Text = "DATE OF INCIDENT";
             // 
@@ -4532,7 +4535,7 @@
             this.label98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label98.Location = new System.Drawing.Point(35, 80);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(35, 15);
+            this.label98.Size = new System.Drawing.Size(36, 15);
             this.label98.TabIndex = 141;
             this.label98.Text = "DATE";
             // 
@@ -4934,7 +4937,7 @@
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label67.Location = new System.Drawing.Point(444, 80);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(21, 15);
+            this.label67.Size = new System.Drawing.Size(22, 15);
             this.label67.TabIndex = 147;
             this.label67.Text = "AT";
             // 
@@ -4956,7 +4959,7 @@
             this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label80.Location = new System.Drawing.Point(35, 80);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(109, 15);
+            this.label80.Size = new System.Drawing.Size(110, 15);
             this.label80.TabIndex = 145;
             this.label80.Text = "DATE OF CHECKUP";
             // 
@@ -6133,7 +6136,7 @@
             this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label65.Location = new System.Drawing.Point(23, 53);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(116, 15);
+            this.label65.Size = new System.Drawing.Size(117, 15);
             this.label65.TabIndex = 20;
             this.label65.Text = "LAST INVOLVEMENT";
             // 
@@ -6213,7 +6216,7 @@
             this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label59.Location = new System.Drawing.Point(24, 62);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(76, 15);
+            this.label59.Size = new System.Drawing.Size(78, 15);
             this.label59.TabIndex = 20;
             this.label59.Text = "FAMILY TYPE";
             // 
@@ -6402,7 +6405,7 @@
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label49.Location = new System.Drawing.Point(21, 51);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(103, 15);
+            this.label49.Size = new System.Drawing.Size(104, 15);
             this.label49.TabIndex = 20;
             this.label49.Text = "LAST CONSULTED";
             // 
@@ -6512,7 +6515,7 @@
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label44.Location = new System.Drawing.Point(21, 126);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(148, 15);
+            this.label44.Size = new System.Drawing.Size(150, 15);
             this.label44.TabIndex = 22;
             this.label44.Text = "CURRENTLY ENROLLED AT";
             // 
@@ -6600,7 +6603,7 @@
             this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label51.Location = new System.Drawing.Point(24, 51);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(67, 15);
+            this.label51.Size = new System.Drawing.Size(69, 15);
             this.label51.TabIndex = 20;
             this.label51.Text = "BIRTHDATE";
             // 
@@ -6622,7 +6625,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.label2.Location = new System.Drawing.Point(24, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 15);
+            this.label2.Size = new System.Drawing.Size(78, 15);
             this.label2.TabIndex = 89;
             this.label2.Text = "DATE JOINED";
             // 
@@ -6816,6 +6819,7 @@
             this.dtgcs.Location = new System.Drawing.Point(0, 186);
             this.dtgcs.MultiSelect = false;
             this.dtgcs.Name = "dtgcs";
+            this.dtgcs.ReadOnly = true;
             this.dtgcs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dtgcs.RowHeadersVisible = false;
             this.dtgcs.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
@@ -6900,7 +6904,7 @@
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(73)))), ((int)(((byte)(60)))));
             this.label34.Location = new System.Drawing.Point(814, 41);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(36, 13);
+            this.label34.Size = new System.Drawing.Size(38, 13);
             this.label34.TabIndex = 4;
             this.label34.Text = "TOTAL";
             // 
@@ -7083,7 +7087,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(6, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(464, 61);
+            this.label6.Size = new System.Drawing.Size(465, 61);
             this.label6.TabIndex = 3;
             this.label6.Text = "Archived Case Studies";
             // 
@@ -7153,7 +7157,7 @@
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(73)))), ((int)(((byte)(60)))));
             this.label18.Location = new System.Drawing.Point(814, 41);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(36, 13);
+            this.label18.Size = new System.Drawing.Size(38, 13);
             this.label18.TabIndex = 4;
             this.label18.Text = "TOTAL";
             // 
@@ -7318,20 +7322,34 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // lblForm
+            // 
+            this.lblForm.AutoSize = true;
+            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblForm.Location = new System.Drawing.Point(8, 6);
+            this.lblForm.Name = "lblForm";
+            this.lblForm.Size = new System.Drawing.Size(233, 13);
+            this.lblForm.TabIndex = 20;
+            this.lblForm.Text = "Balay Pasilungan | Case Study Manangement";
+            // 
             // caseprofile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 700);
-            this.Controls.Add(this.taskbar);
             this.Controls.Add(this.upPanel);
+            this.Controls.Add(this.taskbar);
             this.Controls.Add(this.tabCase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "caseprofile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "caseprofile";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.caseprofile_FormClosing);
             this.Load += new System.EventHandler(this.caseprofile_Load);
+            this.upPanel.ResumeLayout(false);
+            this.upPanel.PerformLayout();
             this.tabCase.ResumeLayout(false);
             this.tabNewChild.ResumeLayout(false);
             this.panelNewChild.ResumeLayout(false);
@@ -7990,5 +8008,6 @@
         private NoFocusRec btnbackfromhealthrec;
         private NoFocusRec btnbackfromconrec;
         private NoFocusRec btnbackfromincidrec;
+        private System.Windows.Forms.Label lblForm;
     }
 }
