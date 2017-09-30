@@ -18,6 +18,7 @@ namespace BalayPasilungan
         public string[] aMonths = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
         public bool remindState = false, budgetState = false, allDayState = false, timeRngState = false;
         public main reftomain { get; set; }
+        public int usertype { get; set; }
 
         public eventorg()
         {
@@ -226,7 +227,8 @@ namespace BalayPasilungan
             {
                 logo_main.BackgroundImage = Properties.Resources.main;
                 // BACK TO MAIN
-                this.Close();
+                confirmMessage("Are you sure you want to exit?");
+                if (confirmed) this.Close();
             }
         }
 
@@ -268,7 +270,8 @@ namespace BalayPasilungan
             {
                 btnMain.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
                 logo_main.BackgroundImage = Properties.Resources.main;
-                this.Close();
+                confirmMessage("Are you sure you want to exit?");
+                if (confirmed) this.Close();
                 // BACK TO MAIN
             }
         }
@@ -1333,9 +1336,14 @@ namespace BalayPasilungan
         //insert functions for requesting
         public void insertRequest(int insnum)
         {
+            string app = "";
+            if (usertype == 0) app = "Admin";
+            else if (usertype == 1) app = "Admin or Social Worker";
+            else if (usertype == 2) app = "Educator";
+            else app = "All";
             int monthfrom = 0, monthto = 0;
             string eventtime = "", datefrom = "", timeTo = "", dateTo = "";
-            if(btnRange == "one")
+            if (btnRange == "one")
             {
                 monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
                 monthto = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
@@ -1343,9 +1351,9 @@ namespace BalayPasilungan
                 datefrom = cbEYear.Text + "-" + monthfrom.ToString("00") + "-" + cbEDay.Text;
                 timeTo = txtEHours2.Text + ":" + txtEMins2.Text + " " + ampmTo;
                 dateTo = cbEYear.Text + "-" + monthto.ToString("00") + "-" + cbEDay2.Text;
-                
+
             }
-            else if(btnRange == "multi")
+            else if (btnRange == "multi")
             {
                 monthfrom = Array.IndexOf(aMonths, cbEMonth.Text) + 1;
                 monthto = Array.IndexOf(aMonths, cbEMonth2.Text) + 1;
@@ -1362,10 +1370,10 @@ namespace BalayPasilungan
                 //MessageBox.Show(insnum + "");
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand();
-                if (insnum == 0) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom , evVenue, evProgress, evType, attendance, status, requestedBy, evDateTo, evTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'False' , 'Pending' " + ",'" + txtRequestBy.Text + "', '" + dateTo + "', '" + timeTo + "');", conn); //insert
-                else if (insnum == 1) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, reminderDate, reminderTime, attendance, requestedBy, budget, reminder, evDateTo, evTimeTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', " + eventtime + "','" + confirm_EVenue.Text + "', 'Pending' , '" + confirm_EType.Text + "' , 'Pending' ,'" + reminddate + "','" + remindtime + "', 'False' ,'" + txtRequestBy.Text + "', 'True', 'True', '" + dateTo + "', " + timeTo + "');", conn);//insert with both
-                else if (insnum == 2) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, attendance, requestedBy, reminder, evDateTo, evTimeTo, reminderDate, reminderTime) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "','" + "Pending" + "', 'False' ,'" + txtRequestBy.Text + "','True', '" + dateTo + "', '" + timeTo + "','" + reminddate + "','" + remindtime + "');", conn); // insert with remind
-                else if(insnum == 3) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evVenue, evProgress, evType, status, attendance, requestedBy, budget, evDateTo) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'Pending' , 'False' ,'" + txtRequestBy.Text + "', 'True', '" + dateTo + "', '" + timeTo + "');", conn); // insert with budget
+                if (insnum == 0) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom , evVenue, evProgress, evType, attendance, status, requestedBy, evDateTo, evTimeTo, approvedBy) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'False' , 'Pending' " + ",'" + txtRequestBy.Text + "', '" + dateTo + "', '" + timeTo + "', '" + app + "');", conn); //insert
+                else if (insnum == 1) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, reminderDate, reminderTime, attendance, requestedBy, budget, reminder, evDateTo, evTimeTo, approvedBy) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', " + eventtime + "','" + confirm_EVenue.Text + "', 'Pending' , '" + confirm_EType.Text + "' , 'Pending' ,'" + reminddate + "','" + remindtime + "', 'False' ,'" + txtRequestBy.Text + "', 'True', 'True', '" + dateTo + "', " + timeTo + "', '" + app + "');", conn);//insert with both
+                else if (insnum == 2) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evTimeFrom, evVenue, evProgress, evType, status, attendance, requestedBy, reminder, evDateTo, evTimeTo, reminderDate, reminderTime, approvedBy) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "','" + "Pending" + "', 'False' ,'" + txtRequestBy.Text + "','True', '" + dateTo + "', '" + timeTo + "','" + reminddate + "','" + remindtime + "', '" + app + "');", conn); // insert with remind
+                else if (insnum == 3) comm = new MySqlCommand("INSERT INTO event(evName, evDesc, evDateFrom, evVenue, evProgress, evType, status, attendance, requestedBy, budget, evDateTo, approvedBy) VALUES('" + confirm_EName.Text + "','" + confirm_EDes.Text + "','" + datefrom + "', '" + eventtime + "','" + confirm_EVenue.Text + "','" + "Pending" + "','" + confirm_EType.Text + "', 'Pending' , 'False' ,'" + txtRequestBy.Text + "', 'True', '" + dateTo + "', '" + timeTo + "', '" + app + "');", conn); // insert with budget
                 comm.ExecuteNonQuery();
                 conn.Close();
             }
@@ -1381,7 +1389,7 @@ namespace BalayPasilungan
             listPending.Items.Clear();
             string evname, request;
             try
-            { 
+            {
                 conn.Open();
 
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE status='Pending'", conn);
@@ -1409,21 +1417,22 @@ namespace BalayPasilungan
                 conn.Close();
             }
         }
-      
-         //public event id for the event approval only
+
+        //public event id for the event approval only
         private void listPending_MouseClick(object sender, MouseEventArgs e)
         {
             string evn = listPending.SelectedItems[0].SubItems[0].Text;
             approveEventDetails(evn);
             tabEvPending.SelectedIndex = 1;
         }
+        public string approvedby;
         public void approveEventDetails(string evn)
         {
             try
             {
                 conn.Open();
 
-                MySqlCommand comm = new MySqlCommand("SELECT * FROM event JOIN budget ON event.budget = budget.budgetID WHERE evName='" + evn + "'", conn);
+                MySqlCommand comm = new MySqlCommand("SELECT * FROM event WHERE evName='" + evn + "'", conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(comm);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
@@ -1434,12 +1443,13 @@ namespace BalayPasilungan
                     lblPEVenue.Text = dt.Rows[0]["evVenue"].ToString();
                     lblPEDes.Text = dt.Rows[0]["evDesc"].ToString();
                     lblPEType.Text = dt.Rows[0]["evType"].ToString();
-                    lblPEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" + 
+                    lblPEDate.Text = "From: " + dt.Rows[0]["evDateFrom"].ToString() + " " + dt.Rows[0]["evTimeFrom"].ToString() + "\n" +
                                     "To: " + dt.Rows[0]["evDateTo"].ToString() + " " + dt.Rows[0]["evTimeTo"].ToString();
                     if (dt.Rows[0]["reminderDate"].ToString() == "") lblPERemind.Text = "NONE";
                     else lblPERemind.Text = dt.Rows[0]["reminderDate"].ToString() + " " + dt.Rows[0]["reminderTime"].ToString();
                     if (dt.Rows[0]["budget"].ToString() == "") lblPEBudget.Text = "NONE";
                     else lblPEBudget.Text = "Total Budget" + " " + dt.Rows[0]["budgetTotal"].ToString();
+                    approvedby = dt.Rows[0]["approvedBy"].ToString();
                 }
                 conn.Close();
             }
@@ -1456,10 +1466,25 @@ namespace BalayPasilungan
             {
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand();
-                if(snum == 0) comm = new MySqlCommand("UPDATE event SET status='Approved' WHERE eventID = '" + evid + "';", conn);
-                else if(snum == 1) comm = new MySqlCommand("UPDATE event SET status='Disapproved' , evProgress = 'Disapproved' WHERE eventID = '" + evid + "';", conn);
-                else if(snum == 2) comm = new MySqlCommand("UPDATE event SET status='Canceled' , evProgress = 'Canceled' WHERE eventID = '" + evid + "';", conn);
-                comm.ExecuteNonQuery();
+                if ((approvedby == "Admin" && usertype == 0) || (approvedby == "Admin or Social Worker" && (usertype == 0 || usertype == 1)) || (approvedby == "Educator" && usertype == 2) || (approvedby == "All" && (usertype == 0 || usertype == 1 || usertype == 2)))
+                {
+                    if (snum == 0)
+                    {
+                        comm = new MySqlCommand("UPDATE event SET status='Approved' WHERE eventID = '" + evid + "';", conn);
+                        successMessage("Successfully Approved the Event.");
+                    }
+                    else if (snum == 1)
+                    {
+                        comm = new MySqlCommand("UPDATE event SET status='Disapproved' , evProgress = 'Disapproved' WHERE eventID = '" + evid + "';", conn);
+                        successMessage("Successfully Rejected the Event.");
+                    }
+                    else if (snum == 2)
+                    {
+                        comm = new MySqlCommand("UPDATE event SET status='Canceled' , evProgress = 'Canceled' WHERE eventID = '" + evid + "';", conn);
+                    }
+                    
+                    comm.ExecuteNonQuery();
+                }else errorMessage("The event should be approved by " + approvedby);
                 conn.Close();
             }
             catch (Exception ee)
@@ -1474,7 +1499,6 @@ namespace BalayPasilungan
             try
             {
                 statusEvent(0);
-                successMessage("Successfully Approved the Event.");
                 displayEventApproval();
                 btnEvent.PerformClick();
             }
@@ -1492,13 +1516,8 @@ namespace BalayPasilungan
                 statusEvent(1);
                 success scs = new success();
                 scs.reftoevorg = this;
-                scs.lblSuccess.Text = "Successfully Rejected the Event.";
-                DialogResult rest = scs.ShowDialog();
-                if (rest == DialogResult.OK)
-                {
-                    displayEventApproval();
-                    btnEvent.PerformClick();
-                }
+                displayEventApproval();
+                btnEvent.PerformClick();
             }
             catch (Exception ee)
             {
@@ -1540,7 +1559,7 @@ namespace BalayPasilungan
             if (showevtype)
             {
                 cbEType.DropDownStyle = ComboBoxStyle.DropDown;
-                //btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.checked_symbol; // POOP
+                btnShowAdd.BackgroundImage = global::BalayPasilungan.Properties.Resources.checked_symbol;
                 btnNext.Enabled = false;
                 showevtype = false;
             }
@@ -2420,17 +2439,25 @@ namespace BalayPasilungan
         {
             tabSecond.SelectedTab = tabEvent;
         }
+        private void noFocusRec1_Click(object sender, EventArgs e)
+        {
+            tabSecond.SelectedTab = tabEvent;
+        }
         #endregion
 
         #region Add Budget
         public string evNameBudget = "";
+        public int bid { get; set; } 
+        public decimal btotal { get; set; }
         private void btnAddBudget_Click(object sender, EventArgs e)
         {
             evNameBudget = txtEventName.Text;
             eventBudget evbudget = new eventBudget();
             evbudget.reftoeventorg = this;
             this.Hide();
-            if(evbudget.ShowDialog() == DialogResult.OK) { }
+            if(evbudget.ShowDialog() == DialogResult.OK) {
+                confirm_EBudget.Text = btotal.ToString();
+            }
         }
         #endregion 
 
