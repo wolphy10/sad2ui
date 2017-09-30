@@ -30,34 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.rightPartMain = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.basePanelCase = new System.Windows.Forms.Panel();
             this.btnPanelCase = new System.Windows.Forms.Panel();
+            this.btnCase = new System.Windows.Forms.Button();
             this.basePanelEvent = new System.Windows.Forms.Panel();
             this.btnPanelEvent = new System.Windows.Forms.Panel();
+            this.btnEvent = new System.Windows.Forms.Button();
             this.basePanelExpense = new System.Windows.Forms.Panel();
             this.btnPanelExpense = new System.Windows.Forms.Panel();
+            this.btnexp = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelListOngoing = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.notifPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCase = new System.Windows.Forms.Button();
-            this.btnEvent = new System.Windows.Forms.Button();
-            this.btnexp = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.rightPartMain.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -85,6 +85,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1250, 37);
             this.panel3.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::BalayPasilungan.Properties.Resources.expand;
+            this.btnClose.Location = new System.Drawing.Point(1222, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(28, 37);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // rightPartMain
             // 
@@ -169,6 +185,24 @@
             this.btnPanelCase.Size = new System.Drawing.Size(325, 351);
             this.btnPanelCase.TabIndex = 6;
             // 
+            // btnCase
+            // 
+            this.btnCase.BackColor = System.Drawing.Color.White;
+            this.btnCase.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_main2;
+            this.btnCase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCase.FlatAppearance.BorderSize = 0;
+            this.btnCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCase.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCase.ForeColor = System.Drawing.Color.White;
+            this.btnCase.Location = new System.Drawing.Point(0, 0);
+            this.btnCase.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCase.Name = "btnCase";
+            this.btnCase.Size = new System.Drawing.Size(325, 351);
+            this.btnCase.TabIndex = 0;
+            this.btnCase.UseVisualStyleBackColor = false;
+            this.btnCase.Click += new System.EventHandler(this.btnCase_Click);
+            // 
             // basePanelEvent
             // 
             this.basePanelEvent.BackColor = System.Drawing.Color.DarkGray;
@@ -190,6 +224,24 @@
             this.btnPanelEvent.Size = new System.Drawing.Size(325, 351);
             this.btnPanelEvent.TabIndex = 5;
             // 
+            // btnEvent
+            // 
+            this.btnEvent.BackColor = System.Drawing.Color.White;
+            this.btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_event2;
+            this.btnEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEvent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEvent.FlatAppearance.BorderSize = 0;
+            this.btnEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEvent.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEvent.ForeColor = System.Drawing.Color.White;
+            this.btnEvent.Location = new System.Drawing.Point(0, 0);
+            this.btnEvent.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEvent.Name = "btnEvent";
+            this.btnEvent.Size = new System.Drawing.Size(325, 351);
+            this.btnEvent.TabIndex = 0;
+            this.btnEvent.UseVisualStyleBackColor = false;
+            this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
+            // 
             // basePanelExpense
             // 
             this.basePanelExpense.BackColor = System.Drawing.Color.DarkGray;
@@ -210,6 +262,24 @@
             this.btnPanelExpense.Name = "btnPanelExpense";
             this.btnPanelExpense.Size = new System.Drawing.Size(326, 351);
             this.btnPanelExpense.TabIndex = 4;
+            // 
+            // btnexp
+            // 
+            this.btnexp.BackColor = System.Drawing.Color.White;
+            this.btnexp.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_dbe2;
+            this.btnexp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnexp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnexp.FlatAppearance.BorderSize = 0;
+            this.btnexp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexp.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexp.ForeColor = System.Drawing.Color.White;
+            this.btnexp.Location = new System.Drawing.Point(0, 0);
+            this.btnexp.Margin = new System.Windows.Forms.Padding(0);
+            this.btnexp.Name = "btnexp";
+            this.btnexp.Size = new System.Drawing.Size(326, 351);
+            this.btnexp.TabIndex = 0;
+            this.btnexp.UseVisualStyleBackColor = false;
+            this.btnexp.Click += new System.EventHandler(this.btnexp_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -285,6 +355,37 @@
             this.panel2.Size = new System.Drawing.Size(81, 663);
             this.panel2.TabIndex = 3;
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.notif;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(0, 609);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(81, 54);
+            this.button6.TabIndex = 4;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.small_logo;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 64);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
@@ -359,107 +460,6 @@
             this.button7.Size = new System.Drawing.Size(274, 84);
             this.button7.TabIndex = 4;
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.button6.BackgroundImage = global::BalayPasilungan.Properties.Resources.notif;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(0, 609);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 54);
-            this.button6.TabIndex = 4;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::BalayPasilungan.Properties.Resources.small_logo;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 64);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnCase
-            // 
-            this.btnCase.BackColor = System.Drawing.Color.White;
-            this.btnCase.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_main2;
-            this.btnCase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCase.FlatAppearance.BorderSize = 0;
-            this.btnCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCase.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCase.ForeColor = System.Drawing.Color.White;
-            this.btnCase.Location = new System.Drawing.Point(0, 0);
-            this.btnCase.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCase.Name = "btnCase";
-            this.btnCase.Size = new System.Drawing.Size(325, 351);
-            this.btnCase.TabIndex = 0;
-            this.btnCase.UseVisualStyleBackColor = false;
-            this.btnCase.Click += new System.EventHandler(this.btnCase_Click);
-            // 
-            // btnEvent
-            // 
-            this.btnEvent.BackColor = System.Drawing.Color.White;
-            this.btnEvent.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_event2;
-            this.btnEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEvent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEvent.FlatAppearance.BorderSize = 0;
-            this.btnEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEvent.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEvent.ForeColor = System.Drawing.Color.White;
-            this.btnEvent.Location = new System.Drawing.Point(0, 0);
-            this.btnEvent.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEvent.Name = "btnEvent";
-            this.btnEvent.Size = new System.Drawing.Size(325, 351);
-            this.btnEvent.TabIndex = 0;
-            this.btnEvent.UseVisualStyleBackColor = false;
-            this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
-            // 
-            // btnexp
-            // 
-            this.btnexp.BackColor = System.Drawing.Color.White;
-            this.btnexp.BackgroundImage = global::BalayPasilungan.Properties.Resources.case_dbe2;
-            this.btnexp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnexp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnexp.FlatAppearance.BorderSize = 0;
-            this.btnexp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnexp.Font = new System.Drawing.Font("Segoe UI Semilight", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnexp.ForeColor = System.Drawing.Color.White;
-            this.btnexp.Location = new System.Drawing.Point(0, 0);
-            this.btnexp.Margin = new System.Windows.Forms.Padding(0);
-            this.btnexp.Name = "btnexp";
-            this.btnexp.Size = new System.Drawing.Size(326, 351);
-            this.btnexp.TabIndex = 0;
-            this.btnexp.UseVisualStyleBackColor = false;
-            this.btnexp.Click += new System.EventHandler(this.btnexp_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::BalayPasilungan.Properties.Resources.expand;
-            this.btnClose.Location = new System.Drawing.Point(1222, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(28, 37);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // main
             // 

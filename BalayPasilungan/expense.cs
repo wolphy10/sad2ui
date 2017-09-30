@@ -1827,7 +1827,7 @@ namespace BalayPasilungan
                             btnMain.Enabled = btnFinance.Enabled = btnDonation.Enabled = true;
                             logo_main.Enabled = logo_finance.Enabled = logo_donation.Enabled = true;
                             btnCatMultiple.Enabled = btnCatSingle.Enabled = true;
-                            get(2); get(4);
+                            get(4); get(2);
                             tabSelection.SelectedTab = tabFinance;
                         }
                     }
@@ -1979,9 +1979,17 @@ namespace BalayPasilungan
 
                 MySqlCommand comm = new MySqlCommand("SELECT * FROM item WHERE budgetID = " + current_budgetID, conn);
                 loadTable(comm, 5);
-
-                PBRDetails.Size = new System.Drawing.Size(935, 324);
-                panelOptions.Visible = true;
+                
+                if(usertype != 0)
+                {
+                    PBRDetails.Size = new System.Drawing.Size(935, 409);
+                    panelOptions.Visible = false;
+                }
+                else
+                {
+                    PBRDetails.Size = new System.Drawing.Size(935, 324);
+                    panelOptions.Visible = true;
+                }
 
                 tabPBR.SelectedIndex = 1;
             }
@@ -3021,6 +3029,7 @@ namespace BalayPasilungan
                 panel4.Visible = shadow1.Visible = panel2.Visible = shadow3.Visible = false;
                 btnDonation.Enabled = false;
 
+                get(2); get(3); get(4); get(5);
                 logo_finance.BackgroundImage = Properties.Resources.finance;
                 btnFinance.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
                 tabSelection.SelectedTab = tabFinance;
