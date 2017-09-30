@@ -149,7 +149,8 @@ namespace BalayPasilungan
                         main.name = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString();
                         main.refToLogin = this;
                         main.usertype = int.Parse(dt.Rows[0]["type"].ToString());
-                        main.Show();                        
+                        main.Show();
+                        //MessageBox.Show(main.usertype.ToString());                        
                         this.Hide();
                     }
                     conn.Close();

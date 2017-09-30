@@ -23,6 +23,8 @@ namespace BalayPasilungan
         public MySqlConnection conn;
         public Form reftomain { get; set; }
 
+        public int accounttype { get; set; }
+
         public int id, hid, fammode, famid, eid, classeid, memberid, incidid, mode, archiveid, archivemode;
         public string filename, yearlvl, section, adviser;
         public bool empty, confirmed, dot;
@@ -216,6 +218,7 @@ namespace BalayPasilungan
             else
             {
                 logo_main.BackgroundImage = Properties.Resources.main;
+                this.Close();
             }
         }
 
@@ -234,6 +237,7 @@ namespace BalayPasilungan
             {
                 btnMain.ForeColor = System.Drawing.Color.FromArgb(15, 168, 104);
                 logo_main.BackgroundImage = Properties.Resources.main;
+                this.Close();
             }
 
             resetall();
@@ -243,6 +247,11 @@ namespace BalayPasilungan
         #region Case Profile Load
         private void caseprofile_Load(object sender, EventArgs e)
         {
+            if (accounttype == 0)
+            {
+                hidedem();
+            }
+
             lbladdeditprofile.Text = "New Case Profile";
             btnaddeditcase.Text = "Add";
 
@@ -521,9 +530,9 @@ namespace BalayPasilungan
 
                     empty = false;
 
-                    dtgcs.Columns["lastname"].HeaderText = "DATE OF INTERVIEW";
-                    dtgcs.Columns["firstname"].HeaderText = "INTERVIEWER";
-                    dtgcs.Columns["program"].HeaderText = "INTERVIEWER";
+                    dtgcs.Columns["lastname"].HeaderText = "LASTNAME";
+                    dtgcs.Columns["firstname"].HeaderText = "FIRSTNAME";
+                    dtgcs.Columns["program"].HeaderText = "PROGRAM";
                     dtgcs.Columns["lastname"].HeaderCell.Style.Padding = dtgcs.Columns["lastname"].DefaultCellStyle.Padding = new Padding(10, 0, 0, 0);
 
                     if (dtgcs.Columns["Discharge"] != null)
@@ -1328,12 +1337,12 @@ namespace BalayPasilungan
                     AddColumn.Width = 93;
                     AddColumn.DataPropertyName = "ADD";
 
-                    if (dtgeducation.Columns["EDIT"] == null && archivemode == 0)
+                    if (dtgeducation.Columns["EDIT"] == null && (archivemode == 0 && accounttype != 0))
                     {
                         dtgeducation.Columns.Add(EditColumn);
                         dtgeducation.Columns["EDIT"].ReadOnly = false;
                     }
-                    if (dtgeducation.Columns["ADD"] == null && archivemode == 0)
+                    if (dtgeducation.Columns["ADD"] == null && (archivemode == 0 && accounttype != 0))
                     {
                         dtgeducation.Columns.Add(AddColumn);
                         dtgeducation.Columns["ADD"].ReadOnly = false;
@@ -1344,6 +1353,7 @@ namespace BalayPasilungan
             catch (Exception ee)
             {
                 errorMessage(ee.Message);
+                conn.Close();
             }
         }
 
@@ -1383,7 +1393,7 @@ namespace BalayPasilungan
                     EditColumn.Width = 50;
                     EditColumn.DataPropertyName = "EDIT";
 
-                    if (dtgedclass.Columns["EDIT"] == null && archivemode == 0)
+                    if (dtgedclass.Columns["EDIT"] == null && (archivemode == 0 && accounttype != 0))
                     {
                         dtgedclass.Columns.Add(EditColumn);
                         dtgedclass.Columns["EDIT"].ReadOnly = false;
@@ -1614,7 +1624,7 @@ namespace BalayPasilungan
                     dc.Name = "CHECK";
                     dc.Visible = true;
 
-                    if (dtgmembers.Columns["CHECK"] == null)
+                    if (dtgmembers.Columns["CHECK"] == null && archivemode == 0 || accounttype != 0)
                     {
 
                         dtgmembers.Columns.Add(dc);
@@ -1657,7 +1667,12 @@ namespace BalayPasilungan
                 archivemode = 0;
 
                 reload(id);
-                showdem(); 
+                
+                if (accounttype == 1)
+                {
+                    showdem();
+                }
+                 
             }
         }
 
@@ -3306,6 +3321,7 @@ namespace BalayPasilungan
             addhrecord.Visible = false;
             btngotohealth.Visible = false;
             btnEditProfile.Visible = false;
+            btnaddfam.Visible = false;
 
             btnbackfromcheck.Text = "BACK";
         }
@@ -3324,6 +3340,7 @@ namespace BalayPasilungan
             addhrecord.Visible = true;
             btngotohealth.Visible = true;
             btnEditProfile.Visible = true;
+            btnaddfam.Visible = true;
 
             btnbackfromcheck.Text = "CANCEL";
         }    

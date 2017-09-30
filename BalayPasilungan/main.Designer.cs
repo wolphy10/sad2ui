@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblForm = new System.Windows.Forms.Label();
+            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
             this.btnClose = new System.Windows.Forms.Button();
             this.rightPartMain = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -58,9 +61,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.lblForm = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.btnAddDonor = new BalayPasilungan.NoFocusRec();
             this.panel3.SuspendLayout();
             this.rightPartMain.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -92,6 +92,45 @@
             this.panel3.Size = new System.Drawing.Size(1250, 37);
             this.panel3.TabIndex = 1;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveable_MouseDown);
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(111, 9);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(49, 19);
+            this.lblName.TabIndex = 21;
+            this.lblName.Text = "Hello,";
+            // 
+            // lblForm
+            // 
+            this.lblForm.AutoSize = true;
+            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblForm.Location = new System.Drawing.Point(12, 11);
+            this.lblForm.Name = "lblForm";
+            this.lblForm.Size = new System.Drawing.Size(102, 15);
+            this.lblForm.TabIndex = 20;
+            this.lblForm.Text = "Balay Pasilungan |";
+            // 
+            // btnAddDonor
+            // 
+            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddDonor.FlatAppearance.BorderSize = 0;
+            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.btnAddDonor.ForeColor = System.Drawing.Color.White;
+            this.btnAddDonor.Location = new System.Drawing.Point(1090, 4);
+            this.btnAddDonor.Name = "btnAddDonor";
+            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
+            this.btnAddDonor.TabIndex = 2;
+            this.btnAddDonor.Text = "LOGOUT";
+            this.btnAddDonor.UseVisualStyleBackColor = false;
+            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
             // 
             // btnClose
             // 
@@ -476,45 +515,6 @@
             this.button7.Size = new System.Drawing.Size(274, 84);
             this.button7.TabIndex = 4;
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // lblForm
-            // 
-            this.lblForm.AutoSize = true;
-            this.lblForm.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblForm.Location = new System.Drawing.Point(12, 11);
-            this.lblForm.Name = "lblForm";
-            this.lblForm.Size = new System.Drawing.Size(102, 15);
-            this.lblForm.TabIndex = 20;
-            this.lblForm.Text = "Balay Pasilungan |";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(111, 9);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(49, 19);
-            this.lblName.TabIndex = 21;
-            this.lblName.Text = "Hello,";
-            // 
-            // btnAddDonor
-            // 
-            this.btnAddDonor.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddDonor.FlatAppearance.BorderSize = 0;
-            this.btnAddDonor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnAddDonor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.btnAddDonor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddDonor.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.btnAddDonor.ForeColor = System.Drawing.Color.White;
-            this.btnAddDonor.Location = new System.Drawing.Point(1090, 4);
-            this.btnAddDonor.Name = "btnAddDonor";
-            this.btnAddDonor.Size = new System.Drawing.Size(112, 29);
-            this.btnAddDonor.TabIndex = 2;
-            this.btnAddDonor.Text = "LOGOUT";
-            this.btnAddDonor.UseVisualStyleBackColor = false;
-            this.btnAddDonor.Click += new System.EventHandler(this.btnAddDonor_Click);
             // 
             // main
             // 

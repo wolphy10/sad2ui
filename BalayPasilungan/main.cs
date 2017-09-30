@@ -12,7 +12,7 @@ namespace BalayPasilungan
 {
     public partial class main : Form
     {
-        public int usertype;
+        public int usertype { get; set; }
         public string name;
         public bool confirmed;
         public Form refToLogin { get; set; }
@@ -147,7 +147,9 @@ namespace BalayPasilungan
         {
             caseprofile caseprof = new caseprofile();
             caseprof.reftomain = this;
+            caseprof.accounttype = usertype;
             caseprof.Show();
+            //MessageBox.Show(caseprof.accounttype.ToString());
             this.Hide();
         }
 
