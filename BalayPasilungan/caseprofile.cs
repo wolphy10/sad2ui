@@ -1508,16 +1508,14 @@ namespace BalayPasilungan
                 {
                     dt.Rows.Add(-1, "No entries.", null, null);
                     empty = true;
-
+                    
                     dtgfamily.DataSource = dt;
                 }
                 else
                 {
                     dtgfamily.DataSource = dt;
 
-                    // For ID purposes (hidden from user)            
-                    
-
+                    // For ID purposes (hidden from user)                                
                     dtgfamily.Columns["famtype"].HeaderText = "FAMILY TYPE";
                     dtgfamily.Columns["famposition"].HeaderText = "FAMILY POSITION";
                     dtgfamily.Columns[3].HeaderText = "FAMILY STATUS";
@@ -1611,11 +1609,7 @@ namespace BalayPasilungan
                     dtgmembers.Columns["monthlyincome"].HeaderText = "MONTHLY INCOME";
                     dtgmembers.Columns["remarks"].HeaderText = "REMARKS";
 
-                    // WIDTH
-                    dtgmembers.Columns["firstname"].Width = dtgmembers.Columns["lastname"].Width = dtgmembers.Columns["relationship"].Width = dtgmembers.Columns["eduattain"].Width = 150;
-                    dtgmembers.Columns["civilstatus"].Width = 100;
-                    dtgmembers.Columns["remarks"].Width = 300;
-
+                    // WIDTH                                        
                     // For ID purposes (hidden from user)     
 
                     DataGridViewImageColumn dc = new DataGridViewImageColumn();
